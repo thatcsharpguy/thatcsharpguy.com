@@ -4,7 +4,7 @@ title: ¡Hola mundo!
 date: 2015-07-11 18:31:38
 author: Antonio Feregrino
 categories: blog es
-excerpt: He decididio "matar" el blog anterior, si por casualidad llegan a blog.fferegrino.org, encontrarán que ya no es lo que era antes. He decidido dividir el contenido y si llegaron acá buscando cosas técnicas este es el lugar indicado.
+summary: He decididio "matar" el blog anterior, si por casualidad llegan a blog.fferegrino.org, encontrarán que ya no es lo que era antes. He decidido dividir el contenido y si llegaron acá buscando cosas técnicas este es el lugar indicado.
 lang: es
 alias: /hola-mundo/index.html
 tags: Meta

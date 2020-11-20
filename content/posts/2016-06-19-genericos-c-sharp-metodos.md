@@ -3,7 +3,7 @@ layout: post
 title: Métodos genéricos en C#
 date: 2016-06-19 19:00:01
 author: Antonio Feregrino
-excerpt: Los métodos genéricos proveen una funcionalidad similar a los tipos genéricos pero aplicada a métodos, también permiten la reutilización de código y reducen el impacto al desempeño en nuestras aplicaciones.
+summary: Los métodos genéricos proveen una funcionalidad similar a los tipos genéricos pero aplicada a métodos, también permiten la reutilización de código y reducen el impacto al desempeño en nuestras aplicaciones.
 featured_image: generics-es.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/GenericMethods

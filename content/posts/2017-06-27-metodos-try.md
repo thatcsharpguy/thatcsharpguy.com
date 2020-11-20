@@ -3,7 +3,7 @@ layout: post
 title: Métodos Try...
 date: 2017-06-27 19:00:01
 author: Antonio Feregrino
-excerpt: Las excepciones son eso. Excepciones, así que debes procurar evitarlas en tu código; los métodos Try... te ayudan a hacerlo, conócelos aquí.
+summary: Las excepciones son eso. Excepciones, así que debes procurar evitarlas en tu código; los métodos Try... te ayudan a hacerlo, conócelos aquí.
 featured_image: try.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/MetodosTry

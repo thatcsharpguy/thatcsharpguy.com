@@ -3,7 +3,7 @@ layout: post
 title: Xamarin.Forms y PaintCode
 date: 2017-06-06 19:00:01
 author: Antonio Feregrino
-excerpt: Lleva tus dibujos vectoriales a tu app móvil usando PaintCode y los custom renderers de Xamarin.Forms
+summary: Lleva tus dibujos vectoriales a tu app móvil usando PaintCode y los custom renderers de Xamarin.Forms
 featured_image: featured.png
 images_folder: /xamarin-forms/paintcode/
 github: https://github.com/ThatCSharpGuy/sharp-paintcode

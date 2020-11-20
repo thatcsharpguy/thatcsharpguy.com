@@ -3,7 +3,7 @@ layout: post
 title: MarkdownView control for Xamarin.Forms
 date: 2016-02-01 21:00:00
 author: Antonio Feregrino
-excerpt: Taking advantage of the vast number of implementations of Md converters out in the wild, I decided to create a MarkdownView control, one that could display Md documents without much hassle from the developer's point of view.
+summary: Taking advantage of the vast number of implementations of Md converters out in the wild, I decided to create a MarkdownView control, one that could display Md documents without much hassle from the developer's point of view.
 lang: en
 featured_image: featured.png
 github: https://github.com/ThatCSharpGuy/MarkdownView

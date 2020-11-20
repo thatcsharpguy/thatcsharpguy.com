@@ -4,7 +4,7 @@ title: Delegados en C#
 date: 2015-07-24 10:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan.
+summary: Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan.
 lang: es
 featured_image: featured.png
 ideone: http://ideone.com/fork/sXcTgo

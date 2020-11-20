@@ -4,7 +4,7 @@ title: Tipos nullables en C#
 date: 2015-10-14 20:30:00
 author: Antonio Feregrino
 categories: c#
-excerpt: Los tipos por referencia son nullables por definición. ¿Qué implica que sean nullables? pues nada más y nada menos que puedan tener un valor null o en términos prácticos, nungún valor.
+summary: Los tipos por referencia son nullables por definición. ¿Qué implica que sean nullables? pues nada más y nada menos que puedan tener un valor null o en términos prácticos, nungún valor.
 lang: es
 ideone: http://ideone.com/fork/9UsOI7
 featured_image: featured.png

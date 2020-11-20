@@ -3,7 +3,7 @@ layout: post
 title: AutoMapper
 date: 2016-03-28 19:00:00
 author: Antonio Feregrino
-excerpt: AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código.
+summary: AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código.
 featured_image: featured.png
 github: https://github.com/ThatCSharpGuy/AutoMapper-Sample
 lang: es

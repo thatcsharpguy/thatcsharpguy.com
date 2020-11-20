@@ -7,7 +7,7 @@ featured_image: featured.jpg
 categories: xamarin
 tweet_id: 667177573508608000
 lang: en
-excerpt: If you have ever used an IDE to develop any application you might have wondered how do these kind of programs know where are the components for each one of the things that make your app compile or run. In this post I'll try to explain how Xamarin Studio and Visual Studio keeps that control.
+summary: If you have ever used an IDE to develop any application you might have wondered how do these kind of programs know where are the components for each one of the things that make your app compile or run. In this post I'll try to explain how Xamarin Studio and Visual Studio keeps that control.
 tags: VisualStudio, Xamarin
 featured_tag: VisualStudio
 ---

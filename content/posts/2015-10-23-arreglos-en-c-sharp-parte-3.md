@@ -4,7 +4,7 @@ title: Arreglos en C# (multidimensionales rectangulares)
 date: 2015-10-23 22:00:00
 author: Antonio Feregrino
 categories: aprende-csharp
-excerpt: A diferencia de los arreglos escalonados, los rectangulares son lo más parecido a matrices que podemos encontrar en C#.
+summary: A diferencia de los arreglos escalonados, los rectangulares son lo más parecido a matrices que podemos encontrar en C#.
 lang: es
 ideone: http://ideone.com/fork/8C2iOj
 featured_image: featured.png

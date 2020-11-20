@@ -3,7 +3,7 @@ layout: post
 title: Sobrecarga de operadores
 date: 2016-12-20 19:00:02
 author: Antonio Feregrino
-excerpt: Suma, resta, divide, multiplica, compara... todos los tipos de dato que crees para tus aplicaciones, todo gracias a la sobrecarga de operadores que ofrece C&#35;
+summary: Suma, resta, divide, multiplica, compara... todos los tipos de dato que crees para tus aplicaciones, todo gracias a la sobrecarga de operadores que ofrece C&#35;
 featured_image: sobrecarga.jpg
 images_folder: aprende-c-sharp/
 lang: es

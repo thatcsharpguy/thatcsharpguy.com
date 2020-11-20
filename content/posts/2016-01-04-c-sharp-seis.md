@@ -4,7 +4,7 @@ title: Seis características de C# 6
 date: 2016-01-04 22:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: La mayoría de las características nuevas de C# 6 tienen como objeto agilizar la escritura de código y mejorar la comprensión de este cuando es revisado. Pero además acercan al lenguaje a la programación funcional.
+summary: La mayoría de las características nuevas de C# 6 tienen como objeto agilizar la escritura de código y mejorar la comprensión de este cuando es revisado. Pero además acercan al lenguaje a la programación funcional.
 featured_image: featured.png
 github: https://github.com/ThatCSharpGuy/CsSeis
 lang: es

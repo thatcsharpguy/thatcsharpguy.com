@@ -3,7 +3,7 @@ layout: post
 title: params en C#
 date: 2016-04-18 19:00:00
 author: Antonio Feregrino
-excerpt: La palabra reservada params se usa en la declaración de los parámetros de un método, se antepone al tipo de dato que vamos a declarar y tiene una peculiaridad, solamente se puede anteponer a parámetros que sean arreglos.
+summary: La palabra reservada params se usa en la declaración de los parámetros de un método, se antepone al tipo de dato que vamos a declarar y tiene una peculiaridad, solamente se puede anteponer a parámetros que sean arreglos.
 featured_image: params.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/params

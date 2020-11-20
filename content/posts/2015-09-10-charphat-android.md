@@ -5,7 +5,7 @@ date: 2015-09-10 17:00:00
 author: Antonio Feregrino
 categories: blog es
 github: http://github.com/fferegrino/CharpHat/
-excerpt: Con CharpHat toma una foto y muéstrale al mundo que te gusta C#, CharpHat te permite colocarte un birrete con mucho estilo.
+summary: Con CharpHat toma una foto y muéstrale al mundo que te gusta C#, CharpHat te permite colocarte un birrete con mucho estilo.
 lang: es
 featured_image: featured.png
 alias: /charphat-android/index.html

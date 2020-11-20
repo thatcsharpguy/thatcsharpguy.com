@@ -5,7 +5,7 @@ date: 2015-08-15 17:00:00
 author: Antonio Feregrino
 lang: en
 categories: ['programming', 'professional development', 'en']
-excerpt: And with "coding with style" I don't mean to keep your pinkies up while doing it or just write code every evening at 5:00 pm. No.
+summary: And with "coding with style" I don't mean to keep your pinkies up while doing it or just write code every evening at 5:00 pm. No.
 github: https://github.com/fferegrino/cool-sharp#eng
 featured_image: featured.jpg
 alias: /importance-of-coding-with-style/index.html

@@ -3,7 +3,7 @@ layout: post
 title: OAuth en Forms con Xamarin.Auth
 date: 2016-10-17 19:00:01
 author: Antonio Feregrino
-excerpt: Con Xamarin.Auth, el incorporar servicios de terceros como Twitter y Facebook nunca había sido tan fácil, en este post, aprende a hacerlo desde Xamarin.Forms.
+summary: Con Xamarin.Auth, el incorporar servicios de terceros como Twitter y Facebook nunca había sido tan fácil, en este post, aprende a hacerlo desde Xamarin.Forms.
 featured_image: featured.jpg
 images_folder: /xamarin/auth/
 github: https://github.com/fferegrino/Authy

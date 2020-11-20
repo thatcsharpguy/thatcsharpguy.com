@@ -3,7 +3,7 @@ layout: post
 title: Sobrecarga de indizadores en C#
 date: 2016-12-27 19:00:02
 author: Antonio Feregrino
-excerpt: Los indizadores en C# permiten dotar a tus tipos de dato de una forma más simple y expresiva para acceder a sus propiedades, además de ser una sintaxis con la que muchos desarrolladores ya están acostumbrados.
+summary: Los indizadores en C# permiten dotar a tus tipos de dato de una forma más simple y expresiva para acceder a sus propiedades, además de ser una sintaxis con la que muchos desarrolladores ya están acostumbrados.
 featured_image: indexers.jpg
 images_folder: aprende-c-sharp/
 tweet_id: 813874446897414144

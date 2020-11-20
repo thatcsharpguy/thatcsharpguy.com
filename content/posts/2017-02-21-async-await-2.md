@@ -3,7 +3,7 @@ layout: post
 title: async y await (tareas paralelas)
 date: 2017-02-21 19:00:01
 author: Antonio Feregrino
-excerpt: Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor.
+summary: Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor.
 featured_image: featured.png
 images_folder: /aprende-c-sharp/asyncawait/
 github: https://github.com/ThatCSharpGuy/AsyncAwait

@@ -3,7 +3,7 @@ layout: post
 title: Métodos de extensión en C#
 date: 2016-11-15 19:00:01
 author: Antonio Feregrino
-excerpt: Los métodos de extensión nos permiten ampliar la funcionalidad de cualquier tipo de dato sin necesidad de tener el código fuente de este. A pesar de ser azúcar sintáctica, son muy útiles.
+summary: Los métodos de extensión nos permiten ampliar la funcionalidad de cualquier tipo de dato sin necesidad de tener el código fuente de este. A pesar de ser azúcar sintáctica, son muy útiles.
 featured_image: extension.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/ExtensionMethods

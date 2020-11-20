@@ -3,7 +3,7 @@ layout: post
 title: Otro tutorial sobre menú de hamburguesa
 date: 2017-08-01 19:00:01
 author: Antonio Feregrino
-excerpt: Aprende una forma (sí, otra) de implementar un menú de hamburguesa en Xamarin.Forms para organizar mejor al información dentro de tu aplicación.
+summary: Aprende una forma (sí, otra) de implementar un menú de hamburguesa en Xamarin.Forms para organizar mejor al información dentro de tu aplicación.
 featured_image: featured.png
 images_folder: /xamarin-forms/hamburger/
 github: https://github.com/ThatCSharpGuy/MenuApp/

@@ -4,7 +4,7 @@ title: "Cosas para hacer en C#: IoT"
 date: 2016-01-25 19:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos.
+summary: A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos.
 featured_image: featured.jpg
 lang: es
 affiliate: true

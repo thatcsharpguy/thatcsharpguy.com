@@ -3,7 +3,7 @@ layout: post
 title: Mejores pruebas unitarias con FluentAssertions
 date: 2017-03-21 19:00:01
 author: Antonio Feregrino
-excerpt: Mejora tus pruebas unitarias con mensajes más claros, al momento de escribirlos y cuando tus tests fallan.
+summary: Mejora tus pruebas unitarias con mensajes más claros, al momento de escribirlos y cuando tus tests fallan.
 featured_image: featured.jpg
 images_folder: /nugets/fluentassertions/
 github: https://github.com/ThatCSharpGuy/UnitTesting

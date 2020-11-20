@@ -5,7 +5,7 @@ date: 2015-11-18 21:00:00
 author: Antonio Feregrino
 featured_image: featured.jpg
 categories: xamarin
-excerpt: Si alguna vez has usado un IDE para desarrollar alguna aplicación tal vez te hayas preguntado cómo es que ese tipo de programas saben en dónde están los componentes para cada una de las cosas que hacen que tu app compile o funcione.
+summary: Si alguna vez has usado un IDE para desarrollar alguna aplicación tal vez te hayas preguntado cómo es que ese tipo de programas saben en dónde están los componentes para cada una de las cosas que hacen que tu app compile o funcione.
 tags: VisualStudio, Xamarin
 featured_tag: VisualStudio
 ---

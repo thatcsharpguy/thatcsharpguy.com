@@ -3,7 +3,7 @@ layout: post
 title: virtual, override y new
 date: 2017-07-25 19:00:01
 author: Antonio Feregrino
-excerpt: Las palabras new, virtual y override nos ayudan a especificar el comportamiento de los miembros de clases y sus subclases.
+summary: Las palabras new, virtual y override nos ayudan a especificar el comportamiento de los miembros de clases y sus subclases.
 featured_image: featured.png
 images_folder: /aprende-c-sharp/new/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/new

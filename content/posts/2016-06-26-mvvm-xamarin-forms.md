@@ -4,7 +4,7 @@ title: MVVM en Xamarin.Forms, caso práctico
 date: 2016-06-26 21:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!
+summary: Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!
 images_folder: /mvvm/
 featured_image: mvvm-featured.png
 lang: es

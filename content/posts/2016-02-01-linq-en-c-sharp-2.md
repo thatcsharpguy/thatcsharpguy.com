@@ -4,7 +4,7 @@ title: Linq en C# - segunda parte
 date: 2016-02-01 20:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más.
+summary: Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más.
 featured_image: featured.png
 images_folder: linq-en-c-sharp/
 lang: es

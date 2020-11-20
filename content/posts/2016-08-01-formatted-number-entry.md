@@ -3,7 +3,7 @@ layout: post
 title: Formatted number entry
 date: 2016-08-01 08:00:00
 author: Antonio Feregrino
-excerpt: I faced the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number.
+summary: I faced the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number.
 featured_image: featured.png
 images_folder: /xamarin-forms/formattednumberentry/
 github: https://github.com/ThatCSharpGuy/FormattedNumberEntry

@@ -3,7 +3,7 @@ layout: post
 title: Dynamic y ExpandoObject
 date: 2016-12-06 19:00:02
 author: Antonio Feregrino
-excerpt: Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).
+summary: Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).
 featured_image: dynamic.jpg
 images_folder: /aprende-c-sharp/
 tweet_id: 806266786131968001

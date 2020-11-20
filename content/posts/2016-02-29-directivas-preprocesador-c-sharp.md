@@ -4,7 +4,7 @@ title: Directivas de preprocesamiento en C#
 date: 2016-02-29 10:00:00
 author: Antonio Feregrino
 categories: c-sharp visual-studio
-excerpt: Las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a forzar que ciertas condiciones se cumplan para que siquiera compile.
+summary: Las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a forzar que ciertas condiciones se cumplan para que siquiera compile.
 featured_image: featured.png
 images_folder: directives/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/directives

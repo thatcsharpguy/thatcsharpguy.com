@@ -3,7 +3,7 @@ layout: post
 title: Conoce la versión de tu app con Xamarin.Forms
 date: 2017-04-11 19:00:01
 author: Antonio Feregrino
-excerpt: El asignarle un código de versión a cada una de las actualizaciones de tu app es de vital importancia, te ayudará a tener un punto de referencia cuando tengas que resolver algún bug o recolectar información para analizar el desempeño de tus apps.
+summary: El asignarle un código de versión a cada una de las actualizaciones de tu app es de vital importancia, te ayudará a tener un punto de referencia cuando tengas que resolver algún bug o recolectar información para analizar el desempeño de tus apps.
 featured_image: featured.jpg
 images_folder: /nugets/versioning/
 github: https://github.com/ThatCSharpGuy/VersionTrackingSample

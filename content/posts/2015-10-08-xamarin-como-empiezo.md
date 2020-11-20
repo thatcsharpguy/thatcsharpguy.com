@@ -4,7 +4,7 @@ title: ¿Cómo empiezo con Xamarin?
 date: 2015-10-08 21:00:00
 author: Antonio Feregrino
 categories: Xamarin
-excerpt: ¿Quieres iniciar a desarrollar con Xamarin y no sabes por donde empezar? Acá te digo.
+summary: ¿Quieres iniciar a desarrollar con Xamarin y no sabes por donde empezar? Acá te digo.
 lang: es
 alias: /xamarin-como-empiezo/index.html
 featured_image: featured_true.jpg

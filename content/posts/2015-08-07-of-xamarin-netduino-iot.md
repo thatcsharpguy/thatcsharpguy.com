@@ -4,7 +4,7 @@ title: Of Xamarin, Netduino and IoT
 date: 2015-08-07 18:31:38
 author: Antonio Feregrino
 categories: xamarin netduino iot sockets xamarin.forms poc
-excerpt: I decided to create an app to easily turn on or off my bedroom's light not only from my Windows Phone but from my iPod or any other device in my house. I'll try to explain how I did it.
+summary: I decided to create an app to easily turn on or off my bedroom's light not only from my Windows Phone but from my iPod or any other device in my house. I'll try to explain how I did it.
 github: https://github.com/fferegrino/MyLightbulb
 featured_image: featured.jpg
 lang: en

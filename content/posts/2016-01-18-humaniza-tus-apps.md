@@ -3,7 +3,7 @@ layout: post
 title: Humaniza tus apps
 date: 2016-01-18 19:00:00
 author: Antonio Feregrino
-excerpt: Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final.
+summary: Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final.
 featured_image: featured_es.png
 github: https://github.com/ThatCSharpGuy/humanize-post
 lang: es

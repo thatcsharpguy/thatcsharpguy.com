@@ -3,7 +3,7 @@ layout: post
 title: More familiar tabs for your users in Xamarin.Forms
 date: 2017-02-02 19:00:01
 author: Antonio Feregrino
-excerpt: Stilize yout Xamarin.Forms tabbed pages, make them more familliar to your users without losing the look and feel of your brand. As a bonus, practice creating custom renderers.
+summary: Stilize yout Xamarin.Forms tabbed pages, make them more familliar to your users without losing the look and feel of your brand. As a bonus, practice creating custom renderers.
 featured_image: featured.jpg
 images_folder: /xamarin-forms/tabbed-page/
 github: https://github.com/messier16/PlatformTabbedPage

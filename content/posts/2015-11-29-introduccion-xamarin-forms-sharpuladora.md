@@ -4,7 +4,7 @@ title: Introducción a Xamarin.Forms (app Sharpuladora)
 date: 2015-11-26 21:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms.
+summary: Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms.
 featured_image: featured.png
 lang: es
 tweet_id: 672242319765217282

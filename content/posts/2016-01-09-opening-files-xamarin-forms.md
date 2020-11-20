@@ -3,7 +3,7 @@ layout: post
 title: Opening files in Xamarin.Forms
 date: 2016-01-08 21:00:00
 author: Antonio Feregrino
-excerpt: Learn how to enable your application to receive files from other apps in the same device.
+summary: Learn how to enable your application to receive files from other apps in the same device.
 lang: en
 featured_image: featured.png
 github: https://github.com/ThatCSharpGuy/xf-file-receiver

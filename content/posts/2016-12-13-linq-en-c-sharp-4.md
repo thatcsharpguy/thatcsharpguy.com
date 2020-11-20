@@ -3,7 +3,7 @@ layout: post
 title: Más Linq en C#
 date: 2016-12-13 19:00:02
 author: Antonio Feregrino
-excerpt: Conoce más de linq, métodos para unir, intersectar y filtrar conjuntos.
+summary: Conoce más de linq, métodos para unir, intersectar y filtrar conjuntos.
 featured_image: featured.png
 images_folder: linq-en-c-sharp/
 lang: es

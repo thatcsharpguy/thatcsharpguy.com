@@ -4,7 +4,7 @@ title: Linq en C# - tercera parte
 date: 2016-02-08 20:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.
+summary: Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.
 featured_image: featured.png
 images_folder: linq-en-c-sharp/
 lang: es

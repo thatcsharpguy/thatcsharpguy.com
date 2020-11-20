@@ -4,7 +4,7 @@ title: Introduction to Xamarin.Forms (Sharpuladora app)
 date: 2015-12-16 18:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: This guide will take you step by step to create your first Xamarin.Forms app.
+summary: This guide will take you step by step to create your first Xamarin.Forms app.
 featured_image: featured.png
 lang: en
 github: https://github.com/fferegrino/sharpuladora

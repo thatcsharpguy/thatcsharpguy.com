@@ -3,7 +3,7 @@ layout: post
 title: async y await (cancelando tareas)
 date: 2017-02-28 19:00:01
 author: Antonio Feregrino
-excerpt: Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.
+summary: Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.
 featured_image: featured.png
 images_folder: /aprende-c-sharp/asyncawait/
 github: https://github.com/ThatCSharpGuy/AsyncAwait

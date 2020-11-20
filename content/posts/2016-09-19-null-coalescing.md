@@ -3,7 +3,7 @@ layout: post
 title: Operador null coalescing en C#
 date: 2016-09-19 19:00:01
 author: Antonio Feregrino
-excerpt: Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.
+summary: Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.
 featured_image: null-c.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/nullcoalescing

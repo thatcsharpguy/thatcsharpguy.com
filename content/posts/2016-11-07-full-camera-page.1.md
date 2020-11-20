@@ -3,7 +3,7 @@ layout: post
 title: Full page camera in Xamarin.Forms
 date: 2016-11-08 08:00:00
 author: Antonio Feregrino
-excerpt: Learn how to take photos from your Xamarin.Forms app using a custom page renderer to use the camera without leaving your application, with this control, you can create your own camera user interface to match the design of your app.
+summary: Learn how to take photos from your Xamarin.Forms app using a custom page renderer to use the camera without leaving your application, with this control, you can create your own camera user interface to match the design of your app.
 featured_image: featured.jpg
 images_folder: /xamarin-forms/camerapage/
 github: https://github.com/ThatCSharpGuy/Forms-FullCameraPage

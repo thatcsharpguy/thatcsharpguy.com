@@ -4,7 +4,7 @@ title: Tipos anónimos en C#
 date: 2015-11-26 21:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.
+summary: Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.
 featured_image: featured.png
 lang: es
 tweet_id: 708331999979679744

@@ -3,7 +3,7 @@ layout: post
 title: Mi setup de Python en Windows
 date: 2019-08-12 19:00:01
 author: Antonio Feregrino
-excerpt: Una parte de mi sigue atado a este sistema operativo, pero así consigo mi dosis de Python en Windows.
+summary: Una parte de mi sigue atado a este sistema operativo, pero así consigo mi dosis de Python en Windows.
 lang: es
 tags: Python, Windows
 featured_tag: Python

@@ -3,7 +3,7 @@ layout: post
 title: Trabajando con imágenes e ImageProcessor
 date: 2016-07-11 19:00:01
 author: Antonio Feregrino
-excerpt: Es muy probable que ya te hayas enfrentado o que tengas que enfrentarte con el trabajo procesar imágenes en un sistema, puede ser algo tan simple como cargar y recortar las imagenes de perfil de usuarios a un sistema o...
+summary: Es muy probable que ya te hayas enfrentado o que tengas que enfrentarte con el trabajo procesar imágenes en un sistema, puede ser algo tan simple como cargar y recortar las imagenes de perfil de usuarios a un sistema o...
 featured_image: featured.jpg
 tweet_id: 752630903638155264
 images_folder: /imageprocessor/

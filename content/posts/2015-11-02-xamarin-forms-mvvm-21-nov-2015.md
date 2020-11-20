@@ -4,7 +4,7 @@ title: Xamarin.Forms y MVVM en la ESCOM (21 de noviembre de 2015)
 date: 2015-11-02 22:00:00
 author: Antonio Feregrino
 categories: netduino c#
-excerpt: En el evento haremos juntos una app utilizando estas tecnologías mientras platicamos un poco acerca de MVVM y cómo implementarlo junto con Xamarin.Forms.
+summary: En el evento haremos juntos una app utilizando estas tecnologías mientras platicamos un poco acerca de MVVM y cómo implementarlo junto con Xamarin.Forms.
 lang: es
 featured_image: event.png
 images_folder: commons/

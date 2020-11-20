@@ -3,7 +3,7 @@ layout: post
 title: Programación reactiva y Rx, parte 2
 date: 2017-08-15 19:00:01
 author: Antonio Feregrino
-excerpt: La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.
+summary: La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.
 featured_image: fishing.png
 images_folder: /rx/
 github: https://github.com/ThatCSharpGuy/rx

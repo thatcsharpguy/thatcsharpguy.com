@@ -5,7 +5,7 @@ date: 2015-08-31 21:00:00
 author: Antonio Feregrino
 featured_image: featured.jpg
 categories: xamarin netduino parse parse.com iot sockets xamarin.forms poc xamarin
-excerpt: It's been a while since I took my Netduino out of its box and I did something with it, back then I promised to do a slightly more complex system using a push notification service.
+summary: It's been a while since I took my Netduino out of its box and I did something with it, back then I promised to do a slightly more complex system using a push notification service.
 alias: /pushing-from-netduino-to-mobile/index.html
 lang: en
 tags: Xamarin, Netduino

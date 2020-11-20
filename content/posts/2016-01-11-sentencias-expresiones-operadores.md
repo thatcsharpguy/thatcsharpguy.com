@@ -4,7 +4,7 @@ title: Sentencias, expresiones y operadores
 date: 2016-01-11 19:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Hace tiempo yo pensaba que sabía programar más o menos bien en C#, pero había ocasiones en las que leyendo documentación me encontraba con ciertas palabras que no lograba comprender, entre ellas estaba las palabras "sentencia" y "expresión".
+summary: Hace tiempo yo pensaba que sabía programar más o menos bien en C#, pero había ocasiones en las que leyendo documentación me encontraba con ciertas palabras que no lograba comprender, entre ellas estaba las palabras "sentencia" y "expresión".
 featured_image: featured.png
 github: https://github.com/ThatCSharpGuy/CsSeis
 lang: es

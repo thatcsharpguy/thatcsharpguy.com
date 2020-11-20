@@ -3,7 +3,7 @@ layout: post
 title: Espacios de nombres en C#
 date: 2017-01-24 19:00:01
 author: Antonio Feregrino
-excerpt: Los nombres de espacio son de esas cosas en el dasrrollo a los que casi no les prestamos mucha atención, pero que bien usados nos resuelven muchos problemas y nos ayudan a organizar nuestro código.
+summary: Los nombres de espacio son de esas cosas en el dasrrollo a los que casi no les prestamos mucha atención, pero que bien usados nos resuelven muchos problemas y nos ayudan a organizar nuestro código.
 featured_image: namespaces.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/espacios

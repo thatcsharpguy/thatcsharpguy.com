@@ -4,7 +4,7 @@ title: Func y Action en C#
 date: 2015-07-29 18:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Func y Action son moldes para crear delegados, podemos usarlos para evitarnos la fatiga de declarar un delegado para cada ocasión que sea necesario.
+summary: Func y Action son moldes para crear delegados, podemos usarlos para evitarnos la fatiga de declarar un delegado para cada ocasión que sea necesario.
 lang: es
 ideone: http://ideone.com/fork/VmDLay
 alias: /func-y-action-en-c-sharp/index.html

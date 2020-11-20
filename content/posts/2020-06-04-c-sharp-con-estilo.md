@@ -3,7 +3,7 @@ layout: post
 title: C# con estilo (a fuerzas)
 date: 2020-06-04 12:00:00
 author: Antonio Feregrino
-excerpt: ¿A quién no le gusta el código escrito siguiendo un estandar? te muestro como puedes aplicar el tuyo en .NET
+summary: ¿A quién no le gusta el código escrito siguiendo un estandar? te muestro como puedes aplicar el tuyo en .NET
 lang: es
 tags: aprendecsharp, Windows
 featured_tag: aprendecsharp

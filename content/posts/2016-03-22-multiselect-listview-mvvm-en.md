@@ -3,7 +3,7 @@ layout: post
 title: Multi-select ListView and MVVM
 date: 2016-03-23 08:00:00
 author: Antonio Feregrino
-excerpt: Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.
+summary: Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.
 featured_image: multiselect-featured.png
 images_folder: /xamarin-forms/
 github: https://github.com/ThatCSharpGuy/MultiPokeList

@@ -3,7 +3,7 @@ layout: post
 title: Archivos de recursos y apps multilenguaje en C#
 date: 2016-10-03 19:00:01
 author: Antonio Feregrino
-excerpt: Como desarrolladores, tendemos a pensar en nuestras aplicaciones como funcionales para una región o lenguaje específicos, sin preocuparnos sobre traducir e internacionalizarlas, preparándolas así para ser accesibles aun número mayor de usuarios.
+summary: Como desarrolladores, tendemos a pensar en nuestras aplicaciones como funcionales para una región o lenguaje específicos, sin preocuparnos sobre traducir e internacionalizarlas, preparándolas así para ser accesibles aun número mayor de usuarios.
 featured_image: featured.jpg
 images_folder: /aprende-c-sharp/resx/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Resxs

@@ -3,7 +3,7 @@ layout: post
 title: Events en C#
 date: 2016-08-22 19:00:01
 author: Antonio Feregrino
-excerpt: Un evento no es más que un mensaje que se envía de un objeto (el emisor) a otros (los receptores) cada vez que se cumple cierta condición o un cambio ocurre en él.
+summary: Un evento no es más que un mensaje que se envía de un objeto (el emisor) a otros (los receptores) cada vez que se cumple cierta condición o un cambio ocurre en él.
 featured_image: events.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/events

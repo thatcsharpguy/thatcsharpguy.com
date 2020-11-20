@@ -3,7 +3,7 @@ layout: post
 title: async y await
 date: 2017-02-14 19:00:01
 author: Antonio Feregrino
-excerpt: En este post voy a hablar acerca de uno de los mejores tipos de azúcar sintáctica que existen en el lenguaje de programación C#. Y con ello me refiero a las palabras async y await.
+summary: En este post voy a hablar acerca de uno de los mejores tipos de azúcar sintáctica que existen en el lenguaje de programación C#. Y con ello me refiero a las palabras async y await.
 featured_image: featured.png
 images_folder: /aprende-c-sharp/asyncawait/
 github: https://github.com/ThatCSharpGuy/AsyncAwait

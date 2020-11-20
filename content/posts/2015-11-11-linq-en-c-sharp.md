@@ -4,7 +4,7 @@ title: Linq en C#
 date: 2015-11-11 20:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos.
+summary: Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos.
 featured_image: featured.png
 lang: es
 ideone: https://ideone.com/fork/oE38uu

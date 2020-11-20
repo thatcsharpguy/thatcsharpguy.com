@@ -4,7 +4,7 @@ title: Arreglos en C# (multidimensionales escalonados)
 date: 2015-10-22 21:00:00
 author: Antonio Feregrino
 categories: aprende-csharp
-excerpt: Los arreglos escalonados (o jagged arrays) son los tipos de arreglos multidimensionales más conocidos, y es que también son compunes en otros lenguajes de programación. Un arreglo escalonado no es más que un arreglo de arreglos.
+summary: Los arreglos escalonados (o jagged arrays) son los tipos de arreglos multidimensionales más conocidos, y es que también son compunes en otros lenguajes de programación. Un arreglo escalonado no es más que un arreglo de arreglos.
 lang: es
 featured_image: featured.png
 ideone: http://ideone.com/fork/0AAvgK

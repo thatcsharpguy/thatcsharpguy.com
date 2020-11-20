@@ -3,7 +3,7 @@ layout: post
 title: Trabajando con DocX en C#
 date: 2016-02-15 19:00:00
 author: Antonio Feregrino
-excerpt: ¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí.
+summary: ¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí.
 featured_image: featured.png
 github: https://github.com/ThatCSharpGuy/DocX-sample
 lang: es

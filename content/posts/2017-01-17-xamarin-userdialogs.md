@@ -3,7 +3,7 @@ layout: post
 title: UserDialogs en Xamarin Forms
 date: 2017-01-17 19:00:01
 author: Antonio Feregrino
-excerpt: Usa esta librería de NuGet para interactuar con el usuario de tu aplicación de una forma más intuitiva, con mensajes de alerta, de error y de éxito. Consigue información a través de controles nativos como calendarios y selectores de tiempo.
+summary: Usa esta librería de NuGet para interactuar con el usuario de tu aplicación de una forma más intuitiva, con mensajes de alerta, de error y de éxito. Consigue información a través de controles nativos como calendarios y selectores de tiempo.
 featured_image: featured.jpg
 images_folder: /xamarin-forms/userdialogs/
 github: https://github.com/ThatCSharpGuy/UserDialogs-Sample

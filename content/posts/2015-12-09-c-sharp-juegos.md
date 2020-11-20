@@ -4,7 +4,7 @@ title: "Cosas para hacer en C#: Juegos"
 date: 2015-12-09 21:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: C# no es solo trabajo de oficina de 9 a 5, también se pueden hacer algunas otras cosas bastante divertidas pero sobre todo interesantes, como videojuegos.
+summary: C# no es solo trabajo de oficina de 9 a 5, también se pueden hacer algunas otras cosas bastante divertidas pero sobre todo interesantes, como videojuegos.
 featured_image: featured.jpg
 lang: es
 tweet_id: 674778550726172673

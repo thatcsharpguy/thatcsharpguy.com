@@ -3,7 +3,7 @@ layout: post
 title: Xamarin.iOS, C# y Objective-C
 date: 2016-04-04 19:00:00
 author: Antonio Feregrino
-excerpt: Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS.
+summary: Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS.
 featured_image: featured_obj.png
 images_folder: /xamarin-ios/
 github: https://github.com/messier16/Forms.Checkbox

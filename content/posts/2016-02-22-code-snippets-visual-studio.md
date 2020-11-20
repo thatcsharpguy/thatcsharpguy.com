@@ -4,7 +4,7 @@ title: Code Snippets en Visual Studio
 date: 2016-02-22 10:00:00
 author: Antonio Feregrino
 categories: c-sharp visual-studio
-excerpt: Agiliza el proceso de desarrollo en Visual Studio mediante el uso de fragmentos de código, que no solo te ahorraran unas cuantas tecleadas, sino te librarán de tareas repetitivas.
+summary: Agiliza el proceso de desarrollo en Visual Studio mediante el uso de fragmentos de código, que no solo te ahorraran unas cuantas tecleadas, sino te librarán de tareas repetitivas.
 lang: es
 featured_image: featured.png
 images_folder: code-snippets/

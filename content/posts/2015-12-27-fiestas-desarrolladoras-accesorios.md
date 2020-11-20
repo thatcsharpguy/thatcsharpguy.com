@@ -4,7 +4,7 @@ title: Accesorios para un desarrollador
 date: 2015-12-27 23:00:00
 author: Antonio Feregrino
 categories: blog es
-excerpt: Con algo se tiene que escribir el código y seamos honestos ¿por qué no hacerlo de forma cómoda y eficiente? de eso se trata este post.
+summary: Con algo se tiene que escribir el código y seamos honestos ¿por qué no hacerlo de forma cómoda y eficiente? de eso se trata este post.
 featured_image: featured.png
 lang: es
 tweet_id: 681655952714645504

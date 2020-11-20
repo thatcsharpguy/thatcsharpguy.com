@@ -3,7 +3,7 @@ layout: post
 title: String.Format
 date: 2016-10-24 19:00:01
 author: Antonio Feregrino
-excerpt: Olvídate de concatenar una interminable cantidad de cadenas para presentar la información en tus aplicaciones. Con este método de la clase String tienes (casi) todo resuelto, únicamente necesitas una cadena con marcadores y listo.
+summary: Olvídate de concatenar una interminable cantidad de cadenas para presentar la información en tus aplicaciones. Con este método de la clase String tienes (casi) todo resuelto, únicamente necesitas una cadena con marcadores y listo.
 featured_image: format.jpg
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/StringFormat

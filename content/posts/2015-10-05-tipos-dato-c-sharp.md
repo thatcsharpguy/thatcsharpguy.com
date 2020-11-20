@@ -4,7 +4,7 @@ title: Tipos de dato en C#
 date: 2015-10-05 22:00:00
 author: Antonio Feregrino
 categories: aprende-csharp
-excerpt: Para la mayoría de sus aplicaciones, C# es un lenguaje fuertemente tipado, en este post presento dos categorías de tipos que nos podemos encontrar cuando trabajamos con este lenguaje.
+summary: Para la mayoría de sus aplicaciones, C# es un lenguaje fuertemente tipado, en este post presento dos categorías de tipos que nos podemos encontrar cuando trabajamos con este lenguaje.
 lang: es
 featured_image: featured.jpg
 alias: /tipos-dato-c-sharp/index.html

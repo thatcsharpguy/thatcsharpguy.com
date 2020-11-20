@@ -3,7 +3,7 @@ layout: post
 title: Inicializadores en C#
 date: 2016-03-14 19:00:00
 author: Antonio Feregrino
-excerpt: Lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos públicos que contiene el objeto.
+summary: Lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos públicos que contiene el objeto.
 featured_image: inicializadores.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/inicializadores

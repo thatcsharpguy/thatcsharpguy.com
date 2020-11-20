@@ -4,7 +4,7 @@ title: Creando nuestros propios alias
 date: 2015-09-16 13:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Hace poco vimos que existen alias en C# para los tipos predefinidos de datos, y hasta ahí todo claro. Pero nosotros como programadores también podemos beneficiarnos de crear nuestros propios alias.
+summary: Hace poco vimos que existen alias en C# para los tipos predefinidos de datos, y hasta ahí todo claro. Pero nosotros como programadores también podemos beneficiarnos de crear nuestros propios alias.
 lang: es
 featured_image: featured.jpg
 github: https://gist.github.com/fferegrino/a81cd436e4d631f1cf4d

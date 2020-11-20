@@ -3,7 +3,7 @@ layout: post
 title: Unit testing
 date: 2016-02-22 21:00:00
 author: Antonio Feregrino
-excerpt: Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed.
+summary: Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed.
 lang: en
 featured_image: featured.png
 images_folder: unit-testing/

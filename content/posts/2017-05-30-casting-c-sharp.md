@@ -3,7 +3,7 @@ layout: post
 title: "Casting: implicit y explicit en C#"
 date: 2017-05-30 19:00:01
 author: Antonio Feregrino
-excerpt: Crea conversiones personalizadas entre tipos de dato, una técnica parecida a la sobrecarga de operadores... que debe usarse con moderación.
+summary: Crea conversiones personalizadas entre tipos de dato, una técnica parecida a la sobrecarga de operadores... que debe usarse con moderación.
 featured_image: casting.jpg
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Casteo

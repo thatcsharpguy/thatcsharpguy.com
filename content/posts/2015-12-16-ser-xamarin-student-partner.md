@@ -4,7 +4,7 @@ title: Ser un Xamarin Student Partner
 date: 2015-12-16 18:31:38
 author: Antonio Feregrino
 categories: blog es
-excerpt: Que yo les hable tanto de Xamarin en este blog no es obra de la casualidad, y es que formo parte de los primeros Xamarin Student Partners, un grupo formado a principios de 2015 formado por estudiantes interesadoes en difundir el desarrollo móvil.
+summary: Que yo les hable tanto de Xamarin en este blog no es obra de la casualidad, y es que formo parte de los primeros Xamarin Student Partners, un grupo formado a principios de 2015 formado por estudiantes interesadoes en difundir el desarrollo móvil.
 featured_image: featured.png
 lang: es
 tweet_id: 677330366580002816

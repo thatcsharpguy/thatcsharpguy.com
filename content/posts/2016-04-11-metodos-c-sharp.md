@@ -3,7 +3,7 @@ layout: post
 title: Métodos en C#
 date: 2016-04-11 19:00:00
 author: Antonio Feregrino
-excerpt: Un método no es más que un procedimiento o acción asociado con una clase y se compone de datos y un comportamiento. Esta es la manera de definir un método en C#.
+summary: Un método no es más que un procedimiento o acción asociado con una clase y se compone de datos y un comportamiento. Esta es la manera de definir un método en C#.
 featured_image: metodos.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Methods

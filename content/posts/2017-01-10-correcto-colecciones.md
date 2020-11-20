@@ -3,7 +3,7 @@ layout: post
 title: Colecciones en C#, ¿cuál elegir?
 date: 2017-01-10 19:00:02
 author: Antonio Feregrino
-excerpt: La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.
+summary: La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.
 featured_image: featured.jpg
 images_folder: aprende-c-sharp/colecciones/
 lang: es

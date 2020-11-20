@@ -6,7 +6,7 @@ author: Antonio Feregrino
 featured_image: featured.jpg
 categories: xamarin
 lang: en
-excerpt: There are no significant differences between traditional Android development and Xamarin.Android, meaning that if you have previous knowledge you can apply it without concerns but instead of writing Java you will be writing awesome C# code that can potentially be shared along any other platform.
+summary: There are no significant differences between traditional Android development and Xamarin.Android, meaning that if you have previous knowledge you can apply it without concerns but instead of writing Java you will be writing awesome C# code that can potentially be shared along any other platform.
 github: https://github.com/fferegrino/Xevenshtein
 tweet_id: 667182022071345152
 tags: VisualStudio, Xamarin

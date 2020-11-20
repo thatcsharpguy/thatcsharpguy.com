@@ -3,7 +3,7 @@ layout: post
 title: Xamarin.Forms 2 and UWP
 date: 2015-12-06 21:00:00
 author: Antonio Feregrino
-excerpt: Xamarin 4 has everything you need to create great mobile apps. Check out Universal Windows Platform Apps, my favorite feature.
+summary: Xamarin 4 has everything you need to create great mobile apps. Check out Universal Windows Platform Apps, my favorite feature.
 lang: en
 featured_image: featured.png
 github: https://github.com/fferegrino/Xevenshtein-UWP

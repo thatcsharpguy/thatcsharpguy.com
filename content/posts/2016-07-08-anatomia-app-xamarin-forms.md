@@ -4,7 +4,7 @@ title: Xamarin.Forms, anatomía de una app
 date: 2016-07-04 21:00:00
 author: Antonio Feregrino
 categories: c-sharp
-excerpt: Las partes que componen una aplicación hecha con Forms son dos&ellip; el núcleo o shared code y los proyectos clientes móviles que consumen dicho núcleo.
+summary: Las partes que componen una aplicación hecha con Forms son dos&ellip; el núcleo o shared code y los proyectos clientes móviles que consumen dicho núcleo.
 images_folder: /xamarin-forms/arch/
 featured_image: featured.jpg
 lang: es

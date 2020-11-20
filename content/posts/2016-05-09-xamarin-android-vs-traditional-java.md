@@ -6,7 +6,7 @@ author: Antonio Feregrino
 featured_image: java-c-sharp.png
 categories: xamarin
 lang: es
-excerpt: En cuanto a la famosa clase R, en Xamarin.Android se llama Resource y su contenido es similar al que contiene en la tradicional, como podrás ver en el código más adelante.
+summary: En cuanto a la famosa clase R, en Xamarin.Android se llama Resource y su contenido es similar al que contiene en la tradicional, como podrás ver en el código más adelante.
 images_folder: /xamarin-android/
 github: https://github.com/ThatCSharpGuy/silo-xamarin-comparation
 tweet_id: 729874348660555777

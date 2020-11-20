@@ -3,7 +3,7 @@ layout: post
 title: Clases parciales en C#
 date: 2016-06-06 19:00:01
 author: Antonio Feregrino
-excerpt: Tal vez alguna vez te hayas encontrado con que en la declaración de una clase, la palabra partial está antepuesta a la palabra class. Pero, ¿qué significa esto?
+summary: Tal vez alguna vez te hayas encontrado con que en la declaración de una clase, la palabra partial está antepuesta a la palabra class. Pero, ¿qué significa esto?
 featured_image: partial-featured.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Parciales

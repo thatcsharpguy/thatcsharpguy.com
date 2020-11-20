@@ -3,7 +3,7 @@ layout: post
 title: Inspect your http requests with HttpLogger
 date: 2017-03-28 19:00:01
 author: Antonio Feregrino
-excerpt: Inspect the request and response of all the connection your app makes to any webservice. Do whatever you want with them, from saving them to a file to put them on screen!
+summary: Inspect the request and response of all the connection your app makes to any webservice. Do whatever you want with them, from saving them to a file to put them on screen!
 featured_image: featured.jpg
 images_folder: /nugets/httplogger/
 github: https://github.com/messier16/HttpLogger

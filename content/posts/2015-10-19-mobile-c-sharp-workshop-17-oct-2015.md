@@ -4,7 +4,7 @@ title: Mobile C# developer kick-off (17-oct-2015)
 date: 2015-10-19 22:00:00
 author: Antonio Feregrino
 categories: netduino c#
-excerpt: Este es un post de recapitulación del evento Mobile C# developer kick-off del 17 de octubre en la ESCOM
+summary: Este es un post de recapitulación del evento Mobile C# developer kick-off del 17 de octubre en la ESCOM
 lang: es
 featured_image: event.png
 images_folder: commons/

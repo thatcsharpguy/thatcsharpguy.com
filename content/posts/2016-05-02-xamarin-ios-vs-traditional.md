@@ -6,7 +6,7 @@ author: Antonio Feregrino
 featured_image: swift-c-sharp.png
 categories: xamarin
 lang: es
-excerpt: Una de las diferencias más notorias es la asignación de manejadores de evento, fuera de eso la transición entre un lenguaje y otro es sencilla.
+summary: Una de las diferencias más notorias es la asignación de manejadores de evento, fuera de eso la transición entre un lenguaje y otro es sencilla.
 images_folder: /xamarin-ios/
 github: https://github.com/ThatCSharpGuy/silo-xamarin-comparation
 tags: VisualStudio, Xamarin

@@ -3,7 +3,7 @@ layout: post
 title: Custom cells en Xamarin.Forms
 date: 2017-06-20 19:00:01
 author: Antonio Feregrino
-excerpt: Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView
+summary: Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView
 featured_image: featured.jpg
 images_folder: /xamarin-forms/customcell/
 github: https://github.com/ThatCSharpGuy/CeldaPersonalizada

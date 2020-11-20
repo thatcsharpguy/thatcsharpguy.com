@@ -3,7 +3,7 @@ layout: post
 title: Enums en C#
 date: 2016-08-01 19:00:01
 author: Antonio Feregrino
-excerpt: Los enum son un tipo de dato que nos permite expresar valores constantes, con la particularidad de poderlos agrupar lógicamente de acuerdo a la relación que tienen unos con otros.
+summary: Los enum son un tipo de dato que nos permite expresar valores constantes, con la particularidad de poderlos agrupar lógicamente de acuerdo a la relación que tienen unos con otros.
 featured_image: enums.png
 images_folder: /aprende-c-sharp/
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Enums
