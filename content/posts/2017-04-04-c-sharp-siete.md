@@ -1,3 +1,4 @@
+---
 layout: post
 title: ¿Qué hay en C# 7?
 date: 2017-04-04 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/ElEspacio
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Hace ya más de un año que les hablé de las <a href="..\c-sharp-seis">características de C# 6</a>, pues bien, mientras esa versión del lenguaje era liberada para su uso, la versión 7 ya estaba en construcción. Ahora, ya tiempo después es posible para nosotros probar de manera segura esta nueva versión, lo único que necesitamos es tener Visual Studio 2017. 
 

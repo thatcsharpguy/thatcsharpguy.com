@@ -1,3 +1,4 @@
+---
 layout: post
 title: Enums en C#
 date: 2016-08-01 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Enums
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Dentro de nuestro código hay ocasiones en las que es necesario contar con un conjunto de valores bien definidos, relacionados y cuyo valor permanezca a lo largo de la ejecución del programa en cuestión. Por poner ejemplos de este tipo de valores, podemos pensar en los siguientes:
   

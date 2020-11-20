@@ -1,3 +1,4 @@
+---
 layout: post
 title: MarkdownView control for Xamarin.Forms
 date: 2016-02-01 21:00:00
@@ -8,6 +9,7 @@ featured_image: featured.png
 github: https://github.com/ThatCSharpGuy/MarkdownView
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 By this time you definetly must have heard about the Markdown markup language. If you think you have not, here is a hint for you: Is that language where you use `#` do denote headings, `*` for emphasis and `**` for strong emphasis... I'm sure you know what I'm talking about. 
 

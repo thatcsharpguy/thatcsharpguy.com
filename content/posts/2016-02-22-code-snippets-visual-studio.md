@@ -1,3 +1,4 @@
+---
 layout: post
 title: Code Snippets en Visual Studio
 date: 2016-02-22 10:00:00
@@ -11,6 +12,7 @@ github: https://github.com/fferegrino/fantastic-broccoli
 tweet_id: 702127650437894144
 tags: VisualStudio
 featured_tag: VisualStudio
+---
 
 Los *code snippets*, o, **fragmentos de código**, son otra de las grandes prestaciones que nos ofrece el entorno de desarrollo Visual Studio, conocerlos y usarlos, puede ayudarnos a la hora de desarrollar. En este post hablaré de ellos: ¿qué son y cómo funcionan? ¿cuáles tiene VS instalados? y cómo crear tus propios fragmentos.
 

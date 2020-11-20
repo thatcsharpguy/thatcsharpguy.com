@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.iOS vs iOS tradicional (con Swift)
 date: 2016-05-02 21:00:00
@@ -10,6 +11,7 @@ images_folder: /xamarin-ios/
 github: https://github.com/ThatCSharpGuy/silo-xamarin-comparation
 tags: VisualStudio, Xamarin
 featured_tag: Xamarin
+---
 
 En este post te mostraré algunas de las diferencias que existen entre usar Swift y C# para desarrollar apps en iOS. Para este post cree una app que compara dos cadenas y calcula su <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" target="_blank" rel="nofollow">distancia</a> entre ellas, hice dos versiones una tradicional y una con Xamarin.iOS. Esta es la app finalizada:
  

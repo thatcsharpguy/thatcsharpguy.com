@@ -1,3 +1,4 @@
+---
 layout: post
 title: Conectando un Bubble Display a un Netduino Plus 2
 date: 2015-07-17 18:31:38
@@ -9,6 +10,7 @@ featured_image: featured.png
 alias: /bubble-display-netduino-plus-2/index.html
 tags: Netduino
 featured_tag: Netduino
+---
 
 <p>Para un proyecto Instrumentación en la escuela decidí desempolvar mi Netduino Plus 2, en el proyecto decesitábamos mostrar las mediciones de tres distintos sensores en un par de displays de 7 segmentos, para ello decidí comprar un Bubble Display que no trae 2 sino 4 displays de 7 segmentos en un encapsulado muy estético. Al principio no tenía ni la menor idea de cómo cablearlo, pero consultando el datasheet resultó sencillo.</p>
 <h3>Material</h3>

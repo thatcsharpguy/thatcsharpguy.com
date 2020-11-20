@@ -1,3 +1,4 @@
+---
 layout: post
 title: Inicializadores en C#
 date: 2016-03-14 19:00:00
@@ -10,6 +11,7 @@ lang: es
 tweet_id: 709549005865242624
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 ## Inicializador de objetos  
 Seguramente ya conocerás que en C# para crear una instancia de un objeto es necesario utilizar alguno de los constructores de la clase que lo define. Y mientras que es te comportamiento es algo estándar para todos los lenguajes de programación orientados a objetos, C# permite hacer uso de  una sintaxis conocida como "Inicializadores de objeto", que fue introducida en la versión 3.0 del lenguaje.

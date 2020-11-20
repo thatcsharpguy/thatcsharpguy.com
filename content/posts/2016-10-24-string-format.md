@@ -1,3 +1,4 @@
+---
 layout: post
 title: String.Format
 date: 2016-10-24 19:00:01
@@ -10,6 +11,7 @@ lang: es
 tweet_id: 795799488346648576
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 El método estático `Format` de la clase `String` nos ayuda en el manejo de las cadenas en C#, específicamente a la hora de la presentación de la información. Antes de continuar, es importante que conozcas la firma del método que estamos a punto de discutir:  
 

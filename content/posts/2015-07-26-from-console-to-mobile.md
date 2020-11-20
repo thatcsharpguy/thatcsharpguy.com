@@ -1,3 +1,4 @@
+---
 layout: post
 title: From console to mobile
 date: 2015-07-26 18:00:00
@@ -9,6 +10,7 @@ alias: /from-console-to-mobile/index.html
 github: https://github.com/fferegrino/Xevenshtein
 tags: Xamarin
 featured_tag: Xamairn
+---
 
 At school I was often asked to write small console apps to practice programming concepts, and some teachers even wanted a fully functional project in such way.  
 <br />

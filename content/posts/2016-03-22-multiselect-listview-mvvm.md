@@ -1,3 +1,4 @@
+---
 layout: post
 title: Multi-select ListView y MVVM
 date: 2016-03-23 08:00:00
@@ -10,6 +11,7 @@ tweet_id: 712819064104570880
 lang: es
 tags: XamarinForms, Xamarin
 featured_tag: XamarinForms
+---
 
 Por fin he vuelto a desarrollar algo con Xamarin.Forms y parte de lo que he tenido que hacer tuvo que ver con implementar una lista que permitiera la selección múltiple de filas y fuera compatible con el patrón MVVM.  
 

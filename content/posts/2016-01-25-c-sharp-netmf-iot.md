@@ -1,5 +1,6 @@
+---
 layout: post
-title: Cosas para hacer en C#: IoT
+title: "Cosas para hacer en C#: IoT"
 date: 2016-01-25 19:00:00
 author: Antonio Feregrino
 categories: c-sharp
@@ -10,6 +11,7 @@ affiliate: true
 tweet_id: 691793005305544705
 tags: Netduino, AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Anteriormente la programación de dispositivos electrónicos de bajo nivel estaba "reservada" a un cierto grupo de personas que destinaban horas de su vida para aprender a programar usando lenguaje ensamblador, estudiaban las instrucciones para determinado microcontrolador y luego la pasaban difícil tratando de optimizar memoria aquí y allá para lograr que sus programas funcionaran como deseaban.
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Archivos de recursos y apps multilenguaje en C#
 date: 2016-10-03 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Resxs
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Es muy común que siempre que desarrollamos aplicaciones, nosotros como desarrolladores lo hagamos pensando en un solo lenguaje... pero ¿qué pasará más adelante cuando nuestra app se vuelva popular y gente de diversas partes del mundo la comience a usar? para nuestra suerte, el framework de .NET nos ofrece una solución bastante sencilla para este problema: los archivos de recursos `resx`.
 

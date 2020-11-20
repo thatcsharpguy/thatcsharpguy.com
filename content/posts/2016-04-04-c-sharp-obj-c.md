@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.iOS, C# y Objective-C
 date: 2016-04-04 19:00:00
@@ -9,6 +10,7 @@ github: https://github.com/messier16/Forms.Checkbox
 lang: es
 tags: Xamarin
 featured_tag: Xamarin
+---
 
 Cuando conocí <a href="http://thatcsharpguy.com/tag/Xamarin">Xamarin</a> por primera vez, una de mis primeras preguntas era: ¿Cómo demonos se supone que voy a escribir apps para iOS en C#? Simplemente no se me ocurría cómo es que eso era posible... 
 

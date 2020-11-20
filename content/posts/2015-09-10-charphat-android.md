@@ -1,3 +1,4 @@
+---
 layout: post
 title: CharpHat para Android
 date: 2015-09-10 17:00:00
@@ -10,6 +11,7 @@ featured_image: featured.png
 alias: /charphat-android/index.html
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 <div class="pure-g">
 	<div class="pure-u-24-24">

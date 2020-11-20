@@ -1,3 +1,4 @@
+---
 layout: post
 title: Arreglos en C# (multidimensionales rectangulares)
 date: 2015-10-23 22:00:00
@@ -9,6 +10,7 @@ ideone: http://ideone.com/fork/8C2iOj
 featured_image: featured.png
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Después de conocer los <a href="/post/arreglos-en-c-sharp-parte-2">arreglos multidimensionales escalonados</a> esta vez toca el turno de conocer otro tipo de arrelgos multidimensionales en C#: Los rectangulares. En pocas palabras podríamos decir que estos no son "arreglos de arreglos", sino que en realidad son matrices dado que no es posible declarar arreglos dentro de ellos como con los escalonados.  
   

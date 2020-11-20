@@ -1,3 +1,4 @@
+---
 layout: post
 title: Humaniza tus apps
 date: 2016-01-18 19:00:00
@@ -9,6 +10,7 @@ lang: es
 tweet_id: 689257483748151297
 tags: NuGetRecomendado
 featured_tag: NuGetRecomendado
+---
 
 Es un hecho que actualmente cuando una aplicación es lanzada al público no solo es necesario que funcione bien y haga lo que promete, sino que además de todo se vea bien y su interfaz de usuario sea agradable a la persona que la necesita.  
 

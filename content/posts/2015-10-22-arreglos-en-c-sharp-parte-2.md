@@ -1,3 +1,4 @@
+---
 layout: post
 title: Arreglos en C# (multidimensionales escalonados)
 date: 2015-10-22 21:00:00
@@ -9,6 +10,7 @@ featured_image: featured.png
 ideone: http://ideone.com/fork/0AAvgK
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 En el post anterior les contaba sobre los arreglos <a href="/post/arreglos-en-c-sharp-parte-1">arreglos unidimensionales en C#</a>, y hacia el final los invitaba a leer este, sobre los arreglos multidimensionales, así que sin más:  
 

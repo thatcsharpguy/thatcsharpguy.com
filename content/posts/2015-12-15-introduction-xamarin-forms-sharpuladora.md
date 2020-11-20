@@ -1,3 +1,4 @@
+---
 layout: post
 title: Introduction to Xamarin.Forms (Sharpuladora app)
 date: 2015-12-16 18:00:00
@@ -11,6 +12,7 @@ pdfguide: https://github.com/fferegrino/sharpuladora/releases/download/p1.0.1/gu
 codeguide: https://github.com/fferegrino/sharpuladora/releases/latest
 tags: Xamarin, XamarinForms, Guia
 featured_tag: XamarinForms
+---
 
 Who hasn't made a classic "Hello world!" while getting started with a new language or framework?  
   

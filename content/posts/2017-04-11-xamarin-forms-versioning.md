@@ -1,3 +1,4 @@
+---
 layout: post
 title: Conoce la versión de tu app con Xamarin.Forms
 date: 2017-04-11 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/VersionTrackingSample
 lang: es
 tags: NuGetRecomendado, XamarinForms, Xamarin
 featured_tag: NuGetRecomendado
+---
 
 Y tu, ¿cómo versionas tus apps? El asignarle una versión a cada publicación de una app suele ser muy importante para cuando tenemos que resolver algún bug y le solicitamos directamente al usuario que nos indique qué versión de la app está ejecutando. También resulta útil si llevamos a cabo alguna especie de análisis de qué versiones de nuestras apps son más utilizadas e inclusive poder indicarle al usuario que la versión de la app que está ejecutando no es la más reciente. 
 

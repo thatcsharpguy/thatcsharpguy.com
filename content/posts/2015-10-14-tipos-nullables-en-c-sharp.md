@@ -1,3 +1,4 @@
+---
 layout: post
 title: Tipos nullables en C#
 date: 2015-10-14 20:30:00
@@ -10,6 +11,7 @@ featured_image: featured.png
 alias: /tipos-nullables-en-c-sharp/index.html
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 En un post anterior hablaba acerca de los tipos de dato en C#, y me doy cuenta que se me olvidó mencionar una característica importante de los tipos de dato, y para rectificar mi error voy a tomar la clasificación por referencia y valor de la que les platicaba.  
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: ¿Cómo organiza mi código Visual Studio?
 date: 2015-11-18 21:00:00
@@ -7,6 +8,7 @@ categories: xamarin
 excerpt: Si alguna vez has usado un IDE para desarrollar alguna aplicación tal vez te hayas preguntado cómo es que ese tipo de programas saben en dónde están los componentes para cada una de las cosas que hacen que tu app compile o funcione.
 tags: VisualStudio, Xamarin
 featured_tag: VisualStudio
+---
 
 Si alguna vez has usado un IDE para desarrollar alguna aplicación tal vez te hayas preguntado cómo es que ese tipo de programas saben en dónde están los componentes para cada una de las cosas que hacen que tu app compile o funcione. En este post trataré de explicar cómo es que Xamarin y Visual Studio llevan este control.
 

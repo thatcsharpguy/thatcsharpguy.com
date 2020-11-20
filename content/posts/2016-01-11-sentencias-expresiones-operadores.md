@@ -1,3 +1,4 @@
+---
 layout: post
 title: Sentencias, expresiones y operadores
 date: 2016-01-11 19:00:00
@@ -10,6 +11,7 @@ lang: es
 tweet_id: 686733690899181568
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Hace tiempo yo pensaba que sabía programar más o menos bien en C#, pero había ocasiones en las que leyendo documentación me encontraba con ciertas palabras que no lograba comprender, entre ellas estaba las palabras "sentencia" y "expresión", este es otro de esos posts que me hubiera gustado leer antes.
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Diapositivas primer Meetup Xamarin Students México
 date: 2016-06-02 22:00:00
@@ -8,6 +9,7 @@ featured_image: event.png
 images_folder: commons/
 tags: Xamarin, XamarinForms, Events
 featured_tag: Xamarin
+---
 
 <div class="video-wrapper">
 <iframe src='https://onedrive.live.com/embed?cid=05D7523CBBAF0419&resid=5D7523CBBAF0419%21128777&authkey=AJJchC74gobuJYE&em=2&wdAr=1.7777777777777777&wdEaa=1' width='1186px' height='691px' frameborder='0'>Esto es un documento de <a target='_blank' href='https://office.com'>Microsoft Office</a> incrustado con tecnología de <a target='_blank' href='https://office.com/webapps'>Office Online</a>.</iframe>

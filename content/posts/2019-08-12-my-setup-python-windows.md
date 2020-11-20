@@ -1,3 +1,4 @@
+---
 layout: post
 title: Mi setup de Python en Windows
 date: 2019-08-12 19:00:01
@@ -6,6 +7,7 @@ excerpt: Una parte de mi sigue atado a este sistema operativo, pero así consigo
 lang: es
 tags: Python, Windows
 featured_tag: Python
+---
 
 A pesar de que últimamente he estado utilizando cada vez más plataformas Linux, una parte de mi sigue atado a Visual Studio y Windows; sin embargo, no dejo que esto me detenga para hacer desarrollo en Python casi como lo hago en Ubuntu.  
 

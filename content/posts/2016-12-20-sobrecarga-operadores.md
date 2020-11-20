@@ -1,3 +1,4 @@
+---
 layout: post
 title: Sobrecarga de operadores
 date: 2016-12-20 19:00:02
@@ -10,6 +11,7 @@ tweet_id: 798688388131983360
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Operadores
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Hoy toca hablar de una de las características menos usadas (porque en teoría es mejor no usarlas) de C#. 
 

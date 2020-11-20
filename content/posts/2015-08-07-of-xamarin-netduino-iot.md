@@ -1,3 +1,4 @@
+---
 layout: post
 title: Of Xamarin, Netduino and IoT
 date: 2015-08-07 18:31:38
@@ -10,6 +11,7 @@ lang: en
 alias: /of-xamarin-netduino-iot/index.html
 tags: Xamarin, Netduino
 featured_tag: Xamarin
+---
 
 <p>I want to start this post by telling you how far is the light switch in my bedroom from my bed: <strong>VERY FAR</strong>. Sometimes I'm all tired, lying in my bed thinking "wouldn't it be awesome if I could control that switch from here?", of course I can always use a broom stick or something like that, but when you have other options this kind of posts are born.</p>
 <p>Now, the actual post: I decided to create an app to easily turn on or off my bedroom's light not only from my Windows Phone but from my iPod or any other device in my house. I'll try to explain how I did it.</p> 

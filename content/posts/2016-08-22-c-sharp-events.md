@@ -1,3 +1,4 @@
+---
 layout: post
 title: Events en C#
 date: 2016-08-22 19:00:01
@@ -10,6 +11,7 @@ tweet_id: 767867861721165825
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 
 ¿Recuerdas que en los primeros posts de este blog hablé sobre <a href="../delegados-en-c-sharp">delegados en C#</a>? pues bien, hoy toca hablar de un pariente muy cercano a ellos: Los eventos o `events`.  

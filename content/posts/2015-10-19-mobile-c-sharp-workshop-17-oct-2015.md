@@ -1,3 +1,4 @@
+---
 layout: post
 title: Mobile C# developer kick-off (17-oct-2015)
 date: 2015-10-19 22:00:00
@@ -9,6 +10,7 @@ featured_image: event.png
 images_folder: commons/
 tags: Xamarin, Events
 featured_tag: Xamarin
+---
 
 Este es un post para recapitular lo visto en el evento llevado a cabo en la Escuela Superior de Cómputo.  
 <br />

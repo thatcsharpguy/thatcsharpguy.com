@@ -1,3 +1,4 @@
+---
 layout: post
 title: async y await
 date: 2017-02-14 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/AsyncAwait
 lang: es
 tags: AprendeCSharp, XamarinForms, Xamarin
 featured_tag: AprendeCSharp
+---
 
 ¿Cuántas veces te ha tocado usar una aplicación que de pronto deja de responder? o peor aún, ¿cuántas veces tus aplicaciones se han quedado congeladas? esto sucede muchas veces porque el hilo encargado de manejar la interfaz gráfica está muy ocupado haciendo alguna tarea que le impide responder a la interacción con el usuario... y este problema es casi siempre causado por el desarrollador.  
 

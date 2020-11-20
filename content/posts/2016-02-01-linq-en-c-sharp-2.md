@@ -1,3 +1,4 @@
+---
 layout: post
 title: Linq en C# - segunda parte
 date: 2016-02-01 20:00:00
@@ -10,6 +11,7 @@ lang: es
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/linq-en-c-sharp-2
 tags: AprendeCSharp, LINQ
 featured_tag: AprendeCSharp
+---
 
 Hace algunos cuantos posts [les hablaba de Linq en C#](/post/linq-en-c-sharp), y este post es una especie de continuación, para que, si aún no has integrado esta poderosa herramienta dentro de tus tareas de desarrollo, por fin te animes a hacerlo. 
   

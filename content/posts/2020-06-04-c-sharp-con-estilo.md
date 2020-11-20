@@ -1,3 +1,4 @@
+---
 layout: post
 title: C# con estilo (a fuerzas)
 date: 2020-06-04 12:00:00
@@ -6,6 +7,7 @@ excerpt: ¿A quién no le gusta el código escrito siguiendo un estandar? te mue
 lang: es
 tags: aprendecsharp, Windows
 featured_tag: aprendecsharp
+---
 
 
 # C# con estilo (a fuerza)

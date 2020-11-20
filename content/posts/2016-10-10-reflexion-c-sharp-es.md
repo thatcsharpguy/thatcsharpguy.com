@@ -1,3 +1,4 @@
+---
 layout: post
 title: Reflexión en C#
 date: 2016-10-10 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Reflexion
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 La reflexión en C# es solo otra de las caracterísitcas que el lenguaje nos entrega para desarrollar con él. No es una característica tan conocida por todos los desarrolladores y me atrevería a decir que de los que lo conocen, no todas la usan y es que no es necesaria usarla en todos los programas.
 

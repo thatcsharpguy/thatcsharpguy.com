@@ -1,3 +1,4 @@
+---
 layout: post
 title: Trabajando con DocX en C#
 date: 2016-02-15 19:00:00
@@ -9,6 +10,7 @@ lang: es
 tweet_id: 699406557037985792
 tags: NuGetRecomendado
 featured_tag: NuGetRecomendado
+---
 
 Me atrevería a decir que la gran mayoría de aplicaciones tienen una forma de reportar sus acciones al usuario a través de determinada interfaz. La interfaz más famosa es el monitor de la computadora ya sea mediante imágenes, vídeo o texto, pero no a todos lados es práctico andar cargando con una pantalla, ¿cierto? Es por eso que muchas aplicaciones también ofrecen la posibilidad de descargar su información en forma de documentos de texto, de tal forma que el usuario las pueda descargar e imprimir.  
 

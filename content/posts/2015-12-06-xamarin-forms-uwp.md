@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Forms 2 and UWP
 date: 2015-12-06 21:00:00
@@ -9,6 +10,7 @@ github: https://github.com/fferegrino/Xevenshtein-UWP
 tweet_id: 673499977281241088
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 You have heard me talk about Xamarin.Forms before and you know that I'm all mobile... but what you might have missed is the fact that I'm a HUGE Windows Platform fan. This is why this new release of Xamarin has got me excited. In this release they included <a href="http://developer.xamarin.com/guides/cross-platform/xamarin-forms/windows/getting-started/universal" target="_blank">support for Universal Windows Platform Apps</a> which, even though is still a preview version, it is a great tool for us as developers to start bringing our apps to even more devices.  
 

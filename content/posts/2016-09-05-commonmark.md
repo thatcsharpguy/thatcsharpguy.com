@@ -1,3 +1,4 @@
+---
 layout: post
 title: CommonMark.NET
 date: 2016-09-05 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/CommonMark.NET-Sample
 lang: es
 tags: NuGetRecomendado
 featured_tag: NuGetRecomendado
+---
 
 De nuevo un <a href="#">#NuGetRecomendado</a>, esta vez hablaré de uno que tiene un caso muy específico de uso.
 

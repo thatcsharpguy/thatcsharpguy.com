@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Forms y MVVM en la ESCOM (21 de noviembre de 2015)
 date: 2015-11-02 22:00:00
@@ -9,6 +10,7 @@ featured_image: event.png
 images_folder: commons/
 tags: Xamarin, Events
 featured_tag: Xamarin
+---
 
 Siguiendo con el plan de llevar a cabo un evento mensual sobre Xamarin / C#, el siguiente sábado 21 de noviembre estaré en la Escuela Superior de Cómputo para hablar sobre Xamarin.Forms y MVVM.  
 <br />

@@ -1,3 +1,4 @@
+---
 layout: post
 title: virtual, override y new
 date: 2017-07-25 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/new
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Comencemos hablando de perritos, o de *Canis lupus familiaris* para ser más exactos.  
 

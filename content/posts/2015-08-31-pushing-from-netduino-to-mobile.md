@@ -1,3 +1,4 @@
+---
 layout: post
 title: Pushing with Parse from Netduino to Xamarin.Forms
 date: 2015-08-31 21:00:00
@@ -9,6 +10,7 @@ alias: /pushing-from-netduino-to-mobile/index.html
 lang: en
 tags: Xamarin, Netduino
 featured_tag: Xamarin
+---
 
 It's been a while since I took my Netduino out of its box and I did something with it, back then I promised to do a slightly more complex system using a push notification service. I quote my own words: *"I'll create a system that sends a notification over to my phone everytime someone opens my bedroom door"*. Well, here it is (and it's called Doorduino <small>such an awful name, I know</small>).
 

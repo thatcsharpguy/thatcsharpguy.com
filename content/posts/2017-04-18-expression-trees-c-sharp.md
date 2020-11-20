@@ -1,3 +1,4 @@
+---
 layout: post
 title: Árboles de expresiones en C#
 date: 2017-04-18 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/ArbolesDeExpresion
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 El tipo de dato `Expression` no es un tipo de dato convencional, no es algo que le mostrarás al usuario final de tu app en la pantalla. Más bien es un tipo de dato diseñado para ser usado por otros desarrolladores. Este tipo de dato fue introducido junto con LINQ en .NET 3.5. Seguramente tu mismo lo has usado sin darte cuenta, el lugar más común para encontrarlo es como parámetro del método de extensión `Where` de cualquier colección que implementa la interfaz `IQueryable`:   
 

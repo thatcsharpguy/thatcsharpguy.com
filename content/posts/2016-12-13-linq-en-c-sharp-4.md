@@ -1,3 +1,4 @@
+---
 layout: post
 title: Más Linq en C#
 date: 2016-12-13 19:00:02
@@ -11,6 +12,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/linq-en-c-s
 workbook: https://raw.githubusercontent.com/ThatCSharpGuy/guoerbucs/master/linq4.workbooko
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Antes de comenzar con el post vamos a declarar algunos métodos y clases que estaremos usando para los ejemplos que veremos más adelante.  
 

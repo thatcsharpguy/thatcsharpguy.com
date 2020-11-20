@@ -1,3 +1,4 @@
+---
 layout: post
 title: Map, reduce y filter en C#
 date: 2016-07-25 19:00:00
@@ -10,6 +11,7 @@ tweet_id: 757722705835634689
 lang: es
 tags: AprendeCSharp, ProgramaciónFuncional
 featured_tag: AprendeCSharp
+---
 
  > Este es post es una reedición del post de <a href="https://twitter.com/giovanni_cortes" target="_blank">Giovanni Cortés</a> llamado <a href="https://giovannicortes.com/swift/map-filter-reduce-en-swift/" target="_blank">Map, filter y reduce en Swift</a>, te invito a visitarlo.  
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Forms, anatomía de una app
 date: 2016-07-04 21:00:00
@@ -10,6 +11,7 @@ lang: es
 github: https://github.com/ThatCSharpGuy/xfmvvm
 tags: Xamarin, Events, XamarinForms
 featured_tag: XamarinForms
+---
 
 <div class="video-wrapper">
 <iframe src='https://onedrive.live.com/embed?cid=05D7523CBBAF0419&resid=5D7523CBBAF0419%21128893&authkey=AIJIECFXvuJszW0&em=2&wdAr=1.7777777777777777' width='350px' height='221px' frameborder='0'>Esto es un documento de <a target='_blank' href='https://office.com'>Microsoft Office</a> incrustado con tecnología de <a target='_blank' href='https://office.com/webapps'>Office Online</a>.</iframe>

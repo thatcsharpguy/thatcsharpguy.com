@@ -1,3 +1,4 @@
+---
 layout: post
 title: Opening files in Xamarin.Forms
 date: 2016-01-08 21:00:00
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/xf-file-receiver
 tweet_id: 685699164018065408
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 Do you want your app to receive files from other applications?  
 

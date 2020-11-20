@@ -1,3 +1,4 @@
+---
 layout: post
 title: Sobrecarga de indizadores en C#
 date: 2016-12-27 19:00:02
@@ -10,6 +11,7 @@ lang: es
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Indizadores
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Seguramente estás muy, pero muy familiarizado con el tema del que hablaré en este post, y es que, ¿quién no ha utilizado algo así: `lista[0] = 9;` en sus programas?
 

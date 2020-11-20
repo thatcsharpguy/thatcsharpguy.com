@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Auth
 date: 2016-09-12 19:00:01
@@ -10,6 +11,7 @@ tweet_id: 776040319494201344
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Hace tiempo contaba sobre las <a href="../directivas-preprocesador-c-sharp">directivas de preprocesador</a>, que no son más que **una forma de interactuar con las herramientas que compilan tu código**. Sin embargo, no es la única manera que tenemos para lograr esta tarea en C#, otra forma de hacerlo es a través de los *Atributos*.
 

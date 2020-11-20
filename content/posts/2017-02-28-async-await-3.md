@@ -1,3 +1,4 @@
+---
 layout: post
 title: async y await (cancelando tareas)
 date: 2017-02-28 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/AsyncAwait
 lang: es
 tags: AprendeCSharp, XamarinForms, Xamarin
 featured_tag: AprendeCSharp
+---
 
 Una vez que conocimos los tipos `Task` y las apalabras `async` y `await`, y cómo es que nos ayudan a ejecutar código de manera asíncrona, es momento de comenzar a extender este poder para sacarle más ventaja.  
 

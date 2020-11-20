@@ -1,3 +1,4 @@
+---
 layout: post
 title: params en C#
 date: 2016-04-18 19:00:00
@@ -10,6 +11,7 @@ tweet_id: 719643375478054913
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 
 Justamente la semana pasada escribí sobre cuál es la sintaxis de <a href="../metodos-c-sharp">los métodos en C#</a>, y ese fue más bien un post introductorio y es por eso que necesita ser ampliado. Esta vez toca hablar de la palabra `params` y cómo nos puede facilitar a la hora de escribir el código si es que vamos a trabajar con arreglos.

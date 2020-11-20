@@ -1,3 +1,4 @@
+---
 layout: post
 title: out y ref en C#
 date: 2016-04-11 19:00:01
@@ -10,6 +11,7 @@ tweet_id: 719643375478054913
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 En un post anterior hablé acerca de <a href="../metodos-c-sharp">métodos en C#</a>, ahí mencioné que los parámetros que recibía un método nos daban muchas posibilidades a la hora de desarrollar, y la característica de la que hablaré es otra de esas posibilidades.
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Métodos genéricos en C#
 date: 2016-06-19 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/GenericMeth
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 En un <a href="../genericos-c-sharp-clases">post anterior</a> hablé sobre las clases genéricas en C#, ahí mencioné que había otra posibilidad de usar el mismo concepto (de plantillas y marcadores) pero en la creación de métodos, y este post habla sobre ellos.
 

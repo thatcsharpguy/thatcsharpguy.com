@@ -1,3 +1,4 @@
+---
 layout: post
 title: Introducción a Xamarin.Forms (app Sharpuladora)
 date: 2015-11-26 21:00:00
@@ -12,6 +13,7 @@ pdfguide: https://github.com/fferegrino/sharpuladora/releases/download/p1.0.1/gu
 codeguide: https://github.com/fferegrino/sharpuladora/releases/latest
 tags: Xamarin, XamarinForms, Guia
 featured_tag: XamarinForms
+---
 
 Sharpuladora
 =  

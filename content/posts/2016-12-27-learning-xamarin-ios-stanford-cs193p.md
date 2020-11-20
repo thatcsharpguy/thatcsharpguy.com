@@ -1,3 +1,4 @@
+---
 layout: post
 title: Learning Xamarin.iOS at Stanford
 date: 2016-12-27 08:00:00
@@ -9,6 +10,7 @@ github: https://github.com/fferegrino/cs193
 lang: en
 tags: Xamarin, XamariniOS
 featured_tag: Xamarin
+---
 
 To finish the year in a good manner I decided to ramp up my Xamarin.iOS development skills. So far I had only worked on iOS apps using Xamarin.Forms and I have only made small apps following Apple tutorials <a href="https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/" target="_blank">like this</a>, but for me that is not enough, I wanted to take a course like I did a few years ago when I took one on Android dev, with that in mind <a href="https://twitter.com/io_exception/status/807047846063177728" target="_blank">I asked on Twitter</a> whether NSScreencasts was a good choice for novices.
 

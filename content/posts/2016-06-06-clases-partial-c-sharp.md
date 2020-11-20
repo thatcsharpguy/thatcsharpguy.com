@@ -1,3 +1,4 @@
+---
 layout: post
 title: Clases parciales en C#
 date: 2016-06-06 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Parciales
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Esta vez toca hablar de otra de las características de C# (y de .NET en general). Esta vez son las clases parciales. 
 

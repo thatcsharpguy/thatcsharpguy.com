@@ -1,3 +1,4 @@
+---
 layout: post
 title: Programación reactiva y Rx, parte 2
 date: 2017-08-15 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/rx
 lang: es
 tags: Rx, ReactiveExtensions
 featured_tag: Rx
+---
 
 <a href="..\reactive-extensions-1" target="_blank">En el post pasado</a> les comencé a hablar de las *Reactive Extensions* y cómo es que introducían un paradigma de programación distinto. Ahí mostré un ejemplo muy sencillo de la programación reactiva... pero sé que no siempre todo el código que escribiremos será así de sencillo, así que en este post crearé y mostraré un caso más complejo en el que podemos utilizar *Rx*.
 

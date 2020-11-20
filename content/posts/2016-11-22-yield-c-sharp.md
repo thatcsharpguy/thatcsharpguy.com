@@ -1,3 +1,4 @@
+---
 layout: post
 title: La palabra yield en C#
 date: 2016-11-22 19:00:01
@@ -10,6 +11,7 @@ lang: es
 tweet_id: 801225227430600705
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 
 ## La interfaz IEnumerable

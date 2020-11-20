@@ -1,3 +1,4 @@
+---
 layout: post
 title: Espacios de nombres en C#
 date: 2017-01-24 19:00:01
@@ -10,6 +11,7 @@ tweet_id: 824019081066139648
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 El post de hoy trata sobre algo que muchos desarolladores a veces damos por hecho y no le prestamos mucha atención cuando estamos escribiendo el código de nuestras aplicaciones.
 

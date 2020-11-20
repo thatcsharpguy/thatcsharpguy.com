@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Android vs traditional Android
 date: 2015-11-16 21:00:00
@@ -10,6 +11,7 @@ github: https://github.com/fferegrino/Xevenshtein
 tweet_id: 667182022071345152
 tags: VisualStudio, Xamarin
 featured_tag: Xamarin
+---
 
 I have to be honest. It has been a while since I did an Android app but today I tried to remember my little knowledge to compare traditional Android Development and Xamarin.Android. To create this post I used Android Studio 1.1.0 y Xamarin Studio 5.7.2. 
 

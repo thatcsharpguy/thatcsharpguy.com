@@ -1,3 +1,4 @@
+---
 layout: post
 title: ¿Qué es una Portable Class Library?
 date: 2015-11-02 10:00:00
@@ -10,6 +11,7 @@ featured_image: featured.png
 tweet_id: 661730211222810624
 tags: VisualStudio
 featured_tag: VisualStudio
+---
 
 Imaginémonos esto:  
 

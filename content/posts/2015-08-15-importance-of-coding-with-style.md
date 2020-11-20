@@ -1,3 +1,4 @@
+---
 layout: post
 title: The importance of coding with style
 date: 2015-08-15 17:00:00
@@ -10,6 +11,7 @@ featured_image: featured.jpg
 alias: /importance-of-coding-with-style/index.html
 tags: Meta
 featured_tag: Meta
+---
 
 And with "coding with style" I don't mean to keep your pinkies up while doing it or just write code every evening at 5:00 pm. No. Coding with style is to make our code legible, documented as much as we can an following some conventions that other coders adopt to make our programs "universal".  
 <br />

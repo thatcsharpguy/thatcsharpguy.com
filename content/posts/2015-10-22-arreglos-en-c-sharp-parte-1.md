@@ -1,3 +1,4 @@
+---
 layout: post
 title: Arreglos en C# (unidimensionales)
 date: 2015-10-22 21:00:00
@@ -9,6 +10,7 @@ featured_image: featured.png
 ideone: http://ideone.com/fork/o0Sml3
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 En C# llamamos arreglo a una colección de objetos, dicha colección tiene longitud definida y esta no puede cambiar con el flujo del programa, esto podrá sonar limitante, pero al trabajar con arreglos se obtiene un mejor desempeño que con cualquier otra colección. Usando el lenguaje podemos crear, recorrer y manipular arreglos de cualquier tipo de objeto.
 

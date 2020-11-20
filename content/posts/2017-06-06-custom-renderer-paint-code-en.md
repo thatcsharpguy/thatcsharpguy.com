@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Forms & PaintCode
 date: 2017-06-06 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/sharp-paintcode
 lang: en
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 Last week, <a href="https://www.paintcodeapp.com/" target="_blank">PaintCode 3</a> was 20% off. And that gave me an idea for a post. In this post, I'll explain how to create a custom control using PaintCode and Xamarin.Forms' *custom renderers*, starting from the drawing itself, this post may be a little bit too long but I'm sure it is worth it.
 

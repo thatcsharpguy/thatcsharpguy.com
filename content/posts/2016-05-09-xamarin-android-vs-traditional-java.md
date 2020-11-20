@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Android vs Android tradicional (con Java)
 date: 2016-05-09 21:00:00
@@ -11,6 +12,7 @@ github: https://github.com/ThatCSharpGuy/silo-xamarin-comparation
 tweet_id: 729874348660555777
 tags: VisualStudio, Xamarin
 featured_tag: Xamarin
+---
 
 Al igual que  <a href="../xamarin-ios-vs-traditional">como lo hice con iOS</a>	, en este post te mostraré algunas de las diferencias y similitudes entre el desarrollo con Java y C# para Android. Para este post cree una app que compara dos cadenas y calcula su <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" target="_blank" rel="nofollow">distancia</a> entre ellas, hice dos versiones una tradicional y una con Xamarin.Android. Esta es la app finalizada:
  

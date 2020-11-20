@@ -1,5 +1,6 @@
+---
 layout: post
-title: Casting: implicit y explicit en C#
+title: "Casting: implicit y explicit en C#"
 date: 2017-05-30 19:00:01
 author: Antonio Feregrino
 excerpt: Crea conversiones personalizadas entre tipos de dato, una técnica parecida a la sobrecarga de operadores... que debe usarse con moderación.
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Casteo
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Parece que fue ayer cuando hablamos de <a href="..\sobrecarga-operadores">la sobrecarga de operadores</a>, y hoy toca hablar de algo ligeramente parecido.
 

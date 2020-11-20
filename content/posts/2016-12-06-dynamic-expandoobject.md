@@ -1,3 +1,4 @@
+---
 layout: post
 title: Dynamic y ExpandoObject
 date: 2016-12-06 19:00:02
@@ -10,6 +11,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Dynamics
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Cuando C# nació hace 16 años, nació como un lenguaje fuertemente tipado, y, mientras que lo sigue siendo, a partir de su versión 4.0 incorporó características que permitían usar tipado débil en él. 
 

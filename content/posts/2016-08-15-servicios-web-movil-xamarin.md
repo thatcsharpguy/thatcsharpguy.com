@@ -1,3 +1,4 @@
+---
 layout: post
 title: Servicios web resistentes en aplicaciones móviles
 date: 2016-08-15 19:00:01
@@ -10,6 +11,7 @@ tweet_id: 765351288318025728
 lang: es
 tags: Xamarin, XamarinForms, NuGetRecomendado
 featured_tag: Xamarin
+---
 
  > Este es post es una traducción del post de <a href="https://twitter.com/RobGibbens" target="_blank">Rob Gibbens</a> llamado <a href="http://arteksoftware.com/resilient-network-services-with-xamarin/" target="_blank">Resilient network services with mobile Xamarin apps</a>, te invito a visitar el post y el resto de su blog.  
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Métodos de extensión en C#
 date: 2016-11-15 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/ExtensionMe
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Seguramente conoces los <a href="..\metodos-c-sharp" target="_blank">métodos en C#</a>, pero has de saber que no es la "únicos" clase de métodos que podemos usar en este lenguaje. También existen otros llamados **métodos de extensión** o **extension methods**, que como su nombre lo indica nos ayudan a "extender" la funcionalidad de nuestros tipos de dato.  
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Formatted number entry
 date: 2016-08-01 08:00:00
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/FormattedNumberEntry
 lang: en
 tags: XamarinForms, Xamarin
 featured_tag: XamarinForms
+---
 
 While developing an app using Xamarin.Forms I faced the necessity of having a "formatted textbox" where the user could enter a given integer number and have it formatted instantly to a comma separated number, for example: `1234567` → `1,234,567`, because our users often found themselves counting the number of zeros they had entered into the small textbox.  
 

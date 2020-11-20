@@ -1,3 +1,4 @@
+---
 layout: post
 title: Tips de desempeño en Xamarin Forms
 date: 2016-05-30 08:00:00
@@ -9,6 +10,7 @@ tweet_id: 737455093256048641
 lang: es
 tags: XamarinForms, Xamarin
 featured_tag: XamarinForms
+---
 
 Esta es la traducción de <a href="http://kent-boogaart.com/blog/jason-smith's-xamarin-forms-performance-tips" target="_blank">un post de Kent Boogaart</a> en donde recopiló una serie de tips sobre cómo mejorar el desempeño de apps hechas con Xamarin Forms.
 

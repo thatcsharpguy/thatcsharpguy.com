@@ -1,3 +1,4 @@
+---
 layout: post
 title: Inspect your http requests with HttpLogger
 date: 2017-03-28 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/messier16/HttpLogger
 lang: en
 tags: NuGetRecomendado, AprendeCSharp
 featured_tag: NuGetRecomendado
+---
 
 You can't imagine the number of headaches that trying to find bugs in the code of my apps that connect to web services... it gets even worse when I'm using the raw `HttpClient` or `WebClient` but the clients developed specifically for each API.
 

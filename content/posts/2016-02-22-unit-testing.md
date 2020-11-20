@@ -1,3 +1,4 @@
+---
 layout: post
 title: Unit testing
 date: 2016-02-22 21:00:00
@@ -9,6 +10,7 @@ images_folder: unit-testing/
 github: https://github.com/fferegrino/Xevenshtein
 tags: Meta, XamarinForms
 featured_tag: Meta
+---
 
 More often than we think, we, as developers tend to believe that our code is bugless. It's all right, we wrote it, we tested two or three cases and it never failed, no exceptions, so it is ready be pushed to production. But what happens when someone asks us "did you test the code?", we can't say yes without getting nervous.
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Mejores imágenes en Xamarin.Forms
 date: 2017-05-23 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/ffimageloading-sample
 lang: es
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 ¿Has tenido que lidiar con imágenes en tu aplicación? ¿has tenido que usarlas dentro de alguna lista? Este *plugin* es un control que nos ayudará a trabajar con imágenes de todo tipo, sí, de todo tipo, incluido *SVG* y *WebP*, en nuestras aplicaciones.  
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Creando nuestros propios alias
 date: 2015-09-16 13:00:00
@@ -10,6 +11,7 @@ github: https://gist.github.com/fferegrino/a81cd436e4d631f1cf4d
 alias: /creando-propios-alias/index.html
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Hace poco vimos que existen <a href="/string-vs-system-string-es" target="_blank">alias en C# para los tipos predefinidos</a> de datos, y hasta ahí todo claro. Pero nosotros como programadores también podemos beneficiarnos de crear nuestros propios alias. Hay dos maneras de hacer uso de los alias:  
 

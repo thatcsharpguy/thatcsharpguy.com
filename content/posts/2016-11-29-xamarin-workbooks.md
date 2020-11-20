@@ -1,3 +1,4 @@
+---
 layout: post
 title: Bienvenido a los Xamarin Workbooks
 date: 2016-11-29 19:00:01
@@ -10,6 +11,7 @@ lang: es
 tweet_id: 803747267261960192
 tags: AprendeCSharp, Xamarin
 featured_tag: AprendeCSharp
+---
 
 Los Workbooks son una especie de documentos "vivos" con los que puedes compilar y ejecutar código en C#. Con ellos, aprender a programar a .NET cobra un nuevo significado. Mira, por ejemplo, cómo se ve un “Hola mundo“ en ellos:
 

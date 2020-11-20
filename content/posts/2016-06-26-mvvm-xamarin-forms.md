@@ -1,3 +1,4 @@
+---
 layout: post
 title: MVVM en Xamarin.Forms, caso práctico
 date: 2016-06-26 21:00:00
@@ -10,6 +11,7 @@ lang: es
 github: https://github.com/ThatCSharpGuy/xfmvvm
 tags: Xamarin, XamarinForms, Mvvm
 featured_tag: XamarinForms
+---
 
 Mvvmdex
 =  

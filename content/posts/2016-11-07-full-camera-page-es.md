@@ -1,3 +1,4 @@
+---
 layout: post
 title: Cámara a página completa en Xamarin.Forms
 date: 2016-11-08 08:00:00
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/Forms-FullCameraPage
 lang: es
 tags: XamarinForms, Xamarin
 featured_tag: XamarinForms
+---
 
 Hace ya un tiempo desde que programé la aplicación<a href="..\Aharphat-Android" target="_blank">CharpHat</a>, que es una aplicación que permite tomar una foto de cualquier cosa y ponerle un birrete de C# en ella. La aplicación no era perfecta, pero me ayudó a practicar el uso de los *custom page renderers*.  
 

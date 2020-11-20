@@ -1,3 +1,4 @@
+---
 layout: post
 title: Inspeciona tus peticiones http con HttpLogger
 date: 2017-03-28 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/messier16/HttpLogger
 lang: es
 tags: NuGetRecomendado, AprendeCSharp
 featured_tag: NuGetRecomendado
+---
 
 Ni te imaginas la de dolores de cabeza que me ha dado el tratar de encontrar errores en el código de mis apps que se conectan con servicios web... y más aún cuando no uso directamente el `HttpClient` o `WebClient`, sino los clientes desarrollados para cada *API* en específico.
 

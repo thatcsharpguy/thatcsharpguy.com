@@ -1,3 +1,4 @@
+---
 layout: post
 title: Accesorios para un desarrollador
 date: 2015-12-27 23:00:00
@@ -10,6 +11,7 @@ tweet_id: 681655952714645504
 affiliate: true
 tags: Meta
 featured_tag: Meta
+---
 
 Este es el segundo post sobre los regalos que pueden hacer a un desarrollador más feliz, esta vez hablo de los accesorios... porque <a href="/post/fiestas-desarrolladoras-libros">una vez que tenemos los libros</a> también es importante estar cómodo frente a la computadora para trabajar.
 

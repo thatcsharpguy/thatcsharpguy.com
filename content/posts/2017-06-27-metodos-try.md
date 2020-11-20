@@ -1,3 +1,4 @@
+---
 layout: post
 title: Métodos Try...
 date: 2017-06-27 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/MetodosTry
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 En un post pasado <a href="..\excepciones-c-sharp" target="_blank">hablamos sobre las excepciones</a> en C#, y cómo es que pueden ayudarnos a encontrar errores que ocurren en tiempo de ejecución en nuestras aplicaciones.  
 

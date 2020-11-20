@@ -1,3 +1,4 @@
+---
 layout: post
 title: Un post sobre alias, ¿string vs. System.String?
 date: 2015-08-21 13:00:00
@@ -9,6 +10,7 @@ featured_image: featured.jpg
 alias: /string-vs-system-string-es/index.html
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 He de aceptarlo, una de las cosas que más dudas me causaba cuando inicié a programar usando C# era sobre cuál era la diferencia entre usar string o System.String, la idea que yo tenía al respecto que estaba totalmente equivocada. Tenía la mala creencia de que `string` y `String` (sí, la diferencia es la mayúscula inicial) eran cosas un tanto distintas cuando resulta que no es así.  
 

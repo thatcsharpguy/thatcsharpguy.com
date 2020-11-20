@@ -1,3 +1,4 @@
+---
 layout: post
 title: Libros para un desarrollador
 date: 2015-12-22 22:00:00
@@ -10,6 +11,7 @@ tweet_id: 681655952714645504
 affiliate: true
 tags: Meta
 featured_tag: Meta
+---
 
 En este post no habrá nada de código... al menos escrito por mi. Aprovechando la época, mi intención es presentar algunos de los regalos que harán de un desarrollador alguien más feliz, más cómodo o más completo profesionalmente. Lo dividiré en secciones, esta primera es sobre libros y haré uno de accesorios. 
 

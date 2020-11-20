@@ -1,3 +1,4 @@
+---
 layout: post
 title: Otro tutorial sobre menú de hamburguesa
 date: 2017-08-01 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/MenuApp/
 lang: es
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 Sí, en efecto, otro post sobre cómo crear un menú de hamburguesa en Xamarin.Forms, probablemente este sea como el millonésimo artículo al respecto. *Sin embargo, esta es mi forma, hay muchas otras, pero esta es la mía*.
 

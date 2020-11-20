@@ -1,3 +1,4 @@
+---
 layout: post
 title: Xamarin.Forms para macOS
 date: 2017-04-18 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/MacForms
 lang: es
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 No sé en realidad cuántos de ustedes que están leyendo este post están interesados en crear aplicaciones para Mac (yo espero que muchos), pero nunca está de más poder atacar más mercados con nuestras apps. Y qué mejor que hacerlo con el código que tenemos ya escrito para nuestras apps de iOS y Android.  
 

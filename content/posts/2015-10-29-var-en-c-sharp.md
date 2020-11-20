@@ -1,3 +1,4 @@
+---
 layout: post
 title: ¿Qué es var en C#?
 date: 2015-10-29 20:00:00
@@ -10,6 +11,7 @@ ideone: http://ideone.com/fork/iu3Pni
 tweet_id: 659915600320471040
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Como programadores hay muchas ventajas que nos otorga C#, ya sea a la hora de escribir nuestros programas o a la hora de ponerlos a funcionar. En este post les voy a hablar acerca de una de las ventajas al escribir nuestros programas, pero para eso, veamos antes este código:  
 ```csharp  

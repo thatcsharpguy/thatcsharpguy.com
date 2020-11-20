@@ -1,3 +1,4 @@
+---
 layout: post
 title: Operadores lógicos corto-circuitados
 date: 2017-05-16 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/CortoCircui
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 No hay duda de que conoces estos operadores: `&&` y `||`, sabes lo que hacen e inclusive los has usado más veces de las que lo recuerdas en tus aplicaciones. Pero, probablemente no sabes que cuando las usas, el lenguaje hace de las suyas tratando de mejorar el desempeño de tu aplicación. Considera el siguiente par de ejemplos:  
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Delegados en C#
 date: 2015-07-24 10:00:00
@@ -10,6 +11,7 @@ ideone: http://ideone.com/fork/sXcTgo
 alias: /delegados-en-c-sharp/index.html
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Para comenzar la explicación debemos comprender qué es un delegado. Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan. La forma de declarar un delegado es de la siguiente manera: ```<modificador de acceso> delegate <tipo de retorno> <nombre del delegado> (<lista de parámetros>)```. Podríamos, por ejemplo, tener un delegado que realice una operación con dos números enteros y devuelva un solo número entero. La defnición de este sería algo como:  
 

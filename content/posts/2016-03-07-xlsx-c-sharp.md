@@ -1,3 +1,4 @@
+---
 layout: post
 title: Trabajando con XslX en C#
 date: 2016-03-07 19:00:00
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/DocX-sample
 lang: es
 tags: NuGetRecomendado
 featured_tag: NuGetRecomendado
+---
 
 Justamente hace unos cuantos posts, les hablaba de cómo <a href="http://thatcsharpguy.com/post/docx-c-sharp/">trabajar con documentos de Word en C#</a>, y esta vez hablo sobre algo similar... solo que con hojas de cálculo de Excel, seguramente es una tarea más requerida dada la naturaleza, ligada a los datos, de este tipo de archivos. Esto es posible a través de una librería que también se distribuye a través de NuGet, la librería en cuestión se llama EPPlus y en este post presento algunos casos de uso.  
 

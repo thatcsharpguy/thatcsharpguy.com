@@ -1,3 +1,4 @@
+---
 layout: post
 title: Linq en C# - tercera parte
 date: 2016-02-08 20:00:00
@@ -10,6 +11,7 @@ lang: es
 github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/linq-en-c-sharp-3
 tags: AprendeCSharp, LINQ
 featured_tag: AprendeCSharp
+---
 
 Inmediatamente después de la [segunda parte de la serie de posts sobre Linq](/post/linq-en-c-sharp-2), les traigo este, que es la tercera parte en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.
   

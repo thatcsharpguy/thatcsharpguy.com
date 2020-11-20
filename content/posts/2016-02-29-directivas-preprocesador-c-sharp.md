@@ -1,3 +1,4 @@
+---
 layout: post
 title: Directivas de preprocesamiento en C#
 date: 2016-02-29 10:00:00
@@ -11,6 +12,7 @@ tweet_id: 704480538824830977
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 A pesar de que C# no tenga un preprocesador de código dedicado (tal como lo tiene C), aún podemos hacer uso de algunas instrucciones que modifican el comportamiento del compilador, a estas palabras se les conoce como **directivas**.  
   

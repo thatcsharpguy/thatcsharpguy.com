@@ -1,3 +1,4 @@
+---
 layout: post
 title: Métodos en C#
 date: 2016-04-11 19:00:00
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Methods
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Un sistema robusto programado en un lenguaje de programación orientado a objetos, como es el caso de C#, debe estar separado en distintas unidades lógicas. Estas unidades lógicas suelen coordinarse mediante el envío de mensajes entre ellos, en C# dichos mensajes se llaman métodos.
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: Tipos de dato en C#
 date: 2015-10-05 22:00:00
@@ -9,6 +10,7 @@ featured_image: featured.jpg
 alias: /tipos-dato-c-sharp/index.html
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Para fines de este post, diremos que C# es un lenguaje fuertemente tipado (aunque ya permite tipado dinámico y eso lo palticaré en otro post), lo que significa que cada variable, literal o constante debe tener un tipo declarado y dicho tipo no cambiará con el flujo del programa. Dentro de los tipos que ofrece C#, podemos encontrar dos grandes categorías:  
 

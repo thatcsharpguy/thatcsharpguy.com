@@ -1,3 +1,4 @@
+---
 layout: post
 title: AutoMapper
 date: 2016-03-28 19:00:00
@@ -9,6 +10,7 @@ lang: es
 tweet_id: 714623099140833281
 tags: NuGetRecomendado
 featured_tag: NuGetRecomendado
+---
 
 Hay muchas razones por las que como desarrolladores nos podemos ver en la necesidad de transferir, o mapear, información de un objeto a otro. Una de estas razones es para evitar el <a href="https://en.wikipedia.org/wiki/Mass_assignment_vulnerability" target="_blank" rel="nofollow">Overposting</a>.
 

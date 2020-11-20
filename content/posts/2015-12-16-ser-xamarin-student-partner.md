@@ -1,3 +1,4 @@
+---
 layout: post
 title: Ser un Xamarin Student Partner
 date: 2015-12-16 18:31:38
@@ -9,6 +10,7 @@ lang: es
 tweet_id: 677330366580002816
 tags: Meta
 featured_tag: Meta
+---
 
 Que yo les hable tanto de Xamarin en este blog no es obra de la casualidad, y es que formo parte de los primeros *Xamarin Student Partners*, un grupo formado a principios de 2015 al que pertenecen estudiantes interesados en difundir el desarrollo móvil multiplataforma en varias universidades al rededor del mundo. En este post, te cuento de mi experiencia hasta ahora.  
   

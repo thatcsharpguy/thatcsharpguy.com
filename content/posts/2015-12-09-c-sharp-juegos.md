@@ -1,5 +1,6 @@
+---
 layout: post
-title: Cosas para hacer en C#: Juegos
+title: "Cosas para hacer en C#: Juegos"
 date: 2015-12-09 21:00:00
 author: Antonio Feregrino
 categories: c-sharp
@@ -9,6 +10,7 @@ lang: es
 tweet_id: 674778550726172673
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Por el título de este post ya se podrán imaginar qué viene a continuación. Como saben este blog se enfoca principalmente en enseñar e inspirar a quién lo lee a programar en C#, pero muchas veces nos quedamos con esa sensación de ¿Y luego, qué?  
 

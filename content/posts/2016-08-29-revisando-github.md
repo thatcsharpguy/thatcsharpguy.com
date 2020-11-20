@@ -1,3 +1,4 @@
+---
 layout: post
 title: Revisando mis repos en GitHub
 date: 2016-08-29 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/events
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 
 Este fin de semana fue de limpieza, y también le tocó a algunos de mis repositorios en GitHub. Desde que descubrí esta herramienta de colaboración (basada en un sistema de <a href="../../tv/">control-versiones</a>) en Junio de 2012, la he usado tanto para tareas, mi proyecto de titulación y proyectos personales. He llegado a subir de todo un poco, y pensé que en este post sería buena idea compartir algunas de las cosas que he ido subiendo con el tiempo.  

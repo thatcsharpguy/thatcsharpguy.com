@@ -1,3 +1,4 @@
+---
 layout: post
 title: Excepciones en C#
 date: 2017-06-13 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/excepciones
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 El framework de .NET cuenta con el mecanismo de excepciones para reportar errores que ocurren en tiempo de ejecución dentro de los programas que lo usan. Todo este mecanismo se centra alrededor de los tipos de dato `Exception`.
 

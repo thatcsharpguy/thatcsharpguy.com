@@ -1,3 +1,4 @@
+---
 layout: post
 title: Multi-select ListView and MVVM
 date: 2016-03-23 08:00:00
@@ -10,6 +11,7 @@ lang: en
 tweet_id: 712819064104570880
 tags: XamarinForms, Xamarin
 featured_tag: XamarinForms
+---
 
 Finally I was able to develop something using Xamarin.Forms and part of what I've been doing had to do with implementing a list that allowed the multiple election of rows and was compatible with the MVVM pattern.  
 

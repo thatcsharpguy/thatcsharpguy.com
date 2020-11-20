@@ -1,3 +1,4 @@
+---
 layout: post
 title: Popups avanzados en Xamarin.Forms
 date: 2017-03-07 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/PopupSample
 lang: es
 tags: NuGetRecomendado, XamarinForms, Xamarin
 featured_tag: NuGetRecomendado
+---
 
 En un post anterior les había hablado sobre UserDialogs que nos ayuda a mostrar mensajes a los usuarios, sin embargo, mientras que esa es una herramienta poderosa, es un poco limitada en términos de lo que podemos lograr debido a que tiene pocas opciones para  usar. Y precisamente por eso me puse a la búsqueda de otra solución que ofreciera más posibilidades de personalización.  
 

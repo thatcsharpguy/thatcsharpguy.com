@@ -1,3 +1,4 @@
+---
 layout: post
 title: Linq en C#
 date: 2015-11-11 20:00:00
@@ -9,6 +10,7 @@ lang: es
 ideone: https://ideone.com/fork/oE38uu
 tags: AprendeCSharp, LINQ
 featured_tag: AprendeCSharp
+---
 
 Es muy probable que alguna vez en tu vida de desarrollador hayas escuchado hablar de una consulta SQL, pero si no, te cuento que una consulta es una instrucción que se le da a *la computadora* para que busque registros dentro de una tabla y nos entregue los resultados de dicha búsqueda. Una consulta en SQL se ve así:
 ```sql  

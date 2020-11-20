@@ -1,3 +1,4 @@
+---
 layout: post
 title: Custom cells en Xamarin.Forms
 date: 2017-06-20 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/CeldaPersonalizada
 lang: es
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 En un post anterior les había hablado sobre <a href="..\custom-renderer-paint-code" target="_blank">sobre cómo crear un control personalizado</a> en Xamarin.Forms, pero, ¿sabías que puedes hacer lo mismo con las celdas de un `ListView` o `TableView`? en este post voy a explicar cómo hacerlo. Esta es una solución ideal si tienes conocimiento de creación de interfaces en iOS o Android.  
 

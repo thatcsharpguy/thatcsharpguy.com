@@ -1,3 +1,4 @@
+---
 layout: post
 title: Mejores pruebas unitarias con FluentAssertions
 date: 2017-03-21 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/UnitTesting
 lang: es
 tags: NuGetRecomendado, AprendeCSharp
 featured_tag: NuGetRecomendado
+---
 
 La semana pasada <a href="../../tv/pruebas-unitarias">hablamos un poco</a> sobre las pruebas unitarias y los beneficios que estas tienen. También habamos sobre cómo es que podemos <a href="../../tv/pruebas-unitarias-vs">comenzar a crearlas</a> usando Visual Studio y C#. Y aprovechando la inercia, esta vez les traigo un <a href="../../tag/NuGetRecomendado">#NuGetRecomendado</a> que puede ayudarte a hacer las puebras unitarias más sencillas.  
 

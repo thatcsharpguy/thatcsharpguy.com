@@ -1,3 +1,4 @@
+---
 layout: post
 title: Clases genéricas en C#
 date: 2016-06-12 19:00:01
@@ -10,6 +11,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Generics
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Más de C#. En este post toca hablar sobre los genéricos
 

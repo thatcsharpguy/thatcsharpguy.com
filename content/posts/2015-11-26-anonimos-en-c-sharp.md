@@ -1,3 +1,4 @@
+---
 layout: post
 title: Tipos anónimos en C#
 date: 2015-11-26 21:00:00
@@ -10,6 +11,7 @@ tweet_id: 708331999979679744
 ideone: http://ideone.com/fork/WdN2kR
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 ¿A qué suena cuando se dice que algo es anónimo? … pues eso mismo es aplicable a los tipos anónimos en C#. En este post te voy a contar sobre ellos, pero antes comencemos por ver el siguiente fragmento de código:
 

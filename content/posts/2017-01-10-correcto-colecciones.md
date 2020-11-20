@@ -1,3 +1,4 @@
+---
 layout: post
 title: Colecciones en C#, ¿cuál elegir?
 date: 2017-01-10 19:00:02
@@ -9,6 +10,7 @@ lang: es
 tweet_id: 818954210729480192
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Hace poco escribí un <a href="..\yield-c-sharp">post acerca de la interfaz IEnumerable</a>, en el cual hablaba de su uso es para cuando trabajamos con colecciones. En fin, las colecciones son algo con lo que seguramente ya estás familiarizado, en particular con `List<T>`, pero hey, debes saber (ysi no es que ya lo sabes), que existen otro tipo de colecciones además de la ya vieja confiable `List<T>`. Y que pueden tener <a href="/tv/o-grande" target="_blank">un mejor desempeño</a>.
 

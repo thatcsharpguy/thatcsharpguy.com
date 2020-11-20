@@ -1,3 +1,4 @@
+---
 layout: post
 title: Programación reactiva y Rx, parte 1
 date: 2017-08-15 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/rx
 lang: es
 tags: Rx, ReactiveExtensions
 featured_tag: Rx
+---
 
 La programación reactiva es un paradigma de programación que está ganando mucha popularidad últimamente, esto se le puede atribuir a la funcionalidad que nos ofrece y a la simpleza con la que se puede llegar a leer el código. 
 

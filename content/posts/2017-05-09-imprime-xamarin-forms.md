@@ -1,3 +1,4 @@
+---
 layout: post
 title: ¿Imprimir desde Xamarin.Forms?
 date: 2017-05-09 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/formsprinting
 lang: es
 tags: Xamarin, XamarinForms
 featured_tag: XamarinForms
+---
 
 Sí, así como lo oyes. Imprimir desde una app... la verdad es que a mi me sonó un poco extraño cuando escuché este requerimiento puesto que nunca se me había ocurrido conectar una impresora directamente a un teléfono móvil. Y la verdad es que en la actualidad la necesidad de imprimir se ha visto superada por la posibilidad de enviar documentos electrónicos.
 

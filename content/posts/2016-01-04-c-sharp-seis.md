@@ -1,3 +1,4 @@
+---
 layout: post
 title: Seis características de C# 6
 date: 2016-01-04 22:00:00
@@ -10,6 +11,7 @@ lang: es
 tweet_id: 684363106651344896
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Tiene tiempo que C# 6 vio la luz, y poco a poco va siendo adoptado. Es por eso que ahora más que nunca debemos conocerlo y en este post te presento 6 de las funciones que vienen incluidas con esta versión.  
   

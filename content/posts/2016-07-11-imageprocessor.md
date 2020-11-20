@@ -1,3 +1,4 @@
+---
 layout: post
 title: Trabajando con imágenes e ImageProcessor
 date: 2016-07-11 19:00:01
@@ -10,6 +11,7 @@ github: https://github.com/ThatCSharpGuy/ImageProcessor-Sample
 lang: es
 tags: NuGetRecomendado
 featured_tag: NuGetRecomendado
+---
 
 Hoy toca hablar de otro <a href="http://thatcsharpguy.com/tag/NuGetRecomendado">#NuGetRecomendado</a>. Este es tal vez uno de los más entretenidos que he usado en mi vida, espero que tu también lo encuentres así.  
 

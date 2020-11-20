@@ -1,3 +1,4 @@
+---
 layout: post
 title: Tesseract OCR in Xamarin
 date: 2015-09-23 19:00:00
@@ -9,6 +10,7 @@ lang: en
 alias: /tesseract-ocr-xamarin/index.html
 tags: XamarinForms, Xamarin
 featured_tag: XamarinForms
+---
 
 While surfing the web for a free / open source solution to a certain OCR problem that I came across I found this pretty cool library named Tesseract OCR which, in its own words, is *"probably the most accurate open source OCR engine available"*. Along with the library (written in C/C++) there are an entire world of wrappers, including some for Xamarin... so, why not?  
 

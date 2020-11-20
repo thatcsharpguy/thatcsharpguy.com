@@ -1,3 +1,4 @@
+---
 layout: post
 title: OAuth en Forms con Xamarin.Auth
 date: 2016-10-17 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/fferegrino/Authy
 lang: es
 tags: Xamarin, XamarinForms, NuGetRecomendado
 featured_tag: XamarinForms
+---
 
 <div class="warning">
 Este post debe ser usado como guía, como sabrás, en ningún momento es buena idea dejar poner en tu código cualquier tipo de llave que no quieres que sea pública (como los AppSecrets o los Tokens). Te recomiendo visitar estos elnaces: <a href="http://www.androidauthority.com/how-to-hide-your-api-key-in-android-600583/" target="blank">How to hide your key</a> y <a href="https://stormpath.com/blog/the-ultimate-guide-to-mobile-api-security" target="blank">The Ultimate Guide to Mobile API Security</a> para mayor información.

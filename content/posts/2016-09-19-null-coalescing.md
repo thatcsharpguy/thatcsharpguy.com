@@ -1,3 +1,4 @@
+---
 layout: post
 title: Operador null coalescing en C#
 date: 2016-09-19 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/nullcoalesc
 lang: es
 tags: AprendeCSharp
 featured_tag: AprendeCSharp
+---
 
 Pese a estar desarrollando en C# desde hace tiempo, tengo que aceptar que hay algunas cosas que me tardé en conocer... entre ellas, el operador `??` . Seguramente ya lo conoces, pero si no, te invito a seguir leyendo para que lo hagas. En realidad, aunque lo conozcas te invito a seguir leyendo, espero apreandas algo nuevo.
 

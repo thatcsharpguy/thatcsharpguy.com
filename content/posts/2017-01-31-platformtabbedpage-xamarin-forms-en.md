@@ -1,3 +1,4 @@
+---
 layout: post
 title: More familiar tabs for your users in Xamarin.Forms
 date: 2017-02-02 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/messier16/PlatformTabbedPage
 lang: en
 tags: Xamarin, XamarinForms, NuGetRecomendado
 featured_tag: XamarinForms
+---
 
 Amongst the great variety of out-of-the-box pages that Xamarin.Forms has to offer, we can choose a `TabbedPage` wich is nothing else than a container to other pages, making them accesible trough tabs. You probable have used them and, as me, you think they are awesome, what it is not so awesome is the fact that they are somewhat limited as they do not allow so much customization.    
 

@@ -1,3 +1,4 @@
+---
 layout: post
 title: UserDialogs en Xamarin Forms
 date: 2017-01-17 19:00:01
@@ -9,6 +10,7 @@ github: https://github.com/ThatCSharpGuy/UserDialogs-Sample
 lang: es
 tags: Xamarin, XamarinForms, NuGetRecomendado
 featured_tag: XamarinForms
+---
 
 Creo que todos estamos de acuerdo en que Xamarin.Forms es fantástico... sin embargo no soluciona todos nuestros problemas cuando desarrollamos. 
 
