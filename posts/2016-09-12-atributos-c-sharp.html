@@ -1,1 +1,182 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Hace tiempo contaba sobre las <a href="../directivas-preprocesador-c-sharp">directivas de preprocesador</a>, que no son más que <strong>una forma de interactuar con las herramientas que compilan tu código</strong>. Sin embargo, no es la única manera que tenemos para lograr esta tarea en C#, otra forma de hacerlo es a través de los <em>Atributos</em>.</p>
+<p>Los atributos en C# no son más que una forma de agregarle información extra (metadatos) a nuestro código. Por poner un ejemplo, podemos usar un atributo para indicar que determinado método es obsoleto (<code>ObsoleteAttribute</code>) y no debe seguir usándose. Con otro atributo podemos indicarle a nuestro programa que determinada propiedad en un objeto es requerida (<code>RequiredAttribute</code>) o que el valor que esperamos es un correo electrónico (<code>EmailAddressAttribute</code>).</p>
+<h2 id="uso">Uso</h2>
+<p>Su sintaxis es un poco extraña, ya que a pesar de que un atributo no es más que una clase, generalmente no se instancía con el operador <code>new</code>, sino a través de los corchetes cuadrados <code>[]</code> y justo sobre la declaración de un método un método o tipo de dato, junto a un parámetro, o un ensamblado:</p>
+<pre><code class="language-csharp">[ObsoleteAttribute(&quot;Esta clase es obsoleta, prueba con iPhone 6 o Galaxy S6&quot;)]
+public class Nokia3310
+{
+    [RangeAttribute(0.0,9990.99, ErrorMessage = &quot;Wrong balance, must be between {1} and {2}&quot;)]
+    public double Balance { get; set; }
+    
+    [Obsolete]
+    public void Call(string number, [CallerMemberName]string whoIsCalling = null)
+    {
+        Console.WriteLine(whoIsCalling + &quot; is calling &quot; + number);
+    }
+    // ...
+</code></pre>
+<p>Como puedes observar, en el código anterior existen 4 declaraciones de atributos: dos <code>ObsoleteAttribute</code>, un <code>CallerMemberNameAttribute</code> y un <code>RangeAttribute</code>. Antes de continuar, hay dos cosas a notar:  La primera es que no es necesaario escribir el nombre completo del atributo, tanto el nombre completo, como el nombre sin el sufijo &quot;Attribute&quot; son válidos para ser usados. Y la segunda es que los atributos también pueden recibir parámetros a través de su constructor.</p>
+<p>Como podrás ver, debido a su naturaleza declarativa, los atributos resultan ser algo muy legible para los programadores. A primera instancia podemos ver que tanto la clase <code>Nokia3310</code> como su método <code>Call</code> son obsoletos, que la propiedad <code>Balance</code> únicamente debe aceptar números entre 0 y 9990.99. Y que de no ser provisto, el valor de <code>whoIsCalling</code> será el nombre del miembro que <a href="ttps://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.callermembernameattribute(v=vs.110).aspx#mainBody" target="_blank">llamó a la ejecución del método</a>.</p>
+<h3 id="en-funcionamiento">En funcionamiento</h3>
+<p>Pero su utilidad no termina ahí, si estamos desarrollando en Visual Studio, cuando deseemos usar la clase <code>NoKia3310</code>, el IDE nos informará sobre la obsolecencia de la clase o sus métodos:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__attrs__vs.png&quot; title=<>Capture</> /&gt;</p>
+<p>Y si luego ejecutamos un programa que lo use:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__attrs__capture.png&quot; title=<>Capture</> /&gt;</p>
+<h2 id="parametros">Parámetros</h2>
+<p>Pero volvamos a los parámetros que reciben algunos atributos, los cuales son recibidos a través del constructor. Estos parámetros pueden categorizarse en dos grupos:</p>
+<ul>
+<li>Posicionales. Que para ser asignados correctamente requieren de ser declarados en el constructor, y cuando se especifican deben aparecer en la posición exacta en la que fueron colocados.</li>
+<li>Nombrados. Que para ser asignados deben llevar antepuestos el nombre de la propiedad a la que se van a asignar. Estos no deben aparecer en el constructor.</li>
+</ul>
+<p>En el caso de la primera declaración de <code>Obsolete</code> en el código anterior, estamos haciendo uso de un parámetro posicional, que representa el mensaje a mostrar cuando se presente la advertencia de miembro obsoleto. Mientras que en el caso de la declaración de <code>Range</code>, estamos haciendo uso de los parámetros tanto posicionales (los valores mínimo y máximo) como de parámetros nombrados (<code>ErrorMessage</code>).</p>
+<h3 id="atributos-famosos">Atributos &quot;famosos&quot;</h3>
+<p>Los atributos son usados en diversas partes del framework de .NET, y no cabde duda que en algún momento te haz o te habrás de encontrar con alguno, entre los que más me he encontrado yo están:</p>
+<ul>
+<li><code>Obsolete</code>.</li>
+<li><code>Flags</code>, que expliqué en <a href="../c-sharp-enums" target="_blank">el post sobre <code>enum</code></a>.</li>
+<li><code>JsonProperty</code> y los que se usan para la <a href="http://www.newtonsoft.com/json" target="_blank">serialización en JSON</a>.</li>
+<li><code>XmlElement</code> y los que se usan para la <a href="https://msdn.microsoft.com/es-es/library/system.xml.serialization.xmlelementattribute(v=vs.110).aspx" target="_blank">serialización XML</a>.</li>
+<li><code>Required</code> y todos los contenidos en el <a href="https://msdn.microsoft.com/en-us/library/dd901590(VS.95).aspx" target="_blank"><em>namespace</em> DataAnnotations</a>.</li>
+<li><code>HttpPost</code>, get, put... y todos los demás que especifican los <a href="https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/" target="_blank">verbos HTTP en Web API</a>.</li>
+</ul>
+<h2 id="creacion">Creación</h2>
+<p>Una vez que ya conocemos un poco del uso y funcionalidad de los atributos en C#, tal vez valga la pena saber cómo es que podemos crear nuestros propios atributos para que nosotros (o nuestro equipo de trabajo) se beneficie con ellos. Para este ejemplo vamos a crear un atributo para validar la compañia con la que un teléfono funciona.</p>
+<h3 id="nombre">Nombre</h3>
+<p>A peser de que el nombre no necesariamente debe tener la palabra &quot;Attribute&quot; (nuestra clase podría llamarse <code>ValidCarrier</code>), aunque es una convención que lo lleve. Por estas convenciones, nosotros le pondremos como nombre <code>ValidCarrierAttribute</code>.</p>
+<h3 id="derivar-de-la-clase-attribute">Derivar de la clase Attribute</h3>
+<p>Este es sin duda el paso más importante, tu atributo debe derivar de la clase <code>Attribute</code>, en nuestro caso estaremos derivando de la clase <code>ValidationAttribute</code> que ya tiene como clase base a <code>Attribute</code>:</p>
+<pre><code class="language-csharp">public class ValidCarrierAttribute : ValidationAttribute
+{
+    // ...
+</code></pre>
+<h3 id="especificar-su-objetivo">Especificar su objetivo</h3>
+<p>Una vez especificado el nombre del atributo y su relación con la clase base, es momento de especificar su objetivo. El objetivo de un atributo se refiere a en qué parte del código puede ser utilizado, para hacerlo es necesario utilizar el atributo <code>AttributeUsage</code>, que recibe como parámeto una combinación de valores del <em>enum</em> <code>AttributeTargets</code>. En nuestro caso, queremos aplicarlo únicamente a las propiedades de un tipo, por lo tanto usaremos únicamente <code>AttributeTargets.Property</code> (la lista completa en <a href="https://msdn.microsoft.com/en-us/library/system.attributetargets(v=vs.110).aspx" target="_blank">este enlace</a>):</p>
+<pre><code class="language-csharp">[AttributeUsage(AttributeTargets.Property)]
+public class ValidCarrierAttribute : ValidationAttribute
+// ...
+</code></pre>
+<h3 id="parametros-1">Parámetros</h3>
+<p>Si tu atributo requiere recibir parámetros, debes declararlos en el constructor del atributo. En nuestro caso, recibiremos una cadena de texto que indicará las compañías con las que funciona, así como un parámetro que indica si se permite que un teléfono funcione con más de una compañía a la vez:</p>
+<pre><code class="language-csharp">//			   Positional parameter vvvvvvvvvvvvv
+public ValidCarrierAttribute(string validCarriers)
+{
+    _validCarriers = validCarriers;
+}
+
+// Named parameter 
+//          vvvvvvvvvvvvvvvv
+public bool MultipleCarriers { get; set; }
+</code></pre>
+<h4 id="especificar-la-funcionalidad">Especificar la funcionalidad</h4>
+<p>En este caso, en el que estamos derivando de <code>ValidationAttribute</code> debemos sobreescribir el método <code>IsValid</code>, puedes revisar la implementación aquí.</p>
+<h3 id="uso-1">Uso</h3>
+<p>Ahora sí, podemos usarlo en nuestras clases:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+public class IPhone
+{
+    [ValidCarrier("Vodafone,Telcel,AT&T", 
+        MultipleCarriers = true)]
+    public string Carrier { get; set; }
+}
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+public class Galaxy
+{
+    [ValidCarrier("Vodafone,Movistar,Sprint")]
+    public string Carrier { get; set; }  
+    
+}
+```  
+</div>  
+</div>  
+<p>Y lo podemos probar en nuestro código de la siguiente manera:</p>
+<pre><code class="language-csharp">var iPhone = new IPhone();
+iPhone.Carrier = &quot;Telcel,AT&amp;T&quot;;
+
+var iPhoneContext = new ValidationContext(iPhone, serviceProvider: null, items: null);
+
+if (Validator.TryValidateObject(iPhone, iPhoneContext, phoneResults, true))
+    Console.WriteLine(&quot;Tu iPhone es válido&quot;);
+else 
+    Console.WriteLine(&quot;Tu iPhone es inválido&quot;);
+
+var galaxy = new Galaxy();
+galaxy.Carrier = &quot;Sprint,Movistar&quot;;
+
+var galaxyContext = new ValidationContext(galaxy, serviceProvider: null, items: null);
+
+if (Validator.TryValidateObject(galaxy, galaxyContext, phoneResults, true))
+    Console.WriteLine(&quot;Tu Galaxy es válido&quot;);
+else
+    Console.WriteLine(&quot;Tu Galaxy es inválido&quot;);
+</code></pre>
+<p>El resultado de ejecutar el código anterior es el siguiente:</p>
+<pre>
+= Custom attributes  
+Tu iPhone es válido  
+Tu Galaxy es inválido  
+</pre>  
+<p>En este ejemplo hacemos uso de todas las prestaciones que nos da la clase <code>ValidationAttribute</code>, aunque también pudimos haber creado un atributo desde cero, aunque para usarlo debemos conocer temas un poco más avanzados, como la reflexión o el uso de <em>Roslyn</em>.</p>
+<h2 id="para-terminar">Para terminar</h2>
+<p>Eso es todo por este post, como puedes ver, los atributos sirven para una gran variedad de cosas: desde modificar el comportamiento del compilador hasta hacernos más sencillo el proceso de validación de datos en nuestras aplicaciones. A pesar de que su sintaxis es un poco diferente a lo que estamos acostumbrados en C#, no son difíciles de emplear y crear. Te invito a <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Attributes" target="_blank">descargar el código de este ejemplo</a>, y si tienes dudas, me las hagas llegar.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

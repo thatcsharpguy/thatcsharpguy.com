@@ -1,1 +1,94 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>El control de versiones es una forma de organizar los elementos de una <em>cosa</em> cuyo contenido es modificado con el paso del tiempo, y digo cosa porque realmente se puede aplicar el control de versiones a cualquier cosa, al menos digital. Inclusive si has hecho algo así:</p>
+<p>&lt;img src=&quot;/images/tv__control-versiones__prehistoria.png&quot; title=<>Control de versiones rudimentario</> /&gt;</p>
+<p>Con un documento o una imagen que estés editando, has implementado el concepto de control de versiones... muy rudimentario, pero lo has hecho.</p>
+<h2 id="sistema-de-control-de-versiones">Sistema de control de versiones</h2>
+<p>Los sistemas de control de versiones son herramientas que nos ayudan a llevar el control de cambios que sufren los componentes de un programa.</p>
+<p>Este tipo de sistemas poseen una especie de repositorio de datos en la que se registra quién modificó qué cosa, cuándo lo hizo y a veces hasta por qué lo hizo, de tal manera que existe un historial de cambios que sea fácil de consultar.</p>
+<p>Además, es posible separar el desarrollo de nuevas funciones (y la probable inestabilidad que estas representan) del código que funciona.</p>
+<p>También hay algunos que permiten destacar un determinado punto en el tiempo y tomar una <em>versión</em> de cómo estaba el código en ese momento y marcarla con alguna etiqueta especial, por ejemplo: &quot;primera versión&quot; o &quot;antes de migración&quot;.</p>
+<h2 id="que-se-puede-almacenar-en-el-control-de-versiones">Qué se puede almacenar en el control de versiones</h2>
+<p>Para el desarrollo de una aplicación siempre es necesario que exista código fuente, y es precisamente este el candidato ideal para ser introducido en el control de versiones, sin embargo, no solo podemos poner código en este tipo de sistemas, también se pueden meter archivos de configuración, binarios, imágenes y otros recursos necesarios para la aplicación que estamos desarrollando.</p>
+<h2 id="terminologia-comun">Terminología común</h2>
+<p>A pesar de que hay muchos sistemas de control de versiones, muchos comparten conceptos que son importantes conocer:</p>
+<p>Comenzando por el <strong>repositorio</strong>, que es el lugar dentro de la computadora donde se guardan los archivos de la aplicación, los usuarios obtienen una copia de los archivos de ese repositorio y la colocan dentro de un <strong>espacio de trabajo</strong>. Como ya mencioné antes, una <strong>versión</strong> es una captura de todos los elementos en un determinado punto del tiempo, es probable que algunas de las versiones sean <strong>etiquetadas</strong> de alguna manera especial para señalar su importancia.</p>
+<p>En este tipo de sistemas se avanza entre las versiones mediante <strong>cambios</strong>, que no son más que las modificaciones que hacemos a los archivos dentro del control de versiones. Los cambios que hemos hecho nosotros se registran en el repositorio a través de una <strong>publicación</strong> y para obtener los cambios que otras personas han hecho es necesaria una <strong>actualización</strong>.</p>
+<p>Ocasionalmente, y con mayor frecuencia cuando pertenecemos a un grupo grande de desarrolladores, pasa que dos o más modifican las mismas líneas de un archivo fuente, y es cuando ocurre un <strong>conflicto</strong>. Cuando ocurre un conflicto, es necesario que alguien decida cuál es la mejor forma en la que el archivo seguirá funcionando, a esta tarea se le conoce como <strong>resolución de conflictos</strong>. Es importante decir que algunos sistemas tienen  integrado un módulo de resolución de conflictos que actúa cuando los conflictos a resolver no son muy complejos.</p>
+<p>Usando los sistemas de control de versiones es posible separar distintas etapas del desarrollo, por ejemplo: supongamos que no queremos tocar el código de producción para implementar una nueva funcionalidad, es en estas ocasiones cuando podemos hacer una <strong>abrir una rama</strong>, que es como <em>crear</em> una copia de los archivos que contiene el repositorio para trabajar con ellos. Posteriormente, cuando volvemos a unificar los archivos que separamos con la apertura de las ramas, debemos hacer una <strong>fusión</strong> que tomará nuestros cambios y los publicará en la rama destino.</p>
+<h2 id="categorias">Categorías</h2>
+<p>Es importante conocer algunas de las categorías en las que podemos clasificar los sistemas de control de versiones, yo les hablaré de dos formas de clasificación.</p>
+<p>La primera es <strong>por la forma en la que se almacena el código fuente</strong>:</p>
+<ul>
+<li><strong>Centralizado</strong>, de este modo existe un solo repositorio donde reside el código <em>maestro</em>. En este modo centralizado existe una referencia clara de la versión en la que la aplicación está. Aunque cabe señalar que debe existir un usuario, o un grupo de ellos, responsable que autorice algunas acciones sobre el repositorio, como crear una versión o abrir una rama.</li>
+<li><strong>Distribuidos</strong>, al contrario del centralizado no existe un código <em>maestro</em> puesto que cada usuario puede tener un repositorio del cual es responsable, lo cual otorga libertad. pero sacrifica un poco de control sobre las versiones. En estos casos usual que se utilice un servidor de referencia, como en caso del modo centralizado.</li>
+</ul>
+<p>La segunda es por el modo en el que los usuarios del sistema contribuyen en los cambios de los archivos, hay dos modos:</p>
+<ul>
+<li><p><strong>Exclusivo</strong>, de este modo es necesario que el usuario le indique al repositorio qué archivos va a modificar para que el repositorio los bloquee y nadie más pueda trabajar en ellos hasta que estos sean liberados por quien inicialmente los  solicitó. ¿Recuerdan que hace poco hablé de los conflictos? … pues en este modo de colaboración desaparecen, simplemente no se da el caso en el que dos usuarios modificaron el mismo archivo porque el sistema no se los permite, aunque esto puede generar cuellos de botella en el ciclo de desarrollo.</p>
+</li>
+<li><p><strong>Colaborativo</strong>, de este modo no es necesario informar a nadie qué archivos vamos a modificar, aunque te recomiendo que sí le avises a tus compañeros de equipo, porque es precisamente bajo este modo cuando aparecen los ya famosos conflictos. Si la coordinación entre compañeros es la adecuada es posible agilizar el ciclo de desarrollo.</p>
+</li>
+</ul>
+<h2 id="ejemplos-de-sistemas-de-control-de-versiones">Ejemplos de sistemas de control de versiones</h2>
+<ul>
+<li><a href="https://es.wikipedia.org/wiki/Microsoft_Visual_SourceSafe" target="_blank" rel="nofollow">SourceSafe</a>, que ya está en desuso, pero era uno de los mejores exponentes del modo de contribución exclusivo</li>
+<li><a href="https://www.mercurial-scm.org" target="_blank" rel="nofollow">Mercurial</a>, que es un sistema distribuido</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/ms181237.aspx" target="_blank" rel="nofollow">Team Foundation Version Control</a>, que es uno de los máximos exponentes del modo centralizado</li>
+<li>Y mi favorito personal, <a href="https://git-scm.com" target="_blank" rel="nofollow">Git</a>, que es centralizado y colaborativo.</li>
+</ul>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,95 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>La integración continua es una práctica muy común en el desarrollo de software. El término apareció por ahí de 1993 en una <a href="http://dl.acm.org/citation.cfm?id=625253" target="_blank">publicación de Matthew Pittman</a>, y a partir de ahí se comenzó a popularizar.</p>
+<p>&lt;img src=&quot;/images/tv__ci__mention.jpg&quot; title=<>Lessons Learned in Managing Object-Oriented Development</> /&gt;</p>
+<p>El nombre lo revela todo: consiste en que todos los desarrolladores de un equipo junten su trabajo de manera sistemática para garantizar que la aplicación que están programando &quot;funcione&quot; en todo momento. A este acto de juntar el trabajo es lo que se conoce como integración, y es continua porque, en teoría, debería realizarse con frecuencia, digamos que cada vez que un desarrollador corrija un <em>bug</em>, termine de programar una función o un módulo de la aplicación.</p>
+<h2 id="broken-build">&quot;Broken build&quot;</h2>
+<p>Al finalizar cada integración se debe compilar la aplicación completa y ejecutar todas las pruebas necesarias. En caso de que los test no pasen, o peor aún, que la aplicación no funcione, el equipo debe entrar en un estado de <em>&quot;broken build&quot;</em> o… compilación fallida. En este estado, la meta del equipo debe enfocarse por completo en corregir el problema que causó que la compilación o las pruebas fallaran.</p>
+<p>Si, por otro lado, la compilación es exitosa y todas las pruebas pasan correctamente, no pasa nada, el equipo de desarrolladores continua trabajando normalmente.</p>
+<p>Con esto se asegura que se tiene una aplicación siempre lista y funcional, sin importar en qué etapa del desarrollo se encuentre. Como ya te imaginas, esto requiere un montón de disciplina tanto personal como grupal, todos deben estar comprometidos con el trabajo que se está haciendo.</p>
+<h2 id="herramientas">Herramientas</h2>
+<p>Si bien podrías usar la integración continua sin ninguna herramienta más que nuestros entornos de desarrollo, hacer esto pues no es lo ideal. Es por eso que existen muchas herramientas que por su propia cuenta tienen mucho valor, aunque no son específicas para hacer CI, y estas son:</p>
+<ul>
+<li>Los sistemas de control de versiones, que nos ayudarán a realizar las integraciones de manera más sencilla.</li>
+<li>Herramientas para automatizar la compilación, es decir, que no tenga que haber nadie que le pique al botón de Build o Run en un IDE para que la aplicación se empiece a compilar.</li>
+<li>Herramientas de automatización de pruebas, que es más o menos lo mismo que lo de compilación, pero para ejecutar las pruebas.</li>
+</ul>
+<h2 id="herramientas-de-ci">Herramientas de CI</h2>
+<p>Ahora, hay algunas herramientas que nos ayudarán a implementar la integración continua de manera más sencilla, ambas son opcionales pero altamente recomendadas:</p>
+<ul>
+<li>Una forma de alertar a los usuarios sobre cualquier evento de la compilación, como si esta falló o fue exitosa. Puede ser desde un correo electrónico a todos los miembros del equipo de desarrollo</li>
+<li>Opcionalmente (y altamente recomendado) podemos hacer uso de un sistema de integración continua, que nos permita ejecutar las tareas de forma automática.</li>
+</ul>
+<h2 id="criticas">Críticas</h2>
+<p>Ahora, esta práctica no se salva de las críticas.</p>
+<p>Una de las más grandes críticas se basa en el hecho de que si la integración falla, los desarrolladores deben dejar su trabajo y dedicarse a resolver cualquiera que sea el problema. Sin duda te darás cuenta de que esto representa un gran problema, porque interfiere con la concentración del equipo. Además esta puede llevarnos a un estado en que mejor decidamos no integrar nuestro trabajo, <a href="http://www.yegor256.com/2014/10/08/continuous-integration-is-dead.html#what-about-discipline" target="_blank">por miedo a hacer</a> que la compilación falle.</p>
+<p>La otra es que si no tenemos bien refinado el proceso, se pueden  ocasionar cuellos de botella, si la compilación tarda mucho o si los <em>tests</em> tardan mucho tiempo, se puede tener a un desarrollador esperando al resultado de su integración. Ahora, ¿te imaginas si dos subieran su trabajo al mismo tiempo?</p>
+<h2 id="lo-que-en-realidad-pasa">Lo que en realidad pasa</h2>
+<p>Muchas veces ocurre que se tienen todas las herramientas y todo configurado, pero en realidad no aplicas la integración continua:</p>
+<p>La compilación falla… pero a nadie le importa y todos siguen trabajando como si nada, tal vez alguien intente resolver el problema en el código a unos días de realizar la liberación a producción.</p>
+<p>Una alternativa es <a href="https://luixrodriguezneches.wordpress.com/2012/08/27/continuous-integration-is-not-the-key/" target="_blank">evitar que la rama principal se rompa</a> y fallar &quot;en secreto&quot;, es decir, que exista un intermediario entre el código funcional de la aplicación y el desarrollador. Y que en caso de que falle, se le informe únicamente a quien hizo que fallara para que él trate de resolverlo antes de detener toda la producción.</p>
+<h2 id="sistemas-completos">Sistemas completos</h2>
+<p>Finalmente, si deseas implementar la integración continua en tu lugar de trabajo, existen algunas herramientas que te pueden facilitar el trabajo:</p>
+<ul>
+<li>Travis CI</li>
+<li>Bitrise</li>
+<li>AppVeyor</li>
+<li>Codeship</li>
+<li>Runnable</li>
+<li><a href="https://github.com/integrations/feature/continuous-integration" target="_blank">Ver más</a></li>
+</ul>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

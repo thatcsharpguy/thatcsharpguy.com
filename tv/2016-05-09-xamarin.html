@@ -1,1 +1,98 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Xamarin es un montón de cosas:</p>
+<p>Pero la principal y en la que se centra este video es la Xamarin Platform que se es un framework, un set de compiladores y en algun sentido un traductor de código... para finalidades de este video digamos que es un conjunto de <strike>librerías</strike> bibliotecas que permiten escribir aplicaciones nativas para iOS, WatchOS, tvOS, Android, Android Wear y Mac usando como lenguaje de programación C#.</p>
+<p>&lt;img src=&quot;/images/tv__xamarin__platform.png&quot; title=<>Xamarin Platform</> /&gt;</p>
+<p>Antes de seguir, veamos qué opciones tenemos para desarrollar apps multiplataforma:</p>
+<h3 id="silo">Silo</h3>
+<p>Podemos usar la opción &quot;silo&quot; que no es nada más que el desarrollo tradicional: usar el lenguaje nativo de cada plataforma, lo cual implica tener acceso a todas las APIs que la plataforma nos da, así como elementos específicos de la interfaz gráfica... pero también tenemos que trabajar con entornos de desarrollo distintos, lenguajes distintos y es por esto que no podemos compartir código fácilmente.</p>
+<h3 id="hibrido">Híbrido</h3>
+<p>También podemos hacer una app híbrida, como las que se pueden hacer con frameworks que usan JavaScript y HTML5, y mientras que esta es una solución buena para compartir código (inclusive el de la interfaz), estamos limitando el desempeño, la interfaz gráfica a lo que las algunas hojas de estilo puedan hacer y ni hablar del acceso a los recursos de la plataforma sobre la que funciona nuestra app.</p>
+<h3 id="xamarin">Xamarin</h3>
+<p>Por último, tenemos la opción de Xamarin, que nos da algo similar al desarrollo tradicional: acceso a las APIs nativas y elementos de interfaz gráfica, solo que en este caso podemos usar un solo entorno (Xamarin Studio o Visual Studio) y, como ya lo dije, un solo lenguaje: C#. Usar un solo lenguaje no sólo implica tener que dominar un solo lenguaje para determinada aplicación, sino que también facilita compartir código entre varias plataformas.</p>
+<h4 id="codigo-compartido">Código compartido</h4>
+<p>Algunos ejemplos del código que se puede compartir son:</p>
+<ul>
+<li>Algoritmos. Por ejemplo, si nuestra app hace uso de algún algoritmo para calcular o determinar algo, ya no es necesario escribirlo una vez en Java, otra en Objective-C y otra en C#</li>
+<li>Comunicación con servicios externos. Si la app que estamos haciendo requiere conectarse a algún servicio externo, como un servicio web, no tenemos que preocuparnos por establecer la conexión usando los lenguajes, podemos hacerlo una vez en C# y reusarlo en múltiples proyectos.</li>
+<li>Estructuras de datos o los llamados Modelos. Digamos que ya no tenemos que escribir la clase &quot;Usuario&quot; o &quot;Venta&quot; múltiples veces tomando en cuenta las especificaciones de cada plataforma, nuevamente usando C# podemos reutilizarla tantas veces como queramos.</li>
+</ul>
+<p>En la mayoría de las apps se puede compartir entre el 70 y 90 por ciento de código, lo cual representa bastante tiempo de desarrollo que se pueden invertir en algún otro paso de la creación de la app.</p>
+<h4 id="interfaces-de-usuario">Interfaces de usuario</h4>
+<p>Y bueno, llegamos a uno de los puntos de mucha confusión (que yo también tuve). Y es que cuando uno habla de un framework para desarrollar apps multiplataforma, también piensa en que se pueden compartir las interfaces gráficas, y, sin embargo, inicialmente no es así, ya que si usamos Xamarin.Androd o Xamarin.iOS aún tenemos que diseñar las interfaces en el lenguaje de cada plataforma: Storyboards o Xibs para iOS, XML o AXML para Android.</p>
+<h4 id="xamarin.forms">Xamarin.Forms</h4>
+<p>Hay una opción dentro de Xamarin llamada Xamarin.Forms, el cual sí permite crear las interfaces gráficas de una sola vez para varias plataformas, pero este tema merece su propio vídeo, que pronto estaré subiendo al canal, así que suscríbete.</p>
+<p>Pero bueno, volviendo al tema: También hay otra cosa que he mencionado mucho en este video: Acceso a APIs nativas, y con esto me refiero a que con Xamarin podemos usar TODO, sí, TODO lo que iOS, Android y Mac nos ofrecen:</p>
+<p>Desde <code>CoreGraphics</code> a <code>MapKit</code> en iOS, NFC a Text-to-speech en Android además de todas las cosas que se pueden hacer con C# actualmente, como la comunicación con <code>System.Net</code>, <code>LINQ</code>, además de poder usar paquetes descargados de NuGet y demás.</p>
+<p>Si quieres ver ejemplos de proyectos hechos con Xamarin para Android e iOS y sus respectivas comparaciones con el desarrollo tradicional, puedes visitar estos posts:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<a href="../../post/xamarin-ios-vs-traditional">
+<img src="/images/tv__xamarin__swift-c-sharp.png" title=""Java vs C#"" />
+</a>
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<a href="../../post/xamarin-android-vs-traditional-java">
+<img src="/images/tv__xamarin__java-c-sharp.png" title=""Java vs C#"" />
+</a>
+</div>  
+</div>
+<p>Hablando de desempeño: Beneficiarse de estas dos cosas no sería nada si nuestra app va a terminar siendo lenta para el usuario por tener que usar una capa intermedia entre C# y la plataforma, ¿cierto? Pero con Xamarin esto no es así, ya que con Xamarin es como si estuviéramos escribiendo la app de modo tradicional, la final se termina compilando con las especificaciones para cada plataforma, como Ahead Of Time para iOS y Just In Time para Android.</p>
+<p>Si están interesados, en el blog tengo varios posts acerca de Xamarin, los pueden encontrar en esta dirección:
+<a href="../../tag/Xamarin">http://thatcsharpguy.com/tag/Xamarin</a>.</p>
+<p>No olviden compartir este video, darle un like y suscribirse al canal.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

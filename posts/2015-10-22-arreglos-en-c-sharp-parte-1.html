@@ -1,1 +1,112 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En C# llamamos arreglo a una colección de objetos, dicha colección tiene longitud definida y esta no puede cambiar con el flujo del programa, esto podrá sonar limitante, pero al trabajar con arreglos se obtiene un mejor desempeño que con cualquier otra colección. Usando el lenguaje podemos crear, recorrer y manipular arreglos de cualquier tipo de objeto.</p>
+<h3 id="unidimensionales">Unidimensionales</h3>
+<p>Comenzando por lo más básico, los arreglos unidimensionales son colecciones lineales, que nos pueden ayudar a representar una secuencia numérica, letras del alfabeto o un cromosoma dentro de un programa de algoritmos genéticos, entre muchas otras otras.</p>
+<h4 id="instanciacion">Instanciación</h4>
+<p>Para crear un arreglo haremos uso de la palabra reservada <code>new</code> y los corchetes cuadrados <code>[ ]</code>, también es necesario conocer el tamaño que necesitaremos, puesto que como ya lo mencioné, no es posible cambiar el tamaño una vez creado:</p>
+<pre><code class="language-csharp">char [] vocales = new char[5];
+
+int [] conteo = new int[10];
+
+object [] misObjetos = new object[3];
+</code></pre>
+<p>Si creamos arreglos de esa manera, cada posición tendrá el valor por default del tipo de dato del arreglo... bueno, mejor usamos nuestro ejemplo:</p>
+<ul>
+<li>El arreglo de <code>vocales</code> contendrá 5 <code>\0</code>, que es el valor por default de un <code>char</code>.</li>
+<li>El arreglo <code>conteo</code> contendrá 10 <code>0</code>, que es el valor por default de un entero.</li>
+<li>El arreglo <code>misObjetos</code> contendrá 3 <code>null</code>, que es el valor por default de un <code>object</code>.</li>
+</ul>
+<br />  
+Además de la instanciación tradicional, también podemos emplear la instanciación de colecciones, la cual nos permite inicializar un arreglo asignándole valores inmediatamente:  
+```csharp  
+char [] vocales = new char[5] { 'a', 'e', 'i', 'o', 'u' };
+<p>int [] conteo = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };</p>
+<p>object [] misObjetos = { &quot;3&quot;, 1, 99.99 };</p>
+<pre><code>Como podemos ver, tenemos varias opciones para inicializar arreglos unidimensionales:  
+
+1. `new char[5] { ...`, nos permite indicar el tamaño y el tipo explícitamente y posteriormente indicar los valores, si cambiáramos el `5` por un `7`sin aumentar la cantidad de valores obtendríamos un error de compilación.  
+2. `new int[] { 1, 2, ...`, nos permite indicar solamente el tipo de dato de los elementos, la cantidad es inferida por el compilador, en este caso podemos incrementar o reducir la cantidad de elementos al momento de inicializar sin ningún problema.
+3. `{ &quot;3&quot;, 1, 99.99 }`, al inicializar de esta manera estamos dejandole al compilador la tarea de inferir tanto el tipo de dato del arreglo como la cantidad de elementos que contiene. Dicho sea de paso, el declarar un arreglo así puede resultar un poco confuso de leer.  
+
+#### Acceso a los elementos  
+Una vez instanciado, podemos acceder a los elementos del arreglo usando nuevamente los corchetes cuadrados `[ ]` y el índice del elemento al que queremos acceder. Nota importante **los arreglos están indizados en 0** es decir, el primer elemento de un arreglo está en el índice 0.  
+
+Retomemos los arreglos del ejemplo pasado. Para acceder a la `a` dentro del arreglo `vocales` debemos acceder a la posición `0`:  
+```csharp  
+Console.WriteLine(vocales[0]); // a
+</code></pre>
+<p>O, digamos que queremos reemplazar la <code>i</code> por una <code>t</code>:</p>
+<pre><code class="language-csharp">vocales[2] = 't';
+Console.WriteLine(vocales[2]); // t
+</code></pre>
+<h4 id="propiedades-y-metodos">Propiedades y métodos</h4>
+<p>A pesar de que los arreglos implementan la interfaz <code>IList</code>, con todo y sus propiedades, la única rescatable para los arreglos unidimensionales es la propiedad <code>Length</code> (o <code>LongLength</code> si metemos más de 2^32-1 elementos en el arreglo), que nos devuelve la longitud del arreglo:</p>
+<pre><code class="language-csharp">Console.WriteLine(vocales.Length); // 5
+
+Console.WriteLine(conteo.Length); // 10
+
+Console.WriteLine(misObjetos.Length); // 3
+</code></pre>
+<h5 id="posdata">Posdata</h5>
+<p>Sin importar su contenido, los arreglos siempre son tipos por referencia, por lo que es posible tener las siguientes líneas de código:</p>
+<pre><code class="language-csharp">int [] arreglo = null;
+double [] nulo = null;
+</code></pre>
+<h4 id="lo-que-sigue">Lo que sigue</h4>
+<p>Inicialmente este post conendría todos los tipos de arreglos que permite crear C#, pero al final he decidido separarlos para hacerlo un poco más entendible, puedes visitar el siguiente sobre <a href="/post/arreglos-en-c-sharp-parte-2">arreglos multidimensionales en C#</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

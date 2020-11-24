@@ -1,1 +1,171 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Seguramente estás muy, pero muy familiarizado con el tema del que hablaré en este post, y es que, ¿quién no ha utilizado algo así: <code>lista[0] = 9;</code> en sus programas?</p>
+<p>A esta sintaxis se le coonoce como <em>indizadores</em>. Es muy común que la has visto antes en colecciones, como en arreglos y la clase <code>List</code>, sin embargo, es muy poco conocido que nosotros, como desarrolladores, podemos permitir que otros desarrolladores usen esta sintaxis en las clases que nosotros creamos.</p>
+<p>Podemos ver a los corchetes cuadrados como un operador de acceso a los elementos de determinada instancia, como es el caso de las listas, arreglos o diccionarios. Y aunque su uso se recomienda precisamente para eso (<strong>acceso a los elementos de una colección</strong>), podemos darle otros usos. Pero antes de ver cómo funcionan, vamos a ver la sintaxis.</p>
+<h2 id="sintaxis">Sintaxis</h2>
+<p>Para implementar un indizador en nuestros tipos de dato tenemos que seguir una sintaxis que resulta un poco extraña cuando la vez:</p>
+<pre><code class="language-csharp">
+public int this[int index]
+{
+    get { /* Regresa un tipo entero */ }
+    set { /* Establece el valor de &quot;value&quot; que es de tipo entero */ }
+}   
+</code></pre>
+<p>En general, para crear un indizador debemos escribir lo siguiente:</p>
+<ul>
+<li>El modificador de acceso (public, internal, private...)</li>
+<li>El tipo de dato del indizador.</li>
+<li>La palabra reservada <code>this</code>.</li>
+<li>Los parámetros del indizador entre corchetes cuadrados.</li>
+<li>La especificación del acceso mediante bloques: lectura con <code>get</code>, escritura con <code>set</code>.</li>
+<li>*Si especificamos <code>get</code> debemos regresar un valor en el bloque.</li>
+<li>*Si especificamos <code>set</code> tenemos a nuestra disposición el identificador <code>value</code> que hace referencia al valor que debe ser asignado.</li>
+</ul>
+<p>Supón que tenemos una clase especificada de la siguiente manera:</p>
+<pre><code class="language-csharp">public class Indexer
+{
+    public int this[string position]
+    {
+        get
+        {
+            Console.WriteLine(&quot;Accediendo a {0}&quot;, position);
+            return 0; // Importante regresar un dato
+        }
+        set
+        {
+            // value contiene el dato que se va a establecer
+            Console.WriteLine(&quot;Estableciendo {0} en la posición {1}&quot;, value, position);
+        }
+    }
+</code></pre>
+<p>Que define un indizador de tipo <code>int</code> que como índice usa un tipo <code>string</code>. Entonces al ejecutar el siguiente código:</p>
+<pre><code class="language-csharp">var indizador = new Indexer();
+var retorno = indizador[&quot;hola&quot;];
+indizador[&quot;feliz&quot;] = 2017;
+Console.WriteLine(&quot;Valor de retorno {0}&quot;, retorno);
+</code></pre>
+<p>Obtendremos en la pantalla:</p>
+<pre>
+Accediendo a hola
+Estableciendo 2017 en la posición feliz
+Valor de retorno 0
+</pre>
+<p>Es importante notar que como parámetros del indizador podemos usar cualquier tipo de dato, no solo enteros o cadenas. Como en el siguiente ejemplo que se emplea un tipo <code>Indexer</code> como indizador y solo se implementa el bloque <code>get</code>:</p>
+<pre><code class="language-csharp">public string this[Indexer indexer]
+{
+    get { return indexer.ToString(); }
+}
+// ...
+var otroIndizador = new Indexer();
+Console.WriteLine(indizador[otroIndizador]); // Imprime: &quot;Indizadores.Indexer&quot;
+</code></pre>
+<p>O en este otro ejemplo, en donde se usa un tipo <code>double</code> como parámetro para un índice del tipo <code>Indexer</code>. En él se implementa únicamente el bloque <code>set</code>:</p>
+<pre><code class="language-csharp">public Indexer this[double position]
+{
+    set { Console.WriteLine(&quot;\&quot;Insertando\&quot; {1} en {0}&quot;, position, value); }
+}
+// ...
+indizador[123.456d] = otroIndizador; // Mostrará en pantalla: &quot;Insertando&quot; Indizadores.Indexer en 123.456
+</code></pre>
+<p>Podemos usar cualquier cantidad de índices, así como regresar cualquier tipo de dato, por ejemplo, podemos tener un indizador que acepte 3 parámetros de tipo <code>int</code>, <code>bool</code> y <code>double</code> y regrese una cadena:</p>
+<pre><code class="language-csharp">public string this[int i, bool b, double d]
+{
+    get { return String.Format(&quot;I'm an indexer: {0} {1} {2}&quot;, i, b, d); }
+}
+
+//
+
+var resultado1 = indizador[10, false, 10];
+Console.WriteLine(resultado1); // Imprime: &quot;I'm an indexer: 10 False 5&quot;
+</code></pre>
+<p>En cierto modo podemos ver los indizadores como una especie de métodos con algunas restricciones, entre ellas la de que sus índices no pueden ser del tipo <a href="../out-ref-c-sharp" target="_blank"><code>out</code> o <code>ref</code></a>.</p>
+<p>Al final los indizadores terminan siendo transformados en métodos por el compilador, y es que solo son parte de la <a href="https://www.youtube.com/watch?v=Ypgw-TgT70I" target="_blank">azúcar sintáctica</a> que nos ofrece C#.</p>
+<h2 id="por-que-usarlos">¿Por qué usarlos?</h2>
+<p>Imagina que tienes una clase llamada <code>Alphabet</code> que almacena todas las letras de determinado alfabeto y para acceder a ellas nos ofrece un método llamado <code>CharacterAt(int position)</code> para acceder a determinado caracter dentro del alfabeto:</p>
+<pre><code class="language-csharp">public class Alphabet
+{
+    List&lt;char&gt; caracteres;
+    private Alphabet(params char[] caracteres)
+    {
+        this.caracteres = new List&lt;char&gt;(caracteres);
+    }
+
+    public char CharacterAt(int position)
+    {
+        return caracteres[position];
+    }
+    // ...
+
+var griego = Alphabet.Greek;
+var segundaLetra = griego.CharacterAt(2);
+</code></pre>
+<p>Hay ocasiones en que esta sintaxis (usar un método) tiene mucho sentido y le da significado al programa que está escribiendo, sin embargo, hay otras en las que es mejor usar un indizador. Por ejemplo, ¿no crees que, si usáramos un indizador, nuestro código tendría más sentido?</p>
+<pre><code class="language-csharp">var griego = Alphabet.Greek;
+var segundaLetra = griego[2];
+</code></pre>
+<p>El indizador para la clase <code>Alphabet</code> se ve así:</p>
+<pre><code class="language-csharp">public char this[int i]
+{
+    get { return caracteres[i]; }
+}
+</code></pre>
+<h2 id="ejemplos">Ejemplos</h2>
+<p>Además de los ya mencionados, en el framework de .NET y en algunos otros muy usados, los indizadores son uno de los elementos más empleados. Por ejemplo, uno de los lugares más comunes en donde aparecen es en los tipos de dato <code>string</code>.</p>
+<p>Cuando trabajamos con WebForms, la variable <code>Session</code> también implementa un indizador que recibe una cadena para acceder a los valores que hemos almacenado en ella previamente.</p>
+<p>Recuerda que puedes <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Indizadores" target="_blank">descargar el código fuente</a> de los ejemplos para que practiques con él, y que cualquier duda de la puedes hacer llegar usando los botones de contacto de abajo.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

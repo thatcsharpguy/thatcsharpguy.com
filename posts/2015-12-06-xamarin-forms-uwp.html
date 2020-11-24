@@ -1,1 +1,102 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>You have heard me talk about Xamarin.Forms before and you know that I'm all mobile... but what you might have missed is the fact that I'm a HUGE Windows Platform fan. This is why this new release of Xamarin has got me excited. In this release they included <a href="http://developer.xamarin.com/guides/cross-platform/xamarin-forms/windows/getting-started/universal" target="_blank">support for Universal Windows Platform Apps</a> which, even though is still a preview version, it is a great tool for us as developers to start bringing our apps to even more devices.</p>
+<p>For this post I'll be using a very simple app that I created in the past when I wrote about <a href="/post/from-console-to-mobile">going from console to mobile</a>, however, this time is all about &quot;from mobile to Windows Platform&quot;.</p>
+<h2 id="how-to">How to...</h2>
+<p>We'll be following the official documentation, so fasten your seatbelt and get ready to learn how is Xamarin.Forms wired and called within a platform specific project.</p>
+<h3 id="infrastructure">Infrastructure</h3>
+<p>Feel free to download the initial source code from <a href="https://github.com/fferegrino/Xevenshtein-UWP/releases/tag/uwp-post-1" target="_blank">here</a>, extract it somewhere and open the <code>Xevenshtein.sln</code> file. Once the solution is open, upgrade all Xamarin.Forms packages to any version 2 (Xamarin.Forms 2.0 is part of Xamarin 4 release).</p>
+<p>&lt;img src=&quot;/images/xamarin-forms-uwp__xamarin-forms-2.png&quot; title=<>Xamarin.Forms in the package manager</> /&gt;</p>
+<p>Then add a new project, this will be our UWP app and add the Xamarin.Forms NuGet package to it</p>
+<p>&lt;img src=&quot;/images/xamarin-forms-uwp__add-uwp.png&quot; title=<>Adding an UWP app</> /&gt;
+&lt;img src=&quot;/images/xamarin-forms-uwp__add-nuget.png&quot; title=<>Adding the NuGet</> /&gt;</p>
+<p>Add a reference to the project where the forms application is, for us, such project is named <code>Xevenshtein</code> and is a PCL</p>
+<p>&lt;img src=&quot;/images/xamarin-forms-uwp__add-reference.png&quot; title=<>Adding a reference to the Forms app</> /&gt;</p>
+<h3 id="code">Code</h3>
+<p>It is time to get our hands into the code: Open the <code>App.xaml.cs</code> file that was created with the UWP app, look for this handler assignation <code>rootFrame.NavigationFailed += OnNavigationFailed;</code>. Below this line we must initialize the Xamarin.Forms module (every platform specific project that uses Xamarin.Forms has to do this as one of the first things in the app lifecycle), to do so, simply call the <code>Init</code> method:</p>
+<pre><code class="language-csharp">rootFrame = new Frame();
+
+rootFrame.NavigationFailed += OnNavigationFailed;
+
+Xamarin.Forms.Forms.Init(e); // Added support for Forms
+</code></pre>
+<br />
+Then, we must get rid of the default UI inside the  `MainPage.xaml`, we won't be using it since Forms has got us covered. Delete all code (it might be just a grid) within the `<Page>` and `</Page>` tags.  
+<p>&lt;img src=&quot;/images/xamarin-forms-uwp__grid-removal.png&quot; title=<>Removing useless UI</> /&gt;</p>
+<p>Then, we need to change our page type to a special kind of Xamarin.Forms page. First add this <em>&quot;attribute&quot;</em> inside the <code>&lt;Page&gt;</code> tag:</p>
+<pre><code class="language-xml">xmlns:forms=&quot;using:Xamarin.Forms.Platform.UWP&quot; 
+</code></pre>
+<p>I double-quoted <em>attribute</em> since the line above isn't exactly an <em>attribute</em>, it is a <em>namespace</em>, somewhat like an <code>using</code> directive but for xaml. Once we have added the namespace, replace the page <code>&lt;Page </code> and <code>&lt;/Page&gt;</code> for <code>&lt;forms:WindowsPage </code> and <code>&lt;/forms:WindowsPage&gt;</code>, as you can see we're using the <code>forms</code> namespace.</p>
+<p>&lt;img src=&quot;/images/xamarin-forms-uwp__final-result.png&quot; title=<>Final result</> /&gt;</p>
+<br />
+And that's it for the XAML part, press `F7` to jump to the code-behind.  
+<p>First things first, since our MainPage isn't a <code>Page</code> but a <code>WindowsPage</code>, replace the inheritance <code>: Page</code> for <code>: WindowsPage</code></p>
+<pre><code class="language-csharp">public sealed partial class MainPage : WindowsPage  // bye, bye &quot;: Page&quot;
+</code></pre>
+<p>Even though replacing the inheritance in this page isn't needed (because the other partial definition of the class has it), I always do it, it gives me clarity of what type the page is.</p>
+<br />
+Next... the big step: load your Forms page, this is done inside the `MainPage` constructor and after the elements of the page have been initialized:  
+<pre><code class="language-csharp">this.InitializeComponent();
+
+LoadApplication(new Xevenshtein.App()); // Call to Xamarin.Forms 
+</code></pre>
+<p>And that's it, now you have a nice UWP app in a few steps.
+<br /></p>
+<h2 id="whats-next">What's next?</h2>
+<p>For you: keep playing around with the Xevenshtein app (<a href="https://github.com/fferegrino/Xevenshtein-UWP" target="_blank">the code is on GitHub</a>), or go ahead and create an UWP version your Forms apps: just imagine one of your apps running on an Xbox One or a giant Surface Hub... but remember that this isn't the final release so if you find a bug, be a good Xamarin citizen and <a href="https://bugzilla.xamarin.com/enter_bug.cgi?alias=&assigned_to=&attachurl=&blocked=&bug_file_loc=http%3A%2F%2F&bug_severity=normal&bug_status=NEW&cf_tags=&comment=&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text%2Fplain&data=&deadline=&dependson=&description=&estimated_time=&form_name=enter_bug&maketemplate=Remember%20values%20as%20bookmarkable%20template&op_sys=Mac%20OS&product=Forms&rep_platform=PC&short_desc=&target_milestone=UWP&version=1.5.1">report it here</a>. Oh, and don't forget to take a look to other Xamarin 4 features, like <a href="http://rasmustc.com/blog/compiled-xaml-views/" target="_blank">xaml compilation</a> or the general availability of <a href="http://pumpingco.de/building-better-apps-with-xamarin-insights/" target="_blank">Xamarin Insights</a>.</p>
+<p>For me: I'll be using UWP to create a simple markdown viewer, I'll post about it later on.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

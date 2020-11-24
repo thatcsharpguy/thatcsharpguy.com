@@ -1,1 +1,106 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Este <a href="http://thatcsharpguy.com/tag/NuGetRecomendado">#NuGetRecomendado</a> es un poco diferente, esta vez se trata de un paquete que yo mismo he creado. Se llama Jirapi y es un cliente para consumir la Pokéapi, que es una API que ofrece un montón de información sobre los juegos de Pokémon. El cliente es bastante sencillo, y está hecho <a href="http://thatcsharpguy.com/tag/NuGetRecomendado">usando Flurl</a>, otro paquete de NuGet que les recomendé ya hace algunas semanas.</p>
+<p>Ahora, tal vez te estés preguntando: ¿para qué demonios me va a servir esto? y pues tal vez pienses que para no mucho... mas que para jugar o, si como yo, estás interesado en dar presentaciones, enseñar alguna tecnología (como Xamarin) o crear pequeñas aplicaciones, esta librería te resultará muy útil.</p>
+<h2 id="que-puede-hacer-jirapi">¿Qué puede hacer Jirapi?</h2>
+<p>En Jirapi están disponibles todos los recursos que indica <a href="http://pokeapi.co/docsv2/" target="_blank" rel="nofollow">documentación</a> de Jirapi. En esta librería, dichos recursos están representados por clases dentro del <em>namespace</em> <code>Jirapi.Resources</code>, por ejemplo: el recurso <code>/pokedex</code> es representado por la clase <code>Pokedex</code> y recurso <code>/pokemon-species</code> por <code>PokemonSpecies</code>.</p>
+<p>Para acceder a ellos es necesario crear una instancia de la clase <code>PokeClient</code>:</p>
+<pre><code class="language-csharp">var pokeClient = new PokeClient();
+</code></pre>
+<p>De acuerdo con la documentación, podemos acceder a una lista de los recursos disponibles, y con este pequeño cliente esta acción se realiza con el método <code>GetResourceList&lt;T&gt;</code>, en donde <code>T</code> debe ser uno de los recursos antes mencionados.</p>
+<p>Por ejemplo, si quisiéramos obtener una lista de todos los Pokédex, haríamos algo como esto:</p>
+<pre><code class="language-csharp">var dexes = await pokeClient.GetResourceList&lt;Pokedex&gt;();
+</code></pre>
+<p>El método devuelve una instancia de la clase <code>ApiResourceList&lt;Pokedex&gt;</code> que contiene los resultados en una lista de de <code>NamedApiResource&lt;Pokedex&gt;</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine(&quot;Pokedexes&quot;);
+foreach (var dex in dexes.Results)
+{
+    Console.WriteLine(dex.Name);
+}
+</code></pre>
+<p>Los <code>NamedApiResource</code> solamente son una contienen información básica del recurso, como su nombre, su id y la url desde la que se puede acceder a él. Pero teniendo un recurso podemos acceder al objeto completo usando el método <code>GetResource</code>:</p>
+<p>Supongamos que queremos obtener el pokédex de <em>kanto</em>:</p>
+<pre><code class="language-csharp">var kantoDex = await dexes.Results
+    .First(d =&gt; d.Name.Equals(&quot;kanto&quot;))
+    .GetResource();
+</code></pre>
+<p>En este caso, <code>kantoDex</code> ya contiene el recurso completo, es por eso que podemos acceder a más información, como sus descripciones:</p>
+<pre><code class="language-csharp">foreach (var description in kantoDex.Descriptions)
+{
+    Console.WriteLine(&quot;\t ({0}): {1}&quot;,description.Language.Name, description.Description1);
+}
+</code></pre>
+<p>Además de acceder a un listado de los recursos, también podemos acceder a un recurso directamente, para esto hay dos métodos para hacerlo:</p>
+<h3 id="get">Get</h3>
+<p>Podemos usar <code>Get</code> indicando el nombre del recurso:</p>
+<pre><code class="language-csharp">var pikachu = await pokeClient.Get&lt;Pokemon&gt;(&quot;pikachu&quot;);
+</code></pre>
+<p>O su identificador:</p>
+<pre><code class="language-csharp">var jirachi = await pokeClient.Get&lt;Pokemon&gt;(385);
+</code></pre>
+<h3 id="getbyurl">GetByUrl</h3>
+<p>O también podemos acceder a él a través de su url:</p>
+<pre><code class="language-csharp">var netBall = await pokeClient.GetByUrl&lt;Item&gt;(&quot;http://pokeapi.co/api/v2/item/6&quot;);
+</code></pre>
+<h2 id="conclusion">Conclusión</h2>
+<p>Es cierto que Jirapi parece que es cliente un poco rebuscado, pero esto se debe a que la Pokéapi está definida de esa manera, sin embargo, espero la uses en tu proyectos, presentaciones y demos. Lo cierto es que también le falta un poco de desarrollo: algunos de los recursos fallan y no tiene manejo de errores. Pero está en constante desarrollo, si quieres contribuir a su desarrollo, no dudes en hacerlo.</p>
+<h1 id="instalacion">Instalación</h1>
+<p>Para instalarlo no hay mejor manera que el gestor de paquetes de NuGet, en este caso es solo un paquete llamado... <strong>Jirapi</strong>.</p>
+<pre><code>PM&gt; Install-Package Jirapi
+</code></pre>
+<p>No olvides echarle un ojo al <a href="https://github.com/ThatCSharpGuy/Jirapi" target="_blank" rel="nofollow">proyecto en GitHub</a> si tienes dudas o deseas hacer unos cuantos <em>pull requests</em>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

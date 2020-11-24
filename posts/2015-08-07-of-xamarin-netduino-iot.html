@@ -1,1 +1,130 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>I want to start this post by telling you how far is the light switch in my bedroom from my bed: <strong>VERY FAR</strong>. Sometimes I'm all tired, lying in my bed thinking "wouldn't it be awesome if I could control that switch from here?", of course I can always use a broom stick or something like that, but when you have other options this kind of posts are born.</p>
+<p>Now, the actual post: I decided to create an app to easily turn on or off my bedroom's light not only from my Windows Phone but from my iPod or any other device in my house. I'll try to explain how I did it.</p> 
+<h3>Server (Netduino)</h3>
+<p>The system consists of two parts: Server and client. The server will be responsible of controlling the lightswitch and of always be listening for incoming requests.</p>
+<br />
+<br />
+<p>Speaking of hardware, I used a Netduino Plus 2, a <a href="http://www.seeedstudio.com/depot/Grove-Relay-p-769.html" target="_blank">Groove Relay</a> (to handle high voltages), some resistors and of course wire. I won't dig a lot on the wiring but if you want I could help you with that, just ask.</p>
+<p>Speaking of software, this is really a simple app, I created a class that works as an interface, it abstracts the usage of stream sockets. Taking advantage of the multithreading capabilities of the NetMF I created  thread in which a socket is always waiting for incoming connections, and when one arrives reads two bytes from it, the first one contains the operation to be performed and the second one contains data when is a writing operation. I make use of delegates to get or set the light switch status from the main thread.</p>
+<pre><code class="language-csharp">byte[] data = new byte[2];
+while (true)
+{
+    using (Socket client = server.Accept())
+    {
+        client.Receive(data, 0, 2, SocketFlags.None);
+        if (((char)data[0]) == WriteLightSwitchState)
+        {
+            if (OnLampStatusChangeRequest != null)
+            {
+                OnLampStatusChangeRequest(this, new BooleanEventArgs(((char)data[1]) == ByteTrue));
+            }
+        }
+        else if (((char)data[0]) == ReadLightSwitchState)
+        {
+            var args = new BooleanEventArgs(false);
+            if (OnLampStateRequest != null)
+            {
+                // Using the delegate we should tell the app whether the switch is on or off
+                OnLampStateRequest(this, args);
+            }
+            data[0] = args.Data ? ByteTrue : ByteFalse;
+            client.Send(data, 0, 1, SocketFlags.None);
+        }
+    }
+}
+</code></pre>
+<h3>Client (Xamarin.Forms app)</h3>
+<p>The client only has a single purpose: replace the mechanical switch. It isn't very hard to think of the UI of an app to do that.</p> 
+<h4>UI</h4>
+<p>I didn't burn my brain out thinking of the UI, after all it is just a switch, and that is precisely what I used, a <code>Switch</code> that will trigger a request to the Netduino on every toggle.</p>
+<h4>Using Sockets in a Xamarin.Forms app</h4>
+<p>Like the server, the client has a kind of "interface" that abstracts the usage of sockets in our app. Let's stop for a minute, when I first thought of this app I was wondering of how to manage sockets from a Forms application. I'd create a plugin and handle each platform indepently, but searching I came along with this <i>really, really</i> cool plugin: <a target="_blank" href="https://github.com/rdavisau/sockets-for-pcl">rda.SocketsForPcl</a>, it provides a fully functional set of classes to deal with sockets in every platform (even on iOS!). It is great to have a community creating stuff that you can use in your projects. With the socket issue solved, let's move on.</p>
+<p>There are two important methods whithin the "interface" class:</p> 
+<pre><code class="language-csharp">public async Task&lt;bool&gt; GetLightSwitchStatus()
+{
+    using (var s = new Sockets.Plugin.TcpSocketClient())
+    {
+        await s.ConnectAsync(NetduinoIp, Port);
+        byte[] data = new byte[2];
+        data[0] = ReadLightSwitchState;
+        data[1] = ReadLightSwitchState;
+        s.WriteStream.Write(data, 0, 2);
+        s.ReadStream.Read(data, 0, 1);
+        return data[0] == ByteTrue;
+    }
+}
+</code></pre>
+<p>The above piece of code request the switch status from the server and returns true or false, depending on the status of the light switch.</p>
+<pre><code class="language-csharp">public async Task SetLightSwitchStatus(bool on)
+{
+    using (var s = new Sockets.Plugin.TcpSocketClient())
+    {
+        await s.ConnectAsync(NetduinoIp, Port);
+        byte[] data = new byte[2];
+        data[0] = WriteLightSwitchState;
+        data[1] = (byte)(on ? ByteTrue : ByteFalse);
+        s.WriteStream.Write(data, 0, 2);
+    }
+}
+</code></pre>
+<p>This piece of code sends a request to the server telling which state the light swich shoud be set to. Note how all the exchange of information is done via bytes, the first byte tells the server which operation is requested while the second one contains data when necessary. In the following vídeo I show the system working, though I still haven't wired the actual light bulb (since I'm scared of the high voltage), so I placed a 12V led instead for the demo.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tLuWTyCHQ1w" frameborder="0" allowfullscreen></iframe>
+<h4>What next?</h4>
+<p>Well, this isn't really IoT as you may know it because this has little to do with the internet since the traffic is local, but I consider it to be a good starting point to build something more complex. For the next Netduino + Xamarin post I'll create a system that sends a notification over to my phone everytime someone opens my bedroom door, for that I'll use Parse, please fill in the <a href="/signup">sign up</a> if you want me to keep you updated.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

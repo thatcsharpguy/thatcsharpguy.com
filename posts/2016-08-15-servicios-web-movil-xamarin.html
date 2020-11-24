@@ -1,1 +1,338 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<blockquote>
+<p>Este es post es una traducción del post de <a href="https://twitter.com/RobGibbens" target="_blank">Rob Gibbens</a> llamado <a href="http://arteksoftware.com/resilient-network-services-with-xamarin/" target="_blank">Resilient network services with mobile Xamarin apps</a>, te invito a visitar el post y el resto de su blog.</p>
+</blockquote>
+<p>Durante mucha de la historia de la computación, nuestras computadoras y nuestras aplicaciones estuvieron en computadoras y no se movían. Nosotros contábamos con una fuente constante de energía, recursos y acceso a la red. Los desarrolladores no necesitaban pasar mucho tiempo previendo interrupciones o fallas con esos recursos. Inclusive era común tener aplicaciones que funcionaban localmente, en las que ni siquiera teníamos que pensar en la red.</p>
+<h2 id="vivimos-en-un-mundo-movil">Vivimos en un mundo móvil</h2>
+<p>Llevamos nuestros dispositivos con nosotros a donde sea. Los tenemos en casa, en el trabajo y durante las vacaciones. Están con nosotros sin importar si estamos conectados a internet wifi de 1 gigabit o en una red 4g. Tienen que funcionar mientras viajamos en túneles, trenes, automóviles, volando a 9000 metros de altura y cuando no tenemos conexión. Como desarrolladores debemos, no solo esperar esos requisitos, sino tomarlos en cuenta desde el desarrollo inicial y la arquitectura de nuestra aplicación móvil.</p>
+<h2 id="enfoque-actual">Enfoque actual</h2>
+<p>Cuando empezamos a escribir nuestras apps con Xamarin, probablemente optamos por el enfoque sencillo de escribir el código que se conecta con la red nosotros mismos. Tal vez solamente usamos la librería <em>HttpClient</em> de Microsoft para hacer una llamada, y después <em>Json.net</em> para deserializar el resultado. O puede que nos luzcamos e incluyamos algunas otras librerías también. Puedes ver este enfoque en el post de Rob <a href="http://arteksoftware.com/end-to-end-mvvm-with-xamarin/">End to End Mvvm with Xamarin</a> en donde muestra la implementación de un cliente para un servicio.</p>
+<pre><code class="language-csharp">namespace DtoToVM.Services  
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
+    using AutoMapper;
+    using Newtonsoft.Json;
+    using DtoToVM.Dtos;
+    using DtoToVM.Models;
+
+    public class TekConfClient
+    {
+        public async Task&lt;List&lt;Conference&gt;&gt; GetConferences ()
+        {
+            IEnumerable&lt;ConferenceDto&gt; conferenceDtos = Enumerable.Empty&lt;ConferenceDto&gt;();
+            IEnumerable&lt;Conference&gt; conferences = Enumerable.Empty&lt;Conference&gt; ();
+
+            using (var httpClient = CreateClient ()) {
+                var response = await httpClient.GetAsync (&quot;conferences&quot;).ConfigureAwait(false);
+                if (response.IsSuccessStatusCode) {
+                    var json = await response.Content.ReadAsStringAsync ().ConfigureAwait(false);
+                    if (!string.IsNullOrWhiteSpace (json)) {
+                        conferenceDtos = await Task.Run (() =&gt; 
+                            JsonConvert.DeserializeObject&lt;IEnumerable&lt;ConferenceDto&gt;&gt;(json)
+                        ).ConfigureAwait(false);
+
+                        conferences = await Task.Run(() =&gt; 
+                            Mapper.Map&lt;IEnumerable&lt;Conference&gt;&gt; (conferenceDtos)
+                        ).ConfigureAwait(false);
+                    }
+                }
+            }
+
+            return conferences.ToList();
+        }
+
+        private const string ApiBaseAddress = &quot;http://api.tekconf.com/v1/&quot;;
+        private HttpClient CreateClient ()
+        {
+            var httpClient = new HttpClient 
+            { 
+                BaseAddress = new Uri(ApiBaseAddress)
+            };
+
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(&quot;application/json&quot;));
+
+            return httpClient;
+        }
+    }
+}
+</code></pre>
+<p>Este código funciona, pero no toma en cuenta ningún error en la red. Si la red estuviera caída, el servicio no respondiera u ocurriera alguna excepción, nuestra aplicación se cerraría. Evidentemente, esto no es lo óptimo.</p>
+<h2 id="objetivos">Objetivos</h2>
+<p>Los objetivos de nuestras apps deben incluir, pero no limitarse, a los siguientes:</p>
+<ul>
+<li>Acceso sencillo a servicios <em>restful</em></li>
+<li>Rápida respuesta para nuestros usuarios</li>
+<li>Funcionar <em>offline</em></li>
+<li>Manejo de errores</li>
+</ul>
+<p>Como objetivos secundarios:</p>
+<ul>
+<li>Desarrollo en poco tiempo</li>
+<li>Facilidad de mantenimiento</li>
+<li>Reusar librerías existentes</li>
+</ul>
+<p>Ataquemos estos objetivos uno a la vez, y veremos cómo podemos mejorar nuestra aplicación conectada. Como casi siempre, estaré usando una la app de una conferencia basada en TekConf.</p>
+<blockquote>
+<p>El código de ejemplo está disponible en <a href="https://github.com/RobGibbens/ResilientServices">el GitHub de Rob</a></p>
+</blockquote>
+<h2 id="acceso-facil-a-servicios-restful">Acceso fácil a servicios <em>restful</em></h2>
+<h3 id="refit">Refit</h3>
+<pre><code>PM&gt; Install-Package Refit
+</code></pre>
+<p>La primera cosa que vamos a necesitar es una forma para acceder a nuestros servicios. <strong>Podríamos</strong> usar HttpClient + Json.net como hicimos en el ejemplo anterior, sin embargo, podemos hacer esto más simple. De nuevo, uno de nuestros objetivos secundarios es reusar librerías existentes. La primera que usaremos es <a href="https://github.com/paulcbetts/refit" target="_blank" rel="nofollow">Refit</a>. Refit nos permite definir una interfaz que describe la API que estamos llamando, y el framework se encarga de hacer la llamada al servicio y deserializar el objeto de regreso.</p>
+<p>En nuestro caso, la interfaz se verá más así:</p>
+<pre><code class="language-csharp">[Headers(&quot;Accept: application/json&quot;)]
+public interface ITekConfApi  
+{
+    [Get(&quot;/conferences&quot;)]
+    Task&lt;List&lt;ConferenceDto&gt;&gt; GetConferences();
+
+    [Get(&quot;/conferences/{slug}&quot;)]
+    Task&lt;ConferenceDto&gt; GetConference(string slug);
+}
+</code></pre>
+<p>Aquí estamos declarando que nuestra API retornará <em>json</em>, y que hay dos &quot;métodos&quot; (recursos) que podemos llamar. El primer método es una petición HTTP GET al <em>endpoint</em> <code>/conferencias</code>. El segundo método es también una petición HTTP GET, y pasa un argumento como parte de la url para obtener una sola conferencia.</p>
+<p>Una vez que la interfaz ha sido definida, usarla es tan simple como esta:</p>
+<pre><code class="language-csharp">var tekconfApi = RestService.For&lt;ITekConfApi&gt;(&quot;http://api.tekconf.com/v1&quot;);
+
+var conferences = await tekconfApi.GetConferences();
+
+var codemash = await tekconfApi.GetConference(&quot;codemash-2016&quot;);  
+</code></pre>
+<h2 id="fast-response-for-our-users">Fast response for our users</h2>
+<h3 id="akavache">Akavache</h3>
+<pre><code>PM&gt; Install-Package Akavache
+</code></pre>
+<p>Ahora que tenemos una forma sencilla de acceder al servicio, nos podemos concentrar en la experiencia de usuario. El desempeño de una aplicación móvil, desde la perspectiva del usuario, es <strong>crítica</strong>. No importa en realidad si tu aplicación <strong>ES</strong> rápida mientras que el usuario <strong>PIENSE</strong> que lo es.</p>
+<p>La mejor manera de acelerar una llamada a un servicio es no hacer esa llamada en primer lugar. Cargar la información almacenada localmente es exponencialmente más rápido que hacer una petición web, especialmente cuando estamos en un dispositivo móvil conectado en una red celular lenta. Aquí, podemos usar la técnica común de cachear los datos. Cuando la página termine de cargar y solicite datos para mostrar, nosotros inmediatamente queremos la información cacheada en nuestro dispositivo y mostrarla. Desde la perspectiva del usuario, la página se muestra inmediatamente. Mientras esto ocurre, nosotros consultamos al servicio remoto, obtenemos la nueva información y la almacenamos en cache. Dado que el usuario no necesita esperar a que la consulta al servicio concluya, podemos ejecutarla a nuestra discreción y conseguirnos un poco más de tiempo para procesarla.</p>
+<p>Mientras que pudimos haber escrito toda la lógica de cacheo nosotros mismos, en su lugar agregamos un paquete de NuGet llamado <a href="https://github.com/akavache/Akavache" target="_blank" rel="nofollow">Akavache</a>. Del sitio de Akavache:</p>
+<blockquote>
+<p>Akavache es un repositorio de <em>clave-valor</em> asíncrono y persistente (i. e. escribe a disco) creado para escribir aplicaciones de escritorio y móviles en C#, basado en SQLite3. Akavache es ideal para almacenar tanto información importante (i. e. configuración de usuarios) así como información local que debe expirar.</p>
+</blockquote>
+<pre><code class="language-csharp">public async Task&lt;List&lt;ConferenceDto&gt;&gt; GetConferences()  
+{
+    var cache = BlobCache.LocalMachine;
+    var cachedConferences = cache.GetAndFetchLatest(&quot;conferences&quot;, GetRemoteConferencesAsync,
+        offset =&gt;
+        {
+            TimeSpan elapsed = DateTimeOffset.Now - offset;
+            return elapsed &gt; new TimeSpan(hours: 0, minutes: 30, seconds: 0);
+        });
+
+    var conferences = await cachedConferences.FirstOrDefaultAsync();
+    return conferences;
+}
+</code></pre>
+<p>Podemos usar el método <code>GetAndFetchLatest</code> de Akavache para devolver inmediatamente las conferencias almacenadas, si hay alguna. Al mismo tiempo, preparamos una petición a nuestro método <code>GetRemoteConferencesAsync</code>, quién hará la llamada al servicio remoto si el periodo de tiempo indicado ha transcurrido.</p>
+<p>Matthew Soucop tiene un muy buen <a href="http://codemilltech.com/akavache-is-aka-awesome/" target="_blank" rel="nofollow">post de Akavache</a>.</p>
+<h3 id="modernhttpclient">ModernHttpClient</h3>
+<pre><code>PM&gt; Install-Package ModernHttpClient
+</code></pre>
+<p>A pesar de que nos gustaría siempre obtener los datos de la cache, sabemos que en algún momento tendremos que llamar al servicio remoto. Sin embargo, en la <em>Xamarin stack</em>, nos encontramos con un problema, por default Mono (y por tanto Xamarin) usa la <em>Mono networking stack</em>. Funciona, pero Apple y Google hay pasado un montón de tiempo optimizando su <em>stack</em> de redes en sus respectivas plataformas, y cando usamos <code>HttpClient</code> estamos pasando par algo dichas optimizaciones por completo. Podemos arreglar esto añadiendo <a href="https://github.com/paulcbetts/ModernHttpClient" target="_blank" rel="nofollow">ModernHttpClient</a>.</p>
+<blockquote>
+<p>Esta librería lleva las librerías de red más recientes a Xamarin a través de un tipo <code>HttpClient</code> modificado. Escribe tu aplicación usando <code>System.Net.Http</code> pero coloca esta librería e irá drásticamente más rápido.</p>
+</blockquote>
+<pre><code class="language-csharp">var client = new HttpClient(new NativeMessageHandler())  
+{
+    BaseAddress = new Uri(apiBaseAddress)
+};
+
+return RestService.For&lt;ITekConfApi&gt;(client);
+</code></pre>
+<p>Al pasar <code>NativeMessageHandler</code> al constructir de <code>HttpClient</code>, automáticamente estamos usando el <em>stack</em> apropiado en cada plataforma.</p>
+<h3 id="fusillade">Fusillade</h3>
+<pre><code>PM&gt; Install-Package Fusillade
+</code></pre>
+<p>Desde la perspectiva del usuario, no todas las peticiones al servicio son iguales. Peticiones que son iniciadas por una acción del usuario deben tener una prioridad que cualquier otra que la app haga por su cuenta. Recuerda que nuestro objetivo es que el usuario <strong>sienta</strong> que la app responde rápido.</p>
+<p><a href="https://github.com/paulcbetts/Fusillade" target="_blank" rel="nofollow">Fusillade</a> es otro paquete de NuGetque vamos a usar para contar con:</p>
+<ul>
+<li>Evitar duplicar peticiones automáticas</li>
+<li>Limitar peticiones</li>
+<li>Priorizar peticiones</li>
+<li>Contar con peticiones especulativas</li>
+</ul>
+<pre><code class="language-csharp">public class ApiService : IApiService  
+{
+    public const string ApiBaseAddress = &quot;http://api.tekconf.com/v1&quot;;
+
+    public ApiService(string apiBaseAddress = null)
+    {
+        Func&lt;HttpMessageHandler, ITekConfApi&gt; createClient = messageHandler =&gt;
+        {
+            var client = new HttpClient(messageHandler)
+            {
+                BaseAddress = new Uri(apiBaseAddress ?? ApiBaseAddress)
+            };
+
+            return RestService.For&lt;ITekConfApi&gt;(client);
+        };
+
+        _background = new Lazy&lt;ITekConfApi&gt;(() =&gt; createClient(
+            new RateLimitedHttpMessageHandler(new NativeMessageHandler(), Priority.Background)));
+
+        _userInitiated = new Lazy&lt;ITekConfApi&gt;(() =&gt; createClient(
+            new RateLimitedHttpMessageHandler(new NativeMessageHandler(), Priority.UserInitiated)));
+
+        _speculative = new Lazy&lt;ITekConfApi&gt;(() =&gt; createClient(
+            new RateLimitedHttpMessageHandler(new NativeMessageHandler(), Priority.Speculative)));
+    }
+
+    private readonly Lazy&lt;ITekConfApi&gt; _background;
+    private readonly Lazy&lt;ITekConfApi&gt; _userInitiated;
+    private readonly Lazy&lt;ITekConfApi&gt; _speculative;
+
+    public ITekConfApi Background
+    {
+        get { return _background.Value; }
+    }
+
+    public ITekConfApi UserInitiated
+    {
+        get { return _userInitiated.Value; }
+    }
+
+    public ITekConfApi Speculative
+    {
+        get { return _speculative.Value; }
+    }
+}
+</code></pre>
+<p>Ahora, en lugar de solamente usar <code>HttpClient</code>, tenemos una clase <code>ApiService</code> que tendrá tres instancias de <code>Refit</code>, para peticiones iniciadas por el usuario (<em>UserInitiated</em>), en segundo plano (<em>Background</em>) y especulativas (<em>Speculative</em>).</p>
+<p>Cuando la página carga por primera vez, nosotros automáticamente trataremos de obtener información sobre las conferencias. Dado que el usuario no inició esta petición, podemos enviar esta petición a segundo plano.</p>
+<pre><code class="language-csharp">var conferences = await _conferencesService  
+                        .GetConferences(Priority.Background)
+                        .ConfigureAwait(false);
+</code></pre>
+<p>Si el usuario selecciona el botón de actualizar, entonces tendríamos que correr esta petición con diferente prioridad.</p>
+<pre><code class="language-csharp">var conferences = await _conferencesService  
+                        .GetConferences(Priority.UserInitiated)
+                        .ConfigureAwait(false);
+</code></pre>
+<p>Cuando las conferencias <em>regresan</em> del servicio, podríamos asumir que el usuario seleccionará una de ellas para ver sus detalles. Puesto que solo estamos especulando que esto podría ocurrir, podemos preparar una petición para obtener los detalles de las conferencias con prioridad especulativa:</p>
+<pre><code class="language-csharp">foreach (var slug in conferences.Select(x =&gt; x.Slug))  
+{
+    _conferencesService.GetConference(Priority.Speculative, slug);
+}
+</code></pre>
+<blockquote>
+<p>Una nota de Paul Betts: &quot;Si usas la prioridad especulativa, tienes que llamar a ResetLimit en tu app móvil para reestablecer el límite de descarga de 5MB cada que navegues entre páginas (esta no es una regla estricta, pero es una buena idea - básicamente cuando sepas que el usuario está &quot;iniciando una nueva sesión&quot;). La prioridad especulativa es definitivamente algo que la mayoría de apps no necesitan - imagínate una app de Reddit en donde intentes descargar cada elemento en la página, pero en realidad no quieres hacer eso, tal vez solo intentes adivinar qué es lo que el usuario quiere ver. Entonces el desarrollador puede ser flojo y decir &quot;Descarga todo, <em>yolo</em>&quot; y Fusillade las eliminará basándose en el contenido de cada una.</p>
+</blockquote>
+<p>## Funcionamiento <em>offline</em></p>
+<p>Contrario a las aplicaciones de escritorio, nuestras aplicaciones móviles deben ser alguna funcionalidad mientras están desconectadas de la red. La peor cosa que podríamos hacer es que falle cuando tratamos de hacer una petición. Lo mejor que podríamos hacer es que siga funcionando para que el usuario no se de cuenta de que no estaba conectado a internet.</p>
+<h3 id="connectivity">Connectivity</h3>
+<pre><code>PM&gt; Install-Package Xam.Plugin.Connectivity
+</code></pre>
+<p>Si queremos estar seguros de que no causaremos un excepción al hacer una petición cuando no hay internet, entonces necesitamos una manera de conocer el estado de la conexión. Cada plataforma tiene su manera de hacer esta validación, pero nosotros queremos hacer uso de ella de una manera <em>cross-platform</em> desde nuestra PCL.</p>
+<p><a href="https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity" target="_blank" rel="nofollow">Connectivity</a> es un plugin para Xamarin que nos permite hacer justamente eso.</p>
+<blockquote>
+<p>Simple plugin multiplataforma para revisar el estado de la conexión en un dispositivo móvil, obtener el tipo de conexión, el ancho de banda y más.</p>
+</blockquote>
+<p>Antes de hacer una petición de red, podemos revisar si el dispositivo está conectado.</p>
+<pre><code class="language-csharp">if (CrossConnectivity.Current.IsConnected)  
+{
+    conferences = await _apiService.Background.GetConferences();
+}
+return conferences;
+</code></pre>
+<h3 id="akavache-1">Akavache</h3>
+<p>Ya vimos cómo Akavache nos permite continuar trabajando mientras estamos offline al cachear los resultados de consultas localmente. Al combinar Akavache y las llamadas especulativas de Fusillade, podemos cachear proactivamente tantos datos como podemos mientras permanece conectado. Cuando no haya red, la app continuará funcionando en modo de solo lectura.</p>
+<h2 id="manejo-de-errores">Manejo de errores</h2>
+<p>En un mundo perfecto, nuestro código funcionaría correctamente todo el tiempo. Este no es un mundo perfecto. Las redes se caen. Los servicios lanzan errores. El código falla. Algunos de los errores son permanentes, pero un gran número son errores esporádicos. Las peticiones por red son poco confiables y las APIs tienen errores esporádicos por una amplia gama de razones.</p>
+<h2 id="polly">Polly</h2>
+<pre><code>PM&gt; Install-Package Polly
+</code></pre>
+<p><a href="https://github.com/michael-wolfenden/Polly" target="_blank" rel="nofollow">Polly</a> es una de las librerías más útiles que he usado en un tiempo. De su sitio web:</p>
+<blockquote>
+<p>Polly es una librería para .NET 3.5/4.0/4.5/PCL que permite a los desarrolladores expresar políticas de manejo de errores como Reintentar (<em>Retry</em>), Reintentar para siempre (<em>Retry Forever</em>), espera y reintenta (<em>Wait and Retry</em>) o corta circuito (<em>Circuit Breaker</em>) de una manera fluida.</p>
+</blockquote>
+<p>Polly nos permite manejar fácilmente este tipo de errores de manera consistente y coherente. En este ejemplo, trataremos de conectarnos al servicio 5 veces, con una espera que incrementa exponencialmente 2, 4, 8, 16, 32 segundos entre intentos. Esto debería darle tiempo al dispositivo de reestablecer la conexión y continuar con las peticiones.</p>
+<pre><code class="language-csharp">conferences = await Policy  
+      .Handle&lt;WebException&gt;()
+      .WaitAndRetry
+      (
+        retryCount:5, 
+        sleepDurationProvider: retryAttempt =&gt; TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+      )
+      .ExecuteAsync(async () =&gt; await getConferencesTask);
+</code></pre>
+<h3 id="asyncerrorhandler">AsyncErrorHandler</h3>
+<pre><code>PM&gt; Install-Package AsyncErrorHandler.Fody  
+</code></pre>
+<p>Inclusive con todo el cacheo, los reintentos y planeación que hemos puesto en el código, en algún momento fallará. Queremos que cuando eso suceda, lo manejemos de buena manera.</p>
+<p>En nuestras aplicaciones móviles, es imperativo que usemos <code>async</code>/<code>await</code> tanto como podamos para asegurarnos de no bloquear el hilo de la UI mientras hacemos cosas como peticiones de red. Manejar las excepciones en métodos asíncronos puede ser complicado.</p>
+<p>Agregar <a href="https://github.com/Fody/AsyncErrorHandler" target="_blank" rel="nofollow">AsyncErrorHandler</a> nos permite manejar esas excepciones de modo global, así nos aseguramos de que no terminarán nuestra app.</p>
+<h2 id="mas">Más</h2>
+<p>Podríamos ir un paso más allá en la arquitectura de nuestro código para manejar las peticiones de red. Podríamos registrar cada llamada como una <a href="https://developer.xamarin.com/guides/ios/application_fundamentals/backgrounding/part_3_ios_backgrounding_techniques/ios_backgrounding_with_tasks/" target="_blank" rel="nofollow">BackgroundTask</a> en iOS, o como un <a href="http://developer.xamarin.com/guides/android/application_fundamentals/services/" target="_blank" rel="nofollow">Service</a> en Android para darle a cada una la oportunidad de terminar aún cuando la app es enviada a segundo plano.</p>
+<p>Podríamos implementar una cola, o laguna forma de sincronización de datos que nos permitirían actualizar los datos mientras estamos offline y sincronizarlos con el servidor cuando una conexión esté disponible. Qué tan lejos quieres llegar, depende de ti.</p>
+<p>Fundamentalmente, el desarrollo móvil introduce algunas complejidades por las que no habíamos tenido que preocuparnos en el desarrollo para escritorio. Una aplicación móvil que no usa servicios externos es una isla con usabilidad limitada. Una aplicación móvil que usa servicios externos, pero falla cuando trata de acceder a ellos es inútil. Al usar algunas librerías realmente geniales, podemos asegurarnos de que nuestras aplicaciones darán a nuestros usuarios la mejor experiencia.</p>
+<h2 id="agradecimientos">Agradecimientos</h2>
+<p>Para hacer que todo esto funcione, aproveché el gran trabajo de otros desarrolladores. <em>Sentado sobre los hombros de gigantes</em>.</p>
+<p>Gracias a <a href="https://twitter.com/jamesmontemagno" target="_blank" rel="nofollow">James Montemagno</a> (<a href="http://motzcod.es/" target="_blank">Blog</a>, <a href="https://github.com/jamesmontemagno" target="_blank">GitHub</a>) por el plugin <a href="https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity" target="_blank">Connectivity</a>.</p>
+<p>Gracias a Michael Wolfenden (<a href="https://github.com/michael-wolfenden/" target="_blank">GitHub</a>) por el fantástico framework <a href="https://github.com/michael-wolfenden/Polly" target="_blank">Polly</a>.</p>
+<p>Gracias a <a href="https://twitter.com/SimonCropp" target="_blank">Simon Cropp</a> (<a href="https://github.com/SimonCropp" target="_blank">GitHub</a>) por <a href="https://github.com/Fody/" target="_blank">Fody</a> y <a href="https://github.com/Fody/AsyncErrorHandler" target="_blank">AsyncErrorHandler</a>.</p>
+<p>Gracias a <a href="https://twitter.com/GeoffreyHuntley" target="_blank">Geoffrey Huntley</a> (<a href="https://www.ghuntley.com/" target="_blank">Blog</a>, <a href="https://github.com/ghuntley" target="_blank">GitHub</a>) por el código y la inspiración para la clase <a href="https://gist.github.com/ghuntley/ed2eb754a47e2cd3bc90" target="_blank">ApiService con Fusillade y Refit</a>.</p>
+<p>Muchas, muchas gracias a <a href="https://twitter.com/paulcbetts" target="_blank">Paul Betts</a> (<a href="http://log.paulbetts.org/" target="_blank">Blog</a>, <a href="https://github.com/paulcbetts" target="_blank">GitHub</a>) por sus trenemdas contribuciones a la comunidad <em>open source</em> de Xamarin, incluyendo <a href="https://github.com/paulcbetts/refit" target="_blank">Refit</a>, <a href="https://github.com/akavache/Akavache" target="_blank">Akavache</a>, <a href="https://github.com/paulcbetts/Fusillade" target="_blank">Fusillade</a>, y <a href="https://github.com/paulcbetts/ModernHttpClient" target="_blank">ModernHttpClient</a>.</p>
+<h2 id="codigo-fuente">Código fuente</h2>
+<p>Puedes encontrar un ejemplo completo en el <a href="https://github.com/RobGibbens/ResilientServices" target="_blank">GitHub de Rob</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,211 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Justamente hace unos cuantos posts, les hablaba de cómo <a href="http://thatcsharpguy.com/post/docx-c-sharp/">trabajar con documentos de Word en C#</a>, y esta vez hablo sobre algo similar... solo que con hojas de cálculo de Excel, seguramente es una tarea más requerida dada la naturaleza, ligada a los datos, de este tipo de archivos. Esto es posible a través de una librería que también se distribuye a través de NuGet, la librería en cuestión se llama EPPlus y en este post presento algunos casos de uso.</p>
+<p>En esta ocasión mostraré cómo crear un pequeño reporte de las clases y maestros que se imparten en una escuela, usando la misma información del <a href="http://thatcsharpguy.com/post/linq-en-c-sharp-3/">post sobre LINQ en C#</a>, para finalizar con un ejemplo de lectura de un libro de Excel en nuestra aplicación:</p>
+<h2 id="creando-un-libro">Creando un libro</h2>
+<p>Para crear un libro de excel usaremos la clase <code>ExcelPackage</code> junto con un objeto de la clase <code>FileInfo</code>, la documentación no indica que debemos emplear nuestro código dentro de un bloque <code>using</code>, pero para evitar sorpresas, creamos el documento dentro de uno:</p>
+<pre><code class="language-csharp">FileInfo prueba = new FileInfo(&quot;prueba.xlsx&quot;);
+using (ExcelPackage excel = new ExcelPackage(prueba))
+{
+    var workbook = excel.Workbook;
+    // ... 
+</code></pre>
+<p>Podemos ver a la clase <code>ExcelPackage</code> como un contenedor de nuestro libro, al que podemos acceder a través de la propiedad <code>Workbook</code>.</p>
+<h2 id="guardando-un-documento">Guardando un documento</h2>
+<p>Al igual que con DocX, una vez creado el documento y después de que hemos terminado de trabajar con él debemos guardar nuestros cambios, esto se hace mediante una llamada a su método <code>Save</code>, con lo cual todos los cambios hechos en el documento serán aplicados sobre el archivo.</p>
+<pre><code class="language-csharp">    // ...
+    excel.Save();
+}
+</code></pre>
+<p>Cabe señalar que también tenemos a nuestra disposición el método <code>SaveAs</code> que permite guardar una copia del documento con el que estamos trabajando, hay otra sobrecarga que inclusive nos eprmite establecer una contraseña para el archivo.</p>
+<p>Si ejecutamos el código hasta este momento veremos un archivo <code>.xlsx</code> llamado &quot;prueba.xlsx&quot; en la carpeta donde está nuestra aplicación, en mi caso es dentro de <code>bin\Debug</code>, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo, pero bien pudimos usar una ruta absoluta para guardarlo en otro lugar.</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__new-xlsx.png&quot; title=<>Documento vacío</> /&gt;</p>
+<h2 id="agregando-informacion">Agregando información</h2>
+<p>Queremos generar un reporte con todos los maestros en una hoja de Excel y así es una de las maneras en que se puede hacer usando EPPlus</p>
+<h3 id="hojas-de-trabajo">Hojas de trabajo</h3>
+<p>Para insertar datos en nuestro libro de Excel necesitamos primero agregar una hoja de trabajo o <em>worksheet</em>, lo cual se hace mediante el método <code>Add</code>, que recibe el nombre de la hoja que vamos a crear. Ten cuidado con intentar agregar dos hojas con el mismo nombre, puesto que esto no está permitido.</p>
+<p>El método <code>Add</code> regresa una referencia a la hoja recién añadida y es precisamente usando esa referencia como vamos a añadir la información.</p>
+<pre><code class="language-csharp">var teacherWorksheet = wb.Worksheets.Add(&quot;Maestros&quot;);
+</code></pre>
+<h3 id="celdas">Celdas</h3>
+<p>Partiendo de la referencia a <code>teacherWorksheet</code> podemos ahora si trabajar con las celdas (<code>Cells</code>) de esa hoja, la forma de hacerlo es como lo haríamos manualmente en el documento, es decir, mediante el sistema de coordenadas compuesto por letras y números. Por ejemplo, si queremos añadir los nombres de las columnas para nuestros datos:</p>
+<pre><code class="language-csharp">teacherWorksheet.Cells[&quot;A1&quot;].Value = &quot;ID&quot;;
+teacherWorksheet.Cells[&quot;B1&quot;].Value = &quot;Nombre&quot;;
+teacherWorksheet.Cells[&quot;C1&quot;].Value = &quot;Apellidos&quot;;
+teacherWorksheet.Cells[&quot;D1&quot;].Value = &quot;Email&quot;;
+teacherWorksheet.Cells[&quot;E1&quot;].Value = &quot;Edad&quot;;
+</code></pre>
+<p>Usamos la propiedad <code>Value</code> de nuestras celdas es como podemos asignarles un valor, la propiedad es de tipo <code>object</code> por lo que podemos poner ahí lo que sea.</p>
+<p>Pero, como queremos distinguir los encabezados del resto de los datos, ¿por qué no los ponemos en <strong>negritas</strong>?</p>
+<pre><code class="language-csharp">teacherWorksheet.Cells[&quot;A1:E1&quot;].Style.Font.Bold = true; 
+</code></pre>
+<p>Como puedes ver, <code>Cells</code> también nos ayuda a recuperar todo un rango de celdas, para así poder trabajar con todas ellas de una sola vez.</p>
+<p>Ya por último en un ciclo <code>foreach</code> insertamos cada uno de los valores en su correspondiente celda</p>
+<pre><code class="language-csharp">int cell = 2;
+foreach (var teacher in Database.Teachers)
+{
+    teacherWorksheet.Cells[&quot;A&quot; + cell].Value = teacher.Id;
+    teacherWorksheet.Cells[&quot;B&quot; + cell].Value = teacher.GivenName;
+    // ... más asignaciones
+    cell++;
+} 
+</code></pre>
+<p>Tras lo cual obtendremos algo como esto:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-1.png&quot; title=<>Documento vacío</> /&gt;</p>
+<p>Podemos agregar más hojas a nuestro libro, también añadiremos una hoja para guardar las Clases impartidas por los maestros.</p>
+<h2 id="hoja-de-resumen">Hoja de resumen</h2>
+<p>Ahora veremos cómo agregar una página de resumen, en la cual mostraremos algunos datos basados en la información contenida dentro del libro.</p>
+<h3 id="combinando-y-centrando-celdas">Combinando y centrando celdas</h3>
+<p>Primero añadimos una nueva hoja al libro, después vamos a unir las celdas <code>A1</code> y <code>B1</code>, ponerlas en negritas y centrar el texto para el &quot;título&quot; de la hoja de resumen. Todo eso es posible con el siguiente código:</p>
+<pre><code class="language-csharp">var summaryWorksheet = wb.Worksheets.Add(&quot;Resumen&quot;);
+
+var titleCell = summaryWorksheet.Cells[&quot;A1:B1&quot;]; // Tomamos un rango de celdas
+titleCell.Merge = true;
+titleCell.Style.Font.Bold = true;
+titleCell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+titleCell.Value = &quot;Resumen&quot;;
+</code></pre>
+<p>Que nos dejará con el siguiente resultado:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-2.png&quot; title=<>Documento vacío</> /&gt;</p>
+<h3 id="formulas">Formulas</h3>
+<p>Para añadir fórmulas debemos usar la propiedad <code>Formula</code> de las celdas, lo que si es importante es hacer referencia a ellas a través de su nombre original en inglés.</p>
+<pre><code class="language-csharp">summaryWorksheet.Cells[&quot;B2&quot;].Formula = &quot;AVERAGE(Maestros!E2:E31)&quot;;  
+// ...
+summaryWorksheet.Cells[&quot;B3&quot;].Formula = &quot;COUNTIF(Maestros!D2:D31,\&quot;\&quot;)&quot;;
+</code></pre>
+<p>En este caso estamos usando AVERAGE para sacar el promedio de edad y COUNTIF para contar la cantidad de maestros sin correo electrónico.</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-3.png&quot; title=<>Documento vacío</> /&gt;</p>
+<h2 id="usando-linq">Usando LINQ</h2>
+<p>Una cosa que relamente es genial de EPPlus es que nos permite usar LINQ para trabajar con las hojas y celdas de nuestros libros, por ejemplo, para obtener una referencia a una hoja de trabajo existente podemos buscarla por su nombre usando el método <code>Single</code>:</p>
+<pre><code class="language-csharp">var teacherWorksheet = wb.Worksheets.Single(ws =&gt; ws.Name == &quot;Maestros&quot;); 
+</code></pre>
+<p>Y ahora, con la referencia <code>teacherWorksheet</code> consultamos sus celdas, nuevamente usando LINQ:</p>
+<pre><code class="language-csharp">var cellsWithYoungTeachers = from cell in teacherWorksheet.Cells[&quot;E:E&quot;].Skip(1)
+                             where ((int)cell.Value) &lt; 20
+                             select cell;
+</code></pre>
+<p>En el código anterior estamos:</p>
+<ul>
+<li>Seleccionando todas las celdas de la columna E con <code>.Cells[&quot;E:E&quot;]</code></li>
+<li>Brincándonos la primera de esas celdas (porque es el título) con <code>.Skip(1)</code></li>
+<li>Filtrándo las celdas que contienen un valor menor a 20 <code>where ((int)cell.Value) &lt; 20</code></li>
+</ul>
+<h2 id="modificando-el-formato-de-las-celdas">Modificando el formato de las celdas</h2>
+<p>Después podemos iterar sobre la colección recién creada y darle un estilo diferente a las celdas que coincidieron con las condiciones que especificamos:</p>
+<pre><code class="language-csharp">foreach (var cell in cellsWithYoungTeachers)
+{
+    cell.Style.Fill.PatternType = ExcelFillStyle.Solid;
+    cell.Style.Fill.BackgroundColor.SetColor(Color.BlueViolet);
+    cell.Style.Font.Color.SetColor(Color.Snow);
+}
+</code></pre>
+<p>Que nos dejará el resultado siguiente:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-4.png&quot; title=<>Celdas coloreadas</> /&gt;</p>
+<p>Además de poder modificar el relleno de una celda también tenemos acceso a personalizar el borde, fuente y alineación.</p>
+<h2 id="formato-condicional">Formato condicional</h2>
+<p>Adicionalmente a añadir nuestro propio formato, esta librería también permite trabajar con formato condicional para las celdas, y la manera de hacerlo es la siguiente:</p>
+<p>Primero que nada, y como siempre, obtenemos una referencia a la hoja sobre la que vamos a trabajar y después determinamos sobre qué rango de columnas vamos a trabajar y creamos un objeto <code>ExcelAddress</code>. Para nuestro caso es sobre la columna de edad de los maestros que es la E:</p>
+<pre><code class="language-csharp">var teacherWorksheet = wb.Worksheets.Single(ws =&gt; ws.Name == &quot;Maestros&quot;);
+var ageCellsStringAddress = &quot;$E$2:$E$31&quot;;
+var ageCellsAddress = new ExcelAddress(ageCellsStringAddress);
+</code></pre>
+<p>Una vez que tenemos determinado el rango, accedemos a la propiedad <code>ConditionalFormatting</code> para agregar un nuevo formato condicional, en este caso usaremos una escala de dos colores:</p>
+<pre><code class="language-csharp">var formatting = teacherWorksheet.ConditionalFormatting.AddTwoColorScale(ageCellsAddress);
+</code></pre>
+<p>Lo siguiente es configurar el formato condicional, usaremos fórmulas para obtener el valor mínimo y máximo de las edades de los profesores:</p>
+<pre><code class="language-csharp">formatting.LowValue.Type = eExcelConditionalFormattingValueObjectType.Formula;
+formatting.LowValue.Formula = &quot;MIN(&quot; + ageCellsAddress + &quot;)&quot;;
+formatting.LowValue.Color = Color.LightGreen;
+
+formatting.HighValue.Type = eExcelConditionalFormattingValueObjectType.Formula;
+formatting.HighValue.Formula = &quot;MAX(&quot; + ageCellsAddress + &quot;)&quot;;
+formatting.HighValue.Color = Color.Green;
+</code></pre>
+<p>Tras lo cual el libro se verá así:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-5.png&quot; title=<>Formato condicional</> /&gt;</p>
+<h2 id="leyendo-celdas">Leyendo celdas</h2>
+<p>Así como podemos crear hojas desde cero, también podemos leer las ya existentes. Esto es particularmente útil cuando vas a solicitar información a los usuarios a través de un libro de Excel.</p>
+<p>Así que supongamos que cargaremos maestros a la base con un archivo llamado <code>teachers.xlsx</code>, bastaría con abrirlo:</p>
+<pre><code class="language-csharp">FileInfo uploaded = new FileInfo(&quot;teachers.xlsx&quot;);
+using (ExcelPackage excel = new ExcelPackage(uploaded))
+{
+    // ...
+</code></pre>
+<p>Buscar la la hoja que necesitamos y contar las filas que contiene:</p>
+<pre><code class="language-csharp">    var teacherWorksheet = excel.Workbook.Worksheets.Single(ws =&gt; ws.Name == &quot;Maestros&quot;);
+    var cells = teacherWorksheet.Cells;
+    int rowCount = cells[&quot;A:A&quot;].Count();
+</code></pre>
+<p>Y leer los datos accediendo a las celdas y su propiedad <code>Value</code>:</p>
+<pre><code class="language-csharp">    for (int i = 1; i &lt;= rowCount; i++)
+    {
+        Console.WriteLine(
+            cells[&quot;A&quot; + i].Value.ToString() + &quot;\t&quot; +
+            cells[&quot;B&quot; + i].Value.ToString() + &quot;\t&quot; +
+            cells[&quot;C&quot; + i].Value.ToString() + &quot;\t&quot; +
+            cells[&quot;D&quot; + i].Value.ToString() + &quot;\t&quot; 
+            );
+    }
+</code></pre>
+<p>En este caso los datos leídos se imprimen a consola, pero sería sencillo insertarlos en una base de datos o hacer algun tipo de procesamiento con ellos.</p>
+<h2 id="conclusion">Conclusión</h2>
+<p>Sin lugar a dudas, la API de EPPlus es bastante buena y fácil de usar y si bien tiene poca documentación, es posible encontrar recursos en línea que explícan un poco más acerca de su uso. Como ya vimos, nos puede resultar útil para generar documentos desde cero o interactuar con documentos ya existentes. Es importante remarcar que para su funcionamiento <strong>no requiere que el lugar en donde se ejecute cuente con Office instalado</strong>, al igual que DocX.</p>
+<h1 id="instalacion">Instalación</h1>
+<p>No olvides visitar <a href="http://epplus.codeplex.com" target="_blank">la página de EPPlus en Codeplex</a> o instala el paquete de NuGet en tu proyecto:</p>
+<pre><code>PM&gt; Install-Package EPPlus
+</code></pre>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,127 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Hace muy poco les hablaba de los <a href="/delegados-en-c-sharp">delegados en C#</a>, aprovechando este post quisiera hablarles un poco de la utilidad de estos. Como lo mencionaba, los delegados permiten a un desarrollador &quot;inyectar&quot; su propio código dentro de los métodos de el código escrito  por un tercero.</p>
+<p>Para poner un ejemplo, imaginemos que tenemos una lista de palabras <code>palabras</code>  y un método <code>RealizaOperacionSecreta</code> que realiza cierta operación <em>secreta</em> sobre esa lista de palabras y las imprime en consola. Dicho método fue escrito por un desarrollador que no conocemos, pero que fue lo suficientemente amable para permitirnos elegir sobre qué palabras se realiza la operación mediante el uso de un delegado llamado <code>filtro</code>.</p>
+<pre><code class="language-csharp">public static void RealizaOperacionSecreta(List&lt;string&gt; palabras, Func&lt;string, bool&gt; filtro)
+{
+	foreach(string s in palabras)
+	{
+		if(filtro(s))
+			Console.WriteLine(s.ToUpper());
+		else
+			Console.WriteLine(s);
+	}			
+}
+</code></pre>
+<h4 id="func">Func</h4>
+<p>Un momento... ese NO ES UN DELEGADO... ¿o si?. En realidad sí lo es, <code>Func</code> es un molde para crear delegados, podemos usar ese molde para evitarnos la fatiga de declarar un delegado para cada ocasión que necesitemos uno <code>Func</code> hace uso de los genéricos para especificar los parámetros de entrada y el tipo de retorno del delegado. En este caso, podemos decir que: <code>delegate bool Filtro(string s)</code> equivale a <code>Func&lt;string, bool&gt;</code>.
+Para dejar un poco más claras las cosas colocaré algunos ejemplos en código:</p>
+<pre><code class="language-csharp">delegate int Cuenta(string a, int b); // Sería igual usar Func&lt;string, int, int&gt;
+delegate char Separa(); // Es igual a usar Func&lt;char&gt;
+delegate float Uhh(char a, int b, string c, double d); // Es igual a usar Func&lt;char, int, string, double, float&gt;
+</code></pre>
+<p>Siempre el último tipo de dato especificado dentro de los <code>&lt; &gt;</code> será el tipo de retorno, por eso que si solo se especifica uno, este será el tipo de retorno del método. Podemos usarlo para crear delegados con hasta 16 parámetros de entrada.</p>
+<p>Volviéndo al ejemplo... Podríamos entonces hacer uso del método de la siguiente manera:</p>
+<pre><code class="language-csharp">public static void Main()
+{
+	List&lt;string&gt; palabras = new List&lt;string&gt; { &quot;uno&quot;, &quot;dos&quot;, &quot;tres&quot;, &quot;cuatro&quot; };
+	Console.WriteLine(&quot;Palabras mayores a 3 caracteres&quot;);
+	RealizaOperacionSecreta(palabras, PorTamano);
+	
+	Console.WriteLine(&quot;Palabras que comienzan con u&quot;);
+	RealizaOperacionSecreta(palabras, SoloConU);
+}
+
+public static bool PorTamano(string s)
+{
+	return s.Length &gt; 3; 
+}
+
+public static bool SoloConU(string s)
+{
+	return s.StartsWith(&quot;u&quot;);
+}
+</code></pre>
+<p>El resultado de la ejecución es el siguiente, y es que está usando como filtros la función que le estamos pasando:</p>
+<pre>
+Palabras mayores a 3 caracteres
+uno
+dos
+TRES
+CUATRO
+Palabras que comienzan con u
+UNO
+dos
+tres
+cuatro
+</pre>
+<h4 id="action">Action</h4>
+<p>Ahora, supongamos que además de dejarnos escoger el filtro, también nos deja especificar la acción a realizar, en este caso utilizando un delegado que tenga <strong>void</strong> como tipo de retorno. Un delegado con un tipo de retorno <code>void</code> puede ser reemplazado con un molde llamado <code>Action</code>. De tal manera que la implementación del nuevo método podría ser la siguiente:</p>
+<pre><code class="language-csharp">public static void RealizaOperacionSecreta(List&lt;string&gt; palabras, Func&lt;string, bool&gt; filtro, Action&lt;string&gt; accion)
+{
+	foreach(string s in palabras)
+	{
+		if(filtro(s))
+			accion(s);
+		else
+			Console.WriteLine(s);
+	}			
+}
+</code></pre>
+<h4 id="en-resumen">En resumen</h4>
+<p><code>Func</code> es un molde para crear delegados de manera rápida, especificando los parámetros de entrada y el tipo de retorno mediante el uso de los <code>&lt; &gt;</code>, <code>Action</code> cumple con la misma tarea, salvo que no tiene un tipo de retorno. En el siguiente post hablaré de las expresiones lambda una forma más elegante y simple de definir la implementación de delegados. Recuerda nuevamente que el enlace al código está en <a href="#post-meta">información del post</a>. En un post siguiente les hablaré de las expresiones lambda, otra manera de trabajar con delegados.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

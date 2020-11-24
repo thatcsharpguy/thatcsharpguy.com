@@ -1,1 +1,67 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Los Notebooks de Jupyter son unas hojas de código interactivas...</p>
+<p>El código ya es interactivo por si mismo, puedes modificarlo, ejecutarlo a tu antojo... pero el tipo de interactividad que ofrecen los Jupyter Notebooks es algo distinto, pero vamos a ver algo de historia...</p>
+<p>La idea detrás de estos Notebooks proviene de IPython que es un proyecto orientado a ofrecer una consola interactiva para trabajar con el lenguaje de programación Python (este proyecto fue iniciado por Fernando Pérez, un físico desarrollador de software colombiano), el proyecto, que ya era de por si interesante, tuvo una adición importantísima en 2011 con la aparición de los IPython Notebooks (ahora llamados Jupyter Notebooks) para convertirse en un entorno con el cual podemos interactuar a través de un navegador. Básicamente la idea era ofrecer un entorno para facilitar la tarea de la programación orientada al ámbito científico, sin embargo, también tiene un uso genérico con gran potencial. Espero veas por qué con esta rápida introducción.</p>
+<p>Permite trabajar con gráficas, ecuaciones, videos, imágenes, simuladores y desde luego, código. Todo... combinado. Imagina: combinar las características de un entorno simple de programación (como el <em>syntax highlighting</em> y auto-completado) con la habilidad de poder escribir texto enriquecido junto al código. La idea es que sirva para documentar lo más posible alguna tarea que estamos realizando, tan solo para después tomar solo el código y llevarlo a una aplicación productiva. Además ofrece posibilidades para que cada uno de estos Notebooks sea evaluado automáticamente, lo cual también los hace ideales para hacer prácticas escolares, y de hecho, en la universidad ya he tenido ya varias prácticas así.</p>
+<p>Los Notebooks se crean con la Notebook App, que es una aplicación que está compuesta por dos componentes en una arquitectura cliente-servidor.</p>
+<p>La parte del cliente es el editor de código con el cual creamos y modificamos los Notebooks; este editor basado en HTML, CSS y JavaScript es el que usamos a través de un navegador web, aquí es donde escribimos el código y vemos los resultados de ejecutarlo.</p>
+<p>Mientras que el servidor se encarga de ejecutar el código que nosotros introducimos en los Notebooks y devolver los resultados al cliente. Este servidor es una especie de servidor web que a cada una de estas hojas interactivas les asigna un hilo de ejecución dentro de la computadora en la que está corriendo, y es en realidad dentro de este hilo de ejecución en donde se ejecuta nuestro código. El cliente y el servidor se comunican a través de peticiones HTTP y WebSockets.</p>
+<p>Al ser de código abierto (y al tener una gran comunidad detrás) tiene muchas posibilidades de ser expandido mediante Widgets que   los dotan de mayor funcionalidad. Entre estos Widgets están algunos que permiten trabajar con información geoespacial, video y audio, crear  tablas paginadas o crear una &quot;interfaz amigable&quot; para modificar el código. Y es también gracias a la comunidad que soporta diversos lenguajes de programación aparte de los con que fue creado en mente: Julia, Python y R. Inclusive se puede utilizar junto con C#... aunque el soporte todavía no es muy bueno.</p>
+<p>Si eres fan de C#, existe algo muy parecido pero lamentablemente no tiene tanta flexibilidad como los Notebooks de Jupyter, se llaman los Xamarin Workbooks, escribí un post sobre ellos, dejo el enlace en la descripción.</p>
+<p>Pero bueno, si quieres comenzar a usar los Notebooks pero eres un novato como yo, mi recomendación es que instales <a href="http://jupyter.readthedocs.io/en/latest/install.html#id3">Anaconda</a>, que es otra gran herramienta, pero de la cual por el momento solo nos interesa usar los Notebooks. En la siguiente parte de este video les mostraré en un Notebook en acción.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

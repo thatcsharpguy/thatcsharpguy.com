@@ -1,1 +1,190 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Parece que fue ayer cuando hablamos de <a href="..\sobrecarga-operadores">la sobrecarga de operadores</a>, y hoy toca hablar de algo ligeramente parecido.</p>
+<p>Son las palabras <code>implicit</code> y <code>explicit</code>, estas palabras sirven para declarar conversiones entre tipos de dato para los tipos de dato que creemos nosotros.</p>
+<p>Para crear una conversión se usa la sintaxis:</p>
+<pre><code class="language-csharp">public static [implicit|explicit] operator &lt;tipo destino&gt;(&lt;tipo origen&gt; identificador)
+{
+    return &lt;instancia de tipo destino&gt;    
+}
+</code></pre>
+<ul>
+<li>La especificación de una conversión siempre es <code>static</code>.</li>
+<li>Se usa <code>implicit</code> cuando queremos que la conversión suceda &quot;silenciosamente&quot;, mientras que usamos <code>explicit</code> cuando queremos que el programador se vea forzado a especificar la conversión</li>
+<li>El tipo destino es el tipo de dato al que queremos llegar</li>
+<li>El tipo origen es el tipo que queremos convertir</li>
+</ul>
+<p>Pero qué mejor que verlo con un ejemplo: Imagina que tienes una clase llamada <code>Persona</code>:</p>
+<pre><code class="language-csharp">public class Persona
+{
+    public string Nombre { get; set; }
+</code></pre>
+<h3 id="conversion-explicita">Conversión explícita</h3>
+<p>Podrías especificar una conversión explícita de un tipo de dato <code>string</code> a <code>Persona</code>:</p>
+<pre><code class="language-csharp">    public static explicit operator Persona(string nombre)
+    {
+        return new Persona {Nombre = nombre};    
+    }
+</code></pre>
+<p>De este modo, se podrían crear objetos del tipo persona de esta manera:</p>
+<pre><code class="language-csharp">Persona p2 = (Persona)&quot;Seto Kaiba&quot;;
+var p3 = (Persona)&quot;Joey Wheeler&quot;;
+//Persona p4 = &quot;Téa Gardner&quot;;
+</code></pre>
+<p>Tanto <code>p2</code> y <code>p3</code> son objetos del tipo persona, por otro lado <code>p4</code> no es una sintaxis válida, ya que en la especificación de la conversión, nosotros establecimos que la conversión debe ser explícita, es decir, indicada por el programador.</p>
+<h3 id="conversion-implicita">Conversión implícita</h3>
+<p>Por otro lado, podrías especificar una conversión implícita para convertir de <code>Persona</code> a <code>string</code>:</p>
+<pre><code class="language-csharp">    public static implicit operator string(Persona p)
+    {
+        return p.Nombre;
+    }
+</code></pre>
+<p>De este modo, el siguiente código es válido:</p>
+<pre><code class="language-csharp">string nombreP1 = p1;
+string nombreP2 = p2;
+var nombreP3 = (string)p3;
+</code></pre>
+<p>En este caso, no es necesario especificar la conversión (<a href="..\var-en-c-sharp">a menos que estemos usando <code>var</code></a>), puesto que esta se realiza automáticamente.</p>
+<h2 id="conversion-entre-tipos-personalizados">Conversión entre tipos personalizados</h2>
+<p>Entre los ejemplos de conversiones, los más comunes son los que convierten entre unidades de medida. Considera un tipo de dato <code>Yarda</code> y otro <code>Metro</code>, ambos con conversiones explícitas especificadas de la siguiente manera:</p>
+<pre><code class="language-csharp">// Metro
+public static explicit operator Metro(Yarda m)
+{
+    var metro = new Metro(m.Valor / 0.9144m);
+    return metro;
+}
+
+// Yarda
+public static explicit operator Yarda(Metro m)
+{
+    var yarda = new Yarda(m.Valor * 0.9144m);
+    return yarda;
+}
+</code></pre>
+<p>Además de otro par de conversiones para transformar de decimal a <code>Metro</code> o <code>Yarda</code> (recuerda siempre que el código está <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Casteo" target="_blank">disponible para ser descargado</a> y puedas probarlo y modificarlo tu mismo).</p>
+<p>Entonces podemos hacer algo como esto después de especificar todas las conversiones:</p>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```csharp  
+var metro1 = new Metro(5);
+var yarda1 = new Yarda(5);
+Console.WriteLine(metro1);
+Console.WriteLine(yarda1);
+```  
+	</div>
+    <div class="pure-u-1-2"> 
+<pre>
+Resultado:
+5.000 metro(s)
+5.000 yarda(s)
+</pre>  
+</div>
+</div>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```csharp  
+Metro metro2 = 10;
+Yarda yarda2 = 10;
+Console.WriteLine(metro2);
+Console.WriteLine(yarda2);
+```  
+	</div>
+    <div class="pure-u-1-2">
+<pre>
+Resultado:
+10.000 metro(s)
+10.000 yarda(s)
+</pre> 
+</div>
+</div> 
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```csharp  
+Yarda yarda3 = (Yarda)metro2;
+Metro metro3 = (Metro)yarda2;
+Console.WriteLine(metro3);
+Console.WriteLine(yarda3);
+```  
+	</div>
+    <div class="pure-u-1-2"> 
+<pre>
+Resultado:
+10.936 metro(s)
+9.144 yarda(s)
+</pre>  
+</div>
+</div>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```csharp  
+Metro metro4 = (Metro)yarda3;
+Yarda yarda4 = (Yarda)metro3;
+Console.WriteLine(metro4);
+Console.WriteLine(yarda4);
+```  
+	</div>
+    <div class="pure-u-1-2">
+<pre>
+Resultado:
+10.000 metro(s)
+10.000 yarda(s)
+</pre>
+</div>
+</div>
+<h2 id="pero">Pero...</h2>
+<p>Al igual que la sobrecarga de operadores, la especificación de conversiones es algo que debe hacerse con moderación y siempre que tenga sentido dentro del contexto de nuestra app, no solo es hacerlo porque se ve bien o es un truco que C# nos ofrece.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

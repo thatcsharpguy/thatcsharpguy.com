@@ -1,1 +1,143 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los <a href="../metodos-c-sharp">métodos en C#</a> únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica <code>Tuple</code>.</p>
+<p>Podemos ver a <code>Tuple</code> (o tupla) como un auxiliar para el programador, que <strong>permite &quot;agrupar&quot; otros tipos dato dentro de uno solo</strong>, para así tratarlos como uno solo, esto, a través de varias clases genéricas definidas de la siguiente manera:</p>
+<ul>
+<li><code>Tuple&lt;T1&gt;</code></li>
+<li><code>Tuple&lt;T1, T2&gt;</code></li>
+<li><code>Tuple&lt;T1, T2, T3&gt;</code></li>
+<li><code>Tuple&lt;T1, T2, T3, T4&gt;</code></li>
+<li><code>Tuple&lt;T1, T2, T3, T4, T5&gt;</code></li>
+<li><code>Tuple&lt;T1, T2, T3, T4, T5, T6&gt;</code></li>
+<li><code>Tuple&lt;T1, T2, T3, T4, T5, T6, T7&gt;</code></li>
+<li><code>Tuple&lt;T1, T2, T3, T4, T5, T6, T7, TRest&gt;</code></li>
+</ul>
+<h2 id="creando-tuplas">Creando tuplas</h2>
+<p>A través de los tipos <code>T#</code> se define el contenido de la clase, siendo así que para crear una tupla que contiene un entero y dos cadenas debemos usar:</p>
+<pre><code class="language-csharp">var t = new Tuple&lt;int, string, string&gt;(1, &quot;A&quot;, &quot;B&quot;);
+</code></pre>
+<p>O, por ejemplo, si quisiéramos crear algo más complejo como una clase que contiene un entero, un decimal, un objeto, otro entero, un booleano y un flotante, tendríamos que hacer algo como esto:</p>
+<pre><code class="language-csharp">var t1 = new Tuple&lt;int, decimal, object, int, bool, float&gt;(3, 1.5m, new { emoji = &quot;:grin:&quot; }, 5, true, 7.5f);
+</code></pre>
+<p>Uhhmm, la sintaxis se pone un poco complicada, ¿no? para eliminar esta sintaxis complicada, podemos usar el método estático <code>Create</code> de la clase <code>Tuple</code> para crear tuplas:</p>
+<pre><code class="language-csharp">var t1 = Tuple.Create(3, 1.5m, new { emoji = &quot;:grin:&quot; }, 5, true, 7.5f);
+</code></pre>
+<p>Este método, inferirá de los tipos de dato a partir de los parámetros pasados como argumentos.</p>
+<h2 id="accediendo-a-los-miembros">Accediendo a los miembros</h2>
+<p>Una vez creada la clase (ya sea con el constructor o el método estático), podemos acceder a cada uno de los datos a través de las propiedades llamadas  <code>Item#</code>, donde # es el número de la propiedad a la que nos referimos:</p>
+<pre><code class="language-csharp">Console.WriteLine(t.Item1); // 1 -&gt; int
+Console.WriteLine(t.Item2 + &quot; - &quot; + t.Item3 ); // &quot;A - B&quot; -&gt; string
+</code></pre>
+<p>Es importante señalar que las propiedades de la clase <code>Tuple</code> son de solo lectura, y que una vez asignadas en el constructor, no pueden ser modificadas:</p>
+<pre><code class="language-csharp">// t1.Item4 = 7; // Error, solo lectura
+</code></pre>
+<h2 id="ejemplos-de-uso">Ejemplos de uso</h2>
+<h3 id="como-parametros-de-metodo">Como parámetros de método</h3>
+<p>Podríamos pensar en un método como este:</p>
+<pre><code class="language-csharp">string MegaMetodoArgumentos(int studentId, int classroomId, string type, decimal sum, bool active)
+</code></pre>
+<p>Para llamarlo necesitaríamos escribir algo como esto:</p>
+<pre><code class="language-csharp">MegaMetodoArgumentos(10, 3, &quot;MX&quot;, 3.1m, true);
+</code></pre>
+<p>O, también podríamos haber escrito el método de la siguiente manera:</p>
+<pre><code class="language-csharp">string MegaMetodoTuple(Tuple&lt;int, int, string, decimal, bool&gt; args)
+</code></pre>
+<p>E invocarlo así:</p>
+<pre><code class="language-csharp">var tuple = Tuple.Create(10, 3, &quot;MX&quot;, 3.1m, true);
+MegaMetodoTuple(tuple);  
+</code></pre>
+<h3 id="como-valores-de-retorno">Como valores de retorno</h3>
+<p>El beneficio se nota más cuando se usa una tupa como valor de retorno, imaginemos un método en el que convertimos tomamos un color definido en hexadecimal y lo convertimos a su representación RGB en decimal.</p>
+<p>Podríamos usar <a href="http://thatcsharpguy.com/post/out-ref-c-sharp/">parámetros de salida</a>:</p>
+<pre><code class="language-csharp">private static void SplitColors(string hex, out int r, out int g, out int b)
+{
+    r = Int32.Parse(hex.Substring(0, 2), NumberStyles.HexNumber);
+    g = Int32.Parse(hex.Substring(2, 2), NumberStyles.HexNumber);
+    b = Int32.Parse(hex.Substring(4, 2), NumberStyles.HexNumber);
+}
+</code></pre>
+<p>Pero también podríamos usar una tupla como valor de retorno:</p>
+<pre><code class="language-csharp">private static Tuple&lt;int, int, int&gt; SplitColors(string hex)
+{
+    int r = Int32.Parse(hex.Substring(0, 2), NumberStyles.HexNumber);
+    int g = Int32.Parse(hex.Substring(2, 2), NumberStyles.HexNumber);
+    int b = Int32.Parse(hex.Substring(4, 2), NumberStyles.HexNumber);
+    return Tuple.Create(r, g, b);
+}
+</code></pre>
+<p>Entonces para llamarlo, simplemente necesitaríamos escribir lo siguiente:</p>
+<pre><code class="language-csharp">string color = &quot;3C8A3F&quot;;
+var colors = SplitColors(color);
+Console.WriteLine(&quot;{0} es R:{1} G:{2} B:{3}&quot;, color, colors.Item1, colors.Item2, colors.Item3);
+</code></pre>
+<h2 id="tuplas-de-8-elementos">Tuplas de 8 elementos</h2>
+<p>Si volvemos a las definiciones de las clases <code>Tuple</code> puedes ver que existen hasta 8 versiones genéricas disponibles. Sin embargo, la octava una peculiaridad: el octavo valor no se almacena dentro de &quot;Item8&quot;, sino dentro de otra tupla (a la que accedemos desde la propiedad <code>Rest</code>):</p>
+<pre><code class="language-csharp">var megaTuple = Tuple.Create(1, 2, 3, 4, 5, 6, 7, 8);
+//Console.WriteLine(miniTuple.Item8); // Item8 no existe, entonces tenemos que usar Rest:
+Console.WriteLine(megaTuple.Rest.Item1); 
+</code></pre>
+<h2 id="ejemplo-de-la-vida-real">Ejemplo de la vida real</h2>
+<p>Mmm... en realidad no existe alguna api dentro del framework de .NET que haga uso de tuplas, pero en específico se recomienda para:</p>
+<ul>
+<li>Representar un set de datos, por ejemplo, un registro en una base de datos</li>
+<li>Proveer acceso fácil, y manipulación de, un set de datos</li>
+<li>Regresar múltiples valores de un método sin usar parámetros por referencia</li>
+<li>Enviar múltiples valores a un método</li>
+</ul>
+<h2 id="lo-que-sigue">Lo que sigue</h2>
+<p>Revisa el <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Tuples" target="_blank" rel="nofollow">código que acompaña al post</a> y juegues un poco con él, sé que tal vez el asunto de los genéricos en C# puede causar un poco de confusión y es un tema que estoy planeando cubrir en un post futuro.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

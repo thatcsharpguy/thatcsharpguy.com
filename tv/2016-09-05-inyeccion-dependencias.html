@@ -1,1 +1,127 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Antes de hablar de la inyección de dependencias es necesario conocer dos conceptos:</p>
+<ul>
+<li>Los patrones de diseño</li>
+<li>El principio de inversión</li>
+</ul>
+<h1 id="patron-de-diseno-de-software">Patrón de diseño de software</h1>
+<p>En el mundo de desarrollo de software, cuando hablamos de un patrón de diseño, nos referimos a una forma de resolver un &quot;problema&quot; recurrente a la hora de diseñar una aplicación. Podemos ver un patrón como una plantilla genérica, independiente del lenguaje de programación que usemos, en la que podemos basarnos para comenzar a escribir el código de una app.</p>
+<p>Son los programadores quienes deciden qué es un patrón de diseño y qué no, es decir, no existe una especie de organismo que diga qué sí es y qué no... así que generalmente para que algo sea considerado un patrón debe ser una solución comprobada por su efectividad en sus usos previos. Pero siempre recuerda que</p>
+<blockquote>
+<p>Los patrones de diseño son una opción, no un requerimiento</p>
+</blockquote>
+<h3 id="el-principio-de-inversion">El principio de inversión</h3>
+<p>Este principio, inicialmente definido en el artículo <a href="http://www.laputan.org/drc/drc.html" target="_blank">Designing Reusable Classes</a> de Ralph Johnson y Brian Foote en 1988, consiste en intentar eliminar las dependencias de un módulo de un programa con el resto.</p>
+<p>Piensa en un programa <em>tradicional</em>, en el programa decide <strong>qué sucede</strong>, <strong>cómo sucede</strong> y <strong>cuándo sucede</strong>. Para que un programa así funcione, los módulos deben tener conocimiento total sobre aquellos otros submódulos que utiliza para funcionar, lo cual genera un acoplamiento fuerte.</p>
+<p>Mientras que uno que implementa la inversión de control <strong>no debe saber cómo suceden las cosas</strong>, solamente qué sucede y cuándo, alguien más (generalmente un framework) le entrega instancias o referencias de los módulos con los que tiene que trabajar, obteniendo así un acoplamiento débil.</p>
+<p>Por poner un ejemplo, un poco absurdo pero que creo que funciona: imagínate que tú eres un programa y de pronto te da hambre de una pizza.</p>
+<p>Si fueras un programa <em>tradicional</em> <strong>dependerías</strong> que saber cómo preparar una pizza, desde obtener los ingredientes, mezclarlos del modo adecuado y esperar el tiempo necesario en el horno.</p>
+<p>Pero si fueras un programa que implementa el principio de inversión de control, existirían dos opciones para conseguirla:</p>
+<ul>
+<li>Tendrías que saber en dónde conseguir la pizza (<a href="https://en.wikipedia.org/wiki/Service_locator_pattern" target="_blank">Patrón de ubicación de servicios</a>)</li>
+<li>Alguien más te la entregaría (inyección de dependencias)</li>
+</ul>
+<p>De ambas formas se reduce <strong>dependencia</strong> a saber cómo prepararla tu mismo.</p>
+<p>Y no solo eso, si más adelante quieres otro tipo de comida (por ejemplo, una hamburguesa), podrías obtenerla sin problema, mientras que de la forma tradicional tendrías que aprender a prepararlas.</p>
+<h2 id="inyeccion-de-dependencias">Inyección de dependencias</h2>
+<p>Ahora sí, hablemos del tema. En la inyección de dependencias, cuyo nombre <a href="http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection" target="_blank">se le atribuye a Martin Fowler</a>, podemos encontrar cuatro roles:</p>
+<ul>
+<li>Las interfaces que definen las operaciones de los servicios - no necesariamente tienen que ser interfaces (como en C#), sino que puede ser una clase abstracta</li>
+<li>Los servicios, que implementan las interfaces anteriores, que se van inyectar</li>
+<li>Los clientes que usarán los servicios</li>
+<li>El inyector, que es el encargado de construir e inyectar los servicios en los clientes</li>
+</ul>
+<p>Estos roles no son completamente exclusivos, es decir, un cliente puede ser un servicio que deba ser inyectado a otro cliente.</p>
+<p>Basándonos en los roles anteriores, el flujo de programación de una aplicación que implementa la inyección de dependencias es el siguiente:</p>
+<ol>
+<li>Creas las abstracciones que definen el comportamiento de los servicios. Siguiendo con el ejemplo de los alimentos, imagínate una interfaz <code>IAlimento</code>, que defina la propiedad <code>Nombre</code> o, el método <code>Consumir()</code>:</li>
+</ol>
+<pre><code class="language-csharp">
+</code></pre>
+<ol start="2">
+<li>Implementas dicho comportamiento para cada servicio, digamos que  tenemos los alimentos <code>Pizza</code> y <code>Hamburguesa</code>, que implementan la interfaz</li>
+</ol>
+<pre><code class="language-csharp">
+</code></pre>
+<ol start="3">
+<li>Creas los clientes que consumirán dichos servicios, por ejemplo, <code>Persona</code>, siempre especificando una manera de inyectar las dependencias, ya sea a través del constructor o un método.</li>
+</ol>
+<pre><code class="language-csharp">
+</code></pre>
+<ol start="4">
+<li>Se configura el inyector, el inyector es el único que tiene conocimiento sobre todas las dependencias, ya sea que usemos un framework o lo hagamos &quot;a mano&quot;</li>
+</ol>
+<pre><code class="language-csharp">
+</code></pre>
+<p>En este proceso me parece que hay dos partes que requieren de un poco de trabajo:</p>
+<ul>
+<li>A la hora de diseñar tu app: definir la interfaz de los servicios</li>
+<li>A la hora de escribir el código: configurar el inyector de dependencias</li>
+</ul>
+<p>Para la primera no hay más que diseñar bien la app, para la segunda nos podemos ayudar de un framework</p>
+<h3 id="frameworks">Frameworks</h3>
+<p>Para implementar la DI hay muchos frameworks que realizan la tarea del inyector. Sin embargo, a estos frameworks usualmente se les conoce como Contenedores de DI, porque implementan una especie de contenedor o almacén en donde se guardan las dependencias para cuando necesiten ser resueltas en tiempo de ejecución.</p>
+<p>Entre los frameworks, por ejemplo, para C# está Autofac, Ninject y Unity, para Java existe Silk, Guice y PicoContainer, para Swift está Swinject, Cleanse o Typhoon…</p>
+<h3 id="ventajas-y-desventajas">Ventajas y desventajas</h3>
+<p>Entre las ventajas de la inyección de dependencias podemos encontrar algunos como el hecho de que <strong>tu código se vuelve más modular y menos acoplado</strong>, ya que los submódulos no necesitan saber detalles de la implementación de otros en tu código. Producto de esta modularidad es que <strong>podemos hacer tests unitarios más fácilmente</strong>, cada parte del programa se puede aislar porque para realizar pruebas no tenemos que proveer a nuestros programas de las referencias reales, sino que podemos fingirlas.</p>
+<p>Y una vez configurado, usar la inyección de dependencias puede <strong>hacer que escribas código más rápido</strong> y te quita preocupaciones de tener que instanciar objetos tu mismo.</p>
+<p>Es de nuevo importante señalar que no todo son beneficios cuando usamos la inyección de dependencias, usar este patrón también tiene desventajas:</p>
+<p>Comenzar a usarla puede ser tedioso, ya que <strong>necesitas escribir una abstracción de tus servicios</strong> además de su implementación, a veces podrías pensar que escribes código innecesariamente. Y no solo eso, porque luego de eso tienes que configurar tú el inyector. Sin mencionar que, si usas alguna librería, <strong>es muy probable que tengas que ejecutar tu aplicación para verificar que todas las dependencias se resuelvan correctamente</strong> en tiempo de ejecución.</p>
+<h3 id="codigo">Código</h3>
+<p>En <a href="https://github.com/ThatCSharpGuy/patterns" target="_blank">este enlace</a> puedes encontrar un ejemplo de DI para C#.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

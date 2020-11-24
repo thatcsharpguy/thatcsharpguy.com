@@ -1,1 +1,141 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Hace tiempo yo pensaba que sabía programar más o menos bien en C#, pero había ocasiones en las que leyendo documentación me encontraba con ciertas palabras que no lograba comprender, entre ellas estaba las palabras &quot;sentencia&quot; y &quot;expresión&quot;, este es otro de esos posts que me hubiera gustado leer antes.</p>
+<h2 id="sentencias-statements">Sentencias (Statements)</h2>
+<p>Todas las “líneas de código” con acciones que nuestro programa realiza son sentencias, desde la declaración de una variable hasta el control de flujo del programa con un <code>if</code> o un <code>case</code>. Las sentencias de este tipo se conocen como <em>sentencias de una línea</em>.</p>
+<p>Algunos ejemplos de sentencias de una sola línea son:</p>
+<table class="pure-table pure-table-bordered">
+    <thead>
+	        <tr>
+            <th>Tipo</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+<pre><code>&lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Declaraciones&lt;/td&gt;
+        &lt;td&gt;Crea una nueva variable o constante en el programa como, por ejemplo &lt;code&gt;string t;&lt;/code&gt; o &lt;code&gt;const ix = 0;&lt;/code&gt; usualmente se encadena con una sentencia de asignación.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Expresiones&lt;/td&gt;
+        &lt;td&gt;Sentencias que calculan un valor.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Salto&lt;/td&gt;
+        &lt;td&gt;Son otro elemento para controlar el flujo del programa, sirven para mover el punto de ejecución del programa, por ejemplo &lt;code&gt;goto&lt;/code&gt;, &lt;code&gt;break&lt;/code&gt; y &lt;code&gt;return&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Vacío&lt;/td&gt;
+        &lt;td&gt;Sí, existe una sentencia vacía y es &lt;code&gt;;&lt;/code&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;
+</code></pre>
+</table>
+  
+También existen sentencias más complejas, que no son de *una sola línea* en las cuales se suelen agrupar más sentencias usando `{` y `}` como delimitadores, a esta acción se le conoce como *anidamiento*, 
+<h2 id="expresiones">Expresiones</h2>
+<p>Las expresiones son un tipo especial de sentencias que se componen de uno o más operandos en conjunto con cero o más operadores, la diferencia con una sentencia común es que una expresión siempre puede ser evaluada a un solo valor. En la mayoría de los casos <strong>una expresión es una sentencia que siempre devuelve un valor</strong>. Ya sea que la expresión devuelva una referencia a un objeto o un valor.</p>
+<p>Algunos ejemplos de expresión son los siguientes:</p>
+<h3 id="operador-new">Operador new</h3>
+<pre><code class="language-csharp">new Object(); 
+</code></pre>
+<p>Cuando usamos el operador <code>new</code> para instanciar un objeto, el constructor de la clase (en este caso <code>Object</code>) es el operando y el resultado de esta expresión es una referencia a una instancia de la clase (en este caso, de <code>Object</code>).</p>
+<h3 id="incremento-y-decremento">Incremento y decremento</h3>
+<pre><code class="language-csharp">i++;
+--i;
+</code></pre>
+<p>Los operadores <code>++</code> y <code>--</code> son denominados de incremento y decremento, el resultado de la expresión varía en función de la posición en la que estén colocados respecto al operando (que en nuestro caso es <code>i</code>).</p>
+<ul>
+<li>Antes del operando: es el valor del operando antes de ser incrementado/decrementado</li>
+<li>Después del operando: es el valor del operando después de ser incrementado.</li>
+</ul>
+<h3 id="llamada-call">Llamada (call)</h3>
+<pre><code class="language-csharp">ConvertInt(i);
+
+i.ToString();
+</code></pre>
+<p>Las llamadas a métodos también son ejemplos de expresiones, estas expresiones no requieren de un operador como las dos anteriores, basta con escribir el nombre del método y agregarle sus argumentos en caso de ser necesarios.</p>
+<p>Suponiendo que tenemos la siguiente firma de método <code>decimal ConvertInt(int i)</code>, la primera expresión en el código anterior tendrá como resultado un <code>decimal</code>, mientras que la segunda tendrá como resultado una cadena.</p>
+<br />  
+  
+En el ejemplo anterior de código, las expresiones estaban escritas solas y funcionan como están. Sin embargo, en C#, no todas las expresiones pueden existir de esa manera, muchas tienen que existir en acompañadas por una sentencia para que el programa compile, de otra manera obtendríamos el error de compilación `CS0201: Sólo se pueden utilizar las expresiones de objeto assignment, call, increment, decrement y new como instrucción`. Como ejemplo de dichas expresiones tenemos:  
+<h3 id="literales">Literales</h3>
+<pre><code class="language-csharp">int n = 10;
+var hola = &quot;Hola&quot;;
+</code></pre>
+<p>En este caso estamos frente a <strong>las literales, las expresiones más simples que se pueden usar en C#</strong>, la primera expresión es <code>10</code>, que se evalúa a un tipo por valor tipo <code>int</code>; la segunda expresión es <code>&quot;Hola&quot;</code> que se evalúa a un tipo por referencia tipo string. Si se hubiera usado únicamente <code>10;</code> u <code>&quot;Hola&quot;;</code> sin sentencia, un error de compilación habría aparecido.</p>
+<h3 id="literales-y-operadores">Literales y operadores</h3>
+<pre><code class="language-csharp">int i = 3 + 2;
+</code></pre>
+<p>En este caso <code>3 + 2</code> es una expresión en la que el operador es <code>+</code> cuyo resultado es un tipo por valor del tipo <code>int</code>, la sentencia que lo acompaña es declaración <code>int i</code>. De haber usado solo <code>3 + 2;</code> habríamos obtenido un error de compilación.</p>
+<h3 id="nombres-simples">Nombres simples</h3>
+<pre><code class="language-csharp">string hola2 = hola;
+
+return hola; // Recordando de 'Hola' es un cadena
+</code></pre>
+<p>Dentro del código anterior, <code>hola</code> es un nombre simple, es el nombre de una variable de tipo string. Pero además de eso, es una expresión que se evalúa al valor que contenga en ese momento. En el primer caso, se usa una sentencia de asignación y en el segundo está acompañada de la sentencia <code>return</code>, ya que de otro modo si hubiéramos usado <code>hola;</code> de nuevo tendríamos un error de compilación.</p>
+<h2 id="operadores">Operadores</h2>
+<p>Los operadores son elementos dentro de C# que cuando se aplican a los operadores para devolver un valor a partir de ellos. Dentro del lenguaje existen tres tipos de operadores:</p>
+<h3 id="unarios">Unarios</h3>
+<p>Que son los que toman un solo operando, entre ellos están <code>++</code>, <code>new</code>, <code>typeof</code>, <code>~</code> y <code>(T)</code>.</p>
+<h3 id="binarios">Binarios</h3>
+<p>Son los que toman dos operandos, entre ellos están <code>*</code>, <code>+</code>, <code>&gt;</code>, <code>==</code>.</p>
+<h3 id="ternarios">Ternarios</h3>
+<p>Son los que toman más de dos operandos, el único caso dentro del lenguaje es el <em>operador condicional</em> <code>?:</code> que toma tres operandos.</p>
+<p>Pueden echarle un ojo a la lista completa de operadores en <a href="https://msdn.microsoft.com/en-us/library/ms173145.aspx" target="_blank" rel="nofollow">este enlace</a>.</p>
+<p>Es importante destacar que algunos de los operadores pueden ser sobrecargados para modificarlos de acuerdo a nuestras necesidades, pero ese es tema de otro post. Recuerda que si tienes dudas o algo no quedó tan claro no dudes en mandarme un tuit o un correo electrónico.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

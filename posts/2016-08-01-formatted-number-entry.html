@@ -1,1 +1,297 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>While developing an app using Xamarin.Forms I faced the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number, for example: <code>1234567</code> → <code>1,234,567</code>, because our users often found themselves counting the number of zeros they had entered into the small textbox.</p>
+<p>This doesn't sound too complicated (and it isn't). Using an <code>Entry</code> we can easily hook up to the <code>TextChanged</code> event and perform the following tasks:</p>
+<ol start="0">
+<li>Stop listening for changes on our <code>Entry</code> <code>Text</code> property</li>
+<li>Take the <code>Entry</code> text, lets name it <code>oldText</code></li>
+<li>Parse <code>oldText</code> into a number, lets name it <code>number</code></li>
+<li>Format <code>number</code>, and place the formatted text in <code>newText</code></li>
+<li>Set the <code>Text</code> property of our entry to <code>newText</code></li>
+<li>Start listening for changes on our <code>Entry</code> <code>Text</code> property</li>
+</ol>
+<p>I don't want to wire/unwire the event handler every time I use it, so let's create a control that inherits from <code>Entry</code> and override the <code>OnPropertyChanged</code> method:</p>
+<pre><code class="language-csharp">public class FormattedNumberEntry : Entry
+{
+    protected override void OnPropertyChanged(string propertyName = null)
+    {
+        if (nameof(this.Text).Equals(propertyName))
+        {
+            if (!_shouldReactToTextChange) return;
+
+            _shouldReactToTextChange = false;
+
+            var oldText = this.Text;
+            var number = DumbParse(oldText);
+            var newText = $&quot;{number:#,###}&quot;;
+
+            this.Text = newText;
+
+            _shouldReactToTextChange = true;
+        }
+        base.OnPropertyChanged(propertyName);
+    }
+}
+</code></pre>
+<p>By the way, you see that <code>DumbParse</code> method there? it is just that, a dumb parsing method that ignores non-digit chars:</p>
+<pre><code class="language-csharp">public static int DumbParse(string input)
+{
+    var number = 0;
+    int multiply = 1;
+    for (int i = input.Length - 1; i &gt;= 0; i--)
+    {
+        if (Char.IsDigit(input[i]))
+        {
+            number += (input[i] - '0') * (multiply);
+            multiply *= 10;
+        }
+    }
+    return number;
+}
+</code></pre>
+<p>This is the final result:</p>
+<img src="http://i.giphy.com/1zNrHjJ4dawbm.gif" />
+<p>Thhat's it, we're done.</p>
+<h2 id="noooooo-wait">Noooooo, wait.</h2>
+<p>Even though we may think that our mission was accomplished, our brand new control lacks of a good user experience. For example, see what happens when the user tries to erase a number located in the middle:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__careterror.png&quot; title=<>Error</> /&gt;</p>
+<p>See how the cursor jumps to the end (or start, depends on the platform)? the same happens after writing a number. Let's fix that.</p>
+<h2 id="problem">Problem</h2>
+<p><code>Entry</code> doesn't have a <code>CursorPosition</code> property so we need to create a simple <a href="https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/" target="_blank" rel="nofollow">custom renderer</a> since only at native level the underlying controls expose such information. In this case, we will attach an event handler to each platform specific <em>TextChanged</em> event and inside such handler we need to:</p>
+<ol start="0">
+<li>Stop listening for changes on our control's <code>Text</code> property</li>
+<li>Get the current cursor position</li>
+<li>Take the control's text, lets name it <code>oldText</code></li>
+<li>Parse <code>oldText</code> into a number, lets name it <code>number</code></li>
+<li>Format <code>number</code>, and place the formatted text in <code>newText</code></li>
+<li>Set the <code>Text</code> property of our control to <code>newText</code></li>
+<li>Calculate the new cursor position</li>
+<li>Set the new cursor position</li>
+<li>Start listening for changes on our control's <code>Text</code> property</li>
+</ol>
+<h3 id="ios">iOS</h3>
+<p>For iOS we will subscribe to the <code>EditingChanged</code> event and work all our magic there:</p>
+<pre><code class="language-csharp">public class FormattedNumberEntryRenderer : EntryRenderer
+{
+    protected override void OnElementChanged(ElementChangedEventArgs&lt;Entry&gt; e)
+    {
+        base.OnElementChanged(e);
+
+        if (e.OldElement != null)
+        {
+            Control.EditingChanged -= Control_EditingChanged;
+        }
+        if (e.NewElement != null)
+        {
+            Control.EditingChanged += Control_EditingChanged;
+        }
+    }
+</code></pre>
+<p>Now, in the <code>Control_EditingChanged</code>:</p>
+<pre><code class="language-csharp">var element = ((FormattedNumberEntry)Element);
+// Oh boy, thank you internet: http://stackoverflow.com/a/34922332
+
+// 1. Stop listening for changes on our control Text property
+if (!element.ShouldReactToTextChanges) return;
+element.ShouldReactToTextChanges = false;
+
+// 2. Get the current cursor position
+var selectedRange = Control.SelectedTextRange;
+
+// 3. Take the control’s text, lets name it oldText
+var oldText = Control.Text;
+
+// 4. Parse oldText into a number, lets name it number
+var number = FormattedNumberEntry.DumbParse(oldText);
+
+// 5. Format number, and place the formatted text in newText
+var newText = $&quot;{number:#,##0}&quot;;
+
+// 6. Set the Text property of our control to newText
+Control.Text = newText;
+
+// 7. Calculate the new cursor position
+var change = -1 * (oldText.Length - newText.Length);
+var newPosition = Control.GetPosition(selectedRange.Start, (nint)change);
+
+// 8. Set the new cursor position
+if (newPosition != null) // before we fail miserably
+{
+    Control.SelectedTextRange = Control.GetTextRange(newPosition, newPosition);
+}
+
+// 9. Start listening for changes on our control’s Text property
+element.ShouldReactToTextChanges = true;
+</code></pre>
+<p>Now works great:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__iosgood.gif&quot; title=<>iOS working goooooood</> /&gt;</p>
+<h3 id="android">Android</h3>
+<p>For Android we will subscribe to the <code>AfterTextChanged</code> event and create all the formatting there:</p>
+<pre><code class="language-csharp">public class FormattedNumberEntryRenderer : EntryRenderer
+{
+    protected override void OnElementChanged(ElementChangedEventArgs&lt;Entry&gt; e)
+    {
+        base.OnElementChanged(e);
+
+        if (e.OldElement != null)
+        {
+            Control.AfterTextChanged -= Control_AfterTextChanged;
+        }
+        if (e.NewElement != null)
+        {
+            Control.AfterTextChanged += Control_AfterTextChanged;
+        }
+    }
+</code></pre>
+<p>And then in the <code>Control_AfterTextChanged</code> implementation:</p>
+<pre><code class="language-csharp">var element = ((FormattedNumberEntry)Element);
+
+// 1. Stop listening for changes on our control Text property
+if (!element.ShouldReactToTextChanges) return;
+element.ShouldReactToTextChanges = false;
+
+// 2. Get the current cursor position
+var cursorPosition = Control.SelectionStart;
+
+// 3. Take the control’s text, lets name it oldText
+var oldText = Control.Text;
+
+// 4. Parse oldText into a number, lets name it number
+var number = FormattedNumberEntry.DumbParse(oldText);
+
+// 5. Format number, and place the formatted text in newText
+var newText = $&quot;{number:#,##0}&quot;;
+
+// 6. Set the Text property of our control to newText
+Control.Text = newText;
+
+// 7. Calculate the new cursor position
+var change = oldText.Length - newText.Length;
+
+// 8. Set the new cursor position
+Control.SetSelection(cursorPosition - change);
+
+// 9. Start listening for changes on our control’s Text property
+element.ShouldReactToTextChanges = true;
+</code></pre>
+<p>Here is the final result</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__androidgood.gif&quot; title=<>Android working goooooood</> /&gt;</p>
+<h3 id="universal-windows-platform">Universal Windows Platform</h3>
+<p>For the Windows platforms we need to handle the <code>TextChanged</code> event:</p>
+<pre><code class="language-csharp">public class FormattedNumberEntryRenderer : EntryRenderer
+{
+    protected override void OnElementChanged(ElementChangedEventArgs&lt;Entry&gt; e)
+    {
+        base.OnElementChanged(e);
+
+        if (e.OldElement != null)
+        {
+            Control.TextChanged -= Control_TextChanged;
+        }
+        if (e.NewElement != null)
+        {
+            Control.TextChanged += Control_TextChanged;
+        }
+    }
+</code></pre>
+<p>Then in <code>Control_Text</code> changed:</p>
+<pre><code class="language-csharp">var element = ((FormattedNumberEntry)Element);
+
+// 1. Stop listening for changes on our control Text property
+if (!element.ShouldReactToTextChanges) return;
+element.ShouldReactToTextChanges = false;
+
+// 2. Get the current cursor position
+var cursorPosition = Control.SelectionStart;
+
+// 3. Take the control’s text, lets name it oldText
+var oldText = Control.Text;
+
+// 4. Parse oldText into a number, lets name it number
+var number = FormattedNumberEntry.DumbParse(oldText);
+
+// 5. Format number, and place the formatted text in newText
+var newText = $&quot;{number:#,##0}&quot;;
+
+// 6. Set the Text property of our control to newText
+Control.Text = newText;
+
+// 7. Calculate the new cursor position
+var change = -1 * (oldText.Length - newText.Length);
+if (cursorPosition + change &lt; 0)
+    change = 0;
+
+// 8. Set the new cursor position
+Control.SelectionStart = cursorPosition + change;
+
+// 9. Start listening for changes on our control’s Text property
+element.ShouldReactToTextChanges = true;
+</code></pre>
+<p>And <em>voilà</em>:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__uwpgood.gif&quot; title=<>Android working goooooood</> /&gt;</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>I know, I know, it might seem like a lot of code for such a <em>simple</em> task, yet, I couldn't find how to do it &quot;natively&quot; let alone using Forms. This kind of small details improve the user experience of our apps and aren't too complicated to implement. As always, feel free to browse the code (<a href="https://github.com/ThatCSharpGuy/FormattedNumberEntry" target="_blank">available on GitHub</a>) or <em>tweemail</em> me if in doubt.</p>
+<h2 id="future-improvements">Future improvements</h2>
+<p>This control isn't perfect, it has a lot of room for improvements:</p>
+<ul>
+<li>Modify the parsing algorithm to allow bigger numbers to be input</li>
+<li>Allow decimal numbers</li>
+<li>Save at control level the parsed number. Currently anyone interested in getting the integer value from the control will have to parse the text.</li>
+<li>The <em>convert-to-string</em> method may have issues with globalization</li>
+</ul>
+<p>So go ahead and have cross-platform fun.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

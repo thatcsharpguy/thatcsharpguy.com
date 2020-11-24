@@ -1,1 +1,107 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>¿Quieres iniciar a desarrollar con Xamarin y no sabes por donde empezar? Acá te digo. Este post está dividido entre hardware y software cada sección con sus respectivos links y al final un pequeño FAQ. Mi recomendación es que lo leas todo y luego regreses a las secciones que apliquen para tu caso.</p>
+<h3 id="hardware">Hardware</h3>
+<p>Para empezar, la primera duda que muchos tienen es respecto al hardware. Me basaré en los requerimientos &quot;mínimos&quot; para desarrollar y publicar apps para las tres plataformas móviles (iOS, Android y Windows) y a pesar de que algunos de los requerimientos en hardware tienen mucho que ver con los emuladores de dispositivos, no puden pasar desapercibidos.</p>
+<h4 id="dispositivos">Dispositivos</h4>
+<p>No necesitas tener el dispositivos físicos para la mayor parte de desarrollo de las apps, para ello tenemos los emuladores ;). Pero, si lo que quieres es que tu producto final tenga mejor calidad, definitivamente debes tratar de conseguir un dispositivo de la plataforma que vas a desarrollar. Nunca está de más.</p>
+<h4 id="mac-o-pc">¿Mac o PC?</h4>
+<p>Si quieres desarrollar para las tres plataformas, debes tener una Mac <strong>y</strong> una PC disponibles. Sí, las dos. Si únicamente tienes Mac, podrás desarrollar aplicaciones para Android e iOS solamente. Si solo tienes una PC, podrás desarrollar para Android y Windows Phone.</p>
+<h5 id="siendo-mas-especifico">Siendo más específico</h5>
+<ul>
+<li><strong>Procesador</strong>: para usar el emulador de Windows Phone en una PC es necesario un procesador de 64 bits que soporte Hyper-V y para usar los emuladores de iOS en una Mac es necesario un procesador Intel. Yo iría por un i5 o más.</li>
+<li><strong>RAM</strong>: No voy a mentir, los entornos de programación que se usan así como los emuladores tienden a consumir muchos recursos al momento de compilar o depurar, así que diría que necesitas al menos 4 Gb de memoria, cualquier otra cosa únicamente te provocará muchas frustraciones.</li>
+</ul>
+<h3 id="software">Software</h3>
+<p>Una vez que tenemos el hardware, es necesario hablar del software, vamos por plataformas.</p>
+<h4 id="pc">PC</h4>
+<h5 id="windows">Windows</h5>
+<p>Necesitas Windows 8 Pro o superior pero <strong>si no estás interesado en</strong> desarrollo para <strong>WP 8</strong> puedes usar Windows 7 sin problema.</p>
+<h5 id="ide">IDE</h5>
+<p>Si estas usando una PC como dispositivo principal de desarrollo, tienes dos opciones como entorno de programación:</p>
+<ul>
+<li><p><em>Visual Studio</em> cualquier versión profesional o superior del 2010 en adelante funcionará. Y ahora también puedes utilizar la <a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx" target="_blank">versión <i>Community</i></a>.</p>
+</li>
+<li><p><em>Xamarin Studio para Windows</em>, este IDE siempre se <a href="https://xamarin.com/download" target="_blank"> instala junto con Xamarin</a> y es gratuito. Si usas este ide en Windows no podrás crear apps para Windows Phone ni iOS.</p>
+</li>
+</ul>
+<h5 id="otras-herramientas-de-desarrollo">Otras herramientas de desarrollo</h5>
+<p>Entre las otras herramientas de desarrollo podemos encontrar los  <em>development kits</em>, para hacer apps con Xamarin, necesitamos el <a href="https://developer.android.com/sdk/index.html#Other" target="_blank">SDK de Android</a> y el <a href="https://www.microsoft.com/es-mx/download/details.aspx?id=35471" target="_blank">SDK de Windows Phone 8</a>, claro, dependiendo de las plataformas que queremos abarcar en el desarrollo.</p>
+<h4 id="mac">Mac</h4>
+<h5 id="mac-os-x">Mac OS X</h5>
+<p>Necesitarás Mac OS X 10.9.3+ (Mavericks), 10.10 o superior.</p>
+<h5 id="ide-1">IDE</h5>
+<p>Cuando usas Mac, no tienes opciones, necesitas la <a href="https://developer.apple.com/xcode/download/" target="_blank">última versión de <i>Xcode</i></a> <strong>y</strong> <a href="https://xamarin.com/download" target="_blank"><i>Xamarin Studio para Mac</i></a>, Xamarin como editor principal y Xcode para hacer uso de los emuladores, empaquetar apps y usar los editores gráficos de interfaces.</p>
+<h5 id="otras-herramientas-de-desarrollo-1">Otras herramientas de desarrollo</h5>
+<p>Al igual que con Windows, necesitarás el  <a href="https://developer.android.com/sdk/index.html#Other" target="_blank">SDK de Android</a> y el <a href="https://developer.apple.com/ios/download/" target="_blank">SDK de iOS</a>.</p>
+<h3 id="faq-o-algo-parecido">FAQ (o algo parecido)</h3>
+<dl>
+<dt><b>Son muchas descargas, ¿no hay algo más sencillo?</b><dt>
+<dd>Hay muchos componente que vienen agrupados en paquetes, por ejemplo: cuando descargas Xamarin este te dará la opción de instalar el SDK de Android. O cuando instalas Visual Studio este te preguntará si deseas instalar el SDK de Windows Phone. O cuando instalas Xcode, también podrás instalar el SDK de iOS.</dd>
+<dt><b>No tengo Mac pero quiero desarrollar para iOS</b><dt>
+<dd>No hay problema, puedes usar un servicio como <a target="_blank" href="http://www.macincloud.com">macincloud</a>. Honestamente yo no he usado, pero hay quien lo recomienda. O virtualizar Mac en Windows (¡woha! en tu cara EULA), aunque no tengo experiencia con eso.</dd>
+<dt><b>Solo tengo Mac pero quiero desarrollar para Windows Phone o usar el hermoso Visual Studio</b><dt>
+<dd>Siempre podrás virtualizar Windows en Mac, yo a veces lo hago. Personalmente recomiendo <a href="http://store.vmware.com/store/vmware/en_US/DisplayProductDetailsPage/ThemeID.2485600/productID.323689100" target="_blank">VMware Fusion</a> aunque Parallels también funciona bien. Pro tip: <a href="http://store.vmware.com/store/vmware/html/pbPage.AcademicLandingPage" target="_blank">VMware ofrece descuento si eres estudiante</a>.</dd>
+<dt><b>¿Xamarin funciona en Hackintosh?</b><dt>
+<dd>¿Lograste hacer un hackintosh? tienes mi resepto, yo no pude... Este es un terreno oscuro y pantanoso, de opiniones divididas entre que sí funciona y que no funciona. Si lo intentas, me gustaría escuchar tu experiencia.</dd>
+<dt><b>¿Por qué no puedo desarrollar iOS en Xamarin Studio para Windows?</b><dt>
+<dd>De acuerdo con <a href="https://bugzilla.xamarin.com/show_bug.cgi?id=29405#c3" target="_blank">este comentario</a> en el bug tracker de Xamarin, la funcionalidad es poco requerida como para implementarla. Mmmmh.</dd>
+</dl>    
+  
+<h4>Lo que sigue</h4>    
+En el siguiente post, abordaré un poco sobre las licencias de Xamarin y lo que ofrecen y en otro post más a futuro veremos que Xamarin no solo es para teléfonos celulares.
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

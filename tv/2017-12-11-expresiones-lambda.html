@@ -1,1 +1,108 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Las expresiones lambda o funciones lambda, o, por su nombre correcto: las funciones anónimas son bloques de código que NO están asociados con un identificador... es decir, en tiempo de ejecución no tienen un nombre asociado. Como por ejemplo estas que son funciones (o métodos) pero si tienen un nombre:</p>
+<p><em>ejemplos</em></p>
+<p>Como puedes ver, todos estos ejemplos las funciones están asociados fuertemente con un nombre. Mientras que en el caso de las expresiones lambda esto no es necesario. Estos son ejemplos de expresiones lambda que definen lo mismo que los métodos anteriores.</p>
+<p><em>ejemplos</em></p>
+<h2 id="sintaxis">Sintaxis</h2>
+<p>Para definirlas la sintaxis varía de lenguaje a lenguaje, sin embargo generalmente la sintaxis es algo como esto:</p>
+<pre><code>Argumentos - Operador - (Contenido)Expresión
+</code></pre>
+<h3 id="c">C#</h3>
+<p>En C# se define de la siguiente manera:</p>
+<pre><code>(int x) =&gt; { return x*x; };
+</code></pre>
+<pre><code>(int x) =&gt; 
+{ 
+	var x_squared = x*x;
+	return x_squared; 
+};
+</code></pre>
+<p>En C# podemos no usar los paréntesis siempre y cuando se trate de una expresión lambda de 1 solo argumento... ah, y podemos quitar los corchetes, y la palabra <code>return</code> siempre y cuando el contenido de la lambda sea una sola expresión.</p>
+<pre><code>x =&gt; x*x;
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Usando Python la cosa cambia un poco, pero verás que la estructura sigue siendo la misma, tenemos algo así:</p>
+<pre><code>lambda x: x*x;
+</code></pre>
+<p>En Python no hay nada más que hacer, no hay que usar paréntesis para especificar multiples argumentos, basta con separarlos con una coma. Sin embargo existe una desventaja: las lambdas en este lenguaje solamente deben contener una expresión.</p>
+<h3 id="javascript">JavaScript</h3>
+<p>JavaScript es muy similar a C#:</p>
+<pre><code>exp1 = (x) =&gt; { return x*x; };
+</code></pre>
+<pre><code>exp4 = x =&gt; 
+{ 
+	x_squared = x*x;
+	return x_squared; 
+};
+</code></pre>
+<p>En el sentido de que se puede reducir la expresión lambda siempre y cuando el cuerpo de la expresión lambda sea... una sola expresión.</p>
+<pre><code>exp3 = x =&gt; x*x;
+</code></pre>
+<p>Existen también en Java (aunque ahí son un poco raras), en Go, Haskell, C++, PHP... y en muchos más.</p>
+<h2 id="razon-de-ser">Razón de ser</h2>
+<p>Pero, ¿para qué querríamos escribir este tipo de expresiones?  Las expresiones lambda nos ayudan a</p>
+<ul>
+<li><p>Evitarnos el escribir código innecesario, y a la vez evitarnos llenar nuestro código de lógica que solamente vamos a usar una sola vez o en una sola parte del código. Si, por ejemplo, necesitas ejecutar una operación sobre un conjunto de elementos, tal vez sea mejor usar una expresión lambda que crear un método o una función que nadie más va a usar.</p>
+</li>
+<li><p>Reducir la complejidad de nuestro código al evitarnos tener que navegar entre lineas para llegar a la definición de una función. La lectura del código se hace más sencilla, puesto que la definición del método está más a la vista de quien la está usando y no tiene que andar navegando entre todo el laberinto de código.</p>
+</li>
+<li><p>Nos ayudan a crear funcionalidad que luego puede ser pasada como argumentos a otras funciones, llamadas funciones de orden superior. Esto no es una cosa exclusiva de este tipo de expresiones, pero sin duda lo hace más sencillo.</p>
+</li>
+</ul>
+<p>Como podrás imaginarte, las funciones anónimas están relacionadas muy fuertemente con la programación funcional, de la cual ya les hablé en el pasado, sin embargo no es el único paradigma de programación en el que se le puede encontrar.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

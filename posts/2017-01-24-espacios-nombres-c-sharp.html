@@ -1,1 +1,148 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>El post de hoy trata sobre algo que muchos desarolladores a veces damos por hecho y no le prestamos mucha atención cuando estamos escribiendo el código de nuestras aplicaciones.</p>
+<p>Se trata de los <em>namespaces</em> o <em>espacios de nombres</em>, que no solo son esos líneas de código que vienen por default cuando creamos una aplicación nueva usando Visual Studio.</p>
+<p>Siempre ha sido una necesidad de gran importancia el poder acomodar nuestro código en bloques lógicamente relacionados, de tal modo que quede organizado y sea fácil de leer, entender y luego de esccribir. Para realizar esta organización nos podemos ayudar de los <em>nombres de espacios</em>.</p>
+<p>Para definir un <em>espacio de nombres</em> se usa la siguiente sintaxis:</p>
+<pre><code class="language-csharp">namespace [nombre del namespace]
+{
+    // Alcance
+}
+</code></pre>
+<p>Por ejemplo, mira la siguiente declaración de uno:</p>
+<pre><code class="language-csharp">namespace That
+{
+</code></pre>
+<p>Los namespaces pueden ser anidados, es decir, uno dentro de otro, así que puedes hacer cosas como esta:</p>
+<pre><code class="language-csharp">namespace That
+{
+    namespace C
+    {
+        namespace Sharp
+        {
+            namespace Guy
+            {
+                public class Uno { }
+</code></pre>
+<p>Otra forma de anidación es la siguiente:</p>
+<pre><code class="language-csharp">namespace That.C.Sharp.Guy
+{
+    public class Dos { }
+}
+</code></pre>
+<p>O realuzar cualquier combinación:</p>
+<pre><code class="language-csharp">namespace That.C
+{
+    namespace Sharp.Guy
+    {
+        public class Tres { }
+    }
+}
+</code></pre>
+<p>A final de cuentas todos los tipos terminan siendo accesibles de la misma manera:</p>
+<pre><code class="language-csharp">That.C.Sharp.Guy.Dos dos;
+That.C.Sharp.Guy.Uno uno;
+That.C.Sharp.Guy.Tres tres;
+</code></pre>
+<h2 id="reusar-espacios-de-nombres">Reusar espacios de nombres</h2>
+<p>Es importante señalar que aunque no hay nada que nos impida usar los <em>espacios de nombres</em> del framework de .NET, como en el ejemplo siguiente:</p>
+<pre><code class="language-csharp">namespace System.Collections.Generic
+{
+    public class OtraColeccion
+    {
+    }
+}
+</code></pre>
+<p>Debes pensar dos veces al hacerlo, ya que a pesar de que funciona:</p>
+<pre><code class="language-csharp">using System.Collections.Generic;
+
+class MainClass
+{
+    static void Main(string[] args)
+    {
+        OtraColeccion coleccion = new OtraColeccion();
+</code></pre>
+<p>Existe el potencial de confundir a los usuarios de tu código al hacerles creer que el framework contiene tipos de dato que en realidad no.</p>
+<h2 id="alcance-de-los-usings">Alcance de los <code>usings</code></h2>
+<p>Los <em>espacios de nombres</em> nos ayudan también a establecer el alcance de otros <em>nombres de espacios</em> importados mediante la instrucción <code>using</code>, ya que podemos escribirlos dentro de la declaración de uno de ellos, indicando que ese <code>using</code> será válido solo dentro de su alcance:</p>
+<pre><code class="language-csharp">namespace Alcance
+{
+    using System;
+</code></pre>
+<h2 id="el-alias-global">El alias <code>global</code></h2>
+<p>Puede que mientras estamos desarrollando una app, te encuentres con la necesidad de escibir código que tenga los mismos identificadores que algúna otra porción existente, como es el caso de el siguiente ejemplo:</p>
+<pre><code class="language-csharp">namespace Spaceship
+{
+    namespace System
+    {
+        public class Console
+        {
+            void TurnOn()
+            {
+                //Console.WriteLine(&quot;La consola fue encendida&quot;);
+</code></pre>
+<p>Como podrás observar, en el código anterior se definen un <em>espacio de nombres</em>: <code>Spaceship</code> y <code>System</code>, este último contiene la clase <code>Console</code>... ahora, imagina que dentro del método TurnOn queremos informar al usuario que la consola está encendida. Pero no podemos usar directamente el método <code>Console.WriteLine</code>, porque el compilador piensa que nos estamos refiriendo a <strong>nuestra</strong> clase <code>Console</code>.</p>
+<p>Pero no te preocupes, para este tipo de casos extremos ex que existe el alias <code>global</code> que en pocas palabras <em>reestablece</em> los alcances de los namespaces, permitiéndonos así hacer uso de -casi- cualquier espacio de nombres, sin importar que existan conflicto entre ellos. Para escribir a consola dentro del método anterior simplemente tenemos que reescribir la línea como sigue:</p>
+<pre><code class="language-csharp">global::System.Console.WriteLine(&quot;La consola ha sido encendida&quot;);
+</code></pre>
+<h2 id="eligiendo-un-nombre-de-espacio">Eligiendo un nombre de espacio</h2>
+<p>Además del orden lógico muchas veces los <em>namespaces</em> se usan también para crear un &quot;sentido&quot; de pertenencia a quien creo el código. Muchas veces se sugiere que los nombres de espacio tengan la siguiente forma:</p>
+<p><code>&lt;Compañía&gt;.(&lt;Producto o Technología&gt;)[.&lt;Característica&gt;][.&lt;Nombres de espacio de código&gt;]</code></p>
+<p>Como en <code>Microsoft.Web.Infrastructure</code>, aunque también hay exepciones como <code>System.IO.Stream</code>.</p>
+<h2 id="necesito-meter-mi-codigo-en-un-namespace">¿Necesito meter mi código en un <em>namespace</em>?</h2>
+<p>No, no es necesario, puedes dejar todo tu código fuera de cualquier <em>namespace</em>, sin embargo esto no es tan recomendable por cuestiones meramente de organización. A menos que desemos que el tipo de dato creado esté disponibles globalmente en nuestro código.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

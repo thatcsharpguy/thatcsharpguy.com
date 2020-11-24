@@ -1,1 +1,261 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p><a href="..\reactive-extensions-1" target="_blank">En el post pasado</a> les comencé a hablar de las <em>Reactive Extensions</em> y cómo es que introducían un paradigma de programación distinto. Ahí mostré un ejemplo muy sencillo de la programación reactiva... pero sé que no siempre todo el código que escribiremos será así de sencillo, así que en este post crearé y mostraré un caso más complejo en el que podemos utilizar <em>Rx</em>.</p>
+<h2 id="el-rio">El río</h2>
+<p>Piensa en un río en el cual hay un conjunto de peces que viajan a través de él, es por eso que los pescadores se acercan al río para tratar de conseguir un poco de alimento. El río produce una cantidad <code>x</code> de peces que pasan por él uno a uno cada <code>y</code> milisegundos, además de que hay ocasiones en que el agua del río hace muy peligroso pescar en él.</p>
+<h3 id="river"><code>River</code></h3>
+<p>Para recrear las condiciones anteriores, crea una clase llamada <code>River</code> que reciba y almacene las especificaciones de la cantidad de peces, el tiempo entre ellos y si es o no peligroso:</p>
+<pre><code class="language-csharp">public class River
+{
+    private readonly int _fishAmount;
+    private readonly int _waitTime;
+    private readonly bool _dangerousRiver;
+
+
+    public River(int fishAmount, int waitTime = 500,  bool dangerousRiver = false)
+    {
+        _fishAmount = fishAmount;
+        _waitTime = waitTime;
+        _dangerousRiver = dangerousRiver;
+    }
+</code></pre>
+<h3 id="fish"><code>Fish</code></h3>
+<p>Pero aguarda, no te olvides de los peces: estos tendrán una especie (<code>FishSpecies</code>), un color (<code>Color</code>) y un peso (<code>Weight</code>), todo representado dentro de una clase:</p>
+<pre><code class="language-csharp">    public class Fish
+    {
+        public double Weight { get; set; }
+        public Color Color { get; set; }
+        public FishSpecies Species { get; set; }
+
+        #region Random fish
+
+        private static readonly Random R = new Random();
+        private const double MinWeight = 500; // Gramos
+        private const double MaxWeight = 5000; // Gramos
+
+        public static Fish RandomFish()
+        {
+            var fish = new Fish
+            {
+                Weight = (R.NextDouble() * (MaxWeight - MinWeight)) + MinWeight,
+                Species = (FishSpecies) R.Next(4), // There are four species
+                Color = (Color) R.Next(4) // There are four colors
+            };
+
+            return fish;
+        }
+
+        #endregion
+    }
+</code></pre>
+<p>Oh, además en esta clase introduje un método para crear peces aleatoriamente.</p>
+<h3 id="river-cont"><code>River</code> (cont)</h3>
+<p>Bueno, volviendo al diseño del río. Ahora toca escribir la forma en que representaremos el paso de los peces a través de él. ¿Estás de acuerdo en que es un <strong>flujo</strong>? sí, un flujo de peces.  Y al ser un flujo es el un buen candidato para convertirse en un <code>IObservable</code>de <code>Fish</code>.</p>
+<p>Para acceder al flujo de peces usaremos un método que retorne un <code>IOBservable&lt;Fish&gt;</code>. Acá es una buena oportunidad para decir que no es recomendable que tu mismo implementes la interfaz, lo mejor en muchos casos es hacer uso de las <em>Reactive Extensions</em> para crear un objeto de ese tipo:</p>
+<pre><code class="language-csharp">    public IObservable&lt;Fish&gt; Stream()
+    {
+        return Observable.Create&lt;Fish&gt;(observer =&gt;
+        {
+            for (int i = 0; i &lt; _fishAmount; i++)
+            {
+                var fish = Fish.RandomFish();
+                observer.OnNext(fish);
+                Thread.Sleep(_waitTime);
+
+                if (_dangerousRiver &amp;&amp; i == _fishAmount / 3)
+                    throw new Exception(&quot;Uh, hubo un derrame en el río&quot;);
+            }
+            observer.OnCompleted();
+            return () =&gt; { };
+        });
+    }
+</code></pre>
+<p>Vamos a revisar qué es lo que está ocurriendo en ese método:</p>
+<dl>
+   <dt>1.</dt>
+    <dd>Lo primero que nos damos cuenta es el tipo de retorno: <code>IObservable&lt;Fish&gt;</code></dd>
+   <dt>2.</dt>
+    <dd>Inmediatamente después tenemos la creación de nuestro observable mediante el método estático <code>Observable.Create</code>, este método recibe un `Func&lt;IObserver&lt;Fish&gt;, Action&gt;`. El parámetro de entrada (<code>IObserver&lt;Fish&gt;</code>) es una referencia al suscriptor que está al tanto de lo que publiquemos. El valor de retorno (<code>Action</code>) es un delegado que en teoría deberíamos usar para limpiar los recursos que usamos en el flujo. </dd>
+   <dt>3.</dt>
+    <dd>Vamos a generar tantos peces como sean necesarios, en este caso creándolos de forma aleatoria, después, publicaremos cada uno de los peces a nuestro <code>Observer</code> mediante su método <code>OnNext</code>.  
+    Esperarémos después el tiempo indicado entre cada pez.
+    Antes de repetir el ciclo comprobaremos que el río es seguro, y si no lo es, lanzaremos una excepción. </dd>
+   <dt>4.</dt>
+    <dd>Apenas terminar el ciclo enviaremos el mensaje <code>OnCompleted</code> al <code>observer</code></dd>
+   <dt>5.</dt>
+    <dd>Regresaremos una <code>Action</code> vacía, recuerda que deberíamos usar este para liberar los recursos que usó nuestro flujo de datos. En este caso, no debemos liberar nada.</dd>
+</dl>
+<p>Usar el método <code>Observable.Create&lt;T&gt;</code> es solo una de las muchas maneras en las que podemos crear un flujo, <a href="https://weblogs.asp.net/sweinstein/16-ways-to-create-iobservables-without-implementing-iobservable" target="_blank">en este sitio web</a> puedes ver 16 formas de crearlos sin necesidad de heredar tú mismo de <code>IObservable</code>.</p>
+<h2 id="usando-el-rio">Usando el río</h2>
+<p>Vamos a crear un par de ríos para después poder suscribirnos a ellos:</p>
+<pre><code class="language-csharp">var rioNormal = new River(10);
+var rioRapido = new River(10, waitTime: 10);
+var dangerousRiver = new River(fishAmount: 10, dangerousRiver: true);
+</code></pre>
+<p>Entonces ahora podemos suscribirnos y estar al tanto de qué peces pasan por el río:</p>
+<pre><code class="language-csharp">rioNormal.Stream()
+    .Subscribe(
+        onNext: fish =&gt; Console.WriteLine($&quot;{DateTime.Now:HH:mm:ss.ffff}: {fish}&quot;),
+        onCompleted: () =&gt; Console.WriteLine(&quot;¡Terminé de pescar!&quot;)
+    );
+</code></pre>
+<pre>
+13:35:40.3923: Anglerfish, Green, 3,787.68
+13:35:40.9770: Anglerfish, Green, 1,462.02
+13:35:41.4831: ClownFish, Black, 1,469.41
+13:35:41.9871: Blowfish, Red, 1,539.82
+13:35:42.4926: Tuna, Black, 2,540.65
+13:35:42.9931: Blowfish, Green, 2,905.58
+13:35:43.4939: Blowfish, Red, 3,611.61
+13:35:43.9994: Tuna, Black, 2,029.88
+13:35:44.5048: Tuna, Yellow, 1,672.38
+13:35:45.0102: Anglerfish, Black, 4,194.68
+¡Terminé de pescar!
+</pre>
+<p>Como vimos anteriormente, también podemos filtrar los elementos:</p>
+<pre><code class="language-csharp">rioNormal.Stream()
+    .Where(fish =&gt; fish.Color == Color.Green &amp;&amp; fish.Weight &gt; 3000) // Filtramos los elementos
+    .Subscribe(
+        onNext: fish =&gt; Console.WriteLine($&quot;{DateTime.Now:HH:mm:ss.ffff}: {fish}&quot;),
+        onCompleted: () =&gt; Console.WriteLine(&quot;¡Terminé de pescar!&quot;)
+    );
+</code></pre>
+<pre>
+13:35:48.5546: Blowfish, Green, 3,420.28
+13:35:50.0690: Anglerfish, Green, 3,974.44
+¡Terminé de pescar!
+</pre>  
+<p>Podemos agrupar los elementos con el método <code>Buffer</code>, que permitirá agrupar los elementos del flujo. Por ejemplo, imagina que el pescador está usando una red para 3 peces:</p>
+<pre><code class="language-csharp">rioNormal.Stream()
+    .Buffer(3) // Agrupamos 3 elementos
+    .Subscribe(
+        onNext: fishCollection =&gt;
+        {
+            var f = String.Join(&quot;, &quot;, fishCollection.Select(fi =&gt; fi.Species));
+            Console.WriteLine($&quot;Atrapé {fishCollection.Count} peces ({f})&quot;);
+        },
+        onCompleted: () =&gt; Console.WriteLine(&quot;¡Terminé de pescar usando una red para 3 peces!&quot;)
+    );
+</code></pre>
+<pre>
+Atrapé 3 peces (Tuna, Blowfish, Tuna)
+Atrapé 3 peces (Tuna, Tuna, Blowfish)
+Atrapé 3 peces (Tuna, Blowfish, Blowfish)
+Atrapé 1 peces (Anglerfish)
+¡Terminé de pescar usando una red para 3 peces!
+</pre>
+<p>Y no olvides que podemos especificarle al código que hacer en caso de que ocurra un error en el flujo, esto mediante el método (o lambda en este caso) <code>OnError</code>:</p>
+<pre><code class="language-csharp">dangerousRiver.Stream()
+    .Subscribe(
+        onNext: fish =&gt; Console.WriteLine($&quot;{DateTime.Now:HH:mm:ss.ffff}: {fish}&quot;),
+        onError: ex =&gt; Console.WriteLine($&quot;Ocurrió un problema en el río: {ex.Message}&quot;),
+        onCompleted: () =&gt; Console.WriteLine(&quot;¡Terminé de pescar en el río peligroso!&quot;)
+    );
+</code></pre>
+<pre>
+13:35:45.5200: Anglerfish, Black, 3,171.37
+13:35:46.0216: Anglerfish, Red, 3,041.97
+13:35:46.5272: Anglerfish, Black, 4,589.28
+13:35:47.0297: Blowfish, Black, 3,128.05
+Ocurrió un problema en el río: Uh, hubo un derrame en el río
+</pre>
+<h2 id="el-pescador-o-iobserverfish">El pescador o <code>IObserver&lt;Fish&gt;</code></h2>
+<p>Hasta el momento hemos estado empleando lambdas para reaccionar a los mensajes de un publicador. Pero si recuerdas, en el post pasado hablé de otra interfaz que representaba al observador, recordarás también que esta interfaz especifica tres métodos. Nosotros vamos a crear una clase <code>Fisher</code> que representará al pescador:</p>
+<pre><code class="language-csharp">public class Fisher : IObserver&lt;Fish&gt;
+{
+    private readonly string _name;
+
+    public Fisher(string name)
+    {
+        _name = name;
+    }
+    public void OnNext(Fish value)
+    {
+        Console.WriteLine($&quot;{_name}: atrapé un {value.Species} de color {value.Color} a las {DateTime.Now:HH:mm:ss.ffff}&quot;);
+    }
+
+    public void OnError(Exception error)
+    {
+        Console.WriteLine($&quot;{_name}: Oops, algo pasó {error.Message}&quot;);
+    }
+
+    public void OnCompleted()
+    {
+        Console.WriteLine($&quot;{_name}: ¡Terminó la pesca!&quot;);
+    }
+}
+</code></pre>
+<p>Y una vez que tenemos a un pescador (observador) podemos suscribirlo al flujo de peces para que esté al tanto de lo que ocurre:</p>
+<pre><code class="language-csharp">var erik = new Fisher(&quot;Erik&quot;);
+rioNormal.Stream()
+    .Subscribe(erik);
+</code></pre>
+<pre>
+Erik: atrapé un Anglerfish de color Red a las 13:35:57.6664
+Erik: atrapé un Blowfish de color Yellow a las 13:35:57.6795
+Erik: atrapé un Anglerfish de color Black a las 13:35:57.6923
+Erik: atrapé un Blowfish de color Green a las 13:35:57.7051
+Erik: atrapé un Anglerfish de color Red a las 13:35:57.7172
+Erik: atrapé un Tuna de color Yellow a las 13:35:57.7301
+Erik: atrapé un ClownFish de color Yellow a las 13:35:57.7429
+Erik: atrapé un Blowfish de color Yellow a las 13:35:57.7558
+Erik: atrapé un ClownFish de color Green a las 13:35:57.7686
+Erik: atrapé un Blowfish de color Red a las 13:35:57.7815
+Erik: ¡Terminó la pesca!
+</pre>
+<p>Y listo, ese fue todo el ejemplo. Recuerda que el <a href=" https://github.com/ThatCSharpGuy/rx" target="_blank">código está en GitHub</a> para qe lo descargues y juegues con él. En el futuro estaré creando otro par de ejemplos sobre las bondades de la programación reactiva, entre tanto, si tienes preguntas, no dudes en hacérmelas llegar.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

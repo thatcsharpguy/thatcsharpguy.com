@@ -1,1 +1,212 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Comencemos hablando de perritos, o de <em>Canis lupus familiaris</em> para ser más exactos.</p>
+<p>Toma, por ejemplo, la clase <code>CanisLupusFamiliaris</code> (perro doméstico), que tiene dos métodos, nota que uno está marcado como <code>virtual</code> y otro no.</p>
+<pre><code class="language-csharp">public class CanisLupusFamiliaris // Perro doméstico
+{
+    public virtual void Ladrar()
+    {
+        Console.WriteLine(&quot;Ladrido genéico&quot;);
+    }
+
+    public void MoverOrejas()
+    {
+        Console.WriteLine(&quot;Error: sin información&quot;);
+    }
+}
+</code></pre>
+<p>Y una clase derivada, llamada <code>Chihuahua</code>, que como sabrás, es un perro doméstico. El Chihuahua, al ser algo más específico tiene su propia manera de ladrar y mover las orejas, define sus propios métodos:</p>
+<pre><code class="language-csharp">public class Chihuahua : CanisLupusFamiliaris
+{
+    public void Ladrar()
+    {
+        Console.WriteLine(&quot;Bau, bau&quot;);
+    }
+
+    public void MoverOrejas()
+    {
+        Console.WriteLine(&quot;Mueve sus orejas peludas&quot;);
+    }
+}
+</code></pre>
+<h3 id="new-override"><code>new</code>, <code>override</code></h3>
+<p>Sin embargo, el <code>Chihuahua</code> no es el único perro, también tenemos un <code>GranDanes</code>, que nuevamente, es un perro doméstico y hereda de <code>CanisLupusFamiliaris</code>. Pero, a diferencia de la clase anterior, esta implementa su forma de ladrar y de mover la cola de manera distinta:</p>
+<pre><code class="language-csharp">public class GranDanes : CanisLupusFamiliaris
+{
+    public override void Ladrar()
+    {
+        Console.WriteLine(&quot;Woof, woof&quot;);
+    }
+
+    public new void MoverOrejas()
+    {
+        Console.WriteLine(&quot;Mueve sus orejas gigantezcas&quot;);
+    }
+}
+</code></pre>
+<p>Si te das cuenta, aparecieron dos palabras en la definición de los métodos: <code>new</code> y <code>override</code></p>
+<p>La explicación de estas palabras es la siguiente:</p>
+<h2 id="override"><code>override</code></h2>
+<p><strong>El modificador <code>override</code> se usa para indicar que el método que se está definiendo modificará el comportamiento del definido en la clase base.</strong> Para que un miembro pueda ser sobrescrito debe estar marcado con el modificador <code>virtual</code>. La clase <code>GranDanes</code> está sobrescribiendo el método virtual <code>Ladrar</code>. Entonces no importa desde donde llamemos a este método, siempre llamaremos a la implementación de esta clase.</p>
+<p>Si compilas el código anterior aparecerán unas advertencias en tu IDE, indicándote que en la clase <code>Chihuahua</code> el método <code>Ladrar</code> esconde al método del mismo nombre en la clase <code>CanisLupusFamiliaris</code>, sin embargo, al estar marcado como virtual también nos da la opción de marcarlo con <code>override</code>:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__new__overrideWarning.jpg&quot; title=<>Hiding member</> /&gt;</p>
+<p>Como la clase <code>GranDanes</code> sí está sobrescribiendo el archivo, estas advertencias no aparecen.</p>
+<h2 id="new"><code>new</code></h2>
+<p>En este ámbito (antes de la definición de un método o propiedad de una clase) nos ayuda a especificar que la definición de nuestro método está <em>ocultando</em> una definición similar en la clase padre. En el caso de <code>GranDanes</code>, el método <code>MoverOrejas</code> está escondiendo la definición de la clase padre. <strong>En realidad la palabra <code>new</code> no es más que una indicación para el compilador de que estás conciente de que estás escondiendo una definición</strong> ya existente, no tiene otro efecto en tu programa.</p>
+<p>Si compilas el código anterior aparecerán unas advertencias en tu IDE, indicándote que en la clase <code>Chihuahua</code> el método <code>MoverOrejas</code> esconde al método del mismo nombre en la clase <code>CanisLupusFamiliaris</code>:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__new__newWarning.jpg&quot; title=<>Hiding member</> /&gt;</p>
+<p>Esta advertencia no aparece en la clase <code>GranDanes</code>.</p>
+<h2 id="ejemplo">Ejemplo:</h2>
+<p>Considera el siguiente programa, en donde declaramos un perro de la clase base y llamamos a sus métodos, nada raro, todo funciona como debería funcionar:</p>
+  <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-14-24">
+```csharp  
+CanisLupusFamiliaris canis = new CanisLupusFamiliaris();
+Console.WriteLine("Canis genérico:");
+canis.Ladrar();
+canis.MoverOrejas();
+```  
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+<pre>
+// En pantalla:
+Canis genérico:
+Ladrido genérico
+Error: sin información
+</pre>
+      </div>
+  </div>
+<p>En el siguiente bloque creamos un <code>Chihuahua</code> pero lo asignamos a un objeto de la clase base, después, al llamar a los métodos, vemos que en realidad está llamando a los métodos de la clase base, puesto que no está sobrescribiéndolos con <code>override</code>:</p>
+  <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-14-24">
+```csharp  
+CanisLupusFamiliaris chihuahuaCanis = new Chihuahua();
+Console.WriteLine("Chihuahua (Canis):");
+chihuahuaCanis.Ladrar();
+chihuahuaCanis.MoverOrejas();
+```  
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+<pre>
+// En pantalla:
+Chihuahua (Canis):
+Ladrido genérico
+Error: sin información
+</pre>  
+      </div>
+  </div>
+<p>En el siguiente bloque creamos un <code>Chihuahua</code>, ahora si asignándolo a un objeto de su misma clase, la llamada a los métodos nos da el resultado esperado:</p>
+  <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-14-24">
+```csharp  
+Chihuahua chihuahua = new Chihuahua();
+Console.WriteLine("Chihuahua:");
+chihuahua.Ladrar();
+chihuahua.MoverOrejas();
+```  
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+<pre>
+// En pantalla:
+Chihuahua:
+guau, guau
+Mueve sus orejitas
+</pre> 
+      </div>
+  </div>  
+<p>En el siguiente bloque creamos un <code>GranDanes</code>, asignándolo a un objeto de la clase base, la llamada a los métodos nos da resultados mixtos, <code>Ladrar</code> accede a la implementación de <code>GranDanes</code> porque sobrescribimos el método, pero <code>MoverOrejas</code> accede al de la clase base:</p>
+  <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-14-24">
+```csharp  
+CanisLupusFamiliaris granDanesCanis = new GranDanes();
+Console.WriteLine("Gran danes (Canis):");
+granDanesCanis.Ladrar();
+granDanesCanis.MoverOrejas();
+```  
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+<pre>
+// En pantalla:
+Gran danes (Canis):
+WOOF! WOOF!
+Error: sin información
+</pre>
+      </div>
+  </div>  
+<p>En el siguiente bloque creamos un <code>GranDanes</code>, asignándolo a una clase de su tipo, las llamadas a los métodos se hacen directamente a este tipo:</p>
+  <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-14-24">
+```csharp  
+GranDanes granDanes = new GranDanes();
+Console.WriteLine("Gran danes:");
+granDanes.Ladrar();
+granDanes.MoverOrejas();
+```  
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+<pre>
+// En pantalla:
+Gran danes:
+WOOF! WOOF!
+Mueve sus orejas gigantezcas
+</pre> 
+      </div>
+  </div>  
+<h2 id="para-terminar">Para terminar</h2>
+<p>Como vimos, las palabras <code>virtual</code> y <code>override</code> están completamente relacionadas y nos ayudan a preservar el comportamiento definido en las subclases de un tipo cuando se hace referencia a ellos desde el tipo base. Por otro lado, <code>new</code> no es más que un indicador para que el compilador no piense que estamos cometiendo un error si nombramos un miembro de una clase como uno de los que contenga su clase base.</p>
+<p>Por cierto, en este ejemplo solamente utilicé métodos, pero las tres palabras de las que hablé en este post aplican para cualquier miembro: campos, propiedades, métodos, eventos, operadores, indizadores y constructores.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

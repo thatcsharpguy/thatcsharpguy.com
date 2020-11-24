@@ -1,1 +1,108 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En el post anterior les contaba sobre los arreglos <a href="/post/arreglos-en-c-sharp-parte-1">arreglos unidimensionales en C#</a>, y hacia el final los invitaba a leer este, sobre los arreglos multidimensionales, así que sin más:</p>
+<p>Los arreglos escalonados (o <em>jagged arrays</em>) son los tipos de arreglos multidimensionales más conocidos, y es que también son compunes en otros lenguajes de programación. Un arreglo escalonado no es más que un arreglo de arreglos.</p>
+<h4 id="instanciacion">Instanciación</h4>
+<p>Para crear estos arreglos de arreglos, tenemos una sintaxis similar a la creación de arreglos unidimensionales, con <code>[ ]</code> para cada dimensión:</p>
+<pre><code class="language-csharp">char[][] gato = new char[3][];
+
+string [][][] rubik = new string[3][][];
+
+int[][] escalera = new int[3][];
+</code></pre>
+<p>Acá es importante notar que al instanciar un arraglo multidimensional de esta manera <strong>únicamente estamos indicando el tamaño de la primera dimensión</strong>, 3 en el caso de <code>gato</code>, 3 también para <code>rubik</code> y 2 para <code>escalera</code>. Es tarea nuestra inicializar los arreglos interiores:</p>
+<pre><code class="language-csharp">for(int i = 0; i &lt; 3; i++)
+{
+	gato[i] = new char[3]; // gato[i] hace referencia a un arreglo
+}
+</code></pre>
+<pre><code class="language-csharp">for(int i = 0; i &lt; 3; i++)
+{
+	rubik[i] = new string[3][];
+	for(int j = 0; j &lt; 3; j++)
+	{
+		rubik[i][j] = new string[3];
+	}
+}
+</code></pre>
+<p>Con los arreglos escalonados no hay nada que nos prohíba crear arreglos internos de dimensiones iguales a la de arreglo que las contiene, es más, <strong>podemos crear arreglos internos de distintos tamaños en la misma dimensión</strong>, hagamos algo con nuestro arreglo <code>escalera</code>:</p>
+<pre><code class="language-csharp">escalera [0] = new int[1] { 1 };
+escalera [1] = new int[2] { 2, 3 };
+escalera [2] = new int[3] { 4, 5, 6 };
+</code></pre>
+<p>Con estos arreglos de arreglos también podemos usar la instanciación de colecciones:</p>
+<pre><code class="language-csharp">char[][] gato = 
+{
+	new char[]{ 'o', 'x', 'o' },
+	new char[]{ 'o', 'x', 'o' },
+	new char[]{ 'o', 'x', 'o' }
+};
+</code></pre>
+<h4 id="acceso-a-los-elementos">Acceso a los elementos</h4>
+<p>De nueva cuenta, y por tratarse de arreglos, usaremos los <code>[ ]</code> para acceder a los elementos de nuestros arreglos, de tal manera que es posible escribir algo como esto:</p>
+<pre><code class="language-csharp">for (int i = 0; i &lt; escalera.Length; i++)
+{
+	for (int j = 0; j &lt; escalera [i].Length; j++) 
+	{
+		Console.Write (escalera[i][j] +  &quot; &quot;);
+	}
+	Console.WriteLine();
+}    
+</code></pre>
+<h4 id="lo-que-sigue">Lo que sigue</h4>
+<p>En el post siguiente les platicaré sobre los arreglos rectangulares, que son lo más parecido a matrices que podemos encontrar en C#. Estos son similares a los arreglos rectangulares con la pequeña diferencia de que no pueden contener arreglos de distintos tamaños dentro de la misma dimensión.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

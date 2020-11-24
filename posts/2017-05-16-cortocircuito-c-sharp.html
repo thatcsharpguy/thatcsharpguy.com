@@ -1,1 +1,125 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>No hay duda de que conoces estos operadores: <code>&amp;&amp;</code> y <code>||</code>, sabes lo que hacen e inclusive los has usado más veces de las que lo recuerdas en tus aplicaciones. Pero, probablemente no sabes que cuando las usas, el lenguaje hace de las suyas tratando de mejorar el desempeño de tu aplicación. Considera el siguiente par de ejemplos:</p>
+<pre><code class="language-csharp">if(true || false) { } 
+if(false &amp;&amp; true) { } 
+</code></pre>
+<p>¿Qué sentido tendría evaluar el lado derecho de ambos condicionales si ya sabemos que nada de lo que está ahí modificará el resultado? entonces en tiempo de ejecución sucede algo como lo siguiente:</p>
+<div class="pure-g">
+    <div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/aprende-c-sharp__cortocircuito__or-sc.png" title=""OR shortcircuitted"" />
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/aprende-c-sharp__cortocircuito__and-sc.png" title=""OR shortcircuitted"" />
+    </div>
+</div>
+<p>El programa reconoce que nada de lo que ocurra después del operador cambiará el resultado, entonces evita evaluarlo, ahorrando así un poco de tiempo y recursos. Este comportamiento se debe a los operadores lógicos <code>&amp;&amp;</code> y <code>||</code>, que en realidad su nombre real es: operadores lógicos <strong>corto-circuitados</strong>  (<strong>short-circuiting</strong> logical operators).</p>
+<p>Esto sin duda es algo de lo que muy pocos tendrían queja, pero para aquellos casos en los que quisiéramos que los operadores lógicos evalúen todos los operandos, C# nos tiene una solución: los operadores lógicos <strong>no corto-circuitados</strong>: <code>&amp;</code> y <code>|</code>, que en pocas palabras evalúan todos los operandos, sin importar que estos no vayan a modificar el resultado de la operación.</p>
+<div class="pure-g">
+    <div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/aprende-c-sharp__cortocircuito__or.png" title=""OR shortcircuitted"" />
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/aprende-c-sharp__cortocircuito__and.png" title=""OR shortcircuitted"" />
+    </div>
+</div>
+<p>Para poner un ejemplo <a href=" https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/CortoCircuito" target="_blank">que puedes descargar</a>, considera el siguiente par de métodos que imprimen un mensaje y retornan un valor constante booleano:</p>
+<pre><code class="language-csharp">static bool AlwaysTrue(string label)
+{   
+    Console.Write(label + &quot;: &quot; + true);
+    return true;
+}
+
+static bool AlwaysFalse(string label)
+{
+    Console.Write(label + &quot;: &quot; + false);
+    return false;
+}
+</code></pre>
+<p>Entonces, al ejecutar el siguiente código:</p>
+<pre><code class="language-csharp">Console.WriteLine(&quot;Ifs&quot;);
+if (AlwaysFalse(&quot;If 1&quot;) &amp;&amp; AlwaysTrue(&quot;If 1&quot;)) ;
+Console.WriteLine();
+if (AlwaysFalse(&quot;If 2&quot;) &amp; AlwaysTrue(&quot;If 2&quot;)) ;
+Console.WriteLine();
+if (AlwaysTrue(&quot;If 3&quot;) || AlwaysTrue(&quot;If 3&quot;)) ;
+Console.WriteLine();
+if (AlwaysTrue(&quot;If 4&quot;) | AlwaysTrue(&quot;If 4&quot;)) ;
+Console.WriteLine();
+if (AlwaysTrue(&quot;If 5&quot;) | AlwaysTrue(&quot;If 5&quot;) &amp;&amp; (AlwaysFalse(&quot;If 5&quot;) &amp; AlwaysTrue(&quot;If 5&quot;)));
+</code></pre>
+<p>Obtendremos como resultado:</p>
+<pre>
+Ifs
+If 1: False
+
+If 2: False
+If 2: True
+
+If 3: True
+
+If 4: True
+If 4: True
+
+If 5: True
+If 5: True
+If 5: False
+If 5: True
+</pre>
+<h2 id="por-que">¿Por qué?</h2>
+<p>La razón de la existencia de ambos operadores radica en que los no corto-circuitados tienen un propósito más allá de operaciones de lógica condicional, son operadores de <em>bit a bit</em>, que están pensados para funcionar con valores enteros, en estas operaciones siempre se deben tomar en cuenta ambos operandos. El hecho de que funcionen también con valores booleanos solamente es un extra.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

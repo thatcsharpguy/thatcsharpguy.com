@@ -1,1 +1,179 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Hay muchas razones por las que como desarrolladores nos podemos ver en la necesidad de transferir, o mapear, información de un objeto a otro. Una de estas razones es para evitar el <a href="https://en.wikipedia.org/wiki/Mass_assignment_vulnerability" target="_blank" rel="nofollow">Overposting</a>.</p>
+<p>En general se emplea el mapeo en los límites entre componentes de un sistema, ya sea de la base de datos a la capa de lógica, de la lógica a la interfaz gràfica o de un servicio web de un tercero a nuestra app. El hecho de que existan los mapeos favorece la separación de responsabilidades en el código.</p>
+<p>Por ejemplo, cuando estamos trabajando con servicios web y recibimos un objeto simple y lo queremos transformar en algo con lo que nuestra aplicaciòn pueda trabajar, otro ejemplo es cuando somos nosotros los que enviamos la información de nuestra aplicación a través de un servicio web, sin embargo no queremos que el receptor tenga acceso a toda la información que tenemos disponible.</p>
+<h2 id="ejemplo-practico">Ejemplo práctico</h2>
+<p>Supongamos que tenemos un servicio web que sirve para consultar información sobre libros, de nuestra base de datos recuperamos la información a través de las siguientes entidades:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+public class BookEntity
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Subtitle { get; set; }
+    public int Pages { get; set; }
+    public int Edition { get; set; }
+    public AuthorEntity Author { get; set; }
+}
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+public class AuthorEntity
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public List<BookEntity> Books { get; set; }
+<p>}</p>
+<pre><code>&lt;/div&gt;  
+&lt;/div&gt;
+
+Responder a la petición de un usuario con dichas clases, representaría dar más información de la que se necesita, es por eso usaremos estas clases para responder a cada petición:
+
+&lt;div class=&quot;pure-g&quot;&gt;
+&lt;div class=&quot;pure-u-1 pure-u-md-1-2&quot;&gt;
+```csharp  
+public class BookModel
+{
+    public string FullTitle { get; set; }
+    public int Pages { get; set; }
+    public int Edition { get; set; }
+    public string AuthorName { get; set; }
+    public DateTime TimeSent { get; set; }
+}
+</code></pre>
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+public class AuthorModel
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public int BooksCount { get; set; }
+}
+  
+  
+```  
+</div>  
+</div>
+<p>Ahora bien, podríamos pensar en hacerlo manualmente:</p>
+<pre><code class="language-csharp">var modeloAutor = new AuthorModel();
+modeloAutor.Name = entidadAutor.Name;
+modeloAutor.Age = entidadAutor.Age;
+modeloAutor.BooksCount = entidadAutor.Books != null ? entidadAutor.Books.Count : 0;
+</code></pre>
+<p>Pero no es una tarea sencilla si nuestros objetos comienzan a crecer en tamaño o complejidad... y ni hablar de lo aburrido que puede llegar a ser escribir cada mapeo &quot;a mano&quot;.</p>
+<h2 id="automapper">AutoMapper</h2>
+<p>Es por eso que a <a href="https://github.com/jbogard" target="_blank" rel="nofollow">Jimmy Bogard</a> se le ocurrió la idea de crear AutoMapper, que es una pequeña librería que nos ayudará a automatizar esta tarea.</p>
+<p>AutoMapper es un mapeador objeto-objeto que &quot;convierte&quot; un objeto de un tipo a otro, sin embargo lo que hace realmente útil a esta herramienta es que facilita la tarea mediante el uso de convenciones de código, que le ayudan a decidir qué propiedad de un tipo se mapea al otro.</p>
+<h3 id="configuracion">Configuración</h3>
+<p>Para comenzar a usar AutoMapper demebos configurarlo, para lo cual utilizaremos una instancia de la clase <code>MapperConfiguration</code>, a través del que configuraremos el mapeo:</p>
+<pre><code class="language-csharp">var automappingConfiguration = new AutoMapper.MapperConfiguration(config =&gt;
+{
+    // Configurar mapeo
+</code></pre>
+<h4 id="convenciones">Convenciones</h4>
+<p>A partir de aquí se tiene que configurar cada mapeo objeto-objeto individualmente, necesitaremos dos tipos de dato una <em>fuente</em> y un <em>destino</em>, utilizando la variable <code>config</code> y su método <code>CreateMap</code> es como se realiza la tarea. Por ejemplo, para configurar el mapeo de <code>AuthorEntity</code> (la fuente) a <code>AuthorModel</code> (el destino) basta con una sola línea:</p>
+<pre><code class="language-csharp">config.CreateMap&lt;AuthorEntity, AuthorModel&gt;();
+</code></pre>
+<p>Esto se debe a que para este mapeo utiliza las convenciones definidas por AutoMapper:</p>
+<ul>
+<li>Ambos tienen <code>Nombre</code> del tipo <code>string</code></li>
+<li>Ambos tienen <code>Age</code> del tipo <code>int</code></li>
+<li>para <code>BooksCount</code> en el destino, AutoMapper busca una colección <code>Books</code>, y obtendrá el número de elementos que contiene.</li>
+</ul>
+<p>Esto hace que el mapeo sea automático entre las dos propiedades, estas convenciones están incluídas en la librería, sin embargo <a href="https://lostechies.com/joshuaflanagan/2010/03/19/teaching-automapper-about-our-conventions/" target="_blank" rel="nofollow">podemos definir las nuestras</a>.</p>
+<h4 id="personalizado">Personalizado</h4>
+<p>Si tenemos unpar de objetos que requieren de un mapeo más complejo, tenemos a nuestra disposición algunos métodos adicionales, que nos ayudarán a configurar a mayor profundidad AutoMapper, toma por ejemplo las dos entidades <code>BookEntity</code> (la fuente) a <code>BookModel</code> (el destino):</p>
+<pre><code class="language-csharp">config.CreateMap&lt;BookEntity, BookModel&gt;()
+    .ForMember(dest =&gt; dest.AuthorName, 
+        opt =&gt; opt.ResolveUsing(entity =&gt; entity.Author.Name))
+    .ForMember(dest =&gt; dest.FullTitle,
+        opt =&gt; opt.ResolveUsing(entity =&gt; entity.Title + &quot; &quot; + entity.Subtitle))
+    .ForMember(dest =&gt; dest.TimeSent, opt =&gt; opt.Ignore());
+</code></pre>
+<p>Veamos por partes lo que está sucediendo en el código anterior:</p>
+<ol>
+<li>Con <code>config.CreateMap&lt;BookEntity, BookModel&gt;()</code> estamos indicando el inicio de una configuración de mapeo.</li>
+<li>Con el método <code>ForMember</code> le estamos indicando que la propiedad <code>AuthorName</code> en el destino la debe obtener de <code>Author.Name</code> en la fuente</li>
+<li>Al igual que en la anterior, le estamos diciendo que <code>FullTitle</code> la obtenga de concatenar <code>Title</code>, un espacio en blanco y <code>Subtitle</code> de la fuente</li>
+<li>El destino tiene una propiedad llamada <code>TimeSent</code> que no existe en la fuente, para asegurar que el mapeo sea correcto, le decimos a la configuración que la ignore mediante el método <code>Ignore</code>.</li>
+</ol>
+<p>Para este ejemplo no se requiere de una configuración más compleja, sin embargo si tu aplicación la requiere, puedes checar <a href="https://github.com/AutoMapper/AutoMapper/wiki/Custom-value-resolvers" target="_blank" rel="nofollow"><i>custom resolvers</i></a>, <a href="https://github.com/AutoMapper/AutoMapper/wiki/Custom-type-converters" target="_blank" rel="nofollow"><i>custom type converters</i></a>, <a href="https://github.com/AutoMapper/AutoMapper/wiki/Conditional-mapping" target="_blank" rel="nofollow">mapeo condicional</a> o cualquier otra de las posibilidades que puedes consultar en la <a href="https://github.com/AutoMapper/AutoMapper/wiki" target="_blank" rel="nofollow">documentación de AutoMapper</a>.</p>
+<h3 id="uso">Uso</h3>
+<p>Una vez que hemos <a href="#configuracion">configurado</a> el mapeo, debemos llamar al método <code>CreateMapper</code> de la clase <code>MapperConfiguration</code></p>
+<pre><code class="language-csharp">var mapper = automappingConfiguration.CreateMapper();
+</code></pre>
+<p>la cual nos devolverá una instancia de un objeto que implementa <code>IMapper</code>, que es a través del cual se realizará cada mapeo. Luego, con esta instancia a nuestra disposición, bastará con llamar a <code>Map</code> pasándole una instancia de la fuente (desde la que queremos mapear) y el tipo del destino (al que queremos llegar):</p>
+<pre><code class="language-csharp">// De AuthorEntity a AuthorModel
+var modeloAutor = mapper.Map&lt;AuthorModel&gt;(entidadAutor);
+
+// De BookEntity a BookModel
+var modeloLibro = mapper.Map&lt;BookModel&gt;(bookEntity);
+</code></pre>
+<p>Como podrás ver, podemos centralizar bastante la tarea de mapeo, y es que en tu aplicación <strong>basta con tener una sola referencia a <code>IMapper</code></strong>, así que es lo normal que únicamente la asignes una vez y la reutilizes a través de una propiedad estática o un patrones de diseño de aplicaciones como DI o singleton.</p>
+<h2 id="conclusion">Conclusión</h2>
+<p>Este post apenas y roza la superficie de todo las posibilidades que AutoMapper tiene para nosotros y no cabe duda de que después de adentrarte en la documentación podrás encontrarle más utilidad. Además de que AutoMapper también es fácilmente integrable con patrones de diseño, incluyendo la Inyección de Dependencias. Si existe algo en lo que estés atorado con la configuración, tal vez pueda ayudar.</p>
+<h1 id="instalacion">Instalación</h1>
+<p>Para instalarlo no hay mejor manera que el gestor de paquetes de NuGet:</p>
+<pre><code>PM&gt; Install-Package AutoMapper
+</code></pre>
+<p>O échale un ojo al <a href="https://github.com/AutoMapper/AutoMapper" target="_blank" rel="nofollow">proyecto en GitHub</a> y contribuir a su desarrollo de alguna manera.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

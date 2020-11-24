@@ -1,1 +1,150 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Finally I was able to develop something using Xamarin.Forms and part of what I've been doing had to do with implementing a list that allowed the multiple election of rows and was compatible with the MVVM pattern.</p>
+<p>Doing some research, I found that the <code>ListView</code> control, which is the most used to show data in a list, does not allow multiple selection and developers should find a workaround to this matter. In Xamarin documentation there is also <a href="https://developer.xamarin.com/recipes/cross-platform/xamarin-forms/controls/multiselect/" target="_blank" rel="nofollow">an article</a> where it is explained a way to complete this task, and this post is based on it.</p>
+<p>To make this task possible, we should make use of some auxiliary classes that I will explain later on this post.</p>
+<h3 id="the-model">The Model</h3>
+<p>For this example, we will be showing a list of Pokemons and allow the user to select some of them through a list, the model class is the following:</p>
+<pre><code class="language-csharp">public class Pokemon 
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public double Weight { get; set; }
+    public double Height { get; set; }
+}
+</code></pre>
+<h3 id="selectableitemwrappert">SelectableItemWrapper&lt;T&gt;</h3>
+<p>Apart from the model, there is a need from an auxiliary class that you can tell by the name, acts as wrapper for the model, its definition is the following:</p>
+<pre><code class="language-csharp">public class SelectableItemWrapper&lt;T&gt;
+{
+    public bool IsSelected { get; set; }
+    public T Item { get; set; }
+}
+</code></pre>
+<p>The <code>IsSelected</code> property will be used to determine whether the user had selected an item or not, while <code>Item</code> will contain the model.</p>
+<h2 id="the-view">The View</h2>
+<p>(Si prefieres trabajar solo con C#, <a href="//thatcsharpguy.com/post/multiselect-listview-mvvm">ve este post</a>)</p>
+<p>For this app we will use two Forms pages, one to show all the Pokemons and other to show only those who had been selected by the user.</p>
+<p>For the first one, where all the Pokemons will be shown, we will have to modify slightly the way we are used to create a cell template, and the reason is that every row in the list will be binded to a <code>SelectableItemWrapper&lt;Pokemon&gt;</code> not to a <code>Pokemon</code>.</p>
+<p>The list will be declared in XAML and the collection <code>Pokemons</code> will be set as the <code>ItemSource</code> property:</p>
+<pre><code class="language-xml">&lt;ListView ItemsSource=&quot;{Binding Pokemons}&quot;&gt;
+</code></pre>
+<p>As we know, now every element in the collection will be a row in the list.</p>
+<h4 id="pokemonselectablecell">PokemonSelectableCell</h4>
+<p>For this cell it is necessary to show the name, weight and height of the Pokemon binded to it, along with a control to let the user choose or not such item. That is why some bindable properties are needed.</p>
+<p>That is why in order to show the information three labels are created, and for the selection issue a <code>Switch</code> control will be used (I tried to use the <a href="https://github.com/XLabs/Xamarin-Forms-Labs/wiki/Checkbox-Control" target="_blank" rel="nofollow">CheckBox de XLabs</a>, but I ran into an issue with the <code>ListView</code>).</p>
+<p>You can design the cell as you want, but it is important that inside of it you bind a boolean property, such as <code>IsToggled</code> o <code>Checked</code>, to the property <code>IsSelected</code> of the <code>SelectableItemWrapper</code> class. For this example, a line like this should be enough:</p>
+<pre><code class="language-csharp">// Important:
+sw.SetBinding(Switch.IsToggledProperty, &quot;IsSelected&quot;);
+</code></pre>
+<p>I should remark that the binding is defined within the cell implementation, and not in the view where the bindings are usually defined.</p>
+<h3 id="back-to-the-view">Back to the View</h3>
+<p>Now, again back to the view, we can use the cell in our <code>ListView</code>, we can define other bindings:</p>
+<pre><code class="language-xml">&lt;ListView.ItemTemplate&gt;
+    &lt;DataTemplate&gt;
+        &lt;c:PokemonSelectableCell 
+            Name=&quot;{Binding Item.Name}&quot; 
+            Weight=&quot;{Binding Item.Weight}&quot; 
+            Height=&quot;{Binding Item.Height}&quot; /&gt;
+</code></pre>
+<p>You can notice that te binding routes aren't &quot;direct&quot;, instead we are referring first to an <code>Item</code> before the <em>real</em> properties, that is because we are binding to a <code>SelectableItemWrapper&lt;Pokemon&gt;</code>, not to a <code>Pokemon</code>.</p>
+<h3 id="the-viewmodel">The ViewModel</h3>
+<p>For the ViewModel we require two collections:</p>
+<ul>
+<li>One to hold a list of all Pokemons</li>
+<li>One to hold the selected Pokemons</li>
+</ul>
+<p>Here are the definitions for them:</p>
+<pre><code class="language-csharp">private ObservableCollection&lt;SelectableItemWrapper&lt;Pokemon&gt;&gt; _pokemons;
+public ObservableCollection&lt;SelectableItemWrapper&lt;Pokemon&gt;&gt; Pokemons
+{
+    get { return _pokemons; }
+    set { _pokemons = value; RaisePropertyChanged(); }
+}
+
+private ObservableCollection&lt;Pokemon&gt; _selectedPokemons;
+public ObservableCollection&lt;Pokemon&gt; SelectedPokemons
+{
+    get { return _selectedPokemons; }
+    private set { _selectedPokemons = value; RaisePropertyChanged(); }
+}
+</code></pre>
+<p>The first one, <code>Pokemons</code> is an <code>ObservableCollection</code> of <code>SelectableItemWrapper</code> of <code>Pokemon</code> because it holds all the selectable items. Whereas the second one is just another collection. Like the ones we are used to.</p>
+<p>Therefore, in the ViewModel we can get all the selected items using a simple Linq query:</p>
+<pre><code class="language-csharp">ObservableCollection&lt;Pokemon&gt; GetSelectedPokemons()
+{
+    var selected = Pokemons
+        .Where(p =&gt; p.IsSelected)
+        .Select(p =&gt; p.Item)
+        .ToList();   
+    return new ObservableCollection&lt;Pokemon&gt;(selected);
+}
+</code></pre>
+<p>Or mark all or none items as selected:</p>
+<pre><code class="language-csharp">void SelectAll(bool select)
+{
+    foreach (var p in Pokemons)
+    {
+        p.IsSelected = select;
+    }
+}
+</code></pre>
+<p>And all of that, from the ViewMdoel. Remember, you can always  <a href="https://github.com/ThatCSharpGuy/MultiPokeList" target="_blank">check the source code</a>. By the way, look at the finished app:</p>
+<img src="http://i.giphy.com/qpfRFj3MrFqow.gif" title="Multi-select ListView y MVVM" />
+<h4 id="credits">Credits</h4>
+<p>The class <code>SelectMultipleBasePage&lt;T&gt;</code> in which all the info in this post is based on, was written by Glenn Stephens from Xamarin University, <a href="https://developer.xamarin.com/recipes/cross-platform/xamarin-forms/controls/multiselect/" target="_blank" rel="nofollow">see the original post</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

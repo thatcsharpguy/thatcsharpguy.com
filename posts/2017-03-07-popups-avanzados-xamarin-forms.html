@@ -1,1 +1,142 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En un post anterior les había hablado sobre UserDialogs que nos ayuda a mostrar mensajes a los usuarios, sin embargo, mientras que esa es una herramienta poderosa, es un poco limitada en términos de lo que podemos lograr debido a que tiene pocas opciones para  usar. Y precisamente por eso me puse a la búsqueda de otra solución que ofreciera más posibilidades de personalización.</p>
+<p>Fue así como me encontré con el <em>Popup Page Plugin for Xamarin Forms</em>, del cual les hablaré en este post.</p>
+<p>Lo primero que hay que tener en cuenta es que <strong>cada popup que necesitemos en nuestra aplicación debe ser del tipo <code>Rg.Plugins.Popup.Pages.PopupPage</code></strong>, es decir, no es muy distinta de crear una página normal para Xamarin.Forms, puedes definirla en Xaml o usando código. Para este ejemplo usaré solamente Xaml.</p>
+<h2 id="creando-popups">Creando popups</h2>
+<h3 id="popup-basico">Popup básico</h3>
+<p>En el siguiente Xaml puedes ver la definición de una <em>popup page</em> muy sencilla que solo contiene un <code>Label</code>:</p>
+<pre><code class="language-xml">&lt;popup:PopupPage 
+  xmlns=&quot;http://xamarin.com/schemas/2014/forms&quot;
+	xmlns:popup=&quot;clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup&quot;
+	xmlns:x=&quot;http://schemas.microsoft.com/winfx/2009/xaml&quot;
+	x:Class=&quot;PopupSample.Pages.BasicPopup&quot;
+	Padding=&quot;20&quot;&gt;
+  &lt;Label HorizontalTextAlignment=&quot;Center&quot; FontSize=&quot;Large&quot; 
+	Text=&quot;Hello basic popup!&quot;&gt;&lt;/Label&gt;
+&lt;/popup:PopupPage&gt;
+</code></pre>
+<p>Lo básico aquí es la definición del namespace <code>popup</code> y el uso de la <code>PopupPage</code>. Luego, para mostrar la página hay que hacer uso del servicio de navegación <code>PopupNavigation</code> incluido en esta librería:</p>
+<pre><code class="language-csharp">await PopupNavigation.PushAsync(new BasicPopup());
+</code></pre>
+<p>El resultado es algo como esto:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__popups__basicpop.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<p>No se ve mucho como un <em>popup</em>, ¿verdad? ahora mismo lo componemos.</p>
+<h3 id="popup-con-estilo"><em>Popup</em> con estilo</h3>
+<p>Una guía de diseño que me parece adecuada es colocar un <code>Frame</code> centrado en la pantalla y dentro de este colocar el contenido que queremos mostrar, algo como esto:</p>
+<pre><code class="language-xml">&lt;popup:PopupPage 
+	xmlns=&quot;http://xamarin.com/schemas/2014/forms&quot;
+	xmlns:popup=&quot;clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup&quot;
+	xmlns:x=&quot;http://schemas.microsoft.com/winfx/2009/xaml&quot;
+	x:Class=&quot;PopupSample.Pages.StilizedPopup&quot;&gt;
+  &lt;StackLayout VerticalOptions=&quot;Center&quot; HorizontalOptions=&quot;Center&quot; Padding=&quot;0&quot; Margin=&quot;0&quot;&gt;
+    &lt;Frame Margin=&quot;30&quot; Padding=&quot;10&quot;&gt;
+      &lt;Label HorizontalTextAlignment=&quot;Center&quot; FontSize=&quot;Large&quot; Text=&quot;Hello stilized popup!&quot;&gt;&lt;/Label&gt;
+    &lt;/Frame&gt;
+  &lt;/StackLayout&gt;
+&lt;/popup:PopupPage&gt;
+</code></pre>
+<p>Que resultará en algo así:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__popups__stilized.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<h3 id="propiedades-del-popup">Propiedades del <em>popup</em></h3>
+<p>Por default el <em>popup</em> se cerrará cuando el usuario presione fuera del contenido que le estamos mostrando, pero en caso de que no desees este comportamiento basta con establecer la propiedad <code>CloseWhenBackgroundIsClicked</code> en <code>false</code>. Otra de las propiedades que se pueden cambiar es el color del fondo mediante la propiedad <code>BackgroundColor</code>, no siempre tiene que ser gris transparente. Y por último la que creo que la más atractiva de las propiedades: <code>Animation</code> que nos permite especificar la forma en que aparecerá y desaparecerá el control en la pantalla. Las posibilidades que tenemos son: <em>Scale</em>, <em>Move</em> y <em>Fade</em>:</p>
+<pre><code class="language-csharp">var propertiedPopup = new PropertiesPopup();
+
+propertiedPopup.Animation = new ScaleAnimation();
+propertiedPopup.BackgroundColor = Color.FromRgba(0, 0, 0, 0.75);
+propertiedPopup.CloseWhenBackgroundIsClicked = true;
+
+await PopupNavigation.PushAsync(propertiedPopup);
+</code></pre>
+<p>Si estableces que el <em>popup</em> no debe cerrarse cuando el usuario de click en el fondo, no olvides proveerle una manera de volver al estado anterior, por ejemplo, un botón. Para quitar un popup basta con llamar al método <code>PopAsync</code> del servicio de navegación:</p>
+<pre><code class="language-csharp">private async void Button_OnClicked(object sender, EventArgs e)
+{
+    await PopupNavigation.PopAsync();
+}
+</code></pre>
+<p>&lt;img src=&quot;/images/xamarin-forms__popups__complex.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<h3 id="animaciones-personalizadas">Animaciones personalizadas</h3>
+<p>Esta biblioteca es poderosa, como ya habrás visto, pero sus capacidades pueden ampliarse ya que permite introducir animaciones personalizadas o modificar algunas ya existentes, como es el caso del siguiente bloque de código:</p>
+<pre><code class="language-csharp">var propertiedPopup = new PropertiesPopup();
+
+var scaleAnimation = new ScaleAnimation
+{
+    PositionIn = MoveAnimationOptions.Top,
+    PositionOut = MoveAnimationOptions.Bottom,
+    ScaleIn = 1.2,
+    ScaleOut = 0.8,
+    DurationIn = 400,
+    DurationOut = 800,
+    EasingIn = Easing.BounceIn,
+    EasingOut = Easing.CubicOut,
+    HasBackgroundAnimation = false
+};
+
+propertiedPopup.Animation = scaleAnimation;
+await PopupNavigation.PushAsync(propertiedPopup);
+</code></pre>
+<p>Que generará una animación así:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__popups__anim.gif&quot; title=<>Custom animation</> /&gt;</p>
+<h3 id="mi-uso">Mi uso</h3>
+<p>A final de cuentas yo la usé para crear este <em>popup</em> en una de las apps que estoy haciendo, quedó algo como esto:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__popups__custom_layout.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<h2 id="uso">Uso</h2>
+<p>Para comenzar a usar estos maravillosos <em>popups</em> tienes que instalar el <a href="https://www.nuget.org/packages/Rg.Plugins.Popup/" target="_blank">paquete de NuGet</a> en tus tres proyectos.</p>
+<pre><code>PM&gt; Install-Package PlatformTabbedPage
+</code></pre>
+<p>No olvides que esta biblioteca también es <em>open source</em> y puedes encontrar su código fuente en <a href="https://github.com/rotorgames/Rg.Plugins.Popup" target="_blank">GitHub</a>. Por cierto, no te olvides de descargar el código fuente de este post, <a href="https://github.com/ThatCSharpGuy/PopupSample" target="_blank">también en GitHub</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

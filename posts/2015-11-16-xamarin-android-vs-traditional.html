@@ -1,1 +1,85 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>I have to be honest. It has been a while since I did an Android app but today I tried to remember my little knowledge to compare traditional Android Development and Xamarin.Android. To create this post I used Android Studio 1.1.0 y Xamarin Studio 5.7.2.</p>
+<p>Even though the differences are very subtle, and the greatest one of everyone lies in the code, they do exist. I'll start with the project structure:</p>
+<h3 id="project-structure">Project structure</h3>
+<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__comparison.png&quot; title=<>Comparison project structure</> /&gt;</p>
+<ol>
+	<li><b>Activities</b> (and other UI related code stuff). As you might know in Java exist the concept of <code>Packages</code>, and it is strongly asociated to the underlying folder structure. In Android Studio the class <code>MainActivity.java</code> is in the package <code>org.fferegrino.android.xevenshtein</code> whereas in Xamarin Studio the class `MainActivity.cs` is directly in the Solution's root.</li>
+   	<li><b>Application logic</b> following the concept of <a href="https://xsa.ghost.io/code-organization-xs-vs/" target="_blank">Solution</a>, when using C# we could easily place our application logic in another project, meanwhile, using Java the alternative is to create another package</li>
+  	<li><b>Manifest</b> the manifest is the same, except in when declaring the entrey point to our application, in traditional Android it is done in this file, in Xamarin.Android it is declared elsewhere.</li>
+   	<li><b>Resources folder</b> as the Manifest, the resources folder is the same with some minor changes in the naming conventions (uppercasing, full file names...), and as we will see later, the files itself are the same.</li>
+</ol>
+<h3 id="resource-files">Resource files</h3>
+<p>Layout files are the same in both approaches, in fact, I copied the content of <code>Main.axml</code> (Xamarin) to <code>layout_main.xml</code>and the result was the same. This worked too for string resources named <code>String.xml</code> and <code>string.xml</code>.</p>
+<h3 id="the-code">The code</h3>
+<p>In Xamarin.Android our classes related to the UI have to derive from Activity as in traditional Android, here is the <strong>class declaration</strong>:</p>
+<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__class-declaration-cmp.jpg&quot; title=<>Class declaration</> /&gt;</p>
+<p>In the C# version you can see the <code>Activity</code> decorator, which tells the name of the activity (<code>Label</code>), wether it is the app launcher(<code>MainLauncher</code>) and the icon (<code>Icon</code>), these stuff goes in the Android Manifest in the traditional approach.</p>
+<p>For <strong>UI elements</strong> such as Buttons, TextViews and EditTexts are equally named and declared:</p>
+<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__field-declaration-cmp.jpg&quot; title=<>Fields declaration</> /&gt;</p>
+<p>By convention, in C# methods must start with an uppercase letter, and the override indicator is not an annotation but a keyword, this is the <code>OnCreate</code> <strong>method</strong>:</p>
+<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__method-declaration-cmp-1.jpg&quot; title=<>On create method</> /&gt;</p>
+<p>Another interesting thing is the automatically generated <code>R</code> or <code>Resource</code> class, when using Xamarin this class is named <code>Resoruce</code>, and we can use it to <strong>find views</strong>:</p>
+<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__view-finding-cmp.jpg&quot; title=<>FindViewById</> /&gt;</p>
+<p>As you can see, the diamond syntax provides a way to return the view without casting the view ourselves.</p>
+<p>I left the best to the end. There are several ways to implement an <strong>event handler</strong> but C# has one of the coolest (using a Lambda expression):</p>
+<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__event-handling-cmp.jpg&quot; title=<>Event handler</> /&gt;</p>
+<p>By the way, if you are interested in the code I used to make this post, check it on <a href="https://github.com/fferegrino/Xevenshtein">GitHub</a> or download it <a href="https://github.com/fferegrino/Xevenshtein/archive/b-p-2.zip">here</a>:</p>
+<h3 id="tldr">tl;dr</h3>
+<p>There are no significant differences between traditional Android development and Xamarin.Android, meaning that if you have previous knowledge you can apply it without concerns but instead of writing Java you will be writing awesome C# code that can potentially be shared along any other platform.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,189 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<blockquote>
+<p>Este es post es una reedición del post de <a href="https://twitter.com/giovanni_cortes" target="_blank">Giovanni Cortés</a> llamado <a href="https://giovannicortes.com/swift/map-filter-reduce-en-swift/" target="_blank">Map, filter y reduce en Swift</a>, te invito a visitarlo.</p>
+</blockquote>
+<blockquote>
+<p>También existe este post pero relacionado con C#, <a href="../map-filter-reduce-c-sharp">visítalo aquí</a>.</p>
+</blockquote>
+<p>F# es un gran lenguaje, y unas de las cosas que me gusta de él es que está orientado completamente a la programación funcional. Comparte varias características con lenguajes como Elixir y otras pocas con lenguajes como Swift.</p>
+<p>Una de las características es que las funciones son tratadas como tipos, pueden aceptar funciones como parámetros y retornar funciones. A menudo a las funciones que toman como parámetros otras funciones son llamadas <em>funciones de orden superior</em>.</p>
+<p>En este artículo vamos a enfocarnos en tres funciones que vienen incluídas en F# y que son muy poderosas cuando queremos manejar colecciones.</p>
+<h2 id="map">Map</h2>
+<p>Imaginemos que tenemos un arreglo de números enteros y a todos los elementos queremos elevarlo al cuadrado.</p>
+<p>Generalmente haríamos una función con un bucle como el siguiente:</p>
+<pre><code class="language-fsharp">let array = [| 2; 3; 4; 5; 6; 7; 8; 9; 10 |]
+
+let squareArray arr = 
+    let result = new List&lt;int&gt;()
+    for x in arr do
+        result.Add(x * x)
+    result.ToArray()
+   
+let squaredArray = squareArray array  // [4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre>
+<p>La función <code>map</code> resuelve el problema de transformar los elementos de un arreglo pasándoles una función. Esta función itera sobre cada elemento y a cada uno de ellos les aplica la función que nosotros pasemos como parámetro, esto nos ahorra usar mucho los <em>for...in...do</em> y además de que es más elegante. <code>map</code> retorna un arreglo de la misma longitud que el arreglo al cual le aplicamos la transformación.</p>
+<p>El código anterior quedaría así:</p>
+<pre><code class="language-fsharp">let array = [| 2; 3; 4; 5; 6; 7; 8; 9; 10 |]
+
+let squaredArray = 
+    array
+    |&gt; Array.map(fun x -&gt; x * x)  // [4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre>
+<p>En este caso pasamos la función como una <a href="#" target="_blank" rel="nofollow">expresión lambda</a> <code>fun x -&gt; x * x</code>, donde <code>x</code> es cada elemento del arreglo pasado como parámetro de la expresión, y <code>x * x</code> es el cuerpo de la función, de esa forma pudimos transformar los elementos del arreglo sin crear ningún bucle.</p>
+<h2 id="filter">Filter</h2>
+<p>Al igual que <code>map</code>, <code>filter</code> es una función que itera sobre los arreglos. Como su nombre lo indica, filtra los elementos de un arreglo de acuerdo a la función que nosotros le pasemos.</p>
+<p><code>filter</code> retorna un arreglo con los elementos filtrados del arreglo original, pudiendo ser de igual longitud, menor o vacío.</p>
+<p>Supongamos que tenemos un arreglo que representa los nombres de imágenes con diferentes extensiones y queremos obtener solo los jpg:</p>
+<pre><code class="language-fsharp">let images = [| 
+    &quot;hello.jpg&quot;
+    &quot;world.jpg&quot; 
+    &quot;hola.png&quot; 
+    &quot;mundo.png&quot;
+    &quot;cats.jpg&quot; 
+    &quot;dogs.png&quot; |]
+
+let getJpgImages images : string array = 
+    let result = new List&lt;string&gt;()
+    for x : string in images do
+        if (x.EndsWith(&quot;.jpg&quot;)) then result.Add(x)
+    result.ToArray()
+
+let jpgImages = getJpgImages images // [&quot;hello.jpg&quot;, &quot;world.jpg&quot;, &quot;cats.jpg&quot;]
+</code></pre>
+<p>Ahora usemos la función <code>filter</code>:</p>
+<pre><code class="language-fsharp">let images = [| 
+    &quot;hello.jpg&quot;
+    &quot;world.jpg&quot; 
+    &quot;hola.png&quot; 
+    &quot;mundo.png&quot;
+    &quot;cats.jpg&quot; 
+    &quot;dogs.png&quot; |]
+
+let jpgImages = 
+    images
+    |&gt; Array.filter(fun image -&gt; image.EndsWith(&quot;.jpg&quot;)) // [&quot;hello.jpg&quot;, &quot;world.jpg&quot;, &quot;cats.jpg&quot;]
+</code></pre>
+<p>Al igual que <code>map</code>, no tuvimos que crear ni un <em>for...in...do</em>, ni tampoco tuvimos que agregar el elemento que estamos filtrando, solamente pasamos nuestra expresión y <code>filter</code> hace todo por nosotros.</p>
+<p><strong>NOT</strong> Cabe destacar que F# infiere el tipo de la variable gracias al arreglo original, por eso podemos usar el método <code>EndsWith</code> a cada elemento porque se sabe que es un tipo cadena.</p>
+<h3 id="reduce">Reduce</h3>
+<p>Al contrario que <code>map</code> y <code>filter</code>, <code>reduce</code> nos retorna un solo valor, que es la combinación de los elementos del arreglo al cual le aplicamos la función.</p>
+<p>Prosigamos con el ejemplo de los números, si queremos sumar todos los elementos de un arreglo, haríamos algo como esto:</p>
+<pre><code class="language-fsharp">let array = [| 2; 3; 4; 5; 6; 7; 8; 9; 10 |]
+
+let sum arr : int = 
+    let mutable result : int = 0
+    for x in arr do
+        result &lt;- result + x
+    result
+
+let arraySum = sum(array); // 54
+</code></pre>
+<p>Cuando usamos <code>reduce</code>, no solamente tenemos que pasar una función, si no también un acumulador, que es el valor inicial de nuestro contador, si es trabajo con enteros generalmente es 0, si son cadenas se pasa una cadena vacía. Depende de lo que quieras hacer.</p>
+<p>Ahora el ejemplo con <code>reduce</code>:</p>
+<pre><code class="language-fsharp">let array = [| 2; 3; 4; 5; 6; 7; 8; 9; 10 |]
+
+let arraySum = 
+    array
+    |&gt; Array.reduce(fun acc x -&gt; acc + x) // 54
+</code></pre>
+<p>En este caso,  el acumulador toma el valor inicial de 0, ese valor se pasa como parámetro a la expresión lambda, al cual le pusimos como nombre <code>acc</code>. <code>x</code> es cada elemento del arreglo, y el cuerpo de nuestra lambda es la suma del acumulador y cada elemento del arreglo.</p>
+<p>Como ves, esta función es un poco más elaborada, pero una vez que le entiendas, puedes hacer muchas cosas interesantes.</p>
+<h2 id="combinando-todo">Combinando todo</h2>
+<p>Ahora que ya sabemos el uso de estas funciones, vamos a crear un pequeño programa donde usaremos las tres al mismo tiempo.</p>
+<pre><code class="language-fsharp">// Suponiendo que tenemos la siguiente estructura de ciudades
+type City = 
+    struct
+        val Name : string
+        val Population : int
+        new(name : string, population : int) = 
+            { Population = population
+              Name = name }
+    end
+
+
+// Vamos a definir varios ejemplos de ciudades, y meterlos en un arreglo
+let paris = new City(&quot;Paris&quot;, 2243)
+let madrid = new City(&quot;Madrid&quot;, 3216)
+let amsterdam = new City(&quot;Amsterdam&quot;, 811)
+let berlin = new City(&quot;Berlin&quot;, 3397)
+
+let cities = [|paris;madrid;amsterdam;berlin|]
+
+// Como tenemos las ciudades con poca población, vamos a escribir una función
+// que nos ayude a escalar la población
+let scale(city : City ) : City =
+    new City ( city.Name, city.Population * 1000)
+
+// Ya teniendo todo, vamos a escribir todas las ciudades cuya población
+// sea mayor a 1 millón de habitantes
+let citiesFilter = 
+    cities
+    |&gt; Array.filter(fun city -&gt; city.Population &gt; 1000)
+    |&gt; Array.map(scale)
+    |&gt; Array.fold(fun result c -&gt; result + sprintf &quot;\n%s: %d&quot; c.Name c.Population ) &quot;City population&quot;
+
+System.Console.WriteLine(citiesFilter)
+
+// City population
+// Paris: 2243000
+// Madrid: 3216000
+// Berlin: 3397000
+</code></pre>
+<p>Listo, tenemos nuestro programa funcionando y filtrando las ciudades, sin necesidad de usar bucles, además que gracias al acumulador usado como cadena, podemos imprimir nuestras ciudades en un lindo formato.</p>
+<p>Espero te haya convencido de que empieces a usar estas funciones en tu programa, verás cómo vas a ir haciendo un código mucho más elegante y funcional.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

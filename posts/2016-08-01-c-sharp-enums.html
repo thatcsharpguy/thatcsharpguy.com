@@ -1,1 +1,151 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Dentro de nuestro código hay ocasiones en las que es necesario contar con un conjunto de valores bien definidos, relacionados y cuyo valor permanezca a lo largo de la ejecución del programa en cuestión. Por poner ejemplos de este tipo de valores, podemos pensar en los siguientes:</p>
+<ul>
+<li>Hacia donde está alineado un texto: derecha, izquierda, centrado o justificado</li>
+<li>Los meses del año: enero, febrero, abril, ..., noviembre o diciembre</li>
+<li>Sistemas operativos (sé que hay más): Windows, Mac o Linux</li>
+</ul>
+<p>Algunos lenguajes resuelven este problema mediante el uso de constantes con algo en común en su nombre, por ejemplo:</p>
+<ul>
+<li><code>TEXT_ALIGN_RIGHT</code>, <code>TEXT_ALIGN_LEFT</code>, <code>TEXT_ALIGN_CENTER</code> o <code>TEXT_ALIGN_JUSTIFY</code></li>
+<li><code>MONTHS_JANUARY</code>, <code>MONTHS_FEBRUARY</code>, <code>MONTHS_APRIL</code>, ..., <code>MONTHS_NOVEMBER</code> o <code>MONTHS_DECEMBER</code></li>
+<li><code>OperatingSystemsWindows</code>, <code>OperatingSystemsMac</code> o <code>OperatingSystemsWindows</code></li>
+</ul>
+<h3 id="los-enums">Los Enums</h3>
+<p>Mientras que C# permite la declaración de valores constantes mediante la palabra <code>const</code>, es una buena práctica hacer uso de los <code>enum</code>, que es un tipo de dato que nos permite expresar valores constantes, pero con la capacidad de ser agrupados por cómo se relacionan, por ejemplo, las opciones que tenemos para alinear un texto:</p>
+<pre><code class="language-csharp">public enum TextAlign
+{
+    Right,
+    Left,
+    Center,
+    Justify
+}
+</code></pre>
+<p>Luego, para poder hacer uso de ellos es necesario hacer referencia al nombre de la enumeración seguido de un punto <code>.</code> y el valor que queremos que tome. De este modo se pueden usar en todos lados: como valor de retorno, como parámetros de método y dentro de sentencias de control:</p>
+<pre><code class="language-csharp">var textAlignment = TextAlign.Center;
+
+// ...
+
+switch (textAlignment)
+{
+    case TextAlign.Center:
+        Console.WriteLine(&quot;Texto centrado&quot;);
+    break;
+}
+</code></pre>
+<p>En realidad, los <code>enum</code> en C# son una especie de <a href="#">azúcar sintáctica</a> para referirse a números enteros. Por default, el tipo de dato detrás de los <code>enum</code> es <code>int</code> y el valor inicial de los enums es 0 y aumenta de uno en uno, es por eso que podemos hacer algo como esto:</p>
+<pre><code class="language-csharp">Console.WriteLine((int)textAlignment); // 2
+
+textAlignment = (TextAlign)1;
+Console.WriteLine(textAlignment); // Left
+</code></pre>
+<p>Si por alguna razón necesitamos cambiar el tipo de dato asociado a la enumeración o modificar los valores debajo de cada elemento de la enumeración podemos hacer algo como esto:</p>
+<pre><code class="language-csharp">public enum Months : short
+{
+    January = 123,
+    February = 431,
+    March = 432,
+    April = 120,
+    // Jupiter = 100000000000000 // 100000000000000 is not a short
+}
+</code></pre>
+<h2 id="combinando-valores-de-enum">Combinando valores de enum</h2>
+<p>Pero, existen ocasiones en que los valores no son mutuamente exclusivos ¿no?, ¿qué podríamos hacer si por ejemplo, quisieramos saber los días de la semana que una alarma debe funcionar? ¿o qé tal si queremos saber qué sistemas operativos conocen nuestros usuarios?</p>
+<p>Para nuestra fortuna, podemos asignar potencias de dos (1, 2, 4, 6, 16, ...) y el operador <em>or</em> (<code>|</code>) para combinar los valores de la enumeración, así como el método <code>HasFlag</code> para saber si un valor de enumeración contiene un elemento dado.</p>
+<pre><code class="language-csharp">public enum OperatingSystems
+{
+    Windows = 1,	// ...000001
+    Mac = 2,		// ...000010
+    Linux = 4,		// ...000100
+    Other = 8		// ...001000
+}
+
+// ... 
+var pl1 = OperatingSystems.Mac | OperatingSystems.Windows;
+Console.WriteLine(pl1); // 3
+Console.WriteLine((int)pl1); // 3
+
+if (pl1.HasFlag(OperatingSystems.Mac))
+{
+    Console.WriteLine(&quot;User knows Mac&quot;); // &lt;-- This will execute
+}
+
+var pl2 = OperatingSystems.Other | OperatingSystems.Linux | OperatingSystems.Mac;
+Console.WriteLine(pl2); // 14
+</code></pre>
+<h3 id="flags">Flags</h3>
+<p>Como puedes ver, queremos mostrar los valores que contiene un <code>enum</code> combinado, únicamente obtenemos el entero que resulta de la combinación, ante lo cual podemos hacer uso del <a href="https://msdn.microsoft.com/es-MX/library/aa288454(v=vs.71).aspx" target="_blank" rel="nofollow">atributo</a> <code>FlagsAttribute</code> que se coloca sobre la declaración de un tipo y permiten permiten a la enumeración mostrarse de manera correcta:</p>
+<pre><code class="language-csharp">[Flags]
+public enum DaysOfWeek 
+{
+    Sun = 1, Mon = 2, Tue = 4, 
+    Wed = 8, Thu = 16, Fri = 32, 
+    Sat = 64
+}
+
+// ...
+
+var alarmGoesOffOn = DaysOfWeek.Mon | DaysOfWeek.Wed | DaysOfWeek.Fri;
+Console.WriteLine(&quot;Alarm goes off on: &quot; + alarmGoesOffOn); // Alarm goes off on: Mon, Wed, Fri
+</code></pre>
+<p>Es importante señalar que por si mismo, el atributo lo, único que hace es permitir que el método <code>ToString</code> devuelva una representación &quot;amigable&quot; de la enumeración.</p>
+<p>No olvides descargar el código para que practiques.</p>
+<h3 id="beneficios-de-las-enumeraciones">Beneficios de las enumeraciones</h3>
+<p>Usar <code>enum</code>s en lugar de constantes de tipo entero nos provee el beneficio de dotar de mayor semántica a nuestro código, ya que no es lo mismo tener varias constantes con una ligera similitud en el nombre, a tener un grupo de valores dentro de un tipo <code>enum</code>. Sin olvidar que al ser tipos enteros es sencillo su almacenamiento y serialización.</p>
+<p>No olvides <a href=" https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Enums" target="_blank" rel="nofollow">descargar el código</a> para practicar.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

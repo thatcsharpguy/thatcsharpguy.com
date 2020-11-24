@@ -1,1 +1,148 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Antes de hablar sobre este tema, te recomiendo que veas este video en donde <a href="https://www.tomscott.com" target="_blank">Tom Soctt</a> habla sobre las dificultades de trabajar con relojes, tiempo y zonas horarias.</p>
+<div class="video-wrapper">
+    <iframe width="992" height="558" src="https://www.youtube.com/embed/-5wpm-gesOY?cc_load_policy=1&hl=es" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+Ahora, y una vez que ya sabes un poco más acerca de lo difícil que puede resultar trabajar con fechas dentro de tu aplicación (especialmente si tu app es un producto utilizado al rededor del mundo y más aún si es una aplicación web con servidores al rededor de todo el mundo), podemos comenzar.
+<h1 id="nodatime">NodaTime</h1>
+<p>NodaTime es una librería que, una vez que comprendemos los conceptos básicos, nos puede ayudar bastante a trabajar con fechas dentro de nuestra aplicación. En este post únicamente hablaré de apenas la superficie de esta gran librería.</p>
+<h2 id="instant">Instant</h2>
+<p>La estructura <code>Instant</code> es una de las más importantes dentro de esta librería, podemos ver a cada instancia de esta clase como un momento en el tiempo. Por ejemplo, el momento en el que inicia un partido de fútbol, el momento en el que nace una persona o el momento en el que se realiza una transacción.</p>
+<p>Es importante señalar <code>Instant</code> es un <em>momento genérico</em> independiente de todo, no depende de una zona horaria ni de un retraso fijo en el reloj (podríamos decir que siempre está en UTC) ni de un calendario.</p>
+<p>Por ejemplo, para obtener el instante actual debemos llamar a la propiedad <code>Now</code> en una instancia de <code>SystemClock</code>, o podemos crear uno con alguno e los métodos <em>factory</em> indicándole el año, mes, día, hora y minutos:</p>
+<pre><code class="language-csharp">Instant now = SystemClock.Instance.Now; // UTC
+var publicacionPost = Instant.FromUtc(2017, 2, 7, 23, 0); // UTC
+</code></pre>
+<p>Podrías pensar que no es tan distinto de hacer algo así:</p>
+<pre><code class="language-csharp">var ahora = DateTime.UtcNow; // UTC
+var postPublication = new DateTime(2017, 2, 7, 23, 0, 0); // ???
+</code></pre>
+<p>Si imprimes las dos, podrías ver cosas más o menos idénticas:</p>
+<pre><code class="language-csharp">Console.WriteLine(&quot;UTC:\t\t&quot; + ahora.ToString(&quot;o&quot;));
+Console.WriteLine(&quot;UTC:\t\t&quot; + now);
+</code></pre>
+<pre><code class="language-csharp">UTC:		2017-02-06T22:58:27.6325390Z
+UTC:		2017-02-06T22:58:27Z
+</code></pre>
+<p>Pero ya veremos más adelante que si hay diferencia.</p>
+<h2 id="zoneddatetime-y-datetimezoneproviders">ZonedDateTime y DateTimeZoneProviders</h2>
+<p>Ya que tenemos el tiempo actual en <code>ahora</code> y <code>now</code> vamos a convertirlo al tiempo de la computadora local. Usando el tradicional <code>DateTime</code> no es tan complicado:</p>
+<pre><code class="language-csharp">var ahoraLocal = ahora.ToLocalTime(); // Hora local
+Console.WriteLine(&quot;Hora local:\t&quot; + ahoraLocal.ToString(&quot;o&quot;));
+</code></pre>
+<p>Dará como resultado  <code>Hora local:	2017-02-06T16:58:27.6325390-06:00</code></p>
+<p>Ahora, como vimos antes, un <code>Instant</code> es un moment en el tiempo. Por si mismo un momento en el tiempo no tiene mucho sentido, al menos para los humanos, para nosotros es necesario darle un contexto, como el de una zona horaria, para poder entenderlo de mejor manera. Y es aquí cuando entra en juego la estructura <code>ZonedDateTime</code> que nos ayuda a darle este contexto a cada momento. Entonces se requiere un par de pasos extra que nos forzarán a pensar un poco más sobre los tiempos y el contexto de los datos:</p>
+<ul>
+<li>El primer paso es obtener una zona horaria (<code>DateTimeZone</code>) de un proveedor (<code>DateTimeZoneProviders</code>), la librería tiene por default dos proveedores: <code>Bcl</code> y <code>Tzdb</code>, para fines prácticos diremos que la primera son las zonas horarias del sistema y la segunda son las zonas horarias definidas por la (Internet Assigned Numbers Authority) IANA. <strong>Procura siempre usar el proveedor de IANA</strong>:</li>
+</ul>
+<pre><code class="language-csharp">// Obtenemos la zona horaria local del proveedor Bcl (sistema)
+DateTimeZone localTimeZone = DateTimeZoneProviders.Bcl.GetSystemDefault(); 
+</code></pre>
+<ul>
+<li>El segundo paso es simplemente convertir nuestro <em>momento UTC</em> <code>now</code> a la zona horaria mediante el método <code>InZone</code>:</li>
+</ul>
+<pre><code class="language-csharp">// Conversión a la zona horaria local
+ZonedDateTime localNow = now.InZone(localTimeZone);
+Console.WriteLine(&quot;Hora local:\t&quot; + localNow);
+</code></pre>
+<p>¿Por qué tiene todo que ser tan complicado? ¿no es más sencillo usar solo <code>DateTime</code>? la respuesta es... no, al menos si quieres una aplicación que funcione y muestre tiempos correctos sin importar el huso horario en el que esté funcionando. La complicación con <code>DateTime</code> aparece cuando queremos convertir el momento a una hora local.</p>
+<p>Por ejemplo, si quisiera saber la hora local en que fue publicado este post en la Ciudad de México y Copenhagen tendría que hacer algo más o menos así:</p>
+<ul>
+<li>Usando <code>DateTime</code>. Bah, muy fácil, si ya tengo el tiempo en UTC bastaría con sumarle o restarle las horas correspondientes para obtener las horas locales:</li>
+</ul>
+<pre><code class="language-csharp">// Normalmente la Ciudad de México está en -6... ¿o en horario de verano -5?
+DateTime mexicoAhora = postPublication.AddHours(-6);
+Console.WriteLine(&quot;Mexico City:\t&quot; + mexicoAhora.ToString(&quot;o&quot;));
+
+// Normalmente la Copenhagen está en +1... ¿o en horario de verano +2?
+DateTime copenhagenAhora = postPublication.AddHours(1);
+Console.WriteLine(&quot;Copenhagen:\t&quot; + copenhagenAhora.ToString(&quot;o&quot;)
+
+// Imprimirá
+// Mexico City:	2017-02-07T17:00:00.0000000
+// Copenhagen:	2017-02-08T00:00:00.0000000
+</code></pre>
+<p>Podría funcionar... en ciertos momentos, ya que el código anterior no toma en cuenta el horario de verano (o <em>Daylight Saving/Summer Time</em>), lo cual significa que tu código funcionaría correctamente una parte del año. Y como viste en el vídeo de un poco más arriba, la cosa se puede poner más complicada.</p>
+<ul>
+<li><strong>NodaTime</strong> al rescate. Aquí cobra vital importancia esta pequeña librería ya que nos permite hacer estas conversiones sin preocuparnos sobre zonas horarias, horarios de verano y demás. Basta con obtener una zona horaria de un proveedor (usaremos el proveedor de IANA) y realizar la conversión:</li>
+</ul>
+<pre><code class="language-csharp">DateTimeZone mexicoTimeZone = DateTimeZoneProviders.Tzdb[&quot;America/Mexico_City&quot;];
+ZonedDateTime mexicoNow = publicacionPost.InZone(mexicoTimeZone);
+Console.WriteLine(&quot;Mexico City:\t&quot; + mexicoNow);
+
+DateTimeZone copenhagenTimeZone = DateTimeZoneProviders.Tzdb[&quot;Europe/Copenhagen&quot;];
+ZonedDateTime copenhagenNow = publicacionPost.InZone(copenhagenTimeZone);
+Console.WriteLine(&quot;Copenhagen:\t&quot; + copenhagenNow);
+
+// Imprimirá  
+// Mexico City:	2017-02-07T17:00:00 America/Mexico_City (-06)
+// Copenhagen:	2017-02-08T00:00:00 Europe/Copenhagen (+01)
+</code></pre>
+<p>Pareciera más complicado... pero a la larga resulta más mantenible y entendible. Como puedes ver se hace referencia clara a qué zona horaria queremos transformar nuestro <em>momento</em>, no tenemos que estar adivinando qué significa ese <code>-6</code> o ese <code>1</code> en nuestro código. Como referencia, puedes visitar estos enlaces para obtener los nombres de cada zona horaria: <a href="https://www.iana.org/time-zones" target="_blank">IANA time zone database</a> y <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">List of tz database time zones</a>.</p>
+<h3 id="localdate-y-localtime">LocalDate y LocalTime</h3>
+<p>NodaTime también nos facilita el manejo de datos cuando debemos manejar solo fechas u horas en un día, sin necesidad de preocuparnos por eliminar las componentes de tiempo o fecha nosotros mismos. Esto lo hace a través de las estructuras <code>LocalDate</code> y <code>LocalTime</code></p>
+<h3 id="period-duration-e-interval">Period, Duration e Interval</h3>
+<p>NodaTime también incluye estructuras para trabajar con periodos de tiempo, duraciones e intervalos. Algo muy parecido a lo que se puede hacer con <code>TimeSpan</code> pero dándole un poco más de contexto para hacer más entendible el código de nuestra aplicación.</p>
+<h2 id="ejemplo-de-uso-e-instalacion">Ejemplo de uso e instalación</h2>
+<p>Como siempre, la mejor forma de aprender a manejar algo es experimentando con él, así que no te olvides de <a href="https://github.com/ThatCSharpGuy/NodaTime-Sample" target="_blank">descargar el código fuente</a>.</p>
+<p>Para instalarlo puedes usar NuGet, ya sea la interfaz gráfica o el administrador de paquetes:</p>
+<pre><code>PM&gt; Install-Package NodaTime
+</code></pre>
+<p>Y como casi siempre con estos #NuGetsRecomendados puedes descargar el <a href="https://github.com/nodatime/nodatime" target="_blank">código fuente</a> de la librería y hasta contribuír a su desarrollo.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,139 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Cuando C# nació hace 16 años, nació como un lenguaje fuertemente tipado, y, mientras que lo sigue siendo, a partir de su versión 4.0 incorporó características que permitían usar tipado débil en él.</p>
+<p>Como sabrás, un lenguaje fuertemente tipado requiere que los tipos de las variables sean conocidos por el compilador al momento de compilar. Es decir, especificar que un entero es un entero, que una cadena es una cadena... por otro lado <strong>que un lenguaje sea débilmente tipado significa que el compilador no sabe nada de las variables con las que está trabajando</strong> y que será hasta que se estén ejecutando cuando se tenga conocimiento sobre ellas.</p>
+<p>En C# creamos un tipo de dato &quot;débilmente tipado&quot; con la palabra reservada <code>dynamic</code>, lo cual le indica al compilador que no debe preocuparse por esa variable. Por ejemplo:</p>
+<pre><code class="language-csharp">dynamic entero = 0;
+dynamic cadena = &quot;Hola&quot;;
+dynamic cadena2 = &quot;mundo&quot;;
+</code></pre>
+<p>Nosotros podemos inferir que <code>entero</code> es del tipo <code>int</code>, y que <code>cadena</code> y <code>cadena2</code> son <em>strings</em>, sin embargo, para nuestro compilador esto es desconocido ya que como son <code>dynamic</code> esto solo se resolverá hasta que el programa se esté ejecutando.</p>
+<p>Es por eso que al llamar al método <em>inexistente</em> <code>Abcdefg</code> dentro de la clase Int32, el compilador no genera ningun error:</p>
+<pre><code class="language-csharp">Console.WriteLine(entero.Abcdefg()); // RuntimeException
+</code></pre>
+<p>Sin embargo, si ejecutamos esa línea obtendremos una excepción, indicandonos que dicho método no existe dentro de ese objeto.</p>
+<p><strong>En realidad los tipos que son marcados como <code>dynamic</code> si poseen un tipo asociado</strong> solo que el compilador no conoce (y no le importa), y entonces asume que los objetos declarados de esta manera soportan cualquier operación.</p>
+<p>Puedes comprobar que todos tienen un tipo de dato asociado si llamas al método <code>GetType</code> sobre los tipos de dato dinámicos:</p>
+<pre><code class="language-csharp">Console.WriteLine(entero.GetType()); // Imprime &quot;System.Int32&quot;
+Console.WriteLine(cadena.GetType()); // Imprime &quot;System.String&quot;
+</code></pre>
+<h2 id="compatibilidad-con-otros-tipos-de-dato">Compatibilidad con otros tipos de dato</h2>
+<p>Estos tipos de dato son compatibles con otros... en tanto los tipos que &quot;ocultan&quot; sean compatibles, por ejemplo, podemos concatenarlos, confiando en que todos tendrá una implementación del método <code>ToString</code>:</p>
+<pre><code class="language-csharp">string holaMundo = cadena + &quot; &quot; + cadena2+ &quot; &quot; + entero;
+Console.WriteLine(holaMundo); // Imprime &quot;Hola mundo 0&quot;
+</code></pre>
+<h2 id="mutabilidad">Mutabilidad</h2>
+<p>Las variables <em>dinámicas</em> pueden cambiar completamente su contenido sin causar ningún problema, por ejemplo, podemos convertir <code>entero</code> en una instancia de <code>MainClass</code>:</p>
+<pre><code class="language-csharp">entero = new MainClass();
+Console.WriteLine(entero.GetType()); // Imprime &quot;Dynamics.MainClass&quot;
+</code></pre>
+<h2 id="expandoobject-para-crear-tipos-dinamicos">ExpandoObject para crear tipos dinámicos</h2>
+<p>Nosotros también podemos crear tipos dinámicos haciendo uso de la clase <code>ExpandoObject</code> que es una clase &quot;especial&quot; que nos ofrece el framework. Es importante que lo declares como <code>dynamic</code> ya que de no hacerlo, el compilador lo tratará como fuertemente tipado</p>
+<pre><code class="language-csharp">dynamic expando = new ExpandoObject();
+//ExpandoObject expando = new ExpandoObject(); // Esto lo convierte en fuertemente tipado
+Console.WriteLine(expando.GetType());  
+</code></pre>
+<p>A partir de ahí podemos asignar propiedades de acuerdo a nuestras necesidades:</p>
+<pre><code class="language-csharp">expando.Clase = entero;
+expando.HolaMundo = holaMundo;
+expando.expando = expando;
+</code></pre>
+<p>Al ser un tipo de dato en C# también se pueden usar como argumentos para un método o como tipos de retorno, por ejemplo, el siguiente:</p>
+<pre><code class="language-csharp">private static void WorkWithDynamic(dynamic d)
+{
+  Console.WriteLine(d.Clase + &quot; : &quot; + d.Clase.GetType());
+  Console.WriteLine(d.HolaMundo + &quot; : &quot; + d.HolaMundo.GetType());
+  Console.WriteLine(d.expando + &quot; : &quot; + d.expando.GetType());
+}
+</code></pre>
+<p>Entonces al llamar a <code>WorkWithDynamic(expando);</code>, obtendremos:</p>
+<pre>
+Dynamics.MainClass : Dynamics.MainClass
+Hola mundo 0 : System.String
+System.Dynamic.ExpandoObject : System.Dynamic.ExpandoObject
+</pre>
+<h2 id="uso">Uso</h2>
+<p>Como ya te imaginarás esto puede traer muchas ventajas pero a la vez muchos dolores de cabeza. En lo personal prefiero usar siempre tipado fuerte cuando desarrollo, pero si encuentro algunos casos en los que resulta muy útil:</p>
+<h3 id="en-servicios-web">En servicios web</h3>
+<p>Hay ocasiones en las que crear una clase para consumir un servicio web puede ser excesivo, este es otro de los usos que le podemos dar a los tipos dinámicos. Por ejemplo, si consultamos la PokéAPI, y usamos Newtonsoft.Json, podemos usar un tipo dinámico para acceder a sus propiedades:</p>
+<pre><code class="language-csharp">dynamic item = Newtonsoft.Json.JsonConvert.DeserializeObject(responseString);
+</code></pre>
+<p>Ahora en <code>item</code> tendremos una versión de la respuesta en <em>json</em> pero en .NET, solo que el compilador no sabe. No es sino hasta que se ejecuta que podemos acceder a las propiedades. Si te fijas bien, los nombres son idénticos a lo que regresa la API:</p>
+<pre><code class="language-csharp">Console.WriteLine(&quot;Names for &quot; + item.name + &quot; (datatype &quot; + item.GetType() + &quot;)&quot;);
+foreach (var name in item.names)
+{
+  Console.WriteLine(&quot;\t&quot; + name.language.name + &quot;: &quot; + name.name);
+}
+</code></pre>
+<p>Obtendremos la siguiente respuesta:</p>
+<pre>
+Names for master-ball (datatype Newtonsoft.Json.Linq.JObject)
+	en: Master Ball
+	it: Master Ball
+	es: Master Ball
+	de: Meisterball
+	fr: Master Ball
+	ko: 마스터볼
+	ja: マスターボール
+</pre>
+<h3 id="viewbag-en-asp.net-mvc">ViewBag en ASP.NET MVC</h3>
+<p>Otro fantástico uso de esta característica es la propiedad <code>ViewBag</code> de la clase <code>Controller</code> en MVC, con ella podemos pasar información a la vista sin necesidad de crear un modelo muy específico para cada una de las pantallas de nuestro sistema.</p>
+<h3 id="comunicacion-con-otros-lenguajes">Comunicación con otros lenguajes</h3>
+<p>Cuando interactuamos desde C# con otros lenguajes como Python o JavaScript que involucran tipado débil y dinámico es necesario contar con un tipo similar dentro de C#, así que este es otro de sus usos.</p>
+<h2 id="concluyendo">Concluyendo</h2>
+<p>Como conclusión puedo decir que yo siempre trato de evitarlos, ya que pueden transformar el código en un desastre total si se usan sin control. Además de que pueden llegar a resultar confusos de emplear cuando los ves en un código no documentado o que no hayas escrito tú mismo. Habiendo dicho esto, acepto que sí tienen usos específicos y muy bien identificados, además de que si sabes lo que estás haciendo te pueden ahorrar tiempo de desarrollo cuando programas.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

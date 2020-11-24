@@ -1,1 +1,111 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>No sé en realidad cuántos de ustedes que están leyendo este post están interesados en crear aplicaciones para Mac (yo espero que muchos), pero nunca está de más poder atacar más mercados con nuestras apps. Y qué mejor que hacerlo con el código que tenemos ya escrito para nuestras apps de iOS y Android.</p>
+<p>Pues bien, por fin es &quot;oficial&quot;, después de que por mucho tiempo se estuvo trabajando en una versión de  Xamarin.Forms que funcionara para el sistema operativo de Apple, por fin tenemos disponible una versión que podemos probar sin necesidad de compilarla nosotros mismos.</p>
+<p>La forma de hacerlo es sencilla, y lo será más aún si ya sabes <a href="http://thatcsharpguy.com/post/anatomia-app-xamarin-forms/" target="_blank">cuál es la anatomía básica</a> de una app hecha con Xamarin, pero si no, no te preocupes, no es necesario que lo sepas. Solo tienes que seguir estos pasos:</p>
+<p>Solo una cosa antes de comenzar, recuerda que esta no es todavía una versión estable, así que tal vez quieras crear una nueva rama en tu <a href="http://thatcsharpguy.com/tv/control-versiones/" target="_blank">control de versiones</a></p>
+<h3 id="anadir-un-proyecto-de-macos">1. Añadir un proyecto de macOS</h3>
+<p>El primer paso es agregar un proyecto del tipo Cocoa App:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__mac__createproject.jpg&quot; title=<>Create project</> /&gt;</p>
+<h3 id="agrega-xamarin.forms">2. Agrega Xamarin.Forms</h3>
+<p>Agrega el paquete de NuGet Xamarin.Forms, recuerda que es la versión <code>2.3.5.233-pre1</code>, no olvides actualizar las versiones en los otros proyectos también.</p>
+<h3 id="referencia-desde-el-proyecto-de-mac-al-de-forms">3. Referencia desde el proyecto de Mac al de Forms</h3>
+<p>Agrega una referencia de tu proyecto de Mac al proyecto principal de tu aplicación de Forms.</p>
+<h3 id="edita-el-archivo-info.plist">4. Edita el archivo Info.plist</h3>
+<p>Hay que quitar la referencia al <em>Storyboard</em> por default, esto se logra borrando la entrada <code>NSMainStoryboardFile</code> en el archivo <code>Info.plist</code>, puedes usar el editor gráfico en la pestaña Avanzado.</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__mac__infoplist.jpg&quot; title=<>Archivo Info.plist</> /&gt;</p>
+<h3 id="edita-el-archivo-main.cs">5. Edita el archivo Main.cs</h3>
+<p>Hay que indicarle a la aplicación que su delegado es el archivo <code>AppDelegate</code>:</p>
+<pre><code class="language-csharp">	static void Main(string[] args)
+	{
+		NSApplication.Init();
+		NSApplication.SharedApplication.Delegate = new AppDelegate();
+		NSApplication.Main(args);
+	}
+</code></pre>
+<h3 id="edita-el-archivo-appdelegate.cs">6. Edita el archivo AppDelegate.cs</h3>
+<p>La primera modificación es cambiar la clase base de <code>NSApplicationDelegate</code> a <code>FormsApplicationDelegate</code>.</p>
+<p>El segundo cambio es sobrescribir la propiedad <code>NSWindow</code>, vamos a hacer una propiedad con un campo de respaldo:</p>
+<pre><code class="language-csharp">NSWindow _window;
+public override NSWindow MainWindow
+{
+    get { return _window; }
+}
+</code></pre>
+<p>Ahora, en el constructor de la clase vamos a inicializar la <code>NSWindow</code> anterior. Básicamente se trata de establecer las opciones para la ventana en la que se mostrará nuestra aplicación:</p>
+<pre><code class="language-csharp">public AppDelegate()
+{
+    var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
+
+    var rect = new CoreGraphics.CGRect(200, 1000, 1024, 768);
+    _window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
+    _window.Title = &quot;Who is in space?&quot;;
+    _window.TitleVisibility = NSWindowTitleVisibility.Hidden;
+}
+</code></pre>
+<p>Y por último, como en iOS, hay que sobrescribir el método <code>DidFinishLaunching</code> para que cargue la aplicación de Forms.</p>
+<pre><code class="language-csharp">public override void DidFinishLaunching(NSNotification notification)
+{
+    Forms.Init();
+    LoadApplication(new App());
+    base.DidFinishLaunching(notification);
+}
+</code></pre>
+<h2 id="esto-es-importante">Esto es importante</h2>
+<p>Antes de terminar es importante mencionar que puede ser muy probable que no puedas restaurar muchos de los paquetes de NuGet porque deben ser recompilados estableciendo a Mac como uno de las versiones soportadas, así que no te preocupes, en el futuro seguramente serán soportadas. Puedes comunicarte con el desarrollador del paquete en cuestión para informarle que tal vez quiera actualizarlo para hacerlo compatible.</p>
+<p>Si quieres, puedes <a href="https://github.com/ThatCSharpGuy/MacForms" target="_blank">descargar esta app</a> que está lista para ejecutarse. Esta app te dirá los nombres de las personas que se encuentran en el espacio, así como la ubicación de la Estación Espacial Internacional, busca el <a href="https://github.com/ThatCSharpGuy/MacForms" target="_blank">código en GitHub</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

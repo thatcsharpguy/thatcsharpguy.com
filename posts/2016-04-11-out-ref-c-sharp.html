@@ -1,1 +1,150 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En un post anterior hablé acerca de <a href="../metodos-c-sharp">métodos en C#</a>, ahí mencioné que los parámetros que recibía un método nos daban muchas posibilidades a la hora de desarrollar, y la característica de la que hablaré es otra de esas posibilidades.</p>
+<p>Seguramente si en alguna vez de tu carrera has usado código C o C++ te has encontrado con estos operadores: <code>*</code> o  <code>&amp;</code> que, en pocas palabras, nos sirven para trabajar con punteros y también sabrás que estos nos permitían pasar como referencia una variable, entonces ya sabíamos que para modificar el valor de una variable dentro de una función teníamos que pasar el apuntador a dicho objeto como argumento.</p>
+<p>Pues bien, en C# existen las palabras <code>ref</code> y <code>out</code> que vienen a realizar una tarea similar ya que al usarlos para declarar y llamar a algún método, permiten que el argumento sea pasado por referencia (digamos que algo &quot;similar&quot; a los punteros) y no por valor.</p>
+<h3 id="declaracion">Declaración</h3>
+<p>Si deseamos emplear valores por referencia en algún método, es necesario expresarlo desde su definción:</p>
+<pre><code class="language-csharp">public void Swap(ref int a, ref int b) // ...
+public bool SumaMaxima(int a, int b, int max, out int resultado) // ...
+public string WeirdMethod(ref int a, ref int b, out int s, out int r) // ...
+</code></pre>
+<p>En el primer caso, vemos que tanto <code>a</code> como <code>b</code> son enteros que el método recibe por referencia. En el segundo, únicamente <code>resultado</code> es una referencia y en el tercero <code>a</code>, <code>b</code>, <code>s</code> y <code>r</code> son pasados de esta manera.</p>
+<p>Para trabajar con las referencias dentro del método no tenemos que hacer nada especial, podemos usarlas como si fueran parámetros normales:</p>
+<pre><code class="language-csharp">public void Swap(ref int a, ref int b)
+{
+    int m = a;
+    a = b;
+    b = m;
+}
+
+public bool SumaMaxima(int a, int b, int max, out int resultado)
+{
+    resultado = a + b;
+    if (resultado &gt;= max)
+    {
+        resultado = max;
+        return true;
+    }
+    return false;
+}
+
+public string WeirdMethod(ref int a, ref int b, out int s, out int r)
+{
+    s = a + b;
+    r = a - b;
+    return a.ToString() + b.ToString();
+}
+</code></pre>
+<h3 id="uso">Uso</h3>
+<p>Para usarlos, también es necesario indicar en la llamada al método que los parámetros deben ser pasados de determinado modo, fíjate en la llamada a <code>Swap</code> en el siguiente código</p>
+<pre><code class="language-csharp">int a = 100, b = 5;
+Console.WriteLine(&quot;Valor de a:&quot; + a + &quot; - Valor de b:&quot; + b);
+
+parametros.Swap(ref a, ref b);
+
+Console.WriteLine(&quot;Valor de a:&quot; + a + &quot; - Valor de b:&quot; + b);
+</code></pre>
+<p>El resultado es el siguiente</p>
+<pre>
+Valor de a:100 - Valor de b:5  
+Valor de a:5 - Valor de b:100
+</pre>
+<p>Y esta es una llamada a un método con <code>out</code></p>
+<pre><code class="language-csharp">int resSuma;
+var isResultOk = parametros.SumaMaxima(a, b, 100, out resSuma);
+
+if (isResultOk)
+    Console.WriteLine(&quot;La suma excedió el valor máximo&quot;);
+else
+    Console.WriteLine(&quot;El resultado de la suma es &quot; + resSuma);
+</code></pre>
+<p>Que da como resultado</p>
+<pre><code>La suma excedió el valor máximo
+</code></pre>
+<h3 id="la-diferencia-entre-ref-y-out">La diferencia entre ref y out</h3>
+<p>Hasta ahora parecen similares, sin embargo, mientras que ambas son referencias, la semántica que tienen es distinta.</p>
+<p>+<em>Debemos usar <code>out</code> cuando se espera que sea el método llamado el encargado de asignarle valor</em>*, así que si creas un método con un parámetro del tipo <code>out</code> y no le asignas valor dentro del mismo, el compilador te dará un error. Por ejemplo, si la definición de <code>WeirdMethod</code> fuera la siguiente:</p>
+<pre><code class="language-csharp">public string WeirdMethod(ref int a, ref int b, out int s, out int r)
+{
+    return a.ToString() + b.ToString();
+}
+</code></pre>
+<p>Obtendríamos un error como este: <code>The out parameter 'r' must be assigned to before control leaves the current method</code>.</p>
+<p>Además, <strong>la variable que le pasamos como <code>out</code> puede o no estar inicializada antes de ser enviada al método</strong> sin que el compilador genere siquiera una advertencia.</p>
+<h3 id="ejemplo-de-la-vida-real">Ejemplo de la vida real</h3>
+<p>Existen muchos escenarios en los que podemos usar el paso por referencia en nuestros programas, pero uno de los ejemplos màs significativos son los métodos <code>TryParse</code>, que reciben un parámetro <code>out</code> y regresan un valor <code>bool</code>. En ellos se intenta hacer la conversión de cadena al tipo de dato especificado y devuelven verdadero o falso dependiendo de si la conversión resultó exitosa, y en caso de que si, el valor vendrá asignada en el parámetro marcado:</p>
+<pre><code class="language-csharp">string dec = &quot;abcd&quot;;
+string dec2 = &quot;555&quot;;
+
+decimal one;
+decimal two;
+
+if (Decimal.TryParse(dec, out one))
+    Console.WriteLine(&quot;Convertí &quot; + dec + &quot; en &quot; + one);
+else
+    Console.WriteLine(dec  + &quot; no es convertible a decimal&quot;);
+
+
+if (Decimal.TryParse(dec2, out two))
+    Console.WriteLine(&quot;Convertí &quot; + dec2 + &quot; en &quot; + two);
+else
+    Console.WriteLine(dec  + &quot; no es convertible a decimal&quot;);
+</code></pre>
+<h3 id="lo-que-sigue">Lo que sigue</h3>
+<p>Te invito a que pruebes con el código que acompaña al post y que si tienes alguna duda me la hagas saber en Twitter o al correo electrónico. En realidad no es muy común que tu tengas que implementar los parámetos de este tipo en tu código, sin embargo si se puede presentar el caso y no hay más que estar preparado y conocerlos.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

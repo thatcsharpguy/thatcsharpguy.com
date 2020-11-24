@@ -1,1 +1,120 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Seguramente conoces los <a href="..\metodos-c-sharp" target="_blank">métodos en C#</a>, pero has de saber que no es la &quot;únicos&quot; clase de métodos que podemos usar en este lenguaje. También existen otros llamados <strong>métodos de extensión</strong> o <strong>extension methods</strong>, que como su nombre lo indica nos ayudan a &quot;extender&quot; la funcionalidad de nuestros tipos de dato.</p>
+<p>Para comenzar, mira el siguiente código:</p>
+<pre><code class="language-csharp">var secuencia = new int[] { 1, 2, 3, 4, 5, 6 };
+var resultado = Enumerable.Take(Enumerable.Where(secuencia, i =&gt; i % 2 == 0), 1);
+</code></pre>
+<p>¿Te resulta familiar? (si no, te recomiendo que veas mi post sobre <a href="..\linq-en-c-sharp" target="_blank">linq en C#</a>). Seguramente recuerdas los métodos <code>Take</code> y <code>Where</code>, de linq salvo que esta vez los estamos usando con su sintaxis original. El resultado de lo anterior es idéntico a lo que obtendríamos de ejecutar el siguiente código:</p>
+<pre><code class="language-csharp">var resultado = secuencia.Where(i =&gt; i % 2 == 0).Take(1);
+</code></pre>
+<p>Mucho más limpio y fácil de recordar.</p>
+<h2 id="creandolos">Creándolos</h2>
+<p>Imagina, por ejemplo, que por alguna razón extraña del destino, en tus apps necesitas cambiar las letras minúsculas por mayúsculas, una (mala) opción sería copiar y pegar el código, otra sería crear un método tradicional y compartirlo, o... ¡puedes crear tus métodos genéricos!</p>
+<p>Para crear métodos de extensión es necesario lo siguiente:</p>
+<ul>
+<li>Crear una clase estática para definir los métodos</li>
+<li>Convertir el método deseado a estático con la palabra <code>static</code></li>
+<li>Anteponer la palabra <code>this</code> al primer elemento de la lista de parámetros del método</li>
+</ul>
+<p>Vamos a crear unas extensiones para <code>char</code>, comenzamos con la clase que los contendrá, yo acostumbro ponerle como nombre el tipo de dato más el prefijo <code>Extensions</code>:</p>
+<pre><code class="language-csharp">public static class CharExtensions  
+{
+</code></pre>
+<p>Dentro de esa clase crearemos un método para &quot;voltear&quot; un caracter, es decir, para convertirlo a mayúscula si es minúscula y viceversa:</p>
+<pre><code class="language-csharp">    public static char Flip(this char c)
+    {
+        return Char.IsUpper(c) ? Char.ToLower(c) :Char.ToUpper(c);
+    }
+</code></pre>
+<p>Ahora vamos a crear algo similar pero para cadenas:</p>
+<pre><code class="language-csharp">public static class StringExtensions
+{
+    public static string Flip(this string str, int n = Int32.MaxValue)
+    {
+        if (String.IsNullOrEmpty(str)) return &quot;&quot;;
+        var array = new char[str.Length];
+        for (int i = 0; i &lt; str.Length; i++)
+        {
+            if(i &lt; n)
+                array[i] = str[i].Flip();
+            else
+                array[i] = str[i];
+        }
+        return new String(array);
+    }
+</code></pre>
+<p>En el código de arriba puedes ver cómo es que ya comenzamos a hacer uso de nuestro método de extensión <code>Flip</code> para caracteres. También puedes ver que un método de esta clase puede aceptar más argumentos (en este caso <code>n</code>) además del elemento sobre el que se va a aplicar.</p>
+<h3 id="el-namespace">El namespace</h3>
+<p>Para estos métodos, el <em>namespace</em> en el que estén ubicados es de vital importancia. Por ejemplo, si no declaramos <code>System.Linq</code> en los <em>usings</em> de nuestro código, no podremos hacer uso de los métodos <code>Where</code>, <code>Take</code>, etc. En el <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/ExtensionMethods" target="_blank">ejemplo anterior</a> el namespace de las extensiones es <code>Extensiones</code>, es por eso que debemos añadir <code>using Extensiones</code> para poder acceder a ellos desde cualquier parte del código.</p>
+<p>Entonces ya podríamos usarlos en donde queramos:</p>
+<pre><code class="language-csharp">Console.WriteLine(&quot;HOLA mundo!&quot;.Flip()); // Imprime: &quot;hola MUNDO!&quot;
+Console.WriteLine(&quot;HOLA mundo!&quot;.Flip(7)); // Imprime &quot;hola MUndo!&quot;
+</code></pre>
+<h3 id="miembros-privados">Miembros privados</h3>
+<p>La sintaxis te puede hacer pensar que dentro de ellos puedes acceder a los miembros privados de las clases sobre las que operan, pero no es así. Para el método de extensión el tipo sobre el que funciona no es más que otro argumento, como veremos un poco más adelante.</p>
+<h2 id="compatibilidad">Compatibilidad</h2>
+<p>Puedes hacer estos métodos para cualquier tipo de dato, desde aquellos que son <a href="..\tipos-dato-c-sharp" target="_blank">por valor a los que son por referencia</a>, desde clases abstractas hasta interfaces, ah, y cómo olvidar a los tipos genéricos.</p>
+<h2 id="nullreferenceexception">¿NullReferenceException?</h2>
+<p>Los métodos de extensión solo son azúcar sintáctica como te habrás dado cuenta, ya que cualquier llamada a un método de extensión se traduce a una llamada a un método estático dentro de una clase estática, pasando como primer argumento el elemento a la izquierda del operador <code>.</code>, esto se puede comprobar a través de un decompilador... o simplemente ejecutando el siguiente código:</p>
+<pre><code class="language-csharp">string n = null;
+Console.WriteLine(&quot;null = &quot; + n.Flip()); // Imprime: &quot;null = &quot;
+</code></pre>
+<p>Si nosotros intentáramos llamar cualquier método de la clase <code>string</code> sobre la variable <code>n</code>, obtendríamos una <code>NullReferenceException</code>, sin embargo, con este tipo de métodos no es así, dado que <strong>el método no se invoca sobre el objeto</strong>, para él, nuestra variable <code>n</code> no es más que otro argumento.</p>
+<h2 id="usos">Usos</h2>
+<p>El ejemplo más claro del uso de los métodos es <code>System.Linq</code>. Sin embargo, como te podrás imaginar, los usos que les puedes dar son ilimitados, inclusive podrías crear tu propia biblioteca de métodos de extensión para reutilizar en tus proyectos... o reutilizar algunos que ya hacen uso de ellos como <a href="..\humaniza-tus-apps" target="_blank">Humanizer</a>, <a href="..\flurl" target="_blank">Flurl</a> o <a href="https://github.com/morelinq/MoreLINQ" target="_blank">MoreLINQ</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

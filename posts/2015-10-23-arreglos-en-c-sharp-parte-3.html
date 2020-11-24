@@ -1,1 +1,105 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Después de conocer los <a href="/post/arreglos-en-c-sharp-parte-2">arreglos multidimensionales escalonados</a> esta vez toca el turno de conocer otro tipo de arrelgos multidimensionales en C#: Los rectangulares. En pocas palabras podríamos decir que estos no son &quot;arreglos de arreglos&quot;, sino que en realidad son matrices dado que no es posible declarar arreglos dentro de ellos como con los escalonados.</p>
+<h4 id="instanciacion">Instanciación</h4>
+<p>Como con todos los tipos por referencia podemos usar la palabra reservada <code>new</code> para instanciar estos arreglos, aunque esta vez es necesario incluír una coma <code>,</code> para separar las dimensiones en lugar de los corchetes cuadrados de manera consecutiva, es decir, si quiero algo de dos dimensiones en lugar de <code>[][]</code> debemos escribir <code>[,]</code>:</p>
+<pre><code class="language-csharp">char [,] gato = new char[3, 3];
+
+string [,,] rubik = new string[3, 3 ,3];
+
+int [,,,] laMatrix = new int[8, 2, 7, 6];
+</code></pre>
+<p>Para este tipo de arreglos <strong>siempre es necesario precisar el tamaño de todas las dimensiones</strong>, ya que el espacio es asignado durante la asignación, a diferencia de los arreglos escalonados. El compilador nos indicará algún error si no utilizamos la misma cantidad de elementos para cada dimensión:</p>
+<pre><code class="language-csharp">char [,] gato = // new char[3, 3] // El new es opcional
+{
+	{ 'x', 'o', 'x' },
+	{ 'o', 'x', '-' },
+	{ 'x', 'o', 'x' },
+};
+
+// Error de compilación, para 'gatoMalo' los arreglos internos deben ser de 2 elementos
+char [,] gatoMalo = 
+{
+	{ 'x', 'x' },
+	{ 'o', 'x', 'x' },
+	{ 'o', 'x' },
+};
+</code></pre>
+<h4 id="acceso-a-los-elementos">Acceso a los elementos</h4>
+<p>Para acceder a los elementos debemos recurrir a la combinación de <code>[]</code> y <code>,</code>, también es importante recordar que los arreglos están indizados en <code>0</code>.</p>
+<pre><code class="language-csharp">Console.WriteLine( gato[0,0] ); // 'x'
+
+gato[1,2] = 'y';
+Console.WriteLine( gato[1,2] ); // 'y'
+</code></pre>
+<h4 id="propiedades-y-metodos">Propiedades y métodos</h4>
+<p>Al contrario de los otros arreglos, en este caso una llamada a la propiedad <code>Length</code> nos devolverá la cantidad <strong>total</strong> de elementos dentro del arreglo, en lugar de la cantidad de elementos dentro de esa dimensión, por ejemplo:</p>
+<pre><code class="language-csharp">Console.WriteLine(gato.Length); // 9 = 3 x 3
+
+Console.WriteLine(rubik.Length); // 27 = 3 x 3 x 3
+
+Console.WriteLine(laMatrix.Length); // 672 = 8 x 2 x 7 x 6
+</code></pre>
+<p>Si lo que queremos es conocer el tamaño de determinada dimensión, es necesario hacer una llamada al método <code>GetLength</code> e indicando la dimensión a consultar</p>
+<pre><code class="language-csharp">Console.WriteLine( &quot;D0: &quot; + laMatrix.GetLength(0) ); // 8
+Console.WriteLine( &quot;D1: &quot; + laMatrix.GetLength(1) ); // 2
+Console.WriteLine( &quot;D2: &quot; + laMatrix.GetLength(2) ); // 6
+Console.WriteLine( &quot;D3: &quot; + laMatrix.GetLength(3) ); // 7
+</code></pre>
+<h4 id="lo-que-sigue">Lo que sigue</h4>
+<p>En siguientes posts conitnuaré hablando sobre C#, en particular de clases, métodos y parámetros, ¿quieres conocer sobre algo en específico? mándame un tweet o un correo electrónico ;)</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

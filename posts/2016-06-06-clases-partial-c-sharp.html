@@ -1,1 +1,175 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Esta vez toca hablar de otra de las características de C# (y de .NET en general). Esta vez son las clases parciales.</p>
+<p>Tal vez alguna vez te hayas encontrado con que, en la declaración de una clase, la palabra <code>partial</code> está antepuesta a la palabra <code>class</code>. Pero, ¿qué significa esto?</p>
+<p>Que una clase esté marcada como <code>partial</code> o parcial, significa que la definición de esta puede estar distribuida en más de un bloque de código. Por ejemplo, mira la definición completa de la clase <code>Program</code>:</p>
+<pre><code class="language-csharp">namespace Parciales
+{
+    // Block 1
+    partial class Program
+    {
+        public static void Main(string[] args)
+        {
+            Write(HelloWorldString);
+        }
+    }
+
+    // Class constants. Block 2
+    partial class Program
+    {
+        private const string HelloWorldString = &quot;Hola mundo!&quot;;
+    }
+}
+</code></pre>
+<p>En este caso, la clase está declarada en dos bloques.</p>
+<p>Esto parece no muy útil, ¿cierto? sin embargo, la ventaja de las clases parciales es que nos permite separar la definición de una clase a través de varios archivos, por ejemplo, podríamos tener el archivo <em>Program.cs</em> y el archivo <em>ProgramMethods.cs</em> para separar la programación de la clase. En el ejemplo anterior, el método <code>Write</code> está definido en otro archivo, que contiene otra definición parcial de la clase:</p>
+<pre><code class="language-csharp">partial class Program
+{
+    public static void Write(string line)
+    {
+        Console.WriteLine(line);
+    }
+}
+</code></pre>
+<p>Cuando llega el momento de compilar, <strong>el compilador tomará todas las definiciones parciales de una clase y la convertirá en una sola</strong>, es por eso que si escribimos la misma firma de método o nombre de propiedad en dos archivos diferentes obtendremos un error de compilación.</p>
+<p>Y... eso es todo lo que necesitas saber sobre clases parciales.</p>
+<p>¡NO! aguarda, aún hay más. La posibilidad de dividir la definición de una clase en múltiples archivos es una de las más criticadas, ya que usada sin cuidado puede transformar tu código (y los archivos en los que está definido) en un verdadero laberinto. Es por eso que hay ciertos escenarios en los que su uso es recomendado y fuera de ellos su uso debería ser restringido.</p>
+<p>Veamos algunos de los usos comunes:</p>
+<h3 id="definicion-de-interfaz-grafica">Definición de interfaz gráfica</h3>
+<p>Si has trabajado con tecnologías como Windows Forms, Web Forms, y más reciente, Xamarin Forms, tal vez te hayas dado cuenta que junto a la definición de la interfaz gráfica (un archivo .aspx o .xaml) se genera automáticamente un archivo que contiene una clase parcial en donde están declarados los controles que definiste en la pantalla. A su vez existe otro archivo en el que tu puedes escribir la lógica de tu aplicación.</p>
+<p>Es decir, existe un archivo para la interfaz y otro para la lógica, esto resulta bastante útil ya que nos evita correr el riesgo de modificar el código que define la interfaz y nos quita de la vista código que realmente nosotros nunca escribimos por nuestra cuenta.</p>
+<p><small>Aún recuerdo cuando usé NetBeans con Java Swing. Seguramente también recuerdas ese bloque enorme de código que no puedes modificar... ewww</small></p>
+<p>Por ejemplo, mira estas clases, tal vez re recuerden algo:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<h4>Lógica</h4>
+<pre><code class="language-csharp">public partial class Page
+{
+    public Page()
+    {
+        InitializeComponent();
+        Console.WriteLine(Control1);
+        Console.WriteLine(Control2);
+        Console.WriteLine(Control3);        
+    }
+}
+</code></pre>
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<h4>Código generado</h4>
+<pre><code class="language-csharp">// This code was generated by a tool, 
+// any changes made to this file will be discarded
+public partial class Page
+{
+    object Control1;
+    object Control2;
+    object Control3;
+
+    void InitializeComponent()
+    {
+        // ...code
+    }
+}
+</code></pre>
+</div>  
+</div>
+<h3 id="reutilizar-codigo">Reutilizar código</h3>
+<p>Otro buen uso surgió junto con los <em>shared projects</em>, y es que con ellos podemos concentrar el código que se puede compartir en un solo archivo y dejar las implementaciones específicas para cada plataforma. el de abajo es un ejemplo muy burdo, pero te puede dar una idea:</p>
+<p><strong>Core.cs</strong> en el proyecto compartido</p>
+<pre><code class="language-csharp">public partial class Core
+{
+    public Core()
+    {
+        #if __ANDROID__
+        int camera = 0;
+        string options = &quot;&quot;;
+        var photo = TakePhoto(camera, options);
+        #elif __IOS__
+        string camera = &quot;&quot;;
+        var photo = TakePhoto(camera);
+        #endif
+
+        int byteCount = photo.Length;
+    }
+}
+</code></pre>
+<p><strong>CoreAndroid.cs</strong> en el proyecto de Android</p>
+<pre><code class="language-csharp">public partial class Core
+{
+    byte[] TakePhoto(int camera, string options) 
+    {
+        return new byte[0];
+    }
+}
+</code></pre>
+<p><strong>CoreiOS.cs</strong> en el proyecto de iOS</p>
+<pre><code class="language-csharp">public partial class Core
+{
+    byte[] TakePhoto(string camera) 
+    {
+        return new byte[0];
+    }
+}
+</code></pre>
+<h2 id="trabajo-en-equipo">Trabajo en equipo</h2>
+<p>Con anterioridad se recomendaba que si varios programadores trabajaban en una clase, esta se dividiera en varios archivos para hacer <em>más</em> sencillo el trabajo a la hora de juntar los cambios, actualmente podemos usar con más seguridad algún <a href="http://localhost:4000/tv/control-versiones/">sistema de control de versiones</a> para la misma tarea.</p>
+<h2 id="simplificar-el-codigo">&quot;Simplificar&quot; el código</h2>
+<p>Eh, pues simplemente eso, &quot;simplificar&quot; una clase larga para facilitar su lectura. En realidad, creo que si tienes una clase muy grande, antes de considerar separarla en varios archivos, debes considerar repasar tu diseño de aplicación y separar tu clase en varias clases. Si después de pensarlo, usar clases parciales sigue siendo la única opción, pues lo puedes hacer.</p>
+<h3 id="lo-que-sigue">Lo que sigue</h3>
+<p>No olvides que puedes <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Parciales" target="_blank" rel="nofollow">descargar el código fuente</a> para que hagas pruebas con él.</p>
+<p>Volviendo a las clases parciales, los mejores casos de uso son para herramientas que generan código o para maximizar la cantidad de código compartido, fuera de esos escenarios, su uso es bastante criticado ya que, si abusas de ellas, el código se puede tornar confuso al estar distrinuído en distintos archivos. Como siempre, nunca está de más conocer otra herramienta para cuando llega el momento de programar.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

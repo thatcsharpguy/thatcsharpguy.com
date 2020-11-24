@@ -1,1 +1,117 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En un post anterior hablaba acerca de los tipos de dato en C#, y me doy cuenta que se me olvidó mencionar una característica importante de los tipos de dato, y para rectificar mi error voy a tomar la clasificación por referencia y valor de la que les platicaba.</p>
+<h3 id="apuntando-a-la-nada">Apuntando a la nada</h3>
+<p>Los tipos por referencia son <em>nullables</em> por definición. ¿Qué implica que sean <em>nullables</em>? pues nada más y nada menos que puedan tener un valor <code>null</code> o en términos prácticos, nungún valor. Esto se puede explicar desde el nombre mismo, al ser referencias estas <strong>pueden estar referenciando a un valor o a la nada</strong> (a <code>null</code>).</p>
+<p>Por otro lado, los <strong>tipos por valor siempre tienen un valor</strong> (valga la redundancia) asignado. Es así que un <code>int</code>, <code>bool</code>, <code>double</code>, etcétera nunca podrán valer <em>null</em>. Y es que estos no hacen referencia a ningún valor, sino que son el valor mismo.</p>
+<p>Muchas veces esta limitante nos lleva a inventarnos <em>números mágicos</em> como por ejemplo usar el <code>-1</code> para decir que un entero no tiene valor, o lógicas extrañas dentro de nuestro programa como decir que si un <code>DateTime</code> vale <code>DateTime.MinValue</code> es porque no tiene valor.  También nos complica un poco la vida cuando se trabaja con bases de datos en donde los datos pueden tener un valor o estar indefinidos.</p>
+<h3 id="la-estructura-nullablet">La estructura Nullable&lt;T&gt;</h3>
+<p>Para nuestra fortuna, C# nos ofrece los <em>nullable types</em>, que son instancias de la estructura <code>Nullable&lt;T&gt;</code> (si no estás familiarizado con la sintaxis <code>&lt;&gt;</code> pronto la explicaré en un post, es maravillosa), donde <code>T</code> es un tipo por valor.</p>
+<p>Podemos ver esta estructura como una especie de caja para nuestros tipos por valor, dicha caja provee métodos para saber si contiene un valor y obtener el valor que contiene.</p>
+<h4 id="trabajando-con-nullablet">Trabajando con Nullable&lt;T&gt;</h4>
+<p>La sintaxis de estos tipos no es muy complicada, y es que además de la declaración convencional:</p>
+<pre><code class="language-csharp">Nullable&lt;int&gt; enteroNullable = null;
+Nullable&lt;double&gt; puedeValerNull = 9.9;
+</code></pre>
+<p>También podemos usar el símbolo (<code>?</code>) en la declaración de la variable para indicar que se trata de un tipo nullable:</p>
+<pre><code class="language-csharp">int? enteroNullable = null;
+double? puedeValerNull = 9.9;
+</code></pre>
+<p>Aunque en este punto debemos ser cuidadosos, ya que la sintaxis es un poco confusa, ya sabemos, <code>Nullable</code> es una estructura y las estructuras no pueden tener un valor <code>null</code>...  ¿entonces qué sucede al momento de asignar un valor a <code>enteroNullable</code> en  el código anterior?<br />
+Como dije anteriormente, los tipos nullables son como una caja, al asignarle <code>null</code> estamos creando una caja que puede contener un <code>int</code> pero que al momento estamos dejando vacía. Podemos entonces trabajar con nuestra variable:</p>
+<img src="/images/tipos-nullables-en-c-sharp__boxes.png" title="Tipos por valor" />
+<h5 id="obteniendo-un-el-valor-o-una-excepcion">Obteniendo un el valor (o una excepción)</h5>
+<p>Para obtener el valor contenido dentro de un <em>nullable</em>, tenemos a nuestra disposición la propiedad <code>Value</code>, que debemos usar con cuidado, puesto que en caso de que el <em>nullable</em> no tenga un valor asignado, lanzará una exepción del tipo <code>InvalidOperationException</code>.</p>
+<pre><code class="language-csharp">enteroNullable = null;
+// int enteroExcepcional = enteroNullable.Value; 
+// Este código lanza una excepcion ^
+
+enteroNullable = 5;
+int sinExcepciones = enteroNullable.Value;
+</code></pre>
+<h5 id="comprobando-si-tiene-un-valor">Comprobando si tiene un valor</h5>
+<p>Si lo que queremos es evitarnos manejar exepciones, conocer si nuestra variable tiene un valor asignado con la propiedad <code>HasValue</code></p>
+<pre><code class="language-csharp">if(enteroNullable.HasValue)
+{
+	Console.WriteLine(&quot;La caja está llena&quot;);
+}
+else 
+{
+	Console.WriteLine(&quot;La caja está vacía :(&quot;);
+}
+</code></pre>
+<h5 id="obteniendo-un-valor-por-default">Obteniendo un valor por default</h5>
+<p>Si lo que de verdad nos interesa es obtener un valor de nuestra variable, podemos usar <code>GetValueOrDefaut</code>, que es un método que podemos usar para asegurarnos que no nos encontraremos con una exepción al consultar el valor. Lo que nos devolverá el método es:</p>
+<ul>
+<li>El valor contenido dentro del <em>nullable</em>, si tiene alguno</li>
+<li>El valor por default del tipo de nuestro <em>nullable</em>, si este no tiene alguno o el valor que usemos como parámetro en nuestro método <code>GetValueOrDefaut</code>.</li>
+</ul>
+<pre><code class="language-csharp">enteroNullable = null;
+
+int defaultValue = enteroNullable.GetValueOrDefault();
+// defaultValue == 0
+
+int noTanDefaultValue = enteroNullable.GetValueOrDefault(8);
+// noTanDefaultValue == 8
+
+enteroNullable = 100; // Le asignamos un valor a la variable
+int realValue = enteroNullable.GetValueOrDefault();
+// realValue == 100
+</code></pre>
+<br />
+Ahora sí: en futuros post seguré explorando algunos detalles escenciales de C#, como arreglos, métodos y clases.
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

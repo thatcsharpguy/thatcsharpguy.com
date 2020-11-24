@@ -1,1 +1,172 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Justamente la semana pasada escribí sobre cuál es la sintaxis de <a href="../metodos-c-sharp">los métodos en C#</a>, y ese fue más bien un post introductorio y es por eso que necesita ser ampliado. Esta vez toca hablar de la palabra <code>params</code> y cómo nos puede facilitar a la hora de escribir el código si es que vamos a trabajar con arreglos.</p>
+<h3 id="params">params</h3>
+<p>La palabra reservada <code>params</code> se usa en la declaración de los parámetros de un método, se antepone al tipo de dato que vamos a declarar y tiene una peculiaridad, solamente se puede anteponer a parámetros que sean arreglos, por ejemplo a <code>string[]</code>, <code>Persona[]</code>.</p>
+<p>Esto es porque lo que nos ayuda a escribir es un método que recibe una cantidad variable de argumentos del mismo tipo y los &quot;introduce&quot; un un arreglo sin tener que declararlo explícitamente.</p>
+<p>Mira los ejemplos para que te quede un poco más claro:</p>
+<h3 id="ejemplos">Ejemplos</h3>
+<h4 id="como-unico-parametro">Como único parámetro</h4>
+<p>Para comenzar, tomemos los siguientes métodos:</p>
+<pre><code class="language-csharp">public static void Metodo1Params(params bool [] a)
+{
+        Console.WriteLine(&quot;M1Params recibió &quot; + a.Length + &quot; booleanos&quot;);
+}
+
+public static void Metodo1Arrays(bool [] a)
+{
+    if (a == null)
+    {
+        a = new bool[]{ };
+    }
+    Console.WriteLine(&quot;M1Arrays recibió &quot; + a.Length + &quot; booleanos&quot;);
+}
+</code></pre>
+<p>Los dos realizan exactamente lo mismo, sin embargo, para ejecutar cada uno, requerimos de una sintaxis un poco distinta:</p>
+<pre><code class="language-csharp">Metodo1Arrays(null); // Imprime: M1Arrays recibió 0 booleanos
+Metodo1Params(); // Imprime: M1Params recibió 0 booleanos
+</code></pre>
+<p>Podemos pasar variables:</p>
+<pre><code class="language-csharp">bool cierto = true;
+// Metodo1Arrays(cierto); // Nope, necesita un arreglo
+Metodo1Arrays(new bool[] { cierto }); // Imprime: M1Arrays recibió 1 booleanos
+Metodo1Params(cierto); // Imprime: M1Params recibió 1 booleanos
+</code></pre>
+<p>Como puedes ver, no podemos llamar <code>Metodo1Arrays</code> indicando únicamente el argumento que queremos, nosotros tenemos que crear el arreglo para llamarlo, en el siguiente ejemplo está un poco más claro:</p>
+<pre><code class="language-csharp">Metodo1Arrays(new []{ cierto, false, true, cierto }); // M1Arrays recibió 4 booleanos
+Metodo1Params(cierto, false, true, cierto); // M1Params recibió 4 booleanos
+</code></pre>
+<h4 id="en-conjunto-con-otros">En conjunto con otros</h4>
+<p>Podemos declarar un método con varios parámetros, y usar <code>params</code> dentro de ellos, siempre y cuando el que marquemos sea el último parámetro de la lista.</p>
+<pre><code class="language-csharp">public static void Metodo2Params(int a, char b, params decimal[] c)
+{
+    Console.WriteLine(&quot;Metodo3Params: &quot; + c.Length);
+}
+
+public static void Metodo2Arrays(int a, char b, decimal[] c)
+{
+    Console.WriteLine(&quot;Metodo3Array: &quot; + c.Length);
+}
+</code></pre>
+<p>El hecho de que hayamos marcado algo con <code>params</code> no quiere decir que tengamos que no podamos simplemente enviar un arreglo en lugar de una lista de valores separados por coma:</p>
+<pre><code class="language-csharp">var array = new decimal[] {1,2,3};
+Metodo2Arrays(1, 'A', array);
+Metodo2Params(1, 'B', array);
+</code></pre>
+<p>La diferencia en la cantidad de código que tenemos que escribir se hace más notoria cuando tenemos que mandar cero elementos:</p>
+<pre><code class="language-csharp">Metodo2Arrays(1, 'C', new decimal []{ });
+Metodo2Params(1, 'D');
+</code></pre>
+<p>Y también cuando vamos a mandar varios:</p>
+<pre><code class="language-csharp">Metodo2Arrays(1, 'E', new []{ 2.1m, 13m, 15m });
+Metodo2Params(1, 'E', 2.1m, 13m, 15m);
+</code></pre>
+<h4 id="arreglos-multidimensionales">Arreglos multidimensionales</h4>
+<p>Y también podemos crear cosas más complejas, como usar arreglos multidimensionales como parámetros:</p>
+<pre><code class="language-csharp">public static void PromediaCalificacionesArray(decimal [][] calificaciones)
+{
+    for(int i = 0; i &lt; calificaciones.Length;i++)
+    {
+        // Mejor usemos LINQ:
+        decimal promedio = calificaciones[i].Average();
+        Console.WriteLine(&quot;(Arrays) Calificación alumno &quot; + i + &quot;: &quot; + promedio);
+    }
+}
+
+public static void PromediaCalificacionesParams(params decimal [][] calificaciones)
+{
+    for(int i = 0; i &lt; calificaciones.Length;i++)
+    {
+        decimal promedio = calificaciones[i].Average();
+        Console.WriteLine(&quot;(Params) Calificación alumno &quot; + i + &quot;: &quot; + promedio);
+    }
+}
+</code></pre>
+<p>Y las llamadas al método:</p>
+<pre><code class="language-csharp">decimal[] alumno1 = new decimal [] { 10m, 9.2m, 7m, 3.5m, 10m };
+var alumno2 = new []{ 8.5m, 9.3m, 8.6m, 9.9m, 10m };
+
+PromediaCalificacionesArray(new []{ alumno1, alumno2 });
+PromediaCalificacionesParams(alumno1, alumno2);
+</code></pre>
+<h3 id="ejemplo-de-la-vida-real">Ejemplo de la vida real</h3>
+<p>Uno de los máximos exponentes del uso de <code>params</code> es el método estático <code>String.Format</code>, que <em>formatea</em> una cadena y a la cual le podemos pasar una lista de argumentos. La firma de dicho método es:</p>
+<pre><code class="language-csharp">public static string Format(
+	string format,
+	params object[] args
+)
+</code></pre>
+<h3 id="ejemplos-de-lo-que-no-se-puede-hacer">Ejemplos de lo que no se puede hacer</h3>
+<p>No podemos marcar un tipo de dato que no sea un arreglo con params, como es el caso de <code>char a</code> en el siguiente fragmento:</p>
+<pre><code class="language-csharp">public static void Metodo1Params(params char a) // Invalido, debe ser un arreglo
+</code></pre>
+<p>Un parámetro marcado con <code>params</code> debe ser siempre el último parámetro del método, esto para evitar confusiones a la hora de ejecutarlo:</p>
+<pre><code class="language-csharp">public static void Metodo3Params(int a, params decimal[] b, char c)
+{
+    Console.WriteLine(&quot;Metodo3Params: &quot; + b.Length);
+}
+</code></pre>
+<p>Tampoco podemos declarar dos métodos con el mismo nombre y los mismos parámetros, ya que técnicamente la firma del método es la misma.</p>
+<pre><code class="language-csharp">public static void Metodo4(params decimal[] b) //...
+
+public static void Metodo4(decimal[] b) //...
+</code></pre>
+<h3 id="lo-que-sucede-internamente">Lo que sucede internamente</h3>
+<p>Cuando marcamos un parámetro como params, el compilador se encarga de tratarlo internamente como un arreglo: convierte nuestra lista variable de argumentos en un arreglo o crea un arreglo vacío si no enviamos nada. Así que esta palabra reservada es parte de la &quot;azúcar sintáctica&quot; que nos ofrece C#.</p>
+<h3 id="lo-que-sigue">Lo que sigue</h3>
+<p>Puede que características como la que se describe en este post no tengan mucho (o a veces nada) de impacto en el desempeño de un programa al momento de ejecutarse, sin embargo, no por eso debemos descartarlas como una poderosa herramienta de programación que puede ayudar a darle más significado al código. Como todo, también debes usarlo con moderación y en casos en los que tenga sentido.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

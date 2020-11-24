@@ -1,1 +1,174 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>While surfing the web for a free / open source solution to a certain OCR problem that I came across I found this pretty cool library named Tesseract OCR which, in its own words, is <em>&quot;probably the most accurate open source OCR engine available&quot;</em>. Along with the library (written in C/C++) there are an entire world of wrappers, including some for Xamarin... so, why not?</p>
+<h3 id="application">Application</h3>
+<p>In this post I'll show you how to create a simple iOS and Android application that allows the user to take a picture and identify the characters that got captured on the picture. Nothing too complicated. It'll be a Xamarin.Forms app, code sharing at its best!</p>
+<h4 id="creating-the-solution">Creating the solution</h4>
+<p>For this post I used Xamarin Studio on a Mac, but as you know, you can create it regardless of the OS or IDE. Go to New solution &gt; Cross-platform &gt; App &gt; Blank Xamarin.Forms app. Give it any name you want and select Use Portable Class Library.</p>
+<img src="/images/tesseract-ocr-xamarin__project-creation-1.png" title="Creación del proyecto" />
+<h4 id="nugets-and-nugets">NuGets and NuGets</h4>
+<p>Then proceed to add the XLabs NuGet package (<code>XLabs.Forms</code>) to the three projects, we'll use the IoC features that it provides and the ability to take photos right from our PCL. Add also the TinyIoC package (<code>XLabs.IoC.TinyIoC</code>) to both the iOS and Android projects, I'm using TinyIoC but you can use whatever DI tool you want.</p>
+<h4 id="the-tesseract-nuget">The Tesseract NuGet</h4>
+<p>Yay! another NuGet, but this time is the most important for our app. Add the package <code>Xamarin.Tesseract</code> to the three projects, yes, the same package for all three. This little package is <a href="http://shamsutdinov.net/2015/07/01/tesseract-orc-xamarin-part-1/" target="_blank">developed by Artur Shamsutdinov</a> and it is a wrapper for Tesseract OCR that provides a nice API to work with. So far so good.</p>
+<p>Tesseract relay on some data files to work, for each language symbols you want to recognize you must add a set of files. For example, this app recognizes english characters so only the <code>eng.*</code> files are needed, these files must be placed in a folder named <code>tessdata</code> inside the AndroidAssets folder for Android and the Resources folder for iOS. You can download the <a href="https://code.google.com/p/tesseract-ocr/downloads/list" target="_blank">symbol files for each language here</a>.</p>
+<h4 id="configuring-tinyioc">Configuring TinyIoC</h4>
+<p>As Tesseract and XLabs require platform specific code to work, we must find a way to allow a the shared PCL to execute such code, there are many options but I choose to implement IoC with TinyIoC. To use it we must configure each project separately.</p>
+<h5 id="android">Android</h5>
+<p>First of all, grab a reference to the container with</p>
+<pre><code class="language-csharp">var container = TinyIoCContainer.Current;
+</code></pre>
+<p>The container is like a bucket where we &quot;put&quot; pieces of code that will be used within our application. Then, we must put code in that bucket, we do so by calling the <code>Register</code> method of the container:</p>
+<pre><code class="language-csharp">container.Register&lt;IDevice&gt;(AndroidDevice.CurrentDevice);
+container.Register&lt;ITesseractApi&gt;((cont, parameters) =&gt;
+{
+	return new TesseractApi(ApplicationContext, AssetsDeployment.OncePerInitialization);
+});
+</code></pre>
+<p>With the first line the device where the app is running gets registered (alongside with all its available features), whereas with the second line we are registering the implementation of the Tesseract API, for Android we must pass in the constructor a reference to the application context where the application is running. For this example it is set to <code>ApplicationContext</code> in the <code>MainActivity.cs</code>.<br />
+Finally we have yet to register our <code>container</code> in the XLabs <code>Resolver</code>:</p>
+<pre><code class="language-csharp">Resolver.SetResolver(new TinyResolver(container));
+</code></pre>
+<p>By the way, do not forget to add the following <code>using</code> statements at the top of your file</p>
+<pre><code class="language-csharp">using TinyIoC;
+using Tesseract;
+using Tesseract.Droid;
+using XLabs.Ioc;
+using XLabs.Ioc.TinyIOC;
+using XLabs.Platform.Device;
+</code></pre>
+<h5 id="ios">iOS</h5>
+<p>It is almost the same process as with Android. First, get a reference to the container:</p>
+<pre><code class="language-csharp">var container = TinyIoCContainer.Current;
+</code></pre>
+<p>After that, register the device and the Tesseract API implementation. This time there is no need to add parameters to the <code>TesseractApi</code> constructor.</p>
+<pre><code class="language-csharp">container.Register&lt;IDevice&gt;(AndroidDevice.CurrentDevice);
+container.Register&lt;ITesseractApi&gt;((cont, parameters) =&gt;
+{
+	return new TesseractApi();
+});
+</code></pre>
+<p>Again, register the <code>container</code> in the <code>Resolver</code></p>
+<pre><code class="language-csharp">Resolver.SetResolver(new TinyResolver(container));
+</code></pre>
+<p>Here are the <code>using</code> statements for the <code>AppDelegate.cs</code> file</p>
+<pre><code class="language-csharp">using TinyIoC;
+using Tesseract;
+using Tesseract.iOS;
+using XLabs.Ioc;
+using XLabs.Ioc.TinyIOC;
+using XLabs.Platform.Device;
+</code></pre>
+<h4 id="shared-code-yay">Shared code! yay!</h4>
+<p>Finally, we get to the code sharing part. The UI for this app wont be much of a hassle, just a button, an image and a label. The button to call the photo-taking action, the image to display the recently captured image and the label to display the recognized text. For this simple demo app all the code will be on the page itself, however, you may want to move the code to a viewmodel to create a more complex app, to start, create a new Page named <code>HomePage</code> in the root of the shared PCL project and add the following as class-level variables:</p>
+<pre><code class="language-csharp">private Button _takePictureButton;
+private Label _recognizedTextLabel;
+private Image _takenImage;
+
+private readonly ITesseractApi _tesseractApi;
+private readonly IDevice _device;
+</code></pre>
+<p>The last two lines are interfaces which abstract the platform specific features that we registered a few lines above. In the constructor of the <code>HomePage</code> we'll call the <code>Resolve</code> method on our resolver class to get a references to the implementations for each platform:</p>
+<pre><code class="language-csharp">_tesseractApi = Resolver.Resolve&lt;ITesseractApi&gt;();
+_device = Resolver.Resolve&lt;IDevice&gt;();
+</code></pre>
+<p>Then build the UI, I placed the three controls within a <code>StackLayout</code>, and wire the only event:</p>
+<pre><code class="language-csharp">_takePictureButton.Clicked += TakePictureButton_Clicked;
+// ...
+async void TakePictureButton_Clicked(object sender, EventArgs e)
+{
+	if (!_tesseractApi.Initialized)
+		await _tesseractApi.Init(&quot;eng&quot;);
+
+	var photo = await TakePic();
+	if (photo != null)
+	{
+		var imageBytes = new byte[photo.Source.Length];
+		photo.Source.Position = 0;
+		photo.Source.Read(imageBytes, 0, (int)photo.Source.Length);
+		photo.Source.Position = 0;
+
+		_takenImage.Source = ImageSource.FromStream(() =&gt; photo.Source);
+		var tessResult = await _tesseractApi.SetImage(imageBytes);
+		if (tessResult)
+		{
+			_recognizedTextLabel.Text = _tesseractApi.Text;
+		}
+	}
+}
+// ...
+ private async Task&lt;MediaFile&gt; TakePic()
+{
+	var mediaStorageOptions = new CameraMediaStorageOptions
+	{
+		DefaultCamera = CameraDevice.Rear
+	};
+	var mediaFile = await _device.MediaPicker.TakePhotoAsync(mediaStorageOptions);
+
+	return mediaFile;
+}
+</code></pre>
+<h4 id="wrapping-up">Wrapping up</h4>
+<p>Here are some photos I took of the app running on an iPod touch:</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/FFi7b"><a href="//imgur.com/FFi7b">Tesseract OCR in Xamarin</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<p>And that's pretty much it. Now your Xamarin.Forms app can see! but everything has its drawbacks... this works well as a proof of concept but I have some final thoughts on it:</p>
+<ul>
+<li>You may want to perform some preprocessing techniques on the image to improve the accuracy of Tesseract's results</li>
+<li>Be aware of the size of your app as <em>tessdata</em> files aren't small</li>
+<li>Consider the memory of the device yout app will be running on.</li>
+</ul>
+<p>As always, get the code for <a href="https://github.com/fferegrino/xocr">Xocr on GitHub</a> and if you have questions, let me know!</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,164 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En un post pasado <a href="..\excepciones-c-sharp" target="_blank">hablamos sobre las excepciones</a> en C#, y cómo es que pueden ayudarnos a encontrar errores que ocurren en tiempo de ejecución en nuestras aplicaciones.</p>
+<p>Uno de los lugares en donde las excepciones están a la orden del día es cuando estamos tratando de realizar alguna conversión de cadena a un tipo numérico y más aún si vamos a recibir la cadena de un usuario a través de nuestra aplicación.</p>
+<p>Por poner un ejemplo, imagina que quieres <em>convertir</em> un <code>string</code> a un <code>int</code>. Normalmente usarías el método <code>Parse</code> de la clase <code>int</code>:</p>
+<pre><code class="language-csharp">var valor = int.Parse(&quot;0&quot;);
+</code></pre>
+<p>Pero si revisas la <a href="https://msdn.microsoft.com/es-es/library/b3h1hf19(v=vs.110).aspx#Anchor_1" target="_blank">documentación</a> del método, verás que este puede lanzar 3 excepciones, entonces, para preparar nuestro programa, debemos manejarlas de alguna manera.</p>
+<p>Para este post considera el siguiente arreglo de cadenas:</p>
+<pre><code class="language-csharp">var values = new[]
+{
+    &quot;1&quot;,
+    &quot;-&quot;,
+    null,
+    &quot; &quot;,
+    &quot;2147483648&quot;,
+    &quot;2147483647&quot;,
+    &quot;0.1&quot;
+};
+</code></pre>
+<p>Y para intentar procesarlas emplearemos un ciclo <code>foreach</code>, usando <code>Parse</code> para tratar de convertir y capturando las excepciones según sea el caso:</p>
+<pre><code class="language-csharp">foreach (var value in values)
+{
+    var intValue = -1;
+    try
+    {
+        intValue = int.Parse(value);
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue);
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue + &quot; (Error de formato)&quot;);
+    }
+    catch (ArgumentNullException)
+    {
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue + &quot; (El valor es null)&quot;);
+    }
+    catch (OverflowException)
+    {
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue +
+                            &quot; (El valor es más grande que un entero)&quot;);
+    }
+}
+</code></pre>
+<p>El resultado de ejecutar el código anterior es el siguiente:</p>
+<pre>
+Cadena "1" resultado: 1
+Cadena "-" resultado: -1 (Error de formato)
+Cadena "" resultado: -1 (El valor es null)
+Cadena " " resultado: -1 (Error de formato)
+Cadena "2147483648" resultado: -1 (El valor es más grande que un entero)
+Cadena "2147483647" resultado: 2147483647
+Cadena "0.1" resultado: -1 (Error de formato)
+</pre>
+<p>Sin embargo, habrá ocasiones en que no nos interese saber qué excepción ocurrió, entonces podrías usar un <code>catch</code> sin especificar la excepción:</p>
+<pre><code class="language-csharp">foreach (var value in values)
+{
+    var intValue = -1;
+    try
+    {
+        intValue = int.Parse(value);
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue);
+    }
+    catch
+    {
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue + &quot; (Ocurrió un error)&quot;);
+    }
+}
+</code></pre>
+<p>El resultado de ejecutar el código es este:</p>
+<pre>
+Cadena "1" resultado: 1
+Cadena "-" resultado: -1 (Ocurrió un error)
+Cadena "" resultado: -1 (Ocurrió un error)
+Cadena " " resultado: -1 (Ocurrió un error)
+Cadena "2147483648" resultado: -1 (Ocurrió un error)
+Cadena "2147483647" resultado: 2147483647
+Cadena "0.1" resultado: -1 (Ocurrió un error)
+</pre>
+<h2 id="trycatch">TryCatch</h2>
+<p>Pero, en realidad no es necesario que captures una excepción en el caso de <code>Parse</code>, hay muchas clases que ofrecen una opción &quot;segura&quot; de convertir un tipo de dato en otro. Para esto podemos usar los métodos <code>Try...</code>, como <code>TryParse</code> en el caso de <code>int</code>:</p>
+<pre><code class="language-csharp">foreach (var value in values)
+{
+    int intValue;
+    if (int.TryParse(value, out intValue))
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue);
+    else
+        Console.WriteLine(&quot;Cadena \&quot;&quot; + value + &quot;\&quot; resultado: &quot; + intValue + &quot; (Ocurrió un error)&quot;);
+}
+</code></pre>
+<p>El resultado es el siguiente:</p>
+<pre>
+Cadena "1" resultado: 1
+Cadena "-" resultado: 0 (Ocurrió un error)
+Cadena "" resultado: 0 (Ocurrió un error)
+Cadena " " resultado: 0 (Ocurrió un error)
+Cadena "2147483648" resultado: 0 (Ocurrió un error)
+Cadena "2147483647" resultado: 2147483647
+Cadena "0.1" resultado: 0 (Ocurrió un error)
+</pre>
+<p>La &quot;magia&quot; de este recae en el segundo parámetro <a href="..\out-ref-c-sharp" target="_blank">marcado como out</a>, ya que dentro del método se intenta realizar una conversión y si no es posible no lanza una excepción, sino que no pasa nada, solamente le asigna el valor por default al entero (el valor por default es 0).</p>
+<p>La forma de saber que un método <code>TryParse</code> falló es porque su valor de retorno es <code>false</code>. El método regresará <code>true</code> siempre que la conversión sea exitosa. Lo que hace atractivo a esta clase de métodos es que ni dentro de ellos se lanza excepción alguna, estos utilizan otros mecanismos para <em>parsear</em> de cadena al tipo de dato.</p>
+<h2 id="beneficios">Beneficios</h2>
+<p>Además de la obvia cantidad de código que podemos evitar escribir al no tener que escribir el manejador de cada excepción, también podemos evitarnos el ligero incremento en el costo de procesamiento que implica lanzar una excepción. Este costo se debe a la cantidad de información que se adjunta a cada excepción para hacerla más útil a la hora de rastrear su origen.</p>
+<h2 id="otros-metodos-try">Otros métodos <code>Try</code></h2>
+<p>Los tipos nativos (<code>int</code>, <code>decimal</code>, <code>bool</code>...) no son los únicos que tienen este tipo de métodos, también los podemos encontrar para cuando vamos a sacar un valor de un <code>Dictionary</code> y dentro de las colecciones concurrentes como <code>ConcurrentStack</code>, <code>ConcurrentQueue</code>. Y sin lugar a dudas, si tu creas agún tipo con métodos que puedan lanzar una excepción, tal vez sería buena idea también crear una versión de dicho método que emule el comportamiento de los <code>Try...</code></p>
+<h2 id="deberias-usarlos">¿Deberías usarlos?</h2>
+<p>Sí, siempre que no tengas una razón muy grande para usar las excepciones. Una razón muy grande para usar las excepciones es que debas saber por qué determinada acción no se pudo realizar. Por ejemplo, en el caso de los enteros, que requieras saber si el número era más grande que un <code>int</code> o si no venía en el formato adecuado. En cualquier otro escenario deberías aprovechar la rapidez de <code>TryParse</code>.</p>
+<p>Además recuerda, las excepciones son para precisamente eso: caso excepcionales en durante la ejecución de un programa.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

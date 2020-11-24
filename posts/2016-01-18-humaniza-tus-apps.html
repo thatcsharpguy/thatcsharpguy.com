@@ -1,1 +1,145 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Es un hecho que actualmente cuando una aplicación es lanzada al público no solo es necesario que funcione bien y haga lo que promete, sino que además de todo se vea bien y su interfaz de usuario sea agradable a la persona que la necesita.</p>
+<p>Hay muchas cosas que tenemos que hacer para que nuestra aplicación sea agradable al usuario, y una de ellas es hacer que la información que se le presenta esté en un lenguaje más natural, que no parezca generado por una computador (aunque sí lo sea). ¿A qué me refiero con esto? veamos un ejemplo común:</p>
+<p>Supongamos que dentro de nuestras aplicaciones queremos mostrar información de un evento que se llevará a cabo, información que tenemos almacenada como <code>int</code>s, <code>DateTime</code>s y <code>Decimal</code>s, y a la hora de mostrarlo al usuario, en la interfaz de nuestra app ponemos algo como:</p>
+<p><em>Número de asistentes: 3</em> o <em>Número de asistentes: 1</em><br />
+<em>El evento será el 20/01/2016</em><br />
+<em>La duración es de 13:00 a 16:00</em></p>
+<p>Lo cual no está mal... pero no es muy natural que digamos, y es por eso que muchos optan por mostrar algo como:</p>
+<p><em>3 asisistente(s)</em> o <em>1 asistente(s)</em><br />
+<em>El evento será el Miércoles, Enero 201, 2016</em><br />
+<em>La duración es de 13:00 a 16:00</em></p>
+<p>Que ya es un poco más &quot;lenguaje humano&quot; pero tiene ese horrible paréntesis al final, desde luego, pudimos haber evitado eso escribiendo nuestro código con una condicional para revisar la cantidad de asistentes antes de imprimirlo, pero sería tratar de reinventar la rueda. Es por eso que en este post hablaré de <strong>Humanizer</strong>, sus múltiples características y de como podemos pasar de la interfaz anterior a una como esta:</p>
+<p><em>3 asistentes</em><br />
+<em>El evento será en 4 días</em><br />
+<em>Tiene una duración de 3 horas</em></p>
+<h3 id="instalando-humanizer">Instalando Humanizer</h3>
+<p>Humanizer está en forma de <a href="/post/que-son-portable-class-library/">una Portable Class Library</a>, y disponible a través de NuGet, por lo que es sencillo instalarla en cualquier proyecto, desde una aplicación de consola (como la de este post) hasta una app de Xamarin.iOS. Basta con instalar el paquete <code>Humanizer.Core</code> usando la consola del administrador de paquetes:</p>
+<pre><code>PM&gt; Install-Package Humanizer
+</code></pre>
+<p>O a través de la interfaz gráfica en donde basta con buscar <code>Humanizer.Core</code> e instalarlo.</p>
+<h4 id="soporte-para-otros-idiomas">Soporte para otros idiomas</h4>
+<p>Originalmente Humanizer fue creado para funcionar con palabras del idioma inglés, pero afortunadamente gracias a la comunidad Open Source, se han añadido otros, como el español. Para añadirlo es necesario bajar un segundo paquete de NuGet con los recursos en español llamado <code>Humanizer.Core.es</code>.</p>
+<p>Por default, para el idioma de los textos, Humanizer toma la cultura del hilo que lo ejecuta, para cambiarla puedes usar una línea de código:</p>
+<pre><code class="language-csharp">Thread.CurrentThread.CurrentUICulture = new CultureInfo(&quot;es-ES&quot;);
+</code></pre>
+<p>Si por las restricciones de tu aplicación no es posible hacer el cambio anterior, no te preocupes, generalmente los métodos que veremos a continuación permiten especificar la cultura en la que queremos que funcionen.</p>
+<h3 id="la-clase-event">La clase Event</h3>
+<p>Para este código de ejemplo usaré una clase llamada evento, que contiene dos <code>String</code> para el nombre y descripción del evento, dos <code>int</code> para el número de asistentes y para el número de evento, dos <code>DateTimes</code> para las fechas de inicio y fin del evento.</p>
+<p>Para este post, crearé un <code>Event</code> llamado <code>contest</code> con el que estaremos trabajando a lo largo de este post.</p>
+<h3 id="numeros">Números</h3>
+<p>Pasar de <code>8</code> a <em>&quot;octavo&quot;</em> no suena tan sencillo, sin embargo Humanizer lo hace, basta con llamar el método de extensión <code>ToOrdinalWords</code>, o también podemos usar el método <code>Ordinalize</code> para obtener una cadena más pequeña, como <code>8.º</code>:</p>
+<pre><code class="language-csharp">contest.Number.ToOrdinalWords(GrammaticalGender.Masculine); // &quot;octavo&quot;
+contest.Number.ToOrdinalWords(GrammaticalGender.Feminine); // &quot;octava&quot;
+contest.Number.Ordinalize(GrammaticalGender.Neuter); // &quot;8.º&quot;
+</code></pre>
+<p>Como podemos ver también nos da diversas opciones en cuanto a qué genero estamos expresando, o si queremos palabras o números ordinalizados.</p>
+<p>También es posible:</p>
+<ul>
+<li>Pasar de un número a una cadena, así entonces al llamar el método <code>ToWords</code> en un número, obtendremos su representación en palabras: <code>158</code> → &quot;ciento cincuenta y ocho&quot;.</li>
+<li>Pasar de un número arábigo a uno romano usando <code>ToRoman</code>: <code>158</code> → &quot;CLVIII&quot; y viceversa.</li>
+<li>Manejar números como tamaños de archivo, pasar de megabytes a bits o de kilobytes a terabytes con facilidad</li>
+</ul>
+<h3 id="truncar-cadenas">Truncar cadenas</h3>
+<p>Truncar cadenas es algo importante para cuando queremos mostrar una parte de un texto largo, ya sea para reducir costos en la transferencia de datos o para no llenar de texto la pantalla del usuario, eso de truncar cadenas suena a algo trivial que podemos implementar fácilmente nosotros mismos, sin embargo para truncar cadenas usando Humanizer basta llamar al método de extensión <code>Truncate</code>:</p>
+<pre><code class="language-csharp">contest.Description.Truncate(40); // 40 caracteres, terminando en '…' 
+contest.Description.Truncate(40,&quot;...&quot;); // 40 caracteres, terminando en &quot;...&quot;
+contest.Description.Truncate(7,Truncator.FixedNumberOfWords); // 7 palabras, terminando en '…'
+</code></pre>
+<p>Se pueden hacer combinaciones como que sean 30 caracteres y termine en &quot;:::&quot;, o que trunque el texto en 10 palabras comenzando por la derecha y que termine en &quot;...&quot;.</p>
+<h3 id="cuantificar">Cuantificar</h3>
+<p>Bueno, no sé si &quot;cuantificar&quot; sea la palabra adecuada
+Para evitar esos horribles paréntesis que indican que puede haber uno o más elementos de una categoría podemos usar el método <code>ToQuantity</code> que es aplicado sobre una cadena de texto y recibe un entero indicando la cantidad de elementos que queremos mostrar, de este modo ya no tendríamos que poner <code>asistente(s)</code>, sino únicamente hacer algo como esto:</p>
+<pre><code class="language-csharp">&quot;asistente&quot;.ToQuantity(contest.Attendants, ShowQuantityAs.Words);  // &quot;cero asistentes&quot;.
+&quot;asistente&quot;.ToQuantity(contest.Attendants); // &quot;0 asistentes&quot;
+&quot;asistente&quot;.ToQuantity(1, ShowQuantityAs.None); // &quot;asistente&quot;
+&quot;asistente&quot;.ToQuantity(1, ShowQuantityAs.Numeric); // &quot;1 asistente&quot; 
+</code></pre>
+<p>Desde luego, hay palabras que no serán directamente <em>pluralizables</em> o que simplemente no pueden ser cuantificadas, pero esas se pueden agregar previamente al vocabulario:</p>
+<pre><code class="language-csharp">Vocabularies.Default.AddIrregular(&quot;feliz&quot;, &quot;felices&quot;);
+
+Vocabularies.Default.AddUncountable(&quot;lava&quot;);
+</code></pre>
+<h3 id="fechas-e-intervalos-de-tiempos">Fechas e intervalos de tiempos</h3>
+<p><b>Importante:</b> al momento de hacer este post, parece que me encontré con un bug con la localización de las fechas, ya nos entrega el resultado en inglés, <a href="https://github.com/Humanizr/Humanizer/issues/513" target="_blank" rel="nofollow"><i>levanté un issue</i></a> en GitHub y trataré de encontrar el problema.</p>
+<h4 id="fechas">Fechas</h4>
+<p>En cuanto a las fechas hay muy poco margen de movimiento, una fecha es una fecha, pero qué mejor que darle una referencia más verbal al usuario, como &quot;en dos semanas&quot;, &quot;ayer&quot; o &quot;dentro de 10 dias&quot; puede resultar mejor que únicamente mostrar el clásico &quot;dd/MM/yyyy&quot;.</p>
+<p>En el ejemplo de los eventos, la propiedad <code>Start</code> es igual a <code>new DateTime(2016,2, 29, 10,0,0)</code> mientras que <code>End = new DateTime(2016,2,29,17,30,0)</code>, es por eso que al momento de utilizar <code>contest.Start.Humanize();</code> obtuve &quot;en un mes&quot;.</p>
+<p>Pero para crear un ejemplo más claro:</p>
+<pre><code class="language-csharp">Console.WriteLine (DateTime.Now.Humanize(false)); // &quot;Ahora&quot;
+Console.WriteLine (DateTime.UtcNow.Humanize()); // &quot;Ahora&quot;
+Console.WriteLine (DateTime.UtcNow.AddDays(3).Humanize()); // &quot;En tres días&quot;
+Console.WriteLine (DateTimeOffset.UtcNow.AddMonths(-10).Humanize()); // &quot;Hace 10 meses&quot;
+</code></pre>
+<p>El método <code>Humanize</code> funciona tanto para tipos <code>DateTime</code> como para <code>DateTimeOffset</code> y entre sus sobrecargas podemos especificar si estamos manejando una fecha UTC, o contra qué fecha queremos comparar (por default usa <code>DateTime.UtcNow</code>).</p>
+<h4 id="intervalos-de-tiempo">Intervalos de tiempo</h4>
+<p>En cuanto a intervalos de tiempo, bien podríamos mostrar las fechas separadas por un guión, pero al igual que con las fechas, tal vez sea mejor decir &quot;una hora&quot;, &quot;45 minutos&quot; o &quot;tres días&quot;.</p>
+<p>Los eventos tienen una fecha de inicio y una de finalización, un escenario ideal para simplemente restar <code>Start</code> de <code>End</code> lo cual nos deja con un <code>TimeSpan</code>, sobre el cual podemos ejecutar el método de extensión <code>Humanize</code> para obtener una versión legible del intervalo:</p>
+<pre><code class="language-csharp">(evt.End - evt.Start).Humanize(3); // &quot;7 horas, 30 minutos&quot;
+</code></pre>
+<p>Otra vez, el método tiene muchas sobrecargas, entre las que podemos elegir con qué detalle queremos que se muestre la cadena, o cuál es la unidad máxima (o mínima) de tiempo que queremos tomar en cuenta. En el caso del ejemplo, coloqué un  <code>3</code> puesto que a lo mucho quiero que se muestren días, horas y minutos.</p>
+<h4 id="mejoras-para-los-desarrolladores">Mejoras para los desarrolladores</h4>
+<p>Humanizer no solo son mejoras para el usuario final, sino también para nosotros los desarrolladores, para manejar fechas incluye una <a href="https://es.wikipedia.org/wiki/Interfaz_fluida" target="_blank" rel="nofollow">interfaz fluida</a> para hacer un poco más legible el código, para poner un ejemplo, tomaré este de la <a href="https://github.com/Humanizr/Humanizer#fluent-date" target="_blank" rel="nofollow">documentación oficial</a>:</p>
+<pre><code class="language-csharp">DateTime.Now + 2.Days() + 3.Hours() - 5.Minutes();
+</code></pre>
+<p>Es equivalente a</p>
+<pre><code class="language-csharp">DateTime.Now.AddDays(2).AddHours(3).AddMinutes(-5);
+</code></pre>
+<h3 id="otras-caracteristicas">Otras características</h3>
+<p>En este post dejé afuera la capacidad de Humanizer de trabajar con colecciones, enumeraciones y más posibilidades para trabajar con cadenas. Estas tres y otras características se pueden revisar en el <a href="https://github.com/Humanizr/Humanizer#table-of-contents" target="_blank" rel="nofollow">repositorio de Humanizer en GitHub</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

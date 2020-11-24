@@ -1,1 +1,127 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Es muy común que siempre que desarrollamos aplicaciones, nosotros como desarrolladores lo hagamos pensando en un solo lenguaje... pero ¿qué pasará más adelante cuando nuestra app se vuelva popular y gente de diversas partes del mundo la comience a usar? para nuestra suerte, el framework de .NET nos ofrece una solución bastante sencilla para este problema: los archivos de recursos <code>resx</code>.</p>
+<p>Los archivos de recursos, o &quot;resx&quot; nos permiten justamente lograr la tarea de localización de una aplicación. Estos archivos no son nada más que archivos XML en los que se almacenan datos en la forma &quot;clave-valor(-descripción)&quot;, es importante señalar que en estos archivos se pueden almacenar diversos tipos de dato, pero nosotros únicamente usaremos cadenas.</p>
+<p>Primero que nada, lo ideal es tener ya definidas todas las cadenas que usaremos en la app, aunque no pasa nada si las vas descubriendo conforme desarrollas. Para nuestra mini aplicación usaremos las siguientes:</p>
+<table>
+<tr>
+<th>Llave</th>
+<th>Descripción</th>
+<th>Valor por default</th>
+</tr>
+<tr>
+<td>ChangeLanguage</td>
+<td>El texto que señala al usuario que puede cambiar el lenguaje</td>
+<td>Change language</td>
+</tr>
+<tr>
+<td>CurrentLanguage</td>
+<td>Texto que debe ser formateado para indicar cuál es el lenguaje actual de la aplicación</td>
+<td>Current language {0}</td>
+</tr>
+<tr>
+<td>Exit</td>
+<td>Texto que indica el punto de salida</td>
+<td>Exit</td>
+</tr>
+<tr>
+<td>Hello</td>
+<td>Texto de bienvenida al usuario</td>
+<td>Hello!</td>
+</tr>
+</table>  
+<h3 id="el-archivo.resx">El archivo .resx</h3>
+<p>Para comenzar a usar los archivos (y especificar los valores por default) debemos agregar un archivo de recursos, esto, en Visual Studio se realiza dando click contextual dentro del proyecto al que lo queremos agregar, después seleccionando &quot;Nuevo elemento&quot; y seleccionando &quot;Archivo de recursos&quot;:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__adding.png&quot; title=<>Agregando</> /&gt;</p>
+<p>Para el caso de nuestras cadenas por default, yo elegí el nombre <code>Strings.resx</code> para el archivo, es importante que tomes en cuenta que para agregar más lenguajes los archivos deben tener el mismo nombre con una pequeña modificación que veremos más adelante.</p>
+<p>Una vez creado el nuevo elemento, debemos tener dos archivos relacionados entre sí: uno con terminación <code>.resx</code> y otro <code>.Designer.cs</code>, este último es un archivo generado automáticamente por el IDE que nos permitirá acceder en tiempo de ejecución a los recursos definidos dentro del <code>resx</code>:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__assoc.png&quot; title=<>Ficheros asociados</> /&gt;</p>
+<p>Ahora, si abrimos el archivo <code>resx</code> recién creado, en Visual Studio veríamos algo como esto (en este caso ya añadí los valores):</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__resx-editor.png&quot; title=<>Editor de Visual Studio</> /&gt;</p>
+<p>Este editor es especial en VS, si tratamos de abrir este mismo archivo en Xamarin Studio veremos el código fuente del archivo, algo así:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__source.png&quot; title=<>Source</> /&gt;</p>
+<h3 id="anadiendo-mas-idiomas">Añadiendo más idiomas</h3>
+<p>Para continuar añadiendo idiomas a nuestra aplicación podemos agregar nuevos archivos de recursos, recuerda que debes usar el mismo nombre que que en el primer archivo que creaste, solo que ahora debes añadir el sufijo correspondiente al idioma que deseas registrar. El sufijo se compone de dos partes, una relacionada con el idioma (<em>es</em>, <em>it</em>, <em>en</em>, ...) y otra relacionada con la región (<em>ES</em>, <em>MX</em>, <em>GB</em>, <em>IT</em>, ...). La lista completa de valores posibles la puedes consultar <a href="https://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx" target="_blank">en este enlace</a>.</p>
+<p>Para el caso de este ejemplo agregaremos los lenguajes ruso de Rusia (&quot;ru-RU&quot;), español de México (&quot;es-MX&quot;), italiano de Italia (&quot;it-IT&quot;), y por default, inglés:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__resource-capt.png&quot; title=<>Archivos</> /&gt;</p>
+<p>Procura utilizar las mismas llaves en todos los archivos, es importante para que todo funcione correctamente:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__resource-capt-2.png&quot; title=<>Archivos dos</> /&gt;</p>
+<h3 id="uso-en-el-codigo">Uso en el código</h3>
+<p>Y bueno, después de tanta ceremonia, podemos usar nuestras cadenas multilenguaje en el código:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(Resources.Strings.CurrentLanguage,
+    currentThread.CurrentUICulture.ToString()));
+Console.WriteLine(Resources.Strings.Hello);
+
+// ... 
+
+Console.WriteLine(Resources.Strings.ChangeLanguage);
+</code></pre>
+<p>Si ejecutas el programa es muy probable que veas los textos en inglés, pero eso es fácil de cambiar.</p>
+<h3 id="cambiando-el-idioma-con-thread.currentuiculture">Cambiando el idioma con Thread.CurrentUICulture</h3>
+<p>Para cambiar el idioma de la interfaz de nuestras aplicaciones, es muy común utilizar la propiedad <code>CurrentUICulture</code> del hilo principal (<code>Thread.CurrentThread</code>), esta propiedad es del tipo <code>CultureInfo</code>. <code>CultureInfo</code> puede ser creada a partir de una cadena de texto en donde se especifique el idioma y la región de que se requiera, por ejemplo, para cambiar el idioma de la aplicación a con español de México:</p>
+<pre><code class="language-csharp">var language = new CultureInfo(&quot;es-MX&quot;);
+Thread.CurrentThread.CurrentUICulture = language;
+</code></pre>
+<p>Nuevamente, la lista completa de valores idioma-región posibles la puedes consultar en  <a href="https://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx" target="_blank">este enlace</a>.</p>
+<h4 id="currentculture-y-currentuiculture">CurrentCulture y CurrentUICulture</h4>
+<p>La clase <code>Thread</code> tiene también una propiedad llamada <code>CurrentCulture</code>, que es parecida a la que usamos para establecer el idioma de la app, solo que esta está relacionada directamente con los formatos de fechas, monedas, números decimales... puedes leer un poco más sobre esta diferencia en <a href="http://archives.miloush.net/michkap/archive/2007/01/11/1449754.html" target="_blank">este artículo</a>.</p>
+<h3 id="codigo-de-ejemplo">Código de ejemplo</h3>
+<p>Nunca me cansaré de repetirlo: no hay mejor forma de aprender que practicando. Es por eso que te invito a bajar el <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Resxs" target="_blank">código de ejemplo</a> y juegues un poco con él. Si lo descargas y ejecutas, verás algo como esto:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__sample.png&quot; title=<>Código de ejemplo</> /&gt;</p>
+<h3 id="para-terminar">Para terminar</h3>
+<p>Agregar soporte para diferentes idiomas y culturas a nuestra aplicación no es una tarea tan complicada como podría parecer, ya que, en algunos casos, si la plataforma para la que estamos desarrollando tiene soporte para estos archivos <em>resx</em>, estamos a unos cuantos clicks de distancia de que nuestra aplicación sea internacional. Y aun cuando no pienses que tu app va a ser popular, usar archivos de recursos contribuye al reuso de código, así como a evitar las llamadas &quot;cadenas mágicas&quot;.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

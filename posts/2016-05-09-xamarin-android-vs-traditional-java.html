@@ -1,1 +1,100 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Al igual que  <a href="../xamarin-ios-vs-traditional">como lo hice con iOS</a>	, en este post te mostraré algunas de las diferencias y similitudes entre el desarrollo con Java y C# para Android. Para este post cree una app que compara dos cadenas y calcula su <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" target="_blank" rel="nofollow">distancia</a> entre ellas, hice dos versiones una tradicional y una con Xamarin.Android. Esta es la app finalizada:</p>
+<p>&lt;img src=&quot;/images/xamarin-android__app.gif&quot; title=<>App terminada</> /&gt;</p>
+<p>Yo incursioné por primera vez en el desarrollo móvil tomando un pequeño curso de Android y no mucho ha cambiado desde entonces, para este post usé</p>
+<h3 id="estructura-del-proyecto">Estructura del proyecto</h3>
+<p>&lt;img src=&quot;/images/xamarin-android__comparison.png&quot; title=<>Comparison project structure</> /&gt;</p>
+<ol>
+	<li><b>Proyecto móvil</b>. El concepto de proyecto es el mismo, en ambos casos el un proyecto se refiere a una sola aplicación.</li>
+   	<li><b>AndroidManifest.xml</b>. Este archivo en el que se define gran parte de la configuración del proyecto se mantiene idéntico en ambas opciones de desarrollo. Sin embargo, cuando usamos Xamarin podemos trasladar parte de esta configuración al código, pero más adelante hablaré de eso.</li>
+  	<li><b>Recursos</b>. Los recursos se siguen organizando de la misma manera (en carpetas dependiendo de su resolución/tamaño), solo que mientras que usando Xamarin la carpeta se llama <code>Resources</code>, en el tradicional se llama <code>res</code>.</li>
+   	<li><b>Layouts</b>. En el caso de esta app, tanto el archivo <code>Main.axml</code> como el <code>activity_main.xml</code> tienen más o menos el mismo contenido y de hecho son compatibles entre ellos. La diferencia en las extensiones es para que Visual Studio lo reconozca como un archivo de interfaz gráfica para Android y pueda dar usando Intellisense.</li>
+   	<li><b>Drawables por resolución</b>. A diferencia de iOS, en donde se distingue un recurso de otro mediante los sufijos `@x</code>, en Android estos deben ir en carpetas separadas totalmente, y en Xamarin no es la excepción.</li>  
+   	<li><b>Drawables en xml</b>. En este caso el archivo <code>empty_divider.xml</code> tiene el mismo contenido, para esta app el archivo contiene un divisor transparente para el <code>StackView</code>.</li>  
+   	<li><b>Recursos en xml</b>. Cualquier recurso como <code>strings</code>, <code>colors</code>, <code>values</code> es empleado de la misma manera.</li>  
+   	<li><b>Biblioteca de lógica externa</b>. En ambos casos la lógica de nuestra aplicación puede ser separada en un proyecto externo, en ambos casos, una librería. Cabe mencionar que usando C# creamos una biblioteca de clases portable y compartir este código con apps de iOS u otras plataformas.</li>
+   	<li><b>Código en general</b>. El código se guarda en clases, de estas diferencias hablaré más adelante.</li>
+</ol>
+<h3 id="recursos">Recursos</h3>
+<p>Como ya mencioné, los recursos se manejan de manera similar, algo que me agradó de Android Studio es cómo muestra los recursos: fuera de las carpetas y con una anotación indicando a qué resolución pertenecen.</p>
+<p>En cuanto a la famosa clase <code>R</code>, en Xamarin.Android se llama <code>Resource</code> y su contenido es similar al que contiene en la tradicional, como podrás ver en el código más adelante.</p>
+<h3 id="el-codigo">El código</h3>
+<h4 id="mainactivity">MainActivity</h4>
+<p>&lt;img src=&quot;/images/xamarin-android__MainActivity.png&quot; title=<>MainActivity</> /&gt;</p>
+<p>Desde aquí se revelan algunas de las diferencias entre el código de C# y Java, por ejemplo, podemos ver que <code>using</code> ≈ <code>import</code>, o que el <code>namespace</code> es un equivalente de <code>package</code> y que las clases se llaman igual.</p>
+<p>Algo importante a destacar es el código <code>[Activity(MainLauncher = true)]</code> que cumple la función de indicarle al manifiesto cuál es el punto de entrada a nuestra app (en <a href="../opening-files-xamarin-forms/#android">este post</a> muestro las equivalencias entre el manifiesto y el atributo <code>Activity</code>).</p>
+<h4 id="oncreate">OnCreate</h4>
+<p>&lt;img src=&quot;/images/xamarin-android__OnCreate.png&quot; title=<>OnCreate</> /&gt;</p>
+<p>En cuanto al método <code>OnCreate</code> y la declaración <code>View</code>s, las diferencias son mínimas, en C# para hacer referencia a la clase de la que se hereda se usa la palabra <code>base</code> en lugar de <code>super</code>. Por convención los métodos comienzan con mayúscula.</p>
+<p>Aquí es donde se ven las similitudes entre la clase <code>R</code> y <code>Resource</code> para acceder a los recursos.</p>
+<h5 id="findviewbyid">FindViewById</h5>
+<p>&lt;img src=&quot;/images/xamarin-android__FindViewById.png&quot; title=<>FindViewById</> /&gt;</p>
+<p>Una vez creada la vista podemos acceder a los controles y referenciarlos desde la clase <code>Activity</code>, para esto usamos el método <code>FindViewById</code> y mientras que con Xamarin tenemos la opción de hacer el <em>cast</em> nosotros (como en Java), también podemos usar el método genérico <code>FindViewById<T>` que hará el <em>cast</em> por nosotros.</p>
+<h4 id="metodos-y-manejadores-de-evento">Métodos y manejadores de evento</h4>
+<p>&lt;img src=&quot;/images/xamarin-android__EventAssign.png&quot; title=<>Asignación de eventos</> /&gt;</p>
+<p>En cuanto a los métodos, la declaración es casi idéntica (y más con Java 8) ya que mientras que en C# se usa una expresión lambda en la que se define el comportamiento del botón, en Java se utiliza una clase anónima para realizar esta acción.</p>
+<h3 id="codigo-en-general">Código en general</h3>
+<p>&lt;img src=&quot;/images/xamarin-android__Code.png&quot; title=<>Código Java &amp; C#</> /&gt;</p>
+<p>En cuanto al código en general, me atrevería a decir que la traducción entre C# y Java no es muy complicada... son como hermanos, en realidad una de las más &quot;grandes&quot; diferencias es que en Java tenemos únicamente métodos para acceder a las propiedades de un objeto como es el caso de <code>length()`.</p>
+<h2 id="interfaz-grafica">Interfaz gráfica</h2>
+<p>El editor de interfaces para Android que contiene Visual Studio o Xamarin Studio es idéntico al disponible en los editores de Android Studio o en Eclipse. Además de la vista &quot;en vivo&quot; del diseño también ambos nos dan acceso al xml del archivo.</p>
+<p>&lt;img src=&quot;/images/xamarin-android__Designer.png&quot; title=<>Editor de interfaces</> /&gt;</p>
+<h3 id="en-conclusion">En conclusión</h3>
+<p>A diferencia de <a href="../xamarin-ios-vs-traditional">C# y Swift</a>, las diferencias con Java no son notorias y creo que bien valdría la pena comenzar a hacer tu siguiente app con Xamarin para así poderla llevar a iOS sin mayor problema.</p>
+<p>Recuerda que el código de las apps tanto de C# y Java están <a href="https://github.com/ThatCSharpGuy/silo-xamarin-comparation" target="_blank" rel="nofollow">disponibles en GitHub</a> par que las revises, si tienes alguna duda, no dudes en contactarme, al final del post están los enlaces necesarios.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

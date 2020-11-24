@@ -1,1 +1,90 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>La internacionalización y localización son términos que probablemente hayas escuchado ya, sobretodo si trabajas desarrollando aplicaciones para múltiples países.</p>
+<p>También son términos que usualmente se confunden y se usan indistintamente, sin embargo, esto es un error:</p>
+<h1 id="internacionalizacion">Internacionalización</h1>
+<p>Abreviada como &quot;i18n&quot; porque en inglés hay 18 letras entre la i y la n.</p>
+<p>Consiste en preparar una aplicación para soportar múltiples lenguajes, culturas y regiones del planeta. La preparación de una aplicación consiste en muchas cosas, pero generalmente consiste en:</p>
+<ul>
+<li>Cambiar la configuración de la base de datos para que acepte otro tipo de caracteres, como las tildes en el alfabeto del español o francés, hiragana japonés o el alfabeto cirílico, por poner ejemplos.</li>
+<li>Interfaces que modifiquen su tamaño o forma de acuerdo a las longitudes del texto, que al cambiar de idioma una palabra el texto de una etiqueta esta no se desborde haciendo que se vea mal o que inclusive deje de ser funcional.</li>
+<li>Separar las cadenas de texto de la interfaz como instrucciones, o textos de la interfaz, ponerlos en archivos separados para que sea fácil cambiarlos después sin tener que modificar mucho. Escribí un  <a href="..\..\post\localisation-resx" target="_blank">post sobre esto en C#</a>.</li>
+<li>Separar los segmentos de información que se presenta al usuario de tal forma que se puedan crear plantillas de texto de fácil modificación, esto para nunca concatenar cadenas en código, sino usar estas plantillas con marcadores de donde debe ir cada parámetro, para los lenguajes en donde se invierte la ubicación de las palabras para hablar de cantidades, por ejemplo.</li>
+<li>Incluir los signos de puntuación dentro de estas cadenas de texto puesto que no todos los lenguajes los usan de la misma manera.</li>
+<li>Habilitar los campos de entrada para que acepten fechas, cantidades y números de acuerdo a la cultura, lenguaje y región  del usuario.</li>
+<li>Permitir que los usuarios escriban su nombre COMO QUIERAN, si su nombre tiene un guion, un acento al revés (?), doble comillas… lo que sea, es SU NOMBRE. También recuerda que no todos los nombres son iguales, en México tenemos usualmente uno o dos nombres y dos apellidos, mientras que en otras partes es normal tener un nombre y un solo apellido, mientras que en otros lo normal es tener un nombre único y un  matronímico o un patronímico.</li>
+</ul>
+<p>La internacionalización es un proceso que, si se lleva a cabo de manera correcta, únicamente se debe hacer una vez.</p>
+<h1 id="regionalizacion-o-localizacion">Regionalización o Localización</h1>
+<p>Abreviado l10n, de nuevo, por las 10 letras que hay entre la l y la n.</p>
+<p>Pero bueno, no podemos hablar de localización sin antes saber qué es un <em>locale</em>.</p>
+<h2 id="locale-o-la-configuracion-regional">Locale o la configuración regional</h2>
+<p>Es un conjunto de parámetros que identifican el lenguaje, la región y la codificación de caracteres con los cuales puede funcionar una aplicación.</p>
+<p>Esto se debe a que un mismo lenguaje puede ser usado en diferentes países, un mismo país puede tener varios lenguajes y no solo eso, sino que a pesar de que un mismo lenguaje se hable en dos países, puede que existan otras diferencias como la forma en la que se escriben las fechas, los montos de dinero, los números telefónicos, algunas palabras, etcétera.</p>
+<p>Un Locale está compuesto de alguna variación de la siguiente estructura: <code>language[_territory][.codeset][@modifier]</code>, en las cuales tanto el territorio, la codificación y el modificador son totalmente opcionales.</p>
+<p>Por ejemplo, el <em>locale</em> para México con la codificación <code>UTF-8</code> es el siguiente:</p>
+<p><code>es_MX.UTF-8</code></p>
+<p>Mientras que un <em>locale</em> para el idioma francés es simplemente:</p>
+<p><code>fr</code></p>
+<p>Cada plataforma, dispositivo, lenguaje puede soportar distintos locales, pero en general todos soportan los mismos, y muchos se adecúan a un estándar.</p>
+<h2 id="la-localizacion">La localización</h2>
+<p>La localización significa básicamente adaptar la presentación de una aplicación al lenguaje, región y codificación del usuario que está trabajando en nuestra app.</p>
+<p>Este proceso de adaptación va más allá de una simple traducción, ya que no solo son las partes textuales de una aplicación, sino que se extiende al contenido multimedia, sonidos imágenes, colores, animaciones e inclusive pólizas de privacidad</p>
+<p>Y así mismo, la localización a veces no se detiene en elementos propios de la aplicación como los botones, los menus, los íconos o las instrucciones en los formularios. Sino que también se puede extender a otros elementos como la documentación de la app si ofreces una API para ser consumida por terceros.</p>
+<p>Para llevar a cabo el proceso de localización se sugiere contar con la ayuda de expertos en la materia, sobretodo expertos de la región para la cual se va a localizar tu producto, esto para que no te vayas a llevar una sorpresa al momento de que tus usuarios comiencen a usar el producto en su idioma.</p>
+<p>¿Han hecho algún proyecto que requiera de distintos lenguajes? ¿conocen qué mecanismos les ofrece su plataforma de desarrollo para llevar a cabo esta tarea?</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,119 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Pese a estar desarrollando en C# desde hace tiempo, tengo que aceptar que hay algunas cosas que me tardé en conocer... entre ellas, el operador <code>??</code> . Seguramente ya lo conoces, pero si no, te invito a seguir leyendo para que lo hagas. En realidad, aunque lo conozcas te invito a seguir leyendo, espero apreandas algo nuevo.</p>
+<p>Este operador es básicamente una especie de <a href="../../tv/azucar-sintactica" target="_blank">azúcar sintáctica</a> para escribir una <strong>asignación condicional</strong> de tipos por referencia. En otras palabras (en código), observa las siguientes líneas:</p>
+<pre><code class="language-csharp">string personName;
+if (inputName == null)
+    personName = &quot;no name&quot;;
+else
+    personName = inputName;
+Console.WriteLine(personName);
+</code></pre>
+<p>Si <code>inputName</code> es <code>null</code>, el valor de <code>personName</code> será <em>&quot;no name&quot;</em> para cuando el método <code>WriteLine</code>, todo eso en 4 líneas. Pero esta no es la única forma de realizar la asignación dependiendo del valor, también podríamos haber hecho uso del <a href="https://msdn.microsoft.com/en-us/library/be21c7hw(VS.94).aspx" target="_blank">operador ternario</a>:</p>
+<pre><code class="language-csharp">personName = inputName == null ? &quot;no name&quot; : inputName;
+Console.WriteLine(personName);
+</code></pre>
+<h3 id="null-coalescing">Null coalescing</h3>
+<p>Que producirá el mismo resultado si <code>inputName == null</code>, todo en 1 sola línea... sin embargo esta sigue sin ser la manera más corta de realizar una asignación de este tipo, la más corta se consigue a través del operador <code>??</code>, llamado <strong>null coalescing</strong> (o de uso combinado de NULL, en español):</p>
+<pre><code class="language-csharp">personName = inputName ?? &quot;no name&quot;;
+Console.WriteLine(personName);
+</code></pre>
+<p>Y listo, realiza la misma acción que los dos bloques de código anteriores, pero en menor cantidad de caracteres.</p>
+<p>Si aún no has inferido su funcionamiento, es el siguiente: la asignación comienza del lado derecho del signo <code>=</code>, y va de izquierda a derecha evaluando los las expresiones en busca del primer valor no nulo, en cuanto alguno sea distinto de <code>null</code>, lo asignará a la variable ubicada a la izquierda de <code>=</code>.</p>
+<h3 id="encadenamiento">Encadenamiento</h3>
+<p>Otra de sus particularidades es que permite ser <em>encadenado</em>: si colocamos un operador tras otro, se aplicará el mismo principio de buscar desde la izquierda el primer valor no nulo para ser asignado:</p>
+<pre><code class="language-csharp">personName = inputName ?? GetRandomName() ?? TryGetName() ?? &quot;no name&quot;;
+</code></pre>
+<p>Si esta misma asignación se intentara haecer con sentencias <code>if</code> o con operadores ternarios, la cantidad de código a escribir aumentaría considerablemente.</p>
+<h3 id="tipos-nullables">Tipos nullables</h3>
+<p>Uno de sus usos es junto a los <a href="../tipos-nullables-en-c-sharp">tipos nullables</a>:</p>
+<pre><code class="language-csharp">int? teamAPoints = null;
+int? teamBPoints = 5;
+
+var difference = (teamAPoints ?? 0) - (teamBPoints ?? 0);
+Console.WriteLine(&quot;Difference &quot; + difference);
+</code></pre>
+<h3 id="carga-diferida">Carga diferida</h3>
+<p>También suele ser muy frecuente que este operador sea usado para implementar la <em>carga diferida</em> o <a href="https://es.wikipedia.org/wiki/Lazy_loading" target="_blank">lazy loading</a> o el patrón <em>singleton</em>:</p>
+<pre><code class="language-csharp">private static Random _random;
+public static Random Random
+{
+    get
+    {
+        return _random ?? (_random = new Random(DateTime.Now.Second));
+    }
+}
+</code></pre>
+<p>Para la primera vez que llamemos a <code>Random</code>, se ejecutará la parte derecha de la instrucción y para llamadas subsecuentes, únicamente nos devolverá eñ valor de <code>_random</code>.</p>
+<h3 id="observaciones">Observaciones</h3>
+<p>Es importante señalar que para que el operador funcione, los tipos a evaluar deben ser del mismo tipo (o al menos tener conversión implícita) ya que de otro modo, el compilador nos mostrará un error e impedirá la ejecución del programa. El siguiente segmento de código es inválido, ya que <code>personName</code> es una cadena y <code>teamAPoints</code> es <em>nullable de int</em></p>
+<pre><code class="language-csharp">var invalid = personName ?? teamAPoints;
+</code></pre>
+<h3 id="en-c-6">En C# 6</h3>
+<p>Las cosas buenas no acaban ahí, este operador cobra mayor relevancia cuando lo combinamos con una de las nuevas funciones de C#, <a href="../c-sharp-seis/#null-conditional-operator" target="_blank"><em>null-conditional operator</em></a> (<code>?.</code>) podemos la funcionalidad que deseamos y sin usar tantas líneas de código:</p>
+<pre><code class="language-csharp">var randomOrNot = MainClass.Random?.Next(0, 10) ?? 0;
+</code></pre>
+<h3 id="ventajas">Ventajas</h3>
+<p>Para ser honesto, aunque todo depende de quién lo mira, al operador <code>??</code> le encuentro únicamente ventajas:</p>
+<ul>
+<li>Es más corto y fácil de escribir</li>
+<li>Es más fácil de leer</li>
+<li>Podemos implementar <em>singletons</em> o <em>carga diferida</em></li>
+<li>Puede ser encadenado uno tras de otro</li>
+</ul>
+<p>¿Tu le encuentras otra ventaja o una desventaja? mándame un tuit, un correo o deja un comentario en la parte de abajo.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

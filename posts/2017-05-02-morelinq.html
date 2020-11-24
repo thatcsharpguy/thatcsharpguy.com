@@ -1,1 +1,114 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Tenía ya rato <a href="..\linq-en-c-sharp-4" target="_blank">sin hablar de LINQ</a>, y es que es un tema tan grande que merecería hasta su propio blog... ahora, imagínate si existiera aún más operaciones que se pudieran realizar usando estas herramientas.</p>
+<p>Este es el caso de <em>morelinq</em>, un paquete de NuGet que un grupo de entusiastas de C# desarrollan. Este paquete, como su nombre pretende indicar, añade métodos de extensión las colecciones que usamos dentro de nuestro código, permitiéndonos llevar a cabo muchas más operaciones que con LINQ convencional, podríamos hacer pero usando más código.</p>
+<p>Vamos a ver unos ejemplos (y vamos a trabajar con dinosaurios):</p>
+<h2 id="atleast-y-atmost"><code>AtLeast</code> y <code>AtMost</code></h2>
+<p>O, en español: <em>al menos</em> y <em>como máximo</em>. Este par de métodos nos ayudan a responder estas preguntas:</p>
+<ul>
+<li>&quot;¿La colección A contiene al menos X elementos que cumplen con Y condición?&quot;</li>
+<li>&quot;¿La colección A contiene como máximo X elementos que cumplen con Y condición?&quot;</li>
+</ul>
+<p>Por ejemplo, primero queremos saber si al menos 5 nombres de dinosaurios terminan en &quot;saurus&quot;, y después queremos saber si existe máximo un dinosaurio cuyo nombre comience con &quot;H&quot;:</p>
+<pre><code class="language-csharp">var atLeastFive = dinos.Where(dino =&gt; dino.Name.EndsWith(&quot;saurus&quot;))
+					   .AtLeast(5);
+
+var atMostOne = dinos.Where(dino =&gt; dino.Name.StartsWith(&quot;H&quot;))
+			         .AtMost(1);
+</code></pre>
+<h2 id="countby-y-distinctby"><code>CountBy</code> y <code>DistinctBy</code></h2>
+<p>El primer método nos ayudará a contar las ocurrencias de determinada propiedad dentro de los objetos de nuestra colección, por ejemplo, si quisiéramos saber la ocurrencia tiene cada altura de dinosaurios en nuestra base de datos podríamos hacer algo como esto:</p>
+<pre><code class="language-csharp">var countByHeight = dinos.CountBy(d =&gt; d.Height);
+</code></pre>
+<p>Que devuelve un diccionario donde cada una de sus entradas es <em>Valor, Ocurrencia</em></p>
+<p>El segundo método nos permite establecer una propiedad con la cual diferenciaremos a los elementos. Esta propiedad nos servirá para discriminar elementos que tengan el valor de dicha propiedad repetida. Este método es útil cuando estamos buscando colecciones sin elementos repetidos. Por ejemplo, en este caso estamos buscando dinosaurios sin altura repetida:</p>
+<pre><code class="language-csharp">var distinctByHeight = dinos.DistinctBy(d =&gt; d.Height);
+</code></pre>
+<h2 id="fallbackifempty"><code>FallbackIfEmpty</code></h2>
+<p>Este método me recuerda un poco al <a href="..\null-coalescing" target="_blank">operador null-coalescing</a>, ya que realiza una tarea similar: comprueba si la colección está vacía, y si lo está, devuelve el valor que le indicamos como argumento. Por ejemplo, si buscamos un dinosaurio cuyo nombre comience con <em>Y</em>, y si no existe que nos regrese una colección con un solo elemento:</p>
+<pre><code class="language-csharp">var dinosaursWithY = dinos.Where(d =&gt; d.Name.StartsWith(&quot;Y&quot;)).FallbackIfEmpty(new Dinosaur[]
+{
+    new Dinosaur { Name = &quot;Noexistesaurus&quot; }
+});
+</code></pre>
+<h2 id="maxby-y-minby"><code>MaxBy</code> y <code>MinBy</code></h2>
+<p>Honestamente cuando por primera vez usé <em>LINQ</em>, esperaba que estos métodos existieran, pero para mi sorpresa no era así. Si bien tenemos los métodos <code>Max</code> y <code>Min</code>, estos no realizan la misma tarea. <code>MaxBy</code> y <code>MinBy</code> permiten indicar el criterio mediante el cual queremos diferenciar a los elementos de nuestra colección. Por ejemplo, para obtener al dinosaurio más alto y al más ligero:</p>
+<pre><code class="language-csharp">var tallestDinosaur = dinos.MaxBy(d =&gt; d.Height);
+
+var lightestDinosaur = dinos.MinBy(d =&gt; d.Weight);
+</code></pre>
+<h2 id="takelast-y-skiplast"><code>TakeLast</code> y <code>SkipLast</code></h2>
+<p>Si ya estás familiarizado con los métodos <code>Take</code> y <code>Skip</code> no hay mucho que entender aquí. Estos métodos nos ayudan a seleccionar los últimos <em>n</em> elementos de una colección o a <em>saltárnoslos</em>. Por ejemplo, para elegir los últimos dos y elegir todos menos los últimos dos:</p>
+<pre><code class="language-csharp">var ultimosDos = dinos.TakeLast(2);
+
+var todosMenosUltimosDos = dinos.SkipLast(2);
+</code></pre>
+<h2 id="takeuntil-y-skipuntil"><code>TakeUntil</code> y <code>SkipUntil</code></h2>
+<p>De manera similar a <code>Take</code> y <code>Until</code> del <em>LINQ</em> regular, estos métodos realizan la tarea de &quot;tomar&quot; o &quot;saltarse&quot; objetos en una colección, con la diferencia de que en este caso no se indica una cantidad específica de elementos, sino que se emplea una condición para determinar hasta qué punto de colección se seleccionarán los elementos que contiene. Por ejemplo, para seleccionar todos los dinosaurios hasta que aparezca uno cuya altura sea mayor o igual a 5 metros:</p>
+<pre><code class="language-csharp">var dinosNoTanAltos = sortedByHeight.TakeUntil(d =&gt; d.Height &gt;= 5);
+</code></pre>
+<p>O para descartar todos los dinosaurios hasta que aparezca uno cuyo peso sea mayor a 6000 kilogramos:</p>
+<pre><code class="language-csharp">var dinosNoTanLigeros = sortedByWeight.SkipUntil(d =&gt; d.Weight &gt;= 6000);
+</code></pre>
+<h2 id="en-conclusion">En conclusión</h2>
+<p>Podrás pensar que este paquete no es la gran cosa (en este post únicamente hablé de cosas sencillas) ya que es fácil implementar nosotros mismos las funcionalidades que este ofrece, sin embargo, ponte a pensar en lo tedioso y propenso a errores que eso puede resultar. Mejor haz uso de esta pequeña biblioteca que te podrá sacar de algun apuro más de una vez.</p>
+<h2 id="instalacion">Instalación</h2>
+<p>Para instalarlo basta con instalar el <a href="https://www.nuget.org/packages/morelinq/" target="_blank">paquete de NuGet</a> morelinq.</p>
+<pre><code>PM&gt; Install-Package morelinq
+</code></pre>
+<p>Si deseas ver el maravilloso código detrás de este paquete puedes visitar el <a href="https://github.com/morelinq/MoreLINQ" target="_blank">proyecto en GitHub</a>. Tengo que decirlo, el de MoreLINQ es uno de los códigos mejores estructurados y más entendibles que he visto en mucho, mucho tiempo.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

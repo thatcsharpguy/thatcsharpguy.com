@@ -1,1 +1,126 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>¿Cuántas veces te ha tocado usar una aplicación que de pronto deja de responder? o peor aún, ¿cuántas veces tus aplicaciones se han quedado congeladas? esto sucede muchas veces porque el hilo encargado de manejar la interfaz gráfica está muy ocupado haciendo alguna tarea que le impide responder a la interacción con el usuario... y este problema es casi siempre causado por el desarrollador.</p>
+<p>Es común que este tipo de encrucijadas se resuelvan mediante la creación de hilos explícitamente. Tu creas tarea y le pides a un hilo que la ejecute, mientras tanto, programas al hilo principal para que esté al tanto de cuando esta tarea se completara para continuar trabajando con el resultado de dicha tarea. Es más, seguramente tu llegaste a trabajar con los famosos <code>Thread</code>, pero si no lo hiciste, te recomiendo que busques un poco de información sobre el manejo de hilos en C#, pero antes, continúa leyendo.</p>
+<p>En este post voy a hablar acerca de uno de los mejores tipos de <a href="../../tv/azucar-sintactica">azúcar sintáctica</a> que existen en el lenguaje de programación C#. Y con ello me refiero a las palabras <code>async</code> y <code>await</code>. Pero antes voy a introducir el código de ejemplo que estaré usando para esta demostración.</p>
+<h2 id="bloqueo-de-la-ui">Bloqueo de la UI</h2>
+<p>Para este post estoy usando <a href="../../tv/xamarin-forms" target="_blank">Xamarin.Forms</a>, y es una app bastante sencilla (cuyo código fuente debes descargar en <a href="https://github.com/ThatCSharpGuy/AsyncAwait" target="_blank">este enlace</a>) que contiene unos cuantos botones y una barra de progreso. En el siguiente código hace que cada 100 milisegundos la barra de progreso se mueva, así hasta llegar a 100:</p>
+<pre><code class="language-csharp">void EjecutaTarea()
+{
+    ProgressBar.Progress = 0;
+    for (int i = 0; i &lt; 100; i++)
+    {
+        Task.Delay(100).Wait(); // Retardo
+        ProgressBar.Progress = ((double)i + 1) / 100;
+    }
+}
+</code></pre>
+<p>Aunque... en realidad el usuario no lo ve, ya que cuando nosotros llamamos al método <code>EjecutaTarea</code> la interfaz es bloqueada mientras se realiza la tarea, algo como lo que se muestra en el siguiente diagrama:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__asyncawait__normal.png&quot; title=<>Bloqueo de hilo</> /&gt;</p>
+<h2 id="task">Task</h2>
+<p>Para evitarnos el bloquear el hilo podemos usar clase <code>Task</code>. Esta clase es una abstracción de un hilo, esta representa una tarea que puede ejecutarse en un hilo separado de la aplicación principal. Esta clase tiene dos variantes: una no genérica (<code>Task</code>) y una genérica (<code>Task&lt;T&gt;</code>). La primera nos ayuda cuando la tarea que le estamos asignando no debe regresar algun valor, mientras que la segunda nos ayuda cuando sí esperamos un valor de retorno.</p>
+<h4 id="breve-aclaracion">Breve aclaración</h4>
+<p>Es una restricción establecida que no puedes modificar la interfaz gráfica fuera de un hilo que no sea el que la haya creado, es por eso que tanto en Android como en iOS existen mecanismos que le indican a una tarea que se debe ejecutar en el hilo de la interfaz gráfica. En el caso de Xamarin.Forms estos comportamientos están englobados en el método <code>BeginInvokeOnMainThread</code> que, en un dibujo, hace algo como esto:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__asyncawait__begin-invoke.png&quot; title=<>Invocación en el hilo de UI</> /&gt;</p>
+<h3 id="creando-asincronia-con-task.run">Creando asincronía con Task.Run</h3>
+<p>Para <em>crear-ejecutar</em> una tarea usaremos el método estático <code>Run</code> de la clase <code>Task</code>. Este método recibe un tipo <code>Action</code> o un tipo <code>Func&lt;T&gt;</code> (dependiendo de si queremos devolver un valor o no). El <em>action</em> o <em>func</em> es el código que queremos asociar con esa tarea. Vamos a tomar nuestro código anterior y envolverlo dentro de una <code>Task</code>:</p>
+<pre><code class="language-csharp">void EjecutaTareaAsincrona()
+{
+    ProgressBar.Progress = 0;
+    Task.Run(() =&gt;
+    {
+        for (int i = 0; i &lt; 100; i++)
+        {
+            Task.Delay(100).Wait(); // Retardo
+            Device.BeginInvokeOnMainThread(() =&gt;
+            {
+                ProgressBar.Progress = ((double)i + 1) / 100;
+            });
+        }
+    });
+}
+</code></pre>
+<p>Hasta este punto la tarea se ejecutará en un hilo distinto al que en el que fue lanzada. Y mientras que esto ya no bloquea la interfaz, puede que no sea exactamente lo que estamos buscando, y es que cuando llamamos a <code>EjecutaTareaAsincrona</code> se dispara un nuevo hilo y la ejecución del código subsecuente continua, sin importarle que la tarea que acaba de lanzar termine o falle (una técnica conocida como <em>fire and forget</em>). Algo como lo que se ve en el siguiente diagrama:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__asyncawait__simple-task.png&quot; title=<>Fire and forget</> /&gt;</p>
+<h2 id="async-y-await">async y await</h2>
+<p>Para solucionar ese <em>problema</em> es cuando aparecen las palabras mágicas: <code>async</code> y <code>await</code>. Las dos deben ser usadas en conjunto, aunque en realidad <code>await</code> es quien depende de <code>async</code>. Modifiquemos un poco el código anterior para hacer uso de este par de palabras:</p>
+<pre><code class="language-csharp">async Task EjecutaTareaAsync()
+{
+    ProgressBar.Progress = 0;
+    await Task.Run(() =&gt;
+    {
+        for (int i = 0; i &lt; 100; i++)
+        {
+            Task.Delay(100).Wait(); // Retardo
+            Device.BeginInvokeOnMainThread(() =&gt;
+            {
+                ProgressBar.Progress = ((double)i + 1) / 100;
+            });
+        }
+    });
+}
+</code></pre>
+<p>Primero, ¿notaste la palabra <code>async</code> en la firma del método? esta palabra reservada tiene una sola función: habilitar la palabra <code>await</code> dentro del cuerpo del método.</p>
+<p>Segundo: Cambió el tipo de retorno del método de <code>void</code> a <code>Task</code>, esto es una práctica estándar, ya que <code>Task</code> nos ayudará en el manejo de las excepciones que puedan llegar a ocurrir mientras se ejecuta el código. Recuerda: no es buena idea usar <code>async</code> en combinación con <code>void</code> salvo que se trate de un manejador de eventos.</p>
+<p>Tercero: Pusimos la palabra <code>await</code> justo antes de ejecutar la tarea. Es aquí donde por fin <em>&quot;controlamos&quot;</em> los hilos. <strong>Lo que hace esta palabra reservada es indicarle al programa que queremos que la tarea se ejecute en otro hilo, pero que cuando termine regrese y termine de ejecutar lo que le quedó pendiente en el hilo del que la lanzó</strong>. Algo como lo que se muestra en este diagrama:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__asyncawait__async.png&quot; title=<>Async, sin bloqueo</> /&gt;</p>
+<p>Se dice que <em>async</em> y <em>await</em> son contagiosos, ya que una vez que lo usas prácticamente todo tu código relacionado con un método asíncrono también se vuelve asíncrono. Así que para beneficiarnos realmente de la asincronía también debemos llamar a el método asíncrono de la siguiente manera <code>await EjecutaTareaAsync</code>, sí, con <code>await</code>.</p>
+<p>Hay todavía un montón de cosas por hablar sobre <em>async</em> y <em>await</em>, pero para no hacer tan largo este post, pronto subiré otro explicando algunas operaciones más <em>avanzadas</em>. Pero puedes irlas descubriendo en cuanto bajes <a href="https://github.com/ThatCSharpGuy/AsyncAwait" target="_blank">app de ejemplo</a>.</p>
+<blockquote>
+<p>Puedes ver mi otro post sobre <a href="..\async-await-2" target="_blank">cómo ejecutar tareas paralelamente</a> o este otro sobre <a href="..\async-await-3" target="_blank">cómo cancelarlas</a>.</p>
+</blockquote>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

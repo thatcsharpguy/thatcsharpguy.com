@@ -1,1 +1,146 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>A pesar de que C# no tenga un preprocesador de código dedicado (tal como lo tiene C), aún podemos hacer uso de algunas instrucciones que modifican el comportamiento del compilador, a estas palabras se les conoce como <strong>directivas</strong>.</p>
+<h3 id="sintaxis">Sintaxis</h3>
+<p>La sintaxis de una directiva es simple: comienza por el símbolo <code>#</code> seguido inmediatamente por la instrucción para el compilador. Por ejemplo:</p>
+<pre><code class="language-csharp">#define esta_es_una_directiva
+#region Directivas
+#if esta_es_una_directiva
+#endif
+#endregion
+</code></pre>
+<h3 id="instrucciones-disponibles">Instrucciones disponibles</h3>
+<p>Podemos dividir las directivas dentro estas categorías:</p>
+<h4 id="definicion-de-simbolos-de-compilacion">Definición de símbolos de compilación</h4>
+<p>Primero que nada: En C#, un símbolo de compilación es una palabra (distinta de <code>true</code> o <code>false</code>) que es definida al momento de compilar el programa. Normalmente es el entorno en el que desarrollamos el encargado de definir dichos símbolos, por ejemplo, en Visual Sutdio cuando ejecutamos un programa en configuración Debug, el símbolo <code>DEBUG</code> es definido para nuestro código, o en Xamarin.Forms los símbolos <code>WINDOWS</code>, <code>IOS</code> y <code>ANDROID</code> son definidos dependiendo del proyecto que estamos compilando.</p>
+<p>Pero nosotros también podemos definirlos mediante el uso de la directiva <code>#define [símbolo]</code> y borrar la definición mediante <code>#undef [símbolo]</code>. Mira el siguiente código:</p>
+<pre><code class="language-csharp">#define HOLA
+#define mundo
+#define PIZZA
+#undef mundo
+</code></pre>
+<p>En este caso para el archivo quedarán definidos los símbolos <code>HOLA</code> y <code>PIZZA</code>, estas definiciones se hacen con una sola intención, que veremos más adelante. Hay que señalar que las definiciones deben ser las primeras instrucciones en cada archivo.</p>
+<h4 id="compilacion-condicional">Compilación condicional</h4>
+<p>Las directivas <code>#if</code>, <code>#else</code>, <code>#elif</code> y <code>#endif</code> permiten modificar el código que el compilador toma en cuenta para la compilación, funcionan de modo similar a un <code>if</code> en C#: <code>#if [condición]</code>, salvo que las condiciones simplemente son si determinado símbolo está definido o no, por ejemplo:</p>
+<pre><code class="language-csharp">#if HOLA &amp;&amp; mundo
+Console.WriteLine(&quot;Hola mundo&quot;);
+#elif HOLA
+Console.WriteLine(&quot;Hola&quot;);
+#elif mundo
+Console.WriteLine(&quot;Hola&quot;);
+#else
+Console.WriteLine(&quot;...&quot;);
+#endif
+
+#if (HOLA || mundo) &amp;&amp; PIZZA
+Console.WriteLine(&quot;Hola o mundo y ¡pizza!&quot;);
+#endif
+</code></pre>
+<p>El resultado de la ejecución es</p>
+<pre>
+Hola  
+Hola o mundo y ¡pizza!
+</pre>  
+<p>Los usos de la compilación condicional son muy variados, desde indicar que cierta porción de código únicamente se compile cuando estamos vamos a ejecutar una versión de prueba de nuestra aplicación hasta compilar distinto código fuente de acuerdo a la plataforma en la que se estará ejecutando la aplicación.</p>
+<h4 id="generar-errores-y-warnings">Generar errores y warnings</h4>
+<p>Podemos usar las directivas <code>#error</code> y <code>#warning</code> para hacer que el compilador &quot;encuentre&quot; errores y advertencias en nuestro código. La sintaxis es la siguiente: <code>#error [mensaje]</code> y <code>#warning [mensaje]</code>, por ejemplo:</p>
+<pre><code class="language-csharp">#warning It is dangerous to go alone!
+#error Hola! soy un error de compilación
+</code></pre>
+<p>Pero, ¿para qué querríamos provocar errores o <em>warnings</em> en nuestro código? yo creo que nadie. Sin embargo, usando la compilación condicional podemos &quot;impedir&quot; que el código se compile a menos que alguna configuración se cumpla, es por eso que normalmente estas directivas vienen rodeadas de <code>#if</code>, <code>#endif</code> o <code>#elif</code>:</p>
+<pre><code class="language-csharp">#if !DEBUG
+#error Whoops, este código solamente puede ser usado en configuración debug
+#endif
+</code></pre>
+<h4 id="supresion-de-warnings">Supresión de <em>warnings</em></h4>
+<p>Del mismo modo que podemos crear <em>warnings</em>, también podemos instruir al compilador a que ignore algunas de estas mediante el uso de la directiva <code>#pragma warning disable ([identificador de advertencias])</code>.</p>
+<p>Nunca ha sido bueno ignorar las advertencias en nuestro código ... sin embargo se me ocurren dos escenarios principales:</p>
+<ul>
+<li>Cuando accederemos al código de nuestro programa mediante reflexión y el compilador nos advierte que no estamos usando determinada propiedad o método.</li>
+<li>Cuando estamos implementando una interfaz y nuestro código únicamente llama a algunos métodos de la interfaz</li>
+</ul>
+<p>Cuando deshabilitamos el reconocimiento de advertencias con la directiva anterior, el efecto permanece hasta el fin del archivo, pero podemos deshabilitar dicho efecto usando la directiva <code>#pragma warning restore ([identificador de advertencias])</code>. Tomemos como ejemplo esta porción de código que como te podrás imaginar, provoca unas cuantas advertencias.</p>
+<pre><code class="language-csharp">int x = 0;
+return;
+int zero = 0;
+if (1 != null) ;
+</code></pre>
+<p>&lt;img src=&quot;/images/directives__warnings.png&quot; title=<>Warnings</> /&gt;</p>
+<p>Podemos deshabilitar las advertencias una por una:</p>
+<pre><code class="language-csharp">#pragma warning disable 219
+            int x = 0;
+</code></pre>
+<p>Varias a la vez:</p>
+<pre><code class="language-csharp">#pragma warning disable 162,219
+            int zero = 0;
+</code></pre>
+<p>O simplemente todas a la vez:</p>
+<pre><code class="language-csharp">#pragma warning disable
+            if (1 != null) ;
+</code></pre>
+<h4 id="organizacion-de-codigo">Organización de código</h4>
+<p>Estas son es seguramente las directivas con las que más frecuentemente te has encontrado, y es que su uso es mucho más común que las otras, su finalidad es agrupar físicamente bloques de código dentro de nuestro archivo fuente, además de que algunos IDE permiten colapsar el texto entre ella. Es importante decir que su inclusión no modifica el comportamiento del compilador.</p>
+<p>Por ejemplo:</p>
+<pre><code class="language-csharp">#region Super bloque de código
+Console.WriteLine(&quot;Hola&quot;);
+#endregion
+</code></pre>
+<p>Que en Visual Studio se ve así:</p>
+<p>&lt;img src=&quot;/images/directives__region.gif&quot; title=<>Region directive</> /&gt;</p>
+<h4 id="para-finalizar">Para finalizar</h4>
+<p>Como puedes ver, las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a &quot;forzar&quot; que ciertas condiciones se cumplan para que siquiera compile. También nos ayudan a organizar nuestro código en bloques físicos dentro del archivo fuente.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

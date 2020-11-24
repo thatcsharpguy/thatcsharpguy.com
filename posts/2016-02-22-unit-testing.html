@@ -1,1 +1,85 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>More often than we think, we, as developers tend to believe that our code is bugless. It's all right, we wrote it, we tested two or three cases and it never failed, no exceptions, so it is ready be pushed to production. But what happens when someone asks us &quot;did you test the code?&quot;, we can't say yes without getting nervous.</p>
+<p>It happens, I've done it and I'm not proud of it. Trying to amend my mistakes I'll try to explain what is and present a way to perform testing using Visual Studio.</p>
+<p>There <a href="http://softwaretestingfundamentals.com/software-testing-levels/" target="_blank" rel="nofollow">are 4</a> kinds of testing:</p>
+<h3 id="acceptance-testing">Acceptance testing</h3>
+<p>The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery.</p>
+<h3 id="system-testing">System testing</h3>
+<p>The purpose of this test is to evaluate the system’s compliance with the specified requirements.</p>
+<h3 id="integration-testing">Integration testing</h3>
+<p>The purpose of this level of testing is to expose faults in the interaction between integrated units.
+I've left this at the end on purpose:</p>
+<h3 id="unit-testing">Unit testing</h3>
+<p>Is a level of the software testing process where individual components of a software are tested. The purpose is to validate that each unit of the software performs as designed. It can be done by the same developer that created that unit of software, another team or even an external entity.</p>
+<p>To perform testing on a unit of software we must have two things: A <strong>set of input values</strong> and <strong>the expected outputs for that set</strong> of values. The structure for a test is the following:</p>
+<p>&lt;img src=&quot;/images/unit-testing__test-explanation-2.png&quot; title=<>Test explanation</> /&gt;</p>
+<p><strong>Arrange</strong>: <em>Here is where we declare the input values for the component we are testing and the expected output</em><br />
+<strong>Act</strong>: <em>In this section we execute the unit we are testing, and store the ouputs to compare them later</em><br />
+<strong>Assert</strong>: <em>By this point we must compare our exepected output against the actual output of the unit we tested, <strong>note that we are not returning a value, we're just asserting something</strong>.</em></p>
+<p>It is easy to perform unit testing using Visual Sudio. Start by adding a new Project to your solution. When the window shows up, search for Unit Test Project in the installed templates:</p>
+<img src="/images/unit-testing__add-new-test-project.png" />
+<p>After the project is created it'll contain a default class.
+Open it and observe that both the class and it's method are decorated with <code>TestClass</code> and <code>TestMethod</code> respectively. These decorators allow our tests to be discovered by Visual Studio's Text Explorer (to open the Text Explorer go to <em>Test &gt; Windows &gt; Test Explorer</em>).</p>
+<p><strong>Remember, the Unit Test Project is still a Project, so we need to add any references to other projects within our solution to test them</strong>.</p>
+<p>After that, rename the default class and write your own tests following the structure shown above: Arrange, Act and Assert. To allow Test Explorer to show our tests we need to build the solution we are working with, after that you'll have somewhat like this:</p>
+<img src="/images/unit-testing__test-explorer-not-ran.png" />
+<p>From this window we can select several actions, like run all tests, just one or all those which have failed. I've selected <em>Run All</em>, and this is what I've got:</p>
+<img src="/images/unit-testing__test-explorer-ran.png" />
+<p>Pretty cool, isn't it? Now you should go ahead and unit test your projects whenever possible. If you want to see the code I used for this post check it out on <a href="https://github.com/fferegrino/Xevenshtein">GitHub</a> or download it <a href="https://github.com/fferegrino/Xevenshtein/releases/download/b-p-1/Xevenshtein-test-post.zip">here</a>.</p>
+<p>In the future we'll see how to create and run tests in a mobile device using NUnit Lite, or how to use Xamarin.UITesting.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

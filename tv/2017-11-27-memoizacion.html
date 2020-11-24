@@ -1,1 +1,68 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Sí, memoización, no, no memorización.</p>
+<p>La memorización es una técnica de optimización  usada en la programación que consiste en almacenar los resultados de funciones previamente calculadas para evitar ejecutarlas de nuevo cuando las necesitemos, en otras palabras, es básicamente &quot;cachear&quot; los resultados.</p>
+<p>Toma por ejemplo el cálculo de la sucesión de fibonacci, que como vimos, en un video anterior. Esto definido así:</p>
+<pre><code>Fib(0) = Fib(1) = 1
+Fib(n) = Fib(n-1) + Fib(n-2)
+</code></pre>
+<p>Como puedes ver, para el fibonacci de 5, llega un momento en el que empezamos a calcular valores que ya tenemos, y visto de esta manera estamos únicamente calculando 5 valores diferentes de las 13 operaciones que en &quot;realidad&quot; tendríamos que hacer.</p>
+<p>Así que, ¿que pasa si después de calcularlo la primera vez, lo almacenamos en una tabla o en un arreglo? Así, la siguiente vez que el valor sea requerido, podemos buscar si ya existe, y si sí, devolvemos el valor ya calculado. De otro modo vamos a tener que ejecutar la función y todas las que esta llame, nuevamente.</p>
+<p>Esto funciona bastante bien cuando el costo de ejecutar una función es muy alto, y se desperdiciarían recursos calculando valores que ya hemos calculado previamente. La memorización reduce el tiempo de ejecución a costa del espacio de almacenamiento, ya que, como vimos, para evitar calcular almacena los valores. Y es benéfica cuando de atacar problemas cuyas subsoluciones se deben resolver repetidamente, con la gran ventaja de solo calcular algunas cosas unas cuantas veces.</p>
+<p>Existen lenguajes que soportan y proveen una forma sencilla de implementar esta técnica, como a través de un decorador o una palabra clave... sin embargo existen otros en los que esta se tiene que implementar manualmente mediante el uso de alguna estructura de datos como un arreglo o un árbol binario.</p>
+<p>Además, la memorización juega un rol importante en la técnica de programación conocida como programación dinámica, de la cual muy pronto haré un video.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

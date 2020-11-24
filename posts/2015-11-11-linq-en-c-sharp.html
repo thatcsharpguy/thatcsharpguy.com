@@ -1,1 +1,117 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Es muy probable que alguna vez en tu vida de desarrollador hayas escuchado hablar de una consulta SQL, pero si no, te cuento que una consulta es una instrucción que se le da a <em>la computadora</em> para que busque registros dentro de una tabla y nos entregue los resultados de dicha búsqueda. Una consulta en SQL se ve así:</p>
+<pre><code class="language-sql">SELECT Name, Surname, Age
+FROM Students
+WHERE Age &gt; 10
+ORDER BY Name
+</code></pre>
+<p>Durante mucho tiempo, el poder de las consultas se mantuvo únicamente para las bases de datos, sin embargo, en el 2007 Microsoft liberó junto con la versión 3.5 de su framework, una herramienta llamada <strong>LINQ</strong> que proviene de <strong>L</strong>anguage <strong>IN</strong>tegrated <strong>Q</strong>uery (personalmente prefiero escribir Linq con minúsculas... cuestión de gustos).
+<br />
+<br />
+Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos. Para poder usarlo, se requiere de un <strong>proveedor</strong> que no es más que una especie de traductor que toma nuestra consulta y la convierte en algo que pueda ejecutar el origen de datos. Existen proveedores dentro del framework que nos permiten usar Linq a objetos, Linq a XML y Linq a SQL.</p>
+<h3 id="linq-to-objects">Linq to Objects</h3>
+<p>Para esta serie de posts, me centraré en Linq a objetos (los otros tienen un funcionamiento similar) que opera sobre colecciones de objetos en memoria que implementan la interfaz <code>IEnumerable</code> como arreglos, <code>List</code>, <code>Vector</code>...</p>
+<p>Haciéndo una analogía a la consulta con la que inicié el post, supongamos que tenemos una lista de alumnos llamada <code>students</code>:</p>
+<pre><code class="language-csharp">List&lt;Student&gt; students = new List&lt;Student&gt;
+{
+    new Student { Age = 11, Name = &quot;Laura&quot;, Surname = &quot;Rodríguez&quot; },
+    new Student { Age = 9, Name = &quot;Francisco&quot;, Surname=&quot;Jímenez&quot; },
+};
+</code></pre>
+<p>Formar una consulta simple es bastante sencillo, y muy parecido a lo que haríamos en SQL, lo que necesitamos hacer es:</p>
+<ol>
+<li>Nombrar una variable que contendrá temporalmente cada uno de los elementos contenidos en la colección sobre la que vamos a ejecutar la consulta. Para nuestro caso, la llamarémos <code>s</code>.</li>
+<li>Indicar el origen de datos a consultar. En nuestro caso, este origen de datos es nuestra lista <code>students</code>.</li>
+<li>Indicar las condiciones que queremos que nuestra consulta compruebe.</li>
+<li>Realizar una acción con los elementos que cumplan las condiciones previamente indicadas.</li>
+</ol>
+<p>Para ejecutar la consulta del inicio del post sobre nuestra lista de alumnos, debemos usar la sintaxis siguiente:</p>
+<pre><code class="language-csharp">var olderStudents = from s in students
+                    where s.Age &gt; 10
+                    select s;
+</code></pre>
+<p>Es fácil identificar las partes que la componen:</p>
+<ul>
+<li><code>from s</code> hace referencia a la <em>variable temporal</em> de la que les contaba un poco antes.</li>
+<li><code>in students</code> hace referencia a la colección sobre la que vamos a ejecutar la consulta, esto hace que nuestra variable <code>s</code> sea de tipo <code>Student</code></li>
+<li><code>where s.Age &gt; 10</code> hace referencia a las condiciones que queremos que nuestra consulta compruebe aquí podemos usar condiciones más complejas usando los operadores lógicos <code>||</code> o <code>&amp;&amp;</code>.</li>
+<li><code>select s</code> hace referencia a la acción que queremos, en este caso únicamente estamos seleccionando los elementos que conicidan con <code>s.Age &gt; 10</code></li>
+</ul>
+<h3 id="ejecucion-retrasada">Ejecución retrasada</h3>
+<p>Una cosa que es importante saber es que el <strong>declarar una consulta Linq no implica que se ejecute en el momento de la declaración</strong>. Lo que quiere decir esto es que debemos ver el <strong>resultado de una consulta como una referencia a cómo se ejecuta la consulta, no el resultado de la consulta ejecutada</strong>, es por eso que muchas veces veran que se usa <a href="var-en-c-sharp">la palabra <em>var</em></a> junto con Linq. En realidad la consulta será ejecutada cuando se necesite.</p>
+<p>Para explicar con un ejemplo, volviendo a nuestra consulta <code>olderStudents</code>, sabemos que solamente uno de los objetos cumple con la condición establecida de <code>s.Age &gt; 10</code>, es por eso que cuando queremos contar los elementos con <code>Count()</code>, el resultado es <code>1</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine(olderStudents.Count()); // 1
+</code></pre>
+<p>Ahora, si agregamos un nuevo elemento a nuestra lista original <code>students</code>:</p>
+<pre><code class="language-csharp">students.Add(new Student { Age = 23, Name = &quot;Antonio&quot;, Surname = &quot;Feregrino&quot; });
+</code></pre>
+<p>Y volvemos a contar los objetos dentro de de nuestra consulta <code>olderStudents</code>, el resultado será <code>2</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine(olderStudents.Count()); // 2
+</code></pre>
+<p>A esta característica se le conoce como <strong>ejecución retrasada</strong> o <strong>deferred execution</strong>. Podemos evitar esto al convertir nuestra consulta a una colección <em>estática</em>, como una lista o un arreglo utilizando los métodos que nos entrega Linq, como <code>ToList</code> o <code>ToArray</code>. Al hacer esto se ejecutará la consulta y se perderá la referencia a esta, con lo que cualquier modificación que sufran los orígenes de datos, no afectará nuestro resultado. Esto se logra así desde la declaración de la consulta, o más adelante llamando <code>ToList</code> o <code>ToArray</code> sobre la consulta.</p>
+<pre><code class="language-csharp">// Al momento de la declaración
+List&lt;Student&gt; olderStudentList = (from s in students
+                                  where s.Age &gt; 10
+                                  select s).ToList();
+
+// En cualquier otro momento		  
+var olderStudentsArray = olderStudents.ToArray();
+</code></pre>
+<h4 id="lo-que-sigue">Lo que sigue</h4>
+<p>Las consultas simples, como la que se usa en este post, son solo la punta del iceberg de todo lo que se puede hacer con Linq, en futuros post veremos las posibilidades que tenemos para hacer consultas más complejas para obtener promedios, sumas, mínimos, hacer uniones, agrupamientos, intersecciones, distinciones... en fin, una enorme cantidad de cosas. Además de que veremos qué son los tipos anónimos en C#.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

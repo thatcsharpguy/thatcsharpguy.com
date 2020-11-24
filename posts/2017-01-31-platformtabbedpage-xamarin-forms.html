@@ -1,1 +1,248 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Entre la gran variedad de páginas pre-cargadas que nos ofrece Xamarin.Forms tenemos la opción de elegir la <code>TabbedPage</code> que en realidad no es más que un contenedor de otras páginas y que las hace accesibles a través de <em>tabs</em>. Seguramente la has usado y piensas que es genial, lo que no es tan genial es que es un poco... estática y no permite mucha personalización.</p>
+<p>Es por eso que decidí crear un <a href="https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/" target="_blank">custom renderer</a> que permita darle un poco más de estilo, haciendo que se vea más nativa para tus usuarios.</p>
+<h2 id="uso">Uso</h2>
+<p>Para comenzar a usar estas tabs tienes dos opciones: instalar el <a href="https://www.nuget.org/packages/PlatformTabbedPage/" target="_blank">paquete de NuGet</a> en tus tres proyectos o descargar el <a href="https://github.com/messier16/PlatformTabbedPage" target="_blank">código fuente</a> y colocarlo en tu aplicación.</p>
+<pre><code>PM&gt; Install-Package PlatformTabbedPage
+</code></pre>
+<p>Después, tienes que crear una página que derive de <code>PlatformTabbedPage</code>:</p>
+<pre><code class="language-csharp">public class HomeTabbedPage : PlatformTabbedPage
+</code></pre>
+<p>Y como normalmente haces con las <code>TabbedPage</code> originales, añadir las páginas hijo en el constructor. Es <strong>muy importante</strong> que notes cómo es que el ícono no termina en &quot;.png&quot;, ya que de otro modo las tabs no funcionarán correctamente en iOS:</p>
+<pre><code class="language-csharp">    public HomeTabbedPage()
+    {
+        BarBackgroundColor = App.BarBackgroundColors[3];
+        SelectedColor = App.SelectedColors[0];
+        BarBackgroundApplyTo = BarBackgroundApplyTo.None;
+
+        Children.Add(new ConfigurationPage { Icon = &quot;feed&quot; });
+        Children.Add(new BasicContentPage(&quot;YouTube&quot;) { Icon = &quot;youtube&quot; });
+        Children.Add(new BasicContentPage(&quot;Twitter&quot;) { Icon = &quot;twitter&quot; });
+        Children.Add(new BasicContentPage(&quot;Info&quot;) { Icon = &quot;info&quot; });
+    }
+}
+</code></pre>
+<p>Y obtendremos algo como esto (del lado izquierdo es la app creada con una <code>TabbedPage</code> tradicional):</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/xamarin-forms__tabbed-page__android-no-small.gif" title=""iOS no normal"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">  
+<img src="/images/xamarin-forms__tabbed-page__android-small.gif" title=""iOS no normal"" />
+</div>  
+</div> 
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">  
+<img src="/images/xamarin-forms__tabbed-page__ios-no-small.gif" title=""iOS no normal"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">  
+<img src="/images/xamarin-forms__tabbed-page__ios-small.gif" title=""iOS no normal"" />
+</div>  
+</div>  
+<p>Descarga el <a href=" https://github.com/messier16/PlatformTabbedPage" target="_blank">código fuente</a> para que puedas ver el ejemplo de este post.</p>
+<p>Y ahora, si quieres saber cómo es que logré esta personalización, sigue leyendo.</p>
+<h2 id="platformtabbedpage">PlatformTabbedPage</h2>
+<p>Entre las cosas que quise personalizar están el color del elemento seleccionado, el color del elemento deseleccionado, y en iOS el ícono del elemento seleccionado, ya que como viste en las imagenes anteriores en Android resulta un poco complicado resolver a primera vista qué elemento estamos viendo, mientras que en iOS resulta un poco extraño que el ícono del elemento seleccionado permanezca igual que los otros.</p>
+<h3 id="creacion-del-renderer">Creación del renderer</h3>
+<p>Comenzamos por definir una clase que derive del tipo de página que vamos a personalizar</p>
+<pre><code class="language-csharp">public class PlatformTabbedPage : TabbedPage
+</code></pre>
+<p>Luego definimos las propiedades, con su respectiva <code>BindableProperty</code> para permitir que se establezcan <em>bindings</em> a ellas:</p>
+<pre><code class="language-csharp">public static readonly BindableProperty SelectedColorProperty =
+    BindableProperty.Create(nameof(SelectedColor), typeof(Color), typeof(PlatformTabbedPage), default(Color));
+
+public Color SelectedColor
+{
+    get { return (Color)GetValue(SelectedColorProperty); }
+    set { SetValue(SelectedColorProperty, value); }
+}
+
+public static readonly new BindableProperty BarBackgroundColorProperty =
+    BindableProperty.Create(nameof(BarBackgroundColor), typeof(Color), typeof(PlatformTabbedPage), default(Color));
+
+public new Color BarBackgroundColor
+{
+    get { return (Color)GetValue(BarBackgroundColorProperty); }
+    set { SetValue(BarBackgroundColorProperty, value); }
+}
+
+public static readonly BindableProperty BarBackgroundApplyToProperty =
+    BindableProperty.Create(nameof(BarBackgroundApplyTo), typeof(BarBackgroundApplyTo), typeof(PlatformTabbedPage), BarBackgroundApplyTo.Android);
+
+public BarBackgroundApplyTo BarBackgroundApplyTo
+{
+    get { return (BarBackgroundApplyTo)GetValue(BarBackgroundApplyToProperty); }
+    set { SetValue(BarBackgroundApplyToProperty, value); }
+}
+</code></pre>
+<p>La descripción de las propiedades es la siguiente:</p>
+<ul>
+<li><code>SelectedColor</code>: El color del elemento seleccionado</li>
+<li><code>BarBackgroundColor</code>: El color de fondo de la barra, decidí ocultar con <code>new</code> la implementación por default, ya que voy a controlar el comportamiento de esta propiedad dentro de cada renderer</li>
+<li><code>BarBackgroundApplyTo</code>: Una <a href="..\c-sharp-enums" target="_blank"><i>enumeración</i></a> que indica en qué plataformas modificaremos el color de la barra, y es que en mi opinión en iOS es un poco &quot;antinatural&quot; cambiar el color de la barra.</li>
+</ul>
+<p>Además cree unos <a href="..\extension-methods-es" target="_blank">métodos de extensión</a> para trabajar con los colores, haciéndolos más claros o más oscuros además de uno que ayuda a decidir si un color es claro u obscuro, puedes encontrar más detalles en el código fuente.<br />
+Ahora sí, vamos a ver la implementación en cada plataforma:</p>
+<h2 id="ios">iOS</h2>
+<p>(para este <em>renderer</em> me basé por completo en la <a href="https://github.com/xamarinhq/app-evolve/blob/master/src/XamarinEvolve.iOS/Renderers/SelectedTabPageRenderer.cs" target="_blank">implementación</a> de la app Evolve de Xamarin)</p>
+<p>En iOS vamos a crear un <em>renderer</em> que derive de <code>TabbedRenderer</code>:</p>
+<pre><code class="language-csharp">public class PlatformTabbedPageRenderer : TabbedRenderer
+</code></pre>
+<p>Después definimos unas cuantas propiedades una para acceder al la instancia en forms de <code>PlatformTabbedPage</code> y otro par para almacenar los colores por default de la <code>UITabBar</code> original:</p>
+<pre><code class="language-csharp">PlatformTabbedPage FormsTabbedPage =&gt; Element as PlatformTabbedPage;
+UIColor DefaultTintColor;
+UIColor DefaultBarBackgroundColor;
+</code></pre>
+<p>Si alguna vez has escrito un <em>custom renderer</em> ya sabrás que el método <code>OnElementChanged</code> es llamado cada vez que se va a renderizar en pantalla el control, es por eso que dentro de él asignamos (y desasignamos) un evento que nos permitirá estar al tanto de cuando las propiedades de la barra cambien en el proyecto de forms.</p>
+<pre><code class="language-csharp">if (e.OldElement != null)
+{
+    e.OldElement.PropertyChanged -= OnElementPropertyChanged;
+}
+if (e.NewElement != null)
+{
+    e.NewElement.PropertyChanged += OnElementPropertyChanged;
+}
+</code></pre>
+<p>Además de recuperar los colores por default del TabBar en caso de que los necesitemos más adelante.</p>
+<pre><code class="language-csharp">DefaultTintColor = TabBar.TintColor;
+DefaultBarBackgroundColor = TabBar.BackgroundColor;
+</code></pre>
+<p>Una vez hecho esto llamamos a un par de métodos que nos servirán para asignar los colores que deseamos.</p>
+<pre><code class="language-csharp">SetTintedColor();
+SetBarBackgroundColor();
+</code></pre>
+<p>Ahora toca el turno de &quot;rellenar&quot; los íconos, y digo &quot;rellenar&quot; porque en realidad es necesario que hayas creado un par de íconos por cada tab, uno que se muestre por default y otro que se muestre cuando la tab está seleccionada.</p>
+<p>El truco aquí radica en que la API de iOS permite establecer dos imágenes una seleccionada y otra deseleccionada, y eso es precisamente lo que hace este renderer: toma el ícono, le añade el sufijo &quot;_active&quot; y lo coloca como la imagen que debe mostrarse cuando el elemento está seleccionado:</p>
+<pre><code class="language-csharp">if (FormsTabbedPage != null)
+{
+    for (int i = 0; i &lt; TabBar.Items.Length; i++)
+    {
+        var item = TabBar.Items[i];
+        var icon = FormsTabbedPage.Children[i].Icon;
+
+        if (item == null)
+            return;
+        try
+        {
+            icon = icon + &quot;_active&quot;;
+            if (item?.SelectedImage?.AccessibilityIdentifier == icon)
+                return;
+            item.SelectedImage = UIImage.FromBundle(icon);
+            item.SelectedImage.AccessibilityIdentifier = icon;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(&quot;Unable to set selected icon: &quot; + ex);
+        }
+    }
+}
+</code></pre>
+<p>Y básicamente eso es todo, no se requiere de más gracias a la API que nos otorga iOS y a la la propiedad <code>SelectedImage</code>.</p>
+<h2 id="android">Android</h2>
+<p>Para Android el <em>renderer</em> del que debemos derivar es <code>TabbedPageRenderer</code>... sí, distinto al de iOS:</p>
+<pre><code class="language-csharp">public class PlatformTabbedPageRenderer : TabbedPageRenderer
+</code></pre>
+<p>Se necesitan unas cuantas propiedades para preservar los colores por default:</p>
+<pre><code class="language-csharp">PlatformTabbedPage FormsTabbedPage =&gt; Element as PlatformTabbedPage;
+AndroidColor _selectedColor = AndroidColor.Black;
+AndroidColor DefaultUnselectedColor = FormsColor.Gray.Darken().ToAndroid();
+static AndroidColor BarBackgroundDefault;
+AndroidColor _unselectedColor = DefaultUnselectedColor;
+</code></pre>
+<p>En Android una página de pestñas está compuesta normalmente por un par de elementos independientes: un <code>ViewPager</code> y un <code>TabLayout</code> que se coordinan entre ellos para funcionar como un solo control, al ser parte central de este <em>renderer</em>  también necesitamos tener una referencia a ellos a nivel de clase:</p>
+<pre><code class="language-csharp">ViewPager _viewPager;
+TabLayout _tabLayout;
+</code></pre>
+<p>Ahora, dentro del importantísimo método <code>OnElementChanged</code> obtendremos las referencias el par de controles declarados arriba. El renderer contiene ambos, sin embargo no los tiene directamente accesibles si no que son del tipo <code>View</code>, es por eso que se usa <code>is</code> para identificarlos y después hacer el <em>cast</em> de manera segura:</p>
+<pre><code class="language-csharp">for (int i = 0; i &lt; ChildCount; i++)
+{
+    var v = GetChildAt(i);
+    if (v is ViewPager)
+        _viewPager = (ViewPager)v;
+    else if (v is TabLayout)
+        _tabLayout = (TabLayout)v;
+}
+</code></pre>
+<p>Obtenemos el color por default y establecemos los colores de la barra:</p>
+<pre><code class="language-csharp">BarBackgroundDefault = (_tabLayout.Background as ColorDrawable)?.Color ?? Android.Graphics.Color.Green;
+SetSelectedColor();
+SetBarBackgroundColor();
+</code></pre>
+<p>A diferencia de iOS, en Android tendremos que hacer uso de un par de métodos que son llamados cada vez que se selecciona/deselecciona una <em>tab</em>, es por eso que también son asignados dentro de el método principal:</p>
+<pre><code class="language-csharp">_tabLayout.TabSelected += TabLayout_TabSelected;
+_tabLayout.TabUnselected += TabLayout_TabUnselected;
+</code></pre>
+<p>Por último establecemos el color de todos los íconos en la barra de pestañas, y marcamos cono seleccionado el primer elemento mediante un pequeño método auxiliar:</p>
+<pre><code class="language-csharp">SetupTabColors();
+SelectTab(0);
+</code></pre>
+<p>Ahora si, la &quot;magia&quot; de los métodos que son llamados cuando se slecciona o deselecciona una pestaña: básicamente consiste en aplicar un filtro de color al ícono de la tab seleccionada, y dependiendo de qué método se haya llamado aplicar el color adecuado:</p>
+<pre><code class="language-csharp">private void TabLayout_TabUnselected(object sender, TabLayout.TabUnselectedEventArgs e)
+{
+    var tab = e.Tab;
+    tab.Icon?.SetColorFilter(_unselectedColor, PorterDuff.Mode.SrcIn);
+}
+
+private void TabLayout_TabSelected(object sender, TabLayout.TabSelectedEventArgs e)
+{
+    var tab = e.Tab;
+    tab.Icon?.SetColorFilter(_selectedColor, PorterDuff.Mode.SrcIn);
+}
+</code></pre>
+<p>Y eso es todo... básicamente el renderer de Android es un poco más complicado que el de iOS, pero nada que sea del otro mundo.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

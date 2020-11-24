@@ -1,1 +1,151 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>La reflexión en C# es solo otra de las caracterísitcas que el lenguaje nos entrega para desarrollar con él. No es una característica tan conocida por todos los desarrolladores y me atrevería a decir que de los que lo conocen, no todas la usan y es que no es necesaria usarla en todos los programas.</p>
+<p>La reflexión nos permite acceder a la información de un tipo en tiempo de ejecución. Cuando estamos escribiendo el código, somos nosotros quienes tenemos una idea general del sistema: sabemos los tipos de dato de las variables, los métodos que contienen las clases, los atributos de los miembros de estas y un sin fin de cosas más. Otro elemento que conoce <em>todo</em> de nuestro programa es el compilador, ya que sabe si estamos usando los tipos correctos para llamar a los métodos o tenemos permiso para acceder a determinado miembro de una clase.</p>
+<p>Sin embargo, una vez que se compila, el programa no tiene idea de los tipos de dato, métodos y demás complejidades del programa, por ejemplo, el siguiente programa no sabe que <code>zero</code> es del tipo <code>string</code>:</p>
+<pre><code class="language-csharp">var zero = &quot;0&quot;;
+</code></pre>
+<p>No es sino hasta que empleamos la reflexión que el programa tiene acceso a esta información a través de un tipo <code>Type</code>:</p>
+<pre><code class="language-csharp">Type type = zero.GetType();
+Console.WriteLine(type); // System.String
+</code></pre>
+<p>También se puede acceder al ensamblado al que pertenece el tipo <code>String</code>:</p>
+<pre><code class="language-csharp">Assembly assembly = type.Assembly;
+Console.WriteLine(type.Assembly); // mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+</code></pre>
+<p>Y a partir de un ensamblado podemos obtener todos sus tipos con el método <code>GetTypes</code>, en este caso, además de obteneros, también los estamos filtrando, seleccionando solo aquellos cuyo nombre comience con &quot;Int32&quot;:</p>
+<pre><code class="language-csharp">foreach (var ty in assembly.GetTypes()
+    .Where(ty.Name.StartsWith(&quot;Int32&quot;)))
+{
+    Console.WriteLine(ty);
+}
+</code></pre>
+<p>Otro de las cosas que podemos hacer empleando la reflexión, es instanciar tipos de dato a partir de una instancia de <code>Type</code> y la clase <code>Activator</code>:</p>
+<pre><code class="language-csharp">var int32Type = assembly.GetType(&quot;System.Int32&quot;);
+
+var createdInt  = Activator.CreateInstance(int32Type);
+Console.WriteLine(createdInt); // 0
+</code></pre>
+<p>Como ya habíamos visto antes, mediante los <a href="../atributos-c-sharp" target="_blank">atributos en C#</a> podemos proveer a los programas de metadatos, como es la clase <code>Smartphone</code> (cuya implementación puedes <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/blob/master/Reflexion/Smartphone.cs#L10" target="_blank">encontrar aquí</a>).</p>
+<p>El siguiente ejemplo de código obtiene todos los atributos de la propiedad <code>Carrier</code>:</p>
+<pre><code class="language-csharp">var phone = new Smartphone();
+phone.IsLocked = true;
+phone.Carrier = &quot;Entel&quot;;
+
+var t = phone.GetType();
+
+var carrierProperty = t.GetProperty(&quot;Carrier&quot;);
+
+foreach (var att in carrierProperty.GetCustomAttributes())
+{
+    Console.WriteLine(att);
+}
+</code></pre>
+<p>El resultado de ejecutar el código anterior es:</p>
+<pre>
+RequiredAttribute
+ValidCarrierAttribute
+DisplayAttribute
+</pre>
+<p>Que son los atributos que tiene la propiedad <code>Carrier</code>.</p>
+<p>Y si queremos, podemos hacer cosas un poco más complejas. Por ejemplo, si deseamos encontrar todas las propiedades que tengan <code>DisplayAttribute</code> podemos buscarlas con <a href="../linq-en-c-sharp">Linq</a>:</p>
+<pre><code class="language-csharp">var propertiesWithDisplayName = from prop in t.GetProperties()
+                                where prop.GetCustomAttributes&lt;DisplayAttribute&gt;().Any()
+                                select prop;
+</code></pre>
+<p>Para luego mostrar los valores de una manera &quot;amigable&quot;:</p>
+<pre><code class="language-csharp">foreach (var property in propertiesWithDisplayName)
+{
+    var attr = property.GetCustomAttribute&lt;DisplayAttribute&gt;();
+    Console.WriteLine(attr.Name + &quot;: &quot; + property.GetValue(phone));
+}
+</code></pre>
+<p>Ejecutar el código anterior dará como resultado:</p>
+<pre>
+Compañía: Entel
+Bloqueado: true
+</pre>  
+<p>Ya para terminar, otra de las posiblidades que nos da la reflexión en C# es la de modificar los valores de una variable o propiedad en tiempo de ejecución con solo tener su nombre. Toma en cuenta el código siguiente, en donde se solicita al usuario ingresar el nombre de una propiedad y se busca dicha propiedad en el tipo <code>Smartphone</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine(&quot;Escribe el nombre de la propiedad a modificar:&quot;);
+var propertyName = Console.ReadLine();
+var propertyToModify = phoneType.GetProperty(propertyName);
+</code></pre>
+<p>Después se verifica que la propiedad exista (el método <code>GetProperty</code> regresa <code>null</code> si no encuentra una propiedad con el nombre indicado) y si existe, solicitamos el nuevo valor para la propiedad:</p>
+<pre><code class="language-csharp">if (propertyToModify != null)
+{
+    Console.WriteLine(&quot;Escribe el valor:&quot;);
+    var value = Console.ReadLine();
+    // Efectuar conversión ... 
+}
+else
+{
+    Console.WriteLine(&quot;La propiedad &quot; + propertyName + &quot; no existe&quot;);
+}
+</code></pre>
+<p>Para efectuar la conversión debemso recurrir, nuevamente, a la reflexión. A través del método <code>SetValue</code> y la clase <code>Convert</code>:</p>
+<pre><code class="language-csharp">propertyToModify.SetValue(phone, Convert.ChangeType(value, propertyToModify.PropertyType));
+</code></pre>
+<h2 id="usos-de-la-reflexion">Usos de la reflexión</h2>
+<p>Si tu trabajo es el de ser un desarrollador de aplicaciones para usuario final, tal vez no le veas mucho uso a esta poderosa característica, sin embargo, usándola se puede</p>
+<ul>
+<li>Acceder a los metadatos y conocer los atributos de cada uno de los componentes de un programa</li>
+<li>Instanciar clases en tiempo de ejecución</li>
+<li>Tener acceso a métodos, propiedades y cualquier otro miembro privado de los tipos de dato</li>
+</ul>
+<h2 id="para-finalizar">Para finalizar</h2>
+<p>Es importante señalar que en este post doy apenas una mínima introducción a lo que se puede hacer, esperando despertar tu interés. También debes saber que hacer uso de la reflexión hará que un programa se ejecute un poco más lento que si no se usara, ya que se realizan operaciones un poco más complejas.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,214 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Y tu, ¿cómo versionas tus apps? El asignarle una versión a cada publicación de una app suele ser muy importante para cuando tenemos que resolver algún bug y le solicitamos directamente al usuario que nos indique qué versión de la app está ejecutando. También resulta útil si llevamos a cabo alguna especie de análisis de qué versiones de nuestras apps son más utilizadas e inclusive poder indicarle al usuario que la versión de la app que está ejecutando no es la más reciente.</p>
+<p>Android e iOS hacen muy sencilla la tarea de asignarle una versión a cada publicación que hacemos de alguna aplicación:</p>
+<h2 id="android">Android</h2>
+<p>En Android existen dos valores que nos sirven para establecer la versión de nuestra app, uno es público y visible para el usuario mientras que el otro es privado y disponible únicamente para nosotros y la tienda de aplicaciones.</p>
+<p>Estos dos valores son:</p>
+<ul>
+<li><p><code>android:versionCode</code> es el valor &quot;privado&quot;. El propósito de este número es el de indicar al desarrollador (y a la tienda) que una versión de una app es más reciente que otra. Este valor es siempre un entero, así que puedes usar cualquier sistema de versionamiento que desees, siempre y cuando al momento de publicar una actualización de tu app, el valor del nuevo <code>apk</code> sea mayor al que ya existía en la tienda. Toma en cuenta que el valor máximo es 2,100,000,000; así que si pensabas tener dos mil millones de actualizaciones de tu app... tal vez Android no es para ti.</p>
+</li>
+<li><p><code>android:versionName</code> es el valor que los usuarios ven en la tienda de aplicaciones, en teoría puede ser cualquier cadena de caracteres... aunque no es así. Lo recomendable es usar números y <code>.</code>, combinados en una nomenclatura clara que le indique a tus usuarios a simple vista qué versión de la app están descargando y ejecutando. No tiene ningún otro propósito más que el de ser mostrado, así que no tiene otra restricción.</p>
+</li>
+</ul>
+<p>Para modificarlos es necesario acceder al archivo <code>AndroidManifest.xml</code>. En Visual Studio o Xamarin Studio te podrás beneficiar de contar con un editor gráfico:</p>
+<p>&lt;img src=&quot;/images/nugets__versioning__androidmanifest.jpg&quot; title=<>AndroidManifest GUI editor</> /&gt;</p>
+<h2 id="ios">iOS</h2>
+<p>Para iOS la cosa no cambia mucho, igualmente existen dos valores con las mismas características (uno público y el otro privado) pero con distinto nombre:</p>
+<ul>
+<li><p><code>CFBundleVersion</code> es el valor &quot;privado&quot;, cumple el mismo propósito que el <code>versionCode</code> de Android, pero el valor de este es una cadena. Usualmente son tres números enteros positivos separados por un punto, toma en cuenta que cada vez que cargues una nueva actualización de tu app a la tienda, el valor del nuevo paquete debe ser mayor al que ya existía. Por ejemplo, si tienes un paquete con un valor de <code>1.2.3</code> no podrás cargar uno con <code>1.2.2</code> pero si uno <code>1.3.0</code>.</p>
+</li>
+<li><p><code>CFBundleShortVersionString</code> es la versión que es pública para el usuario, en teoría es una versión corta de <code>CFBundleVersion</code> aunque la documentación indica que puede ser cualquier cadena con el mismo formato que la anterior. Toma en cuenta que nuevamente, este valor debe ser algo que el usuario pueda entender fácilmente, pues serán ellos quienes lo verán más.</p>
+</li>
+</ul>
+<p>Estos valores se almacenan en el archivo Info.plist, para el cual también tenemos disponible un editor gráfico:</p>
+<p>&lt;img src=&quot;/images/nugets__versioning__infoplist.jpg&quot; title=<>Info.plist GUI editor</> /&gt;</p>
+<h2 id="version-tracking-plugin">Version Tracking Plugin</h2>
+<p>Este pequeño paquetito de NuGet nos ayuda a acceder programáticamente a estos dos números directamente desde nuestro proyecto de Forms.</p>
+<p>Con el <em>Version Tracking Plugin</em> tenemos acceso al historial de instalaciones y actualizaciones de nuestra app en el dispositivo del usuario. Es simple de usar, una vez instalados los paquetes en los tres proyectos tenemos que inicializarlo en el método <code>OnCreate</code> de la <code>MainActivity</code> y en el método <code>FinishedLaunching</code> del <code>AppDelegate</code>, bastará con llamar al siguiente método:</p>
+<pre><code class="language-csharp">CrossVersionTracking.Current.Track();
+</code></pre>
+<p>Una vez hecho esto, a través de la propiedad <code>CrossVersionTracking.Current</code> tendremos acceso a todas sus propiedades:</p>
+<h3 id="la-primera-vez">La primera vez</h3>
+<p>Saber si es la primera vez que el usuario abre nuestra app con <code>IsFirstLaunchEver</code> nos puede ayudar para darle la bienvenida, saber si es la primera vez que está ejecutando una actualización con <code>IsFirstLaunchForVersion</code> nos puede ayudar para mostrarle las nuevas características añadidas en la app. Y saber si es la primera vez que está ejecutando una nueva compilación con <code>IsFirstLaunchForBuild</code> puede ayudarnos con los <em>analytics</em> de nuestra app.</p>
+<h3 id="trabajando-con-versiones-y-builds-especificas">Trabajando con versiones y <em>builds</em> específicas</h3>
+<p>Muchas veces no nos bastará con saber si es la primera vez que una versión se está ejecutando, también debemos saber exactamente cuál es la versión, para eso podemos usar la propiedad <code>CurrentVersion</code> o si por alguna razón queremos conocer la versión que estaba previamente instalada también podemos usar <code>PreviousVersion</code> y para ir aún más atrás en la historia podemos usar <code>FirstInstalledVersion</code> y si por alguna razón queremos obtener más información, podemos usar <code>VersionHistory</code> para acceder a un historial completo de las versiones que se han instalado en el dispositivo. Para acceder a las <em>builds</em> tenemos un conjunto de propiedades similares.</p>
+<h3 id="eventos">Eventos</h3>
+<p>Con este <em>plugin</em> también podemos establecer eventos que se ejecuten cuando una versión o <em>build</em> es ejecutada por primera vez. Podemos usar <code>OnFirstLaunchOfBuild</code> y <code>OnFirstLaunchOfVersion</code> para este propósito, aunque en mi opinión, estos no son tan útiles.</p>
+<h2 id="un-ejemplo">Un Ejemplo</h2>
+<p>He montado un ejemplo sencillo, que puedes obtener en GitHub, con unas cuantas <code>Labels</code> y un par de <code>ListView</code> para mostrar los datos que se pueden recuperar con este NuGet:</p>
+<h4 id="primera-version">Primera versión</h4>
+<p>Tenemos la primera versión de la app, con los siguientes valores en el nombre de la versión y la <em>build</em>:</p>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```xml  
+<!-- Android -->
+android:versionCode="1" 
+android:versionName="1.0"  
+ 
+ 
+```  
+	</div>
+    <div class="pure-u-1-2">
+```xml  
+<!-- iOS -->
+<key>CFBundleShortVersionString</key>
+<string>1.0</string>
+<key>CFBundleVersion</key>
+<string>1.0</string>
+```  
+	</div>
+</div>
+<p>&lt;img src=&quot;/images/nugets__versioning__one.jpg&quot; title=<>Version one</> /&gt;</p>
+<h4 id="cambio-en-el-build">Cambio en el <em>build</em></h4>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```xml  
+<!-- Android -->
+android:versionCode="2" 
+android:versionName="1.0"  
+ 
+ 
+```  
+	</div>
+    <div class="pure-u-1-2">
+```xml  
+<!-- iOS -->
+<key>CFBundleShortVersionString</key>
+<string>1.0</string>
+<key>CFBundleVersion</key>
+<string>1.1</string>
+```  
+	</div>
+</div>
+<p>&lt;img src=&quot;/images/nugets__versioning__two.jpg&quot; title=<>Build bump</> /&gt;</p>
+<h4 id="cambio-en-la-version">Cambio en la versión</h4>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```xml  
+<!-- Android -->
+android:versionCode="2" 
+android:versionName="1.2"  
+ 
+ 
+```  
+	</div>
+    <div class="pure-u-1-2">
+```xml  
+<!-- iOS -->
+<key>CFBundleShortVersionString</key>
+<string>1.2</string>
+<key>CFBundleVersion</key>
+<string>1.1</string>
+```  
+	</div>
+</div>
+<p>&lt;img src=&quot;/images/nugets__versioning__three.jpg&quot; title=<>Version bump</> /&gt;</p>
+<h4 id="cambio-en-la-version-y-build">Cambio en la versión y <em>build</em></h4>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```xml  
+<!-- Android -->
+android:versionCode="2" 
+android:versionName="2.0"  
+ 
+ 
+```  
+	</div>
+    <div class="pure-u-1-2">
+```xml  
+<!-- iOS -->
+<key>CFBundleShortVersionString</key>
+<string>2.0</string>
+<key>CFBundleVersion</key>
+<string>2.0</string>
+```  
+	</div>
+</div>
+<p>&lt;img src=&quot;/images/nugets__versioning__four.jpg&quot; title=<>Bumped both</> /&gt;</p>
+<h4 id="cambio-en-la-version-y-build-1">Cambio en la versión y <em>build</em></h4>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```xml  
+<!-- Android -->
+android:versionCode="3" 
+android:versionName="3.0"  
+ 
+ 
+```  
+	</div>
+    <div class="pure-u-1-2">
+```xml  
+<!-- iOS -->
+<key>CFBundleShortVersionString</key>
+<string>3.0</string>
+<key>CFBundleVersion</key>
+<string>3.0</string>
+```  
+	</div>
+</div>
+<p>&lt;img src=&quot;/images/nugets__versioning__five.jpg&quot; title=<>Bumped both</> /&gt;</p>
+<h4 id="si-el-usuario-borra-la-app">Si el usuario borra la app...</h4>
+<p>Desde luego, toda esta información se pierde si el usuario borra la app. En este caso, el usuario borró y reinstaló la versión tres, y tras abrirla nuevamente, esta es la pantalla que aparece:</p>
+<p>&lt;img src=&quot;/images/nugets__versioning__six.jpg&quot; title=<>Fresh versioning</> /&gt;</p>
+<h2 id="instalacion">Instalación</h2>
+<p>Para instalarlo basta con instalar el <a href="https://www.nuget.org/packages/Plugin.VersionTracking/" target="_blank">paquete de NuGet</a> Plugin.VersionTracking.</p>
+<pre><code>PM&gt; Install-Package Plugin.VersionTracking
+</code></pre>
+<p>Recuerda que debes instalarlo tanto en los proyectos cliente como en el proyecto de Forms.</p>
+<p>Si deseas ver el código que le da a este <em>plugin</em> su poder, puedes visitar el <a href="https://github.com/colbylwilliams/VersionTrackingPlugin" target="_blank">proyecto en GitHub</a>, para que colabores con el creador si es que le encuentras algún error.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

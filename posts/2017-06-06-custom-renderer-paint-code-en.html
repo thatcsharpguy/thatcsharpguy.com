@@ -1,1 +1,264 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Last week, <a href="https://www.paintcodeapp.com/" target="_blank">PaintCode 3</a> was 20% off. And that gave me an idea for a post. In this post, I'll explain how to create a custom control using PaintCode and Xamarin.Forms' <em>custom renderers</em>, starting from the drawing itself, this post may be a little bit too long but I'm sure it is worth it.</p>
+<h2 id="paintcode-drawing">PaintCode drawing</h2>
+<p>If you have previously created and exported graphics using PaintCode, you probably want to skip this section. But if you haven't you must start by adding a new canvas, in this case I'll name it <em>SharpCanvas</em> and its dimensions are 100 by 100, or a 1:1 ratio, which is the same as the drawing I'll be creating:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__1sharpCanvas.png&quot; title=<>Blank SharpCanvaso</> /&gt;</p>
+<p>Then, add a <em>Frame</em>, I'll be calling it <em>SharpFrame</em>:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__2frame.png&quot; title=<>Blank SharpFrame</> /&gt;</p>
+<p>On the left panel, we need to add a color called <em>FillColor</em>, and have it set as a <em>Parameter</em>:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__3fillColor.png&quot; title=<>SharpFrame en blanco</> /&gt;</p>
+<p>Now lets add a couple of variables: <em>Width</em> y <em>Height</em> and make their values the same as our <em>frame</em> size, add them also as <em>Parameters</em>:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__4variables.png&quot; title=<>Agregar variables</> /&gt;</p>
+<p>Then, with the <em>frame</em> selected, we're going to drag from the variable panel up to the <em>frame</em>'s properties. So that the Frame's <em>Width</em> is bound to the <em>Width</em> value from the variables panel, then do the same for <em>Height</em>:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__5setProperties.png&quot; title=<>Linking variables</> /&gt;</p>
+<p>And now we're ready to create our drawing:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__6drawing.png&quot; title=<>Drawing</> /&gt;</p>
+<p>Our next task is to link the color we created before (<em>FillColor</em>) with the fill color of our recently created drawing. If you made it right, the color of our drawing will change to the one we set before:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__7linkColor.png&quot; title=<>Drawing</> /&gt;</p>
+<p>Pay attention to this next step as it is very important if we want our drawing to adjust whenever the <em>frame</em> changes its size. If the drawing you made is a bézier curve (as it is in this case), double click it until some dots appear its path:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__8waypoints.png&quot; title=<>Waypoints</> /&gt;</p>
+<p>Once they show up, select them all and on the right panel, just below the <em>Transforms</em> menu click on the small &quot;I&quot; on the square, so that the four lines that join the central dot with the square become zigzagging lines:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__9selectWaypoints.png&quot; title=<>Select waypoints</> /&gt;</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__10shrinkBehavior.png&quot; title=<>Zigzag</> /&gt;</p>
+<p>By this point you'll be able to verify that everything is working properly if you change the values of the variables <em>Height</em> y <em>Width</em> on the left panel.</p>
+<p>Before we're done for a minute with PaintCode, select the tab at the top that has <em>&quot;StyleKit&quot;</em> as its name, and then on the right panel modify the properties so they somewhat match your project:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__11styleKit.png&quot; title=<>Zigzag</> /&gt;</p>
+<h2 id="xamarin.forms-code">Xamarin.Forms code</h2>
+<p>First thing we're going to do with the code, is create a class that will be the reference for our control. In this case, I called it <code>SharpView</code> but no matter what name you chose, it must inherit from <code>View</code>:</p>
+<pre><code class="language-csharp">public class SharpView : View
+{
+}
+</code></pre>
+<p>To it you need to add all the properties you wish, in this case we'll be adding just one (<code>FillColor</code>) as it'll be a reference to the fill color of our drawing.</p>
+<pre><code class="language-csharp">    public static readonly BindableProperty FillColorProperty =
+        BindableProperty.Create(nameof(FillColor), typeof(Color), typeof(SharpView), default(Color));
+
+    public Color FillColor
+    {
+        get { return (Color)GetValue(FillColorProperty); }
+        set { SetValue(FillColorProperty, value); }
+    }
+</code></pre>
+<p>Lastly, we must set a few default properties, these will improve our control appearance and they can always be overridden if we want to:</p>
+<pre><code class="language-csharp">    public SharpView()
+    {
+        BackgroundColor = Color.Transparent;
+        HorizontalOptions = LayoutOptions.Center;
+    }
+</code></pre>
+<p>And we're don with the Forms project.</p>
+<h2 id="xamarin.ios-code">Xamarin.iOS code</h2>
+<p>In the iOS project, we'll be creating two new classes: the &quot;native&quot; control and a <em>custom renderer</em>:</p>
+<h3 id="native-control">Native control</h3>
+<p>Lets start with the native control. Create a new class that inherits from <code>UIView</code>, we're going to call it <code>UISharpView</code>:</p>
+<pre><code class="language-csharp">public class UISharpView : UIView
+{
+}
+</code></pre>
+<p>We need to add at least one constructor that takes a <code>CGRect</code> as an argument, this argument will be passed on to the base class and our control will take its size from it:</p>
+<pre><code class="language-csharp">    public UISharpView(CGRect rect) 
+        : base(rect) { }
+</code></pre>
+<p>We must add a property that corresponds to the <code>FillColor</code> property in our Forms control, the name can be different, but to keep some consistency, lets name it <code>FillColor</code> too. If you see, inside this property there is a call to the <code>SetNeedsDisplay</code> method, it will force the control to be redrawn every time the property's value changes:</p>
+<pre><code class="language-csharp">    UIColor _fillColor = UIColor.FromRGB(60, 138, 63);
+
+    public UIColor FillColor
+    {
+        get { return _fillColor; }
+        set { _fillColor = value; SetNeedsDisplay(); }
+    }
+</code></pre>
+<p>Now, lets go back to PaintCode for a second, we need to retrieve the drawing's code. In the export panel make sure that &quot;iOS &gt; C# Xamarin&quot; is selected:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__12codeSelection.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
+<p>Once selected, copy all lines of code to this newly created class. You may need to add a couple of <code>using</code> sentences for it to compile. To finish, override the <code>OnDraw</code> method, in it call the method you've just copied from PaintCode (in this case it is called <code>DrawSharpCanvas</code>), and pass the fill color and the frame dimensions to it as parameters:</p>
+<pre><code class="language-csharp">    public override void Draw(CGRect rect)
+    {
+        DrawSharpCanvas(FillColor, rect.Width, rect.Height);
+    }
+</code></pre>
+<h3 id="custom-renderer"><em>Custom renderer</em></h3>
+<p>Now it's the time to implement the <em>custom renderer</em>. First off, lets create a new class that inherits from <code>ViewRenderer&lt;TAbstraction, TNative&gt;</code>, I'll be calling it <code>SharpViewRenderer</code> and it'll have the Forms class as <code>TAbstraction</code> and <code>UISharpView</code> as <code>TNative</code>. Don't forget the <code>ExportRenderer</code> attribute:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(SharpView), typeof(SharpViewRenderer))]
+namespace SharpPaintCode.iOS.Controls
+{
+    public class SharpViewRenderer : ViewRenderer&lt;SharpView, UISharpView&gt;
+    {
+</code></pre>
+<p>Inside it, lets create an instance of <code>UISharpView</code> and set it as the element that is to be shown on screen, this is done by overriding the <code>OnElementChanged</code> method. We'll take the size from the <code>WidthRequest</code> and <code>HeightRequest</code> <code>Element</code>s properties. For the fill color, we'll also use the <code>FillColor</code>:</p>
+<pre><code class="language-csharp">    protected override void OnElementChanged(ElementChangedEventArgs&lt;SharpView&gt; e)
+    {
+        base.OnElementChanged(e);
+
+        if (e.NewElement != null)
+        {
+            if (Control == null)
+            {
+                var sharpFrame = new CGRect(0, 0, Element.WidthRequest, Element.HeightRequest);
+                var native = new UISharpView(sharpFrame);
+                native.FillColor = Element.FillColor.ToUIColor();
+                SetNativeControl(native);
+            }
+        }
+    }
+</code></pre>
+<p>Finally, we need to add a way to modify the <code>FillColor</code> of the native control when we modify it from the Forms project. To do that, inside the <em>renderer</em> we must override the <code>OnElementPropertyChanged</code> and inside it we we'll change the native fill color property:</p>
+<pre><code class="language-csharp">    protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if(e.PropertyName.Equals(nameof(SharpView.FillColor)))
+            Control.FillColor = Element.FillColor.ToUIColor();
+        else
+            base.OnElementPropertyChanged(sender, e);
+    }
+</code></pre>
+<p>And that's all about the iOS project.</p>
+<h2 id="xamarin.android-code">Xamarin.Android code</h2>
+<p>Similarly, in this project we'll have to create a &quot;native&quot; view and a *renderer. We're going to start with the native control:</p>
+<h3 id="native-control-1">Native control</h3>
+<p>In Android we'll create our native control class, following the good practices of the Android platform, we'll call it <code>SharpView</code>, in this case it has to inherit from <code>View</code>, just make sure it inherits from <code>Android.Views.View</code> and not from <code>Xamarin.Forms.View</code>:</p>
+<pre><code class="language-csharp">public class SharpView : View
+{
+}
+</code></pre>
+<p>This class must have at least one constructor that takes a <code>Context</code> instance, this instance will be passed on to the base class:</p>
+<pre><code class="language-csharp">    public SharpView(Context context) : base(context)
+    {
+    }
+</code></pre>
+<p>Now, in this case we need to add a new property, <code>FillColor</code> so that we can set the drawing's fill color, you should note that inside this property the method <code>Invalidate</code> gets called, this method will force our control to be redrawn:</p>
+<pre><code class="language-csharp">    public Color _fillColor = Color.Argb(255, 60, 138, 63);
+    public Color FillColor
+    {
+        get { return _fillColor; }
+        set
+        {
+            _fillColor = value;
+            Invalidate();
+        }
+    }
+</code></pre>
+<p>Now, again, pay attention to this following step: PaintCode doesn't support Xamarin.Android yet, but for us it makes no difference as Java and Xamarin's C# are similar enough to translate it ourselves. To star, open again PaintCode and make sure &quot;Android &gt; Java&quot; is selected in the export code panel:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__paintcode__13androidJava.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
+<p>Now, inside the Android project, create a new class called <code>SharpKit</code>, wipe all the boilerplate code and paste in it the code from PaintCode, there should be a ton of errors, but don't worry, all you have to do is remove the <code>package</code> declaration, erase all the <code>import</code> lines and, if you feel like, put the remaining clas into a C# <em>namespace</em>.</p>
+<p>Then, add the following <code>using</code> statements at the top of the file:</p>
+<pre>
+using System;
+using Android.Graphics;
+</pre>
+<p>The following step is to convert <em>all</em> the Java methods to C#. In Java it is normal for methods and properties to start with a lowercase letter, so, for most of the code it should be enough to make all the methods and properties start with an uppercase letter to save you some time, search and replace the following strings: <code>.save(</code> for <code>.Save(</code>, <code>.set(</code> for <code>.Set(</code>, <code>.reset(</code> for <code>.Reset(</code>, <code>.moveTo(</code> for <code>.MoveTo(</code>, <code>.cubicTo(</code> for <code>.CubicTo(</code>, <code>.width(</code> for <code>.Width(</code>, <code>.height(</code> for <code>.Height(</code>, <code>.top</code>  for <code>.Top</code>, <code>.left</code> for <code>.Left</code>.</p>
+<p>There are some difficult translations, most of them related to <code>enum</code> datatypes. But don't worry, take into consideration the following table:</p>
+<pre>
+paint.setFlags(Paint.ANTI_ALIAS_FLAG);      →   paint.Flags = PaintFlags.AntiAlias;
+paint.setStyle(Paint.Style.FILL);           →   paint.SetStyle(Paint.Style.Fill);
+paint.setColor(fillColor);                  →   paint.Color = new Color(fillColor);
+canvas.drawPath(sharpSymbolPath, paint);    →   canvas.DrawPath(sharpSymbolPath, paint);
+</pre>
+<p>Once the code compiles again, inside the native control, we need to override the <code>OnDraw</code> method to set it to use the <code>DrawSharpCanvas</code> we added inside the <code>SharpKit</code> class, pass the color and dimensions of your control to it:</p>
+<pre><code class="language-csharp">    protected override void OnDraw(Canvas canvas)
+    {
+        SharpKit.DrawSharpCanvas(canvas, _fillColor.ToArgb(), Width, Height);
+    }
+</code></pre>
+<p>Now, lets add the <em>custom renderer</em>.</p>
+<h3 id="custom-renderer-1"><em>Custom renderer</em></h3>
+<p>Again, inside the Android project we need to add a new class that inherits from <code>ViewRenderer&lt;TAbstraction, TNative&gt;</code>, lets get creative and name it <code>SharpViewRenderer</code>, it'll have <code>SharpView</code> (from the central project) as <code>TAbstraction</code> and <code>SharpView</code> (from the Android project) as <code>TNative</code>, for this singular case, we'll use aliases to not confuse the controls:</p>
+<pre><code class="language-csharp">using FormsSharpView = SharpPaintCode.Controls.SharpView;
+using NativeSharpView = SharpPaintCode.Droid.Controls.Native.SharpView;
+
+[assembly: ExportRenderer(typeof(FormsSharpView), typeof(SharpViewRenderer))]
+namespace SharpPaintCode.Droid.Controls
+{
+    public class SharpViewRenderer : ViewRenderer&lt;FormsSharpView, NativeSharpView&gt;
+    {
+</code></pre>
+<p>The next step is to create an instance of <code>NativeSharpView</code> and set it as the on-screen control for our custom control. For it to happen, override the <code>OnElementChanged</code> and create such instance, pass to it the <code>Context</code> property and set the <code>FillColor</code> from the beginning:</p>
+<pre><code class="language-csharp">    protected override void OnElementChanged(ElementChangedEventArgs&lt;FormsSharpView&gt; e)
+    {
+        base.OnElementChanged(e);
+
+        if (e.NewElement != null)
+        {
+            if (Control == null)
+            {
+                var native = new NativeSharpView(Context);
+                native.FillColor = Element.FillColor.ToAndroid();
+                SetNativeControl(native);
+            }
+        }
+    }
+</code></pre>
+<p>We need also a way to modify the native's <code>FillColor</code> from our Forms control, and to do it, override the <code>OnElementPropertyChanged</code>, inside it, change the property if the property being changed is called <code>FillColor</code>:</p>
+<pre><code class="language-csharp">    protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName.Equals(nameof(FormsSharpView.FillColor)))
+        {
+            Control.FillColor = Element.FillColor.ToAndroid();
+        }
+        else
+        {
+            base.OnElementPropertyChanged(sender, e);
+        }
+    }
+</code></pre>
+<p>And, that's it for our custom control.</p>
+<h2 id="demo">Demo</h2>
+<p><strong><a href="https://github.com/ThatCSharpGuy/sharp-paintcode" target="_blank">Remember: you can download a full version of this project</a></strong> in GitHub so you can play and learn with it.</p>
+<p>In order to test the control, I created a simple app that lets you change the color of two <code>SharpViews</code>, it looks like this while running on iOS (it looks the same in Android):</p>
+<img src="https://media.giphy.com/media/3oKIPrccIwjWhlrBNS/giphy.gif" />
+<p>And with a little more imagination and patience, you can make even more interactive controls:</p>
+<img src="https://media.giphy.com/media/3oKIPifbi3CJj1g2Dm/giphy.gif" />
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

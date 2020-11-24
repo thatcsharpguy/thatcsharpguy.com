@@ -1,1 +1,112 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>A pesar de que últimamente he estado utilizando cada vez más plataformas Linux, una parte de mi sigue atado a Visual Studio y Windows; sin embargo, no dejo que esto me detenga para hacer desarrollo en Python casi como lo hago en Ubuntu.</p>
+<p>Es por eso por lo que decidí hacer esta <strong>simple</strong> guía, para aquellos que están interesados en usar Python con Windows y mantener un poco de control sobre como configurarlo. Además de que estoy seguro de que voy a olvidar como instalar Python para cuando formatee mi computadora, así que esta también es una guía para el yo del futuro.</p>
+<h2 id="chocolatey">Chocolatey</h2>
+<p>Chocolatey es <em>&quot;un gestor de paquetes para Windows (como apt-get or yum pero para Windows)&quot;</em>, y lo voy a usar para instalar <code>git</code> y <code>make</code>. Yo uso Git para control de versiones y Make para <em>&quot;automatizar&quot;</em> las tareas un poco tediosas.</p>
+<p>Para instalar Chocolatey, inicia una consola de PowerShell como administrador y ejecuta el siguiente comando:</p>
+<pre><code class="language-shell">Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+</code></pre>
+<p>¡Ten cuidado con los comandos que copies y pegues en tu consola de PS! <a href="https://chocolatey.org/docs/installation#install-with-powershellexe">revisa el comando anterior aquí</a> solo para confirmar.</p>
+<h3 id="instalando-las-herramientas">Instalando las herramientas</h3>
+<p>Una vez que Chocolatey ha sido instalado, cierra la consola de PS e iníciala de nuevo como administrador. Copia y pega el siguiente comando para instalar <code>make</code> y <code>git</code>:</p>
+<pre><code class="language-shell">choco install -y make git
+</code></pre>
+<p>La <code>-y</code> en medio del comando es porque no quiero que <em>choco</em> me pida confirmación... yo sé lo que estoy haciéndo.</p>
+<p>Una vez que la instalación termine, podrás ejecutar <code>make</code> en PS y ver algo como lo siguiente:</p>
+<pre><code class="language-text">make: *** No targets specified and no makefile found.  Stop.
+</code></pre>
+<h2 id="python">Python</h2>
+<p>Para instalar Python debes dirigirte a las <a href="https://www.python.org/downloads/">descargas de Python</a>, puedes elegir la versión que quieras; yo elegí <a href="https://www.python.org/downloads/release/python-368/">Python 3.6.8</a>, y descargué el ejecutable llamado <em>&quot;Windows x86-64 executable installer&quot;</em>.</p>
+<p>Cuando lo ejecutes, verás una ventana como la siguiente:</p>
+<p><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fpSAGdA4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.imgur.com/Isdjhzd.png" alt="" /></p>
+<p>En este caso, seleccioné <em>Install Now</em>, y me aseguré de tomar nota de la ruta mostrada ahí. Una vez que la instalación terminó, tuve que editar las variables de entorno para asegurarme que apuntaran hacia donde Python fue instalado, para hacer esto es necesario modificar la variable <code>Path</code> de la manera siguiente:</p>
+<p><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--c8reUa3s--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.imgur.com/1WstUpH.png" alt="" /></p>
+<p>Los nuevos valores son:</p>
+<ul>
+<li><code>%USERPROFILE%\AppData\Local\Programs\Python\Python36</code></li>
+<li><code>%USERPROFILE%\AppData\Local\Programs\Python\Python36\Scripts</code></li>
+</ul>
+<p>Debes asegurarte de que el valor de la ruta que termina en <code>WindowsApps</code> quede debajo de las nuevas rutas.</p>
+<p>Ahora debes poder usar Python desde la terminal. Escribe <code>python</code> y deberías ver algo similar a lo siguiente:</p>
+<pre><code class="language-text">Python 3.6.8 (tags/v3.6.8:3c6b436a57, Dec 24 2018, 00:16:47) [MSC v.1916 64 bit (AMD64)] on win32
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</code></pre>
+<h3 id="pipenv"><code>pipenv</code></h3>
+<p>Una vez que ya tienes Python instalado, ya casi estamos por terminar. Sin embargo, para mantener una instalación limpia, y aislar cada una de nuestas distintos proyectos es recomendable usar un gestor de <a href="https://www.youtube.com/watch?v=GM-RcOaGN4w">entornos virtuales</a>, como <em>Pipenv</em>. Para instalarlo, escribe el siguiente comando en la terminal:</p>
+<pre><code class="language-shell">pip install --user pipenv
+</code></pre>
+<p>Esto instalará <code>pipenv</code>, pero aún estamos a un paso de poder usarlo. Como usamos la opción <code>--user</code>, el paquete se instaló en una ubicación que necestamos añadir a nuestra variable <code>Path</code>, de manera similar a como lo hicimos cuando instalamos Python.</p>
+<p>Las rutas por añadir son:</p>
+<ul>
+<li><code>%USERPROFILE%\AppData\Roaming\Python\Python36</code></li>
+<li><code>%USERPROFILE%\AppData\Roaming\Python\Python36\Scripts</code></li>
+</ul>
+<p>Asegúrate que estas rutas queden sobre las variables de Python que recién añadimos.</p>
+<h2 id="herramientas-adicionales">Herramientas adicionales</h2>
+<p>Yo uso otras herramientas que te recomiendo instalar, sin embargo, estas podrán no ser tan relevantes para ti:</p>
+<ul>
+<li><a href="https://visualstudio.microsoft.com/">Visual Studio</a></li>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a href="https://notepad-plus-plus.org/">Notepad++</a></li>
+<li><a href="https://mobaxterm.mobatek.net/">MobaXterm</a></li>
+<li><a href="https://www.telerik.com/fiddler">Fiddler</a></li>
+<li><a href="https://www.7-zip.org/download.html">7-zip</a></li>
+</ul>
+<p>Espero que este post the haya sido de utilidad, y si tienes dudas o comentarios, me puedes preguntar en <a href="https://twitter.com/io_exception">Twitter</a>.</p>
+<p><a href="https://www.youtube.com/watch?v=UvaZZi_zgSo&amp;t=186s">Here is the same post but in english</a>, it would be really nice if you can visit there too.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

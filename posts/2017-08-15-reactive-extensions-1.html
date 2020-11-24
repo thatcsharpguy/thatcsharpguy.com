@@ -1,1 +1,174 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>La programación reactiva es un paradigma de programación que está ganando mucha popularidad últimamente, esto se le puede atribuir a la funcionalidad que nos ofrece y a la simpleza con la que se puede llegar a leer el código.</p>
+<p>Es una de las maneras de implementar el <a href="https://youtu.be/NmuRwZ2CYvA" target="_blank"><i>patrón del observador</i></a> descrito por <em>The Gang of Four</em> en su famoso libro. Este patrón nos ayuda para establecer un medio de comunicación unilateral entre dos objetos en la que uno, conocido como el publicador, es el que envía mensajes y otro, conocido como el suscriptor, los recibe. A este conjunto de mensajes enviados en una sola dirección lo conoceremos de ahora en adelante como  <em>flujo de datos</em>.</p>
+<h3 id="en.net">En .NET</h3>
+<p>En .NET te encontrarás con dos interfaces que hacen las veces de este par de actores de los que habla el patrón del observador: El publicador es del tipo <code>IObservable&lt;T&gt;</code> mientras que el observador es <code>IObserver&lt;T&gt;</code> en donde <code>T</code> es el mensaje que se enviará entre ellos.</p>
+<h3 id="iobservablet-el-publicador"><code>IObservable&lt;T&gt;</code> (el publicador)</h3>
+<p>Esta interfaz únicamente especifica un método <code>Suscribe</code> para añadir suscriptores a sus flujos de datos</p>
+<h3 id="iobservert-el-suscriptor"><code>IObserver&lt;T&gt;</code> (el suscriptor)</h3>
+<p>A diferencia del publicador, el suscriptor debe implementar más métodos para reaccionar de acuerdo a lo que el publicador envíe a través del canal de comunicación. La interfaz especifica tres métodos:</p>
+<ul>
+<li><strong><code>OnNext</code></strong>, que será llamado cada vez que el publicador envíe un nuevo mensaje.</li>
+<li><strong><code>OnCompleted</code></strong>, que será llamado una vez que el suscriptor de por terminada la comunicación.</li>
+<li><strong><code>OnError</code></strong>, que será llamado si es que dentro del publicador ocurre <a href="..\excepciones-c-sharp" target="_blank">un error</a>.</li>
+</ul>
+<h3 id="reactive-extensions-rx">Reactive Extensions (Rx)</h3>
+<p>Las interfaces mencionadas anteriormente están disponibles en el <em>framework</em> desde la versión 4, sin embargo, para sacarle todo el jugo a la programación reactiva (sin tener que reinventar la rueda nosotros mismos), también es necesario instalar una biblioteca desde NuGet, así que instala el paquete:</p>
+<pre><code>PM&gt; Install-Package System.Reactive
+</code></pre>
+<p>En todos los lugares en los que vayas a hacer uso de este paradigma de programación. Por cierto, <code>System.Reactive</code> antes era <code>Rx-Main</code> por si llegaran a encontrar algún tutorial que hace referencia a este paquete, no se rompan la cabeza tratando de encontrarlo.</p>
+<h2 id="algo-no-reactivo">Algo no reactivo</h2>
+<p>Para comenzar vamos a ver un ejemplo de algo que no es reactivo. Comencemos por un arreglo de datos enteros:</p>
+<pre><code class="language-csharp">var datos = new[] { 3, 4, 6, 8, 11, 13, 15, 15, 13, 10, 6, 4 };
+</code></pre>
+<p>Y luego una forma de <strong>tomarlos</strong> uno a uno e imprimirlos a consola:</p>
+<pre><code class="language-csharp">foreach (var dato in datos)
+    Console.Write($&quot;{dato}, &quot;);
+Console.WriteLine(&quot;\nTerminé de leer los datos&quot;);
+</code></pre>
+<p>Al ejecutarlo obtendremos algo como esto:</p>
+<pre>
+3, 4, 6, 8, 11, 13, 15, 15, 13, 10, 6, 4, 
+Terminé de leer los datos
+</pre>
+<p>Nada raro: tenemos un arreglo y <strong>sacamos</strong> los valores de él para imprimirlos a consola. Ahora vamos a ver cómo haríamos esto con programación reactiva:</p>
+<h2 id="algo-reactivo">Algo reactivo</h2>
+<p>Comenzaremos por convertir nuestros <code>datos</code> a un flujo de datos, para esto nos ayudaremos <a href="..\extension-methods-es" target="_blank">método de extensión</a> <code>ToObservable</code> que tomará un <code>IEnumerable</code> y lo convierte en un observable (o publicador):</p>
+<pre><code class="language-csharp">IObservable&lt;int&gt; flujoDatos = datos.ToObservable();
+</code></pre>
+<p>Como puedes ver, nuestro objeto <code>flujoDatos</code> es ahora un <code>IObservable&lt;int&gt;</code> y para recibir información de él, ahora también sabes que debemos suscribirnos a él mediante un <code>IObserver&lt;int&gt;</code>, ¿cierto?</p>
+<p>Pues verás, otra de las ventajas de usar las <strong>Reactive Extensions</strong> es que podemos suscribirnos usando <code>Suscribe</code> especificando únicamente las acciones que vamos a realizar cada vez que se llame a <code>OnNext</code>, <code>OnCompleted</code> y <code>OnError</code>. Esto mediante el uso de <a href="..\delegados" target="_blank">expresiones lambda</a>:</p>
+<pre><code class="language-csharp">flujoDatos.Subscribe(
+    onNext: dato =&gt; { Console.Write($&quot;{dato}, &quot;); },
+    onCompleted: () =&gt; { Console.WriteLine(&quot;\nTerminé de recibir los datos&quot;); }
+);
+</code></pre>
+<p>Al ejecutar el código obtendremos algo así en pantalla:</p>
+<pre><code class="language-csharp">3, 4, 6, 8, 11, 13, 15, 15, 13, 10, 6, 4, 
+Terminé de recibir los datos
+</code></pre>
+<p>Pareciera que nada cambió, sin embargo, la diferencia está en la forma en la que los números llegaron al método <code>Console.Write</code>:</p>
+<h2 id="la-diferencia">La diferencia</h2>
+<p>La diferencia radica en que usando la primera forma (la no reactiva), en el código le estamos dando dos órdenes al programa:</p>
+<ol>
+<li>Sacar los datos del arreglo</li>
+<li>Una vez que tenga el dato, imprimirlo en pantalla</li>
+</ol>
+<p>Este modo de programación se le conoce como <strong>programación imperativa</strong>.</p>
+<p>Mientras que del segundo modo, nosotros únicamente le estamos asignando una sola tarea al programa:</p>
+<ol>
+<li>Una vez que tenga el dato, imprimirlo a pantalla</li>
+</ol>
+<p>En este caso no es necesario que le ordenemos sacar los datos del flujo de datos, estos llegarán solos al <em>observador</em>, lo único que tenemos que hacer es decirle cómo reaccionar cuando recibe información. Este modo de programación se conoce como <strong>programación declarativa</strong>.</p>
+<h3 id="pull-vs.push">Pull vs. Push</h3>
+<p>Una forma de visualizar esta diferencia puede ser con las notificaciones que recibes en tu teléfono móvil: cada vez que alguien te menciona en un tweet o te llega un correo electrónico, tu teléfono recibe una notificación <em>push</em> del servidor, a la cual debe reaccionar de determinada manera. Mientras que si tu entras a la app del correo o a la app de Twitter y refrescas la aplicación eres tú mismo quien está solicitando (mediante un <em>pull</em>) la información.</p>
+<p>Pero bueno, ese fue un ejemplo muy, muy básico de las <em>Reactive Extensions</em>, ¿vemos otro un poco más elaborado?</p>
+<h2 id="no-solo-enteros">No solo enteros</h2>
+<p>En este caso estamos utilizando un flujo de <code>int</code>s, pero la programación reactiva tiene muchos usos: imagina una aplicación para escritorio. Podrías visualizar a los clicks que el usuario hace en ella como un flujo, un flujo de clicks. Y hacer que la app <strong>reaccione</strong> a ellos mediante este modo de programación.</p>
+<h2 id="linq-y-rx">LINQ y Rx</h2>
+<p>Empaquetadas junto con las <em>Reactive Extensions</em>, vienen otros métodos de extensión que permiten aplicar muchos de las operaciones de Linq sobre los <code>IObservables</code> como si de secuencias tradicionales se tratara, entonces podemos filtrar con <code>Where</code>:</p>
+<pre><code class="language-csharp">flujoDatos
+    .Where(dato =&gt; dato % 3 == 0)
+    .Subscribe(
+        onNext: dato =&gt; { Console.Write($&quot;{dato}, &quot;); },
+        onCompleted: () =&gt; { Console.WriteLine(&quot;\nTerminé de recibir los múltiplos de 3&quot;); }
+    );
+</code></pre>
+<pre>
+3, 6, 15, 15, 6, 
+Terminé de recibir los múltiplos de 3
+</pre>
+<p>Saltarnos algunos valores con <code>Take</code> y <code>Skip</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine();
+flujoDatos
+    .Skip(2)
+    .Take(3)
+    .Subscribe(
+        onNext: dato =&gt; { Console.Write($&quot;{dato}, &quot;); },
+        onCompleted: () =&gt; { Console.WriteLine(&quot;\nTerminé de recibir los tres elementos a partir del 2do&quot;); }
+    );
+</code></pre>
+<pre>
+6, 8, 11, 
+Terminé de recibir los tres elementos a partir del 2do
+</pre>
+<p>Y usar funciones de agregación como <code>Min</code></p>
+<pre><code class="language-csharp">Console.WriteLine();
+flujoDatos
+    .Min()
+    .Subscribe(
+        onNext: dato =&gt; { Console.Write($&quot;{dato}, &quot;); },
+        onCompleted: () =&gt; { Console.WriteLine(&quot;\nTerminé de recibir los datos y presenté el menor&quot;); }
+    );
+</code></pre>
+<pre>
+3, 
+Terminé de recibir los datos y presenté el menor
+</pre>
+<h2 id="concurrencia-y-rx">Concurrencia y Rx</h2>
+<p>Otra de las ventajas que nos ofrece la programación reactiva es la asincronía bajo la que está diseñado para operar. Al ser reactiva permite que las acciones del programa no tengan que seguir una secuencia y los mensajes se envíen/reciban en cualquier momento. También, usando otros métodos de extensión como <code>SuscribeOn</code> y <code>ObserveOn</code> se puede delegar la ejecución de los <code>IObservers</code> a otros hilos distintos de los que fue llamado.</p>
+<h2 id="hagamos-todo-reactivo.o-no">Hagamos todo reactivo... ¿o no?</h2>
+<p>Espero haberte dado un pequeño empujón hacia la programación reactiva, pero ahora para completar el trabajo es importante que te diga que no significa que vayas por el código de tus apps convirtiendo todos los <code>IEnumerable</code> a flujos de dato o que busques la manera de convertir todos tus eventos a <code>IObservables</code>, no. Considera usar este paradigma para los casos en los que:</p>
+<ul>
+<li>Tengas que lidiar con eventos de interfaz gráfica como un usuario dando clicks o moviendo <em>sliders</em></li>
+<li>Estés trabajando con información en tiempo real</li>
+<li>Estés trabajando con flujos de datos</li>
+</ul>
+<p>Es totalmente entendible si te quedas con dudas, recuerda que me puedes mandar un tweet o un correo electrónico, además puedes  ver el <a href=" https://github.com/ThatCSharpGuy/rx" target="_blank">código de este post en GitHub</a>.</p>
+<p>Definitivamente Rx es un tema que da para más y sin duda <a href="..\reactive-extensions-2" target="_blank">estaré escribiendo sobre él</a> en el futuro.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

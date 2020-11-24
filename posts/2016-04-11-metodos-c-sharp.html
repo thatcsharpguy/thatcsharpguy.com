@@ -1,1 +1,177 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Un sistema robusto programado en un lenguaje de programación orientado a objetos, como es el caso de C#, debe estar separado en distintas unidades lógicas. Estas unidades lógicas suelen coordinarse mediante el envío de mensajes entre ellos, en C# dichos mensajes se llaman métodos.</p>
+<h3 id="definicion">Definición</h3>
+<p><strong>Un método no es más que un procedimiento o acción asociado con una clase</strong> y se compone de datos y un comportamiento. Esta es la sintaxis común para escribir un método:</p>
+<pre><code>[modificador de acceso] &lt;tipo de retorno&gt; &lt;nombre&gt;([parámetros])  
+{
+    [implementación]  
+}
+</code></pre>
+<p>Las partes marcadas con <code>[]</code> son opcionales y las que están entre <code>&lt;&gt;</code> son necesarias:</p>
+<ol>
+<li><strong>modificador de acceso</strong>, es una palabra reservada que especifica cuales de los otros objetos tendrán acceso al método, puede ser:
+        <ul>
+            <li><code>public</code>. Todos tienen acceso.</li>
+            <li><code>protected</code>. Solo las clases derivadas tienen acceso.</li>
+            <li><code>internal</code>. Solo clases contenidas en el mismo ensamblado tienen acceso.</li>
+            <li><code>private</code>. Solo la clase que lo define tiene acceso él.</li>
+        </ul>
+Además, también podemos añadir el modificador <code>static</code> para especificar que un método debe ser llamado desde una instancia de la clase o desde la clase misma.
+<br />
+Si se omite, el valor por default es <code>private</code>.
+</li>
+<li><strong>tipo de retorno</strong>, se usa para declarar si el método retornará algo como parte de su ejecución. Los valores posibles pueden ser muchos, y dependen de la lógica del negocio. Un método puede regresar <a href="http://thatcsharpguy.com/post/tipos-dato-c-sharp">tipos por valor o referencia</a>, pero solo puede retornar un solo tipo.
+<br />
+En caso de que no exista necesidad de regresar algún valor, debemos escribir <code>void</code>.
+</li>
+<li><strong>nombre</strong>, esta es una parte esencial de la definición de un método. El nombre es un identificador que no debe comenzar por un número ni contener caracteres que no sean alfanuméricos o guiones bajos.
+<br />
+Por convención, en C# los nombres de método comienzan con mayúscula, aunque tu puedes escribirlos como quieras. 
+</li>
+<li><strong>lista de parámetros</strong>, los métodos pueden recibir información del objeto que los llama a través de los parámetros, la lista de parámetros está definida por el método mediante la especificación del tipo de dato y el identificador de este, si es necesario que el método reciba más de un parámetro estos se separan por una coma.</li>
+<li><strong>implementación</strong>, es un conjunto de <a href="http://thatcsharpguy.com/post/sentencias-expresiones-operadores">sentencias</a> que definen el comportamiento del método.</li>
+</ol>
+<h3 id="ejemplos">Ejemplos</h3>
+<p>Uno de los más grandes ejemplos de métodos es el método <code>Main</code>, que es el punto de entrada de cualquier programa escrito en este lenguaje. Por ejemplo:</p>
+<h4 id="main">Main:</h4>
+<pre><code class="language-csharp">public static void Main(string[] args) ...
+</code></pre>
+<p>Que especifica que:</p>
+<ul>
+<li>el método <code>Main</code> es público</li>
+<li>no necesitamos instanciar la clase para llamarlo</li>
+<li>no regresa ningún valor</li>
+<li>recibe un arreglo de cadenas como argumento</li>
+</ul>
+<h4 id="getdefaultcar">GetDefaultCar;</h4>
+<pre><code class="language-csharp">internal static F1Car GetDefaultCar()
+{
+    return new F1Car();
+}
+</code></pre>
+<p>Que especifica que:</p>
+<ul>
+<li>el método <code>GetDefaultCar</code> únicamente podrá ser usado dentro del ensamblado en donde se encuentra la calse</li>
+<li>como es estático, no necesitamos instanciar la clase para llamarlo</li>
+<li>regresa un objeto del tipo <code>F1Car</code></li>
+<li>no recibe parámetros</li>
+</ul>
+<h4 id="changedriver">ChangeDriver:</h4>
+<pre><code class="language-csharp">public void ChangeDriver(Pilot newPilot)
+{
+    if (!newPilot.Equals(_currentPilot))
+    {
+        _currentPilot = newPilot;
+    }
+}
+</code></pre>
+<p>Que especifica que:</p>
+<ul>
+<li>el método <code>ChangeDriver</code> es público</li>
+<li>necesitamos instanciar la clase para llamarlo</li>
+<li>no regresa ningún valor</li>
+<li>recibe un parámetro de tipo <code>Pilot</code> llamado <code>newPilot</code></li>
+</ul>
+<h4 id="trystartengine">TryStartEngine:</h4>
+<pre><code class="language-csharp">public bool TryStartEngine()
+{
+    if (_currentPilot == null)
+    {
+        return false;
+    }
+    StartEngine();
+    return true;
+}
+</code></pre>
+<p>Que especifica que:</p>
+<ul>
+<li>el método <code>TryStartEngine</code> es público</li>
+<li>necesitamos instanciar la clase para llamarlo</li>
+<li>no regresa un valor booleano</li>
+<li>no recibe parámetros</li>
+</ul>
+<p>#### StartEngine:</p>
+<pre><code class="language-csharp">void StartEngine() 
+{
+    IsRunning = true;
+}
+</code></pre>
+<p>Que especifica que:</p>
+<ul>
+<li>el método <code>StartEngine</code> es privado, ya que al no tener modificador de acceso por default es <code>private</code></li>
+<li>necesitamos instanciar la clase para llamarlo</li>
+<li>no regresa ningún valor</li>
+<li>no recibe parámetros</li>
+</ul>
+<h3 id="uso">Uso</h3>
+<p>De entrada, el método <code>Main</code> es reconocidísimo, ya que es el punto de entrada de cualquier aplicación en C#, a continuación, obtenemos un objeto <code>F1Car</code> usando el método de instancia:</p>
+<pre><code class="language-csharp">var car = F1Car.GetDefaultCar();
+</code></pre>
+<p>Podemos colocarle un piloto usando el método público:</p>
+<pre><code class="language-csharp">car.ChangeDriver(schumacher);
+</code></pre>
+<p>Ahora con piloto, podríamos encender el motor ¿no?</p>
+<pre><code class="language-csharp">//car.StartEngine();
+var started = car.TryStartEngine();
+</code></pre>
+<p>No podemos llamar directamente a <code>StartEngine</code> ya que es privado, pero si tenemos acceso a <code>TryStartEngine</code>, desde el cual si se puede acceder a los miembros privados de la clase.</p>
+<h3 id="conclusion">Conclusión</h3>
+<p>En mi opinión la forma de definir y usar los métodos en C# es una de las más sencillas que existen actualmente, esto debido a que se usan palabras muy descriptivas para esta tarea. Además la lista de parámetros es claramente definida desde un inicio.</p>
+<h3 id="lo-que-sigue">Lo que sigue</h3>
+<p>Aún queda mucho qué hablar sobre los métodos, por ejemplo, ¿qué son los métodos de extensión? y hablar de los modos en los que los parámetros pueden ser pasados, y es que estos pueden ser pasados por referencia o por valor, podemos usar parámetros por default y los llamados <em>named parameters</em>, expandiendo las posibilidades a la hora de programar.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

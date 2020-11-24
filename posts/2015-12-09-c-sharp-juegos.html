@@ -1,1 +1,75 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Por el título de este post ya se podrán imaginar qué viene a continuación. Como saben este blog se enfoca principalmente en enseñar e inspirar a quién lo lee a programar en C#, pero muchas veces nos quedamos con esa sensación de ¿Y luego, qué?</p>
+<p>Me he encontrado con que uno de los motivos que evita que la gente quiera apender C# es que aún existe la creencia de que los lenguajes de .NET son solo para el desarrollo de aplicaciones empresariales y que para poder vivir de programar en C# deberán encontrar un trabajo de 9 a 5 en alguna corporación maligna.</p>
+<p>Pero no, resulta que se pueden hacer un montón de cosas, incluyéndo videojuegos. Para hacer juegos, tenemos dos opciones:</p>
+<h3 id="c-desde-cero">C# desde &quot;cero&quot;</h3>
+<p>Gracias a la comunidad de Mono y a <a href="http://www.monogame.net/" target="_blank">MonoGame</a>, se han hecho grandes avances en el desarrollo de videojuegos con .NET. Permiten alcanzar una calidad en el juego al grado que ya se han publicado varios videojeugos para PC exitosos escritos en C#, por ejemplo: <a href="http://www.monogame.net/showcase/#fez" target="_blank">FEZ</a> y <a href="http://www.monogame.net/showcase/#bastion" target="_blank">Bastion</a>.</p>
+<p>Pero, ¿cuál es el chiste?, te preguntarás, si C# siempre ha funcionado en Windows. Pues resulta que estos juegos también han brincado las fronteras de la PC y ahora hay algunos para Play Station 4 (¡y Apple TV!): Por si no sabías, <a href="http://www.supergiantgames.com/games/transistor/" target="_blank" >Transistor<a/> y <a href="http://towerfall.tumblr.com/post/26712676009/engine" target="_blank">TowerFall</a> también están hechos en el fabuloso C#.</p>
+<h3 id="utilizando-un-motor">Utilizando un motor</h3>
+<p>Si vas comenzando con la creación de videojuegos, tal vez crear uno desde cero no sea la mejor opción. Para ello existen algunas herramientas conocidas como <em>motores de juego</em> que te ayudan quitando muchas de las complicaciones técnicas de crear un juego dejándote a ti la tarea de dedicarte a programar la lógica de tus creaciones. Una vez que tu juego está terminado estos motores lo compilan y dejan un producto que puede ser exportado a múltipes plataformas.</p>
+<p>Los dos motores que conozco, y he probado, son <a href="http://unity3d.com/es" target="_blank">Unity 3D</a> y <a href="https://www.unrealengine.com/what-is-unreal-engine-4" target="_blank">Unreal Engine</a>, ambos soportan C# como lenguaje de <em>scripting</em>, es decir, para definir el comportamiento de los elementos de nuestro juego. Hay muchos ejemplos de juegos que se pueden hacer con ellos, inclusive Rovio (sí, el creador de Angry Birds) usó Unity para crear su juego <strong>Bad Piggies</strong>.</p>
+<p>En esta parte, en lugar de dar ejemplos, les dejo algunos enlaces a <a href="https://www.youtube.com/playlist?list=PLREdURb87ks2qkD9svvlIwYwN35FZ3Afv" target="_blank">tutoriales bastante buenos</a> en los que me basé para hacer <a href="https://play.google.com/store/apps/details?id=com.messier16.games.woha&hl=es_419" target="_blank">Woha!</a>, un jueguillo para Android en el que usé C#.<br />
+<br /></p>
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mgtQe33XBjI" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+Entren al canal de YouTube de <a href="https://www.youtube.com/channel/UCBhkLrsmV9PVQMpT3qe-toA" target="_blank">Hagamos Videojuegos</a> en él encontraran como hacer shooters, runners e inclusive aprender un poco sobre realidad aumentada.  
+<h4 id="para-terminar">Para terminar</h4>
+<p>Como puden ver, C# no es solo trabajo de oficina de 9 a 5, también se pueden hacer algunas otras cosas bastante divertidas pero sobre todo interesantes. En un futuro hablaré sobre qué más se puede programar con él, ¿tienes alguna idea? cuéntame vía correo o Twitter ;).</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

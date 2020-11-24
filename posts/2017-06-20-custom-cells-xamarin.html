@@ -1,1 +1,269 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En un post anterior les había hablado sobre <a href="..\custom-renderer-paint-code" target="_blank">sobre cómo crear un control personalizado</a> en Xamarin.Forms, pero, ¿sabías que puedes hacer lo mismo con las celdas de un <code>ListView</code> o <code>TableView</code>? en este post voy a explicar cómo hacerlo. Esta es una solución ideal si tienes conocimiento de creación de interfaces en iOS o Android.</p>
+<h2 id="en-forms">En Forms</h2>
+<p>Como siempre, cuando vamos a implementar funcionalidades específicas para cada plataforma en Xamarin.Forms, iniciamos con una clase dentro del proyecto de Forms, esta debe ser una abstracción de lo que vamos a implementar. En este caso debe ser una clase que derive de <code>ViewCell</code>:</p>
+<pre><code class="language-csharp">public class ContactCell : ViewCell
+{
+</code></pre>
+<p>Además, dentro de la clase le agregamos una propiedad llamada <code>ContactName</code> y su respectiva declaración de <code>BindableProperty</code>, tu deberías agregarle las que necesites:</p>
+<pre><code class="language-csharp">    public static readonly BindableProperty ContactNameProperty =
+        BindableProperty.Create(nameof(ContactName), typeof(string), typeof(ContactCell), default(string));
+
+    public string ContactName
+    {
+        get { return (string)GetValue(ContactNameProperty); }
+        set { SetValue(ContactNameProperty, value); }
+    }
+</code></pre>
+<p>Por último, sobrescribe el método <code>OnBindingContextChanged</code>, este método es llamado cada vez que el objeto enlazado con la celda cambia. Cuando este objeto cambie, nosotros vamos a cambiar el valor de la propiedad. Esto cobrará relevancia más adelante:</p>
+<pre><code class="language-csharp">    protected override void OnBindingContextChanged()
+    {
+        string name = BindingContext as string;
+        if(name!= null)
+            ContactName = name;
+    }
+</code></pre>
+<h2 id="en-android">En Android</h2>
+<h3 id="diseno">Diseño</h3>
+<p>En Android hay que implementar la celda, en esta plataforma la forma por excelencia para crear interfaces gráficas es a través de archivos XML. En este caso, los archivos de interfaz gráfica deben ir en la carpeta <code>Resources/layout</code>, yo llamé a la celda <code>ContactCell.axml</code>. El contenido es un simple <code>RelativeLayout</code> con un par de <code>TextViews</code> dentro (asegúrate de establecerle un ID a cada control que vayas a usar):</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;70dp&quot;
+    android:padding=&quot;0dip&quot;&gt;
+    &lt;TextView
+        android:id=&quot;@+id/FirstLetter&quot;
+        android:background=&quot;@drawable/RoundedCorner&quot;
+        android:layout_width=&quot;50dp&quot;
+        android:layout_height=&quot;50dp&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_centerInParent=&quot;false&quot;
+        android:layout_marginLeft=&quot;10dp&quot;
+        android:textSize=&quot;30sp&quot;
+        android:textAllCaps=&quot;true&quot;
+        android:gravity=&quot;center&quot; /&gt;
+    &lt;TextView
+        android:id=&quot;@+id/FullName&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_centerInParent=&quot;false&quot;
+        android:textSize=&quot;30sp&quot;
+        android:layout_marginLeft=&quot;10.0dp&quot;
+        android:layout_marginRight=&quot;10.0dp&quot;
+        android:layout_toRightOf=&quot;@id/FirstLetter&quot; /&gt;
+&lt;/RelativeLayout&gt;
+</code></pre>
+<p>Inclusive puedes utilizar el editor gráfico de tu preferencia:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__customcell__ContactCell.png&quot; title=<>Creación del proyecto</> /&gt;</p>
+<h3 id="wrapper"><em>Wrapper</em></h3>
+<p>Lo siguiente es crear una clase <em>wrapper</em> que envuelva a nuestro archivo XML, esto con la finalidad de poder acceder más fácil a los controles y permitir que nuestra celda funcione con las <code>CachingStrategy</code> dentro de las listas de Forms. La clase debe heredar de un contenedor de Android y implementar la interfaz <code>INativeElementView</code> de Xamarin.Forms:</p>
+<pre><code class="language-csharp">public class AndroidContactCell : LinearLayout, INativeElementView
+{
+</code></pre>
+<p>Dentro de esta clase agrega un par de propiedades, la primera para hacer referencia al control de Forms, y la segunda implementando la interfaz <code>INativeElementView</code>:</p>
+<pre><code class="language-csharp">    ContactCell _nativeContactCell;
+    public Element Element =&gt; _nativeContactCell;
+</code></pre>
+<p>Un par de <code>TextView</code> para hacer referencia a lo declarado en el <em>layout</em> xml:</p>
+<pre><code class="language-csharp">    TextView _firstLetterTextView;
+    TextView _fullNameTextView;
+</code></pre>
+<p>En el constructor hay que tomar el <code>Context</code> y una instancia de la clase de la celda en Forms. Tomando el <code>Context</code> vamos a crear una instancia de la celda, empleando el <code>LayoutInflater</code>, luego, con esta instancia a la mano, recuperamos los <code>TextView</code>.</p>
+<pre><code class="language-csharp">    public AndroidContactCell(Context context, ContactCell cell) : base(context)
+    {
+        _nativeContactCell = cell;
+
+        var view = (context as Activity).LayoutInflater.Inflate(Resource.Layout.ContactCell, null);
+        _firstLetterTextView = view.FindViewById&lt;TextView&gt;(Resource.Id.FirstLetter);
+        _fullNameTextView = view.FindViewById&lt;TextView&gt;(Resource.Id.FullName);
+
+        AddView(view);
+    }
+</code></pre>
+<p>Por último, agregamos un método que nos permitirá actualizar los valores de esta celda:</p>
+<pre><code class="language-csharp">    public void UpdateCell(string newName)
+    {
+        _firstLetterTextView.Text = newName.Substring(0, 1);
+        _fullNameTextView.Text = newName;
+
+    }
+}
+</code></pre>
+<p>### <em>Renderer</em></p>
+<p>Luego, lo que hay que hacer es implementar el <em>custom renderer</em> para enlazar la celda de Forms con la nativa que acabamos de desarrollar. El <em>renderer</em> debe derivar de <code>ViewCellRenderer</code>:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(ContactCell), typeof(ContactCellRenderer))]
+namespace CeldaPersonalizada.Droid.Cells
+{
+    class ContactCellRenderer : ViewCellRenderer
+    {
+</code></pre>
+<p>Dentro del <em>renderer</em> agrega una propiedad para contener una instancia de la celda nativa:</p>
+<pre><code class="language-csharp">        AndroidContactCell _cell;
+</code></pre>
+<p>Después toca sobrescribir un par de métodos, <code>GetCellCore</code> y <code>OnCellPropertyChanged</code>, el primero que se ejecutará cada vez que el sistema necesite crear una nueva celda. Dentro de éste trataremos de convertir el argumento <code>convertView</code> a una instancia de la celda nativa (aquí es donde se realiza el reciclado de celdas) y si no es posible, creamos una nueva. Antes de terminar la ejecución del método, llamamos a <code>UpdateCell</code> para establecer los valores correctos:</p>
+<pre><code class="language-csharp">        protected override Android.Views.View GetCellCore(Cell item, Android.Views.View convertView, ViewGroup parent, Context context)
+        {
+            var FormsCell = Cell as ContactCell;
+            _cell = convertView as AndroidContactCell;
+            if (_cell == null)
+            {
+                _cell = new AndroidContactCell(context, FormsCell);
+            }
+
+            _cell.UpdateCell(FormsCell.ContactName);
+
+            return _cell;
+        }
+</code></pre>
+<p>Dentro de <code>OnCellPropertyChanged</code> revisamos qué propiedad se modificó y si se modificó la que nos interesa, actualizamos los valores de la celda nuevamente.</p>
+<pre><code class="language-csharp">        protected override void OnCellPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var FormsCell = (ContactCell)sender;
+            if (e.PropertyName.Equals(&quot;ContactName&quot;))
+            {
+                _cell.UpdateCell(FormsCell.ContactName);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="en-ios">En iOS</h2>
+<p>En iOS también tenemos la opción de crear celdas usando código, o como en este caso, archivos de interfaz gráfica <code>.xib</code>, para crear uno en Visual Studio para Mac:</p>
+<h3 id="diseno-1">Diseño</h3>
+<p>&lt;img src=&quot;/images/xamarin-forms__customcell__projectCreation.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
+<p>Esto generará un par de archivos <code>ContactCell.cs</code> y <code>ContactCell.xib</code>, es el segundo archivo en el que se edita la interfaz. Yo inclusive lo edité con el editor de Xcode:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__customcell__edit.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
+<h3 id="wrapper-1"><em>Wrapper</em></h3>
+<p>Una vez que está creada la celda, vamos a echarle un ojo a su clase asociada <code>ContactCell.cs</code>, esta clase es la que actuará como el <em>wrapper</em> de la interfaz. Entonces, lo que hay que hacer es que implemente la interfaz <code>INativeElementView</code>:</p>
+<pre><code class="language-csharp">public partial class ContactCell : UITableViewCell, INativeElementView
+{
+</code></pre>
+<p>Luego, verás unas partes de código que se generaron automáticamente, estas nos serán de gran ayuda cuando sea la hora de crear las celdas.</p>
+<pre><code class="language-csharp">    public static readonly NSString Key = new NSString(&quot;ContactCell&quot;);
+    public static readonly UINib Nib;
+
+    static ContactCell()
+    {
+        Nib = UINib.FromName(&quot;ContactCell&quot;, NSBundle.MainBundle);
+    }
+
+    protected ContactCell(IntPtr handle) : base(handle)
+    {
+        // Note: this .ctor should not contain any initialization logic.
+    }
+</code></pre>
+<p>Ya por último, añade una propiedad desde la cual puedas hacer referencia a un tipo <code>ContactCell</code> del proyecto de Forms, liego debes agregar una propiedad pública de tipo <code>Element</code> para cumplir con la interfaz <code>INativeElementView</code> y por último, agrega una forma de actualizar el valor de los campos dentro de la celda:</p>
+<pre><code class="language-csharp">
+    public FormsContactCell FormsContactCell { get; set; }
+
+    public Element Element =&gt; FormsContactCell;
+
+    public void UpdateCell(string newName)
+    {
+        FirstLetter.Text = newName.Substring(0, 1);
+        FullName.Text = newName;
+
+    }
+}
+</code></pre>
+<h3 id="renderer"><em>Renderer</em></h3>
+<p>Ya sabes, hay que implementar un <em>custom renderer</em>, este igual heredará de <code>ViewCellRenderer</code>:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(FormsContactCell), typeof(CeldaPersonalizada.iOS.Cells.ContactCellRenderer))]
+namespace CeldaPersonalizada.iOS.Cells
+{
+    public class ContactCellRenderer : ViewCellRenderer
+    {
+</code></pre>
+<p>Al igual que en el de Android, debes agregar un campo para mantener una referencia a la celda nativa, en este caso se llama <code>iOSContactCell</code> porque usé <a href="//thatcsharpguy.com/post/creando-propios-alias/" target="_blank">un alias</a>:</p>
+<pre><code class="language-csharp">        iOSContactCell _nativeContactCell;
+</code></pre>
+<p>Ya para terminar, hay que sobrescribir el método <code>GetCell</code> que es llamado cada vez que una celda necesita ser creada. Lo primero que hay que hacer es tratar de reutilizar la celda que viene en el argumento <code>reusableCell</code>. Si no se puede (si es nula), instanciamos una nueva celda a partir del <em>Nib</em> que se creó junto con nuestro archivo de interfaz gráfica. Si, por otro lado, se puede reutilizar la celda, tenemos que eliminarle el evento <code>PropertyChanged</code> a la celda de Forms, más de esto en corto.</p>
+<p>Después, y ya una vez que tenemos una celda nativa que podemos usar, establecemos la propiedad <code>FormsContactCell</code> para que haga referencia a la celda de Forms que está vinculada con la celda nativa. A esta misma le agregamos un manejador de evento a <code>PropertyChanged</code>, esto con la finalidad de estar atentos a cuando alguna propiedad de nuestra celda de Forms cambia. Por último, actualizamos la celda nativa para que refleje los valores más recientes.</p>
+<pre><code class="language-csharp">        public override UITableViewCell GetCell(Cell item, UITableViewCell reusableCell, UITableView tv)
+        {
+            _nativeContactCell = reusableCell as iOSContactCell;
+            if (_nativeContactCell == null)
+            {
+                var stuff = iOSContactCell.Nib.Instantiate(null, null);
+                _nativeContactCell = stuff.First() as iOSContactCell;
+            } 
+            else
+            {
+                _nativeContactCell.FormsContactCell.PropertyChanged -= FormsContactCell_PropertyChanged;    
+            }
+            _nativeContactCell.FormsContactCell = item as FormsContactCell;
+            _nativeContactCell.FormsContactCell.PropertyChanged += FormsContactCell_PropertyChanged;
+            _nativeContactCell.UpdateCell((item as FormsContactCell).ContactName);
+
+            return _nativeContactCell;
+        }
+</code></pre>
+<p>El manejador de evento es muy simple. Primero se comprueba que se haya modificado la propiedad que nos interesa, y después actuamos en consecuencia.</p>
+<pre><code class="language-csharp">        void FormsContactCell_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var FormsCell = sender as FormsContactCell;
+            if(e.PropertyName.Equals(&quot;ContactName&quot;))
+            {
+                _nativeContactCell.UpdateCell(FormsCell.ContactName);
+            }
+        }
+</code></pre>
+<p>Eso es todo lo que se requiere hacer para que podamos crear y utilizar celdas personalizadas en Xamarin.Forms, así es como se ve el resultado final:</p>
+<p>No olvides que puedes descargar <a href="https://github.com/ThatCSharpGuy/CeldaPersonalizada" target="_blank">el código fuente</a> directamente de <a href="https://github.com/ThatCSharpGuy/CeldaPersonalizada" target="_blank">GitHub</a> para que lo pruebes y modifiques a tu gusto.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

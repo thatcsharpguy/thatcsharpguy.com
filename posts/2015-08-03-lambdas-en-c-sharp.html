@@ -1,1 +1,126 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Una vez que conocemos lo que es un delegado, y lo que son Func y Action, es momento de llegar a un tema que se convierte en algo muy sencillo, además es de mis cosas favoritas en C#: Las <strong>expresiones lambda</strong>. Comenzaré por dar un ejemplo de su uso:</p>
+<p>Es decir, suponiendo que tenemos el método del ejemplo pasado.</p>
+<pre><code class="language-csharp">void RealizaOperacionSecreta(List&lt;string&gt; palabras, Func&lt;string, bool&gt; filtro)
+</code></pre>
+<p>Para el que escribimos un método para usarlo como filtro:</p>
+<pre><code class="language-csharp">public static bool SoloConU(string s)
+{
+	return s.StartsWith(&quot;u&quot;);
+}
+
+// ...
+// Ejemplo de uso:
+RealizaOperacionSecrete(palabras, SoloConU);
+</code></pre>
+<p>En realidad, no es necesario escribir tanto, el método <code>SoloConU</code>, puede ser reemplazado en el código por:</p>
+<pre><code class="language-csharp">RealizaOperacionSecrete(palabras, (s) =&gt; { return s.StartsWith(&quot;u&quot;); });
+
+// O simplemente por:
+RealizaOperacionSecrete(palabras, s =&gt; s.StartsWith(&quot;u&quot;));
+</code></pre>
+<p>Por definición, las expresiones lambda son &quot;métodos anónimos para crear tipos delegados y árboles de expresión&quot;, nos enfocaremos en lo primero. El método <code>SoloConU</code> es usado solamente una vez en nuestro programa y es por eso que es un buen candidato a ser reemplazado por un método anónimo (entre otras cosas, sin nombre). Y es que podría muchas veces resultarnos bastante engorroso tener que escribir le método completo para hacer referencia a él solamente una vez dentro de todo nuestro código.</p>
+<h4 id="crear-una-expresion-lambda">Crear una expresión lambda</h4>
+<p>Me gusta imaginar la creación de expresiones lambda como una especie de recorte de los métodos tradicionales, y es que lo podemos ver como una serie de pasos que funcionan tanto para métodos con tipo de dato de retorno o para los que no lo tienen:</p>
+<ol>
+	<li>Quitamos todo lo que esté antes del primer paréntesis de apertura</li>
+	<li>Agregamos el operador <code>=&gt;</code></li>
+	<li>... listo</li>
+</ol>  
+<h4 id="consideraciones-extras">Consideraciones extras</h4>
+<p>Existen otras consideraciones que podemos tomar en cuenta si queremos reducir aún más la cantidad de código escrito. Por ejemplo si a la expresión lambda recibe <strong>un solo parámetro</strong> se pueden omitir los paréntesis:</p>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```csharp  
+// Versión normal
+(a) => { return a.ToString(); }
+```  
+	</div>
+    <div class="pure-u-1-2">
+```csharp  
+// Versión "simplificada"
+a => { return a.ToString(); }
+```  
+	</div>
+</div>
+Si la expresión lambda consta de una **única sentencia**, y esta es una **operación de retorno**, podemos omitir los corchetes, la palabra clave ```return``` y el ```;``` de fin de sentencia: 
+<div class="pure-g">
+    <div class="pure-u-1-2">
+```csharp  
+a => { return a.ToString(); }
+```  
+	</div>
+    <div class="pure-u-1-2">
+```csharp  
+a => a.ToString()
+```  
+	</div>
+</div>  
+<h4 id="usos-mas-frecuentes">Usos más frecuentes</h4>
+<pre><code class="language-csharp">// Eventos
+accessButton.Clicked += (sender, args) =&gt; { DoAccess(); };
+
+// Linq
+var solteros = 	personas
+				.Where(persona =&gt; persona.EsSoltero)
+				.OrderBy(persona =&gt; persona.Nombre)
+				.Select (persona =&gt; new Soltero { Nombre = persona.Nombre });
+</code></pre>
+<p>De los usos más frecuentes de las expresiones lambda, podemos encontrar la asignación de manejadores de evento y en conjunto con Linq. Herramientas de las que les hablaré más adelante.</p>
+<p><strong>Este es el fin de la serie de posts</strong> que comenzó con <a href="/delegados-en-c-sharp" target="_blank">delegados en C#</a> continuando con <a href="/func-y-action-en-c-sharp" target="_blank">func y action en C#</a>. Hay otro tema en el tintero, que son los árboles de expresiones, pero aún está en preparación.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

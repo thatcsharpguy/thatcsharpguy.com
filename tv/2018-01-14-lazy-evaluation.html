@@ -1,1 +1,134 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En programación la evaluación perezosa, o llamada por necesidad, o por su nombre en inglés: lazy evaluation. Es una técnica de evaluación, sí porque hay varias técnicas, que consiste en retrasar el cálculo (o ejecución) de una instrucción hasta que en realidad es necesaria.</p>
+<p>Pero bueno, antes de entrar en detalles vamos a ver rápidamente otra estrategia, que podríamos definir como lo opuesto a la perezosa y esta es la evaluación temprana.</p>
+<p>Este tipo de evaluación es la que normalmente usa tu lenguaje de programación, y por tanto creo que sin quererlo estás muy familiarizado con ella, ocurre cuando asignas una variable como un entero o una cadena:</p>
+<pre><code>var a = &quot;Evaluación temprana&quot;; // C#
+a = &quot;Evaluación temprana&quot; # Python
+String a = &quot;Evaluación temprana&quot;; // Java
+</code></pre>
+<p>Pero esto es demasiado simple, mejor vamos a ver algo más complejo. Imagina que vamos a trabajar con números del 0 al 10,000. Esta sería una forma de obtenerlos:</p>
+<pre><code>var numeros = Enumerable.Range(0, 10000).ToArray(); // C#
+numeros = list(range(0, 10000)) # Python
+int[] numeros = IntStream.range(0, 10000).toArray(); // Java 8
+</code></pre>
+<p>Es decir, el valor asociado con la variable es inmediatamente calculado (o evaluado) en el momento en el que se realiza la asignación, independientemente del momento en el que va a ser usado, si es que va a ser usado del todo. La sintaxis para crear estos arreglos es un poco rara, y es que los estamos forzando a ser evaluados tempranamente.</p>
+<p>Por el contrario, y volviendo al tema principal de este video, en la evaluación perezosa los valores no son creados o calculados hasta que no se hace referencia a ellos después de declararlos.</p>
+<p>Un excelente ejemplo de la evaluación perezosa viene cuando estamos trabajando con colecciones de valores, imagina que quieres obtener una colección de valores... como por ejemplo, volviendo a los 0 al 10,000, esta es la forma de obtenerlos sin tener que calcularlos todos en el momento en el que lo definimos, es decir, utilizando la evaluación perezosa:</p>
+<pre><code>var numeros = Enumerable.Range(0, 10000); // C#
+numeros = range(0, 10000) # Python
+int[] numeros = IntStream.range(0, 10000); // Java 8
+</code></pre>
+<p>Esto tiene varias ventajas como:</p>
+<ul>
+<li>Incremento en el desempeño de la aplicación ya que se evita el hacer cálculos que no necesita</li>
+<li>Posibilidad de escribir código &quot;infinito&quot; o sin límites de espacio puesto que los valores son generados &quot;uno a la vez&quot;</li>
+</ul>
+<p>Pero bueno, hasta ahora todo bien, pero cómo es que podemos crear nosotros código que se evalúe perezosamente. En concreto yo les voy a hablar de Python y C#, que básicamente utilizan la misma palabra reservada y esta es <code>yield</code>.</p>
+<p>Con la palabra reservada <code>yield</code> se utiliza como la palabra <code>return</code> (y de hecho en C# se usan en conjunto) salvo que, a diferencia de usar return, <code>yield</code> se usa para indicar que nuestra función ha producido un resultado, pero... que no ha terminado de ejecutarse y que puede producir otro valor.</p>
+<p>Toma por ejemplo este código (escrito en Python) que se usa para generar, teoricamente, una cantidad infinita de números de Fibonacci:</p>
+<pre><code># https://stackoverflow.com/a/32930351/605482
+# https://ideone.com/LE9Xsa
+
+def getFibonacci():
+    yield 0
+    a, b = 0, 1
+    while True:
+        yield b
+        b = a + b
+        a = b - a
+</code></pre>
+<pre><code>// https://stackoverflow.com/a/32930351/605482
+// https://ideone.com/fBSdLy
+IEnumerable&lt;int&gt; GetFibonacci()
+{
+    yield return 0;
+    int a = 0, b = 1;
+    while(true)
+    {
+        yield return b;
+		    b = a + b;
+		    a = b - a;
+	    }
+}
+</code></pre>
+<p>A pesar de que tiene un ciclo infinito ahí al momento de calcular el siguiente número, no significa que esté calculando todos desde un inicio, sino que los va calculando conforme nuestro código los va necesitando.</p>
+<p>El tipo de retorno del método <code>getFibonacci</code> es un <code>generator</code> en lugar de una lista o un arreglo. Este <code>generator</code> es quien facilita la evaluación perezosa.</p>
+<p>El código en C# es muy, muy similar, con las modificaciones apropiadas, y cambiando la palabra <code>yield</code> por <code>yield return</code> nuestro código realiza la misma tarea. Eso sí, a diferencia de Python, acá se regresa un tipo de dato llamado <code>IEnumerable</code>. Ambos, tanto <code>generator</code> como <code>IEnumerable</code> se comportan igual.</p>
+<p>Una vez obtenido un <code>generator</code> o uno <code>IEnumerable</code> basta con usarlos dentro de un ciclo <em>foreach</em> o ir extrayendo elementos con la función <code>next</code> y el método <code>First</code>, respectivamente:</p>
+<pre><code># https://ideone.com/LE9Xsa
+fibonaccis = getFibonacci()
+print(&quot;Primer número&quot;, next(fibonaccis))
+
+for num in fibonaccis:
+    if num &gt; 30000:
+        break
+    print(&quot;Siguiente número&quot;, num)
+</code></pre>
+<pre><code>// https://ideone.com/fBSdLy
+var fibonaccis = GetFibonacci();
+Console.WriteLine(&quot;Primer número &quot; + fibonaccis.First());
+
+foreach(var num in fibonaccis)
+{
+    if(num &gt; 30000)
+        break;
+    Console.WriteLine(&quot;Siguiente número &quot; + num);
+}
+</code></pre>
+<p>Escribí un post sobre <code>yield</code> en C# por si es que les interesa conocer más a detalle. Así mismo, dejo enlaces a todo el código en la descripción. Ah, y por cierto, hay otro tipo de evaluación  llamada evaluación corto-circuitada... tiene un nombre peculiar pero no es nada complicada, escribí también un post sobre eso, dejo el link en la descripción.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

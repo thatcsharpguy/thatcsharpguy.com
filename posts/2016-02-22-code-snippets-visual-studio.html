@@ -1,1 +1,155 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Los <em>code snippets</em>, o, <strong>fragmentos de código</strong>, son otra de las grandes prestaciones que nos ofrece el entorno de desarrollo Visual Studio, conocerlos y usarlos, puede ayudarnos a la hora de desarrollar. En este post hablaré de ellos: ¿qué son y cómo funcionan? ¿cuáles tiene VS instalados? y cómo crear tus propios fragmentos.</p>
+<h3 id="que-son">¿Qué son?</h3>
+<p>Pues como su nombre lo indica son fragmentos de código son &quot;pequeñas&quot; porciones de código que podemos reutilizar una y otra vez dentro de los archivos de código de nuestra aplicación, todo esto se hace en al momento de escribir el código y nada tiene que ver con alguna característica de C#.</p>
+<p>Estos fragmentos de código se cargan de un directorio cuando arranca Visual, y podemos acceder a ellos a través de un menú contextual o aprovechar una de las ventajas de los <em>snippets</em>, la cual nos permite acceder a ellos a través de una especie de &quot;palabra reservada&quot; o atajo y la tecla <kbd>tab</kbd>.</p>
+<h4 id="funcionamiento">Funcionamiento</h4>
+<p>Su funcionamiento es sencillo, mientras estamos editando escribimos el atajo y presionamos dos veces la tecla <kbd>tab</kbd>, tras lo cual como por arte de magia aparecerá el fragmento de código completo:</p>
+<p>&lt;img src=&quot;/images/code-snippets__cw.gif&quot; title=<>Console.WriteLine snippet</> /&gt;</p>
+<p>En este caso, si revisas bien, el atajo usado fue <code>cw</code>, que podríamos interpretar como la <code>C</code> de <code>Console</code> y la <code>w</code> de <code>WriteLine</code>, el hecho de que sea así solo es una coincidencia o un gran acierto del creado, pero no es necesario que el atajo tenga que ver con el código que genera, más adelante, cuando veamos cómo crear tus propios fragmentos, verás por qué lo digo.</p>
+<p>También hay fragmentos de código que contienen partes editables dentro de ellos, de tal manera que podamos personalizarlo con el contexto de la aplicación que estamos desarrollando. Por ejemplo, mira este:</p>
+<p>&lt;img src=&quot;/images/code-snippets__prop.gif&quot; title=<>Prop</> /&gt;</p>
+<p>El atajo usado fue <code>prop</code> y una vez insertado, señaló dos partes del código a las cuales accedemos presionando <kbd>tab</kbd> nuevamente, en este caso permite editar el tipo de la propiedad y su nombre, para finalizar la edición presionamos enter.</p>
+<h3 id="snippets-de-visual-studio">Snippets de Visual Studio</h3>
+<p>Apenas terminas de instalar VS puedes comenzar a usar los fragmentos que trae por default, para C# son aproximadamente unos 35.</p>
+<p>En <a href="https://msdn.microsoft.com/en-us/en-en/library/z41h7fat.aspx" rel="nofoloww" target="_blank">este enlace</a> está la lista entera, pero la siguiente es una lista de los que yo uso más:</p>
+<ul>
+<li><code>#region</code> que podemos usar para crear una agrupación física de líneas de código en nuestro archivo</li>
+</ul>
+<p>&lt;img src=&quot;/images/code-snippets__region.gif&quot; title=<>Region directive</> /&gt;</p>
+<ul>
+<li><code>ctor</code> que se usa para crear un constructor de la clase en la que se declara</li>
+</ul>
+<p>&lt;img src=&quot;/images/code-snippets__ctor.gif&quot; title=<>Constructor</> /&gt;</p>
+<ul>
+<li><code>for</code> crea un ciclo for con valores editables para la variable de iteración y sobre la que se va a comprobar el ciclo</li>
+</ul>
+<p>&lt;img src=&quot;/images/code-snippets__for.gif&quot; title=<>Constructor</> /&gt;</p>
+<ul>
+<li><code>foreach</code> crea un ciclo &quot;para cada&quot;, nos permite editar el tipo de dato y los nombres de los objetos</li>
+</ul>
+<p>&lt;img src=&quot;/images/code-snippets__foreach.gif&quot; title=<>Constructor</> /&gt;</p>
+<ul>
+<li><p><code>prop</code> que crea una propiedad autoimplementada</p>
+</li>
+<li><p><code>propg</code> que crea una propiedad autoimplementada que únicamente define un <em>getter</em></p>
+</li>
+<li><p><code>propfull</code> que crea una propiedad con su respectivo campo de respaldo</p>
+</li>
+</ul>
+<p>Si ya usas los fragmentos seguramente coincidiremos en algunos, y si no, cuando los empieces a usar, me cuentas.</p>
+<h3 id="creando-fragmentos">Creando fragmentos</h3>
+<p>¿Qué sería de un IDE si no pudieramos personalizarlo? con VS podemos crear fragmentos para usarlos e inclusive compartirlos con nuestros amigos o compañeros de trabajo.</p>
+<p>Primero que nada, los fragmentos se almacenan en archivos con extensión <code>.snippet</code> (que por dentro son XML). Y a pesar de que existen algunas extensiones que permiten manipularlos, para mi siempre ha sido mejor editarlos manualmente.</p>
+<p>El lugar por default en donde debes colocar tus snippets es dentro de la carpeta <code>\Documents\Visual Studio 20[XX]\Code Snippets\[Lenguaje]\My Code Snippets</code>.</p>
+<p>Bien, ahora que sabemos esto, vamos a crear un <em>snippet</em>, descarga <a target="_blank" rel="nofollow" href="https://raw.githubusercontent.com/fferegrino/fantastic-broccoli/master/sample.snippet">este archivo</a> (clic derecho, guardar cómo), este archivo contiene una plantilla para lograr al menos algo básico, ábrelo con tue editor de texto o XML favorito, yo uso <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> y revisa su contenido.</p>
+<p>Es sencillo como puedes ver, las partes esenciales son:</p>
+<ul>
+<li><code>Header</code> en donde va el título, el autor, la descripción y el atajo.</li>
+<li><code>Snippet</code> en donde va el código que queremos que se inserte en el documento.</li>
+</ul>
+<p>Reemplaza los valores como desees, y no olvides poner tu código dentro de <code>&lt;![CDATA[</code> y <code>]]&gt;</code>, mira, este es el que yo he creado:</p>
+<pre><code class="language-xml">&lt;CodeSnippet Format=&quot;1.0.0&quot;&gt;
+    &lt;Header&gt;
+        &lt;Title&gt;I love C# snippet&lt;/Title&gt;
+        &lt;Author&gt;Antonio Feregrino&lt;/Author&gt;
+        &lt;Description&gt;Tells the world you love C#&lt;/Description&gt;
+        &lt;Shortcut&gt;love&lt;/Shortcut&gt;
+    &lt;/Header&gt;
+    &lt;Snippet&gt;
+        &lt;Code Language=&quot;CSharp&quot;&gt;
+            &lt;![CDATA[Console.WriteLine(&quot;I love C#&quot;);]]&gt;
+        &lt;/Code&gt;
+    &lt;/Snippet&gt;
+&lt;/CodeSnippet&gt;
+</code></pre>
+<p>Es hora de copiarlo en el directorio desde el que serán cargados e iniciar Visual Studio (hasta el día de hoy sigue siendo necesario reiniciar el IDE cada vez que cambiamos un <em>snippet</em>).</p>
+<p>Entonces al escribir en un archivo de código C# el atajo <code>love</code> y presionar <kbd>tab</kbd> <kbd>tab</kbd>, sucede esto:</p>
+<p>&lt;img src=&quot;/images/code-snippets__love.gif&quot; title=<>I love C#</> /&gt;</p>
+<p>Vamos a crear algo un poco más complejo, algo que permita reemplazar valores dentro del fragmento de código, como el caso de <code>prop</code>, para realizar la tarea puedes seguir trabajando con el archivo que tienes, o <a target="_blank" rel="nofollow" href="https://raw.githubusercontent.com/fferegrino/fantastic-broccoli/master/sample-2.snippet">descargar este otro</a>.</p>
+<p>Lo importante es añadir un hijo llamado <code>Declarations</code> como hijo de <code>Snippet</code>. Dentro de <code>Declarations</code> es donde debemos definir los reemplazos que vamos a necesitar. Existen dos tipos de reemplazos <code>Literal</code> y <code>Object</code>, por ahora vamos a quedarnos solo con <code>Literal</code>, así que añade un elemento d este tipo dentro de <code>Declarations</code>, a su vez, <code>Literal</code> debe tener como hijos los elementos <code>ID</code> y <code>Default</code>. Suena bastante complicado... y por eso pongo un ejemplo de lo que digo:</p>
+<pre><code class="language-xml">&lt;CodeSnippet Format=&quot;1.0.0&quot;&gt;
+    &lt;Header&gt;
+        &lt;Title&gt;I love ?? snippet&lt;/Title&gt;
+        &lt;Author&gt;Antonio Feregrino&lt;/Author&gt;
+        &lt;Description&gt;Tells the world you love something&lt;/Description&gt;
+        &lt;Shortcut&gt;lovesth&lt;/Shortcut&gt;
+    &lt;/Header&gt;
+    &lt;Snippet&gt;
+        &lt;Declarations&gt;
+            &lt;Literal&gt;
+                &lt;ID&gt;something&lt;/ID&gt;
+                &lt;Default&gt;C#&lt;/Default&gt;
+            &lt;/Literal&gt;
+        &lt;/Declarations&gt;
+        &lt;Code Language=&quot;CSharp&quot;&gt;
+            &lt;![CDATA[Console.WriteLine(&quot;I love $something$&quot;);]]&gt;
+        &lt;/Code&gt;
+    &lt;/Snippet&gt;
+&lt;/CodeSnippet&gt;
+</code></pre>
+<p>Como puedes ver, dentro del código del fragmento está el <code>ID</code> que puse dentro de la declaración del reemplazo, la novedad es que el ID está delimitado por <code>$</code> lo cual indica que es un valor que será reemplazado.</p>
+<p>&lt;img src=&quot;/images/code-snippets__lovesth.gif&quot; title=<>I love other things</> /&gt;</p>
+<h5 id="cambiando-la-ruta-de-los-fragmentos">Cambiando la ruta de los fragmentos</h5>
+<p>Si lo que quieres es cambiar la ruta de tus fragmentos a otra carpeta dentro de tu PC, puedes acceder al Administrador de Fragmentos de Código que está en el menú Herramientas, dar clic en Añadir y seleccionar la carpeta de la que deseas que se carguen los fragmentos. En mi caso, lo tengo configurado de esa manera porque uso GitHub para sincronizar algunos de los fragmentos que uso, si quieres verlos, <a href="https://github.com/fferegrino/fantastic-broccoli" target="_blank">visita el repositorio</a>.</p>
+<h3 id="ventajas">Ventajas</h3>
+<p>La ventaja de los <em>snippets</em> va más allá del ahorro de tiempo que introduce en nuestro proceso de desarrollo, y esto lo digo porque tal vez la ventaja de escribir un if completo o usar el <em>snippet</em> no sea tan significativa. Si no el simple hecho de liberar nuestras mentes de colocar el cursor en la posición correcta o de cerrar correctamente los corchetes, es en sí, la gran ventaja de estos.</p>
+<p>Además de que a través de los <em>snippets</em> se puede implementar un <a href="/post/importancia-de-programar-con-estilo">estilo de programación</a> dentro de la organización en la que trabajamos, imagínate que todos usan los mismos fragmentos para programar, seguramente las diferencias entre el código de un programador y otro se disminuirían.</p>
+<h3 id="desventajas">Desventajas</h3>
+<p>(...) La única desventaja real que existe es que podríamos acostumbrarnos a usarlos y que cuando no los tengamos nos costará un poco de trabajo programar sin ellos... pero vamos, que todos los IDE que son comúnmente usados para programar en .NET tienen soporte para fragmentos de código.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

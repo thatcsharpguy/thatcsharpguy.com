@@ -1,1 +1,85 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>La autenticación multifactor es un método de control de acceso  que se basa en que el usuario que quiere acceder a un sistema presente más de una prueba para comprobar su identidad. Este puede ser usado tanto para lugares físicos como un edificio de oficinas, como en lugares virtuales, por ejemplo, una cuenta de correo.</p>
+<p>Los factores que se usan para corroborar la identidad pertenecen a alguna de estas categorías:</p>
+<ul>
+<li>De conocimiento, o algo que los usuarios saben. Como la contraseña de tu correo, o la respuesta a una pregunta. Como cuando de niño hacías un club y solo podían entrar quienes se supieran la frase.</li>
+<li>De posesión, o algo que los usuarios tienen. Como cuando en la escuela o en el trabajo te dan una credencial que te identifica como perteneciente a esa organización.</li>
+<li>De inherencia, o algo que los usuarios son. Como cuando en las películas de James Bond ves que tienen lectores de iris y de huellas dactilares, o, mejor dicho, información biométrica que es única para cada individuo.</li>
+<li>De ubicación, o el lugar en el que el usuario está.</li>
+<li>De tiempo, o el momento en el que el usuario intenta a acceder.</li>
+</ul>
+<p>En particular los tres primeros: de conocimiento, de posesión y de inherencia son los más usados en general, mientras que los de ubicación y tiempo tienen usos particulares.</p>
+<p>Anteriormente era muy común emplear solo el factor de conocimiento para conceder el acceso a un usuario, e inclusive estoy seguro que muchos de los que están viendo este video aún siguen usando uno solo, espero que después de ver este video eso cambie.</p>
+<h2 id="por-que">Por qué</h2>
+<p>Pero, ¿por qué existe esta forma de autenticación?</p>
+<p>El objetivo de la autenticación de múltiples factores es dificultar  el acceso a usuarios no autorizados a un sistema al establecer varios métodos de validación de identidad.</p>
+<p>¿Qué pasaría si alguien se enterara de tu contraseña de tu correo? esa persona ya podría comprobar que &quot;eres tú&quot; con el factor de conocimiento. Pero si tuvieras activada la autenticación de dos factores con una app en tu celular, a esa persona no le bastaría conocer tu contraseña, sino que además tendría que tener acceso a tu celular para comprobar que eres tú. Lo cual hace aún más difícil que pueda acceder.</p>
+<h2 id="metodos-comunes">Métodos comunes</h2>
+<p>Es poco común encontrar autenticación de más de dos factores en aplicaciones de uso común, como el correo, banca en línea o tu cuenta de Facebook, lo normal es que se usen únicamente dos: Estos métodos de autenticación es el de conocimiento y posesión.</p>
+<p>Muchas compañías actualmente ofrecen el método de posesión a través de mensajes SMS o llamadas a un número, sin embargo, este método ya no es considerado tan seguro debido a que alguien podría clonar tu tarjeta SIM, obtenerla directamente de tu proveedor o simplemente robar tu teléfono.</p>
+<p>Compañías como Google, GitHub ofrecen la posibilidad de obtener una app generadora de códigos que previamente registramos para obtener un código y poder entrar.</p>
+<p>Las ventajas de usar un teléfono móvil como una forma de comprobar que un usuario es quien dice ser radica en normalmente el usuario ya tiene el dispositivo y no hay necesidad de otorgar un dispositivo extra al usuario. Tal y como lo hacen los bancos con estos tokens: que también son otro método de demostrar la posesión.</p>
+<h2 id="yubikey">Yubikey</h2>
+<p>Como usuarios también podemos obtener otros dispositivos para autenticarnos como este tipo de llaves USB, esta en particular se llama Yubikey pero puedes conseguir de otra marca. El uso es bastante sencillo, por ejemplo, una vez registrada con Facebook, puedes usarla para entrar a tu cuenta. Pones tu password y después tienes que introducir la llave en tu computadora, presionar el botón y listo. Estás autenticado.</p>
+<p>Hay una lista bastante grande de que compañías que <a href="https://www.yubico.com/support/partners/" target="_blank">ofrecen soporte</a> para las Yubikey.</p>
+<h2 id="pero-a-mi-que-demonios-me-importa">Pero, ¿a mi qué demonios me importa?</h2>
+<p>Espero que no te estés preguntando para qué deberías saber tu esto, ya  que usando tu mismo la autenticación de dos factores estarías protegiendo tu información así como la de la empresa en la que trabajas.</p>
+<p>Pero la cosa es mejor, como desarrollador tu puedes implementar este método de control de acceso, otorgándole así más opciones de seguridad a tus usuarios. Podrías comenzar por hacer compatibles tus logins con apps que generan códigos de un solo uso como Google Authenticator. <a href="..\two-factor-authentication-asp-net" target="_blank"><strong>Si quieres ver un ejemplo usando ASP.NET Core, da click aquí</strong></a>. Pero si te sientes realmente inspirado podrías visitar el sitio de Yubico para ver cómo es que puedes comenzar a usar estas llavecitas para que tus usuarios se <em>logueen</em> en tus apps.</p>
+<p>Espero les haya gustado y que les haya motivado también a mejorar la seguridad en sus cuentas. Y si así fue les pido que le den Me Gusta, lo compartan y se suscriban al canal si es que aún no lo han hecho.</p>
+<p>Nos vemos la próxima.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

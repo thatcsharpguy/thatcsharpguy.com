@@ -1,1 +1,242 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>## La interfaz IEnumerable
+Que un objeto implemente la clase IEnumerable significa que las instancias de esta tienen contenido sobre el que se puede iterar o recorrer. Este recorrido es siempre hacia &quot;adelante&quot;. Dicho &quot;en código&quot;, la interfaz <code>IEnumerable</code> (genérica o no) nos indica que podemos usar un bloque <code>foreach</code> para recorrer el objeto que la implemente. Por ejemplo, la clase <code>List&lt;T&gt;</code>, <code>ObservableCollection&lt;T&gt;</code> y los arreglos implementan esta clase. Es importante mencionar esto, ya que el tema que se verá a continuación está totalmente ligado a esta interfaz.</p>
+<p>En el siguiente post vamos a ver una serie de métodos que tienen como tipo de retorno la interfaz <code>IEnumerable</code>, que como ya sabes ahora, es un tipo de dato que se puede recorrer, o que se puede iterar sobre él, ya sea en un ciclo <code>foreach</code> o empleando Linq.</p>
+<h2 id="para-que-sirve-yield">¿Para qué sirve yield?</h2>
+<p>Considero que la mejor manera de explicar el uso de esta palabra reservada es mediante un ejemplo, así que observa el siguiente código antes de nada.</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+IEnumerable<int> GetMultiplesOf(int n, 
+                                int start, 
+                                int end)
+{
+    List<int> multiples = new List<int>();
+    for (int i = start; i < end; i++)
+    {
+        if (i % n == 0)
+        {
+            Console.WriteLine(
+                $"{i} GetMultiplesOf");
+            multiples.Add(i);
+        }
+    }
+    return multiples;
+}
+```  
+</div> 
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+IEnumerable<int> YieldMultiplesOf(int n, 
+                                  int start, 
+                                  int end)
+{  
+<pre><code>for (int i = start; i &lt; end; i++)
+{
+    if (i % n == 0)
+    {
+        Console.WriteLine(
+            $&quot;{i} YieldMultiplesOf&quot;);
+        yield return i;
+    }
+}  
+</code></pre>
+<p>}</p>
+<pre><code>&lt;/div&gt;
+&lt;/div&gt; 
+
+** Para que dentro de un método se pueda usar la palabra `yield`, este debe tener como tipo de retorno una de las dos variantes de `IEnumerable`.**  
+
+A simple vista pareciera que hacen lo mismo: encontrar los números divisibles entre `n`. La diferencia entre ellos radica en que mientras que uno crea una secuencia intermedia y almacena todos los valores antes de devolverlos, el otro devuelve uno por uno a quién lo llamó.
+
+Para que veas el funcionamiento, vamos a llamarlos dentro de un ciclo `foreach`:
+
+&lt;div class=&quot;pure-g&quot;&gt;
+&lt;div class=&quot;pure-u-1 pure-u-md-1-2&quot;&gt;
+```csharp  
+Console.WriteLine(&quot;Normal collection&quot;);
+foreach (var m in GetMultiplesOf(2, 1, 10))
+{
+    Console.WriteLine($&quot;{m} es multiplo de 2&quot;);
+}
+</code></pre>
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+Console.WriteLine("Yield collection");
+foreach (var m in YieldMultiplesOf(2, 1, 10))
+{
+    Console.WriteLine($"{m} es multiplo de 2");
+}
+```  
+</div> 
+</div>
+<p>El resultado de ejecutarlas es el siguiente:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<pre>
+Normal collection
+2 GetMultiplesOf
+4 GetMultiplesOf
+6 GetMultiplesOf
+8 GetMultiplesOf
+2 es multiplo de 2
+4 es multiplo de 2
+6 es multiplo de 2
+8 es multiplo de 2
+</pre>
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<pre>
+Yield collection
+2 YieldMultiplesOf
+2 es multiplo de 2
+4 YieldMultiplesOf
+4 es multiplo de 2
+6 YieldMultiplesOf
+6 es multiplo de 2
+8 YieldMultiplesOf
+8 es multiplo de 2
+</pre>
+</div> 
+</div>  
+<p>Wow, wow, ¿viste lo que ocurrió? mientras que en el que no usa <code>yield</code> se calcularon todos los valores en una sola llamada y se almacenaron en una lista temporal, en el otro solamente se calculó uno por uno y solamente cuando fue requerido. Evitándonos así tener que crear colecciones auxiliares para almacenar los datos.</p>
+<p>Para comprender un poco mejor el funcionamiento, mira estas imágenes:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/aprende-c-sharp__yield__get.png" title=""Normal Enumerable"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/aprende-c-sharp__yield__yield.png" title=""Yield Enumerable"" />
+</div>
+</div>
+<p>En resumidas palabras, <code>yield</code> nos ayuda a implementar una especie de <em>&quot;lazy loading&quot;</em> en nuestro código introduciendo saltos entre un método y quien lo llamó para evitar así desperdiciar memoria en colecciones intermedias. Eso sin mencionar que usando esta técnica también podemos asegurar que para una determinada operación sobre un <code>IEnumerable</code> siempre se ejecutará la menor cantidad de iteraciones posibles.</p>
+<p>Mira el siguiente ejemplo, en donde se aplican algunas operaciones de Linq:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+var get = GetMultiplesOf(2, 320, 335)
+            .Skip(3)
+            .First();
+Console.WriteLine($"El 4to multiplo es {get}");
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+var yield = YieldMultiplesOf(2, 320, 335)
+                .Skip(3)
+                .First();
+Console.WriteLine($"El 4to multiplo es {yield}");
+```  
+</div>
+</div>
+<p>Y su resultado es el siguiente. Debes notar que para el caso de la colección intermedia se calcularon todos los valores posibles, mientras que para cuando se usó <code>yield</code> solo se calcularon los valores necesaros:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<pre>
+320 GetMultiplesOf
+322 GetMultiplesOf
+324 GetMultiplesOf
+326 GetMultiplesOf
+328 GetMultiplesOf
+330 GetMultiplesOf
+332 GetMultiplesOf
+334 GetMultiplesOf
+El 4to multiplo es 326
+</pre>
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<pre>
+320 YieldMultiplesOf
+322 YieldMultiplesOf
+324 YieldMultiplesOf
+326 YieldMultiplesOf
+El 4to multiplo es 326
+</pre>
+</div> 
+</div>  
+<h2 id="multiples-returns">Multiples returns</h2>
+<p>Al igual que cuando usamos <code>return</code>, un método puede contener varias instrucciones <code>yield return</code>. Por ejemplo, imagina un programa en donde tengas que calcular los factores primos de un número:</p>
+<pre><code class="language-csharp">public static IEnumerable&lt;int&gt; PrimeFactors(int n)
+{
+    while (n % 2 == 0)
+    {
+        yield return 2;
+        n = n / 2;
+    }
+
+    for (int i = 3; i &lt;= Math.Sqrt(n); i += 2)
+    {
+        while (n % i == 0)
+        {
+            yield return i;
+            n = n / i;
+        }
+    }
+
+    if (n &gt; 2)
+        yield return n;
+}
+</code></pre>
+<p><strong>Por otro lado, si en algun momento queremos terminar la ejecución de este método podemos usar la combinación de palabras <code>yield break</code> para hacerlo.</strong></p>
+<p>Sin duda también nos ayuda a implementar la &quot;lazy evaluation&quot; y ejecutar el código solamente cuando lo necesitamos, con ella nos ahorramos el crear una colección intermedia entre la fuente que generará los resultados y el destino de estos.</p>
+<h2 id="funcionamiento-interno">Funcionamiento interno</h2>
+<p>La palabra <code>yield</code> opera insertando saltos entre el método llamado y el código que lo llama... como vimos en una imagen anterior. Pero para que esto funcione, se debe almacenar cierta información que le indique al método llamado  en qué estado se encontraba antes de volver a ser ejecutado. Es por eso que cuando usamos la palabra <code>yield</code> el compilador entra en acción para nosotros, crea una clase intermedia en donde se almacena la información del estado de la iteración siguiente, te recomiendo que visites este enlace si deseas saber más.</p>
+<h2 id="ejemplos-de-uso">Ejemplos de uso</h2>
+<p>Los ejemplos mostrados en el código pueden parecer un poco absurdos (lo sé) pero por ejemplo, ¿qué sucedería si en lugar de buscar los factores primos de un número, tuviéramos que encontrar una persona en un repositorio de datos de 1,000,000 de registros? o, ¿qué ocurriría con la memoria de nuestra computadora si tuviéramos que trabajar con las líneas de un archivo de 1Gb?</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

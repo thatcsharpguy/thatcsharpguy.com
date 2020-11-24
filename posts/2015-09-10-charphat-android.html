@@ -1,1 +1,151 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<div class="pure-g">
+	<div class="pure-u-24-24">
+		<a href="https://play.google.com/store/apps/details?id=com.thatcsharpguy.charphat" target="_blank">
+			<img alt="Get it on Google Play" src="/postimages/charphat-android/header.png" />
+		</a>
+	</div>
+</div>  
+<br />
+Con CharpHat toma una foto y muéstrale al mundo que te gusta C#, CharpHat te permite colocarte un birrete con mucho estilo.  
+  
+<br />
+Ha pasado ya un buen rato desde que tuve el deseo de hacer esta aplicación para móvil, y es que la idea me llegó desde que comencé en el mundo de Xamarin. Pero al tener muy poca experiencia siempre había retrasado la idea. En fin, en este post te voy a explicar cómo es que hice la app con Xamarin.Forms y ayuda de los `custom renderers`.  
+  
+### El proyecto  
+Para comenzar, el proyecto es una aplicación de Xamarin.Forms utilizando un proyecto compartido que cree desde Visual Studio. Una vez creado, deja cuatro proyectos en la solución, esta vez me enfocaré solamente en el proyecto de Android ya que es el que ya está desarrollado por completo. Primero, les muestro el proyecto compartido:
+<img src="/postimages/charphat-android/shared-capture.png" />
+<p>Para darle un poco de organización dividí el código en carpetas, están:</p>
+<ul>
+		
+	<li><code>Controls</code>, contiene las abstracciones de controles que se deben implementar específicamente para cada plataforma, como es el caso de <code>StickerableImage</code>, que veremos más adelante.</li>
+			
+	<li><code>Helpers</code>, contiene recursos que se usan en toda la aplicación, como colores o estilos.</li>
+			
+	<li><code>Pages</code>, contiene las páginas que se usan a lo largo de toda la app, incluyéndo <code>CameraPage</code> que debe ser implementada por nosotros para cada plataforma, que veremos más adelante.</li>
+			
+	<li><code>Services</code>, contiene las abstracciones de caracterísitcas que también deben ser implementadas para cada plataforma.</li>
+			
+	<li><code>ViewModels</code>, contiene las clases que definen la lógica de la aplicación.</li>
+</ul>  
+  
+### CameraPage  
+La funcionalidad de la aplicación depende completamente de la posibilidad de tomar fotografías para después poderlas modificar, aquí es donde la cosa se pone un poco seria, puesto que dentro de todas las bondades que nos ofrece Xamarin.Forms, no está la posibilidad de tomar fotografías con código 100% compartido. Por ello se tiene que escribir código para cada plataforma, en este caso usando Xamarin.Android, es decir, **sigue siendo código en C#**.  
+<p>La implementación de la cámara es completamente una implementación basada en la que hizo Pierce Boggan en su aplicación Moments. Para usar un <code>custom renderer</code>  básicamente lo que se requiere es:<br />
+<br />
+<strong>Declarar la abastracción</strong>, en este caso es dentro de la carpeta <code>Pages</code> del proyecto compartido, en este caso <code>BasePage</code> deriva de <code>ContentPage</code>, esto es importante ya que es una manera de indicar qué es lo que vamos a implementar en la plataforma.</p>
+<pre><code class="language-csharp">public class CameraPage : BasePage
+{
+	public CameraPage() { }
+}
+</code></pre>
+<p><strong>Implementar individualmente</strong>, para realizar esto se debe crear una clase dentro del proyecto para el cual queremos implementar el control dentro de la plataforma, a notar que CameraPage deriva de PageRenderer (e implementa ISurfaceTextureListener, pero ese ya es otro tema):</p>
+<pre><code class="language-csharp">public class CameraPage : PageRenderer, TextureView.ISurfaceTextureListener
+</code></pre>
+<p>Dentro de esta clase, debemos sobreescribir el método <code>OnElementChanged</code>, ya que es donde se debe modificar el el control de acuerdo a nuestras necesidades, para este caso, en ese método de carga un <code>layout</code> que contiene la definición de la página en XML para Android y se añaden los manejadores de eventos. Para terminar, debemos <strong>indicar a Xamarin.Forms</strong> que nuestra clase derivada de <code>PageRenderer</code> debe ser usada para renderizar la página de la cámara en el dispositivo, esto se hace mediante el atributo <code>ExportRenderer</code>:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(CharpHat.Pages.CameraPage), typeof(CharpHat.Droid.Pages.CameraPage))]
+</code></pre>
+<p>La implementación de la cámara usa las APIs viejas de Android, y no es para nada distinto de lo que se haría para implementar una funcionalidad similar usando Java, pero en este caso estarías usando fabuloso C#.</p>
+<h3 id="stickerableimage">StickerableImage</h3>
+<p>Otra de las características que tuvo que ser implementada de manera individual para cada plataforma fue la capacidad de añadir y manipular &quot;stickers&quot; usando nuestros dedos. Para ello, se deben seguir los pasos anteriores, es decir:<br />
+<br />
+<strong>Declarar la abstracción</strong></p>
+<pre><code class="language-csharp">public class StickerableImage : View
+</code></pre>
+<p>En este caso, añadí dos propiedades a esta clase que permitirán manipular el tamaño (<code>ScaleFactor</code>) y el ángulo (<code>RotationFactor</code>) en el código del proyecto compartido, además las declaré como propiedades &quot;bindeables&quot;, para poderlas usar desde XAML o con los <code>ViewModels</code>.</p>
+<pre><code class="language-csharp">BindableProperty ScaleFactorProperty;
+BindableProperty RotationFactorProperty;
+</code></pre>
+<p><strong>Implementar individualmente</strong>, para este caso, no se usa un renderizador conocido (como podría ser PageRenderer o ButtonRenderer), sino que se utiliza ViewRenderer en el que debemos especificar: el tipo del control en Xamarin.Forms y el tipo de control en la plataforma nativa (en este caso es Xamarin.Android)</p>
+<pre><code class="language-csharp">public class StickerableImageRenderer : ViewRenderer&lt;StickerableImage, StickerView&gt;
+</code></pre>
+<p>Con el código anterior, lo que estamos diciendo es algo como: <em>Cuando sea Android, reemplaza StickerableImage por StickerView</em>, donde <code>StickerView</code> es un control del tipo <code>Android.Views.View</code>. Una vez hecho esto, únicamente resta indicarle a Forms que queremos usar ese Renderer para ese tipo de control, para ello usamos fuera del <code>namespace</code>:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(CharpHat.Controls.StickerableImage), typeof(CharpHat.Droid.Controls.StickerableImageRenderer))]
+</code></pre>
+<h4 id="stickerview">StickerView</h4>
+<p>Es un <code>View</code> que lo que hace es estar al pendiente de cuando el usuario toca la pantalla y dibuja en ese punto el peculiar birrete de C#, también permite modificar el tamaño y el ángulo de este, para poder acomodarlo de acuerdo a lo que indique el usuario.</p>
+<h3 id="ipicturemanager">IPictureManager</h3>
+<p>Almacenar imagenes en el dispositivo también es algo que requiere de código específico para cada plataforma, es por eso que cree esta interfaz que será implementada independientemente y hará uso del Servicio de Dependencias de Xamarin.Forms. La interfaz expone un único método <code>SavePictureToDisk</code>, que toma los bytes de la imagen, el nombre que se le asignará y la carpeta en que se debe guardar. De nuevo, seguimos los pasos de siempre:</p>
+<p><strong>Declarar la abstracción</strong></p>
+<pre><code class="language-csharp">public interface IPictureManager
+{
+	string SavePictureToDisk (string filename, string folder, byte[] imageData);
+	// ...
+</code></pre>
+<p><strong>Implementar individualmente</strong></p>
+<pre><code class="language-csharp">public class PictureManager : IPictureManager
+{
+	public string SavePictureToDisk(string filename, string folder, byte[] imageData)
+	{
+		var dir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryPictures);
+		string picsFolder = System.String.Empty;
+		// ...
+</code></pre>
+<p>Para usar el servicio de dependencias de Xamarin.Forms, debemos utilizar <code>DependencyAttribute</code> fuera del nombre de espacio en nuestra clase, como en la siguientes líneas:</p>
+<pre><code class="language-csharp">[assembly: Xamarin.Forms.Dependency(typeof(CharpHat.Droid.Services.PictureManager))]
+namespace CharpHat.Droid.Services
+</code></pre>
+<h3 id="iscreenshotservice">IScreenshotService</h3>
+<p>Para el caso de <code>IScreenshotService</code> se realizan pasos similares que para <code>IPictureManager</code>. La implementación de <code>IScreenshotService</code> permite capturar la pantalla que está viendo el usuario, úitil para cuando el birrete está en su posición y se quiere guardar esa imagen.</p>
+<h3 id="conclusiones">Conclusiones</h3>
+<p>Como podemos ver, hay ciertas veces en que no nos podemos librar de escribir código para cada plataforma, sin embargo la gran mayoría de nuestra aplicación permanece compartida entre las tres plataformas. Son las peculiaridades como el acceso a la cámara del dispositivo y la captura de pantalla las que requieren de código C# aparte.</p>
+<h4 id="codigo-compartido">Código compartido</h4>
+<p>Al momento de la publicación de este post, más de la mitad del código es compartido por la aplicación de Android, sin embargo estoy buscando maneras de reducir el porcentaje de código específico para cada plataforma.<br />
+<br />
+Por último, no te olvides de <a href="https://play.google.com/store/apps/details?id=com.thatcsharpguy.charphat" target="_blank">descargar la aplicación</a> en Google Play o <a href="http://github.com/fferegrino/CharpHat/">descargar el código fuente</a> en GitHub. Y espera pronto la versión para iOS y Windows Phone.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

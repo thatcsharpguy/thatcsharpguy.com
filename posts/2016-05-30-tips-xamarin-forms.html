@@ -1,1 +1,162 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Esta es la traducción de <a href="http://kent-boogaart.com/blog/jason-smith's-xamarin-forms-performance-tips" target="_blank">un post de Kent Boogaart</a> en donde recopiló una serie de tips sobre cómo mejorar el desempeño de apps hechas con Xamarin Forms.</p>
+<hr />
+<br />
+<p>Jason Smith, ingeniero a cargo de Xamarin Forms, hizo una <a href="https://www.youtube.com/watch?v=RZvdql3Ev0E" target="_blank" rel="nofollow">fantástica presentación</a> en la conferencia Evolve de este año. En ella, él repasó una larga lista de tips de desempeño, así como una sesión de preguntas y respuestas. No he podido encontrar estos tips por escrito (en diapositivas, transcripción o post en blog). Con el interés de hacer esta información más fácilmente accesible para mi y otros, decidí resumirlos aquí.</p>
+<p>Me tomé la libertad de reacomodar y agrupar tips relacionados, pero quiero dejar en claro que este es el contenido de Jason, no el mío.</p>
+<h2 id="general">General</h2>
+<p><strong>HABILITA</strong> la compilación de XAML si estás usándolo para tus vistas:</p>
+<pre><code class="language-csharp">[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+</code></pre>
+<p><strong>NO USES</strong> <em>bindings</em> cuando asignaciones estáticas sean suficientes.</p>
+<p><strong>NO</strong> asignes valores por default. Hacerlo conlleva un costo, aunque nunca modifiques el valor.</p>
+<p><strong>EVITA</strong> usar transparencias. Busca lograr efectos similares con la opacidad al 100%.</p>
+<p><strong>USA</strong> <code>async</code> / <code>await</code> para evitar bloquear el hilo principal.</p>
+<p><strong>CONSIDERA</strong> crear los controles en un hilo distinto al principal, pero asegurate de agregarlos al <em>árbol visual</em> en el hilo principal. De no hacerlo no hará que tu app falle inmediatamente, pero corromperá su estado. Se especialmente cuidadoso si estás usando <code>MessagingCenter</code> en el constructor de tu control.</p>
+<h2 id="layout">Layout</h2>
+<p><strong>NO USES</strong> un <code>ContentView</code> con <code>Padding</code> solo para aplicarle un margen al hijo. Usa, en su lugar, la propiedad <code>Margin</code> en el hijo (disponible desde Xamarin.Forms 2.2).</p>
+<p><strong>NO USES</strong> un <code>StackLayout</code> para contener un solo hijo.</p>
+<p><strong>NO USES</strong> un <code>Grid</code> cuando con <code>StackLayout</code> basta.</p>
+<p><strong>NO USES</strong> múltiples <code>StackLayout</code>s cuando con un <code>Grid</code> es suficiente.</p>
+<p><strong>TOMA EN CUENTA</strong> las propiedades <code>Spacing</code> (<code>ColumnSpacing</code> / <code>RowSpacing</code> en <code>Grid</code>) y <code>Padding</code>. En lugar de esto:</p>
+<pre><code class="language-xml">&lt;StackLayout&gt;
+    &lt;ContentView Padding=&quot;10,10,10,5&quot;&gt;
+        &lt;Label Text=&quot;1&quot;/&gt;
+    &lt;/ContentView&gt;
+    &lt;ContentView Padding=&quot;10,0,10,5&quot;&gt;
+        &lt;Label Text=&quot;2&quot;/&gt;
+    &lt;/ContentView&gt;
+    &lt;ContentView Padding=&quot;10,0,10,0&quot;&gt;
+        &lt;Label Text=&quot;3&quot;/&gt;
+    &lt;/ContentView&gt;
+&lt;/StackLayout&gt;
+</code></pre>
+<p>Haz esto:</p>
+<pre><code class="language-xml">&lt;StackLayout Padding=&quot;10&quot; Spacing=&quot;5&quot;&gt;
+    &lt;Label Text=&quot;1&quot;/&gt;
+    &lt;Label Text=&quot;2&quot;/&gt;
+    &lt;Label Text=&quot;3&quot;/&gt;
+&lt;/StackLayout&gt;
+</code></pre>
+<p><strong>PREFIERE</strong> usar <code>LayoutOptions.Fill</code> (o <code>LayoutOptions.FillAndExpand</code>). Estos son los valores por default y la <em>mayoría</em> de las veces no deben ser modificados.</p>
+<p><strong>PREFIERE</strong> filas/columnas de <code>Grid</code> con tamaño definido con <code>*</code> en lugar de <code>Auto</code>.</p>
+<p><strong>NO USES</strong> múltiples <code>StackLayout</code>s para simular un <code>Grid</code>.</p>
+<p><strong>NO USES</strong> <code>RelativeLayout</code> si es posible.</p>
+<p><strong>AÑADE</strong> agrega los controles hijos a su contenedor padre antes de agregar el padre a la pantalla.</p>
+<p>En lugar de esto:</p>
+<pre><code class="language-csharp">var page = new ContentPage();
+var stackLayout = new StackLayout();
+var image = new Image { Source = &quot;person.png&quot; };
+var label = new Label { Text = &quot;Name&quot; };
+
+page.Content = stackLayout;
+
+navigationPage.Push(page);
+stackLayout.Children.Add(image);
+stackLayout.Children.Add(label);
+</code></pre>
+<p>Haz esto:</p>
+<pre><code class="language-csharp">var page = new ContentPage();
+var stackLayout = new StackLayout();
+var image = new Image { Source = &quot;person.png&quot; };
+var label = new Label { Text = &quot;Name&quot; };
+
+stackLayout.Children.Add(image);
+stackLayout.Children.Add(label);
+page.Content = stackLayout;
+
+navigationPage.Push(page);
+</code></pre>
+<p>XAML ya agrega los controles en el orden <em>correcto</em>.</p>
+<p><strong>AÑADE</strong> los controles a la página en el constructor en lugar de en el método <code>OnAppearing</code>.</p>
+<p><strong>PREFIERE</strong> animar los controles usando las propiedades <code>TranslationX</code> y <code>TranslatonY</code>.</p>
+<p><strong>NO</strong> llames al método <code>Layout()</code> (y especialmente <code>ForceLayout()</code>).</p>
+<p><strong>CONSIDERA</strong> crear un <em>custom layout</em>. Es la mejor opción si es fácil describir el orden de tus controles con palabras pero difícil de implementarlo con los <em>layouts</em> que vienen en forms, si <code>AbsoluteLayout</code> hace <em>casi</em> lo que te gusta, o si simplemente necesitas velocidad pura.</p>
+<p><strong>NO USES</strong> un <code>StackLayout</code> dentro de un <code>ScrollView</code> para simular un <code>ListView</code>.</p>
+<p><strong>USA</strong> un <code>Grids</code> para hacer ordenamiento por capas.</p>
+<h2 id="labels">Labels</h2>
+<p><strong>NO USES</strong> múltiples <code>Label</code>s cuando con una (usando <em>spans</em> con <code>FormattedText</code> cuando es necesario) basta.</p>
+<p><strong>DESACTIVA</strong> <code>Label</code> <em>wrapping</em> si es posible (<code>LineBreakMode=&quot;NoWrap&quot;</code>).</p>
+<p><strong>NO</strong> cambies el valor de <code>VerticalTextAlignment</code> a menos que sea necesario. El valor por default elimina un ciclo de medición completo.</p>
+<p><strong>PREFIERE</strong> las propiedades <code>VerticalTextAlignment</code> y <code>HorizontalTextAlignment</code> sobre <code>VerticalOptions</code> y <code>HorizontalOptions</code>.</p>
+<p><strong>EVITA</strong> actualizaciones esporádicas a <code>Label</code>s. Si las actualizaciones son a múltiples <code>Label</code>s, agrupa las actualizaciones de ser posible.</p>
+<h2 id="listviews">ListViews</h2>
+<p><strong>NO</strong> pongas un <code>ListView</code> dentro de un <code>ScrollView</code>. Usa las propiedades <code>Header</code> y <code>Footer</code> en su lugar.</p>
+<p><strong>NO USES</strong> <code>TableView</code> donde puedas usar <code>ListView</code>. Hoy en día, la única razón real para usar un <code>TableView</code> es por interfaces del estilo de un panel de configuración en el que cada celda tiene un contenido único.</p>
+<p><strong>USA</strong> <code>ListViewCachingStrategy.RecycleElement</code> cuando puedas. Si no te funciona, revisa por qué no lo hace, realmente vale la pena. Debes activar esta propiedad manualmente.</p>
+<p><strong>USA</strong> los selectores de <em>data template</em> para facilitar el uso de distintos controles dentro de un solo <code>ListView</code>. No sobreescribas <code>OnBindingContextChanged</code> para obtener el mismo efecto.</p>
+<p><strong>EVITA</strong> usar <code>IEnumerable&lt;T&gt;</code> como origen de datos para un <code>ListView</code>, en su lugar, intenta usar <code>IList&lt;T&gt;</code>.</p>
+<p><strong>NO</strong> anides <code>ListView</code>s, en su lugar utiliza grupos dentro de uno. No hay soporte para anidamiento de <code>ListViews</code> y hará que tu aplicación falle.</p>
+<p><strong>USA</strong> la propiedad <code>HasUnevenRows</code> cuando tu <code>ListView</code> tenga filas de distintos tamaños. Si el contenido de una celda es modificado dinámicamente (tal vez despuésde cargar información de la base de datos), asegúrate de llamar <code>ForceUpdateSize()</code> en la celda.</p>
+<h2 id="navegacion">Navegación</h2>
+<p><strong>USA</strong> <code>await</code> cuando ejecutes <code>PushAsync</code> y <code>PopAsync</code>. El no hacerlo reduce el desempeño y la <em>correctitud</em> de tu aplicación.</p>
+<p><strong>EVITA</strong> ocultar / mostrar la barra de navegación.</p>
+<p><strong>USA</strong> el <a href="https://gist.github.com/jassmith/a3b2a543f99126782936" target="_blank" rel="nofollow">soporte para AppCompat</a> para Android. Esto mejorará el desempeño y apariencia de la aplicación.</p>
+<h2 id="imagenes">Imágenes</h2>
+<p><strong>TOMA EN CUENTA</strong> que Android no se optimiza el tamaño de la imagen.</p>
+<p><strong>ASIGNA</strong> <code>true</code> a <code>Image.IsOpaque</code> si es posible.</p>
+<p><strong>CARGA</strong> imagenes desde <em>Content</em> en lugar de <em>Recursos</em>.</p>
+<h2 id="bindableproperty">BindableProperty</h2>
+<p><strong>NO USES</strong> la versión genérica de <code>BindableProperty.Create</code> (usa la versión basada en <code>string</code> en conjunto con el operador <code>nameof</code>).</p>
+<h2 id="carouselpage">CarouselPage</h2>
+<p><strong>NO USES</strong> la <code>CarouselPage</code></p>
+<p><strong>USA</strong> un <code>ContentView</code> dentro de una `ContentPage</p>
+<h2 id="messagingcenter">MessagingCenter</h2>
+<p><strong>PREFIERE</strong> usar otro framework (como Prism).</p>
+<p><strong>USA</strong> un método estático o de instancia en lugar de una expresión lambda para el <code>MessagingCenter</code>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

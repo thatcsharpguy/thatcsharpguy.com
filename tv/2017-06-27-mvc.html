@@ -1,1 +1,93 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Un patrón arquitectónico es una especie de guía que define la estructura fundamental de un sistema: es decir, los subsistemas en los que está formado y cuales son los medios y formas en las que se comunican entre ellos.</p>
+<h2 id="mvc">MVC</h2>
+<p>MVC es un patrón arquitectónico enfocado a la forma de presentar la información de una aplicación al usuario, así como a la forma de recibir e interpretar las acciones que este realiza sobre el programa. MVC tiene sus orígenes por ahí de 1970, sí, tiene ya bastante tiempo entre nosotros, y en cierto modo es la raíz de muchos de los patrones que existen hoy en día.</p>
+<p>Surgió inicialmente como un patrón para la creación de aplicaciones de escritorio, sin embargo, con el tiempo (y el surgimiento de la Web) tuvo gran auge en el mundo de aplicaciones en internet y ahí fue se le reconoce más, solo para aparecer también en el desarrollo móvil</p>
+<h2 id="partes">Partes</h2>
+<p>Como el nombre lo podría sugerir, el patrón se compone de tres elementos, o capas: El Modelo, la vista y el controlador. Y de acuerdo al patrón, estas tres tienen una responsabilidad bien definida cada una.</p>
+<p>### El Modelo</p>
+<p>El modelo es el que contiene y gestiona la información de la aplicación, también &quot;contiene&quot; la lógica relacionada con las reglas del negocio (o lo que nuestra aplicación debe hacer). En cierto sentido debe ser el cerebro de nuestra app.</p>
+<p>El modelo debe saber absolutamente nada de la interfaz gráfica, y su única preocupación debe ser la de llevar a cabo todo lo que nuestra aplicación debe hacer en lo que concierne al problema que estamos buscando resolver con la app. El modelo es el encargado de conectarse con la base de datos, conectarse con servicios web y cualquier tipo de manipulación de datos en general. Idealmente el modelo debe ser algo que sea independiente de la plataforma en la que se esté ejecutando. Es decir, más allá de las limitantes del lenguaje, deberíamos poder llevar el modelo de una app para iOS a una aplicación web.</p>
+<p>Es completamente normal que el modelo sea la mayor parte del código de tu app, sin embargo, a su vez, el modelo puede estar separado en otras capas, tal vez una de lógica de la aplicación, otra que únicamente esté diseñada para el acceso a datos y otra que se conecte con servicios web, que en MVC el modelo se presente como una sola sección de tu código, no significa que este deba ser un monolito de código espagueti imposible de separar en capas.</p>
+<p>### La vista</p>
+<p>La vista contiene todos los elementos que son visibles al usuario, ya sea una página web en HTML o un Storyboard en una app para iOS. Sin embargo, la vista no siempre está formada por archivos de interfaz gráfica, sino que también se pueden incluir cualquier otra herramienta que ayude a presentar los datos. Al contrario del modelo, la vista debe saber nada de la lógica de la aplicación. En teoría, su responsabilidad debe limitarse a definir la estructura, apariencia y comportamiento de los datos de la aplicación en la pantalla.</p>
+<p>Sin embargo, te encontrarás con que muchas veces, algunas reglas del negocio aparecen en la vista en forma de validaciones, si bien esto no está definido dentro del modelo, puesto que no debería saber nada de la app, sin embargo, las validaciones (y los mensajes que estas generan, están relacionadas con los datos que el usuario metió) así que…</p>
+<p>La vista nunca, nunca debe saber nada del modelo, y viceversa, para la comunicación entre ellos se dará a través de la última pieza de este patrón.</p>
+<h3 id="el-controlador">El controlador</h3>
+<p>El Controlador es el intermediario, este se encarga de gestionar la aplicación, estos preparan la vista con los datos traídos del modelo y se asegura que exista una comunicación entre ellos: toma las cosas que le da la vista y las transforma a algo que el modelo entienda, así mismo, toma las cosas que el modelo le da y las convierte en algo que puede ser mostrado por la vista.</p>
+<p>En el controlador también puede ocurrir el proceso de autenticación y autorización, para decidir si un usuario tiene permiso de realizar cualquier acción que desee. Este también decide si responde a una petición de la forma en que la vista la generó, y también es el responsable de la navegación entre las vistas de una app.</p>
+<p>Una <a href="https://stackoverflow.com/a/1015853" target="_blank">conversación típica</a> entre estas tres partes es algo como esto:</p>
+<blockquote>
+<p><em>Vista:</em> Oye controlador, el usuario quiere que borremos el registro 4 de la tabla alumnos. Toma la información.</p>
+</blockquote>
+<blockquote>
+<p><em>Controlador:</em> Muy bien vista, déjame ver si el usuario puede hacer esto... mmh, sí, sí puede. Oye modelo, toma, hay que borrar el registro 4 de la tabla de alumnos.</p>
+</blockquote>
+<blockquote>
+<p><em>Modelo:</em> Está bien controlador, lo hago. Bien controlador, aquí está la información devuelta.</p>
+</blockquote>
+<blockquote>
+<p><em>Controlador:</em> Gracias modelo, oye vista, toma la información nueva de los alumnos.</p>
+</blockquote>
+<blockquote>
+<p><em>Vista:</em> Oh, gracias controlador, se la muestro al usuario.</p>
+</blockquote>
+<p>### Objetivos</p>
+<p>El objetivo de MVC no es otro más que lograr el objetivo de la famosa separación de responsabilidades en una aplicación. En el sentido de que no es lo más saludable tener a la base de datos generando etiquetas HTML, o tener a la vista haciendo consultas SQL directamente a tu servidor de bases de datos.</p>
+<p>Al igual que con MVVM, no existe una patrulla de MVC que vaya a multarte por no aplicar a rajatabla los principios. Sin embargo, considero que el patrón es una buena guía para cuando de desarrollar aplicaciones se trata.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

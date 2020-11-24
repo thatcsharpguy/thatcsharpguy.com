@@ -1,1 +1,153 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>El tipo de dato <code>Expression</code> no es un tipo de dato convencional, no es algo que le mostrarás al usuario final de tu app en la pantalla. Más bien es un tipo de dato diseñado para ser usado por otros desarrolladores. Este tipo de dato fue introducido junto con LINQ en .NET 3.5. Seguramente tu mismo lo has usado sin darte cuenta, el lugar más común para encontrarlo es como parámetro del método de extensión <code>Where</code> de cualquier colección que implementa la interfaz <code>IQueryable</code>:</p>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__expressions__inwhere.jpg&quot; title=<>Where clause</> /&gt;</p>
+<p>&quot;¡Pero si eso es una expresión lambda!&quot; podrías decirme... y tendrías toda la razón, sin embargo, existe una conversión implícita entre <code>Expression&lt;TDelegate&gt;</code> y una expresión lambda, que es lo que generalmente vemos nosotros como desarrolladores.</p>
+<h3 id="y-luego">¿Y luego?</h3>
+<p>Las expresiones permiten inspeccionar el código que forma determinada expresión lambda. Por ejemplo, de la imagen anterior podríamos saber que la expresión lambda recibe un parámetro llamado <code>a</code> que es del tipo entero, que se realiza una operación módulo y que se compara contra cero el resultado. Todo esto sin necesidad de decompilar el código ni nada por el estilo.</p>
+<h4 id="trabajando-con-la-expresion">Trabajando con la expresión</h4>
+<p>Los tipos <code>Expression</code> fueron creados con la intención de ser usados <a href="..\func-y-action-en-c-sharp">con delegados</a>, así que para comenzar a usarlos es necesario especificar qué tipo de delegado está esperando la expresión. Por ahora nosotros vamos a crear un método que inspeccione una expresión lambda que recibe un entero como argumento y devuelve un valor booleano:</p>
+<pre><code class="language-csharp">void Inspecciona(Expression&lt;Func&lt;int, bool&gt;&gt; expression)
+{
+    Console.WriteLine(&quot;== Examinando \&quot;&quot; + expression + &quot;\&quot; ==&quot;);
+    Console.WriteLine(&quot;Expresión: &quot; + expression.NodeType);
+    var binaryExpression = expression.Body as BinaryExpression;
+    if(binaryExpression != null)
+    {
+        Console.WriteLine(&quot;La expresión es &quot; + binaryExpression.NodeType); 					
+        Console.WriteLine(&quot;Sus componentes son:&quot;);
+        Console.WriteLine(&quot;\tLeft: &quot; + binaryExpression.Left + 
+                          &quot; (&quot; +binaryExpression.Left.NodeType  +&quot;)&quot;);
+        Console.WriteLine(&quot;\tRight: &quot; + binaryExpression.Right +
+                          &quot; (&quot; + binaryExpression.Right.NodeType + &quot;)&quot;);
+        return;
+    }
+    var constantExpression = expression.Body as ConstantExpression;
+    if(constantExpression != null)
+    {
+        Console.WriteLine(&quot;El cuerpo de la expresión es constante&quot;);
+        Console.WriteLine(&quot;\tValor: &quot; + constantExpression.Value);
+        return;
+    }
+}
+</code></pre>
+<p>Lo sé, en el código de arriba ocurren muchas cosas, vamos a ver las más importantes:</p>
+<ul>
+<li>El <code>Expression&lt;Func&lt;int, bool&gt;&gt; expression</code> en el argumento del método indica que el método recibe una expresión que envuelva a una expresión lambda con la firma <code>Func&lt;int, bool&gt;</code></li>
+<li>Con la propiedad <code>NodeType</code> podemos conocer con qué tipo de expresión estamos trabajando. Esta propiedad está disponible para cualquier tipo de <code>Expression</code></li>
+<li>La propiedad <code>Body</code> nos permite acceder al cuerpo de una expresión lambda. Y a su vez, <code>Body</code> es también una expresión, es por eso que primero intento convertirla en una <code>BinaryExpression</code> y luego en una <code>ConstantExpression</code>. Existe una <a href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx#Anchor_0" target="_blank">gran lista</a> de tipos de expresiones con los que puedes trabajar.</li>
+<li>Ahora, después de saber si nuestra expresión es de determinado tipo, se puede acceder a las propiedades de ese tipo en específico. Por ejemplo, las expresiones binarias tienen dos propiedades <code>Left</code> y <code>Right</code> que almacenan referencias a las expresiones que la forman, mientras que una expresión constante tiene la propiedad <code>Value</code> que almacena su verdadero valor.</li>
+</ul>
+<h3 id="arboles-de-expresiones">Árboles de expresiones</h3>
+<p>En este punto es cuando surgen los árboles de expresiones, si te das cuenta, podemos ir formando un árbol a partir de una expresión lambda, para tratar de demostrar este punto, mira los siguientes ejemplos:</p>
+<pre><code class="language-csharp">Inspecciona((a) =&gt; true);
+// Resultado:
+//== Examinando &quot;a =&gt; True&quot; ==
+//Expresión: Lambda
+//El cuerpo de la expresión es constante
+//	Valor: True
+</code></pre>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__expressions__constant.png&quot; title=<>Constant expression</> /&gt;</p>
+<pre><code class="language-csharp">Inspecciona((a) =&gt; a % 2 == 0);
+// Resultado:
+//== Examinando &quot;a =&gt; ((a % 2) == 0)&quot; ==
+//Expresión: Lambda
+//La expresión es Equal
+//Sus componentes son:
+//	Left: (a % 2) (Modulo)
+//	Right: 0 (Constant)
+</code></pre>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__expressions__binarysimple.png&quot; title=<>Simple binary expresion</> /&gt;</p>
+<pre><code class="language-csharp">Inspecciona((a) =&gt; a % 5 == 0 &amp;&amp; Math.Pow(a, 2) % 3 == 0);
+// Resultado:
+//== Examinando &quot;a =&gt; (((a % 5) == 0) AndAlso ((Pow(Convert(a, Double), 2) % 3) == 0))&quot; ==
+//Expresión: Lambda
+//La expresión es AndAlso
+//Sus componentes son:
+//	Left: ((a % 5) == 0) (Equal)
+//	Right: ((Pow(Convert(a, Double), 2) % 3) == 0) (Equal)
+</code></pre>
+<p>&lt;img src=&quot;/images/aprende-c-sharp__expressions__binarycomplex.png&quot; title=<>Complex binary expresion</> /&gt;</p>
+<h2 id="uso-en-la-vida-real">Uso en la vida real</h2>
+<p>Sí, ya sé que tal vez no vayas por la vida escribiendo métodos que inspeccionen expresiones lambda. Pero tan solo es necesario que te pongas a pensar que gracias a los árboles de expresiones existen cosas como LINQ to SQL, Entity Framework, LinqToTwitter, entre otros.</p>
+<p>Lo que hacen estas librerías es tomar tu código C# en forma de expresiones, inspeccionarlo y &quot;traducirlo&quot; a SQL para hacer que tus consultas sean lo más eficientes posible aprovechando el poder de la base de datos. En el caso de LinqToTwitter sucede algo similar, solo que la &quot;traducción&quot; transforma tu código C# en una URL lista para ser consumida.</p>
+<h3 id="tldr">tldr</h3>
+<p>En cierto sentido podrías ver a una <code>Expression&lt;TDelegate&gt;</code> como un bloque de código no compilado del que podemos obtener información en tiempo de ejecución acerca de cómo está compuesto. Algo parecido a lo que se puede lograr con <a href="..\reflexion-c-sharp-es">la reflexión</a> pero con la certidumbre de que el código con el que estás trabajando, es válido.</p>
+<h3 id="cuidado">Cuidado</h3>
+<p>Para finalizar el post quisiera hacer un servicio público a la comunidad que trabaja con Entity Framework o LINQ to SQL. Y es que, cuando trabajamos escribiendo código, a veces nos agrada facilitarnos la vida reusando código como en el siguiente ejemplo:</p>
+<pre><code class="language-csharp">// Filtro:
+private bool ClienteAprobado(ClubUser user)
+{
+    return user.Approved &amp;&amp; user.IsActive;
+}
+
+// Uso de filtro:
+var usuariosAprobados = _context.Users.Where(ClienteAprobado);
+</code></pre>
+<p>El enorme error del ejemplo anterior es que no está haciendo gran uso delos mecanismos que nos ofrece EF o L2S, sino que está cargando todos los registros a memoria y realizando el filtrado sobre los objetos, lo cual puede resultar muy costoso. Esto sucede porque el método que estamos empleando como filtro no se puede convertir a una <code>Expression</code> examinable, es solo un método.</p>
+<p>La solución es simple y nos permitirá seguir reusando el código. Bastará con modificar el método que usamos como filtro para que devuelva una <code>Expression</code>:</p>
+<pre><code class="language-csharp">// Filtro:
+private Expression&lt;Func&lt;ClubUser, bool&gt;&gt; ClienteAprobado()
+{
+    return (u) =&gt; u.Approved &amp;&amp; u.IsActive;
+}
+
+// Uso de filtro:
+var usuariosAprobados = _context.Users.Where(ClienteAprobado());
+</code></pre>
+<p>Y listo, ahora si estaremos usando al máximo los beneficios de los frameworks :)</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

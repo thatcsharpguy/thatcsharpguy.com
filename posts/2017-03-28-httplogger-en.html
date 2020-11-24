@@ -1,1 +1,164 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>You can't imagine the number of headaches that trying to find bugs in the code of my apps that connect to web services... it gets even worse when I'm using the raw <code>HttpClient</code> or <code>WebClient</code> but the clients developed specifically for each API.</p>
+<p>Yes, you're right, there are applications like <a href="http://www.telerik.com/fiddler" target="_blank">Fiddler</a> or <a href="https://www.wireshark.org/" target="_blank">Wireshark</a> that help you review all the requests and responses of all HTTP connections that happen in a certain device, however, in some occasions it turns out to be complex to setup a test environment or to configure such application to listen to what you are really looking for. With that in mind I began to search online...</p>
+<p>Then I found this <a href="http://stackoverflow.com/a/18925296" target="_blank">StackOverflow answer</a>, where the replier talks about a way to get the request and response from any <code>HttpClient</code>s outgoing petition, I took that code and turned into a small NuGet package that I'll show you in the following lines.</p>
+<h2 id="httplogginghandler">HttpLoggingHandler</h2>
+<p>The &quot;magic&quot; starts by creating an object from the <code>HttpLoggingHandler</code> class. This class provides two constructors:</p>
+<ul>
+<li>One only receives an instance of <code>HttpMessageHandler</code></li>
+<li>The other receives, apart from an <code>HttpMessageHandler</code>, a couple of <code>Func&lt;HttpRequestMessage, Task&gt;</code> where you are to describe what should happen with the <em>request</em> and <em>response</em></li>
+</ul>
+<p>If you decide to use the single parameter constructor, the default actions will be used. By default, both the request and response are printed to console, should you decide to do anything complex, you must use the second constructor to provide your own code.</p>
+<p>For example, I've created a Xamarin.Forms that makes a request to the <a href="https://pokeapi.co/" target="_blank">Pokéapi</a>  and both the request and response are shown on the screen device, to accomplish this task I created a couple of methods:</p>
+<pre><code class="language-csharp">async Task ResponseAction(HttpResponseMessage httpResponseMessage)
+{
+    string content = null;
+    if (httpResponseMessage.Content != null)
+    {
+        content = await httpResponseMessage.Content.ReadAsStringAsync();
+        content = content.Substring(0, Math.Min(100, content.Length)) + &quot;...&quot;;
+    }
+    Device.BeginInvokeOnMainThread(() =&gt;
+    {
+        var fs = new FormattedString();
+        fs.Spans.Add(new Span { Text = &quot;Status: &quot; });
+        fs.Spans.Add(new Span { Text = httpResponseMessage.StatusCode.ToString(), FontAttributes = FontAttributes.Bold });
+        fs.Spans.Add(NewLine());
+        if (httpResponseMessage.Headers.Any())
+        {
+            fs.Spans.Add(new Span { Text = &quot;Headers:&quot; });
+            fs.Spans.Add(NewLine());
+            foreach (var header in httpResponseMessage.Headers)
+            {
+                fs.Spans.Add(new Span { Text = &quot;\t•&quot; + header.Key + &quot;: &quot; });
+                fs.Spans.Add(new Span { Text = String.Join(&quot;,&quot;, header.Value), FontAttributes = FontAttributes.Bold });
+                fs.Spans.Add(NewLine());
+            }
+        }
+        if (content != null)
+        {
+            fs.Spans.Add(new Span { Text = &quot;Content: &quot; });
+            fs.Spans.Add(new Span { Text = content, FontAttributes = FontAttributes.Bold });
+        }
+        LabelResponse.FormattedText = fs;
+    });
+}
+
+async Task RequestAction(HttpRequestMessage httpRequestMessage)
+{
+    string content = null;
+    if (httpRequestMessage.Content != null)
+    {
+        content = await httpRequestMessage.Content.ReadAsStringAsync();
+    }
+    Device.BeginInvokeOnMainThread(() =&gt;
+    {
+        var fs = new FormattedString();
+        fs.Spans.Add(new Span { Text = &quot;URL: &quot; });
+        fs.Spans.Add(new Span { Text = httpRequestMessage.RequestUri.ToString(), FontAttributes = FontAttributes.Bold });
+        fs.Spans.Add(NewLine());
+        fs.Spans.Add(new Span { Text = &quot;Method: &quot; });
+        fs.Spans.Add(new Span { Text = httpRequestMessage.Method.ToString(), FontAttributes = FontAttributes.Bold });
+        fs.Spans.Add(NewLine());
+        if (httpRequestMessage.Headers.Any())
+        {
+            fs.Spans.Add(new Span { Text = &quot;Headers:&quot; });
+            fs.Spans.Add(NewLine());
+            foreach (var header in httpRequestMessage.Headers)
+            {
+                fs.Spans.Add(new Span { Text = &quot;\t•&quot; + header.Key + &quot;: &quot; });
+                fs.Spans.Add(new Span { Text = String.Join(&quot;,&quot;, header.Value), FontAttributes = FontAttributes.Bold });
+            }
+        }
+        if (content != null)
+        {
+            fs.Spans.Add(new Span { Text = &quot;Content: &quot; });
+            fs.Spans.Add(new Span { Text = content, FontAttributes = FontAttributes.Bold });
+        }
+        LabelRequest.FormattedText = fs;
+    });
+}
+</code></pre>
+<p>These two methods take all the data and presents it on screen in a <em>friendly</em> manner. To make use of them it is necessary pass them through the constructor of our <code>HttpLoggingHandler</code>, and then pass the instance of our <em>logging handler</em> to the constructor of <code>HttpClient</code>:</p>
+<pre><code class="language-csharp">var loggingHandler = new HttpLoggingHandler(new HttpClientHandler(), 
+                                            RequestAction, 
+                                            ResponseAction);
+var client = new HttpClient(loggingHandler);
+</code></pre>
+<p>Then we can make all the requests we want in the same way we used to:</p>
+<pre><code class="language-csharp">await client.GetStringAsync(&quot;https://pokeapi.co/api/v2/pokemon/1/&quot;);
+</code></pre>
+<p>The above code will show the following in your screen device:</p>
+<p>&lt;img src=&quot;/images/nugets__httplogger__screen.jpg&quot; title=<>Screenshot</> /&gt;</p>
+<h2 id="ready-for-production">Ready for production</h2>
+<p>It is probable that you want to use this component to log only when you're debugging, so you can combine it with Paul Betts' <a href="https://www.nuget.org/packages/modernhttpclient/" target="_blank">modernhttpclient</a> to increase the speed of request on your release builds. I usually add some <code>#if</code> directives to make use of the logger only when debugging:</p>
+<pre><code class="language-csharp">HttpClient client;
+#if DEBUG
+var loggingHandler = new HttpLoggingHandler(new HttpClientHandler(), 
+                                            RequestAction, 
+                                            ResponseAction);
+client = new HttpClient(loggingHandler);
+#else
+client = new HttpClient(new NativeMessageHandler());
+#endif
+</code></pre>
+<p>To use the logger, all you need to do is install the <a href="https://www.nuget.org/packages/HttpLogger/" target="_blank">NuGet package</a>.</p>
+<pre><code>PM&gt; Install-Package HttpLogger
+</code></pre>
+<p>But in reality the package is just a class, so you may want to copy the code from the class <a href="https://github.com/messier16/HttpLogger/blob/master/HttpLogger/HttpLoggingHandler.cs" target="_blank">HttpLoggingHandler</a> into your application codebase.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

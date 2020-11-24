@@ -1,1 +1,89 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>It's been a while since I took my Netduino out of its box and I did something with it, back then I promised to do a slightly more complex system using a push notification service. I quote my own words: <em>&quot;I'll create a system that sends a notification over to my phone everytime someone opens my bedroom door&quot;</em>. Well, here it is (and it's called Doorduino <small>such an awful name, I know</small>).</p>
+<h3 id="on-parse">On Parse</h3>
+<p>Parse is a BaaS (Backend as a service) providers that amongst its set of features, offers a Push Notifications service. I will be using that service to send the push notifications to my devices. It was pretty straight forward to get started, first of all, I created a new app, grabbed the keys (for both REST API and .NET), wrote some code and start sending pushes.</p>
+<h3 id="setting-up-the-netduino">Setting up the Netduino</h3>
+<p>I used a magnetic contact switch to detect when the door as been opened or closed, in the code you'll se something like <code>var doorPort = new InputPort(...</code> and an infinite <code>while</code> loop where the &quot;main&quot; logic resides. Within the <code>while</code> the netduino reads the current state of the sensor, compares it with a previous state and if there are any changes sends the push notification using my <code>parse-dotnetmf</code> library.</p>
+<h4 id="the-parse-dotnetmf-library">The parse-dotnetmf library</h4>
+<p>To consume Parse's REST Api features from a Netduino 3 I decided to create a client library to make things easier for me and possibly you, this library currently only supports sending push notifications to Parse, but can easily be extended to support all other features as well, it is easy to use just create a client <code>var pc = new ParseClient(&quot;AppId&quot;, &quot;Api Key&quot;);</code> and then send a push notification like this: <code>pc.SendPushToChannel(&quot;Hey!&quot;);</code>.</p>
+<p>This library is strongly inspired in the MicroTweet2 library by Matt Isenhower. It uses the <code>HttpWebRequest</code> class, does not require additional dependencies and it easily fits on a Netduino 3 Wi-Fi board.</p>
+<h3 id="setting-up-the-xamarin.forms-app">Setting up the Xamarin.Forms app</h3>
+<p>There are some steps that you must follow to implement Parse Push into your Xamarin App, I recommend you to follow the tutorials that already exist on Parse's website. I'll make a quick recap of what I did (besides trying to create my own plugin).<br />
+<br />
+First of all, for Windows Phone there are no required steps other than following <a href="https://www.parse.com/apps/quickstart#parse_push/windows_phone/existing" target="_blank">this tutorial</a>, on the other hand, for Android you will have to do two things:</p>
+<ol>
+<li>Check this <a href="https://parse.com/apps/quickstart#parse_push/android/native/existing" target="_blank">tutorial</a> but do only the <code>AndroidManifest.xml</code> part.</li>
+<li>Check the <a href="https://github.com/ParsePlatform/PushTutorial/tree/master/Xamarin" target="_blank">sample on GitHub</a>, particulary the implementation of the <code>ParseApplication</code> class in the Android project.<br />
+For iOS, well this is a bit of a turn down, you must discover it by yourself since I have not implemented Doorduino for that platform. I suggest that you follow the steps in the tutorial and I’m here to help if you need it, though.</li>
+</ol>
+<h4 id="the-crossparse-plugin">The CrossParse plugin</h4>
+<p>As we know, when we want to deliver platform specific experiences from a Xamarin.Forms app we can use or create a plugin that will let us abstract that functionalities away from each platform to interact with each platform via a common API. I tried to do a plugin to handle all interactions with Parse push but turns out that this isn’t as easy as I thought at first. I mean the Parse’s Xamarin Components for each platform already support push notifications but there is no abstraction layer that can be used with Forms, not to mention that there are some required special steps for each platform that you must manage explicitly in each platform specific project (such as creating the extra <code>ParseApplication</code> class in the Android project, for example).</p>
+<p>So this plugin isn't as useful as I wanted it to be at first but it still helps by providing the mentioned abstraction layer and installing Parse's nugets for you. With this plugin you can subscribe/unsubscribe to channels and handling notifications while the user is in the app. I really hope Parse release a plugin for Forms soon as it is fairly easy to do given they have already have the components.</p>
+<h3 id="it-is-alive">It is alive!</h3>
+<p>I did a video where I show how the system works:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0nbhVD7Ox00" frameborder="0" allowfullscreen></iframe>
+<h3 id="links">Links</h3>
+<p>I didn't wanted to create a post filled with links so here are the links to my plugins GitHub repos (and their respective NuGet page):</p>
+<ul>
+<li>parse-dotnetmf <a href="https://github.com/fferegrino/parse-dotnetmf">(GitHub repo)</a> and <a href="https://www.nuget.org/packages/M16.Parse.DotNetMf/">NuGet</a></li>
+<li>CrossParse plugin <a href="https://github.com/messier16/xamarin-plugins/tree/master/M16.Parse">(GitHub repo)</a> and <a href="https://www.nuget.org/packages/Xam.Plugin.Parse/">NuGet</a></li>
+<li>Doorduino <a href="https://github.com/fferegrino/doorduino">(GitHub repo)</a> holds both Netduino and Xamarin.Forms apps.</li>
+</ul>
+<h2 id="whats-next">What's next?</h2>
+<p>I just got a nice 37-in-1 sensor box from China so hopefully this kind of posts won't stop. Anyway, feel free to reach out letting me your dubts or what topics do you want me to blog about, below is my contact information. Remember, I'm here to help :)</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

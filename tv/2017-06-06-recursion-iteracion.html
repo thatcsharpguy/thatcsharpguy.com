@@ -1,1 +1,118 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Seguramente si ya tienen nociones de programación ya habrán escuchado hablar de estos técnicas, pero si no, aquí te cuento sobre ellos: Comenzaré por decir que son técnicas de programación permiten solucionar problemas iguales pero viéndolos desde enfoques distintos.</p>
+<h2 id="iteracion">Iteración</h2>
+<p>Nosotros vamos a ver a la iteración como la repetición de un conjunto de pasos con la intención de llegar a una meta. La iteración nos ayuda para cuando vamos a resolver un problema comenzando por alguna de sus partes (usualmente la más simple) para construir la solución completa.</p>
+<blockquote>
+<p>El factorial de n o n factorial se define en principio como el producto de todos los números enteros positivos desde 1 (es decir, los números naturales) hasta n.</p>
+</blockquote>
+<p>Piensa en el cálculo del factorial: una solución iterativa comienza con el primer valor del factorial que es el factorial de 0, que es uno:</p>
+<pre>
+long Factorial(int n) 
+{
+	long fact = 1;
+
+
+	return fact;
+}
+</pre>
+<p>Después se itera mediante un ciclo for de <code>1</code> hasta <code>n</code> multiplicando el factorial realizando la operación:</p>
+<pre>
+long Factorial(int n) 
+{
+	long fact = 1;
+	for(int i = 1; i <= n; i++)
+		fact = fact * i; 
+	return fact;
+}
+</pre>
+<p>En un algoritmo iterativo se comienza por un caso base y a partir de él se construye la solución tomando en cuenta los valores que ya existen y que ya calculamos.</p>
+<p>Si hablamos sobre el análisis de un algoritmo iterativo, veremos que no se trata mas que de ciclos que pueden ser fácilmente analizados.</p>
+<h2 id="recursion">Recursión</h2>
+<p>Ahora, hablemos sobre la recursión: la recursión, al igual que la iteratividad nos ayudará a resolver un problema grande mediante la repetición de una serie de pasos, con la diferencia de que en este caso, la solución del problema está definida en términos de si misma.</p>
+<p>Comienza a atacar un problema tomando un problema grande y lo va dividiendo hasta llegar a problemas más pequeños que son sencillos o triviales de resolver. Una vez que llega a estos problemas más pequeños, vuelve por donde llegó y comienza a combinar las soluciones entre si para obtener la solución al problema más grande.</p>
+<p>Piensa nuevamente en el cálculo del factorial, desde su definición se entiende por qué puede ser modelado como un problema recursivo:</p>
+<pre>
+n! = 1          	si n = 0  
+n! = n ✖ (n-1)!  	si n > 0
+</pre>
+<p>Esta definición cumple con el par de principios de una función recursiva:</p>
+<ul>
+<li>Tienen al menos una condición de corte o terminación, y</li>
+<li>Está definida en términos de si misma.</li>
+</ul>
+<p>Partiendo de aquí se puede crear una función recursiva:</p>
+<pre>
+long Factorial(int n) 
+{
+	if(n == 0)
+		return 1;
+	return n * Factorial(n - 1);
+}
+</pre>
+<p>En este caso la función factorial está definida en términos de si misma, ya que se va llamando con un problema más pequeño a cada ocasión hasta que n vale 0 y deja de llamarse a si misma para comenzar a regresar por donde vino combinando los resultados.</p>
+<p>En términos de eficacia las dos soluciones nos resultan útiles puesto que ambas nos llevan al resultado, sin embargo en eficiencia puede ser que no:</p>
+<p>Modelar un problema más complicado utilizando un algoritmo iterativo es algo que podría costarnos en tiempo de diseño ya que debemos encontrar la manera ideal de almacenar el estado (o los valores previamente procesados) nosotros mismos. Usualmente se usan pilas para el almacenamiento.</p>
+<p>Mientras que modelar un problema complicado empleando un algoritmo recursivo podrá ser sencillo para diseñar ya que el estado es preservado automáticamente cada vez que se llama a una nueva función, pero costará más tiempo al ejecutarse debido a las llamadas a funciones que ocurren constantemente.</p>
+<p>Cualquier algoritmo iterativo puede ser transformado en recursivo y viceversa, en algunos casos la transformación es sencilla mientras que en otros es más complicada.</p>
+<p>En términos generales cuando se prefiere una solución recursiva es solo por su cercanía con un modelo en la vida real, lo cual lo hace más sencillo de entender y reproducir.</p>
+<p>Algoritmos como el cálculo del Fibonacci, el Factorial, la obtención del máximo común divisor son problemas triviales que son sencillos de resolver (y entender) usando iteraciones. Mientras que el cálculo de la altura de un árbol binario, el conteo de elementos en una lista o la búsqueda en grafos son problemas más entendibles definidos como recursiones.</p>
+<p>Ahora, realizar el análisis de un algoritmo recursivo es también más complicado, y es que es básicamente resolver la relación de recurrencia que la define. Esta relación de recurrencia se obtiene de analizar el comportamiento de la función, para el factorial recursivo es:</p>
+<p>De nueva cuenta, se divide en el caso general y los casos base, en donde cada uno tiene una complejidad asociada;</p>
+<p>&lt;img src=&quot;/images/tv__recursividad__factorial-recurrencia-sm.png&quot; title=<>Recurrencia factorial</> /&gt;</p>
+<p>Lo cual es un tema que requiere de más explicación y probablemente de un pizarrón. En el futuro espero hacer un par de videos hablando de esto, pero si no pueden aguantar la tentación, aquí hay un par de vídeos donde se explica cómo resolver esta clase de problemas: <a href="https://www.youtube.com/watch?v=r5pL49qaHEA" target="_blank">Diseño y Análisis de Algoritmos. Recurrencias no homogéneas y Complejidad Asintótica</a> y <a href="https://www.youtube.com/watch?v=ywWg8bk6FLE" target="_blank">Ecuaciones de Recurrencia - Solución de Ecuaciones Lineales</a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

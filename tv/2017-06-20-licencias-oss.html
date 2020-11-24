@@ -1,1 +1,80 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Antes de comenzar quisiera decirles que de ninguna manera tengo la intención ni estoy capacitado para dar asistencia legal. Este video es con fines informativos nada más.</p>
+<p>Seguramente en algún momento de su vida se han encontrado, o encontrarán código en internet desprotegido y desamparado… fácilmente accesible para quién sea que lo agarre, pero, ¿esto significa que lo puedes tomar...? no, primero debes fijarte en la licencia.</p>
+<p>Toma por ejemplo GitHub, uno de los sitios por excelencia en donde el código es compartido libremente, si ahí encuentras algo que te podría resultar útil primero deberías revisar la licencia que lo acompaña para que sepas qué es lo que puedes hacer y qué es lo que no puedes hacer con él.</p>
+<p>Antes de comenzar a ver las otras licencias, debes tener en cuenta que, si el código que publicas o que piensas usar en tu app no tiene licencia, no significa que puedes hacer con él lo que quieras… sino todo lo contrario: no puedes hacer nada con él. Está ahí como en un museo solo para que la gente lo vea. Yo siendo honesto yo siempre pensé que un código sin licencia era un código libre y es por eso que si llegan a ver al día de hoy los <a href="https://github.com/fferegrino" target="_blank">repos que tengo creados</a>, casi ninguno tiene licencia, lo estaré corrigiendo en el transcurso de estos días.</p>
+<p>Espero que ahora entiendas la importancia de poner una licencia a tu código, y no solo dejarlo ahí a la intemperie. Porque estoy seguro que si lo publicaste, no fue para que lo admiraran, y seguramente si te encuentras código así no solo quieres admirarlo, si no usarlo. Entonces, vamos a ver algunas licencias (<a href="https://www.whitesourcesoftware.com/whitesource-blog/open-source-software-licenses-trends/" target="_blank">las tres más populares</a>) y sus puntos más destacados:</p>
+<h2 id="mit">MIT</h2>
+<p>La licencia MIT, llamada así porque fue desarrollada en el Instituto Tecnológico de Massachusetts, es una licencia bastante sencilla, y se nota en el texto. Es considerada una licencia permisiva, ya que las limitaciones para usar el software que protege son mínimas, y de hecho esta es una de las cosas que la hace más atractiva: Se puede usar con fines comerciales, se puede distribuir, modificar y mantener como código cerrado en productos derivados, siempre y cuando en estos productos derivados o modificados se informe que se hace uso del código y se añada una copia de la licencia original. En otras palabras, en tu app se debe hacer referencia a que estás usando el software, así como una copia de la licencia original.</p>
+<p>Bajo esta licencia el autor original también está exento de cualquier responsabilidad que pueda darse como resultado de usar el código que creó, y sobre el cual no ofrece ninguna garantía.</p>
+<p>Como ejemplos de proyectos que usan esta licencia está: <a href="https://github.com/xamarin/Xamarin.Forms/blob/master/LICENSE" target="_blank">Xamarin.Forms</a>, <a href="https://github.com/dotnet/core/blob/master/LICENSE.TXT" target="_blank">.NET Core</a>, <a href="https://jquery.org/license/" target="_blank">jQuery</a>, <a href="https://github.com/rails/rails/blob/master/activerecord/MIT-LICENSE" target="_blank">Rails</a>.</p>
+<h2 id="gpl">GPL</h2>
+<p>Esta es la segunda licencia más usada, y es una licencia muy controversial, ya que mientras que permite distribuir, modificar, comerciar los productos derivados, también impone más restricciones, las primeras dos no parecen ser un &quot;problema&quot;: debes incluir una copia de la licencia (al igual que en la del MIT), y además debes indicar qué cambios le hiciste al software original. Lo controversial es que si distribuyes el software creado, debes liberar el código fuente, y que este esté publicado bajo la misma licencia, GPL, también por lo cual muchos la conocen como una licencia viral, ya que en cuanto se comience a usar por un proyecto, cualquier derivado tiene que usarla, lo cual a muchos (principalmente empresas) es algo que no les parece tan atractivo.</p>
+<p>Esta licencia también indica que el código no ofrece garantías y exenta al creador original de cualquier responsabilidad.</p>
+<p>La licencia GPL entre sus proyectos el <a href="https://www.kernel.org/pub/linux/kernel/COPYING" target="_blank">kernel de Linux</a>, el programa de animación <a href="https://www.blender.org/about/license/" target="_blank">Blender</a> y el famoso <a href="http://www.videolan.org/legal.html" target="_blank">reproductor VLC</a>.</p>
+<h2 id="apache">Apache</h2>
+<p>La licencia Apache, es en muchos aspectos similar a la del MIT, en el aspecto de que es permisiva y se puede hacer con el código casi todo lo que se desee. En este caso, si usas el software bajo Apache en tu programa debes indicarlo, así como indicar qué modificaciones le hiciste al software  y agregar una copia de la licencia original. Tu proyecto puede estar licenciado bajo otra distinta a Apache. Esta librería suele resultar atractiva para empresas ya que además ofrece protecciones de marca y de patentes. Algo que las dos anteriores no tienen dentro de su alcance.</p>
+<p>Como grandes ejemplos de proyectos que usan esta licencia está <a href="https://source.android.com/source/licenses" target="_blank">Android</a>, <a href="http://getbootstrap.com/getting-started/#license-faqs" target="_blank"><s>Bootstrap</s></a> y el lenguaje de programación <a href="https://github.com/apple/swift/blob/master/LICENSE.txt" target="_blank">Swift</a>.</p>
+<p>Si sientes que esta licencia no se ajusta a tus necesidades puedes investigar otras, hay algunos sitios (de los cuales yo me basé para sacar esta información que puedes consultar <a href="https://choosealicense.com/" target="_blank">choosealicense.com</a> y <a href="https://tldrlegal.com/" target="_blank">tldrlegal.com</a>.</p>
+<p>O tal vez podrías utilizar la licencia</p>
+<h2 id="haz-lo-que-se-te-de-tu-gana">Haz lo que se te de tu #$@&amp;%*! gana</h2>
+<p>Sí esa es una licencia, básicamente puedes inventar tu propia licencia para proteger tus creaciones usándola, y este fue el caso de algunos <a href="http://www.wtfpl.net/" target="_blank">desarrolladores decidieron</a> dejar que la gente hiciera lo que quisiera con el código bajo esta licencia. Aunque no muy recomendada, esta licencia también está aprobada por la fundación de código libre.</p>
+<h2 id="licenciando-otros-materiales">Licenciando otros materiales</h2>
+<p>Las mismas licencias bajo las que se libera el código fuente no son del todo compatibles con otros elementos que forman parte de un proyecto, como la documentación o los archivos multimedia. Tal vez tengas que explorar otras alternativas para licenciar estos materiales.</p>
+<p>Y ustedes, ¿han contribuido a algún proyecto de código abierto? ¿tienen repositorios en GitHub? ¿han tenido que lidiar con la elección de licencias? cuéntenme en los comentarios.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

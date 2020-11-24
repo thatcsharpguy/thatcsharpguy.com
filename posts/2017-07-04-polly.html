@@ -1,1 +1,211 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En posts pasados hemos <a href="..\excepciones-c-sharp" target="_blank">estado</a> <a href="..\metodos-try" target="_blank">hablando</a> sobr elas excepciones en C#, desde cómo funcionan hasta cómo evitarlas... sin embargo, hay ocasiones en las que llegue a ser absolutamente necesario que la operación que provocó la excepción se repita, ya sea porque es de suma importancia que esta se lleve a cabo o porque el error es solo temporal.</p>
+<p>El NuGet del que les voy a hablar hoy nos ayuda a implementar políticas de recuperación ante una falla. Esto es particularmente útil cuando, por ejemplo, estamos consumiendo un servicio web y una petición falla.</p>
+<h2 id="policy"><code>Policy</code></h2>
+<p>Todo comienza estableciendo una política con la clase <code>Policy</code> a través de su <a href="https://es.wikipedia.org/wiki/Interfaz_fluida" target="_blank">api fluída</a>:</p>
+<pre><code class="language-csharp">var politicaReintenta5 = Policy // continúa
+</code></pre>
+<p>Posteriormente se indica qué errores se tienen que manejar, así que para ello usamos el método <code>Handle</code>:</p>
+<pre><code class="language-csharp">    .Handle&lt;ArgumentException&gt;()
+</code></pre>
+<p>En este caso se está indicando que se quiere manejar las excepciones del tipo <code>ArgumentException</code> (podrías haber especificado en su lugar <code>Exception</code> aunque tal vez no sea lo ideal, como vimos también antes), adicionalmente puedes especificar otras excepciones usando <code>Or</code>:</p>
+<pre><code class="language-csharp">    .Or&lt;DivideByZeroException&gt;()
+</code></pre>
+<p>Para posteriormente indicar la acción que se debe realizar, la más común es la de reintentar <code>Retry</code>:</p>
+<pre><code class="language-csharp">    .Retry(5, ReportaError);
+</code></pre>
+<p>El método <code>Retry</code> permite especificar el número de veces que se debe reintentar la operación (en este caso 5) y un método (<code>ReportaError</code>) que se llamará cada vez que se vaya a reintentar.</p>
+<h3 id="el-metodo-reportaerror">El método <code>ReportaError</code></h3>
+<p>En este caso, el método recibe la excepción lanzada y el número de intento en el que está. Imprime el número de intento y la hora en la que se está ejecutando:</p>
+<pre><code class="language-csharp">static void ReportaError(Exception e, int intentos)
+{
+    Console.WriteLine($&quot;Intento: {intentos:00}\tTiempo: {DateTime.Now}\nError: {e.Message}&quot;);
+}
+</code></pre>
+<p>Por cierto, no es necesario que especifiques una función, yo lo hice solo para este demo.</p>
+<h2 id="ejecutando-la-politica">Ejecutando la política</h2>
+<p>Una vez que has decidido ya la política, es momento de ejecutar el código que podría fallar, toma como ejemplo el siguiente método:</p>
+<pre><code class="language-csharp">static void LanzaExcepcion()
+{
+    throw new DivideByZeroException();
+}
+</code></pre>
+<p>Sí, únicamente lanza una excepción, pero podría ser cualquier otra cosa: una conexión a un servicio web, una operación matemática... cualquier cosa.</p>
+<p>Entonces para ejecutarlo tomamos la póliza de ejecución (que en realidad es <code>RetryPolicy</code>) y con su método <code>Execute</code>, el cual recibe <a href="..\func-y-action-en-c-sharp" target="_blank">un tipo <code>Action</code></a>, dentro del cual vamos a ejecutar el código &quot;peligroso&quot;:</p>
+<pre><code class="language-csharp">try
+{
+    politicaReintenta5.Execute(() =&gt; 
+    { 
+        LanzaExcepcion(); 
+    });
+}
+catch(Exception e) 
+{ 
+    Console.WriteLine($&quot;Después de los intentos, sigue fallando ({e.Message})&quot;);
+}
+</code></pre>
+<p>Oh, por cierto, usando la póliza de <code>Retry</code> (reintentar) no te libras de tener que manejar la excepción tu mismo puesto que al terminar los reintentos, si la acción no se pudo ejecutar la excepción será lanzada como originalmente lo haría. En lo que nos ayuda <em>Polly</em> en este caso es a programar automáticamente los reintentos. Habiendo dicho esto, si ejecutamos el código anterior, esto es lo que obtendremos en la consola:</p>
+<pre>
+Intento: 01	Tiempo: 6/30/2017 1:37:57 PM
+Intento: 02	Tiempo: 6/30/2017 1:37:57 PM
+Intento: 03	Tiempo: 6/30/2017 1:37:57 PM
+Intento: 04	Tiempo: 6/30/2017 1:37:57 PM
+Intento: 05	Tiempo: 6/30/2017 1:37:57 PM
+Después de los intentos, sigue fallando (Attempted to divide by zero.)
+</pre>
+<h2 id="reintentar-esperando-entre-reintentos">Reintentar esperando entre reintentos</h2>
+<p>Como puedes ver, los reintentos son inmediatos, pero esto podría no ser siempre lo ideal, ¿si un servicio web no me respondió hace 30 milésimas de segundo, por qué lo hará ahora?</p>
+<p>Para estos casos, <em>Polly</em> ofrece la política de <em>&quot;esperar y reintentar&quot;</em>:</p>
+<pre><code class="language-csharp">var politicaWaitAndRetry = Policy
+    .Handle&lt;DivideByZeroException&gt;()
+    .WaitAndRetry(new[]
+        {
+            TimeSpan.FromSeconds(1),
+            TimeSpan.FromSeconds(2),
+            TimeSpan.FromSeconds(3)
+        }, ReportaError);
+</code></pre>
+<p>Lo nuevo está a partir del método <code>WaitAndRetry</code>. Este método también tiene diversas sobrecargas, pero una de ellas recibe un arreglo de <code>TimeSpan</code>, que le indica cuánto tiempo debe esperar entre reintentos. En este caso intentará tres veces, esperando 1, 2 y tres segundos entre ellos.</p>
+<h3 id="el-metodo-reportarerror">El método <code>ReportarError</code></h3>
+<p>En este caso el método que se llama a cada reintento es un poco distinto, recibe la excepción,un <code>TimeSpan</code> indicando el tiempo a esperar, el número de intentos y un objeto del tipo <code>Context</code> que es para usos más avanzados de <em>Polly</em>. Lo que hace es imprimir el número de intento y el tiempo que tardará en realizarse la próxima ejecución:</p>
+<pre><code class="language-csharp">static void ReportaError(Exception e, TimeSpan tiempo, int intento, Context contexto)
+{
+    Console.WriteLine($&quot;Intento: {intento:00} (próximo intento en: {tiempo.Seconds} segundos)\tTiempo: {DateTime.Now}&quot;);
+}
+</code></pre>
+<p>Para hacer uso de la política de nuevo, usamos <code>Execute</code>:</p>
+<pre><code class="language-csharp">try
+{
+    politicaWaitAndRetry.Execute(() =&gt; 
+    { 
+        LanzaExcepcion(); 
+    });
+}
+catch(Exception e) 
+{ 
+    Console.WriteLine($&quot;Después de los intentos, sigue fallando ({e.Message})&quot;);
+}
+</code></pre>
+<p>De nueva cuenta, la ejecución está envuelta en un bloque <code>try</code> por si después de todos los intentos el código sigue fallando. El resultado de ejecutar el código es el siguiente:</p>
+<pre>
+Intento: 01 (próximo intento en: 1 segundos)	Tiempo: 6/30/2017 1:37:57 PM
+Intento: 02 (próximo intento en: 2 segundos)	Tiempo: 6/30/2017 1:37:58 PM
+Intento: 03 (próximo intento en: 3 segundos)	Tiempo: 6/30/2017 1:38:00 PM
+Después de los intentos, sigue fallando (Attempted to divide by zero.)
+</pre>  
+<p>Una de las prácticas más comunes es la de ir aumentando el tiempo de espera para reintentar una operación de forma exponencial, la forma de implementar esta técnica en <em>Polly</em> es a través de una sobrecarga de <code>WaitAndRetry</code>, que recibe un entero indicando el número de intentos y una <code>Func&lt;int, TimeSpan&gt;</code> para definir el tiempo de espera:</p>
+<pre>
+Intento: 01 (próximo intento en: 2 segundos)	Tiempo: 6/30/2017 1:38:03 PM
+Intento: 02 (próximo intento en: 4 segundos)	Tiempo: 6/30/2017 1:38:05 PM
+Intento: 03 (próximo intento en: 8 segundos)	Tiempo: 6/30/2017 1:38:09 PM
+Intento: 04 (próximo intento en: 16 segundos)	Tiempo: 6/30/2017 1:38:17 PM
+Intento: 05 (próximo intento en: 32 segundos)	Tiempo: 6/30/2017 1:38:33 PM
+Después de los intentos, sigue fallando (Attempted to divide by zero.)
+</pre>
+<h2 id="si-fallla">Si fallla...</h2>
+<p>Hasta ahora habíamos tenido que envolver la ejecución en un bloque <code>try</code>, sin embargo, esto se puede evitar utilizando la política de <code>Fallback</code>, esta permite establecer una acción que debe realizarse en caso de que todo falle. Ojo que esta <strong>no es compatible</strong> con la política <code>Retry</code> directamente, se pueden mezclar de otra forma que veremos más adelante.</p>
+<p>Ahora vamos a introducir otra modificación, hasta ahora habíamos trabajado con métodos <em>&quot;peligrosos&quot;</em> que no regresaban ningún valor, pero esto no es lo que regularmente harás, las llamadas a servicios web regularmente retornan valores, y es muy probable que eso es lo que quieras hacer en tu código, toma por ejemplo este código, que podría (en este caso siempre) lanzar una excepción pero que idealmente regresa una cadena:</p>
+<pre><code class="language-csharp">static string LanzaExcepcionConCadena()
+{
+    throw new Exception();
+    return &quot;Hola&quot;;
+}
+</code></pre>
+<p>Para usarlo junto con una de las políticas de <em>Polly</em> nuevamente hacemos uso de la clase <code>Policy</code>, pero ahora en su <a href="..\genericos-c-sharp-clases" target="_blank">versión genérica</a>:</p>
+<pre><code class="language-csharp">var politicaWithFallback = Policy&lt;string&gt;
+    .Handle&lt;Exception&gt;()
+</code></pre>
+<p>Estamos relacionando a nuestra política con el tipo de dato <code>string</code> e indicándole que debe manejar cualquier tipo de <code>Exception</code>, pero lo nuevo es lo siguiente:</p>
+<pre><code class="language-csharp">    .Fallback(&quot;Valor de Fallback&quot;);
+</code></pre>
+<p>El método <code>Fallback</code> indica otra política, una que nos permite establecer un valor por default, en caso de que la ejecución falle. En el código anterior se le indica que la cadena &quot;Valor de Fallback&quot; será devuelta en caso de que la ejecución falle. Entonces podemos llamar a ejecutar el código así:</p>
+<pre><code class="language-csharp">var resultado2 = politicaWithFallback.Execute(() =&gt;
+{
+    return LanzaExcepcionConCadena();
+});
+Console.WriteLine($&quot;Resultado: {resultado2}&quot;);
+</code></pre>
+<p>Y obtendremos el siguiente resultado:</p>
+<pre>  
+Resultado: Valor de Fallback
+</pre>
+<h2 id="uniendo-politicas">Uniendo políticas</h2>
+<p>Pero vamos, que estas políticas son buenas por si mismas, ahora, imagínatelas combinadas... es decir, que tu código intente 5 veces conseguir un valor y si no lo consigue, que tome uno por default. Esto es posible &quot;envolviendo&quot; las políticas mediante el método <code>Wrap</code>:</p>
+<pre><code class="language-csharp">var mixedPolicy = Policy.Wrap(politicaWithFallback, politicaWaitAndRetryString);
+</code></pre>
+<p>Dentro de <code>mixedPolicy</code> están juntas tanto la política de esperar y reintentar como la de asignar un valor por default. Las políticas se ejecutarán de derecha a izquierda, entonces, al ejecutar el siguiente código</p>
+<pre><code class="language-csharp">var resultado3 = mixedPolicy.Execute(LanzaExcepcionConCadena);
+Console.WriteLine($&quot;Resultado: {resultado3}&quot;);
+</code></pre>
+<p>En la pantalla se mostrará lo siguiente:</p>
+<pre>
+Intento: 01 (próximo intento en: 2 segundos)	Tiempo: 6/30/2017 9:33:46 PM
+Intento: 02 (próximo intento en: 4 segundos)	Tiempo: 6/30/2017 9:33:48 PM
+Intento: 03 (próximo intento en: 8 segundos)	Tiempo: 6/30/2017 9:33:52 PM
+Intento: 04 (próximo intento en: 16 segundos)	Tiempo: 6/30/2017 9:34:00 PM
+Intento: 05 (próximo intento en: 32 segundos)	Tiempo: 6/30/2017 9:34:16 PM
+Resultado: Valor de Fallback
+</pre>
+<h2 id="mas-caracteristicas">Más características</h2>
+<p>Esta biblioteca tiene más características que no cubrí en este post, te invito a que descargues <a href="https://github.com/ThatCSharpGuy/polly-sample" target="_blank">el código de ejemplo</a> de este post para que pruebes todas las posibilidades.</p>
+<h2 id="uso">Uso</h2>
+<p>Puedes acceder a <em>Polly</em> a través de este <a href="https://www.nuget.org/packages/polly" target="_blank">paquete de NuGet</a>.</p>
+<pre><code>PM&gt; Install-Package Polly
+</code></pre>
+<p><em>Polly</em> es parte de la .NET Foundation, y su código está <a href="https://github.com/App-vNext/Polly" target="_blank">disponible en GitHub</a>, puedes ver cómo está hecho y contribuir a mejorarlo.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

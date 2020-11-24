@@ -1,1 +1,159 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En un <a href="../genericos-c-sharp-clases">post anterior</a> hablé sobre las clases genéricas en C#, ahí mencioné que había otra posibilidad de usar el mismo concepto (de plantillas y marcadores) pero en la creación de métodos, y este post habla sobre ellos.</p>
+<h3 id="sintaxis">Sintaxis</h3>
+<p>La sintaxis es casi la misma que al declarar un método tradicional, salvo que de nuevo aparecen los <em>placeholders</em> de tipos entre <code>&lt;</code> <code>&gt;</code>, por ejemplo, en el siguiente método se declara únicamente <code>T</code>:</p>
+<pre><code class="language-csharp">static void WriteType&lt;T&gt;()
+{
+    var a = typeof(T);
+    Console.WriteLine(a.Name);
+}
+</code></pre>
+<h3 id="uso">Uso</h3>
+<p>Entonces, para llamarlo, tendremos que hacerlo de la siguiente manera:</p>
+<pre><code class="language-csharp">WriteType&lt;int&gt;(); // Int32
+WriteType&lt;Program&gt;(); // Program
+</code></pre>
+<p>Al igual que con los tipos, una vez indicado el <em>placeholder</em> podemos utilizarlo tanto en la firma del método como en el cuerpo del mismo:</p>
+<pre><code class="language-csharp">static T GetDefault&lt;T&gt;(T useless)
+{
+    return default(T);
+}
+</code></pre>
+<p>Para usarlos tenemos dos opciones:</p>
+<ol>
+<li>Indicar explícitamente los tipos a la hora de realizar la llamada</li>
+<li>Permitir que el compilador infiera a qué tipos nos referimos a partir de los argumentos pasados</li>
+</ol>
+<pre><code class="language-csharp">var dflt = GetDefault&lt;int&gt;(10);
+var dflt2 = GetDefault(4.0); // Se infiere que es double a partir del argumento pasado al método
+// int dflt3 = GetDefault(DateTime.Now); // Error, DateTime no se puede convertir a int implícitamente
+</code></pre>
+<h3 id="ejemplos">Ejemplos</h3>
+<p>Uno de los ejemplos más usados para explicar los métodos genéricos es un método que intercambia dos valores dados:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+static void Swap(ref decimal a, ref decimal b)
+{
+    decimal t = a;
+    a = b;
+    b = t;
+}
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+static void Swap(ref int a, ref int b)
+{
+    int t = a;
+    a = b;
+    b = t;
+}
+```  
+</div>  
+</div>
+<p>Hasta aquí todo bien, ya podemos intercambiar de lugar decimales y enteros, pero ¿qué va a pasar cuando tengamos que intercambiar <code>DateTime</code> o <code>doubles</code>? podríamos copiar y pegar el código del método cambiando únicamente los tipos de dato... o podríamos en su lugar usar un método genérico:</p>
+<pre><code class="language-csharp">static void Swap&lt;T&gt;(ref T a, ref T b)
+{
+    T t = a;
+    a = b;
+    b = t;
+}
+</code></pre>
+<p>Entonces ya podríamos usar el método con cualquier tipo que deseemos:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+int uno = 1, dos = 2;
+Console.WriteLine(uno + " " + dos);
+<p>Swap<int>(ref uno, ref dos);
+Console.WriteLine(uno + &quot; &quot; + dos);</p>
+<p>Swap(ref uno, ref dos); // Se infiere int
+Console.WriteLine(uno + &quot; &quot; + dos);</p>
+<pre><code>&lt;/div&gt;
+&lt;div class=&quot;pure-u-1 pure-u-md-1-2&quot;&gt;
+```csharp  
+float d1 = 10, d2 = 20;
+Console.WriteLine(d1 + &quot; &quot; + d2);
+
+Swap(ref d1, ref d2); // Se infiere float
+Console.WriteLine(d1 + &quot; &quot; + d2);  
+
+  
+  
+</code></pre>
+</div>  
+</div>  
+<h4 id="errores">Errores</h4>
+<p>Cuando usamos métodos genéricos es posible incurrir en errores, los más comunes son que el compilador no pueda inferir los tipos a los que nos referimos, como en este caso que estamos usando <code>Swap</code> con un <code>int</code> y un <code>float</code>:</p>
+<pre><code class="language-csharp">Swap(uno, d2); // Error, los tipos no pueden ser inferidos
+</code></pre>
+<p>O que intentemos usar un tipo de dato que no corresponde si especificamos explícitamente los tipos:</p>
+<pre><code class="language-csharp">Swap&lt;int&gt;(ref uno, ref d2); // Error, d2 no es entero
+</code></pre>
+<h3 id="restricciones">Restricciones</h3>
+<p>Al igual que los tipos genéricos, los métodos también aceptan restricciones usando la palabra reservada <code>where</code>, por ejemplo, en el método siguiente se restringe que tanto el tipo <code>T</code> como <code>W</code> sean <code>Athlete</code> o derivados de este. Además de que <code>T</code> tenga un constructor público sin parámetros:</p>
+<pre><code class="language-csharp">static T ChangeSport&lt;T, W&gt;(W toCast)
+    where T : Athlete, new()
+    where W : Athlete
+{
+    // ...
+</code></pre>
+<h2 id="para-cerrar">Para cerrar</h2>
+<p>Es importante señalar que un método de un tipo genérico no es genérico simplemente por eso, para que un método genérico sea considerado así debe tener al menos un <em>placeholder</em> de tipo. También debes considerar que a veces no todo es suceptible de <em>genericalizar</em>, es cuestión de analizar bien el problema.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

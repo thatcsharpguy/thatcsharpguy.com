@@ -1,1 +1,164 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<h2 id="inicializador-de-objetos">Inicializador de objetos</h2>
+<p>Seguramente ya conocerás que en C# para crear una instancia de un objeto es necesario utilizar alguno de los constructores de la clase que lo define. Y mientras que es te comportamiento es algo estándar para todos los lenguajes de programación orientados a objetos, C# permite hacer uso de  una sintaxis conocida como &quot;Inicializadores de objeto&quot;, que fue introducida en la versión 3.0 del lenguaje.</p>
+<p>Para comenzar, a explicar los inicializadores, fíjate en la definición de la siguiente clase:</p>
+<pre><code class="language-csharp">class Person
+{
+    public Person(string name)
+    {
+        Name = name;
+    }
+    
+    public Person(string name, Person dad, Person mom)
+    {
+        Name = name;
+        Dad = dad;
+        Mom = mom;
+    }
+    
+    public string Name { get; private set; }
+    public int Age { get; set; }
+    public Person Dad { get; set; }
+    public Person Mom { get; set; }
+    public List&lt;string&gt; Abilities { get; set; }
+}
+</code></pre>
+<p>Podemos ver que para crear una persona, es necesario llamar al constructor pasándole un nombre, y dos instancias de esa misma clase, por ejemplo:</p>
+<pre><code class="language-csharp">var dad = new Person(&quot;Roberto&quot;);
+var mom = new Person(&quot;Carla&quot;);
+</code></pre>
+<p>Para asignar las propiedades <code>Age</code> y <code>Abilities</code> son asignadas en instrucciones por separado y una vez que el objeto ha sido creado:</p>
+<pre><code class="language-csharp">mom.Age = 55;
+mom.Abilities = new List&lt;string&gt;();
+</code></pre>
+<p>Hasta aquí, todo normal, pero lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos publicos que contiene el objeto, estén o no definidos en el constructor usado. Esto significa que para la clase <code>Person</code> podemos asignar <code>Age</code> y <code>Abilities</code> dentro de la misma instrucción:</p>
+<pre><code class="language-csharp">var son = new Person(&quot;Omar&quot;, dad, mom) 
+{ 
+    Age = 21, 
+    Abilities = new List&lt;string&gt;(), 
+};
+</code></pre>
+<p>Las asignaciones de cada propiedad deben estar separadas con una coma y pueden ser asignadas en la misma o diferentes líneas.</p>
+<p>En este caso, estamos empleando el constructor de la clase seguido por la asignación de propiedades dentro de las llaves <code>{</code> <code>}</code>, pero haciéndolo en una sola instrucción, en lugar de usar tres instrucciones separadas, como se haría tradicionalmente:</p>
+<pre><code class="language-csharp">var son = new Person(&quot;Omar&quot;, dad, mom);
+son.Age = 21;
+son.Abilities = new List&lt;string&gt;();
+</code></pre>
+<p><strong>El comportamiento no se modifica, usando el inicializador de objetos primero es construido el objeto</strong> (usando el constructor) <strong>y después son asignadas las propiedades</strong> en el orden en el que están escritas dentro de las llaves.</p>
+<h3 id="anidacion-de-inicializadores">Anidación de inicializadores</h3>
+<p>Es posible anidar inicializadores, pudiendo escribir código cómo este:</p>
+<pre><code class="language-csharp">var aunt = new Person(&quot;Claudia&quot;)
+{
+    Age = 50,
+    Mom = new Person(&quot;Gil&quot;)
+    {
+        Age = 78,
+        Abilities = new List&lt;string&gt;(),
+        Dad = new Person(&quot;Charlie&quot;)
+        {
+            Age = 106,
+        }
+    }
+};
+</code></pre>
+<h3 id="inicializadores-y-tipos-anonimos">Inicializadores y tipos anónimos</h3>
+<p>Como <a href="http://thatcsharpguy.com/post/anonimos-en-c-sharp/">anteriormente escribí</a>, el inicializador de objetos cobra mucha importancia cuando trabajamos con tipos anónimos, y es que esta es la única manera de trabajar con ellos:</p>
+<pre><code class="language-csharp">var album = new { Title = &quot;Kindred&quot;, Artist = &quot;Passion Pit&quot; };
+var gift = new { Item = album, To = aunt };
+</code></pre>
+<h2 id="inicializacion-de-colecciones">Inicialización de colecciones</h2>
+<p>Al igual que con los objetos, también existe un inicializador para colecciones, la cual permite crear e insertar valores en un arreglo, lista o cualquier otra colección. Por ejemplo, si creamos una lista de cadenas, y luego añadimos cadenas en ella, normalmente el código se vería así:</p>
+<pre><code class="language-csharp">List&lt;string&gt; abilities = new List&lt;string&gt;();
+abilities.Add(&quot;programación&quot;);
+abilities.Add(&quot;futbol&quot;);
+abilities.Add(&quot;dormir&quot;);
+</code></pre>
+<p>Sin embargo, usando el inicializador de colecciones podemos escribir lo mismo utilizando un inicializador:</p>
+<pre><code class="language-csharp">List&lt;string&gt; abilities = new List&lt;string&gt; { &quot;programación&quot;, &quot;futbol&quot;, &quot;dormir&quot;, };
+</code></pre>
+<p>Si, por ejemplo, estamos trabajando con un arreglo simple, podemos omitir el uso del operador <code>new</code>, y hacer esto:</p>
+<pre><code class="language-csharp">string[] abilities = { &quot;programación&quot;, &quot;futbol&quot;, &quot;dormir&quot; };
+</code></pre>
+<p>Además, <a href="http://thatcsharpguy.com/post/arreglos-en-c-sharp-parte-1/">como ya lo había explicado</a> en los <a href="http://thatcsharpguy.com/post/arreglos-en-c-sharp-parte-2/">posts sobre arreglos</a>, se pueden programar cosas como esta:</p>
+<pre><code class="language-csharp">int [,] oddArray =  { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+</code></pre>
+<p>Es importante señalar que entre cada elemento de nuestra colección debe existir una <code>,</code> que las separe.</p>
+<h2 id="combinando-inicializadores">Combinando inicializadores</h2>
+<p>Podemos usar esta sintaxis siempre que la creamos conveniente, por ejemplo, si deseamos crear un objeto de nuestra clase Person con habilidades establecidas desde la instanciación de la clase, podemos hacer esto:</p>
+<pre><code class="language-csharp">var daughter = new Person(&quot;Lucille&quot;, dad, mom)
+{
+    Age = 10,
+    Abilities = new List&lt;string&gt;
+    {
+        &quot;programación&quot;,
+        &quot;pintura&quot;
+    }
+}
+</code></pre>
+<p>O, si por otro lado, queremos crear una colección de personas:</p>
+<pre><code class="language-csharp">var classAttendance = new List&lt;Person&gt;
+{
+    new Person(&quot;Rafa&quot;) { Age = 10},
+    new Person(&quot;Rosalinda&quot;) { Age = 9},
+    new Person(&quot;Javi&quot;) { Age = 10 },
+    new Person(&quot;Dalia&quot;) { Age = 11 },
+};
+</code></pre>
+<h3 id="un-ultimo-detalle">Un último detalle</h3>
+<p>Si eres muy fijado, te habrás dado cuenta que hay veces en que después del último elemento o asignación en un inicializador existe una coma <code>,</code>, como en el último fragmento de código visto (<code>new Person(&quot;Dalia&quot;) { Age = 11 },</code>). Podrías pensar que es un error de sintaxis... pero no es así, y es que debido a que este es un &quot;error&quot; que puede ser cometido frecuentemente por los programadores cuando se borra el último elemento en una lista o un objeto, se decidió permitir que el último elemento esté seguido por la coma.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

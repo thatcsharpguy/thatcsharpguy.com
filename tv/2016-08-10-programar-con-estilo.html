@@ -1,1 +1,69 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Y no, el título no se refiero a escribir código con traje sastre, los meñiques levantados mientras tomamos té. Sino escribir nuestros programas fáciles de entender, bien documentados y siguiendo convenciones de escritura previamente adoptadas. Esto hará que nuestro código sea universal.</p>
+<p>Sí, cada programador es único y tiene su manera de hacer las cosas, sin embargo esto se puede convertir en un gran problema cuando se tenga que optimizar, corregir o ampliar el código de una aplicación. En el mejor de los casos recordarás para qué sirve esa variable llamada <strong>asdflkj</strong> que escribiste hace meses… en el peor de los casos no serás tu quién tenga que hacerlo.</p>
+<p>O tal vez esa sea tu intención: &quot;si fue dificil de escribir, que sea difícil de entender&quot;. Pero esperemos que no.</p>
+<h2 id="parte-del-problema">Parte del problema</h2>
+<p>En mi opinión, parte del problema viene desde las escuelas tradicionales, al menos en la que <a href="http://blog.fferegrino.org/no-me-siento-ingeniero/" target="_blank">yo estudié</a>, cada semestre eran proyectos nuevos para cada asignatura, entonces ni te preocupabas por tener que hacer las cosas mantenibles, con que el &quot;sistema&quot; funcionara al final del semestre bastaba.</p>
+<p>Creo que no se nos inculca la habilidad de trabajar sobre una sola cosa y darle mantenimiento con el tiempo, lo cual nos forzaría (o al menos nos indicaría que) debemos hacer las cosas bien desde el inicio. Para mi fue una gran sorpresa el día que en el trabajo tuve que regresar a modificar el código que había escrito apenas unos meses atrás. Como una película de terror.</p>
+<h2 id="una-posible-solucion">Una posible solución</h2>
+<p>Como uno de los esfuerzos por combatir estas malas prácticas en cuanto a la escritura del código es que surgieron las <strong>guías de estilo</strong>, que no son mas que especie de &quot;reglas&quot; para nombrar nuestras variables, métodos o funciones, clases… y hasta algunas de las más celebres batallas como usar tabs o espacios o poner el corchete de apertura en la misma línea o no.</p>
+<p>No existe una única guía de estilo para cada lenguaje, sino que pueden existir varias, dependiendo del proyecto o la organización que las adopte. Por ejemplo, existen las <a href="https://msdn.microsoft.com/en-us/library/ff926074.aspx" target="_blank"><em>Coding conventions</em> de C#</a> que son recomendadas por Microsoft para el lenguaje, luego también existe la  <a href="https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md" target="_blank">guía de estilo de la fundación .NET</a>, pero también existen las <a href="https://github.com/MonoGame/MonoGame/wiki/Coding-Guidelines" target="_blank">Coding guidelines para el proyecto MonoGame</a>.</p>
+<p>Seguramente para el lenguaje de tu preferencia o con el que estés trabajando actualmente también existen estas guías de estilo. Y si no existe o sientes que ninguna se adecua a tus necesidades (o las de tu organización), no te preocupes: si bien lo más recomendable es que sigas alguna guía existente, desarrollar la tuya propia y aplicarla en el código.</p>
+<p>Ya sea que encuentres una guía o crees una propia, el paso siguiente <strong>aplicarla consistentemente</strong>, de nada servirá si usas una un día y al otro la cambias. El uso de las guías de estilo es una de las cosas que hacen más sencilla la colaboración en el código, <a href="../control-versiones" target="_blank">además de los sistemas de control de versiones</a>.</p>
+<p>Y ahora comienzen a programar con estilo si es que aún no lo hacen. Nos vemos la próxima.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,79 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Los algoritmos voraces o <em>greedy</em> son algoritmos que implementan una heuristica(técnica) que tiene como objetivo optimizar la búsqueda de una solución óptima para un problema.</p>
+<p>La idea detrás de los algoritmos voraces (o greedy) consiste en siempre tomar la mejor decisión de todas las que puede tomar en ese momento, con la esperanza de que al juntar todas estas pequeñas mejores decisiones, se obtendrá la mejor solución al problema en general.</p>
+<p>Seguramente verán esto explicado como que el algoritmo toma decisiones localmente óptimas con la esperanza de que esto lo llevará a la solución solución globalmente óptima.</p>
+<p>Toma por ejemplo este problema, supón que existen estas ciudades, y tu tarea es gastar lo menos posible en llegar de Pueblo Paleta a X, a Y, como puedes ver, hay muchas rutas. Un algoritmo voraz haría algo como esto:</p>
+<p>A cada paso, comprar el boleto más barato hasta llegar al pueblo Y.</p>
+<h3 id="no-siempre-es-lo-mejor">No siempre es lo mejor</h3>
+<p>Como lo dije, el algoritmo tiene la esperanza de que al hacer esto va a obtener el mejor resultado al final, pero esto no necesariamente es así.</p>
+<p>Imagina un escenario como el anterior, pero con los precios un poco diferentes. Siguiendo la heurística voraz, un algoritmo haría algo como esto:</p>
+<p>Tomando nuevamente el boleto más barato, aunque al final, estas decisiones localmente óptimas lo llevaron a gastar más dinero.</p>
+<h3 id="por-que-existen">¿Por qué existen?</h3>
+<p>Pero bueno, si al final puede que no obtenga el mejor resultado, ¿por qué existe esta técnica?</p>
+<p>Pues hay problemas para los calcular la solución globalmente óptima es algo inimaginable, o increíblemente difícil como es el caso del problema del agente viajero (del cuál les hablé en un video anterior). Y tu como desarrollador tienes que tomar la decisión entre sacrificar un poco la optimalidad de tu algoritmo por el tiempo de procesamiento.</p>
+<p>También existen porque en general son sencillos de entender y también sencillos de programar.</p>
+<p>Recuerda que no existe un martillo dorado que sea la solución a todos los problemas que te encuentres, y que este esta es una de esas herramientas que puedes usar.</p>
+<h3 id="los-componentes">Los componentes</h3>
+<p>Ahora, no todos los problemas son susceptibles de afrontarse con este tipo de algoritmos, para que un problema pueda ser resuelto usándoles un algoritmo con esta característica debe tener:</p>
+<ul>
+<li>El problema debe poder ser descompuesto en subproblemas sequenciales, y cada que uno de estos problemas se resuelve, (es decir, a cada decisión que se toma contribuye al resultado final, reduciendo el tamaño del problema.</li>
+</ul>
+<h3 id="ejemplos">Ejemplos</h3>
+<p>Entre los ejemplos que encontrarán sobre problemas que se pueden afrontar con estos algoritmos están:</p>
+<p>Problema del agente viajero, los de Minimumm Spanning Tree de Prim y Kruskal, la codificación de Huffman y el problema de la mochila Knapsack.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

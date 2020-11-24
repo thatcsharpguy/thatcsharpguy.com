@@ -1,1 +1,176 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>El método estático <code>Format</code> de la clase <code>String</code> nos ayuda en el manejo de las cadenas en C#, específicamente a la hora de la presentación de la información. Antes de continuar, es importante que conozcas la firma del método que estamos a punto de discutir:</p>
+<pre><code class="language-csharp">public static string Format (string format, params object[] args);
+</code></pre>
+<p>Lo cual significa que recibe una cadena y una colección de objetos y devuelve una cadena. Ahora sí, mejor vemos su funcionamiento, toma por ejemplo la siguiente línea de código:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;Buen día señor {0}&quot;, &quot;sol&quot;));
+</code></pre>
+<p>Que produce el siguiente resultado en la pantalla:  <code>Buen día señor sol</code>.</p>
+<p>Wow, ¿viste lo que ocurrió? ... La cadena &quot;{0}&quot; fue reemplazada por &quot;sol&quot;. Esa es básicamente la función de <code>Format</code>: <strong>reemplazar cadenas por valores</strong>. Pero las cadenas no tienen que ser cualquier cosa, sino una cadena &quot;especial&quot;, que debe contener marcadores (o <em>placeholders</em>) que se forman de un índice entero rodeado de las llaves <code>{</code> y <code>}</code>.</p>
+<p>El índice indica en qué lugar dentro de la función aparecerá el valor por el cual debe ser reemplazado, en el caso del código anterior <code>&quot;sol&quot;</code> aparece en el lugar 0 (contando de izquierda a derecha) a partir de que termina la cadena &quot;original&quot;. En caso de que hubiera más de un parámetro podríamos usar <code>{1}</code>, <code>{2}</code> y así sucesivamente:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0}, {1} y {2}&quot;, &quot;uno&quot;, &quot;dos&quot;, &quot;tres&quot;)); // Imprime: &quot;uno, dos y tres&quot;
+Console.WriteLine(String.Format(&quot;{1}, {0} y {2}&quot;, &quot;uno&quot;, &quot;dos&quot;, &quot;tres&quot;)); // Imprime: &quot;dos, uno y tres&quot;
+Console.WriteLine(String.Format(&quot;{2}, {0} y {1}&quot;, &quot;uno&quot;, &quot;dos&quot;, &quot;tres&quot;)); // Imprime: &quot;tres, uno y dos&quot;
+</code></pre>
+<p>Del código anterior observa cómo a pesar de que parámetros aparecen en el mismo orden, cambia la forma en que aparecen en la pantalla.</p>
+<h2 id="formato-especial">Formato especial</h2>
+<p>Además de decidir la ubicación de nuestros objetos en la cadena formateada con las llaves e índices (<code>{0}</code>,<code>{1}</code>, ...), también podemos darles un formato más específico. Esto se logra modificando un poco el marcador que indica su posición, la modificación consiste en agregar dos puntos a la derecha del índice, seguido del formato que deseamos darle, todo esto dentro de las llaves. Es decir, <code>{0}</code> se transformaría en <code>{0:X}</code>, o <code>{2}</code> se transformaría en <code>{2:#,##0.00}</code>, la idea se entiende. De los formatos hablaremos un poco más adelante.</p>
+<h2 id="formateando-enteros">Formateando enteros</h2>
+<p>Formatear enteros es probablemente algo que tendrás que hacer comúnmente, así que por qué no aprender algunas cuantas cosas para hacer que luzcan mejor. Para darle formato a los enteros usando <code>Format</code> tenemos varias opciones a nuestro alcance. Por ejemplo, podemos hacer que se el número tenga tantos ceros a la izquierda como deseamos (cinco ceros en este caso):</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:00000}&quot;, 1300)); // Imprime: &quot;01300&quot;
+Console.WriteLine(String.Format(&quot;{0:00000}&quot;, -52)); // Imprime: &quot;-00052&quot;
+Console.WriteLine(String.Format(&quot;{0:00000}&quot;, 0)); // Imprime: &quot;00000&quot;
+</code></pre>
+<p>O, ¿quién no conoce la notación exponencial? pues también la podemos usar para formatear nuestros números, el modificador de formato es la letra <code>e</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:e}&quot;, 1300)); // Imprime: &quot;1.300000e+003&quot;
+Console.WriteLine(String.Format(&quot;{0:e}&quot;, -52)); // Imprime: &quot;-5.200000e+001&quot;
+</code></pre>
+<p>El modificador de formato <code>c</code> puede resultar muy útil para aplicaciones que manejan cantidades monetarias, ya que se encarga de darles formato y añadirle el signo de la moneda sin necesidad de más esfuerzo del programador:</p>
+<p><strong>NOTA:</strong> Ten especial cuidado con este modificador de formato, ya que modificará el número de acuerdo a la cultura de tu aplicación.</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:c}&quot;, 1300)); // Imprime: &quot;$1,300.00
+Console.WriteLine(String.Format(&quot;{0:c}&quot;, -52)); // Imprime: &quot;($52.00)&quot;
+Console.WriteLine(String.Format(&quot;{0:c}&quot;, 0)); // Imprime: &quot;$0.00&quot;
+</code></pre>
+<p>Y no podríamos dejar de lado a los números hexadecimales, su modificador es la letra <code>x</code> seguido de un número entero que indica el número de posiciones que debe ocupar, mira:</p>
+<pre><code class="language-csharp">int r = 0, g = 133, b = 20;
+Console.WriteLine(String.Format(&quot;Hex: R{0:x}, G{1:x4}, B{2:x2}&quot;, r, g, b)); // Imprime: &quot;Hex: R0, G0085, B14&quot;
+Console.WriteLine(&quot;Hex: {0:x2}{1:x2}{2:x2}&quot;, r, g, b); // Imprime: &quot;Hex: 008514&quot;
+</code></pre>
+<h2 id="formateando-numeros-reales">Formateando numeros reales</h2>
+<p>Al igual que los enteros, para los números reales (<code>double</code>, <code>decimal</code> y <code>float</code>) también se pueden formatear. Comenzando por el modificador <code>r</code> que supuestamente garantiza que un número será convertido a cadena y que posteriormente podremos <em>parsear</em> esa cadena de vuelta al número y obtener el mismo valor, aunque esto <a href="http://stackoverflow.com/questions/24299692/why-is-a-round-trip-conversion-via-a-string-not-safe-for-a-double?rq=1" target="_blank">no es del todo cierto</a>. Generalmente se usa <code>r</code> para obtener una representación exacta del número:</p>
+<p><strong>NOTA:</strong> Este modificador de formato únicamente puede ser usado con números <code>double</code> y <code>float</code>.</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:r}&quot;, 0.6852871999174d)); // Imprime: &quot;0.6852871999174&quot;
+Console.WriteLine(String.Format(&quot;{0:r}&quot;, 0.6852871999174f));  // Imprime: &quot;0.6852872&quot;
+Console.WriteLine(String.Format(&quot;{0:r}&quot;, 0.6852871999174m));  // Error, r no está disponible para decimal
+</code></pre>
+<p>También podemos especificar cuántos decimales deben aparecer cuando imprimimos el número, usando <code>0</code>s para indicar la cantidad de decimales:</p>
+<p><strong>NOTA:</strong> Este modificador de formato redondeará los números a su valor más cercano.</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:#,##0.00}&quot;, 13000d)); // Imprime: &quot;13,000.00&quot;
+Console.WriteLine(String.Format(&quot;{0:#,##0.00}&quot;, 0.6852871999174f));  // Imprime: &quot;0.69&quot;
+Console.WriteLine(String.Format(&quot;{0:#,##0.00}&quot;, -0.50m));  // Imprime: &quot;-0.50&quot;
+</code></pre>
+<p>Si por otro lado estamos trabajando con números que representan porcentajes, podemos hacer uso del modificador <code>0%</code>, este modificador tomará el valor y lo multiplicará por 100 e imprimirá el resultado acompañado del símbolo de por ciento:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:0.0%}&quot;, 13000d)); // Imprime: &quot;1300000.0%&quot;
+Console.WriteLine(String.Format(&quot;{0:0.0%}&quot;, 0.6852871999174f));  // Imprime: &quot;68.5%&quot;
+Console.WriteLine(String.Format(&quot;{0:0.0%}&quot;, -0.50m));  // Imprime: &quot;-50.0%&quot;
+</code></pre>
+<p>El resto de modificadores de formato los puedes encontrar en <a href="https://msdn.microsoft.com/en-us/library/0c899ak8(v=vs.110).aspx" target="_blank">este enlace</a>.</p>
+<h2 id="formato-condicional">Formato condicional</h2>
+<p>Para los tipos numéricos, <code>String.Format</code> tiene una opción más de formateo, que es útil si quieres hacer distinción entre números positivos, negativos y con valor 0. La sintaxis no es tan distinta a las anteriores, basta con separar con <code>;</code> los formatos:</p>
+<pre><code>&quot;{0:[formato si positivo];[formato si negativo];[formato si cero]}&quot;  
+</code></pre>
+<p>Los usos de este pueden ser muy variados, por ejemplo, imagina que un requerimiento de tu aplicación es poner guiones en lugar de 0 cuando muestres cifras y la palabra MENOS cuando se trata de números negativos:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:#,##0.00;MENOS #,##0.00;—}&quot;, 13000)); // Imprime: &quot;13,000.00&quot;
+Console.WriteLine(String.Format(&quot;{0:#,##0.00;MENOS #,##0.00;—}&quot;, 0));  // Imprime: &quot;—&quot;
+Console.WriteLine(String.Format(&quot;{0:#,##0.00;MENOS #,##0.00;—}&quot;, -0.50m));  // Imprime: &quot;MENOS 0.50&quot;
+</code></pre>
+<p>Otro posible uso es para esos sistemas, raros, en donde se utilizan los valores 1 y -1 como booleanos:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;{0:VERDADERO;FALSO;DESCONOCIDO}&quot;, 1)); // Imprime: &quot;VERDADERO&quot;
+Console.WriteLine(String.Format(&quot;{0:VERDADERO;FALSO;DESCONOCIDO}&quot;, 0));  // Imprime: &quot;DESCONOCIDO&quot;
+Console.WriteLine(String.Format(&quot;{0:VERDADERO;FALSO;DESCONOCIDO}&quot;, -1));  // Imprime: &quot;FALSO&quot;
+</code></pre>
+<p>También puedes hacer cosas como mostrar si un balance es positivo o negativo sin mostrar los números y sin la necesidad de agregar sentencias de control a tu código. Deja que <code>Format</code> haga el trabajo.</p>
+<h2 id="formateando-fechas">Formateando fechas</h2>
+<p>Probablemente las fechas sean el tipo de dato que más opciones de formato posean. Toma por ejemplo las siguientes opciones de formato:</p>
+<pre><code class="language-csharp">var now = DateTime.Now;
+Console.WriteLine(String.Format(&quot;{0:d}&quot;, now)); // Imprime: &quot;22/10/2016&quot;
+Console.WriteLine(String.Format(&quot;{0:F}&quot;, now)); // Imprime: &quot;sábado, 22 de octubre de 2016 09:54:33 a.m.&quot;
+Console.WriteLine(String.Format(&quot;{0:M}&quot;, now)); // Imprime: &quot;22 de octubre&quot;
+Console.WriteLine(String.Format(&quot;{0:T}&quot;, now)); // Imprime: &quot;09:54:33 a.m.&quot;
+Console.WriteLine(String.Format(&quot;{0:r}&quot;, now)); // Imprime: &quot;Sat, 22 Oct 2016 09:54:33 GMT&quot;
+</code></pre>
+<p>Pero también puedes crear tus formatos propios, por ejemplo:</p>
+<pre><code class="language-csharp">var now = DateTime.Now;
+Console.WriteLine(String.Format(&quot;{0:dd/MM/yyyy}&quot;, now)); // Imprime: &quot;24/10/2016&quot;
+Console.WriteLine(String.Format(&quot;{0:dd-MM-yyyy}&quot;, now)); // Imprime: &quot;24-10-2016&quot;
+Console.WriteLine(String.Format(&quot;{0:dd MMM yyyy}&quot;, now)); // Imprime: &quot;24 oct. 2016&quot;
+Console.WriteLine(String.Format(&quot;{0:dd 'de' MMMM 'de' yy}&quot;, now)); // Imprime: &quot;24 de octubre de 16&quot;
+</code></pre>
+<p>En la última línea, ¿viste cómo es que &quot;de&quot; está escrito entre comillas simples? a esto se le llama <em>&quot;escapar&quot;</em> una cadena, ya que de otro modo (de haber puesto &quot;de&quot; sin comillas simples) el resultado de <code>Format</code> habría sido: &quot;24 24e octubre 24e 16&quot;. Siempre que deseemos que un caracter sea ignorado para cuando se realice el formato, tenemos que <em>escaparlo</em>.</p>
+<p>Puedes consultar todos los modificadores de formato para fechas en <a href="https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx" target="_blank">el sitio de MSDN</a>.</p>
+<h2 id="relleno-o-padding">Relleno o padding</h2>
+<p>La posibilidad de agregar relleno a las cadenas formateadas es una de las características que yo acabo de descubrir. Normalmente concatenaba una cadena vacía con la que quería mostrar y obtenía una subcadena para obtener el resultado deseado, sin embargo, podemos irnos olvidando de eso, ya que <code>Format</code> también nos lo ofrece. Cambia un poco la sintaxis, pero no es nada del otro mundo: ahora es necesario agregar otro número (separado por una coma), inmediatamente después del índice del parámetro y antes de los <code>:</code> en caso de que los contenga.</p>
+<p>El número que agreguemos representará la cantidad de relleno que se deberá agregar, lo mejor es que nos permite agregar <em>padding</em> tanto a la izquierda como a la derecha, dependiendo de si el número que agregamos es positivo o negativo:</p>
+<pre><code class="language-csharp">Console.WriteLine(String.Format(&quot;I|{0,10}|{0,-10}|D&quot;, 1300));    // Imprime: &quot;I|      1300|1300      |D&quot;
+Console.WriteLine(String.Format(&quot;I|{0,10}|{0,-10}|D&quot;, -52));     // Imprime: &quot;I|       -52|-52       |D&quot;
+Console.WriteLine(String.Format(&quot;I|{0,10}|{0,-10}|D&quot;, 0));       // Imprime: &quot;I|         0|0         |D&quot;
+</code></pre>
+<p>Para terminar, podemos combinar todos los tipos de formato con <em>padding</em> y modificadores para presentar datos de una manera más ordenada, por ejemplo, en una tabla:</p>
+<pre><code class="language-csharp">var data = new[]
+{
+    new { Dato1 = 0, Dato2=&quot;México&quot;, Dato3 = DateTime.Now },
+    new { Dato1 = 2, Dato2 = &quot;Canadá&quot;, Dato3 = DateTime.Now.AddDays(3) },
+    new { Dato1 = 10, Dato2 = &quot;Panamá&quot;, Dato3 = DateTime.Now.AddDays(-2) },
+    new { Dato1 = 0, Dato2 = &quot;Perú&quot;, Dato3 = DateTime.Now.AddMonths(-2) }
+};
+foreach (var item in data)
+{
+    Console.WriteLine(&quot;|{0,10:000}|{1,10}|{2,10:dd-MM}|&quot;, item.Dato1, item.Dato2, item.Dato3);
+}
+</code></pre>
+<p>Con lo cual obtendremos algo así:</p>
+<pre>
+|       000|    México|     24-10|  
+|       002|    Canadá|     27-10|  
+|       010|    Panamá|     22-10|  
+|       000|      Perú|     24-08|  
+</pre>
+<p>Cuando un formato no se pueda aplicar, generalmente cuando el tipo de dato no es compatible con el formato elegido, se obtendrá una excepción del tipo <code>FormatException</code>. Generalmente esto no debería ocurrir puesto que tu controlas el código, pero sin duda debes tener cuidado de manejar las excepciones si crees que se podrían presentar.</p>
+<h2 id="console.writeline">Console.WriteLine</h2>
+<p>Por si te diste cuenta, hay algunos casos en que uso únicamente el método <code>WriteLine</code> sin llamar a <code>Format</code>, y es que el primero tiene una sobrecarga que ejecuta el segundo, pero imprime directamente el resultado sin necesidad de que tengas que llamarlo tu explícitamente. Muy útil, la verdad.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

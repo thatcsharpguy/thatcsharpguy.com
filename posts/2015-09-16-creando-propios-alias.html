@@ -1,1 +1,93 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Hace poco vimos que existen <a href="/string-vs-system-string-es" target="_blank">alias en C# para los tipos predefinidos</a> de datos, y hasta ahí todo claro. Pero nosotros como programadores también podemos beneficiarnos de crear nuestros propios alias. Hay dos maneras de hacer uso de los alias:</p>
+<h3 id="para-tipos-de-dato">Para tipos de dato</h3>
+<p>¿No sería fabuloso poder &quot;cambiarle&quot; (entre comillas porque en realidad solamente le estamos dando otro nombre) el nombre a <code>int</code>? tal vez sea mejor ponerle algo como <code>Entero</code>. Lo podemos hacer con una sentencia <code>using</code> de la siguiente manera:</p>
+<pre><code class="language-csharp">using Entero = System.Int32;
+</code></pre>
+<p>Y después usarlo de la siguiente manera:</p>
+<pre><code class="language-csharp">Entero uno = 1;
+Entero dos = 2;
+Console.WriteLine(uno + dos); // Imprimirá 3
+</code></pre>
+<p>Pero bueno, no creo que cambiarle el nombre a un entero les haga mucho sentido, así que trasladémoslo a una aplicación real. Supongamos que tenemos una aplicación que separa el modelo del acceso a datos, dentro de ella también tenemos dos clases llamadas <code>Person</code>, una dentro del namespace <code>MyApp.DataAccess.Entities</code> y otra dentro de <code>MyApp.ViewModels.Editable</code>. Para que la aplicación funcione hay un punto en el que ambas clases deben coincidir para que <em>mapear</em> de una a otra. Sin alias tendríamos que usar el nombre completo de las clases:</p>
+<pre><code class="language-csharp">public static MyApp.DataAccess.Entities.Person MapPerson(MyApp.ViewModels.Editable.Person person)
+{
+	// ...
+</code></pre>
+<p>Ahora, usando alias reemplazaremos los nombres por algo más corto (y probablemente amigable):</p>
+<pre><code class="language-csharp">using EntityPerson = MyApp.DataAccess.Entities.Person;
+using EditablePerson = MyApp.ViewModels.Editable.Person;
+// ... ... ...
+public static EntityPerson MapPerson(EditablePerson person)
+{
+	// ...
+</code></pre>
+<h3 id="para-nombres-de-espacio">Para nombres de espacio</h3>
+<p>Hay que aceptarlo, cambiar el nombre de los tipos puede resultar un poco confuso, pero C# también nos ofrece la posibilidad de ponerle un alias a los <em>namespaces</em> y se hace de la misma manera que para los tipos de dato:</p>
+<pre><code class="language-csharp">using Ents = MyApp.DataAccess.Entities;
+using Edt = MyApp.ViewModels.Editable;
+// ... ... ...
+public static Ents.Person MapPerson(Edt.Person person)
+{
+	// ...
+</code></pre>
+<h3 id="gran-gran-desventaja">Gran, gran desventaja</h3>
+<p>Dejé lo peor para el final: Los alias creados por nosotros solamente son válidos dentro del bloque de código en el que los definamos, ya sea dentro de un <code>namespace</code> o dentro de un archivo completo, lo cual significa que tenemos que repetirlo para cada archivo en el que lo usemos. Sería muy útil poderlos definir una sola vez a nivel global y después poder usarlas en toda nuestra aplicación.</p>
+<h4 id="mi-consejo">Mi consejo</h4>
+<p>Estos alias existen, pero yo procuro no usarlas salvo en casos extremos y es que si no se usan con moderación pueden complicar mucho la lectura del código.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

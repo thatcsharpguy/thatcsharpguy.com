@@ -1,1 +1,117 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Para fines de este post, diremos que C# es un lenguaje fuertemente tipado (aunque ya permite tipado dinámico y eso lo palticaré en otro post), lo que significa que cada variable, literal o constante debe tener un tipo declarado y dicho tipo no cambiará con el flujo del programa. Dentro de los tipos que ofrece C#, podemos encontrar dos grandes categorías:</p>
+<h3 id="predefinidos">Predefinidos</h3>
+<p>Son los tipos que el lenguaje incorpora para almacenar valores comunes, entre ellos:</p>
+<ul>
+<li><code>bool</code> para valores binarios, como un <em>sí</em> o <em>no</em>, o <code>1</code> o <code>0</code></li>
+<li><code>int</code> para valores enteros, que puede ir de <code>-2,147,483,648</code> a <code>2,147,483,647</code></li>
+<li><code>char</code> para caracteres como <code>a</code>, <code>@</code> o <code>%</code></li>
+<li><code>string</code> para una secuencia de caracteres</li>
+</ul>
+<p>La lista la completan: <code>byte</code>, <code>decimal</code>, <code>float</code>, <code>long</code>, <code>sbyte</code>, <code>short</code>, <code>uint</code>, <code>ulong</code>, <code>ushort</code> y <code>object</code>.</p>
+<p>A partir de estos tipos de dato se pueden crear otros tipos con la finalidad de satisfacer nuestras necesidades.</p>
+<h3 id="compuestos">Compuestos</h3>
+<p>Los tipos compuestos están formados a partir de los tipos predefinidos y nos ayudarán a modelar de manera más real los problemas con los que nos encontremos. Estos se crean usando las  palabras reservadas <code>interface</code>, <code>struct</code>, <code>enum</code> y <code>class</code>.</p>
+<p>Otra clasificación que podemos definir, es la siguiente, que clasifica los tipos de dato de acuerdo a como se gestionan en la memoria:</p>
+<h3 id="referencia">Referencia</h3>
+<p>Se almacena en ellos una referencia a los datos, por ejemplo un tipo de dato <code>class</code> o <code>string</code>.</p>
+<h3 id="valor">Valor</h3>
+<p>Almacenan el valor del dato por completo, por ejemplo <code>struct</code> y <code>enum</code>.</p>
+<h2 id="ejemplo">Ejemplo</h2>
+<p>Para ilustrar esta última categoría, tomemos el siguiente ejemplo:</p>
+<div class="pure-g">
+<div class="pure-u-1-2">
+```csharp  
+struct Tiempo 
+{
+	public int Minutos;
+	public int Horas;
+}
+// ...  
+Tiempo t1 = new Tiempo();
+Tiempo t2 = t1;
+```  
+</div>
+<div class="pure-u-1-2">
+```csharp  
+class Tiempo 
+{
+	public int Minutos;
+	public int Horas;
+}
+// ...  
+Tiempo t1 = new Tiempo();
+Tiempo t2 = t1;
+```  
+</div>  
+</div>  
+<div class="pure-g">
+<div class="pure-u-1-2">
+<img src="/images/tipos-dato-c-sharp__value-type.png" title="Tipos por valor" />
+</div>
+<div class="pure-u-1-2">
+<img src="/images/tipos-dato-c-sharp__reference-type.png" title="Tipos por valor" />
+</div>  
+</div>  
+<br />
+Las imagenes debajo de los códigos tienen la intención de mostrar una simple representación de lo que pasa al ejecutar el código. Al hacer `t2 == t1` sobre la estructura de Tiempo, al ser un un *tipo por valor* se crea una copia, lo cual significa que cualquier modificación que se haga a `t1` no provocará ningún cambio sobre `t2`.  
+Por otro lado, en el caso de la clase Tiempo, si se hiciera alguna modificación sobre `t2`, `t1` también se vería afectado al ser un *tipo de referencia*.  
+  
+<br />
+En futuros post seguré explorando algunos detalles escenciales de C#, como arreglos, métodos y clases.  
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

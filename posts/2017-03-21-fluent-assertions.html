@@ -1,1 +1,216 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>La semana pasada <a href="../../tv/pruebas-unitarias">hablamos un poco</a> sobre las pruebas unitarias y los beneficios que estas tienen. También habamos sobre cómo es que podemos <a href="../../tv/pruebas-unitarias-vs">comenzar a crearlas</a> usando Visual Studio y C#. Y aprovechando la inercia, esta vez les traigo un <a href="../../tag/NuGetRecomendado">#NuGetRecomendado</a> que puede ayudarte a hacer las puebras unitarias más sencillas.</p>
+<p>En uno de los videos mencioné que una prueba unitaria usualmente se compone de tres pasos, y este paquete concierne directamente a la tercera: <em>Assert</em> o comprobar.</p>
+<blockquote>
+<p>Nadie desea que sus pruebas unitarias fallen, pero seguramente sí desean que, en caso de que fallen, les den la mayor información posible.</p>
+</blockquote>
+<p>Ahora sí, mira este fragmento de código:</p>
+<pre><code class="language-csharp">string result = &quot;That C# guy&quot;;
+
+Assert.IsTrue(result.StartsWith(&quot;That&quot;));
+Assert.IsTrue(result.EndsWith(&quot;guy&quot;));
+Assert.IsTrue(result.Contains(&quot;Java&quot;));
+</code></pre>
+<p>Mediante los <em>asserts</em> se está corroborando que la cadena:</p>
+<ul>
+<li>Comience con &quot;That&quot;</li>
+<li>Termine con &quot;guy&quot;</li>
+<li>Contenga &quot;Java&quot;</li>
+</ul>
+<p>Ahora mira el siguiente usando <em>FluentAssertions</em></p>
+<pre><code class="language-csharp">// Arrange
+// Act
+string result = &quot;That C# guy&quot;;
+
+// Assert
+result.Should().StartWith(&quot;That&quot;).And.EndWith(&quot;guy&quot;).And.Contain(&quot;Java&quot;);
+</code></pre>
+<p>En una simple &quot;línea&quot; se realizan varias comprobaciones sobre un mismo elemento, lo cual no solo es conveniente, sino que dada la naturaleza fluida de los métodos, el código se torna más legible y entendible a simple vista. Pero no solo eso, sino que los mensajes de error también se tornan más descriptivos para que el responsable de analizar los resultados de las pruebas las encuentre fácil de entender. Ya que el error mostrado es más descriptivo que si usáramos un <code>Assert</code> tradicional:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__normalf.png" title=""Normal 8 char test"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__faf.png" title=""FluentAssertions 8 char test"" />
+</div>  
+</div>  
+<h3 id="should">Should()</h3>
+<p>La base de <em>FluentAssertions</em> es el método <code>Should</code> que en inglés significa <em>&quot;debería&quot;</em>. Sobre el valor de retorno de este se permite seguir encadenando métodos para hacer que nuestra prueba unitaria compruebe lo que deseamos, como por ejemplo en el siguiente bloque de código se comprueba la longitud de una cadena y se le añade un mensaje para mostrar en caso de que falle:</p>
+<pre><code class="language-csharp">// Normal unit test
+string actual = &quot;That C# guy&quot;;
+Assert.AreEqual(8, actual.Length);
+
+// With FluentAssertions
+string result = &quot;That C# guy&quot;;
+result.Should().HaveLength(8, &quot;because I love the number 8&quot;);
+</code></pre>
+<p>Cuando la prueba falla:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__normal8chars.png" title=""Normal 8 char test"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__fa8chars.png" title=""FluentAssertions 8 char test"" />
+</div>  
+</div>  
+<h3 id="arreglos">Arreglos</h3>
+<p>También permite trabajar con arreglos. Nuevamente es necesario comenzar con <code>Should</code>. Para este caso se comprueba que el arreglo tenga una determinada longitud, sin embargo, también tiene opciones para comprobar el contenido del arreglo y demás propiedades de este:</p>
+<pre><code class="language-csharp">// Normal unit test
+var array = new int[] { 10, 5 };
+array.Should().HaveCount(3);
+
+// With FluentAssertions
+var array = new int[] { 10, 5 };
+Assert.AreEqual(3, array.Length);
+</code></pre>
+<p>Cuando la prueba falla:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__normalshouldhave3integers.png" title=""Normal should have 3 integers"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__fashouldhave3integers.png" title=""FluentAssertions should have 3 integers"" />
+</div>  
+</div>  
+<h4 id="beoftype">BeOfType</h4>
+<p>Pero no solo funciona con arreglos y cadenas, sino que también permite trabajar con objetos. Por ejemplo, en el siguiente caso estamos realizando una comprobación sobre un <code>object</code>. Con <em>FluentAssertions</em> se corrobora que sea un arreglo de enteros y que dicho arreglo contenga 10 elementos.</p>
+<pre><code class="language-csharp">// Normal unit test
+object thing = new int[] { 10, 5, 5 };
+var arreglo = thing as int[];
+Assert.IsNotNull(arreglo);
+Assert.AreEqual(10, arreglo.Length);
+
+// With FluentAssertions
+object array = new int[] { 10, 5, 5 };
+array.Should().BeOfType&lt;int[]&gt;()
+    .Which.Should().HaveCount(10, &quot;some weird reason&quot;);
+</code></pre>
+<p>Cuando la prueba falla:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__normalarray10elements.png" title=""Normal should be array of 10 elements"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__faarray10elements.png" title=""FluentAssertions should be array of 10 elements"" />
+</div>  
+</div>  
+<h3 id="dictionary">Dictionary</h3>
+<p><em>FluentAssertions</em> también puede comprobar el contenido de una colección, como un <code>Dictionary</code>, además de realizar la comprobación sobre alguna propiedad de el contenido de dicha colección:</p>
+<pre><code class="language-csharp">// Normal unit test        
+var computerScientists = new Dictionary&lt;string, string&gt;();
+Assert.IsTrue(computerScientists.ContainsValue(&quot;Grace Hopper&quot;));
+var value = computerScientists[&quot;Grace Hopper&quot;];
+Assert.AreEqual(12, value.Length);
+
+// With FluentAssertions
+var computerScientists = new Dictionary&lt;string, string&gt;();
+computerScientists.Should()
+    .ContainValue(&quot;Grace Hopper&quot;, &quot;she's awesome&quot;)
+    .Which.Length.Should().Be(12);
+</code></pre>
+<p>Cuando la prueba falla:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__normaldictshouldcontain.png" title=""Normal dictionary"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__fadictshouldcontain.png" title=""FluentAssertions dictionary"" />
+</div>  
+</div>  
+<h3 id="excepciones">Excepciones</h3>
+<p>Otro gran uso de <em>FluentAssertions</em> es cuando es necesario probar que nuestro código lanza las excepciones correctas. Usualmente con C# puro tendríamos que marcar el método de la prueba con <code>ExpectedException</code>, mientras que con nuestro paquete de NuGet basta con usar el método <code>ShouldThrow</code>.</p>
+<pre><code class="language-csharp">// Normal unit test
+[TestMethod]
+[ExpectedException(typeof(FormatException))]
+public void Normal_ShouldThrowException()
+{
+    Action action = () =&gt;
+    {
+        var i = 1;
+        var t = 1 / (i - 1);
+    };
+    action();
+}
+
+// With FluentAssertions
+[TestMethod]
+public void FluentAssertions_ShouldThrowException()
+{
+    Action action = () =&gt;
+    {
+        var i = 1;
+        var t = 1 / (i - 1);
+    };
+    action.ShouldThrow&lt;FormatException&gt;(&quot;other reason&quot;);
+}
+</code></pre>
+<p>Cuando la prueba falla:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__normalexception.png" title=""Normal exception management"" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="/images/nugets__fluentassertions__faexception.png" title=""FluentAssertions exception management"" />
+</div>  
+</div>  
+<h2 id="uso">Uso</h2>
+<p>Recuerda que este es un paquete de NuGet que debe ser instalado en tu proyecto de pruebas, no en el proyecto que vas a probar. Basta con instalar  <a href="https://www.nuget.org/packages/FluentAssertions/" target="_blank">paquete de NuGet</a>.</p>
+<pre><code>PM&gt; Install-Package FluentAssertions
+</code></pre>
+<p>O... o, siempre <a href="https://github.com/FluentAssertions/FluentAssertions" target="_blank">puedes descargar el código</a> fuente para integrarlo y hacerle las modificaciones que desees.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

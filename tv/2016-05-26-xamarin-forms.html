@@ -1,1 +1,128 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>En un <a href="../xamarin">video anterior les había ya hablado sobre Xamarin</a>, que es una tecnología que nos permite hacer aplicaciones multiplataforma. En aquel video les conté que de entrada, con Xamarin.iOS y Xamarin.Android debíamos seguir haciendo las interfaces gráficas como tradicionalmente se hacen, es decir, una interfaz para iOS, una para Android y otra para Windows pero también adelanté que existía una herramienta llamada Xamarin.Forms para compartir incluso el código de la interfaz.</p>
+<p>Xamarin.Forms es una biblioteca, <a href="https://www.nuget.org/packages/Xamarin.Forms/" target="_blank" rel="nofollow">que podemos descargar de NuGet</a>, que expone un conjunto de abstracciones de algunos elementos de interfaz gráfica comúnmente usados en plataformas como Android, iOS y el ya viejo, Windows Phone, recientemente, Universal Windows Apps.</p>
+<p>Estas abstracciones se convertirán en tiempo de ejecución a controles nativos a cada plataforma, permitiendo así definir la interfaz una sola vez y que nuestra aplicación se muestre en el dispositivo como si hubiera sido escrita usando los controles definidos para cada plataforma.</p>
+<p>Dentro de estas abstracciones de controles tenemos:</p>
+<ul>
+<li>Páginas (Pages) que son elementos sobre los cuales se colocan los controles de interfaz gráfica, se podría decir que son parecidas a las <code>Activities</code> en Android o a los <code>ViewControllers</code> en iOS, pero solo se parecen, no cumplen las mismas funciones. Forms nos da algunas páginas predefinidas como:
+<ul>
+<li><code>ContentPage</code> que es la página más básica</li>
+<li><code>MasterDetailPage</code> que es una página que permite crear un efecto de menú en tu aplicación</li>
+<li><code>TabbedPage</code> que es una página con pestañas</li>
+</ul>
+</li>
+</ul>
+<p>En esta imagen puedes ver todas:</p>
+<p>&lt;img src=&quot;/images/tv__xamarinforms__pages.png&quot; title=<>Xamarin.Forms stock pages</> /&gt;</p>
+<ul>
+<li>Contenedores (Layouts) que nos permiten acomodar los elementos de interfaz gráfica dentro de una página, de igual manera, Forms nos da algunos <code>Layouts</code> comunes como:
+<ul>
+<li><code>StackLayout</code> para apilar los controles, uno sobre otro</li>
+<li><code>ScrollView</code> que permite acceder a elementos que están fuera de la pantalla del dispositivo</li>
+<li><code>Grid</code> que nos deja acomodar los elementos de interfaz en filas y columnas</li>
+<li><code>RelativeLayout</code> para colocar los elementos con posiciones relativas entre ellos</li>
+</ul>
+</li>
+</ul>
+<p>En fin, hay varios más</p>
+<p>&lt;img src=&quot;/images/tv__xamarinforms__layouts.png&quot; title=<>Xamarin.Forms stock layouts</> /&gt;</p>
+<ul>
+<li>Controles (Views) son elementos visuales, y en donde realmente se &quot;nota&quot; más, el poder de Forms. Estos elementos visuales son los que reciben directamente la interacción del usuario, por ejemplo, en Forms tenemos:
+<ul>
+<li><code>Button</code>, que no necesita mucha explicaciòn</li>
+<li><code>Label</code> para mostrar texto</li>
+<li><code>Entry</code> que permite ingresar texto</li>
+<li><code>Image</code> que es un control que permite mostrar una imagen</li>
+<li><code>ListView</code> usado para mostrar elementos dentro de celdas en forma de lista</li>
+<li><code>TableView</code> muy similar a <code>ListView</code></li>
+<li><code>DatePicker</code> para seleccionar fecha</li>
+<li>En fin, hay muchos más.</li>
+</ul>
+</li>
+<li>Celdas (Cells) que como ya lo mencioné, se usan junto con las <code>ListView</code> o <code>TableView</code> para mostrar datos, en esta categoría hay celdas que nos permiten mostrar texto, texto e imágenes o controles como un Switch o una caja de texto.</li>
+</ul>
+<p>&lt;img src=&quot;/images/tv__xamarinforms__controls.png&quot; title=<>Xamarin.Forms stock layouts</> /&gt;</p>
+<p>Xamarin.Forms funciona así: las abstracciones de controles se transforman en tiempo de ejecución a controles nativos, en cada plataforma hay un conjunto de <em>Renderers</em> que toman la abstracción y la convierten al control nativo. De tal manera que cuando nosotros usamos un control, por ejemplo digamos <code>Entry</code> (para recibir texto del usuario), estos <code>Renderers</code> lo convertirán en Android a un <code>EditText</code>, en iOS a un <code>UITextView</code> y en Windows a un <code>TextBox</code>:</p>
+<p>&lt;img src=&quot;/images/tv__xamarinforms__entry_rendering.png&quot; title=<>Rendering</> /&gt;</p>
+<p>Al ser abstracciones, es muy posible que muchas de las propiedades que son específicas a cada plataforma no estén disponibles en Xamarin.Forms ya que se trata de ofrecer un conjunto de propiedades común a todas las plataformas. Esto es una limitante, ya que con Forms no podemos alcanzar un alto nivel de personalización en nuestras apps.</p>
+<h3 id="custom-renderers">Custom renderers</h3>
+<p>Pero no te desanimes, así como Forms hace uso de los renderers, tu también los puedes usar para especificar cómo quieres que se muestren los controles en cada plataforma o, inclusive, para añadir controles que no están disponibles a través de la API de Forms como <a href="https://www.nuget.org/packages/Messier16.…" target="_blank" rel="nofollow">el checkbox que hice</a>. Si quieres saber más, <a href="https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/introduction/" target="_blank" rel="nofollow">puedes checar la documentación</a>.</p>
+<h3 id="lenguaje-de-interfaz">Lenguaje de interfaz</h3>
+<p>Otra de las dudas más comunes es sobre el cómo escribimos la interfaz usando Xamarin.Forms, y pues las respuestas son dos:</p>
+<p>&lt;img src=&quot;/images/tv__xamarinforms__language.png&quot; title=<>Lenguaje de interfaz gráfica</> /&gt;</p>
+<p>Sí, XAML y código C#. Yo preiero el código, aunque si tienes muchos controles, la cosa se puede tornar bastante fea si no tienes buena organización.</p>
+<h3 id="codigo-de-cada-plataforma">Código de cada plataforma</h3>
+<p>A pesar de usar Forms, nunca nos vamos a liberar de tener que ver (o usar) código dentro de cada plataforma, ya que como he mencionado antes, esta herramienta es simplemente una librería que es ejecutada cuando nuestra aplicación corre. Esto se ve cuando creamos un proyecto nuevo, en Android, dentro del archivo <code>MainActivity</code> y en iOS dentro de <code>AppDelegate</code> se carga la aplicación hecha con forms.</p>
+<h3 id="code-behind-y-mvvm">Code behind y MVVM</h3>
+<p>Si has estado desarrollando en Windows Forms o con Java Swing es muy probable que conozcas el concepto de <em>code behind</em>, ese concepto se sigue empleando en Xamarin.Forms pero no se hace mucho énfasis en él como si se hace en patrón MVVM, que es un patrón que puede facilitar el desarrollo de aplicaciones de gran tamaño y complejidad.</p>
+<h3 id="xamarin-tradicional-o-xamarin.forms">Xamarin tradicional o Xamarin.Forms</h3>
+<p>Mucha gente se puede llegar a hacer esta pregunta: ¿Para qué siguen existiendo Xamarin.iOS y Xamarin.Android si ya tenemos Forms? y pues la razón está definida dentro de lo que ofrece el mismo Forms: la poca personalización que se puede conseguir. En general, se recomienda ir por la vía tradicional si:</p>
+<ul>
+<li>Tu aplicación hace uso intensivo de las APIs nativas de cada plataforma (cosas como cámara, acelerómetro y por el estilo)</li>
+<li>Tu aplicación hace uso de una interfaz personalizada y distinta de la interfaz nativa</li>
+<li>Quieres usar el potencial del desempeño nativo</li>
+<li>Estás haciendo un juego</li>
+</ul>
+<p>Por otro lado, usa Forms si:</p>
+<ul>
+<li>Tu app no usa muchas APIs de acceso a cámara, acelerómetro o cosas específicas del dispositivo</li>
+<li>La personalización de la interfaz no es tan importante</li>
+<li>Ya estás familiarizado con XAML o apenas estás teniendo contacto con el desarrollo móvil</li>
+</ul>
+<p>Te invito a revisar las etiquetas <a href="../../tag/XamarinForms/">#XamarinForms</a> y <a href="../../tag/Xamarin/">#Xamarin</a> si quieres saber más sobre el desarrollo móvil con esta tecnología. No olvides suscribirte y compartir el video.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

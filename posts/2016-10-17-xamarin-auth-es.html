@@ -1,1 +1,368 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<div class="warning">
+Este post debe ser usado como guía, como sabrás, en ningún momento es buena idea dejar poner en tu código cualquier tipo de llave que no quieres que sea pública (como los AppSecrets o los Tokens). Te recomiendo visitar estos elnaces: <a href="http://www.androidauthority.com/how-to-hide-your-api-key-in-android-600583/" target="blank">How to hide your key</a> y <a href="https://stormpath.com/blog/the-ultimate-guide-to-mobile-api-security" target="blank">The Ultimate Guide to Mobile API Security</a> para mayor información.
+</div>
+Es un hecho que las redes sociales están dominando el mundo, y que tu app tenga conexión con alguna (o varias) de ellas es una característica que tal vez tus usuarios apreciarían en ella. Sin embargo, para acceder a ellas es necesario contar con el permiso de los usuarios, ¿cierto?  
+<p>Para nuestra suerte, muchos servicios proporcionan una forma rápida y estandarizada de solicitar dicho permiso de ellos y es través de <a href="https://oauth.net" target="_blank">OAuth</a>. Sin embargo, el proceso que ocurre despues de que los usuarios nos han dado permiso no es <a href="https://oauth.net/core/diagram.png" target="_blank">tan sencillo como parece</a>, para nuestra suerte, <strong>Xamarin.Auth</strong> nos ofrece una forma de ejecutar este proceso de manera sencilla y en unas cuantas líneas de código.</p>
+<p>En este post, trataré de explicar cómo usar Xamarin.Auth para conectarse con GitHub, Facebook y Twitter.</p>
+<h2 id="registrando-aplicaciones-en-servicios">Registrando aplicaciones en servicios</h2>
+<p>Primero que nada, tenemos que registrar nuestras aplicaciones en los servicios de terceros:</p>
+<h3 id="github">GitHub</h3>
+<p>Lo primero que tienes que hacer es darte de alta en el programa de desarrolladores de GitHub en <a href="https://developer.github.com/program/" target="_blank">este enlace</a> y una vez que lo hayas hecho, debes dirigirte a <a href="https://github.com/settings/developers" target="_blank">este otro enlace</a> en donde podrás registrar tu nueva app, en la pantalla de registro debes poner los datos de tu app, pero debes colocar <code>https://github.com</code> en el campo <em>&quot;Authorization callback URL&quot;</em>:</p>
+<p>&lt;img src=&quot;/images/xamarin__auth__github-developer-2.jpg&quot; title=<>Registro de nueva aplicación</> /&gt;</p>
+<p>Una vez que has completado estos pasos, tu aplicación estará registrada y lista para usarse, una vez creada te aparecerán dos valores que son muy importantes y que debes guardar con mucho cuidado:</p>
+<p>&lt;img src=&quot;/images/xamarin__auth__github-keys.jpg&quot; title=<>GitHub keys</> /&gt;</p>
+<h3 id="facebook">Facebook</h3>
+<p>Para Facebook la cosa no es tan diferente, debes acceder a <a href="https://developers.facebook.com" target="_blank">https://developers.facebook.com</a> y registrarte como desarrollador para después registrar tu aplicación en el mismo sitio. Ahora, después de elegir un nombre para nuestra aplicación, de proporcionar un correo electrónico para contacto y resolver un captcha, nos aparecerá una pantalla con un menú como el siguiente y en el cual debemos dar click en <em>&quot;Add product&quot;</em> y seleccionar <em>&quot;Facebook Login&quot;</em>:</p>
+<p>&lt;img src=&quot;/images/xamarin__auth__fb-app-addlogin.jpg&quot; title=<>Add product</> /&gt;</p>
+<p>Una vez que hayamos hecho esto, del lado izquierdo, aparecerá un nuevo ítem en el menú llamado, justamente, <em>&quot;Facebook Login&quot;</em> con dos opciones debajo, damos click en <em>&quot;Settings&quot;</em>, después de esto aparecerá un formulario, en donde lo que tenemos que modificar es el campo <em>&quot;Valid OAuth redirect URIs&quot;</em>, en donde debes colocar lo siguiente: <code>https://www.facebook.com/connect/login_success.html</code>:</p>
+<p>&lt;img src=&quot;/images/xamarin__auth__oauthredirectaddr.png&quot; title=<>Modificar url de redirección</> /&gt;</p>
+<p>Guardamos los cambios y ahora, en el menú de la izquierda damos click en <em>&quot;Dashboard&quot;</em>, que nos llevará a la pantalla inicial de nuestra app, de donde debemos copiar el valor de <em>&quot;App ID&quot;</em> y listo, hemos terminado de registrar nuestra app en Facebook.</p>
+<h3 id="twitter">Twitter</h3>
+<p>Básicamente, ahora que has registrado tu app en GitHub y Facebook, sabrás más o menos qué esperar con Twitter. Primero, tienes que iniciar el registro de tu app en <a href="https://apps.twitter.com" target="_blank">https://apps.twitter.com</a>, de nuevo, debemos ingresar detalles sobre la app y, <strong>muy importante</strong>, en el campo <em>&quot;Callback URL&quot;</em> debemos colocar <code>https://mobile.twitter.com/home</code>. Una vez dada de alta, tendremos acceso a una <em>&quot;Consumer Key&quot;</em> y a un <em>&quot;Consumer Secret&quot;</em>, este último debe permanecer <strong>siempre secreto</strong>:</p>
+<p>&lt;img src=&quot;/images/xamarin__auth__twttr-keys.jpg&quot; title=<>Llaves Twitter</> /&gt;</p>
+<p>Bien, hemos terminado el papeleo, ahora, a escribir código:</p>
+<h2 id="en-el-proyecto-de-forms">En el proyecto de Forms</h2>
+<p>Comenzaremos por crear una interfaz que especifique algunas de las propiedades comunes a la hora de realizar la autenticación:</p>
+<pre><code class="language-csharp">public interface IKeys
+{
+    string ClientId { get; }
+    string ClientSecret { get; }
+    string Scope { get; }
+    string AuthorizeUrl { get; }
+    string RedirectUrl { get; }
+    string RequestTokenUrl { get; }
+    string AccessTokenUrl { get; }
+    string ConsumerSecret { get; }
+    string ConsumerKey { get; }
+    string CallbackUrl { get; }
+}
+</code></pre>
+<p>Ahora es cuando tenemos que usar los valores obtenidos en la fase de &quot;El Papeleo&quot;, creamos una clase por cada servicio conectado, fijate cómo es que las clases implementan la interfaz IKey:</p>
+<pre><code class="language-csharp">public class FacebookKeys : IKeys
+{
+    public string ClientId { get; } = &quot;XXXXXXXXX&quot;; // El valor de App ID en el Dashobard
+    public string AuthorizeUrl { get; } = &quot;https://m.facebook.com/dialog/oauth/&quot;;
+    public string RedirectUrl { get; } = &quot;https://www.facebook.com/connect/login_success.html&quot;;
+    // ...
+
+public class GitHubKeys : IKeys
+{
+    public string ClientId =&gt; &quot;XXXXXXXXXX&quot;; // El valor de Client Id de GitHub
+    public string ClientSecret =&gt; &quot;XXXXXXXXXXXXXXXX&quot;; // El valor de Client Secret de GitHub
+    public string AccessTokenUrl { get; } = &quot;https://github.com/login/oauth/access_token&quot;;
+    public string AuthorizeUrl { get; } = &quot;https://github.com/login/oauth/authorize&quot;;
+    public string RedirectUrl { get; } = &quot;https://github.com&quot;;
+    // ...
+
+public class TwitterKeys : IKeys
+{
+    public string ConsumerKey { get; } = &quot;EnPK4XXXXXXXtrwXXXXXXXEm&quot;; // Consumer Key de Twitter
+    public string ConsumerSecret =&gt; &quot;FhSHfXXXXXXXXyu0ZqXXXXXXXXXXXXhbFcr8ETG2p&quot;; // Consumer Secret de Twitter
+    public string AccessTokenUrl { get; } = &quot;https://api.twitter.com/oauth/access_token&quot;;
+    public string AuthorizeUrl { get; } = &quot;https://api.twitter.com/oauth/authorize&quot;;
+    public string RedirectUrl { get; } = &quot;https://mobile.twitter.com/home&quot;;
+    public string RequestTokenUrl =&gt; &quot;https://api.twitter.com/oauth/request_token&quot;;
+    public string CallbackUrl =&gt; &quot;https://mobile.twitter.com/home&quot;;
+    //
+</code></pre>
+<p>Además de un <a href="../c-sharp-enums" target="_blank">tipo <code>enum</code></a> que represente a los servicios que podemos usar, usamos un <code>enum</code> para evitar usar cadenas mágicas en el código:</p>
+<pre><code class="language-csharp">public enum Services
+{
+    GitHub,
+    Facebook,
+    Twitter
+}
+</code></pre>
+<p>Dado que Xamarin.Auth hace uso de APIs nativas de cada platforma, sus métodos son únicamente accesibles en los proyectos &quot;cliente&quot; y no desde el núcleo de nuestra aplicación, es por eso que para interactuar con ella indepentiéntemente de la plataforma, necesitamos hacer uso de una interfaz:</p>
+<pre><code class="language-csharp">public interface IAccountManagerService
+{
+    List&lt;Services&gt; Accounts { get; }
+
+    string GetPropertyFromAccount(Services service, string property);
+
+    void EraseAll();
+}
+</code></pre>
+<p>La pantalla de autorización es una nueva <code>Activity</code> o un nuevo <code>UIViewController</code>, dependiendo de la plataforma, y como desde Forms no tenemos acceso a estas clases, de nuevo creamos una solución independiente de la plataforma. En este caso lo haremos a través de un <a href="https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/contentpage/" target="_blank"><i>Custom renderer</i></a> de una <code>ContentPage</code>:</p>
+<pre><code class="language-csharp">public class AuthorizePage : ContentPage
+{
+    public Services Service { get; private set; }
+
+    public AuthorizePage(Services service)
+    {
+        Service = service;
+    }
+}
+</code></pre>
+<p>Como puedes ver, tiene una propiedad llamada <code>Service</code> del tipo <code>Service</code>, a través de la cual especificaremos a cuál de los servicios nos vamos a conectar. Más adelante demostraré el uso de este tipo de páginas.</p>
+<h2 id="en-xamarin.ios-y-xamarin.android">En Xamarin.iOS y Xamarin.Android</h2>
+<p>Una vez terminado el código multiplataforma, vamos a trabajar con los proyectos de iOS y Android; como las diferencias entre un código y otro son mínimas, podemos utilizar un proyecto compartido y usar <a href="../directivas-preprocesador-c-sharp" target="_blank">directivas de preprocesador</a> para compilar determinadas porciones de código de acuerdo al proyecto que estamos ejecutando.</p>
+<p>Comenzaremos por implementar la interfaz <code>IAccountManagerService</code> a través de la que interactuaremos con el servicio de gestión de cuentas de Xamarin.Auth:</p>
+<pre><code class="language-csharp">using System;
+using System.Linq;
+using System.Collections.Generic;
+using Authy.AccountManagement;
+
+#if __IOS__
+namespace Authy.iOS.AccountManagement
+#elif __ANDROID__
+namespace Authy.Droid.AccountManagement
+#endif
+{
+	public class AccountManagementImplementation : IAccountManagerService
+	{
+		public List&lt;Services&gt; Accounts
+		{
+			get
+			{
+				var accounts = new List&lt;Services&gt;();
+				var accountStore = Xamarin.Auth.AccountStore.Create();
+				foreach (var service in Enum.GetNames(typeof(Services)))
+				{
+					var acc = accountStore.FindAccountsForService(service).FirstOrDefault();
+					if (acc != null)
+					{
+						accounts.Add((Services)Enum.Parse(typeof(Services), service));
+					}
+				}
+				return accounts;
+			}
+		}
+
+		public void EraseAll()
+		{
+			var accountStore = Xamarin.Auth.AccountStore.Create();
+			foreach (var service in Enum.GetNames(typeof(Services)))
+			{
+				var acc = accountStore.FindAccountsForService(service).FirstOrDefault();
+				if (acc != null)
+				{
+					accountStore.Delete(acc, service);
+				}
+			}
+		}
+
+		public string GetPropertyFromAccount(Services service, string property)
+		{
+			var accountStore = Xamarin.Auth.AccountStore.Create();
+			var account = accountStore.FindAccountsForService(service.ToString()).FirstOrDefault();
+			if (account != null)
+			{
+				return account.Properties[property];
+			}
+			return null;
+		}
+	}
+}
+</code></pre>
+<p>Para esta ocasión estaremos usando otra de las herramientas de XF, el <a href="https://developer.xamarin.com/guides/xamarin-forms/dependency-service/" target="_blank">DependencyService</a>, así que no te olvides de colocar la siguiente línea en tu archivo:</p>
+<pre><code class="language-csharp">[assembly: Xamarin.Forms.Dependency(typeof(AccountsImplementation))]
+</code></pre>
+<p>Después, es momento de implementar el <em>custom renderer</em> de la página con la que vamos a solicitar la autorización:</p>
+<pre><code class="language-csharp">using System;
+using Authy.AccountManagement;
+using Xamarin.Forms;
+using Xamarin.Auth;
+#if __IOS__
+using Xamarin.Forms.Platform.iOS;
+#elif __ANDROID__
+using Xamarin.Forms.Platform.Android;
+#endif
+
+#if __IOS__
+[assembly: ExportRenderer(typeof(AuthorizePage), typeof(Authy.iOS.AccountManagement.AuthorizePageRenderer))]
+namespace Authy.iOS.AccountManagement
+#elif __ANDROID__
+[assembly: ExportRenderer(typeof(AuthorizePage), typeof(Authy.Droid.AccountManagement.AuthorizePageRenderer))]
+namespace Authy.Droid.AccountManagement
+#endif
+{
+	public class AuthorizePageRenderer : PageRenderer
+	{
+
+#if __IOS__
+		public override void ViewDidAppear(bool animated)
+		{
+			base.ViewDidAppear(animated);
+#elif __ANDROID__
+		protected override void OnElementChanged(ElementChangedEventArgs&lt;Page&gt; e)
+		{
+			base.OnElementChanged(e);
+			var activity = this.Context as Android.App.Activity;
+#endif
+
+
+			OAuth2Authenticator auth2 = null;
+			OAuth1Authenticator auth1 = null;
+			IKeys keys = null;
+
+			var authPage = Element as AuthorizePage;
+
+			switch (authPage.Service)
+			{
+				case Services.Facebook:
+					keys = new FacebookKeys();
+					auth2 = new OAuth2Authenticator(
+						clientId: keys.ClientId,
+						scope: keys.Scope,
+						authorizeUrl: new Uri(keys.AuthorizeUrl),
+						redirectUrl: new Uri(keys.RedirectUrl));
+					break;
+				case Services.Twitter:
+					keys = new TwitterKeys();
+					auth1 = new OAuth1Authenticator(
+							consumerKey: keys.ConsumerKey,
+							consumerSecret: keys.ConsumerSecret,
+							requestTokenUrl: new Uri(keys.RequestTokenUrl),
+							authorizeUrl: new Uri(keys.AuthorizeUrl),
+							accessTokenUrl: new Uri(keys.AccessTokenUrl),
+							callbackUrl: new Uri(keys.CallbackUrl));
+					break;
+				case Services.GitHub:
+					keys = new GitHubKeys();
+					auth2 = new OAuth2Authenticator(
+						clientId: keys.ClientId,
+						clientSecret: keys.ClientSecret,
+						scope: keys.Scope,
+						authorizeUrl: new Uri(keys.AuthorizeUrl),
+						redirectUrl: new Uri(keys.RedirectUrl),
+						accessTokenUrl: new Uri(keys.AccessTokenUrl));
+					break;
+				default:
+					throw new Exception(&quot;Service &quot; + authPage.Service + &quot; not yet supported&quot;);
+			}
+
+			if (auth2 != null)
+			{
+				auth2.Completed += async (sender, eventArgs) =&gt;
+				{
+#if __IOS__
+					DismissViewController(true, null);
+#endif
+					if (eventArgs.IsAuthenticated)
+						AccountStore.Create().Save(eventArgs.Account, authPage.Service.ToString());
+					await authPage.Navigation.PopAsync();
+				};
+#if __IOS__
+				PresentViewController(auth2.GetUI(), true, null);
+#elif __ANDROID__
+				activity.StartActivity(auth2.GetUI(activity));
+#endif
+			}
+
+			if (auth1 != null)
+			{
+				auth1.Completed += async (sender, eventArgs) =&gt;
+				{
+#if __IOS__
+					DismissViewController(true, null);
+#endif
+					if (eventArgs.IsAuthenticated)
+						AccountStore.Create().Save(eventArgs.Account, authPage.Service.ToString());
+					await authPage.Navigation.PopAsync();
+				};
+			
+#if __IOS__
+				PresentViewController(auth1.GetUI(), true, null);
+#elif __ANDROID__
+				activity.StartActivity(auth1.GetUI(activity));
+#endif
+			}
+
+		}
+	}
+
+}
+</code></pre>
+<p>Lo que el código anterior hace es declarar dos formas de obtener la autorización (<code>OAuth2Authenticator</code> y <code>OAuth2Authenticator</code>), también delcara una variable del tipo <code>IKeys</code>.</p>
+<p>Luego obtiene una referencia a la página de Xamarin.Forms desde la que estamos llamándola (para saber a qué servicio queremos conectarnos), con esta información comienza a crear la petición adecuada de acuerdo al servicio que solicitamos. Es importante que veas que dentro de cada una de las opciones de la instrucción <code>switch</code>, se instancia la clase que contiene las llaves del servicio que vamos a usar.</p>
+<p>Por último, y después de que se ha creado correctamente una instancia de <code>OAuth2Authenticator</code> o de <code>OAuth1Authenticator</code>, asigna un manejador al evento <code>Completed</code>, para que si se obtuvo el permiso requerido lo almacene en el dispositivo mediante la llamada a <code>AccountStore.Create().Save()</code>. Luego de todo esto, podemos mostrar la pantalla al usuario. En android mediante el método <code>StartActivity</code>, mientras que en iOS mediante <code>PresentViewController</code>.</p>
+<p>De este modo, cada vez que naveguemos hacia una página del tipo <code>AuthorizePage</code>, se mostrará la interfaz de autorización solicitada, de acuerdo al valor pasado en el constructor de la clase.</p>
+<p>Ese es todo el código que necesitas para los proyectos &quot;cliente&quot;. Ahora, de vuelta al proyecto de Forms:</p>
+<h2 id="de-vuelta-en-xamarin.forms">De vuelta en Xamarin.Forms</h2>
+<p>Cuando solicitemos permiso para usar determinado servicio, lo único que debemos hacer es crear una nueva página en Forms y navegar hacia ella:</p>
+<pre><code class="language-csharp">await Navigation.PushAsync(new AuthorizePage(Services.Facebook));
+</code></pre>
+<p>Para corroborar si el usuario ha otorgado permiso debemos obtener las cuentas que tenemos guardadas en el dispositivo usando la implementación de la clase <code>IAccountManagerService</code> del servicio de dependencias:</p>
+<pre><code class="language-csharp">_services = DependencyService.Get&lt;IAccountManagerService&gt;();
+</code></pre>
+<p>Y luego revisar la propiedad <code>Accounts</code> buscando si existe el servicio que deseamos:</p>
+<pre><code class="language-csharp">var accounts = _services.Accounts;
+if (accounts.Contains(Services.Facebook))
+{ // ...
+</code></pre>
+<p>Si sabemos que el usuario nos ha autorizado, podemos acceder a los tokens, claves y demás información de permisos mediante el método <code>GetPropertyFromAccount</code>:</p>
+<pre><code class="language-csharp">var screen_name = _services.GetPropertyFromAccount(Services.Twitter, &quot;screen_name&quot;);
+var oauth_consumer_key = _services.GetPropertyFromAccount(Services.Twitter, &quot;oauth_consumer_key&quot;);
+var oauth_token_secret = _services.GetPropertyFromAccount(Services.Twitter, &quot;oauth_token_secret&quot;);
+</code></pre>
+<h2 id="demo">Demo</h2>
+<p>Puedes ver el vídeo de la app que usa el código explicado en el código anterior:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="//i.imgur.com/7tBrHtI.gif" />
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+<img src="http://i.giphy.com/11S78bw1xcfodi.gif" />
+</div>  
+</div> 
+<h2 id="para-finalizar">Para finalizar</h2>
+<p>Como puedes ver no es tan complicado (espero me haya explicado bien), y añadir otros servicios es tan simple como conseguir las llaves, modificar unas cuantas clases y ¡listo! Tu app se puede conectar con el resto del internet.</p>
+<p>No olvides que me puedes preguntar dudas por correo o por Twitter, ah... y <a href="https://github.com/fferegrino/Authy" target="_blank"><strong>descargar el código fuente</strong></a>.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

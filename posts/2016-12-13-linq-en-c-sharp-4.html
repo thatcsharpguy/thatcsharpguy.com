@@ -1,1 +1,207 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Antes de comenzar con el post vamos a declarar algunos métodos y clases que estaremos usando para los ejemplos que veremos más adelante.</p>
+<p>Vamos a necesitar dos métodos utilitarios para imprimir colecciones de datos:</p>
+<pre><code class="language-csharp">void PrintInline&lt;T&gt;(IEnumerable&lt;T&gt; collection) ...
+
+void Print&lt;T&gt;(IEnumerable&lt;T&gt; collection) ...
+</code></pre>
+<p>Y una clase <code>Persona</code> que sobreescriba los métodos <code>Equals</code> y <code>GetHashCode</code>:</p>
+<pre><code class="language-csharp">class Persona 
+{
+    public string Nombre { get; set; }
+    public string Apellido { get; set; }
+    public override string ToString() { return Apellido + &quot;, &quot; + Nombre; }
+    public override bool Equals(object o)
+    { 
+        var oth = o as Persona;
+        if(oth != null)
+            return oth.Apellido.Equals(Apellido);
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return Apellido.GetHashCode();
+    }
+}
+</code></pre>
+<p>Listo, más adelante verás por qué sobreescribimos esos dos métodos. Ahora si, comencemos con Linq:</p>
+<h2 id="zip">Zip</h2>
+<p>El método Zip nos ayuda para cuando queremos combinar dos colecciones de datos en el orden en el que estan. Con Zip tu especificas la forma en las que se deben combinar, por ejemplo en la siguiente linea se combinan dos series numéricas, multiplicando cada elemento entre si:</p>
+<pre><code class="language-csharp">var coleccion1 = new int [] { 0, 1, 2, 3, 4, 5 };
+var coleccion2 = new int [] { 4, 5, 6, 7, 8, 9 };
+
+var combinados = coleccion1.Zip(coleccion2, (a, b) =&gt; a * b);
+PrintInline(combinados);
+</code></pre>
+<p>Imprimirá:</p>
+<pre><code class="language-csharp">0 5 12 21 32 45 
+</code></pre>
+<p>También se pueden combinar cadenas, como las de nombres y apellidos para crear un objeto de la clase Persona:</p>
+<pre><code class="language-csharp">var nombres = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;C&quot;, &quot;D&quot;, &quot;A&quot; };
+var apellidos = new String[] { &quot;Z&quot;, &quot;X&quot;, &quot;Y&quot;, &quot;Y&quot;, &quot;W&quot;, &quot;Z&quot; };
+
+var personas = nombres.Zip(apellidos, (n, a) =&gt; new Persona { Nombre= n, Apellido = a}).OrderBy(p =&gt; p.Apellido);
+var otrasPersonas = nombres.Zip(apellidos.Reverse(), (n, a) =&gt; new Persona { Nombre= n, Apellido = a}).OrderBy(p =&gt; p.Apellido);
+Print(personas);
+Print(otrasPersonas);
+</code></pre>
+<p>Imprimirá</p>
+<pre><code class="language-csharp">W, D
+X, B
+Y, A
+Y, C
+Z, A
+Z, A
+W, B
+X, D
+Y, A
+Y, C
+Z, A
+Z, A
+</code></pre>
+<h2 id="equals-gethashcode-iequalitycomparer">Equals, GetHashCode &amp; IEqualityComparer</h2>
+<p>En los siguientes métodos vamos a requerir de una forma de discernir si dos instancias de una misma clase son las mismas o no (y es por eso que sobreescribimos <code>Equals</code> y <code>GetHashCode</code>), sin embargo no siempre tendremos acceso a las &quot;entrañas&quot; de una clase para sobrescribir sus métodos o simplemente queremos tener otra forma de comparar dos objetos. Para estos casos podemos usar una implementación de la interfaz <code>IEqualityComparer</code>, por ejemplo, la siguente clase nos ayudará a distinguir una <code>Persona</code> de otra únicamente por su nombre:</p>
+<pre><code class="language-csharp">class NameEqualityComparer : IEqualityComparer&lt;Persona&gt;
+{
+    public bool Equals(Persona x, Persona y) =&gt; x.Nombre.Equals(y.Nombre);
+    public int GetHashCode(Persona obj) =&gt; obj.Nombre.GetHashCode();
+}
+</code></pre>
+<h2 id="union">Union</h2>
+<p>Con <code>Union</code> se juntan dos colecciones de datos, es importante que se diferencíe este método de Concat, ya que mientras que uno junta las dos colecciones sin preocuparse del contenido de estas, Union no permite que existan duplicados en la colección resultante:</p>
+<pre><code class="language-csharp">var concatenados = coleccion1.Concat(coleccion2);
+var unidos = coleccion1.Union(coleccion2);
+PrintInline(concatenados);
+PrintInline(unidos);
+</code></pre>
+<p>Imprimirá</p>
+<pre><code class="language-csharp">0 1 2 3 4 5 4 5 6 7 8 9 
+0 1 2 3 4 5 6 7 8 9 
+</code></pre>
+<h2 id="intersect">Intersect</h2>
+<p>Es bastante obvio lo que realiza este método, intersecta dos colecciones, dando como resultado otra con solo los elementos que tienen en comun. Nuevamente, usa el método <code>Equals</code> (o <code>IEqualityComparer</code>)  para decidir qué elementos se parecen y cuales no.</p>
+<pre><code class="language-csharp">var interseccion =  coleccion1.Intersect(coleccion2);
+PrintInline(interseccion);
+</code></pre>
+<p>Imprimirá únicamente:</p>
+<pre><code class="language-csharp">4 5 
+</code></pre>
+<h2 id="except">Except</h2>
+<p>Con <code>Except</code> podemos filtrar una colección basándonos en otra. En este caso los únicos elementos que forman parte de la nueva colección que existen en <code>coleccion1</code> que no existen en <code>coleccion2</code>:</p>
+<pre><code class="language-csharp">var except = coleccion1.Except(coleccion2);
+PrintInline(except);
+</code></pre>
+<p>Imprimirá</p>
+<pre><code class="language-csharp">0 1 2 3 
+</code></pre>
+<h2 id="sequenceequals">SequenceEquals</h2>
+<p>Este método nos ayuda para saber si los elementos que contiene una colección existen en el mismo orden en otra. Si uno tiene menos, si un elemento es distinto o si están en diferente posición, este método devolverá false:</p>
+<p>Al igual los demás también este puede funcionar con una implementación de <code>IEqualityComparer</code>:</p>
+<pre><code class="language-csharp">var secuencia1 = Enumerable.Range(0, 4);
+var secuencia2 = Enumerable.Range(0, 4);
+var secuencia3 = Enumerable.Range(1, 4);
+
+var sonIguales = secuencia1.SequenceEqual(secuencia2);
+Console.WriteLine(&quot;Son iguales &quot; + sonIguales);
+
+var sonIguales1 = secuencia1.SequenceEqual(secuencia3);
+Console.WriteLine(&quot;Son iguales &quot; + sonIguales1);
+</code></pre>
+<p>Y obtendremos en pantalla:</p>
+<pre><code class="language-csharp">Todos divisibles: False
+Alguno divisible: True
+</code></pre>
+<h2 id="distinct">Distinct</h2>
+<p>Como tal lo dice el nombre, con <code>Distnict</code> vamos a poder filtrar los elementos iguales de nuestra colección dejándonos con una que tiene elementos no repetidos entre si:</p>
+<p>Este método también acepta una implementación de <code>IEqualityComparer</code>:</p>
+<pre><code class="language-csharp">var distintos = concatenados.Distinct();
+PrintInline(distintos);
+
+var personasDistintas = personas.Distinct();
+Console.WriteLine(&quot;Personas distintas por apellido&quot;);
+Print(personasDistintas);
+
+var personasDistintasNombre = personas.Distinct(new NameEqualityComparer());
+Console.WriteLine(&quot;Personas distintas por nombre&quot;);
+Print(personasDistintasNombre);
+</code></pre>
+<p>Imprimirá:</p>
+<pre><code class="language-csharp">0 1 2 3 4 5 6 7 8 9 
+Personas distintas por apellido
+W, D
+X, B
+Y, A
+Z, A
+Personas distintas por nombre
+W, D
+X, B
+Y, A
+Y, C
+</code></pre>
+<h2 id="all-any">All &amp; Any</h2>
+<p>Estos métodos nos ayudan a responder las preguntas: ¿alguno de los elementos cumple con la condición dada? y ¿todos los elementos cumplen con la condición dada?</p>
+<pre><code class="language-csharp">bool todosDivisiblesEntre2 = secuencia1.All(i =&gt; i % 2 == 0);
+bool algunoDivisibleEntre2 =  secuencia1.Any(i =&gt; i % 2 == 0);
+
+Console.WriteLine(&quot;Todos divisibles: &quot; + todosDivisiblesEntre2);
+Console.WriteLine(&quot;Alguno divisible: &quot; + algunoDivisibleEntre2);
+</code></pre>
+<h2 id="para-terminar">Para terminar</h2>
+<p>En el siguiente post hablaré de cómo podemos crear lenguajes específicos de dominio usando Linq y métodos de extensión.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

@@ -1,1 +1,94 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Más seguido de lo que pensamos, nosotros, los desarrolladores llegamos a pensar que nuestro código carece de errores. Todo está bien, después de todo nosotros lo escribimos, probamos dos o tres casos y nunca falló y según nosotros está listo para ser publicado en producción... pero, ¿qué pasa cuando alguien nos pregunta &quot;Y si probaste el código&quot;? uno no puede decir que sí sin sentirse nervioso.</p>
+<p>Esto sí pasa, yo lo he hecho y no estoy orgulloso de eso. Es por eso que a modo de reparación trataré de explicar de qué se tratan las pruebas de código... y más en específico: las pruebas unitarias.</p>
+<p>Hay 4 tipos de pruebas generalmente usadas en el desarrollo del software, comenzando desde el más básico hasta el más complejo: las pruebas unitarias, integración, de sistema y de aceptación. De cierto modo, una depende de la otra.</p>
+<h2 id="pruebas-unitarias">Pruebas unitarias</h2>
+<p>Estas pruebas son un en donde componentes individuales del software se someten a pruebas. El propósito de estas es asegurar que cada unidad de trabajo funciona individualmente como debería: es decir, funciona cuando se supone que debe funcionar, responde con lo que se supone que tiene que responder, falla como y cuando se supone que debe fallar. Se supone que los tests unitarios deben probar la unidad mínima de trabajo de un programa que es aquella que devuelve un valor o produce un cambio en el estado del programa, generalmente hablaríamos de un solo método o una función. Aunque no siempre es así.</p>
+<h3 id="estructura">Estructura</h3>
+<p>Para generar una prueba untaria es necesario contar con dos cosas: un conjunto de valores de entrada y un conjunto de valores esperados como resultado de la ejecución de las pruebas.</p>
+<p>Una prueba unitaria tiene una estructura particular, se divide en tres secciones:</p>
+<ul>
+<li>Preparación: en donde se establecen las condiciones iniciales con las que se va a ejecutar la prueba, así como el resultado esperado.</li>
+<li>Acción: en donde se ejecuta el componente de software que se está probando.</li>
+<li>Comprobación: En donde se ha obtenido el resultado de la <em>Acción</em> y se comprueba que el resultado de esta coincida con el resultado esperado.</li>
+</ul>
+<h3 id="responsable-de-ejecutar-las-pruebas">Responsable de ejecutar las pruebas</h3>
+<p>Como desarrollador tu debes ser el principal responsable de probar tu código a nivel más básico a través de pruebas unitarias, sin embargo debes de tener cuidado y ser muy autocrítico. Y es que sin quererlo podrías estar escribiendo pruebas que no sean tan útiles ya que al tener conocimiento sobre el comportamiento interno de tu código, no escribes pruebas que lo lleven al límite.</p>
+<h3 id="casos-a-probar">Casos a probar</h3>
+<p>En realidad es muy probable que para el código que escribas exista una infinidad de posibilidades de entrada. Sin embargo existen algunos casos que debes considerar como los casos más básicos y esperados en el funcionamiento normal del programa, también casos <em>al limite</em> que si bien pueden suceder no es tan probable que existan (si tu función recibe enteros de 32 bits, prueba con el valor máximo de un entero). Casos con valores de entrada inválidos o no esperados, así como también se vale agregar un poco de intuición: si sientes que bajo determinadas condiciones tu código puede fallar, escribe un test con dichas condiciones.</p>
+<p>Así mismo, si una vez que tu piensas que se has terminado el desarrollo y más adelante se descubre un bug en el código, escribe una prueba unitara que lo reproduzca antes de intentar resolverlo.</p>
+<h3 id="otras-caracteristicas">Otras características</h3>
+<p>Para que los test sean efectivos y útiles deben cumplir con otras caracterísitcas, como:</p>
+<ul>
+<li>Independientes del entorno: deben funcionar en tu computadora, en la de tu compañero, en el servidor de producción… en donde sea.</li>
+<li>No dependen de otros tests: Cada test debe ser independiente de los otros. Que uno se ejecute como debería no debe depender de la ejecución de otro.</li>
+<li>No dependen en fuentes externas de datos: el test debe ser autocontenido, si se requiere recuperar información de fuentes externas (como una base de datos o una API web) se deben &quot;pretender&quot; que esta información ya existe mediante una técnica llamada <em>mocking</em>, de la que puedes saber más aquí: <a href="https://es.wikipedia.org/wiki/Objeto_simulado" target="_blank">Objeto simulado (Wikipedia)</a> y <a href="http://www.michaelminella.com/testing/the-concept-of-mocking.html" target="_blank">The concept of mocking</a>.</li>
+<li>Son automatizables: Este es uno de los puntos medulares de las pruebas unitarias. No deben depender de interacción humana y deben poder ejecutarse automáticamente sin supervisión.</li>
+<li>Se ejecutan rápido: acá hay que tener cuidado, el hecho de que un test sea rápido significa que la cantidad de tiempo que se toma en la etapa de preparación y de comprobación es mínima. La ejecución tomará lo que tenga que tomar.</li>
+<li>Son mantenibles: Las pruebas unitarias no dejan de ser código, y como tal debes tratarlas: siguendo convenciones de nombres, saltos de línea…</li>
+</ul>
+<blockquote>Aprende a crear pruebas unitarias usando Visual Studio, <a href="..\pruebas-unitarias" target="_blank">ve mi otro vídeo</a></blockquote>
+<h2 id="pruebas-de-integracion">Pruebas de integración</h2>
+<p>Las pruebas de integración se basan en las pruebas unitarias, y es que mientras que las anteriores prueban elementos individuales, las pruebas de integración se crean con la finalidad de verificar que estos elementos interactuen correctamente entre ellos.</p>
+<h2 id="prueba-del-sistema">Prueba del sistema</h2>
+<p>Una vez que se ha corroborado la integración entre los componentes, se ejecutan pruebas del sistema por completo. Usualmente se ejecutan flujos de trabajo completos.</p>
+<h2 id="pruebas-de-aceptacion">Pruebas de aceptación</h2>
+<p>Estas pruebas son similares a las pruebas del sistema, solo que a este nivel las pruebas son orientadas a verificar que el producto desarrollado cumple con los estándares y requerimientos establecidos por el cliente y el encargado de desarrollar el software.</p>
+<h2 id="otros-tipos-de-pruebas">Otros tipos de pruebas</h2>
+<p>A partir de estas pruebas se genera todo un ecosistema compuesto por pruebas que cubren ciertos aspectos del desarrollo como las pruebas de regresión, de caja negra o caja blanca, de usabilidad... en fin, hasta hay una filosofía de desarrollo que está completamente basada en la creación y ejecución de pruebas.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

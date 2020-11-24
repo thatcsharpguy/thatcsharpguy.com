@@ -1,1 +1,82 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<h1 id="big-data">Big Data</h1>
+<p>We took a look at some of the foundations of big data systems (some of them are even outdated now), from a more academic point of view.</p>
+<p>This is going to be a short video since what we mostly did was trying to understand the motivation and design decisions behind all these systems. I'll put the links to all the papers we reviewed so you can take a look at them.</p>
+<p>Starting with...</p>
+<h2 id="google-file-system">Google File System</h2>
+<p>This was the first distributed file system Google created to store all the information they manage; it has since then been replaced by Colossus. However, the foundations remain.</p>
+<p>From there we jumped to ...</p>
+<h2 id="hdfs-or-hadoop-file-system">(HDFS) or Hadoop File System</h2>
+<p>Which is again, a distributed file system, in this case, inspired by GFS. As I mentioned earlier, we start with the foundations, that is Version 1 version of HDFS only to see the differences with the second version (and now there is a third version out, yey!).</p>
+<p>Once we learned a bit about HDFS, we learned about his companion, the programming model called...</p>
+<h2 id="mapreduce">MapReduce</h2>
+<p>Which is a useful technique to process vast amounts of information in a distributed way, taking advantage of having lots of relatively cheap computers. I made a whole video dedicated to MapReduce; you can check the link in the description.</p>
+<p>However, MapReduce is somewhat outdated too, and it has some limitations. We reviewed other more modern approaches to work with Big Data problems using...</p>
+<h2 id="spark">Spark</h2>
+<p>Which is a framework for distributed computing that allows us to specify transformations over a dataset without actually doing them right away but in a lazy manner. Spark has its foundation on the concept of Resilient Distributed Datasets: read-only collections of data distributed over nodes in a cluster. I'll probably make a video about Spark in the future.</p>
+<p>Both MapReduce and Spark run on top of a distributed filesystem, benefitting themselves from the characteristics of such systems.</p>
+<p>After learning about these two processing approaches, we went on to learn about more different ways of storing information using distributed NoSQL Data Stores like...</p>
+<h2 id="bigtable">Bigtable</h2>
+<p>Another one of those Google creations, in the first line of the paper it says what Bigtable actually is: Bigtable is a distributed storage system for managing structured data that is designed to scale to a huge size. And that's about it, I mean, is way more complex that I'm making it sound here, but I won't go into details.</p>
+<p>Again we briefly saw an open source version of Bigtable called <strong>HBase</strong>.</p>
+<h2 id="cassandra">Cassandra</h2>
+<p>Finally, we reviewed Cassandra, another highly distributed data store, and its approach to decentralise the knowledge that the other approaches had centralised in a master node, another interesting thing is its ease to work across data centres.</p>
+<p>As for the practical side of things we did a couple of exercises: one using MapReduce and the other one using Spark on a school provided cluster. Both exercises involved calculating PageRank scores of some Wikipedia articles.</p>
+<p>As you can probably guess all of these systems involve a coordination hell as all of them are distributed and hold redundant copies of data some of them not only on a single cluster but across the entire world.</p>
+<p>And that was it, as I said for all of those systems we reviewed their main components such as Master nodes or DataNodes or whatever they were called on each of the implementations and the basic techniques that powered their reliability like writing to logs or creating checkpoints, along with some of the tools that helped these tools achieve great performance like LSMTrees, SSTables and Bloom filters.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>

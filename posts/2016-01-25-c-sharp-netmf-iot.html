@@ -1,1 +1,115 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1></h1>
+
+<p>Anteriormente la programación de dispositivos electrónicos de bajo nivel estaba &quot;reservada&quot; a un cierto grupo de personas que destinaban horas de su vida para aprender a programar usando lenguaje ensamblador, estudiaban las instrucciones para determinado microcontrolador y luego la pasaban difícil tratando de optimizar memoria aquí y allá para lograr que sus programas funcionaran como deseaban.</p>
+<p>Para la suerte de los demás, yo incluído, a lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida (o a veces solo jugar con ellos). Entre los avances más significativos está la posibilidad de escribir código para dichos dispositivos en un lenguaje de alto nivel. Ejemplos hay varios, por decir algunos: Arduino con C y Netduino con C#... y es precisamente de este útlimo del que hablaré en una parte de este post.</p>
+<h2 id="netduino">Netduino</h2>
+<p>Tal y como suena, Netduino es una plataforma similar al Arduino, ambas son <em>open source</em>, con la diferencia de que el Netduino funciona con el <strong>.NET Microframework como plataforma de ejecución</strong>, de los programas escritos para él, lo cual significa que podemos emplear C# para escribir código que se ejecute en él.</p>
+<p>Antes de continuar, hay algo que debemos dejar claro, y es que al ser una versión recortada del framework, es posible que no tengamos acceso a algunas de las funciones más complejas que si podemos usar con la versión completa de este, sin embargo no es mucho problema puesto que el acceso a los <em>namespaces</em> <code>System.IO</code> y <code>System.Net</code> sigue existiendo, por lo tanto nuestras capacidades para escribir archivos y conectarnos a internet siguen intactas.</p>
+<p>Lo que también sigue intacto es el acceso a los tipos de dato primitivos y la posibilidad de escribir nuestros propios tipos complejos, podemos usar expresiones lambda, tipos anónimos, métodos... en fin, casi todo nuestro conocimiento de C# puede ser empleado al construir un app para el Netduino.</p>
+<h3 id="anatomia-de-un-programa-sencillo">Anatomía de un programa sencillo</h3>
+<p>Si nunca has tenido un acercamiento con la programación de dispositivos, puede que encontrarte con un programa escrito para el Netduino te sea un poco extraño, veamos por ejemplo el <em>&quot;Hola mundo&quot;</em> de la programación para dispositivos: Hacer parpadear un led.</p>
+<pre><code class="language-csharp">public class Blinky
+{
+    public static void Main()
+    {
+        OutputPort led = new OutputPort(Pins.ONBOARD_LED, false);
+
+        while (true)
+        {
+            led.Write(true);
+            Thread.Sleep(250);
+            led.Write(false);
+            Thread.Sleep(250);
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>Primero que nada: como en cualquier otro programa, todo debe pertenecer a una clase.</li>
+<li>El método estático <code>Main</code> es nuestro punto de entrada</li>
+<li>Usualmente nuestros programas funcionan dentro de un ciclo infinito. Al principio a mi se hacía la parte más extraña.</li>
+</ul>
+<h4 id="entradas-y-salidas">Entradas y salidas</h4>
+<p>Todas las entradas y salidas de nuestros programas son a través de los pines de entrada y salida de la tarjeta de nuestro Netduino, y podemos hacer uso de ellos al &quot;envolverlos&quot; en objetos como el <code>OutputPort</code> del ejemplo anterior. El <code>OutputPort</code> representa una salida digital, de 1 o 0, es por eso que podemos usar el método <code>Write</code> y pasarle un valor booleano. Valor que en este caso encenderá o apagará el led de la tarjeta.</p>
+<p>Para otras operaciones tenemos:</p>
+<ul>
+<li><code>InputPort</code> que puede ser usado para recibir un 1 o un 0 de un puerto de entrada</li>
+<li><code>AnalogInput</code> que es similar a <code>InputPort</code> pero para valores análogos</li>
+<li><code>InterruptPort</code> que habilitará un puerto que puede llamar a un evento cuando percibe un cambio de voltaje</li>
+<li><code>TristatePort</code> que es un puerto que puede ser usado para lectura o escritura</li>
+</ul>
+<p>Y listo, sabiendo usar los puertos y con todos tus otros componentes de electrónica (resistencias, transistores, amplificadores...) ya tienes todo para empezar a desarrollar tus propios sistemas.</p>
+<h3 id="shields">Shields</h3>
+<p>Un momento... es probable que no tengas conocimientos profundos en electrónica (una vez más, como yo) y es en estos casos cuando los <em>shields</em> o, escudos, entran en juego.</p>
+<p>Los <em>shields</em> no son más que módulos que se conectan en nuestro Netduino y extienden su funcionalidad con cosas como WiFi, Bluetooth, control de motores, displays, relevadores y más. Todo sin requerir profundos conocimientos técnicos sobre resistencias y voltajes. La gran ventaja de la tarjeta de Netduino es que muchos de los escudos fabricados para Arduino son compatibles con ella, y es por eso que tenemos acceso a muchas posibilidades.</p>
+<p>Muchos de los <em>shields</em> vienen acompañados de librerías de código que envuelven la funcionalidad del módulo de hardware en un módulo de software hecho a la medida, y que hacen aún más fácil trabajar con ellos, ahora desde la perspectiva del software. Inclusive algunas de estas librerías son distribuídas a través de paquetes de NuGet.</p>
+<h3 id="proyectos">Proyectos</h3>
+<p>¿Qué sería de este post si no pusiera ejemplos de cosas que se pueden hacer con Netduino? es por eso que acá te pongo una recopilación de ejemplos:</p>
+<h4 id="automatizacion-de-una-casa-con-netduino">Automatización de una casa con Netduino</h4>
+<p>Este es un proyecto de <a href="http://twitter.com/LogicalDan" rel="nofollow" target="_blank">Dan Thyer</a> en donde <a href="" target="_blank">automatizó una parte de su hogar</a> usando Netduino y Kinect, el proyecto en si es interesante, sin embargo lo que más llama la atención es verlo a él controlar una manguera con tan solo mover su mano:</p>
+<div style="text-align: center;">
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/FWINsKcP8oQ" frameborder="0" allowfullscreen></iframe>  
+</div>
+<h4 id="control-de-una-pecera">Control de una pecera</h4>
+<p>Este proyecto es de alguien que quiso controlar y monitorear su pecera, todo usando componentes fáciles de encontrar y su Netduino Plus 2. Al final integró el monitoreo de la tapa superior, balanceo de PH e iluminación y temperatura. Publicó todo en <a href="https://reefindotnet.codeplex.com" target="_blank" rel="nofollow">Codeplex</a>.</p>
+<h4 id="vigilante-de-puerta">Vigilante de puerta</h4>
+<p>Y este es un poco más sencillo, hice una aplicación que, junto con Xamarin, <a href="/post/pushing-from-netduino-to-mobile/">envía una notificación cada vez que alguien abría una puerta</a>, para este usé un Netduino 3 WiFi. Si le échas un ojo y te interesa saber más sobre él, no dudes en preguntarme.</p>
+<h3 id="donde-lo-consigo">¿Donde lo consigo?</h3>
+<p>Una de las grandes desventajas es la poca distribución que tiene en ciertos países, pero puedes checar si Amazon hace envíos a tu país, los que yo conozco y he usado son estos <a rel="nofollow" href="http://www.amazon.com/gp/product/B009QOYK2U/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B009QOYK2U&linkCode=as2&tag=thcgu-20&linkId=S5Y5YR4FYENG4U5H">Netduino Plus 2</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=thcgu-20&l=as2&o=1&a=B009QOYK2U" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display:inline;" /> y <a rel="nofollow" href="http://www.amazon.com/gp/product/B00WAGY87S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00WAGY87S&linkCode=as2&tag=thcgu-20&linkId=E72OE67HNTGC4V3B">Netduino 3 WiFi</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=thcgu-20&l=as2&o=1&a=B00WAGY87S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display: inline;" />. Si vives en México, una alternativa (aunque un poco cara) es <a href="http://www.mouser.mx/Search/Refine.aspx?Keyword=Netduino" target="_blank" rel="nofollow">Mouser Electronics</a>. Sea cual sea que consigas, este par de libros te pueden servir, esto si están baratos: <a rel="nofollow" href="http://www.amazon.com.mx/gp/product/1449302459/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1449302459&linkCode=as2&tag=thcgu02-20">Getting Started With Netduino</a><img src="http://ir-mx.amazon-adsystem.com/e/ir?t=thcgu02-20&l=as2&o=34&a=1449302459" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display: inline;" /> y <a rel="nofollow" href="http://www.amazon.com.mx/gp/product/B00COVJUGI/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00COVJUGI&linkCode=as2&tag=thcgu02-20">Getting Started with the Internet of Things: Connecting Sensors and Microcontrollers to the Cloud</a><img src="http://ir-mx.amazon-adsystem.com/e/ir?t=thcgu02-20&l=as2&o=34&a=B00COVJUGI" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display: inline;" />.</p>
+<h3 id="alternativas">Alternativas</h3>
+<p>Una alternativa a Netduino que también funciona con el .NET Microframework son las tarjetas de <a href="https://www.ghielectronics.com/catalog/category/34#cat543" rel="nofollow" target="_blank">GHI electronics</a>. Y tal vez hayas oído hablar de Windows 10 IoT que es otra manera de poner nuestras apps en dispositivos... pero no funciona con el NETMF directamente, sino sobre el sistema operativo.</p>
+
+
+            </div>
+          </div>
+        
+</body>
+</html>
