@@ -4,7 +4,11 @@
 <div class="pure-g">
     {% for post in posts %}
     <div class="listed-post pure-u-1">
-        <div class="post-meta">{{ post.author }} · {{ post.date_time | date:"MMMM dd, yyyy" }}</div>
+        {% if post.author %}
+        <div class="post-meta">{{ post.author  }} · {{ post.date_time | date:"MMMM dd, yyyy" }}</div>
+        {% else %}
+        <div class="post-meta">{{ site.default_author  }} · {{ post.date_time | date:"MMMM dd, yyyy" }}</div>
+        {% endif %}
             <h2 class="post-title">
                 <a class="post-link" href="{{ SITEURL }}/{{ post.url }}">{{ post.title }}</a>
             </h2>

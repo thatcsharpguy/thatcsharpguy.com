@@ -1,5 +1,6 @@
 title: "That C# guy"
 subtitle: A static website generator
+default-author: Antonio Feregrino
 social:
   - name: GitHub
     link: https://github.com/lockdown-blog/lockdown
