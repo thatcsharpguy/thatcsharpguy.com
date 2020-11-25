@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   viewBox="0 0 16.000001 16"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   inkscape:export-filename="C:\Users\fferegrino\Documents\GitHub\Blogs\that-c-sharp-guy\content\site\comments.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   sodipodi:docname="comments.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="15.839192"
+     inkscape:cx="9.0956124"
+     inkscape:cy="6.4154707"
+     inkscape:document-units="px"
+     inkscape:current-layer="g4778"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0.5"
+     fit-margin-left="0.5"
+     fit-margin-right="0.5"
+     fit-margin-bottom="0.5"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="32.70758,226.02548"
+       orientation="1,0"
+       id="guide4715" />
+    <sodipodi:guide
+       position="34.601616,222.23741"
+       orientation="1,0"
+       id="guide4717" />
+    <sodipodi:guide
+       position="36.421658,229.77161"
+       orientation="1,0"
+       id="guide4719"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="29.92966,218.44934"
+       orientation="1,0"
+       id="guide4721" />
+    <sodipodi:guide
+       position="1.7716555,230.77161"
+       orientation="0,1"
+       id="guide4723"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="24.215985,229.77161"
+       orientation="0,1"
+       id="guide4725"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="23.771658,229.77161"
+       orientation="1,0"
+       id="guide4727"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1.7716536,-1038.1339)">
+    <g
+       id="g4778"
+       transform="translate(-22,216.72903)">
+      <g
+         id="g4784"
+         transform="translate(0.09866004,-0.97830871)">
+        <rect
+           style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4731"
+           width="12.259375"
+           height="1.5"
+           x="22"
+           y="825.13318" />
+        <rect
+           style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4731-3"
+           width="8.5344372"
+           height="1.5"
+           x="22"
+           y="828.13318" />
+        <rect
+           style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4731-3-2"
+           width="10.398276"
+           height="1.5"
+           x="22"
+           y="831.13318" />
+        <rect
+           style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4731-3-2-7"
+           width="5.710537"
+           height="1.5"
+           x="22"
+           y="834.13318" />
+      </g>
+    </g>
+  </g>
+</svg>
