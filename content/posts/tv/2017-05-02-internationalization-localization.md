@@ -1,13 +1,13 @@
 ---
 title:  Internacionalización y localización
 date:  2017-05-02 18:00:00
-youtube:  skqXI77RuvU
+youtube_id: skqXI77RuvU
 images_folder:  /tv/i18nl10n/
 summary:  La internacionalización y localización son un par de procesos que nos ayudarán a llevar nuestras aplicaciones a más lugares del mundo.
 featured_image:  featured.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 La internacionalización y localización son términos que probablemente hayas escuchado ya, sobretodo si trabajas desarrollando aplicaciones para múltiples países. 

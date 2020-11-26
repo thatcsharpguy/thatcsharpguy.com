@@ -1,13 +1,13 @@
 ---
 title:  Identidad, autenticación y autorización
 date:  2017-05-16 18:00:00
-youtube:  LhxWy_I3EKM
+youtube_id: LhxWy_I3EKM
 images_folder:  /tv/auth/
 summary:  Identidad, Autenticación y Autorización son conceptos distintos, pero que juntos forman una parte importantísima de la seguridad en una aplicación.
 featured_image:  featured.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Estoy seguro que con la identidad no hay mucho problema, sino que es con la autenticación y la autorización en donde existe un pequeño conflicto ya que al igual que la internacionalización y localización, suelen usarse indistintamente, haciendo que el que hable de ellos caiga en un pequeño error. 

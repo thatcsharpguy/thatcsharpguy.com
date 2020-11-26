@@ -1,13 +1,13 @@
 ---
 title:  Programación competitiva
 date:  2017-06-13 18:00:00
-youtube:  R7fVPM3WRUM
+youtube_id: R7fVPM3WRUM
 images_folder:  /tv/competitive/
 summary:  La programación competitiva enfrenta a programadores que tienen que resolver problemas empleando conocimientos de ciencias computacionales, matemáticas y lógica. Todo esto mediante una sencilla aplicación para computadora.
 featured_image:  featured.png
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Sí, hay competencias de programación y son una de las cosas más interesantes del planeta… o al menos eso creo yo.

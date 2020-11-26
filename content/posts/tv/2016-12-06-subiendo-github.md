@@ -1,14 +1,14 @@
 ---
 title:  Subiéndo código a GitHub
 date:  2016-12-06 18:00:00
-youtube:  lNBFt733izY
+youtube_id: lNBFt733izY
 images_folder:  /tv/
 summary:  Un tutorial de cómo empezar con GitHub desde cero.
 featured_image:  github.jpg
 tweet_id:  806267841733345281
 tags:  Git, GitHub, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 En el video menciono de un post que me ayudó a entender las licencias, lo puedes consultar aquí: <a href="https://www.smashingmagazine.com/2010/03/a-short-guide-to-open-source-and-similar-licenses/" target="_blank">A Short Guide To Open-Source And Similar Licenses</a>

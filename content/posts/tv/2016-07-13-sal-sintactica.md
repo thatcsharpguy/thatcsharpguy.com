@@ -1,14 +1,14 @@
 ---
 title:  Sal sintáctica
 date:  2016-07-13 18:00:00
-youtube:  Klt-JnVaHIc
+youtube_id: Klt-JnVaHIc
 images_folder:  /tv/sal-sintactica/
 categories:  c-sharp
 summary:  La sal sintáctica, cuyo objetivo es supuestamente ser lo totalmente opuesto a la azúcar, hacen difícil escribir mal código y, en teoría, hacen más difícil de usar un lenguaje.
 featured_image:  featured.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 En un video anterior había hablado de la azúcar sintáctica (si no lo has visto, <a href="../tv/azucar-sintactica">aquí está el enlace</a>). 

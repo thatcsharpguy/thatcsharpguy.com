@@ -1,13 +1,13 @@
 ---
 title:  Programando con estilo
 date:  2016-08-10 18:00:00
-youtube:  Htsknf4L2o4
+youtube_id: Htsknf4L2o4
 images_folder:  /tv/estilo/
 summary:  Programar con estilo es escribir nuestros programas fáciles de entender, bien documentados y siguiendo convenciones de escritura previamente adoptadas.
 featured_image:  featured.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Y no, el título no se refiero a escribir código con traje sastre, los meñiques levantados mientras tomamos té. Sino escribir nuestros programas fáciles de entender, bien documentados y siguiendo convenciones de escritura previamente adoptadas. Esto hará que nuestro código sea universal.  

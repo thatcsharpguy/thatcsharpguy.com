@@ -1,13 +1,13 @@
 ---
 title:  ¿Qué es MapReduce?
 date:  2018-02-19 18:00:00
-youtube:  b27hWyhq9oo
+youtube_id: b27hWyhq9oo
 summary:  La idea de MapReduce es ofrecer una forma simple, rápida, escalable y resistente a fallos para manipular enormes cantidades de datos.
 tweet_id:  965987034518163457
 lang:  en
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Es un modelo de programación fuertemente orientado a la ejecución paralela y distribuida entre múltiples computadoras, que se utiliza para trabajar con grandes colecciones de datos, digamos, de unos cuantos terabytes (o petabytes). La idea de MapReduce es ofrecer una forma simple, rápida, escalable y resistente a fallos para manipular enormes cantidades de datos. En la terminología de MapReduce a estas manipulaciones se les conoce como trabajos, y así me referiré a ellos de ahora en adelante.

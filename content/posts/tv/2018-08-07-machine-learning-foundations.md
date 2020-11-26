@@ -1,13 +1,13 @@
 ---
 title:  Machine Learning (foundations)
 date:  2018-08-07 18:00:00
-youtube:  7CYF9pd39gQ
+youtube_id: 7CYF9pd39gQ
 categories:  data-science
 summary:  This course was a practical introduction to the foundations of machine learning. 
 lang:  en
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Yes, finally, this is the last video in the series about what I was doing here at the University of Glasgow. And as I said, it is about Machine Learning.  

@@ -1,13 +1,13 @@
 ---
 title:  Patrones de diseño
 date:  2017-07-18 18:00:00
-youtube:  NmuRwZ2CYvA
+youtube_id: NmuRwZ2CYvA
 images_folder:  /tv/design/
 summary:  Los patrones de diseño son soluciones reusables a problemas comunes que ocurren en el diseño de software.
 featured_image:  youtube.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Ya previamente les había hablado sobre algunos patrones, en este caso arquitectónicos, como el <a href="..\mvc" target="_blank">patrón MVC</a> y el <a href="..\mvvm" target="_blank">patrón MVVM</a>, sin embargo, ahora les quiero hablar de los patrones de diseño.

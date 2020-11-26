@@ -1,14 +1,14 @@
 ---
 title:  La escuela, otra vez
 date:  2017-12-22 18:00:00
-youtube:  gF1zBsKFqU0
+youtube_id: gF1zBsKFqU0
 images_folder:  /tv/jupyter/
 summary:  Mi opinión sobre la escuela.
 featured_image:  featured.png
 tweet_id:  944945874316218368
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 - Mi opinión de la escuela, después de haber pasado más 15 años de estudiar voluntariamente, debe servir para tres cosas y las voy a decir en orden de importancia:

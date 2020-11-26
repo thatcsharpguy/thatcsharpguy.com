@@ -1,13 +1,13 @@
 ---
 title:  Recursión e iteración
 date:  2017-06-06 18:00:00
-youtube:  a-hcghI84G8
+youtube_id: a-hcghI84G8
 images_folder:  /tv/recursividad/
 summary:  La recursión e iteración son técnicas de programación que nos ayudan a resolver los mismos problemas mediante la repetición de operaciones pero atacándolos desde enfoques distintos.
 featured_image:  featured.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Seguramente si ya tienen nociones de programación ya habrán escuchado hablar de estos técnicas, pero si no, aquí te cuento sobre ellos: Comenzaré por decir que son técnicas de programación permiten solucionar problemas iguales pero viéndolos desde enfoques distintos.

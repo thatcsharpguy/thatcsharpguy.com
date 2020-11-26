@@ -1,13 +1,13 @@
 ---
 title:  ¿Programar en inglés?
 date:  2018-03-20 18:00:00
-youtube:  UvaZZi_zgSo
+youtube_id: UvaZZi_zgSo
 summary:  Tu, ¿programas en inglés?
 tweet_id:  976181727671603200
 lang:  en
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Los algoritmos voraces o *greedy* son algoritmos que implementan una heuristica(técnica) que tiene como objetivo optimizar la búsqueda de una solución óptima para un problema.

@@ -1,13 +1,13 @@
 ---
 title:  Data Fundamentals
 date:  2018-04-05 18:00:00
-youtube:  bXipUOIxwJ0
+youtube_id: bXipUOIxwJ0
 summary:  The first video in the series "what was I doing the last six months?
 tweet_id:  981683756674240512
 lang:  en
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 This is the first video of a series I'll be uploading in the coming weeks about the courses that I took as part of my masters' degree here at the University of Glasgow.

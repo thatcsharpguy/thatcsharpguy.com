@@ -1,7 +1,7 @@
 ---
 title:  Ciudadanos de primera clase
 date:  2016-07-20 18:00:00
-youtube:  OoWKSgrnTwc
+youtube_id: OoWKSgrnTwc
 images_folder:  /tv/first-class-citizens/
 categories:  c-sharp
 summary:  En programación, cuando se habla de ciudadanos de primera clase es para hacer referencia a un elemento del lenguaje que posee la mayor cantidad de privilegios.
@@ -9,7 +9,7 @@ featured_image:  fcc.jpg
 tweet_id:  755936816021270532
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 En programación, cuando se habla de ciudadanos de primera clase o *First-class citizens* (o *first-class constructs* o *first-class elements*), es para hacer referencia a un elemento del lenguaje que posee la mayor cantidad de privilegios dentro de dicho lenguaje.  

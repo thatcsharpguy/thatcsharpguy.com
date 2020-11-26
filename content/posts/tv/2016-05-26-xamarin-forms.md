@@ -1,14 +1,14 @@
 ---
 title:  Xamarin.Forms
 date:  2016-05-26 22:00:00
-youtube:  UaUsf-y0GfY
+youtube_id: UaUsf-y0GfY
 images_folder:  /tv/xamarinforms/
 categories:  c-sharp
 summary:  Con Xamarin.Forms munca había sido tan fácil crear aplicaciones multiplataforma compartiendo la mayoría del código entre ellas, incluyendo la interfaz gráfica. En este video te explico de qué se trata.
 featured_image:  featured.jpg
 tags:  Meta, Tv, Xamarin, XamarinForms
 featured_tag:  Xamarin
-template:  video
+layout: video
 ---
 
 En un <a href="../xamarin">video anterior les había ya hablado sobre Xamarin</a>, que es una tecnología que nos permite hacer aplicaciones multiplataforma. En aquel video les conté que de entrada, con Xamarin.iOS y Xamarin.Android debíamos seguir haciendo las interfaces gráficas como tradicionalmente se hacen, es decir, una interfaz para iOS, una para Android y otra para Windows pero también adelanté que existía una herramienta llamada Xamarin.Forms para compartir incluso el código de la interfaz.  

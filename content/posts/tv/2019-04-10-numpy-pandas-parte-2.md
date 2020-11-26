@@ -1,13 +1,13 @@
 ---
 title:  NumPy y Pandas (parte 2) 
 date:  2019-04-10 18:00:00
-youtube:  jGrQtpWH09s
+youtube_id: jGrQtpWH09s
 categories:  development, python  
 summary:  Segunda parte de este mini tutorial sobre NumPy y Pandas   
 lang:  es
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Notebook: http://bit.ly/numpy-pandas 

@@ -1,13 +1,13 @@
 ---
 title:  Autenticación de dos factores (ejemplo en ASP.NET Core)
 date:  2017-05-23 18:00:00
-youtube:  E4ROr6_dETU
+youtube_id: E4ROr6_dETU
 images_folder:  /tv/2fa/
 summary:  Aprende a implementar la autenticación de dos factores con ASP.NET Core y Goolge Authenticator.
 featured_image:  code-featured.png
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Los pasos a realizar son los siguientes:  

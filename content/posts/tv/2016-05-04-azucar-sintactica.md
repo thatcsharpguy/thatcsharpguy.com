@@ -1,14 +1,14 @@
 ---
 title:  Azúcar Sintáctica
 date:  2016-05-04 18:00:00
-youtube:  Ypgw-TgT70I
+youtube_id: Ypgw-TgT70I
 images_folder:  /tv/azucar-sintactica/
 categories:  c-sharp
 summary:  El azúcar sintáctico no es más que eso, un endulzante que en teoría debe mejorar nuestra experiencia cuando escribimos código.
 featured_image:  featured.png
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 > El azúcar sintáctico no es más que eso: un endulzante que en teoría debe mejorar nuestra experiencia cuando escribimos código.

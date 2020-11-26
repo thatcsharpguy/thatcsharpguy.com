@@ -1,13 +1,13 @@
 ---
 title:  Gestores de paquetes
 date:  2017-07-25 18:00:00
-youtube:  tiifSYUCwQA
+youtube_id: tiifSYUCwQA
 images_folder:  /tv/package/
 summary:  Los gestores de paquete le otorgan a los desarrolladores una manera más sencilla de reutilizar el código creado por otros, al manejar la instalación, actualización y remoción de bibliotecas de software.
 featured_image:  package.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Los gestores de paquetes son esas herramientas sin las cuales el desarrollo actual sería un gran dolor de cabeza. Y es que últimamente son el pan de cada día de los desarrolladores, especialmente si se está trabajando con tecnologías "modernas" como el desarrollo móvil o web. 

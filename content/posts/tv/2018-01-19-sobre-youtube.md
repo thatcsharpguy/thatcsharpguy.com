@@ -1,11 +1,11 @@
 ---
 title:  YouTube
 date:  2018-01-19 18:00:00
-youtube:  6NE0WD1wVGw
+youtube_id: 6NE0WD1wVGw
 summary:  Ahora quisiera pedirles un favor.
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Como algunos de ustedes sabrán si es que siguen a otros canales, recientemente YouTube cambió las políticas para pertenecer a su programa de asociados, este programa de asociados incluye entre otras cosas, la habilidad de poner anuncios en los videos y la habilidad de poner links hacia sitios externos como este que es mi blog. 

@@ -1,13 +1,13 @@
 ---
 title:  Text as data
 date:  2018-06-19 18:00:00
-youtube:  LZhTBxso3Ys
+youtube_id: LZhTBxso3Ys
 categories:  data-science
 summary:  The first thing is to learn how to organise and categorise text. The second was how to search and retrieve the documents or fragments of them, and the third one was how to analyse the text to extract the sentiments that the authors were expressing.
 lang:  en
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 # Text as Data  

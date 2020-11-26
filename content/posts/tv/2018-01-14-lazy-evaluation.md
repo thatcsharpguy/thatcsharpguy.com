@@ -1,13 +1,13 @@
 ---
 title:  La evaluación perezosa
 date:  2018-01-14 18:00:00
-youtube:  QCN7ra82vqI
+youtube_id: QCN7ra82vqI
 summary:  En programación la evaluación perezosa, es una técnica de evaluación que consiste en retrasar el cálculo (o ejecución) de una instrucción hasta que en realidad es necesaria.
 featured_image:  featured.png
 tweet_id:  952990497202692097
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 En programación la evaluación perezosa, o llamada por necesidad, o por su nombre en inglés: lazy evaluation. Es una técnica de evaluación, sí porque hay varias técnicas, que consiste en retrasar el cálculo (o ejecución) de una instrucción hasta que en realidad es necesaria.

@@ -1,14 +1,14 @@
 ---
 title:  Control de versiones
 date:  2016-04-25 18:00:00
-youtube:  Uts65gTG1k0
+youtube_id: Uts65gTG1k0
 images_folder:  /tv/control-versiones/
 categories:  c-sharp
 summary:  El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo.
 featured_image:  featured.png
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo, y digo cosa porque realmente se puede aplicar el control de versiones a cualquier cosa, al menos digital. Inclusive si has hecho algo así:  

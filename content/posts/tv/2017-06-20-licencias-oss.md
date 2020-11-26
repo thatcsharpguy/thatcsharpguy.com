@@ -1,13 +1,13 @@
 ---
 title:  Licencias de software libre
 date:  2017-06-20 18:00:00
-youtube:  sDchhCV_BKc
+youtube_id: sDchhCV_BKc
 images_folder:  /tv/licencias/
 summary:  Las licencias de código libre son lo que en realidad hace al código libre, ya que establecen las condiciones y lineamientos bajo los cuales el código que protegen puede ser compartido.
 featured_image:  featured.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Antes de comenzar quisiera decirles que de ninguna manera tengo la intención ni estoy capacitado para dar asistencia legal. Este video es con fines informativos nada más.

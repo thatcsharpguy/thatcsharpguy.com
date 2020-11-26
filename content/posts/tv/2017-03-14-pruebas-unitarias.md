@@ -1,13 +1,13 @@
 ---
 title:  Las pruebas unitarias
 date:  2017-03-14 18:00:00
-youtube:  8rKy1juvVmI
+youtube_id: 8rKy1juvVmI
 images_folder:  /tv/unit-test/
 summary:  Estas pruebas es donde componentes individuales del software se someten a pruebas. El propósito de estas es asegurar que cada unidad de trabajo funciona individualmente como debería. Es decir, funciona cuando se supone que debe funcionar, responde con lo que se supone que tiene que responder, falla como y cuando se supone que debe fallar.
 featured_image:  featured-yt.jpg
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Más seguido de lo que pensamos, nosotros, los desarrolladores llegamos a pensar que nuestro código carece de errores. Todo está bien, después de todo nosotros lo escribimos, probamos dos o tres casos y nunca falló y según nosotros está listo para ser publicado en producción... pero, ¿qué pasa cuando alguien nos pregunta "Y si probaste el código"? uno no puede decir que sí sin sentirse nervioso.  

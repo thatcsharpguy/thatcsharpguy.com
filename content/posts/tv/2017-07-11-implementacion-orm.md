@@ -1,13 +1,13 @@
 ---
 title:  El ORM Entity Framework
 date:  2017-07-11 18:00:00
-youtube:  cIZB1wNMPlY
+youtube_id: cIZB1wNMPlY
 images_folder:  /tv/orm/
 summary:  Este es un ejemplo de ORM, el framework Entity Framework, inicialmante desarrollado por Microsoft.
 featured_image:  overlay-code.png
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Obtén el código que describí en el video: <a href="https://github.com/ThatCSharpGuy/agenda-orm" target="_blank">enlace</a>.

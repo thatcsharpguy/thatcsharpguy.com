@@ -1,0 +1,29 @@
+{% extends 'base' %}
+
+{% block head %}
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:title" content="{{ post.title }}" />
+<meta property="og:url" content="{{ PUBLIC_URL }}/{{ post.url }}" />
+<meta property="og:description" content="{{ post.summary }}" />
+<meta property="og:image" content="https://img.youtube.com/vi/{{ post.youtube_id }}/sddefault.jpg" />
+{% endblock %}
+
+{% block content %}
+<div class="video-wrapper">
+    <iframe width="992" height="558" src="https://www.youtube.com/embed/{{ post.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+<h1 class="post-title">{{ post.title }} <small><div class="g-ytsubscribe" data-channelid="UC8KCb358oioQMcJ5pUfs8UQ" data-layout="default" data-count="default"></div></small></h1>
+<div class="post-content">
+    <article>
+        {% block post_content %}
+        {% endblock %}
+    </article>
+    <div class="post-contact">
+        {% include 'post_footer' %}
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+</div>
+{% endblock %}

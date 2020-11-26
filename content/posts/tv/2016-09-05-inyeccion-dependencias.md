@@ -1,7 +1,7 @@
 ---
 title:  La inyección de dependencias
 date:  2016-09-05 18:00:00
-youtube:  lzfPJdurQIc
+youtube_id: lzfPJdurQIc
 images_folder:  /tv/di/
 summary:  La inyección de dependencias es un patrón de diseño que nos permite implementar en nuestras aplicaciones el principio de inversión de control. Consiste en evitar la instanciación de unos objetos dentro de otros, evitando así el acoplamiento fuerte.
 featured_image:  featured.jpg
@@ -9,7 +9,7 @@ github:  https://github.com/ThatCSharpGuy/patterns
 tweet_id:  772914100062093316
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Antes de hablar de la inyección de dependencias es necesario conocer dos conceptos:  

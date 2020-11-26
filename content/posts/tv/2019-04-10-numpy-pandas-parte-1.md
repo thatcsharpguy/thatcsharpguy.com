@@ -1,13 +1,13 @@
 ---
 title:  NumPy y Pandas (parte 1) 
 date:  2019-04-10 18:00:00
-youtube:  VsaiJtZy-Kg
+youtube_id: VsaiJtZy-Kg
 categories:  development, python  
 summary:  Primera parte de este mini tutorial sobre NumPy y Pandas   
 lang:  es
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Notebook: http://bit.ly/numpy-pandas 

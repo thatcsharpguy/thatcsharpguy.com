@@ -1,14 +1,14 @@
 ---
 title:  "Machine learning: Clasificación y las support vector machines"
 date:  2019-05-27 18:00:00
-youtube:  pLLlX0juXGo
+youtube_id: pLLlX0juXGo
 tweet_id:  1133103424772431872
 categories:  data-science  
 summary:  Clasificación usando support vector machines  
 lang:  es
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video  
+layout: video  
 ---
 
 Lecture on SVM: https://www.youtube.com/watch?v=eHsErlPJWUU

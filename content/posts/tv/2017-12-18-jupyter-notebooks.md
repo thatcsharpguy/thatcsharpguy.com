@@ -1,7 +1,7 @@
 ---
 title:  Los Jupyter Notebooks
 date:  2017-12-11 18:00:00
-youtube:  xcXky3PxVHA
+youtube_id: xcXky3PxVHA
 images_folder:  /tv/jupyter/
 summary:  Los Jupyter Notebooks son una herramienta bastate útil para documentar el código antes de llevarlo a producción. ¡Y no son solo para Python!
 featured_image:  featured.png
@@ -9,7 +9,7 @@ tweet_id:  940237219826229248
 lang:  en
 tags:  Data science, Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Los Notebooks de Jupyter son unas hojas de código interactivas...

@@ -1,7 +1,7 @@
 ---
 title:  Information Retrieval
 date:  2018-06-05 18:00:00
-youtube:  pONlcxVRRnE
+youtube_id: pONlcxVRRnE
 categories:  c-sharp
 summary:  Information retrieval is a field concerned with the structure, analysis, organisation, storage, searching and retrieval of information.
 featured_image:  featured.png
@@ -9,7 +9,7 @@ lang:  en
 images_folder:  /tv/hola-mundo/
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 # Information retrieval   

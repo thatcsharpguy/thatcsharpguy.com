@@ -1,7 +1,7 @@
 ---
 title:  ¡Hola mundo (en video)!
 date:  2016-04-18 18:00:00
-youtube:  m8wDykJZnvM
+youtube_id: m8wDykJZnvM
 categories:  c-sharp
 summary:  Video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación.
 featured_image:  featured.png
@@ -9,7 +9,7 @@ lang:  es
 images_folder:  /tv/hola-mundo/
 tags:  Meta, Tv
 featured_tag:  Tv
-template:  video
+layout: video
 ---
 
 Este es el video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación.
