@@ -6,6 +6,13 @@
 <link rel="stylesheet" href="/css/main.css" />
 
         
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:title" content="MVC" />
+<meta property="og:url" content="/tv/2017-06-27-mvc.html" />
+<meta property="og:description" content="Conoce este patrón arquitectónico para el desarrollo de aplicaciones. MVC es comúnmente usado para el desarrollo de aplicaciones web." />
+<meta property="og:image" content="https://img.youtube.com/vi/0jdcUCUjbO0/sddefault.jpg" />
+
 </head>
 
 <body>  
@@ -46,8 +53,14 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
-
+<div class="video-wrapper">
+    <iframe width="992" height="558" src="https://www.youtube.com/embed/0jdcUCUjbO0" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+<h1 class="post-title">MVC <small><div class="g-ytsubscribe" data-channelid="UC8KCb358oioQMcJ5pUfs8UQ" data-layout="default" data-count="default"></div></small></h1>
+<div class="post-content">
+    <article>
+        
 <p>Un patrón arquitectónico es una especie de guía que define la estructura fundamental de un sistema: es decir, los subsistemas en los que está formado y cuales son los medios y formas en las que se comunican entre ellos.</p>
 <h2 id="mvc">MVC</h2>
 <p>MVC es un patrón arquitectónico enfocado a la forma de presentar la información de una aplicación al usuario, así como a la forma de recibir e interpretar las acciones que este realiza sobre el programa. MVC tiene sus orígenes por ahí de 1970, sí, tiene ya bastante tiempo entre nosotros, y en cierto modo es la raíz de muchos de los patrones que existen hoy en día.</p>
@@ -85,6 +98,59 @@
 <p>El objetivo de MVC no es otro más que lograr el objetivo de la famosa separación de responsabilidades en una aplicación. En el sentido de que no es lo más saludable tener a la base de datos generando etiquetas HTML, o tener a la vista haciendo consultas SQL directamente a tu servidor de bases de datos.</p>
 <p>Al igual que con MVVM, no existe una patrulla de MVC que vaya a multarte por no aplicar a rajatabla los principios. Sin embargo, considero que el patrón es una buena guía para cuando de desarrollar aplicaciones se trata.</p>
 
+    </article>
+    <div class="post-contact">
+        <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a title="" href="mailto:?subject=MVC">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a title="@" href="https://twitter.com/intent/tweet?text=@ about MVC">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            {# TODO: Fix disquss
+            <li>Liquid error: Illegal template path name svg/comments.svg <a data-replace-url="href" id="post-count" href="$URL$/tv/2017-06-27-mvc.html#disqus_thread" data-disqus-identifier="/tv/2017-06-27-mvc.html"></a></li>
+            #}
+        </ul>
+    </div> 
+
+    <div class="pure-u-1 pure-u-md-10-24">
+        
+    </div>
+
+
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a data-replace-url="href" href="mailto:?subject=MVC&amp;body=$URL$/tv/2017-06-27-mvc.html" title="email">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a data-replace-url="href" href="https://twitter.com/intent/tweet?text=MVC $URL$/tv/2017-06-27-mvc.html&hashtags=" title="Tweet">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            
+            <li><a id="fb-share" data-replace-url="data-href" data-href="$URL$/tv/2017-06-27-mvc.html" title="share" >Liquid error: Illegal template path name svg/facebook.svg</a> </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.3'
+    });
+  };
+
+    $('#fb-share').click(function() {
+        let button = $(this)
+        FB.ui({ method: 'share', href:button.attr('data-href')  });
+    })
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+</div>
 
             </div>
           </div>

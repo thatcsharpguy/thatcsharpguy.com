@@ -6,6 +6,13 @@
 <link rel="stylesheet" href="/css/main.css" />
 
         
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:title" content="¿Qué es MapReduce?" />
+<meta property="og:url" content="/tv/2018-02-19-mapreduce.html" />
+<meta property="og:description" content="La idea de MapReduce es ofrecer una forma simple, rápida, escalable y resistente a fallos para manipular enormes cantidades de datos." />
+<meta property="og:image" content="https://img.youtube.com/vi/b27hWyhq9oo/sddefault.jpg" />
+
 </head>
 
 <body>  
@@ -46,8 +53,14 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
-
+<div class="video-wrapper">
+    <iframe width="992" height="558" src="https://www.youtube.com/embed/b27hWyhq9oo" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+<h1 class="post-title">¿Qué es MapReduce? <small><div class="g-ytsubscribe" data-channelid="UC8KCb358oioQMcJ5pUfs8UQ" data-layout="default" data-count="default"></div></small></h1>
+<div class="post-content">
+    <article>
+        
 <p>Es un modelo de programación fuertemente orientado a la ejecución paralela y distribuida entre múltiples computadoras, que se utiliza para trabajar con grandes colecciones de datos, digamos, de unos cuantos terabytes (o petabytes). La idea de MapReduce es ofrecer una forma simple, rápida, escalable y resistente a fallos para manipular enormes cantidades de datos. En la terminología de MapReduce a estas manipulaciones se les conoce como trabajos, y así me referiré a ellos de ahora en adelante.</p>
 <p>MapReduce surgió de Google y fue presentado en 2004 por dos investigadores de Google, quienes lo publicaron en un paper y fue a partir de ahí que se comenzó a desarrollar en el mundo del open source a partir de ahí se generó una propuesta open source que funciona dentro de Hadoop (que por cierto es otra maravilla del Open Source originada en Google, de la cual si quieren les hablo en otro video). La realidad es que la explicación que voy a dar aquí es muy, muy básica, y los invito a leer el paper y a buscar más información y desde luego, a dejar sus preguntas en los comentarios, no es que yo pueda responderlas, pero seguro yo se las puedo preguntar a alguien más.</p>
 <h2 id="composicion">Composición</h2>
@@ -87,6 +100,59 @@ Nunca sabrás cuantos cuentos cuentas
 <p>Por regla general se usa MapReduce cuando queremos afrontar problemas relacionados con grandes, enormes cantidades de datos. Y es por eso que se considera que debe correr en un sistema de archivos distribuidos, como es el caso de HDFS (Hadoop Distributed File System).</p>
 <p>Si bien MapReduce es una propuesta para paralizar y distribuir el cómputo sobre grandes cantidades de datos, tenemos que tener en cuenta que no todos los problemas son susceptibles de afrontarse usándolo, y tampoco es una solución buena para trabajos que requieren de respuesta en tiempo real, MapReduce es más bien para procesamiento offline de información.</p>
 
+    </article>
+    <div class="post-contact">
+        <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a title="" href="mailto:?subject=¿Qué es MapReduce?">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a title="@" href="https://twitter.com/intent/tweet?text=@ about ¿Qué es MapReduce?">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            {# TODO: Fix disquss
+            <li>Liquid error: Illegal template path name svg/comments.svg <a data-replace-url="href" id="post-count" href="$URL$/tv/2018-02-19-mapreduce.html#disqus_thread" data-disqus-identifier="/tv/2018-02-19-mapreduce.html"></a></li>
+            #}
+        </ul>
+    </div> 
+
+    <div class="pure-u-1 pure-u-md-10-24">
+        
+    </div>
+
+
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a data-replace-url="href" href="mailto:?subject=¿Qué es MapReduce?&amp;body=$URL$/tv/2018-02-19-mapreduce.html" title="email">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a data-replace-url="href" href="https://twitter.com/intent/tweet?text=¿Qué es MapReduce? $URL$/tv/2018-02-19-mapreduce.html&hashtags=" title="Tweet">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            
+            <li><a id="fb-share" data-replace-url="data-href" data-href="$URL$/tv/2018-02-19-mapreduce.html" title="share" >Liquid error: Illegal template path name svg/facebook.svg</a> </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.3'
+    });
+  };
+
+    $('#fb-share').click(function() {
+        let button = $(this)
+        FB.ui({ method: 'share', href:button.attr('data-href')  });
+    })
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+</div>
 
             </div>
           </div>

@@ -6,6 +6,13 @@
 <link rel="stylesheet" href="/css/main.css" />
 
         
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:title" content="SemVer" />
+<meta property="og:url" content="/tv/2017-07-04-semver.html" />
+<meta property="og:description" content="SemVer o el versionamiento semántico es una herramienta que facilita la vida de los desarrolladores de software al otorgarles una manera sencilla de organizar y mantener las referencias de sus proyectos." />
+<meta property="og:image" content="https://img.youtube.com/vi/dj8H2mqiAtU/sddefault.jpg" />
+
 </head>
 
 <body>  
@@ -46,8 +53,14 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
-
+<div class="video-wrapper">
+    <iframe width="992" height="558" src="https://www.youtube.com/embed/dj8H2mqiAtU" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+<h1 class="post-title">SemVer <small><div class="g-ytsubscribe" data-channelid="UC8KCb358oioQMcJ5pUfs8UQ" data-layout="default" data-count="default"></div></small></h1>
+<div class="post-content">
+    <article>
+        
 <p>El versionamiento semántico, como se le conoce en español hace referencia a esos números que suelen aparecer junto a los nombres de las librerías que usamos cuando desarrollamos. Contrario a lo que yo pensaba hasta hace algunos años, muchas veces estos números no son elegidos al capricho del desarrollador, sino que tienen un significado bastante importante cuando de relacionar bibliotecas de software se trata.</p>
 <p>El versionado semántico divide el número de cada versión en tres segmentos numéricos, que tienen el propósito de indicar el estado y la compatibilidad de una pieza de software. Imagínate que esta es una librería que tiene un par de entradas:</p>
 <p>&lt;img src=&quot;/images/tv__semver__Simple.png&quot; title=<>Version 1.0.0</> /&gt;</p>
@@ -61,6 +74,59 @@
 <p>Idealmente, SemVer está pensado para sofrware que define una API, puesto que, es basándose en esa API es que se dará el versionamiento. El desarrollo inicial de esta API debe comenzar a partir de la versión 0.1.0, ya que el 1 de la versión menor indica que comenzamos ya con un set definido de operaciones. Y una vez que estamos listos para producción, debemos brincar a la versión 1.0.0.</p>
 <p>Por otro lado, si estás desarrollando nueva funcionalidad y quieres liberarla de alguna forma sin afectar a aquellas personas que ya trabajan con una versión estable de tu software, basta con agregarle como sufijo a los tres dígitos un guión seguido de una etiqueta, lo cual indica que esa versión de la librería es una versión pre-release o pre-liberación. Con lo cual, aquellas personas que quieran usar cosas estables podrán ignorar tranquilamente.</p>
 
+    </article>
+    <div class="post-contact">
+        <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a title="" href="mailto:?subject=SemVer">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a title="@" href="https://twitter.com/intent/tweet?text=@ about SemVer">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            {# TODO: Fix disquss
+            <li>Liquid error: Illegal template path name svg/comments.svg <a data-replace-url="href" id="post-count" href="$URL$/tv/2017-07-04-semver.html#disqus_thread" data-disqus-identifier="/tv/2017-07-04-semver.html"></a></li>
+            #}
+        </ul>
+    </div> 
+
+    <div class="pure-u-1 pure-u-md-10-24">
+        
+    </div>
+
+
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a data-replace-url="href" href="mailto:?subject=SemVer&amp;body=$URL$/tv/2017-07-04-semver.html" title="email">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a data-replace-url="href" href="https://twitter.com/intent/tweet?text=SemVer $URL$/tv/2017-07-04-semver.html&hashtags=" title="Tweet">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            
+            <li><a id="fb-share" data-replace-url="data-href" data-href="$URL$/tv/2017-07-04-semver.html" title="share" >Liquid error: Illegal template path name svg/facebook.svg</a> </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.3'
+    });
+  };
+
+    $('#fb-share').click(function() {
+        let button = $(this)
+        FB.ui({ method: 'share', href:button.attr('data-href')  });
+    })
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+</div>
 
             </div>
           </div>

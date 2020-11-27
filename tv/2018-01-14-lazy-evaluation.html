@@ -6,6 +6,13 @@
 <link rel="stylesheet" href="/css/main.css" />
 
         
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:title" content="La evaluación perezosa" />
+<meta property="og:url" content="/tv/2018-01-14-lazy-evaluation.html" />
+<meta property="og:description" content="En programación la evaluación perezosa, es una técnica de evaluación que consiste en retrasar el cálculo (o ejecución) de una instrucción hasta que en realidad es necesaria." />
+<meta property="og:image" content="https://img.youtube.com/vi/QCN7ra82vqI/sddefault.jpg" />
+
 </head>
 
 <body>  
@@ -46,8 +53,14 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
-
+<div class="video-wrapper">
+    <iframe width="992" height="558" src="https://www.youtube.com/embed/QCN7ra82vqI" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+<h1 class="post-title">La evaluación perezosa <small><div class="g-ytsubscribe" data-channelid="UC8KCb358oioQMcJ5pUfs8UQ" data-layout="default" data-count="default"></div></small></h1>
+<div class="post-content">
+    <article>
+        
 <p>En programación la evaluación perezosa, o llamada por necesidad, o por su nombre en inglés: lazy evaluation. Es una técnica de evaluación, sí porque hay varias técnicas, que consiste en retrasar el cálculo (o ejecución) de una instrucción hasta que en realidad es necesaria.</p>
 <p>Pero bueno, antes de entrar en detalles vamos a ver rápidamente otra estrategia, que podríamos definir como lo opuesto a la perezosa y esta es la evaluación temprana.</p>
 <p>Este tipo de evaluación es la que normalmente usa tu lenguaje de programación, y por tanto creo que sin quererlo estás muy familiarizado con ella, ocurre cuando asignas una variable como un entero o una cadena:</p>
@@ -126,6 +139,59 @@ foreach(var num in fibonaccis)
 </code></pre>
 <p>Escribí un post sobre <code>yield</code> en C# por si es que les interesa conocer más a detalle. Así mismo, dejo enlaces a todo el código en la descripción. Ah, y por cierto, hay otro tipo de evaluación  llamada evaluación corto-circuitada... tiene un nombre peculiar pero no es nada complicada, escribí también un post sobre eso, dejo el link en la descripción.</p>
 
+    </article>
+    <div class="post-contact">
+        <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a title="" href="mailto:?subject=La evaluación perezosa">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a title="@" href="https://twitter.com/intent/tweet?text=@ about La evaluación perezosa">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            {# TODO: Fix disquss
+            <li>Liquid error: Illegal template path name svg/comments.svg <a data-replace-url="href" id="post-count" href="$URL$/tv/2018-01-14-lazy-evaluation.html#disqus_thread" data-disqus-identifier="/tv/2018-01-14-lazy-evaluation.html"></a></li>
+            #}
+        </ul>
+    </div> 
+
+    <div class="pure-u-1 pure-u-md-10-24">
+        
+    </div>
+
+
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a data-replace-url="href" href="mailto:?subject=La evaluación perezosa&amp;body=$URL$/tv/2018-01-14-lazy-evaluation.html" title="email">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a data-replace-url="href" href="https://twitter.com/intent/tweet?text=La evaluación perezosa $URL$/tv/2018-01-14-lazy-evaluation.html&hashtags=" title="Tweet">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            
+            <li><a id="fb-share" data-replace-url="data-href" data-href="$URL$/tv/2018-01-14-lazy-evaluation.html" title="share" >Liquid error: Illegal template path name svg/facebook.svg</a> </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.3'
+    });
+  };
+
+    $('#fb-share').click(function() {
+        let button = $(this)
+        FB.ui({ method: 'share', href:button.attr('data-href')  });
+    })
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+</div>
 
             </div>
           </div>
