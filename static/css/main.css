@@ -250,6 +250,8 @@ pre {
       color: white; }
       .header-menu ul li a {
         color: white; }
+      .header-menu ul li.datascience {
+        background-color: #160f29; }
       .header-menu ul li.youtube {
         background-color: #b31217; }
       .header-menu ul li.csharp {
@@ -910,3 +912,8 @@ figure.console pre {
 a {
   color: #007acc;
   text-decoration: none; }
+
+
+.paginator-footer .align-right {
+  text-align: right;
+}
