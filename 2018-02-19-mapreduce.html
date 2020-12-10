@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+        
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:title" content="¿Qué es MapReduce?" />
+<meta property="og:url" content="/2018-02-19-mapreduce.html" />
+<meta property="og:description" content="La idea de MapReduce es ofrecer una forma simple, rápida, escalable y resistente a fallos para manipular enormes cantidades de datos." />
+<meta property="og:image" content="https://img.youtube.com/vi/b27hWyhq9oo/sddefault.jpg" />
+
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Home</a>
+          <a class="link page-link" href="/about">About</a>
+          <a class="link page-link" href="/search">Search</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+        <div class="pure-u-12-24 header-menu">
+          <ul>
+            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
+            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
+            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+          </ul>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<div class="video-wrapper">
+    <iframe width="992" height="558" src="https://www.youtube.com/embed/b27hWyhq9oo" frameborder="0" allowfullscreen></iframe>
+</div>
+<br />
+<h1 class="post-title">¿Qué es MapReduce? <small><div class="g-ytsubscribe" data-channelid="UC8KCb358oioQMcJ5pUfs8UQ" data-layout="default" data-count="default"></div></small></h1>
+<div class="post-content">
+    <article>
+        
+<p>Es un modelo de programación fuertemente orientado a la ejecución paralela y distribuida entre múltiples computadoras, que se utiliza para trabajar con grandes colecciones de datos, digamos, de unos cuantos terabytes (o petabytes). La idea de MapReduce es ofrecer una forma simple, rápida, escalable y resistente a fallos para manipular enormes cantidades de datos. En la terminología de MapReduce a estas manipulaciones se les conoce como trabajos, y así me referiré a ellos de ahora en adelante.</p>
+<p>MapReduce surgió de Google y fue presentado en 2004 por dos investigadores de Google, quienes lo publicaron en un paper y fue a partir de ahí que se comenzó a desarrollar en el mundo del open source a partir de ahí se generó una propuesta open source que funciona dentro de Hadoop (que por cierto es otra maravilla del Open Source originada en Google, de la cual si quieren les hablo en otro video). La realidad es que la explicación que voy a dar aquí es muy, muy básica, y los invito a leer el paper y a buscar más información y desde luego, a dejar sus preguntas en los comentarios, no es que yo pueda responderlas, pero seguro yo se las puedo preguntar a alguien más.</p>
+<h2 id="composicion">Composición</h2>
+<p>Su nombre proviene de dos viejos conocidos de la programación funcional: las funciones Map y Reduce. Como su nombre lo indica,  se compone de dos etapas (en realidad hay tres, pero la tercera es transparente para el desarrollador): la etapa de Map o Mapeo y la etapa de Reduce o Reducción, un poco más adelante les hablaré a detalle de estas etapas.</p>
+<p>Como lo mencioné antes, MapReduce fue creado para ejecutarse en múltiples computadoras a la vez, distribuyendo así la carga del trabajo en ellas, cabe destacar que estas computadoras no tienen que ser supercomputadoras carísimas, sino que pueden ser computadoras simples y relativamente baratas, es por eso que cuando se habla de MapReduce, se habla de clusters de computadoras.</p>
+<p>Todas las computadoras que participan en un trabajo de MapReduce   contienen un agente que coordina sus recursos, conocido como el NodeManager, este NodeManager a su vez se comunica con el encargado de orquestar todo el trabajo, que es nada más y nada menos que otra computadora dentro del cluster, que contiene un programa llamado ResourceManager, encargado de orquestar toda la operación de un trabajo de MapReduce (este asigna los trabajos, se mantiene al tanto de el estado de cada uno de los NodeManagers y resigna un trabajo no completado si es que alguno de los nodos deja de responder).</p>
+<h2 id="entradas-y-salidas">Entradas y salidas.</h2>
+<p>Como igual mencioné brevemente al inicio del video, un trabajo de MapReduce tiene como objetivo el tomar una cantidad de datos (de un archivo, de una base de datos o cualquier otra fuente de datos), manipularla de alguna manera y entregar un resultado al final. Pese a lo que indica su nombre &quot;reduce&quot;, el archivo generado no necesariamente tiene que ser una versión reducida de la entrada, puede llegar a ser más grande.</p>
+<p>Su funcionamiento es más o menos el siguiente:</p>
+<h3 id="mapping">Mapping</h3>
+<p>De tu entrada de datos tomas un conjunto de información que tiene la forma de pares llave-valor, dentro de la fase del mapper realizas alguna especie de procesamiento sobre ellos, como podría ser separar una cadena por espacios en blanco, encontrar todos los links que contiene un documento web. La idea es que del mapper generes un nuevo conjunto de datos, de nuevo en la forma de llave-valor, aquí cabe señalar que no es necesario que las llaves ni los valores sean los mismos que en los archivos de entrada, pueden ser totalmente diferentes.</p>
+<h3 id="shuffling">Shuffling</h3>
+<p>A la salida de los mappers se ejecuta otra etapa, conocida como shuffling, que se encarga de ordenar los datos generados de acuerdo a la llave que tu les asignaste en el mapper. Una vez que se ejecutó la fase de shuffling, los datos están listos para ser consumidos por los reducers.</p>
+<h3 id="reducing">Reducing</h3>
+<p>La tarea de los reducers comienza al ir a recuperar la información de los mappers, cada reducer tendrá la tarea de procesar todos los datos asignados a una sola llave a la vez. En el Reducer tenemos la oportunidad de realizar otro procesamiento sobre los valores, pero ahora con la certeza de que toda la información que tenemos está identificada con una sola llave.</p>
+<p>El reducer, al igual que el mapper, tiene la tarea de generar un nuevo conjunto de información en la forma llave-valor, la cual es depositada nuevamente en un archivo.</p>
+<h2 id="claves">Claves</h2>
+<p>Sí, sé que ese asunto de las llaves-valor puede sonar complicado al inicio, pero después de haber implementado una versión muy básica del primer PageRank de Google en MapReduce (dejo el link al post en la descripción) puedo identificar algunas claves:</p>
+<ul>
+<li>Pensar en forma paralela, y tratar de olvidar temporalmente todos los otros paradigmas que tengas en mente.</li>
+<li>Que al momento de trabajar en los mappers no vas a tener toda la información que necesitas en un solo lugar, ve a los mappers como una etapa de preparación de la información.</li>
+<li>Que si quieres que algo se ejecute en un solo lugar, eso sería del lado de los reducers, y para que esto suceda todos los elementos que quieres en un lugar deben tener la misma llave.</li>
+</ul>
+<h2 id="el-hola-mundo">El Hola Mundo</h2>
+<p>El hola mundo del MapReduce es un ejemplo de conteo de palabras que te voy a tratar de explicar ahora mismo. Imagina que tienes el siguiente texto:</p>
+<pre><code>Cuando cuentes cuentos
+Cuenta cuantos cuentos cuentas
+Por que si no cuentas cuantos cuentos cuentas 
+Nunca sabrás cuantos cuentos cuentas
+</code></pre>
+<p>Una forma de contar las palabras usando MapReduce es la siguiente:</p>
+<p>Los mappers reciben fragmentos del texto, separados por lineas, la información es recibida de la siguiente manera, cada linea es un valor, y la llave de ese valor es el número de línea dentro del archivo. Dentro del mapper, tomamos cada línea y la separamos por espacios, tomamos cada una de esas palabras como llaves y les asociamos como valor un uno y los escribimos a la salida.</p>
+<p>La tarea del shuffler será ordenar esta información por la llave , algo así:</p>
+<p>Después, esta información es obtenida por los reducers, recuerda que los reducers tomarán todos los elementos asociados con una sola llave y los procesarán dentro de ellos.</p>
+<p>En el reducer, se ejecuta un proceso que toma todos los números asociados a una palabra y los suma, tan solo para al final escribir a la salida otro par llave valor, en donde la llave es la palabra y el valor es el número de veces que aparece dicha palabra en el archivo.</p>
+<h2 id="usos-y-limitaciones">Usos y limitaciones</h2>
+<p>Por regla general se usa MapReduce cuando queremos afrontar problemas relacionados con grandes, enormes cantidades de datos. Y es por eso que se considera que debe correr en un sistema de archivos distribuidos, como es el caso de HDFS (Hadoop Distributed File System).</p>
+<p>Si bien MapReduce es una propuesta para paralizar y distribuir el cómputo sobre grandes cantidades de datos, tenemos que tener en cuenta que no todos los problemas son susceptibles de afrontarse usándolo, y tampoco es una solución buena para trabajos que requieren de respuesta en tiempo real, MapReduce es más bien para procesamiento offline de información.</p>
+
+    </article>
+    <div class="post-contact">
+        <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a title="" href="mailto:?subject=¿Qué es MapReduce?">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a title="@" href="https://twitter.com/intent/tweet?text=@ about ¿Qué es MapReduce?">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            {# TODO: Fix disquss
+            <li>Liquid error: Illegal template path name svg/comments.svg <a data-replace-url="href" id="post-count" href="$URL$/2018-02-19-mapreduce.html#disqus_thread" data-disqus-identifier="/2018-02-19-mapreduce.html"></a></li>
+            #}
+        </ul>
+    </div> 
+
+    <div class="pure-u-1 pure-u-md-10-24">
+        
+    </div>
+
+
+    <div class="pure-u-1 pure-u-md-7-24">
+        <span></span>
+        <ul class="post-contact-list">
+            <li><a data-replace-url="href" href="mailto:?subject=¿Qué es MapReduce?&amp;body=$URL$/2018-02-19-mapreduce.html" title="email">Liquid error: Illegal template path name svg/mail.svg</a></li>
+            <li><a data-replace-url="href" href="https://twitter.com/intent/tweet?text=¿Qué es MapReduce? $URL$/2018-02-19-mapreduce.html&hashtags=" title="Tweet">Liquid error: Illegal template path name svg/twitter.svg</a></li>
+            
+            <li><a id="fb-share" data-replace-url="data-href" data-href="$URL$/2018-02-19-mapreduce.html" title="share" >Liquid error: Illegal template path name svg/facebook.svg</a> </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.3'
+    });
+  };
+
+    $('#fb-share').click(function() {
+        let button = $(this)
+        FB.ui({ method: 'share', href:button.attr('data-href')  });
+    })
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+</div>
+
+            </div>
+          </div>
+        <footer class="site-footer ui">
+   <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-8-24">
+         <div class="footer-content">
+            <ul class="icon-list">
+        <li id="em">
+            <a href="mailto:feregrino@thatcsharpguy.com" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 11.815v13.292q0 1.105-.787 1.892-.787.78-1.892.78H3.68q-1.106 0-1.893-.79Q1 26.21 1 25.102v-13.29q.737.82 1.69 1.46 6.06 4.12 8.32 5.78.955.705 1.55 1.1.594.392 1.582.802.987.41 1.84.41h.035q.854 0 1.84-.41.99-.41 1.583-.804.595-.393 1.55-1.096 2.845-2.06 8.336-5.778.954-.652 1.674-1.455zm0-4.922q0 1.322-.82 2.528t-2.043 2.06l-7.835 5.44-.71.51q-.545.4-.905.64t-.87.55q-.51.3-.963.45-.452.15-.837.15h-.034q-.385 0-.837-.15-.452-.15-.962-.45-.51-.302-.87-.544-.36-.243-.905-.637l-.72-.51q-1.525-1.07-4.388-3.055-2.86-1.984-3.43-2.386-1.04-.704-1.96-1.935Q1 8.315 1 7.26q0-1.305.695-2.175.695-.87 1.984-.87h24.64q1.09 0 1.88.786.792.79.792 1.9z"/></svg>
+            </a>
+        </li>
+        <li id="gh">
+            <a href="https://github.com/ThatCSharpGuy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 16.37q0 4.9-2.86 8.8-2.86 3.93-7.4 5.43-.52.1-.77-.13-.24-.24-.24-.6v-4.1q0-1.9-1.02-2.78 1.2-.2 2.1-.4.9-.3 1.87-.8.95-.5 1.58-1.3.65-.8 1.05-2.1.4-1.27.4-2.93 0-2.38-1.54-4.04.7-1.78-.16-3.98-.57-.2-1.6.2t-1.8.85l-.75.47q-1.83-.5-3.76-.5t-3.76.5l-.8-.54Q11 8.16 9.9 7.7q-1.13-.4-1.7-.23-.86 2.2-.14 3.97-1.54 1.68-1.54 4.05 0 1.6.4 2.9.4 1.23 1.02 2.02.63.8 1.58 1.3.94.53 1.83.77.9.25 2 .37-.77.7-.94 2-.4.2-.82.3-.47.1-1.1.1-.66 0-1.3-.44-.63-.4-1.08-1.2-.38-.63-.95-1-.52-.4-.9-.5l-.4-.03q-.4 0-.57.1-.15.1-.1.24.06.13.18.26t.26.2l.15.1q.44.2.86.73t.63 1l.2.43q.23.75.84 1.2.6.47 1.3.6.7.13 1.34.14.65 0 1.08-.04l.46-.08v2.74q0 .35-.26.6-.25.22-.8.12-4.5-1.5-7.37-5.42-3-3.74-3-8.64 0-4.1 2-7.54 2-3.44 5.45-5.46 3.45-2 7.53-2t7.6 2q3.4 2 5.4 5.46 2 3.44 2 7.53z"/></svg>
+            </a>
+        </li>
+        <li id="yt">
+            <a href="https://www.youtube.com/c/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.43 15.714c0-.413-.17-.714-.504-.904l-8.57-5.357c-.347-.223-.71-.234-1.09-.033-.368.2-.552.513-.552.937V21.07c0 .426.184.738.553.94.178.088.35.133.52.133.222 0 .412-.056.568-.168l8.57-5.357c.336-.19.504-.49.504-.904zm8.57 0c0 1.072-.006 1.91-.017 2.51-.01.604-.058 1.366-.142 2.287-.083.92-.208 1.744-.376 2.47-.178.815-.563 1.5-1.155 2.06-.592.557-1.284.88-2.077.97-2.477.28-6.222.42-11.233.42-5.01 0-8.756-.14-11.233-.42-.793-.09-1.487-.413-2.085-.97-.597-.56-.984-1.245-1.163-2.06-.157-.726-.277-1.55-.36-2.47-.085-.92-.132-1.682-.143-2.285-.01-.602-.017-1.44-.017-2.51 0-1.072.006-1.91.017-2.512.01-.603.058-1.364.142-2.285.083-.92.208-1.744.376-2.47.178-.814.563-1.5 1.155-2.058.592-.56 1.284-.882 2.077-.97C7.244 5.14 10.99 5 16 5c5.01 0 8.756.14 11.233.42.793.088 1.487.41 2.085.97.597.558.984 1.244 1.163 2.06.157.724.277 1.547.36 2.468.085.92.132 1.682.143 2.285.01.603.017 1.44.017 2.51z"/></svg>
+            </a>
+        </li>
+        <li id="tw">
+            <a href="https://twitter.com/io_exception" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 6.7q-1.28 1.88-3.08 3.2.02.26.02.8 0 2.46-.73 4.93-.7 2.46-2.2 4.73-1.46 2.26-3.5 4-2.04 1.75-4.9 2.8-2.88 1.02-6.16 1.02-5.16 0-9.44-2.76.67.08 1.48.08 4.3 0 7.64-2.63-2-.04-3.58-1.23-1.58-1.2-2.17-3.03.63.1 1.16.1.82 0 1.62-.2-2.13-.44-3.53-2.13-1.4-1.68-1.4-3.9v-.1q1.3.74 2.78.8-1.26-.84-2-2.2-.74-1.35-.74-2.93 0-1.67.83-3.1 2.3 2.84 5.6 4.54 3.3 1.7 7.07 1.9-.15-.73-.15-1.4 0-2.57 1.8-4.36 1.8-1.8 4.35-1.8 2.66 0 4.5 1.94 2.07-.4 3.9-1.5-.7 2.2-2.7 3.4 1.76-.2 3.53-.95z"/></svg>
+            </a>
+        </li>    
+        <li id="fb">
+            <a href="https://www.facebook.com/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.512 1.488c.325.326.488.716.488 1.172v26.68c0 .456-.163.846-.488 1.172-.326.325-.716.488-1.172.488h-7.637V19.38h3.887l.586-4.532h-4.473v-2.89c0-.73.153-1.277.46-1.642.305-.364.9-.546 1.786-.546l2.382-.02V5.707c-.82-.117-1.98-.176-3.477-.176-1.77 0-3.186.522-4.248 1.564-1.06 1.04-1.59 2.513-1.59 4.414v3.34h-3.908v4.53h3.906V31H2.66c-.456 0-.846-.163-1.172-.488C1.163 30.186 1 29.796 1 29.34V2.66c0-.456.163-.846.488-1.172C1.814 1.163 2.204 1 2.66 1h26.68c.456 0 .846.163 1.172.488z"/></svg>
+            </a>
+        </li>
+        <li id="gp">
+            <a href="https://www.google.com/+Thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.9 14.25h-2.7v-2.72h-2.73v2.72h-2.7v2.72h2.7v2.7h2.72v-2.7h2.7v-2.72M10.5 17.5h5.4c-.22 1.4-1.64 4.12-5.4 4.12-3.25 0-5.9-2.7-5.9-6 0-3.33 2.65-6.02 5.9-6.02 1.85 0 3.08.78 3.8 1.46l2.58-2.48c-1.66-1.55-3.8-2.5-6.38-2.5C5.26 6.1 1 10.35 1 15.62s4.26 9.52 9.52 9.52c5.5 0 9.14-3.86 9.14-9.3 0-.62-.07-1.1-.15-1.57h-8.96"/></svg>
+            </a>
+        </li>
+    </ul>
+    <ul class="icon-list">
+        <li>
+            <a href="#">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M7 18.89v-5.88H1.15v-6H7V1.1h6v5.91h6V1.1h6v5.91h5.85v6H25v5.88h5.85v6H25v5.912h-6v-5.91h-6v5.91H7v-5.91H1.15v-6H7zm6 0v-5.88h6v5.88h-6z" fill="#3C8A3F" fill-rule="evenodd"/></svg>
+            </a>
+        </li>
+    </ul>
+         </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-6-24">
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+         <div class="footer-content">
+         </div>
+      </div>
+   </div>
+</footer>
+</body>
+</html>
