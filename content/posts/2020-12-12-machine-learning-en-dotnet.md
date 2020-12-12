@@ -2,7 +2,7 @@
 layout: post
 lannguage: es
 title: Machine Learning en .NET
-date: 2020-12-11 12:00:00
+date: 2020-12-12 01:00:00
 author: Antonio Feregrino
 summary: Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.
 lang: es
