@@ -12,7 +12,7 @@ tags: ml-net, c-sharp
 
 Python ha llegado a conquistar el mundo, y a veces pareciera que es la única herramienta que podemos usar para hacer *machine learning*. Sin embargo, esto no podría estar más lejos de la realidad puesto que los desarrolladores de C# podemos usar nuestro lenguaje favorito para hacer este tipo de tareas. En este post les voy a enseñar cómo es que pueden usar el poder de *machine learning* en .NET.
 
-Vamos a abordar uno de los problemas que es considerado como el "hola mundo" del aprendizaje automático; me refiero a predecir la supervivencia de los pasajeros del Titanic. Obten los datos [en Kaggle](https://www.kaggle.com/c/titanic/).
+Vamos a abordar uno de los problemas que es considerado como el "hola mundo" del aprendizaje automático; me refiero a predecir la supervivencia de los pasajeros del Titanic. Obtén los datos [en Kaggle](https://www.kaggle.com/c/titanic/).
 
 ## Tres proyectos
 
@@ -84,7 +84,7 @@ Una pieza central en [ML.NET](http://ml.net/) es conocida como el contexto, este
 var mlContext = new MLContext(seed: 42);
 ```  
 
-El argumento `seed` es importante si queremos obtener resultados reproducibles si es que estamos experimentando con diversos modelos/transformaciones, cuando estés contento con un determinado modelo o transformciones, recuerda remover este parámetro.
+El argumento `seed` es importante si queremos obtener resultados reproducibles si es que estamos experimentando con diversos modelos/transformaciones, cuando estés contento con un determinado modelo o transformaciones, recuerda remover este parámetro.
 
 ## En entrenamiento
 
@@ -144,7 +144,7 @@ IDataView allData = context.Data.LoadFromTextFile<Passenger>(
 
 ### Train-test split  
 
-Debes saber que en para entrenar y evaluar un algoritmo de *machine learning* es importante contar con al menos dos conjuntos de datos: validación y prueba, no voy a entrar en detalles aquí, pero te recomiendo que le éches un ojo a [mi video en YouTube sobre el tema](https://www.youtube.com/watch?v=778Pa63FS78). 
+Debes saber que en para entrenar y evaluar un algoritmo de *machine learning* es importante contar con al menos dos conjuntos de datos: validación y prueba, no voy a entrar en detalles aquí, pero te recomiendo que le eches un ojo a [mi video en YouTube sobre el tema](https://www.youtube.com/watch?v=778Pa63FS78). 
 
 Para lograr esta separación en C# es necesario usar nuevamente el contexto, para ser más específico, el método `TrainTestSplit`, con un argumento que nos permitirá especificarle que queremos que el 20% de los datos sean destinados al conjunto de prueba:
 
@@ -161,7 +161,7 @@ Más adelante veremos cómo usar el objeto `splits` (que es un objeto de la clas
 
 Esta es una sección pesada, puesto que aquí es donde sucede una de las partes más grandes del *machine learning* que es el pre-procesamiento de los datos. Usualmente tenemos que realizar diversas transformaciones a nuestros datos, y aquí simplemente vamos a hablar de algunas de ellas, como practicante de la ciencia de datos es tu labor intentar diversas transformaciones para ver cuáles son las que resultan en un mejor modelo predictivo.
 
-Es importante entender que los algoritmos de *machine learning* usualmente funcionan con números flotantes como entrada, entonces hay que transoformar cualquier entero, cualquier cadena a una representación numérica. 
+Es importante entender que los algoritmos de *machine learning* usualmente funcionan con números flotantes como entrada, entonces hay que transformar cualquier entero, cualquier cadena a una representación numérica. 
 
 Otra de las cosas importantes, y esta es específica a *ML.NET* es que el nombre de las columnas es de vital importancia a la hora de entrenar el modelo. Hasta el momento, nuestros datos tienen nombres como *"Id"*, *"Survived"*, *"TicketClass"*, *"Name"*... Antes de entrenar nuestro algoritmo debemos tener dos columnas con nombres específicos: **"Label"** and **"Features"**, no te preocupes, en un momento te cuento como lograr esto.  
 
@@ -185,7 +185,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
 );
 ```  
 
-Hay muchas cosas que están sucediendo en el código anterior, vamos a desempacarlo todo:
+Hay muchas cosas que están sucediendo en el código anterior, vamos a desempacar todo:
 
 <ul>
 <li><code>booleanMap</code> es una especie de diccionario que nos ayudará a convertir nuestros valores enteros a booleanos, puedes usar algo similar si quieres convertir de un valor a otro.</li>
@@ -198,9 +198,9 @@ Hay muchas cosas que están sucediendo en el código anterior, vamos a desempaca
 </ul>
 </ul>
 
-#### Variables categoricas
+#### Variables categóricas
 
-La columna `TicketClass` es de tipo `int` (hice un video sobre los [tipos de variable](https://www.youtube.com/watch?v=SAWsQ3QmmJE) que hay en la ciencia de datos) sin embargo el dejarla como tal no es buena idea porque la clase de los tickets es un ejemplo de una variable categorica, por tanto la mejor forma de representar esta variable es por medio de un *one-hot vector*:  
+La columna `TicketClass` es de tipo `int` (hice un video sobre los [tipos de variable](https://www.youtube.com/watch?v=SAWsQ3QmmJE) que hay en la ciencia de datos) sin embargo el dejarla como tal no es buena idea porque la clase de los tickets es un ejemplo de una variable categórica, por tanto la mejor forma de representar esta variable es por medio de un *one-hot vector*:  
 
 ```csharp
 var transformTicketClassOneHot = context.Transforms.Categorical.OneHotEncoding(
@@ -211,7 +211,7 @@ var transformTicketClassOneHot = context.Transforms.Categorical.OneHotEncoding(
 
 <small>Tal vez comienzas a ver un patrón en la forma en que especificamos las transformaciones: un nombre de columna de entrada y otro de salida, esto es de vital importancia en el siguiente fragmento de código.</small>
 
-Podríamos transformar otras variables de la misma manera en que transformamos el tipo de clase, por ejemplo `Sex` y `Embarked` son otro ejemplo de variables categoricas, pero no siempre es necesario hacer una transformación para cada variable, podemos agrupar varias transformaciones similares de la siguiente manera:
+Podríamos transformar otras variables de la misma manera en que transformamos el tipo de clase, por ejemplo `Sex` y `Embarked` son otro ejemplo de variables categóricas, pero no siempre es necesario hacer una transformación para cada variable, podemos agrupar varias transformaciones similares de la siguiente manera:
 
 ```csharp
 var transformSeveralOneHot = context.Transforms.Categorical.OneHotEncoding(
@@ -225,7 +225,7 @@ var transformSeveralOneHot = context.Transforms.Categorical.OneHotEncoding(
 
 #### ¿Valores faltantes?  
 
-En nuestro dataset tenemos una columna llamada `Fare`, que es la tarifa que cada uno de los pasajeros pagó por su boleto. ¡Pero cuidado! que hay algunas observaciones para las que no tenemos valores. Una de las opciones que tenemos cuando nos afrontamos a este tipo de situaciones es rellenar los valores faltantes con un valor derivado de los datos que sí tenemos.
+En nuestro dataset tenemos una columna llamada `Fare`, que es la tarifa que cada uno de los pasajeros pagó por su boleto. ¡Pero cuidado! que hay algunas observaciones para las que no tenemos valores. Una de las opciones que tenemos cuando nos enfrentamos a este tipo de situaciones es rellenar los valores faltantes con un valor derivado de los datos que sí tenemos.
 
 En este caso, podemos optar por seleccionar el valor promedio como el valor a usar para rellenar los valores faltantes: 
 
@@ -321,7 +321,7 @@ Si te das cuenta, volvemos a hacer uso del `context` y de nuestro `trainedModel`
 
 ### Guardando el modelo entrenado
 
-Por último, si estamos contentos con los resultados de nuestro algoritmo podemos guardarlo en un archivo *.zip*, segumos usando el `context` y el modelo recién entrenado:
+Por último, si estamos contentos con los resultados de nuestro algoritmo podemos guardarlo en un archivo *.zip*, seguimos usando el `context` y el modelo recién entrenado:
 
 ```csharp
 context.Model.Save(
@@ -378,7 +378,7 @@ El primer paso es crear un nuevo `MLContext`, recuerda, en producción no vamos 
 var context = new MLContext();
 ```
 
-Nuestro siguiente paso leer el modelo que recien entrenamos, de nuevo, usando el contexto que creamos:  
+Nuestro siguiente paso leer el modelo que recién entrenamos, de nuevo, usando el contexto que creamos:  
 
 ```csharp
 var trainedModel = context.Model.Load("model.zip", out var schema);
