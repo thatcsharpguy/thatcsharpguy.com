@@ -61,8 +61,8 @@
         </a>
         <div class="trigger">
           <a class="link page-link" href="/">Home</a>
-          <a class="link page-link" href="/about">About</a>
-          <a class="link page-link" href="/search">Search</a>
+          <!-- <a class="link page-link" href="/about">About</a> -->
+          <!-- <a class="link page-link" href="/search">Search</a> -->
         </div>
       </nav>
     </div>
@@ -74,10 +74,10 @@
         </div>
         <div class="pure-u-12-24 header-menu">
           <ul>
-            <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li>
+            <!-- <li class="datascience"><a href="/tag/data-science/">Data Science!</a></li> -->
             <li class="youtube"><a href="https://www.youtube.com/c/thatcsharpguy">YouTube<a></li>
-            <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li>
-            <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li>
+            <!-- <li class="csharp"><a href="/tag/aprendecsharp/">Aprende C#</a></li> -->
+            <!-- <li class="xamarin"><a href="/tag/xamarin/">Xamarin</a></li> -->
           </ul>
         </div>
       </div>
@@ -89,7 +89,7 @@
 <h1></h1>
 
 <p>Python ha llegado a conquistar el mundo, y a veces pareciera que es la única herramienta que podemos usar para hacer <em>machine learning</em>. Sin embargo, esto no podría estar más lejos de la realidad puesto que los desarrolladores de C# podemos usar nuestro lenguaje favorito para hacer este tipo de tareas. En este post les voy a enseñar cómo es que pueden usar el poder de <em>machine learning</em> en .NET.</p>
-<p>Vamos a abordar uno de los problemas que es considerado como el &quot;hola mundo&quot; del aprendizaje automático; me refiero a predecir la supervivencia de los pasajeros del Titanic. Obten los datos <a href="https://www.kaggle.com/c/titanic/">en Kaggle</a>.</p>
+<p>Vamos a abordar uno de los problemas que es considerado como el &quot;hola mundo&quot; del aprendizaje automático; me refiero a predecir la supervivencia de los pasajeros del Titanic. Obtén los datos <a href="https://www.kaggle.com/c/titanic/">en Kaggle</a>.</p>
 <h2 id="tres-proyectos">Tres proyectos</h2>
 <p>En su forma más básica, un proyecto de <em>machine learning</em> se divide en dos etapas: entrenamiento y producción. Nosotros vamos a reflejar esta separación creando dos proyectos, y por la forma en que <a href="http://ml.net/">ML.NET</a> funciona, tenemos que crear un proyecto auxiliar, es decir tres proyectos en total.</p>
 <p>Mi recomendación es que el proyecto de entrenamiento sea una aplicación de consola (<code>Titanic.Train</code>), el proyecto auxiliar (<code>Titanic.Common</code>) sea una biblioteca de clases y el último proyecto sea la aplicación en la que vas a usar tu algoritmo ya entrenado, en mi caso, es simplemente otra aplicación de consola (<code>Titanic.Production</code>):</p>
@@ -137,7 +137,7 @@ dotnet add Titanic.Production/Titanic.Production.csproj package Microsoft.ML
 <p>Una pieza central en <a href="http://ml.net/">ML.NET</a> es conocida como el contexto, este es un objeto a partir del cual vamos a gestionar todo el proceso: desde la lectura de los datos hasta el entrenamiento del algoritmo de nuestra elección.</p>
 <pre><code class="language-csharp">var mlContext = new MLContext(seed: 42);
 </code></pre>
-<p>El argumento <code>seed</code> es importante si queremos obtener resultados reproducibles si es que estamos experimentando con diversos modelos/transformaciones, cuando estés contento con un determinado modelo o transformciones, recuerda remover este parámetro.</p>
+<p>El argumento <code>seed</code> es importante si queremos obtener resultados reproducibles si es que estamos experimentando con diversos modelos/transformaciones, cuando estés contento con un determinado modelo o transformaciones, recuerda remover este parámetro.</p>
 <h2 id="en-entrenamiento">En entrenamiento</h2>
 <h3 id="leyendo-los-datos">Leyendo los datos</h3>
 <p>Una de las características de C# es que siempre tenemos que ser muy específicos en los tipos de dato que queremos manejar dentro de nuestros programas, así que para llevar a cabo la lectura debemos crear una clase que represente cada una de nuestras observaciones, en nuestro caso, una observación es un pasajero del Titanic (o una fila dentro de nuestro archivo de datos <em>.csv</em>).</p>
@@ -184,7 +184,7 @@ dotnet add Titanic.Production/Titanic.Production.csproj package Microsoft.ML
 );
 </code></pre>
 <h3 id="train-test-split">Train-test split</h3>
-<p>Debes saber que en para entrenar y evaluar un algoritmo de <em>machine learning</em> es importante contar con al menos dos conjuntos de datos: validación y prueba, no voy a entrar en detalles aquí, pero te recomiendo que le éches un ojo a <a href="https://www.youtube.com/watch?v=778Pa63FS78">mi video en YouTube sobre el tema</a>.</p>
+<p>Debes saber que en para entrenar y evaluar un algoritmo de <em>machine learning</em> es importante contar con al menos dos conjuntos de datos: validación y prueba, no voy a entrar en detalles aquí, pero te recomiendo que le eches un ojo a <a href="https://www.youtube.com/watch?v=778Pa63FS78">mi video en YouTube sobre el tema</a>.</p>
 <p>Para lograr esta separación en C# es necesario usar nuevamente el contexto, para ser más específico, el método <code>TrainTestSplit</code>, con un argumento que nos permitirá especificarle que queremos que el 20% de los datos sean destinados al conjunto de prueba:</p>
 <pre><code class="language-csharp">var splits = context.Data.TrainTestSplit(
     data: allData,
@@ -194,7 +194,7 @@ dotnet add Titanic.Production/Titanic.Production.csproj package Microsoft.ML
 <p>Más adelante veremos cómo usar el objeto <code>splits</code> (que es un objeto de la clase <code>DataOperationsCatalog.TrainTestData</code>).</p>
 <h3 id="transformations">Transformations</h3>
 <p>Esta es una sección pesada, puesto que aquí es donde sucede una de las partes más grandes del <em>machine learning</em> que es el pre-procesamiento de los datos. Usualmente tenemos que realizar diversas transformaciones a nuestros datos, y aquí simplemente vamos a hablar de algunas de ellas, como practicante de la ciencia de datos es tu labor intentar diversas transformaciones para ver cuáles son las que resultan en un mejor modelo predictivo.</p>
-<p>Es importante entender que los algoritmos de <em>machine learning</em> usualmente funcionan con números flotantes como entrada, entonces hay que transoformar cualquier entero, cualquier cadena a una representación numérica.</p>
+<p>Es importante entender que los algoritmos de <em>machine learning</em> usualmente funcionan con números flotantes como entrada, entonces hay que transformar cualquier entero, cualquier cadena a una representación numérica.</p>
 <p>Otra de las cosas importantes, y esta es específica a <em>ML.NET</em> es que el nombre de las columnas es de vital importancia a la hora de entrenar el modelo. Hasta el momento, nuestros datos tienen nombres como <em>&quot;Id&quot;</em>, <em>&quot;Survived&quot;</em>, <em>&quot;TicketClass&quot;</em>, <em>&quot;Name&quot;</em>... Antes de entrenar nuestro algoritmo debemos tener dos columnas con nombres específicos: <strong>&quot;Label&quot;</strong> and <strong>&quot;Features&quot;</strong>, no te preocupes, en un momento te cuento como lograr esto.</p>
 <h4 id="obteniendo-nuestra-label">Obteniendo nuestra <em>&quot;Label&quot;</em></h4>
 <p>El objetivo de nuestro algoritmo es encontrar si alguien sobrevivió al accidente del Titanic, hasta el momento tenemos dentro de nuestros datos la columna <em>&quot;Survived&quot;</em>, pero que hasta el momento es de tipo entero, 0 para alguien que no sobrevivió, 1 para alguien que sí. Sin embargo, necesitamos transformar esta en una columna de valor <code>bool</code> (y además de todo, vamos a nombrar esta nueva columna con el nombre <strong>&quot;Label&quot;</strong>), podemos lograr esto con el siguiente código:</p>
@@ -212,7 +212,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
     inputColumnName: nameof(Passenger.Survived)
 );
 </code></pre>
-<p>Hay muchas cosas que están sucediendo en el código anterior, vamos a desempacarlo todo:</p>
+<p>Hay muchas cosas que están sucediendo en el código anterior, vamos a desempacar todo:</p>
 <ul>
 <li><code>booleanMap</code> es una especie de diccionario que nos ayudará a convertir nuestros valores enteros a booleanos, puedes usar algo similar si quieres convertir de un valor a otro.</li>
 <li>Sobre la transformación <code>MapValue</code>:</li>
@@ -223,15 +223,15 @@ var transformLabel = context.Transforms.Conversion.MapValue(
 <li>Y por último, <code>inputColumnName</code>, el nombre de la columna que queremos convertir, en este caso es <i>"Survived"</i>.</li>
 </ul>
 </ul>
-<h4 id="variables-categoricas">Variables categoricas</h4>
-<p>La columna <code>TicketClass</code> es de tipo <code>int</code> (hice un video sobre los <a href="https://www.youtube.com/watch?v=SAWsQ3QmmJE">tipos de variable</a> que hay en la ciencia de datos) sin embargo el dejarla como tal no es buena idea porque la clase de los tickets es un ejemplo de una variable categorica, por tanto la mejor forma de representar esta variable es por medio de un <em>one-hot vector</em>:</p>
+<h4 id="variables-categoricas">Variables categóricas</h4>
+<p>La columna <code>TicketClass</code> es de tipo <code>int</code> (hice un video sobre los <a href="https://www.youtube.com/watch?v=SAWsQ3QmmJE">tipos de variable</a> que hay en la ciencia de datos) sin embargo el dejarla como tal no es buena idea porque la clase de los tickets es un ejemplo de una variable categórica, por tanto la mejor forma de representar esta variable es por medio de un <em>one-hot vector</em>:</p>
 <pre><code class="language-csharp">var transformTicketClassOneHot = context.Transforms.Categorical.OneHotEncoding(
     outputColumnName: &quot;OneHotTicketClass&quot;,
     inputColumnName: nameof(Passenger.TicketClass)
 );
 </code></pre>
 <p><small>Tal vez comienzas a ver un patrón en la forma en que especificamos las transformaciones: un nombre de columna de entrada y otro de salida, esto es de vital importancia en el siguiente fragmento de código.</small></p>
-<p>Podríamos transformar otras variables de la misma manera en que transformamos el tipo de clase, por ejemplo <code>Sex</code> y <code>Embarked</code> son otro ejemplo de variables categoricas, pero no siempre es necesario hacer una transformación para cada variable, podemos agrupar varias transformaciones similares de la siguiente manera:</p>
+<p>Podríamos transformar otras variables de la misma manera en que transformamos el tipo de clase, por ejemplo <code>Sex</code> y <code>Embarked</code> son otro ejemplo de variables categóricas, pero no siempre es necesario hacer una transformación para cada variable, podemos agrupar varias transformaciones similares de la siguiente manera:</p>
 <pre><code class="language-csharp">var transformSeveralOneHot = context.Transforms.Categorical.OneHotEncoding(
     new InputOutputColumnPair []
     {
@@ -241,7 +241,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
 );
 </code></pre>
 <h4 id="valores-faltantes">¿Valores faltantes?</h4>
-<p>En nuestro dataset tenemos una columna llamada <code>Fare</code>, que es la tarifa que cada uno de los pasajeros pagó por su boleto. ¡Pero cuidado! que hay algunas observaciones para las que no tenemos valores. Una de las opciones que tenemos cuando nos afrontamos a este tipo de situaciones es rellenar los valores faltantes con un valor derivado de los datos que sí tenemos.</p>
+<p>En nuestro dataset tenemos una columna llamada <code>Fare</code>, que es la tarifa que cada uno de los pasajeros pagó por su boleto. ¡Pero cuidado! que hay algunas observaciones para las que no tenemos valores. Una de las opciones que tenemos cuando nos enfrentamos a este tipo de situaciones es rellenar los valores faltantes con un valor derivado de los datos que sí tenemos.</p>
 <p>En este caso, podemos optar por seleccionar el valor promedio como el valor a usar para rellenar los valores faltantes:</p>
 <pre><code class="language-csharp">var transformFillMeanFare = context.Transforms.ReplaceMissingValues(
     outputColumnName: &quot;Fare&quot;,
@@ -302,7 +302,7 @@ Console.WriteLine($&quot;Recall:    {metrics.PositiveRecall:0.##}&quot;);
 </code></pre>
 <p>Si te das cuenta, volvemos a hacer uso del <code>context</code> y de nuestro <code>trainedModel</code>, además de nuestro <code>TestSet</code>. Para terminar, obtenemos en la consola los resultados de la evaluación de nuestro algoritmo (que bueno, por el momento podrán no ser los mejores)...</p>
 <h3 id="guardando-el-modelo-entrenado">Guardando el modelo entrenado</h3>
-<p>Por último, si estamos contentos con los resultados de nuestro algoritmo podemos guardarlo en un archivo <em>.zip</em>, segumos usando el <code>context</code> y el modelo recién entrenado:</p>
+<p>Por último, si estamos contentos con los resultados de nuestro algoritmo podemos guardarlo en un archivo <em>.zip</em>, seguimos usando el <code>context</code> y el modelo recién entrenado:</p>
 <pre><code class="language-csharp">context.Model.Save(
     model: trainedModel,
     inputSchema: allData.Schema,
@@ -340,7 +340,7 @@ Recall:    0.41
 <p>El primer paso es crear un nuevo <code>MLContext</code>, recuerda, en producción no vamos a usar el argumento <code>seed</code>:</p>
 <pre><code class="language-csharp">var context = new MLContext();
 </code></pre>
-<p>Nuestro siguiente paso leer el modelo que recien entrenamos, de nuevo, usando el contexto que creamos:</p>
+<p>Nuestro siguiente paso leer el modelo que recién entrenamos, de nuevo, usando el contexto que creamos:</p>
 <pre><code class="language-csharp">var trainedModel = context.Model.Load(&quot;model.zip&quot;, out var schema);
 </code></pre>
 <h4 id="y-nuestras-predicciones">¿Y nuestras predicciones?</h4>
