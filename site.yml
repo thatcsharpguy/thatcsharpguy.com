@@ -1,6 +1,8 @@
 title: "That C# guy"
 subtitle: A static website generator
+description: Un blog sobre todo lo relacionado con el lenguaje C#
 default-author: Antonio Feregrino
+site-url: https://thatcsharpguy.com/
 social:
   - name: GitHub
     link: https://github.com/lockdown-blog/lockdown
