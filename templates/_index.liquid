@@ -9,10 +9,11 @@
         {% else %}
         <div class="post-meta">{{ site.default_author  }} · {{ post.date_time | date:"MMMM dd, yyyy" }}</div>
         {% endif %}
-            <h2 class="post-title">
-                <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
-            </h2>
+        <h1 class="post-title">
+            <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+        </h1>
         <div class="post-excerpt">{{ post.summary }}</div>
+        <a class="post-link" href="{{ post.url }}">Leer más &#x2192;</a>
     </div>
     {% endfor %}
     <div class="listed-post pure-u-1">

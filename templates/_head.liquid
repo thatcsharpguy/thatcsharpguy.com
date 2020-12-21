@@ -1,6 +1,7 @@
 <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -17,7 +18,7 @@
 <meta name="theme-color" content="#ffffff">
 
 {% if post %}
-<title>{{ post.title }}</title>
+<title>{{ post.title }} | {{ site.title }}</title>
 <!-- Search Engine -->
 <meta name="description" content="{{ post.summary }}">
 <meta name="image" content="{{ post.image }}">
@@ -41,7 +42,7 @@
 <meta name="og:locale" content="es">
 <meta name="og:type" content="website">
 {% else %}
-<title>{{ site.title }}</title>
+<title>{{ site.title }} - Un blog sobre programación.</title>
 <!-- Search Engine -->
 <meta name="description" content="{{ site.description }}">
 <meta name="image" content="THIS IS MY IMAGE">
