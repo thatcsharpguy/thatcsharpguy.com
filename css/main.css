@@ -496,7 +496,13 @@ dl dd {
   /* font-size: 24px; */ }
 
 .listed-post {
-  margin: 10px 0 20px; }
+  margin: 5px 0 10px; 
+  padding: 10px;
+}
+
+.listed-post:hover {
+  background-color: #eee;
+}
 
 h1.post-title {
   font-size: 34px; }
