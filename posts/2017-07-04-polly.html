@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
 <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -20,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<title>Polly-ticas para el manejo de excepciones</title>
+<title>Polly-ticas para el manejo de excepciones | That C# guy</title>
 <!-- Search Engine -->
 <meta name="description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
 <meta name="image" content="">
@@ -86,7 +87,7 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
+<h1>Polly-ticas para el manejo de excepciones</h1>
 
 <p>En posts pasados hemos <a href="..\excepciones-c-sharp" target="_blank">estado</a> <a href="..\metodos-try" target="_blank">hablando</a> sobr elas excepciones en C#, desde cómo funcionan hasta cómo evitarlas... sin embargo, hay ocasiones en las que llegue a ser absolutamente necesario que la operación que provocó la excepción se repita, ya sea porque es de suma importancia que esta se lleve a cabo o porque el error es solo temporal.</p>
 <p>El NuGet del que les voy a hablar hoy nos ayuda a implementar políticas de recuperación ante una falla. Esto es particularmente útil cuando, por ejemplo, estamos consumiendo un servicio web y una petición falla.</p>

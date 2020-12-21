@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
 <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -20,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<title>async y await</title>
+<title>async y await | That C# guy</title>
 <!-- Search Engine -->
 <meta name="description" content="En este post voy a hablar acerca de uno de los mejores tipos de azúcar sintáctica que existen en el lenguaje de programación C#. Y con ello me refiero a las palabras async y await.">
 <meta name="image" content="">
@@ -86,7 +87,7 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
+<h1>async y await</h1>
 
 <p>¿Cuántas veces te ha tocado usar una aplicación que de pronto deja de responder? o peor aún, ¿cuántas veces tus aplicaciones se han quedado congeladas? esto sucede muchas veces porque el hilo encargado de manejar la interfaz gráfica está muy ocupado haciendo alguna tarea que le impide responder a la interacción con el usuario... y este problema es casi siempre causado por el desarrollador.</p>
 <p>Es común que este tipo de encrucijadas se resuelvan mediante la creación de hilos explícitamente. Tu creas tarea y le pides a un hilo que la ejecute, mientras tanto, programas al hilo principal para que esté al tanto de cuando esta tarea se completara para continuar trabajando con el resultado de dicha tarea. Es más, seguramente tu llegaste a trabajar con los famosos <code>Thread</code>, pero si no lo hiciste, te recomiendo que busques un poco de información sobre el manejo de hilos en C#, pero antes, continúa leyendo.</p>

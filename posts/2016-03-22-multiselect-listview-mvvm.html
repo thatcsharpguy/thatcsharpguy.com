@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
 <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -20,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<title>Multi-select ListView y MVVM</title>
+<title>Multi-select ListView y MVVM | That C# guy</title>
 <!-- Search Engine -->
 <meta name="description" content="Aprende cómo permitir al usuario selecionar más de un item en una lista y a hacerlo todo desde MVVM con Xamarin.Forms.">
 <meta name="image" content="">
@@ -86,7 +87,7 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
+<h1>Multi-select ListView y MVVM</h1>
 
 <p>Por fin he vuelto a desarrollar algo con Xamarin.Forms y parte de lo que he tenido que hacer tuvo que ver con implementar una lista que permitiera la selección múltiple de filas y fuera compatible con el patrón MVVM.</p>
 <p>Investigando un poco encontré que el control <code>ListView</code>, que es el más usado para mostrar datos en forma de lista, no permite la selección múltiple y que habría que hacerlo de otra manera. Dentro de la documentación de Xamarin también <a href="https://developer.xamarin.com/recipes/cross-platform/xamarin-forms/controls/multiselect/" target="_blank" rel="nofollow">este artículo</a> en el que explica una forma de hacerlo y en ese está basado este post.</p>

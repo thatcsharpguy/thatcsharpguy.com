@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
 <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -20,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<title>Formatted number entry</title>
+<title>Formatted number entry | That C# guy</title>
 <!-- Search Engine -->
 <meta name="description" content="I faced the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number.">
 <meta name="image" content="">
@@ -86,7 +87,7 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
+<h1>Formatted number entry</h1>
 
 <p>While developing an app using Xamarin.Forms I faced the necessity of having a &quot;formatted textbox&quot; where the user could enter a given integer number and have it formatted instantly to a comma separated number, for example: <code>1234567</code> → <code>1,234,567</code>, because our users often found themselves counting the number of zeros they had entered into the small textbox.</p>
 <p>This doesn't sound too complicated (and it isn't). Using an <code>Entry</code> we can easily hook up to the <code>TextChanged</code> event and perform the following tasks:</p>

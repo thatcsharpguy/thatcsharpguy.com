@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
 <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -20,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<title>Delegados en C#</title>
+<title>Delegados en C# | That C# guy</title>
 <!-- Search Engine -->
 <meta name="description" content="Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan.">
 <meta name="image" content="">
@@ -86,7 +87,7 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
+<h1>Delegados en C#</h1>
 
 <p>Para comenzar la explicación debemos comprender qué es un delegado. Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan. La forma de declarar un delegado es de la siguiente manera: <code>&lt;modificador de acceso&gt; delegate &lt;tipo de retorno&gt; &lt;nombre del delegado&gt; (&lt;lista de parámetros&gt;)</code>. Podríamos, por ejemplo, tener un delegado que realice una operación con dos números enteros y devuelva un solo número entero. La defnición de este sería algo como:</p>
 <pre><code class="language-csharp">public delegate int Operacion(int a, int b);

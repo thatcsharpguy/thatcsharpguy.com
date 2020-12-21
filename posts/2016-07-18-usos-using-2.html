@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
 <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -20,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<title>Uso de using</title>
+<title>Uso de using | That C# guy</title>
 <!-- Search Engine -->
 <meta name="description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
 <meta name="image" content="">
@@ -86,7 +87,7 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
+<h1>Uso de using</h1>
 
 <p>¿Cuántas veces has visto la palabra  <code>using</code> en C#? ... me aventuraré a decir que muchas, y es que la palabra <code>using</code> tiene varios significados en el lenguaje. Previamente escribí sobre cómo se <a href="../creando-propios-alias">usa para crear aliases</a>. En este post hablaré sobre otro de sus usos.</p>
 <p>En C#, también podemos emplear <code>using</code> para especificar un bloque de código asociado a una o varias instancias de una clase que implemente <code>IDisposable</code>, el hacer uso de estos bloques de código nos ayuda a manejar correctamente este tipo de objetos, ya que se encarga de llamar al método <code>Dispose</code> antes de terminar de ejecutar dicho bloque.</p>

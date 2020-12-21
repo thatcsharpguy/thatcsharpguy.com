@@ -498,11 +498,22 @@ dl dd {
 .listed-post {
   margin: 10px 0 20px; }
 
-h2.post-title {
+h1.post-title {
   font-size: 34px; }
   @media screen and (max-width: 800px) {
-    h2.post-title {
+    h1.post-title {
       font-size: 28px; } }
+  h1.post-title a.tag {
+    font-size: 0.45em;
+    color: white;
+    padding: 2px 4px 2px 4px;
+    background-color: #007acc; }
+
+h2.post-title {
+  font-size: 30px; }
+  @media screen and (max-width: 800px) {
+    h2.post-title {
+      font-size: 24px; } }
   h2.post-title a.tag {
     font-size: 0.45em;
     color: white;

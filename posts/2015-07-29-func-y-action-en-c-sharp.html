@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang=""  itemscope itemtype="http://schema.org/Blog">
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
 <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
@@ -20,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<title>Func y Action en C#</title>
+<title>Func y Action en C# | That C# guy</title>
 <!-- Search Engine -->
 <meta name="description" content="Func y Action son moldes para crear delegados, podemos usarlos para evitarnos la fatiga de declarar un delegado para cada ocasión que sea necesario.">
 <meta name="image" content="">
@@ -86,7 +87,7 @@
         <div class="page-content">
             <div class="wrapper">
                 
-<h1></h1>
+<h1>Func y Action en C#</h1>
 
 <p>Hace muy poco les hablaba de los <a href="/delegados-en-c-sharp">delegados en C#</a>, aprovechando este post quisiera hablarles un poco de la utilidad de estos. Como lo mencionaba, los delegados permiten a un desarrollador &quot;inyectar&quot; su propio código dentro de los métodos de el código escrito  por un tercero.</p>
 <p>Para poner un ejemplo, imaginemos que tenemos una lista de palabras <code>palabras</code>  y un método <code>RealizaOperacionSecreta</code> que realiza cierta operación <em>secreta</em> sobre esa lista de palabras y las imprime en consola. Dicho método fue escrito por un desarrollador que no conocemos, pero que fue lo suficientemente amable para permitirnos elegir sobre qué palabras se realiza la operación mediante el uso de un delegado llamado <code>filtro</code>.</p>
