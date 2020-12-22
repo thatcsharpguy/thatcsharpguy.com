@@ -9,9 +9,6 @@ tags: aprendecsharp, Windows
 featured_tag: aprendecsharp
 ---
 
-
-# C# con estilo (a fuerza)
-
 ¿Has escuchado de las guías de estilo? (si no, te invito a [ver este video en donde hablo sobre ellas](https://www.youtube.com/watch?v=Htsknf4L2o4)), entonces sabrás la importancia de estas para mantener un código limpio, estandarizado y entendible, principalmente cuando estamos trabajando en equipo. Una vez aceptada la necesidad de contar con una guía de estilo la pregunta puede ser ¿cuál aplicar?
 
 Sin importar cuál elijas, ponerla en marcha en tu equipo puede tomar más tiempo de lo que podrías pensar, creo que esto sucede por diversos factores:
