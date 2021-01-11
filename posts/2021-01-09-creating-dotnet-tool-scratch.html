@@ -94,6 +94,7 @@
                 
 <h1>Creating a dotnet tool (part 1)</h1>
 
+<p>If you speak spanish and prefer to see me coding this, you can do so in this video: <a href="https://youtu.be/wXseAL7NCnk">Ingeniería de software  - Comenzando con nuestro proyecto</a>.</p>
 <p>Lockdown is a static website generator written in C# that works as a <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools">.NET tool</a>.</p>
 <p>Through this series of posts I'll guide you on how did I build this tool with the hopes that you will be able to create another <em>dotnet</em> tool (hopefully you won't build a better Lockdown competitor, though 😅).</p>
 <h2 id="tooling">Tooling</h2>
@@ -103,7 +104,7 @@
 <li>Console (whether is on Windows, Linux or Mac)</li>
 </ul>
 <h2 id="setting-up-a-git-repo">Setting up a Git repo</h2>
-<p>Obviously, we'll need a Git repository to take care of our Version Control necessities whyle building our tool.</p>
+<p>Obviously, we'll need a Git repository to take care of our Version Control necessities while building our tool.</p>
 <p>I'll use a pre-created <code>.gitignore</code> file from <a href="https://www.toptal.com/developers/gitignore/api/dotnetcore,visualstudiocode,visualstudio">gitignore.io</a>.</p>
 <p>Let's also add a <code>readme.md</code> and our <code>license</code> file, to start everything right. Make sure you choose the right license for your project!</p>
 <h2 id="adding-our-projects">Adding our projects</h2>
@@ -112,14 +113,14 @@
 <pre><code class="language-bash">dotnet new console -n Lockdown
 </code></pre>
 <h3 id="test-project">Test project</h3>
-<p>Do not forget a test project! since we expect our tool to be a long term project, having tessts is an essential part of the process. In this case, we will be using <em>xUnit</em>-based tests, though there are some alternatives like <em>NUnit</em> or <em>MSTest</em>.</p>
+<p>Do not forget a test project! since we expect our tool to be a long term project, having tests is an essential part of the process. In this case, we will be using <em>xUnit</em>-based tests, though there are some alternatives like <em>NUnit</em> or <em>MSTest</em>.</p>
 <pre><code class="language-bash">dotnet new xunit -n Lockdown.Test
 </code></pre>
 <h3 id="putting-everything-together">Putting everything together</h3>
 <p>We need to add a reference from our main project to our test project:</p>
 <pre><code class="language-bash">dotnet add Lockdown.Test/Lockdown.Test.csproj reference Lockdown/Lockdown.csproj 
 </code></pre>
-<p>Lastly, a .NET project woudln't be a .NET project without a solution file, let's add one and then add our projects into it:</p>
+<p>Lastly, a .NET project wouldn't be a .NET project without a solution file, let's add one and then add our projects into it:</p>
 <pre><code class="language-bash">dotnet new sln -n Lockdown
 dotnet sln add \
     Lockdown.Test/Lockdown.Test.csproj \
