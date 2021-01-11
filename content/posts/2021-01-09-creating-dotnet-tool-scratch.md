@@ -9,6 +9,8 @@ image: https://i.imgur.com/qUPBAyW.png
 tags: software-engineering, testing, dotnet, c-sharp
 ---
 
+If you speak spanish and prefer to see me coding this, you can do so in this video: [Ingeniería de software  - Comenzando con nuestro proyecto](https://youtu.be/wXseAL7NCnk).
+
 Lockdown is a static website generator written in C# that works as a [.NET tool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
 
 Through this series of posts I'll guide you on how did I build this tool with the hopes that you will be able to create another *dotnet* tool (hopefully you won't build a better Lockdown competitor, though 😅).
@@ -22,7 +24,7 @@ Throughout this journey I'll be using mainly three tools:
 
 ## Setting up a Git repo  
 
-Obviously, we'll need a Git repository to take care of our Version Control necessities whyle building our tool.
+Obviously, we'll need a Git repository to take care of our Version Control necessities while building our tool.
 
 I'll use a pre-created `.gitignore` file from [gitignore.io](https://www.toptal.com/developers/gitignore/api/dotnetcore,visualstudiocode,visualstudio).
 
@@ -40,7 +42,7 @@ dotnet new console -n Lockdown
 
 ### Test project
 
-Do not forget a test project! since we expect our tool to be a long term project, having tessts is an essential part of the process. In this case, we will be using *xUnit*-based tests, though there are some alternatives like *NUnit* or *MSTest*.
+Do not forget a test project! since we expect our tool to be a long term project, having tests is an essential part of the process. In this case, we will be using *xUnit*-based tests, though there are some alternatives like *NUnit* or *MSTest*.
 
 ```bash
 dotnet new xunit -n Lockdown.Test
@@ -54,7 +56,7 @@ We need to add a reference from our main project to our test project:
 dotnet add Lockdown.Test/Lockdown.Test.csproj reference Lockdown/Lockdown.csproj 
 ``` 
 
-Lastly, a .NET project woudln't be a .NET project without a solution file, let's add one and then add our projects into it:  
+Lastly, a .NET project wouldn't be a .NET project without a solution file, let's add one and then add our projects into it:  
 
 ```bash
 dotnet new sln -n Lockdown
