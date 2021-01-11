@@ -5,7 +5,7 @@ title: Creating a dotnet tool (part 1)
 date: 2021-01-09 01:00:00
 author: Antonio Feregrino
 summary: In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.
-image: https://i.imgur.com/8YI9ZuN.png
+image: https://i.imgur.com/qUPBAyW.png
 tags: software-engineering, testing, dotnet, c-sharp
 ---
 
