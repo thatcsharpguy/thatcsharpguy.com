@@ -20,34 +20,34 @@ To be frank, I already knew of some of these patterns, however it was nice to be
 
 In terms of code, this being a reference book goes very light on code, with code samples written to be used in Python (TensorFlow, Keras and Sci-Kit Learn) and SQL (BigQuery ML, which I had no idea it exsisted); the authors provide a GitHub repository for it.
 
+## Some quotes
 
+ > Rooms lit on two sides, with natural light, create less glare around peoplñe and objects; this lets us see things more intricately; and most important, it allows us to read in detail the minute expressions that flash across proples faces... -- I don't know, I found this quote to be relatable.
 
-## Some quotes  
+ > (...) your model's predictions will be a direct reflection of that data. As a result, machine learning models are often referred to as "garbage in, garbage out".
 
-> For each successful result published in a research paper or a corporate blog, there are hundreds of reasonable-sounding ideas that have entirely failed.  
+ > Training an ML model involves several artifactss that need to be fixed in order to ensure reproducibility.
 
-> (...) much of the challenge in ML is similar to one of the biggest challenges in software—resisiting the urge to build pieces that are not needed yet.  
+ > When defininfg the goals for your model, it's important to consider the needs of different teams across an organization, and how each team's needs relate back to the model.
 
-> An ML program doesn't just have to run-it should produce accurate predictive outputs.  
+ > Deployment is not the end of a machine learning model's life cycle. How do you know that your model is working as expected in the wild?
 
-> Testing a model's behavior is hard. The majority of code in an ML pipeline is not about the training pipeline or the model itself, however.  
-
-> In reality, most datasets are a collection of approximate measurements that ignore a larger context.  
+ > It is important to realize that the purpose of training an ML model is to make predictions on unseen data.
 
 ## Some ideas
 
- - The idea of using clustering algorithms to guide the exploratory data analysis when it comes to examine individual datapoints, rather than just randomly selecting instances.  
- - What needs to be happen with a model to be deployed on a mobile device.  
- - The idea of having a filtering model, before our actual inference model, that predicts whether the current input will yield an acceptable answer.  
- - The idea of multi-armed bandits to test variants of experiments
- - The idea of federated learning
+ - The idea of separating these two terms: input data and input features.
+ - Prepare for the cold-start problem (when one-hot encoding) by reserving all zeros for out of vocabulary inputs
+ - Task reframing
+ - Infer ground truth labels from how the user interacts with the model's predictions
+ - Bridging old data to new data
+ - Lineage tracking
+ - Data drift
 
 ## Some links
 
- - <a href="https://blog.insightdatascience.com/automated-front-end-development-using-deep-learning-3169dd086e82" target="_blank">Automated front-end development using deep learning</a>
- - <a href="https://arxiv.org/abs/1705.07962" target="_blank">pix2code: Generating Code from a Graphical User Interface Screenshot</a>
- - <a href="https://arxiv.org/abs/1604.06737" target="_blank">Entity Embeddings of Categorical Variables</a>
- - <a href="https://uchicago-cs.github.io/debugging-guide/" target="_blank">The Debugging Guide by The University of Chicago</a>
- - <a href="https://research.google/pubs/pub46555/" target="_blank">The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction</a>
- - <a href="https://arxiv.org/abs/1810.03993" target="_blank">Model Cards for Model Reporting</a>
- - <a href="http://sites.computer.org/debull/A18dec/p5.pdf" target="_blank">On Challenges in Machine Learning Model Management</a>
+ - BigQuery ML
+ - TabNet
+ - TFX
+ - Kubeflow
+ 
