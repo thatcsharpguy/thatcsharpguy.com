@@ -3,7 +3,7 @@ layout: book
 title: Machine Learning Design Patterns
 date: 2021-01-14 14:00:00
 summary: A book about some common patterns (a pair of problem-solution) that arise when training and deploying machine learning models. 
-sidebarimage: https://i.imgur.com/1olZiIn.jpg
+image: https://i.imgur.com/1vBKteg.jpg
 tags: book-review, software development, machine learning, oreilly
 ---  
 

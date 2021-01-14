@@ -3,7 +3,7 @@ layout: book
 title: Building Machine Learning Powered Applications
 date: 2020-08-06 14:00:00
 summary: A book about what are the pieces around an application that uses machine learning at its core, a good insight into what is beyond training models.
-sidebarimage: https://i.imgur.com/1olZiIn.jpg
+image: https://i.imgur.com/1olZiIn.jpg
 tags: book-review, software development, machine learning, oreilly
 ---  
 
