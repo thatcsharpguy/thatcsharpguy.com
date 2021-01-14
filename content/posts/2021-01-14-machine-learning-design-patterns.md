@@ -7,8 +7,10 @@ sidebarimage: https://i.imgur.com/1olZiIn.jpg
 tags: book-review, software development, machine learning, oreilly
 ---  
 
-Author: Valliappa Lakshmanan, Sara Robinson, Michael Munn
+Author: Valliappa Lakshmanan, Sara Robinson, Michael Munn  
 ISBN: 9781098115784
+
+Get the book here: <a target="_blank" href="https://www.amazon.es/gp/product/1098115783/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp09-21&creative=24630&linkCode=as2&creativeASIN=1098115783&linkId=42b8cc87f60bed7f12ae29726475ce9d">Amazon España</a> &bull; <a target="_blank" href="https://www.amazon.com/gp/product/1098115783/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp0ac-20&creative=9325&linkCode=as2&creativeASIN=1098115783&linkId=2dfe90f3be1555b385bffcff45c16cba">Amazon US</a> &bull; <a target="_blank" href="https://www.amazon.com.mx/gp/product/1098115783/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp0c-20&creative=9325&linkCode=as2&creativeASIN=1098115783&linkId=9fefb5be3e6efef020c0a4abf4e9a0ac">Amazon México</a> &bull; <a target="_blank" href="https://www.amazon.co.uk/gp/product/1098115783/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp07-21&creative=6738&linkCode=as2&creativeASIN=1098115783&linkId=2cc3e4063d9c3d682e8b8fb69b5b696a">Amazon UK</a>
 
 As the title unveils, this book talks about some common "patterns". A pattern is a pair comprised of a common problem recurring problem and a commonly agreed generic solution that you can customise to your specific domain. 
 
@@ -46,8 +48,8 @@ In terms of code, this being a reference book goes very light on code, with code
 
 ## Some links
 
- - BigQuery ML
- - TabNet
- - TFX
- - Kubeflow
+ - <a href="https://cloud.google.com/bigquery-ml/docs/introduction" target="_blank">BigQuery ML</a>
+ - <a href="https://cloud.google.com/bigquery-ml/docs/introduction" target="_blank">TabNet</a>
+ - <a href="https://www.tensorflow.org/tfx" target="_blank">TensorFlow Extended (TFX)</a>
+ - <a href="https://www.kubeflow.org/" target="_blank">Kubeflow</a>
  

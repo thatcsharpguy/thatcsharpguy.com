@@ -7,7 +7,7 @@ sidebarimage: https://i.imgur.com/1olZiIn.jpg
 tags: book-review, software development, machine learning, oreilly
 ---  
 
-Author: Emmanuel Ameisen
+Author: Emmanuel Ameisen  
 ISBN: 9781492045106
 
 This is a book about the whole process of putting a machine learning model into production, all the engineering that sometimes the data scientists are not aware of or take for granted. It does not explain any algorithms or how to train a model but what to do before and after we have already trained one. I highly recommend getting this book, especially if you are:   
@@ -18,7 +18,7 @@ This is a book about the whole process of putting a machine learning model into 
 
 The book itself is light on code; there is a GitHub repo that the author uses to showcase an entire use case throughout the whole book. However, it is possible to just read the book without the need to look at the code since it is not the main reason someone would buy this book.
 
-Get the book: <a href="https://www.amazon.com.mx/Building-Machine-Learning-Powered-Applications/dp/149204511X" target="_blank">Amazon Mexico</a>, <a href="https://www.amazon.com/Building-Machine-Learning-Powered-Applications/dp/149204511X" target="_blank">Amazon US</a>
+Get the book: <a href="https://www.amazon.com.mx/gp/product/149204511X/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp0c-20&creative=9325&linkCode=as2&creativeASIN=B0842ZD3Y7&linkId=98deaff870842d73df0163ccca58f9ab" target="_blank">Amazon Mexico</a> &bull; <a href="https://www.amazon.es/gp/product/149204511X/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp09-21&creative=24630&linkCode=as2&creativeASIN=149204511X&linkId=9b9ef741a6bc51f0bfc98fefa52c2f70" target="_blank">Amazon España</a> &bull; <a href="https://www.amazon.com/gp/product/149204511X/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp0ac-20&creative=9325&linkCode=as2&creativeASIN=149204511X&linkId=0ba6e75cc6eac0ea16a7a2237a8730c9" target="_blank">Amazon US</a> &bull; <a href="https://www.amazon.co.uk/gp/product/149204511X/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=csharp07-21&creative=6738&linkCode=as2&creativeASIN=149204511X&linkId=c36cfd931ec5c6ec4b1423198154fa51" target="_blank">Amazon UK</a>
 
 ## Some quotes  
 
