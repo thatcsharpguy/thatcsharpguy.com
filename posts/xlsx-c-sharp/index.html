@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<title>Trabajando con XslX en C# | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Trabajando con XslX en C#">
+<meta itemprop="description" content="¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trabajando con XslX en C#">
+<meta name="twitter:description" content="¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Trabajando con XslX en C#">
+<meta name="og:description" content="¿Quieres trabajar con documentos de Word sin tener que depender de Office? DocX es la librería para ti. Con ella tienes un montón de opciones disponibles para desarrollar. Conócela aquí.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/posts/2016-03-07-xlsx-c-sharp.html">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Inicio</a>
+          <!-- <a class="link page-link" href="/">Sobre mi</a> -->
+          <a class="link page-link youtube" href="/">YouTube</a>
+          <a class="link page-link book-reviews" href="/tags/book-review.html">Reseñas</a>
+          <!-- <a class="link page-link gear" href="/">Herramientas</a> -->
+          <!-- <a class="link page-link" href="/about">About</a> -->
+          <!-- <a class="link page-link" href="/search">Search</a> -->
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1>Trabajando con XslX en C#</h1>
+
+<p>Justamente hace unos cuantos posts, les hablaba de cómo <a href="http://thatcsharpguy.com/post/docx-c-sharp/">trabajar con documentos de Word en C#</a>, y esta vez hablo sobre algo similar... solo que con hojas de cálculo de Excel, seguramente es una tarea más requerida dada la naturaleza, ligada a los datos, de este tipo de archivos. Esto es posible a través de una librería que también se distribuye a través de NuGet, la librería en cuestión se llama EPPlus y en este post presento algunos casos de uso.</p>
+<p>En esta ocasión mostraré cómo crear un pequeño reporte de las clases y maestros que se imparten en una escuela, usando la misma información del <a href="http://thatcsharpguy.com/post/linq-en-c-sharp-3/">post sobre LINQ en C#</a>, para finalizar con un ejemplo de lectura de un libro de Excel en nuestra aplicación:</p>
+<h2 id="creando-un-libro">Creando un libro</h2>
+<p>Para crear un libro de excel usaremos la clase <code>ExcelPackage</code> junto con un objeto de la clase <code>FileInfo</code>, la documentación no indica que debemos emplear nuestro código dentro de un bloque <code>using</code>, pero para evitar sorpresas, creamos el documento dentro de uno:</p>
+<pre><code class="language-csharp">FileInfo prueba = new FileInfo(&quot;prueba.xlsx&quot;);
+using (ExcelPackage excel = new ExcelPackage(prueba))
+{
+    var workbook = excel.Workbook;
+    // ... 
+</code></pre>
+<p>Podemos ver a la clase <code>ExcelPackage</code> como un contenedor de nuestro libro, al que podemos acceder a través de la propiedad <code>Workbook</code>.</p>
+<h2 id="guardando-un-documento">Guardando un documento</h2>
+<p>Al igual que con DocX, una vez creado el documento y después de que hemos terminado de trabajar con él debemos guardar nuestros cambios, esto se hace mediante una llamada a su método <code>Save</code>, con lo cual todos los cambios hechos en el documento serán aplicados sobre el archivo.</p>
+<pre><code class="language-csharp">    // ...
+    excel.Save();
+}
+</code></pre>
+<p>Cabe señalar que también tenemos a nuestra disposición el método <code>SaveAs</code> que permite guardar una copia del documento con el que estamos trabajando, hay otra sobrecarga que inclusive nos eprmite establecer una contraseña para el archivo.</p>
+<p>Si ejecutamos el código hasta este momento veremos un archivo <code>.xlsx</code> llamado &quot;prueba.xlsx&quot; en la carpeta donde está nuestra aplicación, en mi caso es dentro de <code>bin\Debug</code>, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo, pero bien pudimos usar una ruta absoluta para guardarlo en otro lugar.</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__new-xlsx.png&quot; title=<>Documento vacío</> /&gt;</p>
+<h2 id="agregando-informacion">Agregando información</h2>
+<p>Queremos generar un reporte con todos los maestros en una hoja de Excel y así es una de las maneras en que se puede hacer usando EPPlus</p>
+<h3 id="hojas-de-trabajo">Hojas de trabajo</h3>
+<p>Para insertar datos en nuestro libro de Excel necesitamos primero agregar una hoja de trabajo o <em>worksheet</em>, lo cual se hace mediante el método <code>Add</code>, que recibe el nombre de la hoja que vamos a crear. Ten cuidado con intentar agregar dos hojas con el mismo nombre, puesto que esto no está permitido.</p>
+<p>El método <code>Add</code> regresa una referencia a la hoja recién añadida y es precisamente usando esa referencia como vamos a añadir la información.</p>
+<pre><code class="language-csharp">var teacherWorksheet = wb.Worksheets.Add(&quot;Maestros&quot;);
+</code></pre>
+<h3 id="celdas">Celdas</h3>
+<p>Partiendo de la referencia a <code>teacherWorksheet</code> podemos ahora si trabajar con las celdas (<code>Cells</code>) de esa hoja, la forma de hacerlo es como lo haríamos manualmente en el documento, es decir, mediante el sistema de coordenadas compuesto por letras y números. Por ejemplo, si queremos añadir los nombres de las columnas para nuestros datos:</p>
+<pre><code class="language-csharp">teacherWorksheet.Cells[&quot;A1&quot;].Value = &quot;ID&quot;;
+teacherWorksheet.Cells[&quot;B1&quot;].Value = &quot;Nombre&quot;;
+teacherWorksheet.Cells[&quot;C1&quot;].Value = &quot;Apellidos&quot;;
+teacherWorksheet.Cells[&quot;D1&quot;].Value = &quot;Email&quot;;
+teacherWorksheet.Cells[&quot;E1&quot;].Value = &quot;Edad&quot;;
+</code></pre>
+<p>Usamos la propiedad <code>Value</code> de nuestras celdas es como podemos asignarles un valor, la propiedad es de tipo <code>object</code> por lo que podemos poner ahí lo que sea.</p>
+<p>Pero, como queremos distinguir los encabezados del resto de los datos, ¿por qué no los ponemos en <strong>negritas</strong>?</p>
+<pre><code class="language-csharp">teacherWorksheet.Cells[&quot;A1:E1&quot;].Style.Font.Bold = true; 
+</code></pre>
+<p>Como puedes ver, <code>Cells</code> también nos ayuda a recuperar todo un rango de celdas, para así poder trabajar con todas ellas de una sola vez.</p>
+<p>Ya por último en un ciclo <code>foreach</code> insertamos cada uno de los valores en su correspondiente celda</p>
+<pre><code class="language-csharp">int cell = 2;
+foreach (var teacher in Database.Teachers)
+{
+    teacherWorksheet.Cells[&quot;A&quot; + cell].Value = teacher.Id;
+    teacherWorksheet.Cells[&quot;B&quot; + cell].Value = teacher.GivenName;
+    // ... más asignaciones
+    cell++;
+} 
+</code></pre>
+<p>Tras lo cual obtendremos algo como esto:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-1.png&quot; title=<>Documento vacío</> /&gt;</p>
+<p>Podemos agregar más hojas a nuestro libro, también añadiremos una hoja para guardar las Clases impartidas por los maestros.</p>
+<h2 id="hoja-de-resumen">Hoja de resumen</h2>
+<p>Ahora veremos cómo agregar una página de resumen, en la cual mostraremos algunos datos basados en la información contenida dentro del libro.</p>
+<h3 id="combinando-y-centrando-celdas">Combinando y centrando celdas</h3>
+<p>Primero añadimos una nueva hoja al libro, después vamos a unir las celdas <code>A1</code> y <code>B1</code>, ponerlas en negritas y centrar el texto para el &quot;título&quot; de la hoja de resumen. Todo eso es posible con el siguiente código:</p>
+<pre><code class="language-csharp">var summaryWorksheet = wb.Worksheets.Add(&quot;Resumen&quot;);
+
+var titleCell = summaryWorksheet.Cells[&quot;A1:B1&quot;]; // Tomamos un rango de celdas
+titleCell.Merge = true;
+titleCell.Style.Font.Bold = true;
+titleCell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+titleCell.Value = &quot;Resumen&quot;;
+</code></pre>
+<p>Que nos dejará con el siguiente resultado:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-2.png&quot; title=<>Documento vacío</> /&gt;</p>
+<h3 id="formulas">Formulas</h3>
+<p>Para añadir fórmulas debemos usar la propiedad <code>Formula</code> de las celdas, lo que si es importante es hacer referencia a ellas a través de su nombre original en inglés.</p>
+<pre><code class="language-csharp">summaryWorksheet.Cells[&quot;B2&quot;].Formula = &quot;AVERAGE(Maestros!E2:E31)&quot;;  
+// ...
+summaryWorksheet.Cells[&quot;B3&quot;].Formula = &quot;COUNTIF(Maestros!D2:D31,\&quot;\&quot;)&quot;;
+</code></pre>
+<p>En este caso estamos usando AVERAGE para sacar el promedio de edad y COUNTIF para contar la cantidad de maestros sin correo electrónico.</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-3.png&quot; title=<>Documento vacío</> /&gt;</p>
+<h2 id="usando-linq">Usando LINQ</h2>
+<p>Una cosa que relamente es genial de EPPlus es que nos permite usar LINQ para trabajar con las hojas y celdas de nuestros libros, por ejemplo, para obtener una referencia a una hoja de trabajo existente podemos buscarla por su nombre usando el método <code>Single</code>:</p>
+<pre><code class="language-csharp">var teacherWorksheet = wb.Worksheets.Single(ws =&gt; ws.Name == &quot;Maestros&quot;); 
+</code></pre>
+<p>Y ahora, con la referencia <code>teacherWorksheet</code> consultamos sus celdas, nuevamente usando LINQ:</p>
+<pre><code class="language-csharp">var cellsWithYoungTeachers = from cell in teacherWorksheet.Cells[&quot;E:E&quot;].Skip(1)
+                             where ((int)cell.Value) &lt; 20
+                             select cell;
+</code></pre>
+<p>En el código anterior estamos:</p>
+<ul>
+<li>Seleccionando todas las celdas de la columna E con <code>.Cells[&quot;E:E&quot;]</code></li>
+<li>Brincándonos la primera de esas celdas (porque es el título) con <code>.Skip(1)</code></li>
+<li>Filtrándo las celdas que contienen un valor menor a 20 <code>where ((int)cell.Value) &lt; 20</code></li>
+</ul>
+<h2 id="modificando-el-formato-de-las-celdas">Modificando el formato de las celdas</h2>
+<p>Después podemos iterar sobre la colección recién creada y darle un estilo diferente a las celdas que coincidieron con las condiciones que especificamos:</p>
+<pre><code class="language-csharp">foreach (var cell in cellsWithYoungTeachers)
+{
+    cell.Style.Fill.PatternType = ExcelFillStyle.Solid;
+    cell.Style.Fill.BackgroundColor.SetColor(Color.BlueViolet);
+    cell.Style.Font.Color.SetColor(Color.Snow);
+}
+</code></pre>
+<p>Que nos dejará el resultado siguiente:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-4.png&quot; title=<>Celdas coloreadas</> /&gt;</p>
+<p>Además de poder modificar el relleno de una celda también tenemos acceso a personalizar el borde, fuente y alineación.</p>
+<h2 id="formato-condicional">Formato condicional</h2>
+<p>Adicionalmente a añadir nuestro propio formato, esta librería también permite trabajar con formato condicional para las celdas, y la manera de hacerlo es la siguiente:</p>
+<p>Primero que nada, y como siempre, obtenemos una referencia a la hoja sobre la que vamos a trabajar y después determinamos sobre qué rango de columnas vamos a trabajar y creamos un objeto <code>ExcelAddress</code>. Para nuestro caso es sobre la columna de edad de los maestros que es la E:</p>
+<pre><code class="language-csharp">var teacherWorksheet = wb.Worksheets.Single(ws =&gt; ws.Name == &quot;Maestros&quot;);
+var ageCellsStringAddress = &quot;$E$2:$E$31&quot;;
+var ageCellsAddress = new ExcelAddress(ageCellsStringAddress);
+</code></pre>
+<p>Una vez que tenemos determinado el rango, accedemos a la propiedad <code>ConditionalFormatting</code> para agregar un nuevo formato condicional, en este caso usaremos una escala de dos colores:</p>
+<pre><code class="language-csharp">var formatting = teacherWorksheet.ConditionalFormatting.AddTwoColorScale(ageCellsAddress);
+</code></pre>
+<p>Lo siguiente es configurar el formato condicional, usaremos fórmulas para obtener el valor mínimo y máximo de las edades de los profesores:</p>
+<pre><code class="language-csharp">formatting.LowValue.Type = eExcelConditionalFormattingValueObjectType.Formula;
+formatting.LowValue.Formula = &quot;MIN(&quot; + ageCellsAddress + &quot;)&quot;;
+formatting.LowValue.Color = Color.LightGreen;
+
+formatting.HighValue.Type = eExcelConditionalFormattingValueObjectType.Formula;
+formatting.HighValue.Formula = &quot;MAX(&quot; + ageCellsAddress + &quot;)&quot;;
+formatting.HighValue.Color = Color.Green;
+</code></pre>
+<p>Tras lo cual el libro se verá así:</p>
+<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-5.png&quot; title=<>Formato condicional</> /&gt;</p>
+<h2 id="leyendo-celdas">Leyendo celdas</h2>
+<p>Así como podemos crear hojas desde cero, también podemos leer las ya existentes. Esto es particularmente útil cuando vas a solicitar información a los usuarios a través de un libro de Excel.</p>
+<p>Así que supongamos que cargaremos maestros a la base con un archivo llamado <code>teachers.xlsx</code>, bastaría con abrirlo:</p>
+<pre><code class="language-csharp">FileInfo uploaded = new FileInfo(&quot;teachers.xlsx&quot;);
+using (ExcelPackage excel = new ExcelPackage(uploaded))
+{
+    // ...
+</code></pre>
+<p>Buscar la la hoja que necesitamos y contar las filas que contiene:</p>
+<pre><code class="language-csharp">    var teacherWorksheet = excel.Workbook.Worksheets.Single(ws =&gt; ws.Name == &quot;Maestros&quot;);
+    var cells = teacherWorksheet.Cells;
+    int rowCount = cells[&quot;A:A&quot;].Count();
+</code></pre>
+<p>Y leer los datos accediendo a las celdas y su propiedad <code>Value</code>:</p>
+<pre><code class="language-csharp">    for (int i = 1; i &lt;= rowCount; i++)
+    {
+        Console.WriteLine(
+            cells[&quot;A&quot; + i].Value.ToString() + &quot;\t&quot; +
+            cells[&quot;B&quot; + i].Value.ToString() + &quot;\t&quot; +
+            cells[&quot;C&quot; + i].Value.ToString() + &quot;\t&quot; +
+            cells[&quot;D&quot; + i].Value.ToString() + &quot;\t&quot; 
+            );
+    }
+</code></pre>
+<p>En este caso los datos leídos se imprimen a consola, pero sería sencillo insertarlos en una base de datos o hacer algun tipo de procesamiento con ellos.</p>
+<h2 id="conclusion">Conclusión</h2>
+<p>Sin lugar a dudas, la API de EPPlus es bastante buena y fácil de usar y si bien tiene poca documentación, es posible encontrar recursos en línea que explícan un poco más acerca de su uso. Como ya vimos, nos puede resultar útil para generar documentos desde cero o interactuar con documentos ya existentes. Es importante remarcar que para su funcionamiento <strong>no requiere que el lugar en donde se ejecute cuente con Office instalado</strong>, al igual que DocX.</p>
+<h1 id="instalacion">Instalación</h1>
+<p>No olvides visitar <a href="http://epplus.codeplex.com" target="_blank">la página de EPPlus en Codeplex</a> o instala el paquete de NuGet en tu proyecto:</p>
+<pre><code>PM&gt; Install-Package EPPlus
+</code></pre>
+
+
+            </div>
+        </div>
+        <footer class="site-footer ui">
+   <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-8-24">
+         <div class="footer-content">
+            <ul class="icon-list">
+        <li id="em">
+            <a href="mailto:feregrino@thatcsharpguy.com" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 11.815v13.292q0 1.105-.787 1.892-.787.78-1.892.78H3.68q-1.106 0-1.893-.79Q1 26.21 1 25.102v-13.29q.737.82 1.69 1.46 6.06 4.12 8.32 5.78.955.705 1.55 1.1.594.392 1.582.802.987.41 1.84.41h.035q.854 0 1.84-.41.99-.41 1.583-.804.595-.393 1.55-1.096 2.845-2.06 8.336-5.778.954-.652 1.674-1.455zm0-4.922q0 1.322-.82 2.528t-2.043 2.06l-7.835 5.44-.71.51q-.545.4-.905.64t-.87.55q-.51.3-.963.45-.452.15-.837.15h-.034q-.385 0-.837-.15-.452-.15-.962-.45-.51-.302-.87-.544-.36-.243-.905-.637l-.72-.51q-1.525-1.07-4.388-3.055-2.86-1.984-3.43-2.386-1.04-.704-1.96-1.935Q1 8.315 1 7.26q0-1.305.695-2.175.695-.87 1.984-.87h24.64q1.09 0 1.88.786.792.79.792 1.9z"/></svg>
+            </a>
+        </li>
+        <li id="gh">
+            <a href="https://github.com/ThatCSharpGuy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 16.37q0 4.9-2.86 8.8-2.86 3.93-7.4 5.43-.52.1-.77-.13-.24-.24-.24-.6v-4.1q0-1.9-1.02-2.78 1.2-.2 2.1-.4.9-.3 1.87-.8.95-.5 1.58-1.3.65-.8 1.05-2.1.4-1.27.4-2.93 0-2.38-1.54-4.04.7-1.78-.16-3.98-.57-.2-1.6.2t-1.8.85l-.75.47q-1.83-.5-3.76-.5t-3.76.5l-.8-.54Q11 8.16 9.9 7.7q-1.13-.4-1.7-.23-.86 2.2-.14 3.97-1.54 1.68-1.54 4.05 0 1.6.4 2.9.4 1.23 1.02 2.02.63.8 1.58 1.3.94.53 1.83.77.9.25 2 .37-.77.7-.94 2-.4.2-.82.3-.47.1-1.1.1-.66 0-1.3-.44-.63-.4-1.08-1.2-.38-.63-.95-1-.52-.4-.9-.5l-.4-.03q-.4 0-.57.1-.15.1-.1.24.06.13.18.26t.26.2l.15.1q.44.2.86.73t.63 1l.2.43q.23.75.84 1.2.6.47 1.3.6.7.13 1.34.14.65 0 1.08-.04l.46-.08v2.74q0 .35-.26.6-.25.22-.8.12-4.5-1.5-7.37-5.42-3-3.74-3-8.64 0-4.1 2-7.54 2-3.44 5.45-5.46 3.45-2 7.53-2t7.6 2q3.4 2 5.4 5.46 2 3.44 2 7.53z"/></svg>
+            </a>
+        </li>
+        <li id="yt">
+            <a href="https://www.youtube.com/c/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.43 15.714c0-.413-.17-.714-.504-.904l-8.57-5.357c-.347-.223-.71-.234-1.09-.033-.368.2-.552.513-.552.937V21.07c0 .426.184.738.553.94.178.088.35.133.52.133.222 0 .412-.056.568-.168l8.57-5.357c.336-.19.504-.49.504-.904zm8.57 0c0 1.072-.006 1.91-.017 2.51-.01.604-.058 1.366-.142 2.287-.083.92-.208 1.744-.376 2.47-.178.815-.563 1.5-1.155 2.06-.592.557-1.284.88-2.077.97-2.477.28-6.222.42-11.233.42-5.01 0-8.756-.14-11.233-.42-.793-.09-1.487-.413-2.085-.97-.597-.56-.984-1.245-1.163-2.06-.157-.726-.277-1.55-.36-2.47-.085-.92-.132-1.682-.143-2.285-.01-.602-.017-1.44-.017-2.51 0-1.072.006-1.91.017-2.512.01-.603.058-1.364.142-2.285.083-.92.208-1.744.376-2.47.178-.814.563-1.5 1.155-2.058.592-.56 1.284-.882 2.077-.97C7.244 5.14 10.99 5 16 5c5.01 0 8.756.14 11.233.42.793.088 1.487.41 2.085.97.597.558.984 1.244 1.163 2.06.157.724.277 1.547.36 2.468.085.92.132 1.682.143 2.285.01.603.017 1.44.017 2.51z"/></svg>
+            </a>
+        </li>
+        <li id="tw">
+            <a href="https://twitter.com/io_exception" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 6.7q-1.28 1.88-3.08 3.2.02.26.02.8 0 2.46-.73 4.93-.7 2.46-2.2 4.73-1.46 2.26-3.5 4-2.04 1.75-4.9 2.8-2.88 1.02-6.16 1.02-5.16 0-9.44-2.76.67.08 1.48.08 4.3 0 7.64-2.63-2-.04-3.58-1.23-1.58-1.2-2.17-3.03.63.1 1.16.1.82 0 1.62-.2-2.13-.44-3.53-2.13-1.4-1.68-1.4-3.9v-.1q1.3.74 2.78.8-1.26-.84-2-2.2-.74-1.35-.74-2.93 0-1.67.83-3.1 2.3 2.84 5.6 4.54 3.3 1.7 7.07 1.9-.15-.73-.15-1.4 0-2.57 1.8-4.36 1.8-1.8 4.35-1.8 2.66 0 4.5 1.94 2.07-.4 3.9-1.5-.7 2.2-2.7 3.4 1.76-.2 3.53-.95z"/></svg>
+            </a>
+        </li>    
+        <li id="fb">
+            <a href="https://www.facebook.com/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.512 1.488c.325.326.488.716.488 1.172v26.68c0 .456-.163.846-.488 1.172-.326.325-.716.488-1.172.488h-7.637V19.38h3.887l.586-4.532h-4.473v-2.89c0-.73.153-1.277.46-1.642.305-.364.9-.546 1.786-.546l2.382-.02V5.707c-.82-.117-1.98-.176-3.477-.176-1.77 0-3.186.522-4.248 1.564-1.06 1.04-1.59 2.513-1.59 4.414v3.34h-3.908v4.53h3.906V31H2.66c-.456 0-.846-.163-1.172-.488C1.163 30.186 1 29.796 1 29.34V2.66c0-.456.163-.846.488-1.172C1.814 1.163 2.204 1 2.66 1h26.68c.456 0 .846.163 1.172.488z"/></svg>
+            </a>
+        </li>
+        <li id="gp">
+            <a href="https://www.google.com/+Thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.9 14.25h-2.7v-2.72h-2.73v2.72h-2.7v2.72h2.7v2.7h2.72v-2.7h2.7v-2.72M10.5 17.5h5.4c-.22 1.4-1.64 4.12-5.4 4.12-3.25 0-5.9-2.7-5.9-6 0-3.33 2.65-6.02 5.9-6.02 1.85 0 3.08.78 3.8 1.46l2.58-2.48c-1.66-1.55-3.8-2.5-6.38-2.5C5.26 6.1 1 10.35 1 15.62s4.26 9.52 9.52 9.52c5.5 0 9.14-3.86 9.14-9.3 0-.62-.07-1.1-.15-1.57h-8.96"/></svg>
+            </a>
+        </li>
+    </ul>
+    <ul class="icon-list">
+        <li>
+            <a href="#">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M7 18.89v-5.88H1.15v-6H7V1.1h6v5.91h6V1.1h6v5.91h5.85v6H25v5.88h5.85v6H25v5.912h-6v-5.91h-6v5.91H7v-5.91H1.15v-6H7zm6 0v-5.88h6v5.88h-6z" fill="#3C8A3F" fill-rule="evenodd"/></svg>
+            </a>
+        </li>
+    </ul>
+         </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-6-24">
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+         <div class="footer-content">
+         </div>
+      </div>
+   </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<title>Custom cells en Xamarin.Forms | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Custom cells en Xamarin.Forms">
+<meta itemprop="description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Custom cells en Xamarin.Forms">
+<meta name="twitter:description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Custom cells en Xamarin.Forms">
+<meta name="og:description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/posts/2017-06-20-custom-cells-xamarin.html">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Inicio</a>
+          <!-- <a class="link page-link" href="/">Sobre mi</a> -->
+          <a class="link page-link youtube" href="/">YouTube</a>
+          <a class="link page-link book-reviews" href="/tags/book-review.html">Reseñas</a>
+          <!-- <a class="link page-link gear" href="/">Herramientas</a> -->
+          <!-- <a class="link page-link" href="/about">About</a> -->
+          <!-- <a class="link page-link" href="/search">Search</a> -->
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1>Custom cells en Xamarin.Forms</h1>
+
+<p>En un post anterior les había hablado sobre <a href="..\custom-renderer-paint-code" target="_blank">sobre cómo crear un control personalizado</a> en Xamarin.Forms, pero, ¿sabías que puedes hacer lo mismo con las celdas de un <code>ListView</code> o <code>TableView</code>? en este post voy a explicar cómo hacerlo. Esta es una solución ideal si tienes conocimiento de creación de interfaces en iOS o Android.</p>
+<h2 id="en-forms">En Forms</h2>
+<p>Como siempre, cuando vamos a implementar funcionalidades específicas para cada plataforma en Xamarin.Forms, iniciamos con una clase dentro del proyecto de Forms, esta debe ser una abstracción de lo que vamos a implementar. En este caso debe ser una clase que derive de <code>ViewCell</code>:</p>
+<pre><code class="language-csharp">public class ContactCell : ViewCell
+{
+</code></pre>
+<p>Además, dentro de la clase le agregamos una propiedad llamada <code>ContactName</code> y su respectiva declaración de <code>BindableProperty</code>, tu deberías agregarle las que necesites:</p>
+<pre><code class="language-csharp">    public static readonly BindableProperty ContactNameProperty =
+        BindableProperty.Create(nameof(ContactName), typeof(string), typeof(ContactCell), default(string));
+
+    public string ContactName
+    {
+        get { return (string)GetValue(ContactNameProperty); }
+        set { SetValue(ContactNameProperty, value); }
+    }
+</code></pre>
+<p>Por último, sobrescribe el método <code>OnBindingContextChanged</code>, este método es llamado cada vez que el objeto enlazado con la celda cambia. Cuando este objeto cambie, nosotros vamos a cambiar el valor de la propiedad. Esto cobrará relevancia más adelante:</p>
+<pre><code class="language-csharp">    protected override void OnBindingContextChanged()
+    {
+        string name = BindingContext as string;
+        if(name!= null)
+            ContactName = name;
+    }
+</code></pre>
+<h2 id="en-android">En Android</h2>
+<h3 id="diseno">Diseño</h3>
+<p>En Android hay que implementar la celda, en esta plataforma la forma por excelencia para crear interfaces gráficas es a través de archivos XML. En este caso, los archivos de interfaz gráfica deben ir en la carpeta <code>Resources/layout</code>, yo llamé a la celda <code>ContactCell.axml</code>. El contenido es un simple <code>RelativeLayout</code> con un par de <code>TextViews</code> dentro (asegúrate de establecerle un ID a cada control que vayas a usar):</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;70dp&quot;
+    android:padding=&quot;0dip&quot;&gt;
+    &lt;TextView
+        android:id=&quot;@+id/FirstLetter&quot;
+        android:background=&quot;@drawable/RoundedCorner&quot;
+        android:layout_width=&quot;50dp&quot;
+        android:layout_height=&quot;50dp&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_centerInParent=&quot;false&quot;
+        android:layout_marginLeft=&quot;10dp&quot;
+        android:textSize=&quot;30sp&quot;
+        android:textAllCaps=&quot;true&quot;
+        android:gravity=&quot;center&quot; /&gt;
+    &lt;TextView
+        android:id=&quot;@+id/FullName&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_centerInParent=&quot;false&quot;
+        android:textSize=&quot;30sp&quot;
+        android:layout_marginLeft=&quot;10.0dp&quot;
+        android:layout_marginRight=&quot;10.0dp&quot;
+        android:layout_toRightOf=&quot;@id/FirstLetter&quot; /&gt;
+&lt;/RelativeLayout&gt;
+</code></pre>
+<p>Inclusive puedes utilizar el editor gráfico de tu preferencia:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__customcell__ContactCell.png&quot; title=<>Creación del proyecto</> /&gt;</p>
+<h3 id="wrapper"><em>Wrapper</em></h3>
+<p>Lo siguiente es crear una clase <em>wrapper</em> que envuelva a nuestro archivo XML, esto con la finalidad de poder acceder más fácil a los controles y permitir que nuestra celda funcione con las <code>CachingStrategy</code> dentro de las listas de Forms. La clase debe heredar de un contenedor de Android y implementar la interfaz <code>INativeElementView</code> de Xamarin.Forms:</p>
+<pre><code class="language-csharp">public class AndroidContactCell : LinearLayout, INativeElementView
+{
+</code></pre>
+<p>Dentro de esta clase agrega un par de propiedades, la primera para hacer referencia al control de Forms, y la segunda implementando la interfaz <code>INativeElementView</code>:</p>
+<pre><code class="language-csharp">    ContactCell _nativeContactCell;
+    public Element Element =&gt; _nativeContactCell;
+</code></pre>
+<p>Un par de <code>TextView</code> para hacer referencia a lo declarado en el <em>layout</em> xml:</p>
+<pre><code class="language-csharp">    TextView _firstLetterTextView;
+    TextView _fullNameTextView;
+</code></pre>
+<p>En el constructor hay que tomar el <code>Context</code> y una instancia de la clase de la celda en Forms. Tomando el <code>Context</code> vamos a crear una instancia de la celda, empleando el <code>LayoutInflater</code>, luego, con esta instancia a la mano, recuperamos los <code>TextView</code>.</p>
+<pre><code class="language-csharp">    public AndroidContactCell(Context context, ContactCell cell) : base(context)
+    {
+        _nativeContactCell = cell;
+
+        var view = (context as Activity).LayoutInflater.Inflate(Resource.Layout.ContactCell, null);
+        _firstLetterTextView = view.FindViewById&lt;TextView&gt;(Resource.Id.FirstLetter);
+        _fullNameTextView = view.FindViewById&lt;TextView&gt;(Resource.Id.FullName);
+
+        AddView(view);
+    }
+</code></pre>
+<p>Por último, agregamos un método que nos permitirá actualizar los valores de esta celda:</p>
+<pre><code class="language-csharp">    public void UpdateCell(string newName)
+    {
+        _firstLetterTextView.Text = newName.Substring(0, 1);
+        _fullNameTextView.Text = newName;
+
+    }
+}
+</code></pre>
+<p>### <em>Renderer</em></p>
+<p>Luego, lo que hay que hacer es implementar el <em>custom renderer</em> para enlazar la celda de Forms con la nativa que acabamos de desarrollar. El <em>renderer</em> debe derivar de <code>ViewCellRenderer</code>:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(ContactCell), typeof(ContactCellRenderer))]
+namespace CeldaPersonalizada.Droid.Cells
+{
+    class ContactCellRenderer : ViewCellRenderer
+    {
+</code></pre>
+<p>Dentro del <em>renderer</em> agrega una propiedad para contener una instancia de la celda nativa:</p>
+<pre><code class="language-csharp">        AndroidContactCell _cell;
+</code></pre>
+<p>Después toca sobrescribir un par de métodos, <code>GetCellCore</code> y <code>OnCellPropertyChanged</code>, el primero que se ejecutará cada vez que el sistema necesite crear una nueva celda. Dentro de éste trataremos de convertir el argumento <code>convertView</code> a una instancia de la celda nativa (aquí es donde se realiza el reciclado de celdas) y si no es posible, creamos una nueva. Antes de terminar la ejecución del método, llamamos a <code>UpdateCell</code> para establecer los valores correctos:</p>
+<pre><code class="language-csharp">        protected override Android.Views.View GetCellCore(Cell item, Android.Views.View convertView, ViewGroup parent, Context context)
+        {
+            var FormsCell = Cell as ContactCell;
+            _cell = convertView as AndroidContactCell;
+            if (_cell == null)
+            {
+                _cell = new AndroidContactCell(context, FormsCell);
+            }
+
+            _cell.UpdateCell(FormsCell.ContactName);
+
+            return _cell;
+        }
+</code></pre>
+<p>Dentro de <code>OnCellPropertyChanged</code> revisamos qué propiedad se modificó y si se modificó la que nos interesa, actualizamos los valores de la celda nuevamente.</p>
+<pre><code class="language-csharp">        protected override void OnCellPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var FormsCell = (ContactCell)sender;
+            if (e.PropertyName.Equals(&quot;ContactName&quot;))
+            {
+                _cell.UpdateCell(FormsCell.ContactName);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="en-ios">En iOS</h2>
+<p>En iOS también tenemos la opción de crear celdas usando código, o como en este caso, archivos de interfaz gráfica <code>.xib</code>, para crear uno en Visual Studio para Mac:</p>
+<h3 id="diseno-1">Diseño</h3>
+<p>&lt;img src=&quot;/images/xamarin-forms__customcell__projectCreation.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
+<p>Esto generará un par de archivos <code>ContactCell.cs</code> y <code>ContactCell.xib</code>, es el segundo archivo en el que se edita la interfaz. Yo inclusive lo edité con el editor de Xcode:</p>
+<p>&lt;img src=&quot;/images/xamarin-forms__customcell__edit.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
+<h3 id="wrapper-1"><em>Wrapper</em></h3>
+<p>Una vez que está creada la celda, vamos a echarle un ojo a su clase asociada <code>ContactCell.cs</code>, esta clase es la que actuará como el <em>wrapper</em> de la interfaz. Entonces, lo que hay que hacer es que implemente la interfaz <code>INativeElementView</code>:</p>
+<pre><code class="language-csharp">public partial class ContactCell : UITableViewCell, INativeElementView
+{
+</code></pre>
+<p>Luego, verás unas partes de código que se generaron automáticamente, estas nos serán de gran ayuda cuando sea la hora de crear las celdas.</p>
+<pre><code class="language-csharp">    public static readonly NSString Key = new NSString(&quot;ContactCell&quot;);
+    public static readonly UINib Nib;
+
+    static ContactCell()
+    {
+        Nib = UINib.FromName(&quot;ContactCell&quot;, NSBundle.MainBundle);
+    }
+
+    protected ContactCell(IntPtr handle) : base(handle)
+    {
+        // Note: this .ctor should not contain any initialization logic.
+    }
+</code></pre>
+<p>Ya por último, añade una propiedad desde la cual puedas hacer referencia a un tipo <code>ContactCell</code> del proyecto de Forms, liego debes agregar una propiedad pública de tipo <code>Element</code> para cumplir con la interfaz <code>INativeElementView</code> y por último, agrega una forma de actualizar el valor de los campos dentro de la celda:</p>
+<pre><code class="language-csharp">
+    public FormsContactCell FormsContactCell { get; set; }
+
+    public Element Element =&gt; FormsContactCell;
+
+    public void UpdateCell(string newName)
+    {
+        FirstLetter.Text = newName.Substring(0, 1);
+        FullName.Text = newName;
+
+    }
+}
+</code></pre>
+<h3 id="renderer"><em>Renderer</em></h3>
+<p>Ya sabes, hay que implementar un <em>custom renderer</em>, este igual heredará de <code>ViewCellRenderer</code>:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(FormsContactCell), typeof(CeldaPersonalizada.iOS.Cells.ContactCellRenderer))]
+namespace CeldaPersonalizada.iOS.Cells
+{
+    public class ContactCellRenderer : ViewCellRenderer
+    {
+</code></pre>
+<p>Al igual que en el de Android, debes agregar un campo para mantener una referencia a la celda nativa, en este caso se llama <code>iOSContactCell</code> porque usé <a href="//thatcsharpguy.com/post/creando-propios-alias/" target="_blank">un alias</a>:</p>
+<pre><code class="language-csharp">        iOSContactCell _nativeContactCell;
+</code></pre>
+<p>Ya para terminar, hay que sobrescribir el método <code>GetCell</code> que es llamado cada vez que una celda necesita ser creada. Lo primero que hay que hacer es tratar de reutilizar la celda que viene en el argumento <code>reusableCell</code>. Si no se puede (si es nula), instanciamos una nueva celda a partir del <em>Nib</em> que se creó junto con nuestro archivo de interfaz gráfica. Si, por otro lado, se puede reutilizar la celda, tenemos que eliminarle el evento <code>PropertyChanged</code> a la celda de Forms, más de esto en corto.</p>
+<p>Después, y ya una vez que tenemos una celda nativa que podemos usar, establecemos la propiedad <code>FormsContactCell</code> para que haga referencia a la celda de Forms que está vinculada con la celda nativa. A esta misma le agregamos un manejador de evento a <code>PropertyChanged</code>, esto con la finalidad de estar atentos a cuando alguna propiedad de nuestra celda de Forms cambia. Por último, actualizamos la celda nativa para que refleje los valores más recientes.</p>
+<pre><code class="language-csharp">        public override UITableViewCell GetCell(Cell item, UITableViewCell reusableCell, UITableView tv)
+        {
+            _nativeContactCell = reusableCell as iOSContactCell;
+            if (_nativeContactCell == null)
+            {
+                var stuff = iOSContactCell.Nib.Instantiate(null, null);
+                _nativeContactCell = stuff.First() as iOSContactCell;
+            } 
+            else
+            {
+                _nativeContactCell.FormsContactCell.PropertyChanged -= FormsContactCell_PropertyChanged;    
+            }
+            _nativeContactCell.FormsContactCell = item as FormsContactCell;
+            _nativeContactCell.FormsContactCell.PropertyChanged += FormsContactCell_PropertyChanged;
+            _nativeContactCell.UpdateCell((item as FormsContactCell).ContactName);
+
+            return _nativeContactCell;
+        }
+</code></pre>
+<p>El manejador de evento es muy simple. Primero se comprueba que se haya modificado la propiedad que nos interesa, y después actuamos en consecuencia.</p>
+<pre><code class="language-csharp">        void FormsContactCell_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var FormsCell = sender as FormsContactCell;
+            if(e.PropertyName.Equals(&quot;ContactName&quot;))
+            {
+                _nativeContactCell.UpdateCell(FormsCell.ContactName);
+            }
+        }
+</code></pre>
+<p>Eso es todo lo que se requiere hacer para que podamos crear y utilizar celdas personalizadas en Xamarin.Forms, así es como se ve el resultado final:</p>
+<p>No olvides que puedes descargar <a href="https://github.com/ThatCSharpGuy/CeldaPersonalizada" target="_blank">el código fuente</a> directamente de <a href="https://github.com/ThatCSharpGuy/CeldaPersonalizada" target="_blank">GitHub</a> para que lo pruebes y modifiques a tu gusto.</p>
+
+
+            </div>
+        </div>
+        <footer class="site-footer ui">
+   <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-8-24">
+         <div class="footer-content">
+            <ul class="icon-list">
+        <li id="em">
+            <a href="mailto:feregrino@thatcsharpguy.com" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 11.815v13.292q0 1.105-.787 1.892-.787.78-1.892.78H3.68q-1.106 0-1.893-.79Q1 26.21 1 25.102v-13.29q.737.82 1.69 1.46 6.06 4.12 8.32 5.78.955.705 1.55 1.1.594.392 1.582.802.987.41 1.84.41h.035q.854 0 1.84-.41.99-.41 1.583-.804.595-.393 1.55-1.096 2.845-2.06 8.336-5.778.954-.652 1.674-1.455zm0-4.922q0 1.322-.82 2.528t-2.043 2.06l-7.835 5.44-.71.51q-.545.4-.905.64t-.87.55q-.51.3-.963.45-.452.15-.837.15h-.034q-.385 0-.837-.15-.452-.15-.962-.45-.51-.302-.87-.544-.36-.243-.905-.637l-.72-.51q-1.525-1.07-4.388-3.055-2.86-1.984-3.43-2.386-1.04-.704-1.96-1.935Q1 8.315 1 7.26q0-1.305.695-2.175.695-.87 1.984-.87h24.64q1.09 0 1.88.786.792.79.792 1.9z"/></svg>
+            </a>
+        </li>
+        <li id="gh">
+            <a href="https://github.com/ThatCSharpGuy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 16.37q0 4.9-2.86 8.8-2.86 3.93-7.4 5.43-.52.1-.77-.13-.24-.24-.24-.6v-4.1q0-1.9-1.02-2.78 1.2-.2 2.1-.4.9-.3 1.87-.8.95-.5 1.58-1.3.65-.8 1.05-2.1.4-1.27.4-2.93 0-2.38-1.54-4.04.7-1.78-.16-3.98-.57-.2-1.6.2t-1.8.85l-.75.47q-1.83-.5-3.76-.5t-3.76.5l-.8-.54Q11 8.16 9.9 7.7q-1.13-.4-1.7-.23-.86 2.2-.14 3.97-1.54 1.68-1.54 4.05 0 1.6.4 2.9.4 1.23 1.02 2.02.63.8 1.58 1.3.94.53 1.83.77.9.25 2 .37-.77.7-.94 2-.4.2-.82.3-.47.1-1.1.1-.66 0-1.3-.44-.63-.4-1.08-1.2-.38-.63-.95-1-.52-.4-.9-.5l-.4-.03q-.4 0-.57.1-.15.1-.1.24.06.13.18.26t.26.2l.15.1q.44.2.86.73t.63 1l.2.43q.23.75.84 1.2.6.47 1.3.6.7.13 1.34.14.65 0 1.08-.04l.46-.08v2.74q0 .35-.26.6-.25.22-.8.12-4.5-1.5-7.37-5.42-3-3.74-3-8.64 0-4.1 2-7.54 2-3.44 5.45-5.46 3.45-2 7.53-2t7.6 2q3.4 2 5.4 5.46 2 3.44 2 7.53z"/></svg>
+            </a>
+        </li>
+        <li id="yt">
+            <a href="https://www.youtube.com/c/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.43 15.714c0-.413-.17-.714-.504-.904l-8.57-5.357c-.347-.223-.71-.234-1.09-.033-.368.2-.552.513-.552.937V21.07c0 .426.184.738.553.94.178.088.35.133.52.133.222 0 .412-.056.568-.168l8.57-5.357c.336-.19.504-.49.504-.904zm8.57 0c0 1.072-.006 1.91-.017 2.51-.01.604-.058 1.366-.142 2.287-.083.92-.208 1.744-.376 2.47-.178.815-.563 1.5-1.155 2.06-.592.557-1.284.88-2.077.97-2.477.28-6.222.42-11.233.42-5.01 0-8.756-.14-11.233-.42-.793-.09-1.487-.413-2.085-.97-.597-.56-.984-1.245-1.163-2.06-.157-.726-.277-1.55-.36-2.47-.085-.92-.132-1.682-.143-2.285-.01-.602-.017-1.44-.017-2.51 0-1.072.006-1.91.017-2.512.01-.603.058-1.364.142-2.285.083-.92.208-1.744.376-2.47.178-.814.563-1.5 1.155-2.058.592-.56 1.284-.882 2.077-.97C7.244 5.14 10.99 5 16 5c5.01 0 8.756.14 11.233.42.793.088 1.487.41 2.085.97.597.558.984 1.244 1.163 2.06.157.724.277 1.547.36 2.468.085.92.132 1.682.143 2.285.01.603.017 1.44.017 2.51z"/></svg>
+            </a>
+        </li>
+        <li id="tw">
+            <a href="https://twitter.com/io_exception" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 6.7q-1.28 1.88-3.08 3.2.02.26.02.8 0 2.46-.73 4.93-.7 2.46-2.2 4.73-1.46 2.26-3.5 4-2.04 1.75-4.9 2.8-2.88 1.02-6.16 1.02-5.16 0-9.44-2.76.67.08 1.48.08 4.3 0 7.64-2.63-2-.04-3.58-1.23-1.58-1.2-2.17-3.03.63.1 1.16.1.82 0 1.62-.2-2.13-.44-3.53-2.13-1.4-1.68-1.4-3.9v-.1q1.3.74 2.78.8-1.26-.84-2-2.2-.74-1.35-.74-2.93 0-1.67.83-3.1 2.3 2.84 5.6 4.54 3.3 1.7 7.07 1.9-.15-.73-.15-1.4 0-2.57 1.8-4.36 1.8-1.8 4.35-1.8 2.66 0 4.5 1.94 2.07-.4 3.9-1.5-.7 2.2-2.7 3.4 1.76-.2 3.53-.95z"/></svg>
+            </a>
+        </li>    
+        <li id="fb">
+            <a href="https://www.facebook.com/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.512 1.488c.325.326.488.716.488 1.172v26.68c0 .456-.163.846-.488 1.172-.326.325-.716.488-1.172.488h-7.637V19.38h3.887l.586-4.532h-4.473v-2.89c0-.73.153-1.277.46-1.642.305-.364.9-.546 1.786-.546l2.382-.02V5.707c-.82-.117-1.98-.176-3.477-.176-1.77 0-3.186.522-4.248 1.564-1.06 1.04-1.59 2.513-1.59 4.414v3.34h-3.908v4.53h3.906V31H2.66c-.456 0-.846-.163-1.172-.488C1.163 30.186 1 29.796 1 29.34V2.66c0-.456.163-.846.488-1.172C1.814 1.163 2.204 1 2.66 1h26.68c.456 0 .846.163 1.172.488z"/></svg>
+            </a>
+        </li>
+        <li id="gp">
+            <a href="https://www.google.com/+Thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.9 14.25h-2.7v-2.72h-2.73v2.72h-2.7v2.72h2.7v2.7h2.72v-2.7h2.7v-2.72M10.5 17.5h5.4c-.22 1.4-1.64 4.12-5.4 4.12-3.25 0-5.9-2.7-5.9-6 0-3.33 2.65-6.02 5.9-6.02 1.85 0 3.08.78 3.8 1.46l2.58-2.48c-1.66-1.55-3.8-2.5-6.38-2.5C5.26 6.1 1 10.35 1 15.62s4.26 9.52 9.52 9.52c5.5 0 9.14-3.86 9.14-9.3 0-.62-.07-1.1-.15-1.57h-8.96"/></svg>
+            </a>
+        </li>
+    </ul>
+    <ul class="icon-list">
+        <li>
+            <a href="#">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M7 18.89v-5.88H1.15v-6H7V1.1h6v5.91h6V1.1h6v5.91h5.85v6H25v5.88h5.85v6H25v5.912h-6v-5.91h-6v5.91H7v-5.91H1.15v-6H7zm6 0v-5.88h6v5.88h-6z" fill="#3C8A3F" fill-rule="evenodd"/></svg>
+            </a>
+        </li>
+    </ul>
+         </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-6-24">
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+         <div class="footer-content">
+         </div>
+      </div>
+   </div>
+</footer>
+</body>
+</html>
