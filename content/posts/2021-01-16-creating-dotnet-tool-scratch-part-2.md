@@ -11,7 +11,7 @@ tags: software-engineering, testing, dotnet, c-sharp
 
  > This is a rough draft: explanations are incomplete and there may be spelling mistakes. I just made it public for people that have a hard time copying commands from a video.
 
-If you speak spanish and prefer to see me coding this, you can do so in this video: [Ingeniería de software  - Comenzando con nuestro proyecto](https://youtu.be/wXseAL7NCnk).
+If you speak spanish and prefer to see me coding this, you can do so in this video: [Ingeniería de software  - Comenzando con nuestro proyecto](https://youtu.be/npUrHUyeMc4).
 
 Lockdown is a static website generator written in C# that works as a [.NET tool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
 
