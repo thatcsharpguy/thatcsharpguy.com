@@ -1,1 +1,275 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<title>Introducción a Xamarin.Forms (app Sharpuladora) | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Introducción a Xamarin.Forms (app Sharpuladora)">
+<meta itemprop="description" content="Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Introducción a Xamarin.Forms (app Sharpuladora)">
+<meta name="twitter:description" content="Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Introducción a Xamarin.Forms (app Sharpuladora)">
+<meta name="og:description" content="Esta es una guía que te llevará paso a paso a crear tu primera aplicación en Xamarin.Forms.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/posts/2015-11-29-introduccion-xamarin-forms-sharpuladora.html">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Inicio</a>
+          <!-- <a class="link page-link" href="/">Sobre mi</a> -->
+          <a class="link page-link youtube" href="/">YouTube</a>
+          <a class="link page-link book-reviews" href="/tags/book-review.html">Reseñas</a>
+          <!-- <a class="link page-link gear" href="/">Herramientas</a> -->
+          <!-- <a class="link page-link" href="/about">About</a> -->
+          <!-- <a class="link page-link" href="/search">Search</a> -->
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1>Introducción a Xamarin.Forms (app Sharpuladora)</h1>
+
+<h1 id="sharpuladora">Sharpuladora</h1>
+<p>¿Quién no ha hecho un clásico &quot;Hola mundo!&quot; cuando inicia a trabajar con un nuevo lenguaje/framework?
+Pues bueno, tan clásico es el <em>hola mundo</em> como hacer una calculadora y para Xamarin.Forms no es la excepción. En esta guía te mostraré cómo usar algunos controles para crear tus apps... y entre ellas ¡tu propia calculadora!</p>
+<h1 id="como-funciona-esta-guia">¿Cómo funciona esta guía?</h1>
+<p>Esta guía emplea un formato interactivo, viene acompañada de código que puedes probar y modificar al momento que haces el ejercicio. El código se divide en tres o cuatro carpetas:</p>
+<ul>
+<li><strong>start</strong> es el punto de inicio de la guía, contiene una solución preparada para comenzar a trabajar.</li>
+<li><strong>parts</strong> son todos y cada uno de los archivos necesarios para completar la guía, usualmente son provistos como referencia para que si te llegas a atorar con algo los revises y si es necesario copies el código para seguir avanzando con la guía. Este documento está dividido en partes y a cada una de ellas le corresponde una subcarpeta.</li>
+<li><strong>final</strong> es el resultado final, al que queremos llegar con la guía. Esta carpeta, al igual que la carpeta <code>parts</code> es incluida como referencia, para mostrar el producto final.</li>
+<li><strong>bonus</strong> (opcional) muchas veces, al tratar de mostrar un concepto, es muy probable que se omitan algunas buenas prácticas, se evite el uso de librerías de terceros, etc. Por lo cual, esta carpeta contendrá una aplicación similar a la que se encuentra en <code>final</code> pero tomando en cuenta cosas que se pudieron haber omitido para favorecer el aprendizaje del tema tratado.</li>
+</ul>
+<p>Como se menciona antes, esta guía está dividida en varias partes que componen los temas que se verán a lo mientras comienzas a desarrollar tu propia app. Es muy probable que en cada parte se vea una porción de código y posteriormente se haga referencia a uno o varios archivos en los que se hace uso de lo mencionado, estos son los archivos que vas a encontrar dentro de la carpeta <code>parts</code>.</p>
+<p>Si tienes dudas sobre el funcionamiento de la guía, házmelas saber a feregrino@thatcsharpguy.com o @io_exception en Twitter.</p>
+<h1 id="la-sharpuladora">La Sharpuladora</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>Dentro de esta guía se asume que ya tienes un entendimiento básico de cómo es que funciona Xamarin, si no, te invito a que consultes <a href="https://developer.xamarin.com/guides/cross-platform/getting_started/">Getting started with Xamarin</a>. Mi post sobre <a href="http://thatcsharpguy.com/post/xamarin-como-empiezo/">qué necesitas para desarrollar con Xamarin</a> o este otro sobre cómo ir <a href="http://thatcsharpguy.com/post/from-console-to-mobile/">de la consola a apps móviles</a>. O cualquier otro recurso de confianza.</p>
+<h2 id="parte-1-familiarizandose-con-el-codigo">Parte 1 - Familiarizándose con el código</h2>
+<p>Como todos los entornos de desarrollo, tanto Xamarin Studio como Visual Studio tienen su propia manera de gestionar los archivos que componen nuestras aplicaciones, pero en breve te cuento que en estos entornos se dividen los proyectos por plataforma, siendo así que como queremos que nuestra calculadora esté disponible para tres distintas tendremos tres proyectos diferentes más uno, que es el núcleo de nuestra aplicación. Escribí un post sobre esto, para conocer más, visita <a href="http://thatcsharpguy.com/post/organizacion-codigo-visual-studio/">¿Cómo organiza mi código Visual Studio?</a>.</p>
+<p>Es momento de empezar a meterle mano al código, abre la solución <code>Sharpuladora.sln</code> que está dentro de la carpeta <code>start</code> y mira el panel del explorador de soluciones. Para esta parte no hay código que agregar, solo ver. Una vez que hayas explorado lo suficiente, avanza a la parte 2.</p>
+<h2 id="parte-2-las-paginas">Parte 2 - Las páginas</h2>
+<p>Las interfaces gráficas de las aplicaciones en Xamarin.Forms se compone de un conjunto de elementos del tipo <code>Page</code>, sin embargo, Forms nos ofrece algunas páginas pre-programadas que podemos usar para trabajar con muestras apps. Puedes consultar el listado completo <a href="https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/pages/" target="_blank">aquí</a>.</p>
+<p>La <em>Sharpuladora</em> únicamente consta de una sola pantalla, que creamos a partir de una <code>ContentPage</code> que es de las más sencillas de manejar.</p>
+<h3 id="parte-2.1-creando-la-pagina-principal">Parte 2.1 - Creando la página principal</h3>
+<p>Para crear una página nueva tenemos en realidad dos opciones: crearla en código C# o usar XAML para hacerlo. En este caso utilizaremos C#.</p>
+<p>Crea una nueva carpeta llamada <code>Pages</code> dentro del proyecto <code>Sharpuladora</code> y dentro, crea una nueva clase de C# llamada <code>CalcPage</code> que derive de <code>ContentPage</code>.</p>
+<h5 id="codigo">Código</h5>
+<p>Archivo <code>CalcPage.cs</code></p>
+<h3 id="parte-2.2-estableciendo-una-pagina-de-inicio">Parte 2.2 - Estableciendo una página de inicio</h3>
+<p>Es importante establecer la pantalla de inicio de nuestra aplicación y para el caso de Xamarin.Forms se debe especificar a través de una propiedad. Dicha propiedad se llama <code>MainPage</code> y se encuentra en la clase <code>App</code> (dentro de <code>App.cs</code>).</p>
+<p>En la solución dentro de <code>start</code> la propiedad <code>MainPage</code> es inicializada con una página creada ahí mismo, debemos cambiarla por una referencia a nuestra <code>CalcPage</code>:</p>
+<pre><code class="language-csharp">MainPage = new CalcPage();
+</code></pre>
+<h5 id="codigo-1">Código</h5>
+<p>Archivo <code>App.cs</code></p>
+<h2 id="parte-3-el-layout">Parte 3 - El layout</h2>
+<p>Nuestra página actúa como un contenedor para los elementos de la interfaz, sin embargo, debemos agregarle un <em>layout</em> para indicarle la organización de dichos elementos. Al igual que con las páginas, Forms viene pre-cargado con una colección de <em>layouts</em> que puedes consultar en este <a href="https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/layouts/" target="_blank">enlace</a>.</p>
+<h3 id="parte-3.1-el-grid">Parte 3.1 - El Grid</h3>
+<p>Una calculadora sencilla no requiere de mucho pensar, los botones están ordenados en filas y columnas, lo cual parece un trabajo para un <code>Grid</code>.</p>
+<p>Un <code>Grid</code> está compuesto de filas y columnas, las cuales en Xamarin.Forms se especifican a través de <code>RowDefinition</code> o <code>ColumnDefinition</code>. Mira el siguiente código:</p>
+<pre><code class="language-csharp">var layout = new Grid();
+
+// Filas:
+layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
+layout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+
+// Columnas:
+layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+</code></pre>
+<p>En el código anterior se crea un nuevo <code>Grid</code> llamado <code>layout</code> y se le añaden dos columnas y dos filas. Algo importante a notar es que para las columnas se les establece la propiedad <code>Width</code> y para las filas a propiedad <code>Height</code>. El hecho de que se use <code>GridUnitType.Star</code> (o <code>*</code>) indica que el tamaño de las columnas será proporcional entre ellas.</p>
+<p>Para el ejercicio, crea un grid con filas y columnas que representen el siguiente gráfico:</p>
+<p>&lt;img src=&quot;/images/introduccion-xamarin-forms-sharpuladora__grid.png&quot; title=<>Grid</> /&gt;</p>
+<p>Una vez creado el <em>layout</em> es importante especificarle a nuestra página que debe usarlo como contenido, esto se hace normalmente al final del constructor de la página con la siguiente línea de código:</p>
+<pre><code class="language-csharp">Content = _layout;
+</code></pre>
+<h5 id="codigo-2">Código</h5>
+<p>Archivo <code>CalcPage.cs</code></p>
+<h2 id="parte-4-los-elementos-de-interfaz">Parte 4 - Los elementos de interfaz</h2>
+<p>Una vez creado el contenedor para nuestros elementos (nuestro <em>layout</em>), es momento de continuar con la creación de la interfaz.<br />
+Usaremos botones para los dígitos y los operadores y un <em>label</em> para mostrar el resultado.</p>
+<p>La inicialización de controles es bastante sencilla, por ejemplo, para crear el botón que será el '0' en nuestra calculadora tenemos que escribir el siguiente código:</p>
+<pre><code class="language-csharp">_b0 = new Button { Text = &quot;0&quot; };
+</code></pre>
+<p>Una vez creado el control debemos añadirlo al <em>layout</em> contenedor para que se muestre en la pantalla. Recordemos que nuestro <em>layout</em> se compone de filas y columnas, así que debemos asignarle una fila y una columna en donde mostrarse a nuestro control, la clase <code>Grid</code> nos permite asignarlos con los métodos estáticos <code>SetColumn</code> y <code>SetRow</code>. En el código siguiente, se le asigna la columna 1 y la fila 4 al botón <code>_b0</code>:</p>
+<pre><code class="language-csharp">Grid.SetColumn(_b0, 1);
+Grid.SetRow(_b0, 4);
+</code></pre>
+<p>Para posteriormente añadirlo al <em>layout</em> con:</p>
+<pre><code class="language-csharp">_gridLayout.Children.Add(_b0);
+</code></pre>
+<p>Para el caso de la etiqueta en donde se mostrará el resultado, haremos uso del método <code>SetColumnSpan</code> para indicarle a nuestro control que debe usar más de una columna dentro del <em>layout</em> que lo contiene. En este caso, le estamos indicando a <code>_resultDisplay</code> que debe ocupar 4 columnas:</p>
+<pre><code class="language-csharp">Grid.SetColumnSpan(_resultDisplay, 4);
+</code></pre>
+<p>También existe <code>SetRowSpan</code> si lo que deseamos es que el control ocupe más de una fila.</p>
+<h5 id="codigo-3">Código</h5>
+<p>Archivo <code>CalcPage.cs</code></p>
+<h2 id="parte-5-los-eventos">parte 5 - Los eventos</h2>
+<p>En una calculadora como la que estamos haciendo se requiere de interacción de los usuarios y en Xamarin.Forms las interacciones son manejadas a través de eventos. Cada uno de los controles que añadimos a una página pueden tener uno o más eventos que son &quot;lanzados&quot; por interacciones con el usuario (o con otros elementos de nuestro programa), como programadores es necesario indicar qué eventos queremos manejar y cómo los vamos a manejar.</p>
+<p>Para nuestra calculadora vamos a manejar el evento <code>Clicked</code> de los botones, dicho evento es lanzado cada vez que el usuario da &quot;click&quot; sobre el botón. Manejar eventos es cosa sencilla en C#, lo que tenemos que hacer es asignar (con el operador <code>+=</code>) un manejador al evento del control que deseamos. En el siguiente fragmento de código se especifica un manejador para el evento <code>Clicked</code> de <code>_b0</code>:</p>
+<pre><code class="language-csharp">_b0.Clicked += OnNumericButtonClicked;
+</code></pre>
+<p>El manejador <code>OnNumericButtonClicked</code> no es más que un método que tiene como tipo de retorno <code>void</code> y recibe dos argumentos:</p>
+<ul>
+<li><code>object sender</code> que es una referencia al control que lanzó el evento</li>
+<li><code>EventArgs e</code> que son algunos argumentos extra sobre el evento lanzado</li>
+</ul>
+<p>Como ejemplo acá abajo está la implementación del método para los botones del teclado numérico de nuestra calculadora. En la primera línea se hace un <em>cast</em> de <code>sender</code> a <code>Button</code> lo cual es válido porque como comenté: en <code>sender</code> viene el control que lanzó el evento.</p>
+<pre><code class="language-csharp">void OnNumericButtonClicked(object sender, EventArgs e)
+{
+	Button botonClickeado = (Button)sender;
+	if (primerNumero == null || primerNumero == &quot;&quot;)
+	{
+		primerNumero = botonClickeado.Text;
+	}
+	else
+	{
+		segundoNumero = botonClickeado.Text;
+	}
+}
+</code></pre>
+<p>Los manejadores pueden ser compartidos entre muchos controles, así que no tienes que crear un manejador para cada control que uses en tu aplicación. Así que ahora es tu turno de crear toda la lógica de la calculadora usando los controles y los manejadores de eventos. Si te encuentras un poco perdido puedes echarle un ojo al archivo que te indico más abajo para comenzar.</p>
+<h5 id="codigo-4">Código</h5>
+<p>Archivo <code>CalcPage.cs</code></p>
+<h2 id="parte-6-un-pequeno-truco">Parte 6 - Un pequeño truco</h2>
+<p>Podrás pensar que nuestra calculadora está (casi) terminada, pero no. Si la echas a andar a como la tenemos hasta ahora te darás cuenta que la calculadora no ocupa la pantalla entera... un pequeño bug. Para resolverlo haremos uso de otro tipo de <em>layout</em> que envuelva a nuestro <em>layout</em> original. Para la ocasión haremos uso de un <code>RelativeLayout</code> que nos permite mayor flexibilidad a la hora de controlar cómo se muestran los elementos y por ende, requiere de mayor configuración. Reemplaza la asignación <code>Content = _layout;</code> por el siguiente fragmento de código:</p>
+<pre><code class="language-csharp">// Trick to make our calculater fullscreen
+var relativeLayout = new RelativeLayout();
+relativeLayout.Children.Add(_layout, // &lt;= Original layout
+	Constraint.Constant(0),
+	Constraint.Constant(0),
+	Constraint.RelativeToParent(p =&gt; p.Width),
+	Constraint.RelativeToParent(p =&gt; p.Height));
+Content = relativeLayout;
+</code></pre>
+<h1 id="siguientes-pasos">Siguientes pasos</h1>
+<p>Como probablemente te habrás dado cuenta, la aplicación no está completa, le falta implementar algunos manejadores y toda la lógica de la calculadora.  Esa es tu misión, si decides aceptarla.</p>
+<p>Recuerda que si llegas a tener dudas sobre lo visto en esta guía puedes contactarme vía <a href="mailto:feregrino@thatcsharpguy">correo</a> o <a href="https://twitter.com/io_exception">Twitter</a>.</p>
+<h1 id="reto">Reto</h1>
+<p>Si vives en el DF y me envías una versión de la calculadora completa a feregrino@thatcsharpguy.com puedes ganarte una copia física del libro Creating Mobile Apps with Xamarin.Forms Book Preview 2 de Charles Petzold, tengo varias para regalar además de otras cuantas cosas de Xamarin. Así que ya sabes, envíame tu calculadora terminada, no importa si está totalmente basada en el ejercicio de esta guía.</p>
+<p>PD: Si no te aguantas las ganas de tener el libro, puedes <a href=" https://developer.xamarin.com/guides/cross-platform/xamarin-forms/creating-mobile-apps-xamarin-forms/" target="_blank">descargar el e-book</a>.</p>
+
+
+            </div>
+        </div>
+        <footer class="site-footer ui">
+   <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-8-24">
+         <div class="footer-content">
+            <ul class="icon-list">
+        <li id="em">
+            <a href="mailto:feregrino@thatcsharpguy.com" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 11.815v13.292q0 1.105-.787 1.892-.787.78-1.892.78H3.68q-1.106 0-1.893-.79Q1 26.21 1 25.102v-13.29q.737.82 1.69 1.46 6.06 4.12 8.32 5.78.955.705 1.55 1.1.594.392 1.582.802.987.41 1.84.41h.035q.854 0 1.84-.41.99-.41 1.583-.804.595-.393 1.55-1.096 2.845-2.06 8.336-5.778.954-.652 1.674-1.455zm0-4.922q0 1.322-.82 2.528t-2.043 2.06l-7.835 5.44-.71.51q-.545.4-.905.64t-.87.55q-.51.3-.963.45-.452.15-.837.15h-.034q-.385 0-.837-.15-.452-.15-.962-.45-.51-.302-.87-.544-.36-.243-.905-.637l-.72-.51q-1.525-1.07-4.388-3.055-2.86-1.984-3.43-2.386-1.04-.704-1.96-1.935Q1 8.315 1 7.26q0-1.305.695-2.175.695-.87 1.984-.87h24.64q1.09 0 1.88.786.792.79.792 1.9z"/></svg>
+            </a>
+        </li>
+        <li id="gh">
+            <a href="https://github.com/ThatCSharpGuy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 16.37q0 4.9-2.86 8.8-2.86 3.93-7.4 5.43-.52.1-.77-.13-.24-.24-.24-.6v-4.1q0-1.9-1.02-2.78 1.2-.2 2.1-.4.9-.3 1.87-.8.95-.5 1.58-1.3.65-.8 1.05-2.1.4-1.27.4-2.93 0-2.38-1.54-4.04.7-1.78-.16-3.98-.57-.2-1.6.2t-1.8.85l-.75.47q-1.83-.5-3.76-.5t-3.76.5l-.8-.54Q11 8.16 9.9 7.7q-1.13-.4-1.7-.23-.86 2.2-.14 3.97-1.54 1.68-1.54 4.05 0 1.6.4 2.9.4 1.23 1.02 2.02.63.8 1.58 1.3.94.53 1.83.77.9.25 2 .37-.77.7-.94 2-.4.2-.82.3-.47.1-1.1.1-.66 0-1.3-.44-.63-.4-1.08-1.2-.38-.63-.95-1-.52-.4-.9-.5l-.4-.03q-.4 0-.57.1-.15.1-.1.24.06.13.18.26t.26.2l.15.1q.44.2.86.73t.63 1l.2.43q.23.75.84 1.2.6.47 1.3.6.7.13 1.34.14.65 0 1.08-.04l.46-.08v2.74q0 .35-.26.6-.25.22-.8.12-4.5-1.5-7.37-5.42-3-3.74-3-8.64 0-4.1 2-7.54 2-3.44 5.45-5.46 3.45-2 7.53-2t7.6 2q3.4 2 5.4 5.46 2 3.44 2 7.53z"/></svg>
+            </a>
+        </li>
+        <li id="yt">
+            <a href="https://www.youtube.com/c/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.43 15.714c0-.413-.17-.714-.504-.904l-8.57-5.357c-.347-.223-.71-.234-1.09-.033-.368.2-.552.513-.552.937V21.07c0 .426.184.738.553.94.178.088.35.133.52.133.222 0 .412-.056.568-.168l8.57-5.357c.336-.19.504-.49.504-.904zm8.57 0c0 1.072-.006 1.91-.017 2.51-.01.604-.058 1.366-.142 2.287-.083.92-.208 1.744-.376 2.47-.178.815-.563 1.5-1.155 2.06-.592.557-1.284.88-2.077.97-2.477.28-6.222.42-11.233.42-5.01 0-8.756-.14-11.233-.42-.793-.09-1.487-.413-2.085-.97-.597-.56-.984-1.245-1.163-2.06-.157-.726-.277-1.55-.36-2.47-.085-.92-.132-1.682-.143-2.285-.01-.602-.017-1.44-.017-2.51 0-1.072.006-1.91.017-2.512.01-.603.058-1.364.142-2.285.083-.92.208-1.744.376-2.47.178-.814.563-1.5 1.155-2.058.592-.56 1.284-.882 2.077-.97C7.244 5.14 10.99 5 16 5c5.01 0 8.756.14 11.233.42.793.088 1.487.41 2.085.97.597.558.984 1.244 1.163 2.06.157.724.277 1.547.36 2.468.085.92.132 1.682.143 2.285.01.603.017 1.44.017 2.51z"/></svg>
+            </a>
+        </li>
+        <li id="tw">
+            <a href="https://twitter.com/io_exception" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 6.7q-1.28 1.88-3.08 3.2.02.26.02.8 0 2.46-.73 4.93-.7 2.46-2.2 4.73-1.46 2.26-3.5 4-2.04 1.75-4.9 2.8-2.88 1.02-6.16 1.02-5.16 0-9.44-2.76.67.08 1.48.08 4.3 0 7.64-2.63-2-.04-3.58-1.23-1.58-1.2-2.17-3.03.63.1 1.16.1.82 0 1.62-.2-2.13-.44-3.53-2.13-1.4-1.68-1.4-3.9v-.1q1.3.74 2.78.8-1.26-.84-2-2.2-.74-1.35-.74-2.93 0-1.67.83-3.1 2.3 2.84 5.6 4.54 3.3 1.7 7.07 1.9-.15-.73-.15-1.4 0-2.57 1.8-4.36 1.8-1.8 4.35-1.8 2.66 0 4.5 1.94 2.07-.4 3.9-1.5-.7 2.2-2.7 3.4 1.76-.2 3.53-.95z"/></svg>
+            </a>
+        </li>    
+        <li id="fb">
+            <a href="https://www.facebook.com/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.512 1.488c.325.326.488.716.488 1.172v26.68c0 .456-.163.846-.488 1.172-.326.325-.716.488-1.172.488h-7.637V19.38h3.887l.586-4.532h-4.473v-2.89c0-.73.153-1.277.46-1.642.305-.364.9-.546 1.786-.546l2.382-.02V5.707c-.82-.117-1.98-.176-3.477-.176-1.77 0-3.186.522-4.248 1.564-1.06 1.04-1.59 2.513-1.59 4.414v3.34h-3.908v4.53h3.906V31H2.66c-.456 0-.846-.163-1.172-.488C1.163 30.186 1 29.796 1 29.34V2.66c0-.456.163-.846.488-1.172C1.814 1.163 2.204 1 2.66 1h26.68c.456 0 .846.163 1.172.488z"/></svg>
+            </a>
+        </li>
+        <li id="gp">
+            <a href="https://www.google.com/+Thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.9 14.25h-2.7v-2.72h-2.73v2.72h-2.7v2.72h2.7v2.7h2.72v-2.7h2.7v-2.72M10.5 17.5h5.4c-.22 1.4-1.64 4.12-5.4 4.12-3.25 0-5.9-2.7-5.9-6 0-3.33 2.65-6.02 5.9-6.02 1.85 0 3.08.78 3.8 1.46l2.58-2.48c-1.66-1.55-3.8-2.5-6.38-2.5C5.26 6.1 1 10.35 1 15.62s4.26 9.52 9.52 9.52c5.5 0 9.14-3.86 9.14-9.3 0-.62-.07-1.1-.15-1.57h-8.96"/></svg>
+            </a>
+        </li>
+    </ul>
+    <ul class="icon-list">
+        <li>
+            <a href="#">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M7 18.89v-5.88H1.15v-6H7V1.1h6v5.91h6V1.1h6v5.91h5.85v6H25v5.88h5.85v6H25v5.912h-6v-5.91h-6v5.91H7v-5.91H1.15v-6H7zm6 0v-5.88h6v5.88h-6z" fill="#3C8A3F" fill-rule="evenodd"/></svg>
+            </a>
+        </li>
+    </ul>
+         </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-6-24">
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+         <div class="footer-content">
+         </div>
+      </div>
+   </div>
+</footer>
+</body>
+</html>

@@ -1,1 +1,454 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<title>Machine Learning en .NET | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+<meta name="image" content="https://i.imgur.com/8YI9ZuN.png">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Machine Learning en .NET">
+<meta itemprop="description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+<meta itemprop="image" content="https://i.imgur.com/8YI9ZuN.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Machine Learning en .NET">
+<meta name="twitter:description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="https://i.imgur.com/8YI9ZuN.png">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Machine Learning en .NET">
+<meta name="og:description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+<meta name="og:image" content="https://i.imgur.com/8YI9ZuN.png">
+<meta name="og:url" content="https://thatcsharpguy.com/posts/2020-12-12-machine-learning-en-dotnet.html">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Inicio</a>
+          <!-- <a class="link page-link" href="/">Sobre mi</a> -->
+          <a class="link page-link youtube" href="/">YouTube</a>
+          <a class="link page-link book-reviews" href="/tags/book-review.html">Reseñas</a>
+          <!-- <a class="link page-link gear" href="/">Herramientas</a> -->
+          <!-- <a class="link page-link" href="/about">About</a> -->
+          <!-- <a class="link page-link" href="/search">Search</a> -->
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1>Machine Learning en .NET</h1>
+
+<p>Python ha llegado a conquistar el mundo, y a veces pareciera que es la única herramienta que podemos usar para hacer <em>machine learning</em>. Sin embargo, esto no podría estar más lejos de la realidad puesto que los desarrolladores de C# podemos usar nuestro lenguaje favorito para hacer este tipo de tareas. En este post les voy a enseñar cómo es que pueden usar el poder de <em>machine learning</em> en .NET.</p>
+<p>Vamos a abordar uno de los problemas que es considerado como el &quot;hola mundo&quot; del aprendizaje automático; me refiero a predecir la supervivencia de los pasajeros del Titanic. Obtén los datos <a href="https://www.kaggle.com/c/titanic/">en Kaggle</a>.</p>
+<h2 id="tres-proyectos">Tres proyectos</h2>
+<p>En su forma más básica, un proyecto de <em>machine learning</em> se divide en dos etapas: entrenamiento y producción. Nosotros vamos a reflejar esta separación creando dos proyectos, y por la forma en que <a href="http://ml.net/">ML.NET</a> funciona, tenemos que crear un proyecto auxiliar, es decir tres proyectos en total.</p>
+<p>Mi recomendación es que el proyecto de entrenamiento sea una aplicación de consola (<code>Titanic.Train</code>), el proyecto auxiliar (<code>Titanic.Common</code>) sea una biblioteca de clases y el último proyecto sea la aplicación en la que vas a usar tu algoritmo ya entrenado, en mi caso, es simplemente otra aplicación de consola (<code>Titanic.Production</code>):</p>
+<p>Podemos usar <code>dotnet</code> para crear los proyectos:</p>
+<pre><code class="language-bash">dotnet new classlib -n Titanic.Common
+dotnet new console -n Titanic.Train
+dotnet new console -n Titanic.Production
+</code></pre>
+<p>Lo siguiente es relacionar los proyectos entre sí:</p>
+<pre><code class="language-bash">dotnet add Titanic.Train/Titanic.Train.csproj reference Titanic.Common/Titanic.Common.csproj
+dotnet add Titanic.Production/Titanic.Production.csproj reference Titanic.Common/Titanic.Common.csproj
+</code></pre>
+<p>Vamos a crear una solución para agrupar nuestros proyectos:</p>
+<pre><code class="language-bash">dotnet new sln -n Titanic
+dotnet sln add \
+   Titanic.Common/Titanic.Common.csproj \
+   Titanic.Train/Titanic.Train.csproj \
+   Titanic.Production/Titanic.Production.csproj
+</code></pre>
+<p>Al final, deberemos tener una estructura de los directorios como esta (yo borré las carpetas <code>bin</code> y <code>obj</code>):</p>
+<pre><code class="language-text">.
+├── Titanic.Common
+│   ├── Class1.cs
+│   └── Titanic.Common.csproj
+├── Titanic.Production
+│   ├── Program.cs
+│   └── Titanic.Production.csproj
+├── Titanic.Train
+│   ├── Program.cs
+│   └── Titanic.Train.csproj
+└── Titanic.sln
+</code></pre>
+<h2 id="el-paquete-microsoft.ml">El paquete <code>Microsoft.ML</code></h2>
+<p>El framework que nos va a permitir hacer <em>machine learning</em> viene contenido dentro de un paquete de NuGet llamado <code>Microsoft.ML</code>, para agregarlo a nuestros proyectos, de nuevo  vamos a usar <code>dotnet</code>:</p>
+<pre><code class="language-bash">dotnet add Titanic.Common/Titanic.Common.csproj package Microsoft.ML
+dotnet add Titanic.Train/Titanic.Train.csproj package Microsoft.ML
+dotnet add Titanic.Production/Titanic.Production.csproj package Microsoft.ML
+</code></pre>
+<p>De ahora en adelante, las clases que vamos a usar estarán dentro de alguno de los namespaces de <code>Microsoft.ML</code>:</p>
+<ul>
+<li><code>using Microsoft.ML.Data;</code></li>
+<li><code>using Microsoft.ML;</code></li>
+</ul>
+<h2 id="el-contexto">El contexto</h2>
+<p>Una pieza central en <a href="http://ml.net/">ML.NET</a> es conocida como el contexto, este es un objeto a partir del cual vamos a gestionar todo el proceso: desde la lectura de los datos hasta el entrenamiento del algoritmo de nuestra elección.</p>
+<pre><code class="language-csharp">var mlContext = new MLContext(seed: 42);
+</code></pre>
+<p>El argumento <code>seed</code> es importante si queremos obtener resultados reproducibles si es que estamos experimentando con diversos modelos/transformaciones, cuando estés contento con un determinado modelo o transformaciones, recuerda remover este parámetro.</p>
+<h2 id="en-entrenamiento">En entrenamiento</h2>
+<h3 id="leyendo-los-datos">Leyendo los datos</h3>
+<p>Una de las características de C# es que siempre tenemos que ser muy específicos en los tipos de dato que queremos manejar dentro de nuestros programas, así que para llevar a cabo la lectura debemos crear una clase que represente cada una de nuestras observaciones, en nuestro caso, una observación es un pasajero del Titanic (o una fila dentro de nuestro archivo de datos <em>.csv</em>).</p>
+<p>Aquí es importante tener como referencia nuestro archivo CSV, ya que necesitamos tener en cuenta el número de columna en el cual la información está ubicada ya que en nuestra clase modelando cada observación debemos especificar esta información por medio del decorador <code>LoadColumn</code>, por ejemplo, esta es una vista previa del archivo <em>.CSV</em>:</p>
+<p><img src="https://i.imgur.com/0kS7CY6.png" alt="CSV representation" /></p>
+<p>Y así es como se vería la clase <code>Passenger</code> para representar nuestras observaciones:</p>
+<pre><code class="language-csharp">namespace Titanic.Common
+{
+    using Microsoft.ML.Data;
+
+    public class Passenger
+    {
+        [LoadColumn(0)]
+        public int Id { get; set; }
+
+        [LoadColumn(1)]
+        public int Survived { get; set; }
+
+        [LoadColumn(2)]
+        public int TicketClass { get; set; }
+
+        [LoadColumn(3)]
+        public string Name { get; set; }
+
+        [LoadColumn(4)]
+        public string Sex { get; set; }
+
+        [LoadColumn(5)]
+        public string Age { get; set; }
+
+        [LoadColumn(6)]
+        public string SiblingsOrSpouses { get; set; }
+
+        [LoadColumn(7)]
+        public string ParentsOrChildren { get; set; }
+
+        // ...
+</code></pre>
+<p>Una vez que tenemos esta clase podemos usarla en conjunto con el contexto para leer los datos de nuestro archivo <code>train.csv</code> usando el método <code>LoadFromTextFile</code>, pasandole argumentos adicionales para especificarle que estamos leyendo un archivo <em>CSV</em> con encabezado:</p>
+<pre><code class="language-csharp">IDataView allData = context.Data.LoadFromTextFile&lt;Passenger&gt;(
+    path: &quot;train.csv&quot;,
+    separatorChar: ',',
+    hasHeader: true
+);
+</code></pre>
+<h3 id="train-test-split">Train-test split</h3>
+<p>Debes saber que en para entrenar y evaluar un algoritmo de <em>machine learning</em> es importante contar con al menos dos conjuntos de datos: validación y prueba, no voy a entrar en detalles aquí, pero te recomiendo que le eches un ojo a <a href="https://www.youtube.com/watch?v=778Pa63FS78">mi video en YouTube sobre el tema</a>.</p>
+<p>Para lograr esta separación en C# es necesario usar nuevamente el contexto, para ser más específico, el método <code>TrainTestSplit</code>, con un argumento que nos permitirá especificarle que queremos que el 20% de los datos sean destinados al conjunto de prueba:</p>
+<pre><code class="language-csharp">var splits = context.Data.TrainTestSplit(
+    data: allData,
+    testFraction: 0.2
+);
+</code></pre>
+<p>Más adelante veremos cómo usar el objeto <code>splits</code> (que es un objeto de la clase <code>DataOperationsCatalog.TrainTestData</code>).</p>
+<h3 id="transformations">Transformations</h3>
+<p>Esta es una sección pesada, puesto que aquí es donde sucede una de las partes más grandes del <em>machine learning</em> que es el pre-procesamiento de los datos. Usualmente tenemos que realizar diversas transformaciones a nuestros datos, y aquí simplemente vamos a hablar de algunas de ellas, como practicante de la ciencia de datos es tu labor intentar diversas transformaciones para ver cuáles son las que resultan en un mejor modelo predictivo.</p>
+<p>Es importante entender que los algoritmos de <em>machine learning</em> usualmente funcionan con números flotantes como entrada, entonces hay que transformar cualquier entero, cualquier cadena a una representación numérica.</p>
+<p>Otra de las cosas importantes, y esta es específica a <em>ML.NET</em> es que el nombre de las columnas es de vital importancia a la hora de entrenar el modelo. Hasta el momento, nuestros datos tienen nombres como <em>&quot;Id&quot;</em>, <em>&quot;Survived&quot;</em>, <em>&quot;TicketClass&quot;</em>, <em>&quot;Name&quot;</em>... Antes de entrenar nuestro algoritmo debemos tener dos columnas con nombres específicos: <strong>&quot;Label&quot;</strong> and <strong>&quot;Features&quot;</strong>, no te preocupes, en un momento te cuento como lograr esto.</p>
+<h4 id="obteniendo-nuestra-label">Obteniendo nuestra <em>&quot;Label&quot;</em></h4>
+<p>El objetivo de nuestro algoritmo es encontrar si alguien sobrevivió al accidente del Titanic, hasta el momento tenemos dentro de nuestros datos la columna <em>&quot;Survived&quot;</em>, pero que hasta el momento es de tipo entero, 0 para alguien que no sobrevivió, 1 para alguien que sí. Sin embargo, necesitamos transformar esta en una columna de valor <code>bool</code> (y además de todo, vamos a nombrar esta nueva columna con el nombre <strong>&quot;Label&quot;</strong>), podemos lograr esto con el siguiente código:</p>
+<pre><code class="language-csharp">var booleanMap = context.Data.LoadFromEnumerable(new[]
+{
+    new { InputValue = 1, Value = true },
+    new { InputValue = 2, Value = false },
+});
+
+var transformLabel = context.Transforms.Conversion.MapValue(
+    outputColumnName: &quot;Label&quot;,
+    lookupMap: booleanMap,
+    keyColumn: booleanMap.Schema[&quot;InputValue&quot;],
+    valueColumn: booleanMap.Schema[&quot;Value&quot;],
+    inputColumnName: nameof(Passenger.Survived)
+);
+</code></pre>
+<p>Hay muchas cosas que están sucediendo en el código anterior, vamos a desempacar todo:</p>
+<ul>
+<li><code>booleanMap</code> es una especie de diccionario que nos ayudará a convertir nuestros valores enteros a booleanos, puedes usar algo similar si quieres convertir de un valor a otro.</li>
+<li>Sobre la transformación <code>MapValue</code>:</li>
+<ul>
+<li>El argumento <code>outputColumnName</code> nos permite especificar justamente el nombre de nuestra nueva columna, es aquí en donde obtenemos una de las columnas importantes para entrenar el algoritmo.</li>
+<li>El argumento <code>lookupMap</code>: el mapa que definimos previamente, que contiene el <i>mapeo</i> entre los valores originales y el nuevo valor.</li>
+<li>Los argumentos <code>keyColumn</code> y <code>valueColumn</code> simplemente sirven para indicar qué valores queremos usar como entrada y cuales como salida.</li>
+<li>Y por último, <code>inputColumnName</code>, el nombre de la columna que queremos convertir, en este caso es <i>"Survived"</i>.</li>
+</ul>
+</ul>
+<h4 id="variables-categoricas">Variables categóricas</h4>
+<p>La columna <code>TicketClass</code> es de tipo <code>int</code> (hice un video sobre los <a href="https://www.youtube.com/watch?v=SAWsQ3QmmJE">tipos de variable</a> que hay en la ciencia de datos) sin embargo el dejarla como tal no es buena idea porque la clase de los tickets es un ejemplo de una variable categórica, por tanto la mejor forma de representar esta variable es por medio de un <em>one-hot vector</em>:</p>
+<pre><code class="language-csharp">var transformTicketClassOneHot = context.Transforms.Categorical.OneHotEncoding(
+    outputColumnName: &quot;OneHotTicketClass&quot;,
+    inputColumnName: nameof(Passenger.TicketClass)
+);
+</code></pre>
+<p><small>Tal vez comienzas a ver un patrón en la forma en que especificamos las transformaciones: un nombre de columna de entrada y otro de salida, esto es de vital importancia en el siguiente fragmento de código.</small></p>
+<p>Podríamos transformar otras variables de la misma manera en que transformamos el tipo de clase, por ejemplo <code>Sex</code> y <code>Embarked</code> son otro ejemplo de variables categóricas, pero no siempre es necesario hacer una transformación para cada variable, podemos agrupar varias transformaciones similares de la siguiente manera:</p>
+<pre><code class="language-csharp">var transformSeveralOneHot = context.Transforms.Categorical.OneHotEncoding(
+    new InputOutputColumnPair []
+    {
+        new InputOutputColumnPair(inputColumnName: &quot;Embarked&quot;, outputColumnName: &quot;OneHotEmbarked&quot;),
+        new InputOutputColumnPair(inputColumnName: &quot;Sex&quot;, outputColumnName: &quot;OneHotSex&quot;),
+    }
+);
+</code></pre>
+<h4 id="valores-faltantes">¿Valores faltantes?</h4>
+<p>En nuestro dataset tenemos una columna llamada <code>Fare</code>, que es la tarifa que cada uno de los pasajeros pagó por su boleto. ¡Pero cuidado! que hay algunas observaciones para las que no tenemos valores. Una de las opciones que tenemos cuando nos enfrentamos a este tipo de situaciones es rellenar los valores faltantes con un valor derivado de los datos que sí tenemos.</p>
+<p>En este caso, podemos optar por seleccionar el valor promedio como el valor a usar para rellenar los valores faltantes:</p>
+<pre><code class="language-csharp">var transformFillMeanFare = context.Transforms.ReplaceMissingValues(
+    outputColumnName: &quot;Fare&quot;,
+    inputColumnName: &quot;Fare&quot;,
+    replacementMode: ReplacementMode.Mean
+);
+</code></pre>
+<h4 id="reescalando-los-valores">Reescalando los valores</h4>
+<p>Ahora que tenemos las tarifas completas (sin valores faltantes) debemos ejecutar otro proceso que es conocido como <a href="https://ichi.pro/es/por-que-la-normalizacion-de-datos-es-importante-para-clasificadores-no-lineales-81132159650096"><em>Normalización</em></a>, consiste a grandes rasgos en poner los valores de nuestras variables en escalas similares para impedir que el algoritmo reaccione fuertemente a ciertos valores.</p>
+<p>Así es como la implementamos en ML.NET:</p>
+<pre><code class="language-csharp">var transformNormaliseFare = context.Transforms.NormalizeMinMax(
+    outputColumnName: &quot;NormalisedFare&quot;,
+    inputColumnName: &quot;Fare&quot;
+);
+</code></pre>
+<h4 id="combinando-todas-nuestras-transformaciones">Combinando todas nuestras transformaciones</h4>
+<p>Podríamos hacer muchas más transformaciones en nuestras variables, pero para no hacer este artículo aún más largo de lo que ya es, vamos a dejarlo ahí. El siguiente paso es obtener nuestra importantísima columna <strong>&quot;Features&quot;</strong> a partir de las transformaciones que ya realizamos. Vamos a concatenar todos nuestros nuevos valores con otra transformación de ML.NET:</p>
+<pre><code class="language-csharp">var transformConcatenateFeatures = context.Transforms.Concatenate(
+    outputColumnName: &quot;Features&quot;,
+    &quot;NormalisedFare&quot;, &quot;OneHotTicketClass&quot;, &quot;OneHotEmbarked&quot;, &quot;OneHotSex&quot;
+);
+</code></pre>
+<p>Esta transformación es para unificar todas nuestras variables bajo un nuevo nombre, nuestra preciada columna <strong>&quot;Features&quot;</strong>.</p>
+<h3 id="algoritmo-predictor">Algoritmo predictor</h3>
+<p>El siguiente paso en el desarrollo es elegir el modelo de machine learning que vamos a utilizar ML.NET contiene varios algoritmos para diversas tareas, como nuestro problema es un problema de clasificación binaria, vamos a usar un <code>SdcaLogisticRegression</code>, puedes visitar este enlace para <a href="https://docs.microsoft.com/en-us/dotnet/machine-learning/how-to-choose-an-ml-net-algorithm">encontrar el mejor algoritmo para tu problema</a>:</p>
+<pre><code class="language-csharp">var trainer = context.BinaryClassification.Trainers.SdcaLogisticRegression(
+    labelColumnName: &quot;Label&quot;,
+    featureColumnName: &quot;Features&quot;
+);
+</code></pre>
+<p>Nuevamente, todo parte de la instancia de <code>MLContext</code> que creamos al inicio.</p>
+<h3 id="creando-un-pipeline">Creando un pipeline</h3>
+<p>Hasta el momento todas las partes de nuestro programa de <em>machine learning</em> existen aisladas unas de las otras; el siguiente paso es ensamblar todas las partes. Esta es una de las grandes ventajas que a mi parecer ML.NET nos da sobre otros frameworks, ya que nos fuerza a integrar todo lo relacionado con el modelo en una colección de operaciones, o, <em>pipeline</em> por su nombre en inglés.</p>
+<p>En C#, para agrupar todas las transformaciones que hemos hecho podemos usar el método <code>Append</code> en ellas, de la siguiente manera:</p>
+<pre><code class="language-csharp">var pipeline = transformLabel
+    .Append(transformTicketClassOneHot)
+    .Append(transformSeveralOneHot)
+    .Append(transformFillMeanFare)
+    .Append(transformNormaliseFare)
+    .Append(transformConcatenateFeatures)
+    .Append(trainer);
+</code></pre>
+<h3 id="entrenando-todo-el-pipeline">Entrenando todo el pipeline</h3>
+<p>Una vez ensamblado, podemos iniciar el entrenamiento de nuestro algoritmo. La forma de hacerlo es a través de una simple línea de código llamando al método <code>Fit</code> y usando simplemente los datos de entrenamiento (¿recuerdas la separación de los datos que hicimos anteriormente en la variable <code>split</code>?):</p>
+<pre><code class="language-csharp">var trainedModel = pipeline.Fit(splits.TrainSet);
+</code></pre>
+<p>Y listo... tenemos nuestro modelo ya entrenado. Sin embargo, no es el fin de la aventura, aún hay mucho por hacer.</p>
+<h3 id="evaluacion">Evaluación</h3>
+<p>Una vez entrenado el modelo toca evaluarlo para poder decir qué tan efectivo es; mientras que cada problema tendrá sus propias formas de ser evaluado, existen un conjunto de métricas genéricas que podemos utilizar para evaluar cualquier problema que involucre una clasificación binaria:</p>
+<pre><code class="language-csharp">var metrics = context.BinaryClassification.EvaluateNonCalibrated(
+    data: trainedModel.Transform(splits.TestSet),
+    labelColumnName: &quot;Label&quot;
+);
+
+Console.WriteLine($&quot;Exactitud: {metrics.Accuracy:0.##}&quot;);
+Console.WriteLine($&quot;Precisión: {metrics.PositivePrecision:0.##}&quot;);
+Console.WriteLine($&quot;Recall:    {metrics.PositiveRecall:0.##}&quot;);
+</code></pre>
+<p>Si te das cuenta, volvemos a hacer uso del <code>context</code> y de nuestro <code>trainedModel</code>, además de nuestro <code>TestSet</code>. Para terminar, obtenemos en la consola los resultados de la evaluación de nuestro algoritmo (que bueno, por el momento podrán no ser los mejores)...</p>
+<h3 id="guardando-el-modelo-entrenado">Guardando el modelo entrenado</h3>
+<p>Por último, si estamos contentos con los resultados de nuestro algoritmo podemos guardarlo en un archivo <em>.zip</em>, seguimos usando el <code>context</code> y el modelo recién entrenado:</p>
+<pre><code class="language-csharp">context.Model.Save(
+    model: trainedModel,
+    inputSchema: allData.Schema,
+    filePath: &quot;model.zip&quot;
+);
+</code></pre>
+<p>Para terminar, es hora de ejecutar nuestro programa vamos a utilizar <code>dotnet</code>:</p>
+<pre><code class="language-bash">dotnet run --project Titanic.Train/Titanic.Train.csproj
+</code></pre>
+<p>Ante lo cual, vamos a ver las métricas en la pantalla (les dije que podrían no ser las mejores):</p>
+<pre><code>Exactitud: 0.69
+Precisión: 0.65
+Recall:    0.41
+</code></pre>
+<p>Y tendremos nuestro <em>pipeline</em> ya entrenado en el archivo <code>modelo.zip</code>:</p>
+<pre><code class="language-text">.
+├── Titanic.Common
+│   ├── Passenger.cs
+│   └── Titanic.Common.csproj
+├── Titanic.Production
+│   ├── Program.cs
+│   └── Titanic.Production.csproj
+├── Titanic.Train
+│   ├── Program.cs
+│   └── Titanic.Train.csproj
+├── Titanic.sln
+├── model.zip
+└── train.csv
+</code></pre>
+<h3 id="continua-experimentando">Continua experimentando</h3>
+<p>Como puedes ver, los resultados no son los mejores, todavía se pueden seguir mejorando y eso ya es tarea tuya, espero hasta el momento la forma de construir un <em>pipeline</em> en C# haya quedado clara. Cualquier duda o pregunta, <a href="https://twitter.com/io_exception">contactame en Twitter @io_exception</a>.@io_exception](<a href="https://twitter.com/io_exception">https://twitter.com/io_exception</a>)</p>
+<h2 id="en-produccion">En producción</h2>
+<p>El siguiente paso es implementar nuestro modelo en producción, para lo cual dejaremos en paz nuestro proyecto de entrenamiento y nos moveremos al proyecto productivo.</p>
+<h3 id="leyendo-el-modelo-entrenado">Leyendo el modelo entrenado</h3>
+<p>El primer paso es crear un nuevo <code>MLContext</code>, recuerda, en producción no vamos a usar el argumento <code>seed</code>:</p>
+<pre><code class="language-csharp">var context = new MLContext();
+</code></pre>
+<p>Nuestro siguiente paso leer el modelo que recién entrenamos, de nuevo, usando el contexto que creamos:</p>
+<pre><code class="language-csharp">var trainedModel = context.Model.Load(&quot;model.zip&quot;, out var schema);
+</code></pre>
+<h4 id="y-nuestras-predicciones">¿Y nuestras predicciones?</h4>
+<p>Nuevamente, recordemos que C# es muy estricto con el tipado, así que hay que crear una clase para almacenar las predicciones, es importante que la clase contenga tres propiedades: <code>PredictedLabel</code>, <code>Probability</code> y <code>Score</code>:</p>
+<pre><code class="language-csharp">namespace Titanic.Common
+{
+    using Microsoft.ML.Data;
+
+    public class SurvivalPrediction
+    {
+        public bool PredictedLabel { get; set; }
+        public float Probability { get; set; }
+        public float Score { get; set; }
+
+        // ...
+</code></pre>
+<p>Por el momento solamente nos preocuparemos por la propiedad <code>PredictedLabel</code>.</p>
+<p>Ya tenemos nuestro modelo y la clase en la cual vamos a almacenar las predicciones. El siguiente, y último paso, es crear un objeto de la clase <code>PredictionEngine</code>:</p>
+<pre><code class="language-csharp">var predictionEngine = context.Model.CreatePredictionEngine&lt;Passenger, SurvivalPrediction&gt;(
+    transformer: trainedModel
+);
+</code></pre>
+<h3 id="prediciendo-en-nuevos-valores">Prediciendo en nuevos valores</h3>
+<p>Aquí es en donde puedes echar a andar tu imaginación (o simplemente tomar en cuenta los requisitos del negocio) a la hora de predecir los valores. Ya sea que tu modelo de <em>machine learning</em> esté en la nube detrás de una API REST o corriendo en una aplicación de escritorio, nuestro modelo está listo para recibir objetos de la clase <code>Passenger</code> y regresar un objeto de la clase <code>SurvivalPrediction</code>.</p>
+<p>En este caso nosotros tenemos una simple aplicación de consola y un pasajero predefinido:</p>
+<pre><code class="language-csharp">var newPassenger = new Passenger
+{
+    TicketClass = 1,
+    Sex = &quot;male&quot;,
+    Embarked = &quot;S&quot;,
+    Fare = 11.5f
+};
+
+var prediction = predictionEngine.Predict(newPassenger);
+
+var survivalStatus = prediction.PredictedLabel ? &quot;sobrevivió&quot; : &quot;no sobrevivió&quot;;
+
+Console.WriteLine($&quot;El modelo dice que el pasajero... &quot; + survivalStatus);
+</code></pre>
+<p>Ejecutamos nuestro código como:</p>
+<pre><code class="language-bash">dotnet run --project Titanic.Production/Titanic.Production.csproj
+</code></pre>
+<p>Y la salida será:</p>
+<pre><code class="language-text">El modelo dice que el pasajero... sobrevivió.
+</code></pre>
+<p><em>et voilà</em>, hemos entrenado nuestro primer modelo de <em>machine learning</em> en .NET con C#. Recuerda, como en la programación, lo importante es practicar, practicar, practicar. Este código está en <a href="https://github.com/thatcsharpguy/ml.net">mi repositorio ml.net en GitHub</a> para que lo veas completo y en todo su esplendor. Si tienes dudas me puedes mandar un tweet a <a href="https://twitter.com/io_exception">@io_exception</a> para tratar de descubrirlo juntos.</p>
+
+
+            </div>
+        </div>
+        <footer class="site-footer ui">
+   <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-8-24">
+         <div class="footer-content">
+            <ul class="icon-list">
+        <li id="em">
+            <a href="mailto:feregrino@thatcsharpguy.com" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 11.815v13.292q0 1.105-.787 1.892-.787.78-1.892.78H3.68q-1.106 0-1.893-.79Q1 26.21 1 25.102v-13.29q.737.82 1.69 1.46 6.06 4.12 8.32 5.78.955.705 1.55 1.1.594.392 1.582.802.987.41 1.84.41h.035q.854 0 1.84-.41.99-.41 1.583-.804.595-.393 1.55-1.096 2.845-2.06 8.336-5.778.954-.652 1.674-1.455zm0-4.922q0 1.322-.82 2.528t-2.043 2.06l-7.835 5.44-.71.51q-.545.4-.905.64t-.87.55q-.51.3-.963.45-.452.15-.837.15h-.034q-.385 0-.837-.15-.452-.15-.962-.45-.51-.302-.87-.544-.36-.243-.905-.637l-.72-.51q-1.525-1.07-4.388-3.055-2.86-1.984-3.43-2.386-1.04-.704-1.96-1.935Q1 8.315 1 7.26q0-1.305.695-2.175.695-.87 1.984-.87h24.64q1.09 0 1.88.786.792.79.792 1.9z"/></svg>
+            </a>
+        </li>
+        <li id="gh">
+            <a href="https://github.com/ThatCSharpGuy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 16.37q0 4.9-2.86 8.8-2.86 3.93-7.4 5.43-.52.1-.77-.13-.24-.24-.24-.6v-4.1q0-1.9-1.02-2.78 1.2-.2 2.1-.4.9-.3 1.87-.8.95-.5 1.58-1.3.65-.8 1.05-2.1.4-1.27.4-2.93 0-2.38-1.54-4.04.7-1.78-.16-3.98-.57-.2-1.6.2t-1.8.85l-.75.47q-1.83-.5-3.76-.5t-3.76.5l-.8-.54Q11 8.16 9.9 7.7q-1.13-.4-1.7-.23-.86 2.2-.14 3.97-1.54 1.68-1.54 4.05 0 1.6.4 2.9.4 1.23 1.02 2.02.63.8 1.58 1.3.94.53 1.83.77.9.25 2 .37-.77.7-.94 2-.4.2-.82.3-.47.1-1.1.1-.66 0-1.3-.44-.63-.4-1.08-1.2-.38-.63-.95-1-.52-.4-.9-.5l-.4-.03q-.4 0-.57.1-.15.1-.1.24.06.13.18.26t.26.2l.15.1q.44.2.86.73t.63 1l.2.43q.23.75.84 1.2.6.47 1.3.6.7.13 1.34.14.65 0 1.08-.04l.46-.08v2.74q0 .35-.26.6-.25.22-.8.12-4.5-1.5-7.37-5.42-3-3.74-3-8.64 0-4.1 2-7.54 2-3.44 5.45-5.46 3.45-2 7.53-2t7.6 2q3.4 2 5.4 5.46 2 3.44 2 7.53z"/></svg>
+            </a>
+        </li>
+        <li id="yt">
+            <a href="https://www.youtube.com/c/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.43 15.714c0-.413-.17-.714-.504-.904l-8.57-5.357c-.347-.223-.71-.234-1.09-.033-.368.2-.552.513-.552.937V21.07c0 .426.184.738.553.94.178.088.35.133.52.133.222 0 .412-.056.568-.168l8.57-5.357c.336-.19.504-.49.504-.904zm8.57 0c0 1.072-.006 1.91-.017 2.51-.01.604-.058 1.366-.142 2.287-.083.92-.208 1.744-.376 2.47-.178.815-.563 1.5-1.155 2.06-.592.557-1.284.88-2.077.97-2.477.28-6.222.42-11.233.42-5.01 0-8.756-.14-11.233-.42-.793-.09-1.487-.413-2.085-.97-.597-.56-.984-1.245-1.163-2.06-.157-.726-.277-1.55-.36-2.47-.085-.92-.132-1.682-.143-2.285-.01-.602-.017-1.44-.017-2.51 0-1.072.006-1.91.017-2.512.01-.603.058-1.364.142-2.285.083-.92.208-1.744.376-2.47.178-.814.563-1.5 1.155-2.058.592-.56 1.284-.882 2.077-.97C7.244 5.14 10.99 5 16 5c5.01 0 8.756.14 11.233.42.793.088 1.487.41 2.085.97.597.558.984 1.244 1.163 2.06.157.724.277 1.547.36 2.468.085.92.132 1.682.143 2.285.01.603.017 1.44.017 2.51z"/></svg>
+            </a>
+        </li>
+        <li id="tw">
+            <a href="https://twitter.com/io_exception" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 6.7q-1.28 1.88-3.08 3.2.02.26.02.8 0 2.46-.73 4.93-.7 2.46-2.2 4.73-1.46 2.26-3.5 4-2.04 1.75-4.9 2.8-2.88 1.02-6.16 1.02-5.16 0-9.44-2.76.67.08 1.48.08 4.3 0 7.64-2.63-2-.04-3.58-1.23-1.58-1.2-2.17-3.03.63.1 1.16.1.82 0 1.62-.2-2.13-.44-3.53-2.13-1.4-1.68-1.4-3.9v-.1q1.3.74 2.78.8-1.26-.84-2-2.2-.74-1.35-.74-2.93 0-1.67.83-3.1 2.3 2.84 5.6 4.54 3.3 1.7 7.07 1.9-.15-.73-.15-1.4 0-2.57 1.8-4.36 1.8-1.8 4.35-1.8 2.66 0 4.5 1.94 2.07-.4 3.9-1.5-.7 2.2-2.7 3.4 1.76-.2 3.53-.95z"/></svg>
+            </a>
+        </li>    
+        <li id="fb">
+            <a href="https://www.facebook.com/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.512 1.488c.325.326.488.716.488 1.172v26.68c0 .456-.163.846-.488 1.172-.326.325-.716.488-1.172.488h-7.637V19.38h3.887l.586-4.532h-4.473v-2.89c0-.73.153-1.277.46-1.642.305-.364.9-.546 1.786-.546l2.382-.02V5.707c-.82-.117-1.98-.176-3.477-.176-1.77 0-3.186.522-4.248 1.564-1.06 1.04-1.59 2.513-1.59 4.414v3.34h-3.908v4.53h3.906V31H2.66c-.456 0-.846-.163-1.172-.488C1.163 30.186 1 29.796 1 29.34V2.66c0-.456.163-.846.488-1.172C1.814 1.163 2.204 1 2.66 1h26.68c.456 0 .846.163 1.172.488z"/></svg>
+            </a>
+        </li>
+        <li id="gp">
+            <a href="https://www.google.com/+Thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.9 14.25h-2.7v-2.72h-2.73v2.72h-2.7v2.72h2.7v2.7h2.72v-2.7h2.7v-2.72M10.5 17.5h5.4c-.22 1.4-1.64 4.12-5.4 4.12-3.25 0-5.9-2.7-5.9-6 0-3.33 2.65-6.02 5.9-6.02 1.85 0 3.08.78 3.8 1.46l2.58-2.48c-1.66-1.55-3.8-2.5-6.38-2.5C5.26 6.1 1 10.35 1 15.62s4.26 9.52 9.52 9.52c5.5 0 9.14-3.86 9.14-9.3 0-.62-.07-1.1-.15-1.57h-8.96"/></svg>
+            </a>
+        </li>
+    </ul>
+    <ul class="icon-list">
+        <li>
+            <a href="#">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M7 18.89v-5.88H1.15v-6H7V1.1h6v5.91h6V1.1h6v5.91h5.85v6H25v5.88h5.85v6H25v5.912h-6v-5.91h-6v5.91H7v-5.91H1.15v-6H7zm6 0v-5.88h6v5.88h-6z" fill="#3C8A3F" fill-rule="evenodd"/></svg>
+            </a>
+        </li>
+    </ul>
+         </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-6-24">
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+         <div class="footer-content">
+         </div>
+      </div>
+   </div>
+</footer>
+</body>
+</html>

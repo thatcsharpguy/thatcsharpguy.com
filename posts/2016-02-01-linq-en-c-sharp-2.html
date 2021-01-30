@@ -1,1 +1,326 @@
-Liquid error: The path /home/runner/work/thatcsharpguy.com/thatcsharpguy.com/templates/_post.liquid does not exist in the specified root /home/runner/work/thatcsharpguy\.com/thatcsharpguy\.com/templates
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<title>Linq en C# - segunda parte | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Linq en C# - segunda parte">
+<meta itemprop="description" content="Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Linq en C# - segunda parte">
+<meta name="twitter:description" content="Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Linq en C# - segunda parte">
+<meta name="og:description" content="Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/posts/2016-02-01-linq-en-c-sharp-2.html">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body>  
+        <header class="site-header ui">
+    <div class="wrapper menu">
+      <nav class="site-nav">
+        <a href="#" class="menu-icon">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a class="link page-link" href="/">Inicio</a>
+          <!-- <a class="link page-link" href="/">Sobre mi</a> -->
+          <a class="link page-link youtube" href="/">YouTube</a>
+          <a class="link page-link book-reviews" href="/tags/book-review.html">Reseñas</a>
+          <!-- <a class="link page-link gear" href="/">Herramientas</a> -->
+          <!-- <a class="link page-link" href="/about">About</a> -->
+          <!-- <a class="link page-link" href="/search">Search</a> -->
+        </div>
+      </nav>
+    </div>
+    <div class="wrapper title">
+      <div class="pure-g">
+        <div class="pure-u-1-24 title-number"><span>1</span></div>
+        <div class="pure-u-11-24 content-window">
+          <a class="site-title" href="/">That C# guy</a>
+        </div>
+      </div>
+  
+  </header>
+        <div class="page-content">
+            <div class="wrapper">
+                
+<h1>Linq en C# - segunda parte</h1>
+
+<p>Hace algunos cuantos posts <a href="/post/linq-en-c-sharp">les hablaba de Linq en C#</a>, y este post es una especie de continuación, para que, si aún no has integrado esta poderosa herramienta dentro de tus tareas de desarrollo, por fin te animes a hacerlo.</p>
+<h3 id="preparando-el-terreno">Preparando el terreno</h3>
+<p>Para este post me auxiliaré de tres elementos.</p>
+<ul>
+<li>Las clases <code>Lecture</code>, <code>Teacher</code> que representarán nuestros objetos de negocios. Un profesor (<code>Teacher</code>) imparte una o más clases (<code>Lecture</code>).</li>
+<li><code>FakeDatabase</code> que como su nombre lo indica, pretende ser una simulación de un almacenaje de datos con soporte para Linq. Hay que recordar que existen varias implementaciones: Linq to objects, Linq to SQL, Linq to XML, ...</li>
+</ul>
+<h2 id="dos-sintaxis">Dos sintaxis</h2>
+<p>Para usar Linq, tenemos disponibles dos formas de hacerlo: mediante el uso de la sintaxis de método o mediante la sintaxis de consulta, ambas son en su mayor parte intercambiables, sin embargo hay algunas funciones que únicamente son accesibles mediante la sintaxis de método. Diferenciarlas es sencillo, una son los métodos tradicionales mientras que la otra hace uso de palabras especiales como <code>from</code>, <code>in</code>, <code>select</code>.</p>
+<p>Por ejemplo, estas dos operaciones con Linq hacen lo mismo:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+from lecture in db.Lectures
+group lecture by lecture.TeacherId into grouped
+join teacher in db.Teachers 
+    on grouped.Key equals teacher.Id
+where teacher.LastName == "Williams"
+select new { TeacherId = grouped.Key, 
+             Name = teacher.GivenName };
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+db.Lectures
+.GroupBy (lecture => lecture.TeacherId)
+.Join (db.Teachers,
+        g => g.Key, t => t.Id,
+        (g, t) => new {Grouped = g, Teacher = t})
+.Where (an => an.Teacher.LastName == "Williams")
+.Select (an => new { TeacherId = an.Grouped.Key,
+                     Name = an.Teacher.GivenName });
+```  
+</div>
+</div>  
+  
+Tal vez con solo ver los ejemplos anteriores ya tengas tu favorito, pero no te dejes llevar todavía, los dos tienen sus fortalezas. Sin olvidar que hay operaciones únicamente disponibles en la sintaxis de método, para mí la sintaxis de método tiene el poder de las [expresiones lambda](/post/lambdas-en-c-sharp) y la sintaxis de consulta es más legible al ojo humano. 
+  
+Sin importar por cual nos decidamos, el compilador siempre toma las consultas en Linq y las transforma a métodos, puesto que **elegir una sobre otra es únicamente cuestión de gustos** y necesidad del programador ya que **no existe un beneficio en desempeño entre una y otra**. De hecho, la <a href="https://msdn.microsoft.com/en-us/library/bb397676.aspx" target="_blank">recomendación de Microsoft es</a>:  
+  
+> Usa sintaxis de consulta en donde sea posible y sintaxis de método cuando sea necesario.  
+  
+Yo no la sigo al pie de la letra, de nuevo: cuestión de gustos. Porque a mi parecer hay algunas consultas que son más sencillas de escribir y leer como métodos, como un simple filtrado con `Where`, o en ocasiones la combinación de ambas facilita la lectura.
+  
+## Proyecciones (Select, select) 
+La finalidad de usar Linq es el hacer consultas, el resultado de nuestras consultas está definido por las proyecciones que hacemos sobre los datos, dichas proyecciones están definidas por la cláusula `select` o el método `Select`.  
+  
+Con ellos se puede modelar los resultados de una consulta en un [tipo anónimo](/post/anonimos-en-c-sharp) o en un tipo previamente creado por nosotros. Por ejemplo, en la consulta anterior, el resultado era un conjunto de elementos que tenían las propiedades  `int TeacherId` y `string Name`. Es posible que usando los métodos de Linq, muchas veces se omita la proyección y es cuando se realiza una "proyección implícita", mientras que usando consultas siempre es necesario hacer un *select*.  
+<p>Solo por decir, así como en la consulta se crea un tipo anónimo con</p>
+<pre><code class="language-csharp">new { TeacherId = grouped.Key, Name = teacher.GivenName };
+</code></pre>
+<p>Igual se pudo haber creado un objeto de <code>Teacher</code> con</p>
+<pre><code class="language-csharp">new Teacher { TeacherId = grouped.Key, GivenName = teacher.GivenName };
+</code></pre>
+<h2 id="operadores-de-agregacion">Operadores de agregación</h2>
+<p>Promedios, sumas, mínimos... de todo. Usualmente metemos esto dentro de un <code>for</code> más unas cuantas variables auxiliares y tenemos el resultado, con Linq, eso se acaba.</p>
+<h3 id="conteo-count">Conteo (Count)</h3>
+<p>Supongamos que queremos contar la cantidad de profesores cuyo nombre comienza con <code>L</code>, entonces debemos utilizar el método <code>Count</code> (no está disponible en la sintaxis de consulta), y se hace de la siguiente manera:</p>
+<pre><code class="language-csharp">var profesoresConL = db.Teachers.Count(p =&gt; p.GivenName.StartsWith(&quot;L&quot;));
+</code></pre>
+<p>La llamada al método <code>Count</code> se puede hacer sin parámetros o pasando un <code>Func</code> que actúa como condicional  para indicar qué elementos dentro de la colección deben ser considerados para la cuenta.</p>
+<h3 id="suma-sum">Suma (Sum)</h3>
+<p>¿Cuantos años en total suman los profesores que tienen menos de 30? fácil, con más Linq. En este caso es necesario aplicar una función de filtrado antes de hacer la sumatoria, el filtrado se puede hacer con la sintaxis de consulta, pero la sumatoria debe ser con la de método:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+var edadMasMenos30 = db.Teachers
+    .Where (t => t.Age < 30)
+    .Sum (t => t.Age);
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+var menosDe30Total1 = (from t in db.Teachers
+                        where t.Age < 30
+                        select t.Age).Sum ();
+```  
+</div>  
+</div>  
+<h3 id="minimos-y-maximos-min-max">Mínimos y máximos (Min, Max)</h3>
+<p>No todos los profesores tienen correo electrónico, ¿tendrá algo que ver con la edad? con los métodos <code>Min</code> y <code>Max</code> podemos obtener los valores máximos y mínimos dentro de un conjunto de resultados:</p>
+<pre><code class="language-csharp">var edadMinSinEmail = (from t in db.Teachers
+                        where t.Email == &quot;&quot;
+                        select t).Min (t =&gt; t.Age);
+
+var edadMaxSinEmail = db.Teachers
+    .Where (t =&gt; t.Email == &quot;&quot;)
+    .Max (t =&gt; t.Age);  
+</code></pre>
+<h3 id="promedio-average">Promedio (Average)</h3>
+<p>Mmm... ¿Qué tal si probamos con los promedios de edad?, podemos usar el método <code>Average</code> para obtenerlo, primero filtramos los resultados para después obtener el promedio:</p>
+<pre><code class="language-csharp">var promedioEdadSMail = (from t in db.Teachers
+    where t.Email == &quot;&quot;
+    select t).Average (t =&gt; t.Age);
+
+var promedioEmailCMail = db.Teachers
+    .Where (t =&gt; t.Email != &quot;&quot;)
+    .Average (t =&gt; t.Age);
+</code></pre>
+<p>También existe una función llamada <code>Aggregate</code> que nos da flexibilidad para integrar nuestra propia funcionalidad de agregación.</p>
+<h2 id="cuantificadores">Cuantificadores</h2>
+<p>Otro lugar en donde metíamos un <code>bool</code>, un ciclo <code>for</code>, un condicional y problema resuelto. Usando Linq lo único que necesitamos es la condición.</p>
+<h3 id="todos-los-elementos-all">Todos los elementos (All)</h3>
+<p>Podemos usar el método <code>All</code> para verificar que todos los elementos dentro del conjunto cumplen con la condición especificada, <strong>si todos cumplen la condición</strong>, el método nos regresará <code>true</code>. Por ejemplo, si quisiéramos saber si todos los maestros tienen más de 18 años:</p>
+<pre><code class="language-csharp">bool todosMayores = db.Teachers.All(teacher =&gt; teacher.Age &gt; 18);
+</code></pre>
+<h3 id="algun-elemento-any">Algún elemento (Any)</h3>
+<p>Contrario a <code>All</code>, el método <code>Any</code> devolverá <code>true</code> cuando exista <strong>al menos un elemento que cumpla con la condición</strong> que se le pasa como argumento. Por ejemplo, si queremos saber si existe algún maestro que se llame Cosme Fulanito:</p>
+<pre><code class="language-csharp">bool existeCosmeFulanito = db.Teachers.Any(teacher =&gt; teacher.GivenName == &quot;Cosme&quot;
+                            &amp;&amp; teacher.LastName == &quot;Fulanito&quot;);
+</code></pre>
+<p>Otra de las funciones de <code>Any</code> es evitarnos el &quot;molesto&quot; condicional de <code>.Count &gt; 0</code>. Porque si llamamos <code>Any</code> sin pasar ningún condicional, este nos devolverá <code>true</code> siempre que nuestra secuencia contenga algún elemento. Digamos que antes de seguir queremos saber si hay clases registradas:</p>
+<pre><code class="language-csharp">bool hayClases = db.Lectures.Any();  
+</code></pre>
+<h2 id="ordenamiento-orderby-orderby">Ordenamiento (OrderBy, orderby)</h2>
+<p>Con Linq también es posible ordenar nuestros conjuntos de datos. Solo hay que recordar que generalmente el ordenamiento operará solo de manera temporal y que el ordenamiento no permanecerá una vez que hemos dejado de trabajar con los datos.</p>
+<p>Para ordenar podemos usar tanto la cláusula <code>orderby</code> y especificarle la propiedad a usar como referencia o el método <code>OrderBy</code> y usar una expresión lambda para el mismo fin. Vamos a ordenar a los maestros por la longitud de su apellido:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+var maestrosOrdenados1 = db.Teachers
+    .OrderBy(t => t.LastName.Length);
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+var maestrosOrdenados2 = 
+        from t in db.Teachers
+        orderby t.LastName.Length
+        select t;
+```  
+</div>  
+</div> 
+<p>También tenemos disponible la cláusula <code>descending</code> y el método <code>OrderByDescending</code> que invertirán el ordenamiento, se usan así:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+.OrderByDescending(t => t.LastName.Length);
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+orderby t.LastName.Length descending
+```  
+</div>  
+</div> 
+ 
+¿Pero qué ocurre cuando queremos tomar en cuenta dos propiedades para realizar el ordenamiento? pues para eso podemos usar el método `ThenBy` o `ThenByDescending` para especificar otra condición de ordenamiento.
+<pre><code class="language-csharp">var maestrosOrdenados3 = db.Teachers
+    .OrderBy(t =&gt; t.LastName.Length)
+    .ThenByDescending(t =&gt; t.GivenName);
+</code></pre>
+<h2 id="operadores-de-particion">Operadores de partición</h2>
+<p>Los operadores de partición son especialmente útiles para paginar los resultados, estos permiten considerar (o no considerar) cierta cantidad de elementos al inicio de la secuencia que los contiene.</p>
+<h3 id="toma-take">Toma (Take)</h3>
+<p>El método <code>Take</code> recibe un entero como parámetro que especifica la cantidad de elementos que son requeridos de toda la secuencia sobre la que opera, en caso de que haya menos de los requeridos únicamente devolverá los que encontró. Por ejemplo, si quisiéramos tomar los primeros 5 maestros más jóvenes, menores de 20 años:</p>
+<pre><code class="language-csharp">var cincoMenores20 = (from t in db.Teachers
+                      where t.Age &lt; 20
+                      orderby t.Age
+                      select t).Take (5);
+</code></pre>
+<h3 id="salta-skip">Salta (Skip)</h3>
+<p>Podríamos verlo como el contrario de <code>Take</code>, ya que <code>Skip</code> igualmente toma un entero, pero este entero indica cuántos elementos de la secuencia debe ignorar antes de comenzar a tomar en cuenta. Supongamos que necesitamos tomar todos los maestros mayores de 30 años, comenzando por los mayores, pero ignorar a los primeros 4:</p>
+<pre><code class="language-csharp">var otrosMaestros = db.Teachers
+    .Where(t=&gt; t.Age &gt; 30)
+    .OrderByDescending(t =&gt; t.Age)
+    .Skip(4);
+</code></pre>
+<p>También existe un método que se llama <code>TakeWhile</code> y otro que se llama <code>SkipWhile</code>, ambos requieren de una condición sobre la que se decidirá a partir de cuándo comenzar a tomar (o dejar de ignorar) los elementos de la secuencia.</p>
+<h4 id="lo-que-sigue">Lo que sigue</h4>
+<p>Una vez que hemos visto el poder de Linq con estos ejemplos relativamente sencillos, no queda más que seguir y aprender sobre agrupamientos, uniones, intersecciones y otras cuantas cosas un poco más complejas. Lo visto aquí sigue sin ser lo más impresionante de esta herramienta. Recuerda que puedes encontrar el código fuente en la información del post.</p>
+
+
+            </div>
+        </div>
+        <footer class="site-footer ui">
+   <div class="wrapper pure-g">
+      <div class="pure-u-1 pure-u-md-8-24">
+         <div class="footer-content">
+            <ul class="icon-list">
+        <li id="em">
+            <a href="mailto:feregrino@thatcsharpguy.com" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 11.815v13.292q0 1.105-.787 1.892-.787.78-1.892.78H3.68q-1.106 0-1.893-.79Q1 26.21 1 25.102v-13.29q.737.82 1.69 1.46 6.06 4.12 8.32 5.78.955.705 1.55 1.1.594.392 1.582.802.987.41 1.84.41h.035q.854 0 1.84-.41.99-.41 1.583-.804.595-.393 1.55-1.096 2.845-2.06 8.336-5.778.954-.652 1.674-1.455zm0-4.922q0 1.322-.82 2.528t-2.043 2.06l-7.835 5.44-.71.51q-.545.4-.905.64t-.87.55q-.51.3-.963.45-.452.15-.837.15h-.034q-.385 0-.837-.15-.452-.15-.962-.45-.51-.302-.87-.544-.36-.243-.905-.637l-.72-.51q-1.525-1.07-4.388-3.055-2.86-1.984-3.43-2.386-1.04-.704-1.96-1.935Q1 8.315 1 7.26q0-1.305.695-2.175.695-.87 1.984-.87h24.64q1.09 0 1.88.786.792.79.792 1.9z"/></svg>
+            </a>
+        </li>
+        <li id="gh">
+            <a href="https://github.com/ThatCSharpGuy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 16.37q0 4.9-2.86 8.8-2.86 3.93-7.4 5.43-.52.1-.77-.13-.24-.24-.24-.6v-4.1q0-1.9-1.02-2.78 1.2-.2 2.1-.4.9-.3 1.87-.8.95-.5 1.58-1.3.65-.8 1.05-2.1.4-1.27.4-2.93 0-2.38-1.54-4.04.7-1.78-.16-3.98-.57-.2-1.6.2t-1.8.85l-.75.47q-1.83-.5-3.76-.5t-3.76.5l-.8-.54Q11 8.16 9.9 7.7q-1.13-.4-1.7-.23-.86 2.2-.14 3.97-1.54 1.68-1.54 4.05 0 1.6.4 2.9.4 1.23 1.02 2.02.63.8 1.58 1.3.94.53 1.83.77.9.25 2 .37-.77.7-.94 2-.4.2-.82.3-.47.1-1.1.1-.66 0-1.3-.44-.63-.4-1.08-1.2-.38-.63-.95-1-.52-.4-.9-.5l-.4-.03q-.4 0-.57.1-.15.1-.1.24.06.13.18.26t.26.2l.15.1q.44.2.86.73t.63 1l.2.43q.23.75.84 1.2.6.47 1.3.6.7.13 1.34.14.65 0 1.08-.04l.46-.08v2.74q0 .35-.26.6-.25.22-.8.12-4.5-1.5-7.37-5.42-3-3.74-3-8.64 0-4.1 2-7.54 2-3.44 5.45-5.46 3.45-2 7.53-2t7.6 2q3.4 2 5.4 5.46 2 3.44 2 7.53z"/></svg>
+            </a>
+        </li>
+        <li id="yt">
+            <a href="https://www.youtube.com/c/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.43 15.714c0-.413-.17-.714-.504-.904l-8.57-5.357c-.347-.223-.71-.234-1.09-.033-.368.2-.552.513-.552.937V21.07c0 .426.184.738.553.94.178.088.35.133.52.133.222 0 .412-.056.568-.168l8.57-5.357c.336-.19.504-.49.504-.904zm8.57 0c0 1.072-.006 1.91-.017 2.51-.01.604-.058 1.366-.142 2.287-.083.92-.208 1.744-.376 2.47-.178.815-.563 1.5-1.155 2.06-.592.557-1.284.88-2.077.97-2.477.28-6.222.42-11.233.42-5.01 0-8.756-.14-11.233-.42-.793-.09-1.487-.413-2.085-.97-.597-.56-.984-1.245-1.163-2.06-.157-.726-.277-1.55-.36-2.47-.085-.92-.132-1.682-.143-2.285-.01-.602-.017-1.44-.017-2.51 0-1.072.006-1.91.017-2.512.01-.603.058-1.364.142-2.285.083-.92.208-1.744.376-2.47.178-.814.563-1.5 1.155-2.058.592-.56 1.284-.882 2.077-.97C7.244 5.14 10.99 5 16 5c5.01 0 8.756.14 11.233.42.793.088 1.487.41 2.085.97.597.558.984 1.244 1.163 2.06.157.724.277 1.547.36 2.468.085.92.132 1.682.143 2.285.01.603.017 1.44.017 2.51z"/></svg>
+            </a>
+        </li>
+        <li id="tw">
+            <a href="https://twitter.com/io_exception" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 6.7q-1.28 1.88-3.08 3.2.02.26.02.8 0 2.46-.73 4.93-.7 2.46-2.2 4.73-1.46 2.26-3.5 4-2.04 1.75-4.9 2.8-2.88 1.02-6.16 1.02-5.16 0-9.44-2.76.67.08 1.48.08 4.3 0 7.64-2.63-2-.04-3.58-1.23-1.58-1.2-2.17-3.03.63.1 1.16.1.82 0 1.62-.2-2.13-.44-3.53-2.13-1.4-1.68-1.4-3.9v-.1q1.3.74 2.78.8-1.26-.84-2-2.2-.74-1.35-.74-2.93 0-1.67.83-3.1 2.3 2.84 5.6 4.54 3.3 1.7 7.07 1.9-.15-.73-.15-1.4 0-2.57 1.8-4.36 1.8-1.8 4.35-1.8 2.66 0 4.5 1.94 2.07-.4 3.9-1.5-.7 2.2-2.7 3.4 1.76-.2 3.53-.95z"/></svg>
+            </a>
+        </li>    
+        <li id="fb">
+            <a href="https://www.facebook.com/thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.512 1.488c.325.326.488.716.488 1.172v26.68c0 .456-.163.846-.488 1.172-.326.325-.716.488-1.172.488h-7.637V19.38h3.887l.586-4.532h-4.473v-2.89c0-.73.153-1.277.46-1.642.305-.364.9-.546 1.786-.546l2.382-.02V5.707c-.82-.117-1.98-.176-3.477-.176-1.77 0-3.186.522-4.248 1.564-1.06 1.04-1.59 2.513-1.59 4.414v3.34h-3.908v4.53h3.906V31H2.66c-.456 0-.846-.163-1.172-.488C1.163 30.186 1 29.796 1 29.34V2.66c0-.456.163-.846.488-1.172C1.814 1.163 2.204 1 2.66 1h26.68c.456 0 .846.163 1.172.488z"/></svg>
+            </a>
+        </li>
+        <li id="gp">
+            <a href="https://www.google.com/+Thatcsharpguy" class="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.9 14.25h-2.7v-2.72h-2.73v2.72h-2.7v2.72h2.7v2.7h2.72v-2.7h2.7v-2.72M10.5 17.5h5.4c-.22 1.4-1.64 4.12-5.4 4.12-3.25 0-5.9-2.7-5.9-6 0-3.33 2.65-6.02 5.9-6.02 1.85 0 3.08.78 3.8 1.46l2.58-2.48c-1.66-1.55-3.8-2.5-6.38-2.5C5.26 6.1 1 10.35 1 15.62s4.26 9.52 9.52 9.52c5.5 0 9.14-3.86 9.14-9.3 0-.62-.07-1.1-.15-1.57h-8.96"/></svg>
+            </a>
+        </li>
+    </ul>
+    <ul class="icon-list">
+        <li>
+            <a href="#">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M7 18.89v-5.88H1.15v-6H7V1.1h6v5.91h6V1.1h6v5.91h5.85v6H25v5.88h5.85v6H25v5.912h-6v-5.91h-6v5.91H7v-5.91H1.15v-6H7zm6 0v-5.88h6v5.88h-6z" fill="#3C8A3F" fill-rule="evenodd"/></svg>
+            </a>
+        </li>
+    </ul>
+         </div>
+      </div>
+      <div class="pure-u-1 pure-u-md-6-24">
+      </div>
+      <div class="pure-u-1 pure-u-md-10-24">
+         <div class="footer-content">
+         </div>
+      </div>
+   </div>
+</footer>
+</body>
+</html>
