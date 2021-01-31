@@ -113,7 +113,7 @@ using (ExcelPackage excel = new ExcelPackage(prueba))
 </code></pre>
 <p>Cabe señalar que también tenemos a nuestra disposición el método <code>SaveAs</code> que permite guardar una copia del documento con el que estamos trabajando, hay otra sobrecarga que inclusive nos eprmite establecer una contraseña para el archivo.</p>
 <p>Si ejecutamos el código hasta este momento veremos un archivo <code>.xlsx</code> llamado &quot;prueba.xlsx&quot; en la carpeta donde está nuestra aplicación, en mi caso es dentro de <code>bin\Debug</code>, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo, pero bien pudimos usar una ruta absoluta para guardarlo en otro lugar.</p>
-<p>&lt;img src=&quot;/images/xlsx-c-sharp__new-xlsx.png&quot; title=<>Documento vacío</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xlsx-c-sharp__new-xlsx.png&quot; title=<>Documento vacío</> /&gt;</p>
 <h2 id="agregando-informacion">Agregando información</h2>
 <p>Queremos generar un reporte con todos los maestros en una hoja de Excel y así es una de las maneras en que se puede hacer usando EPPlus</p>
 <h3 id="hojas-de-trabajo">Hojas de trabajo</h3>
@@ -145,7 +145,7 @@ foreach (var teacher in Database.Teachers)
 } 
 </code></pre>
 <p>Tras lo cual obtendremos algo como esto:</p>
-<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-1.png&quot; title=<>Documento vacío</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xlsx-c-sharp__sample-1.png&quot; title=<>Documento vacío</> /&gt;</p>
 <p>Podemos agregar más hojas a nuestro libro, también añadiremos una hoja para guardar las Clases impartidas por los maestros.</p>
 <h2 id="hoja-de-resumen">Hoja de resumen</h2>
 <p>Ahora veremos cómo agregar una página de resumen, en la cual mostraremos algunos datos basados en la información contenida dentro del libro.</p>
@@ -160,7 +160,7 @@ titleCell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 titleCell.Value = &quot;Resumen&quot;;
 </code></pre>
 <p>Que nos dejará con el siguiente resultado:</p>
-<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-2.png&quot; title=<>Documento vacío</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xlsx-c-sharp__sample-2.png&quot; title=<>Documento vacío</> /&gt;</p>
 <h3 id="formulas">Formulas</h3>
 <p>Para añadir fórmulas debemos usar la propiedad <code>Formula</code> de las celdas, lo que si es importante es hacer referencia a ellas a través de su nombre original en inglés.</p>
 <pre><code class="language-csharp">summaryWorksheet.Cells[&quot;B2&quot;].Formula = &quot;AVERAGE(Maestros!E2:E31)&quot;;  
@@ -168,7 +168,7 @@ titleCell.Value = &quot;Resumen&quot;;
 summaryWorksheet.Cells[&quot;B3&quot;].Formula = &quot;COUNTIF(Maestros!D2:D31,\&quot;\&quot;)&quot;;
 </code></pre>
 <p>En este caso estamos usando AVERAGE para sacar el promedio de edad y COUNTIF para contar la cantidad de maestros sin correo electrónico.</p>
-<p>&lt;img src=&quot;/images/xlsx-c-sharp__sample-3.png&quot; title=<>Documento vacío</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xlsx-c-sharp__sample-3.png&quot; title=<>Documento vacío</> /&gt;</p>
 <h2 id="usando-linq">Usando LINQ</h2>
 <p>Una cosa que relamente es genial de EPPlus es que nos permite usar LINQ para trabajar con las hojas y celdas de nuestros libros, por ejemplo, para obtener una referencia a una hoja de trabajo existente podemos buscarla por su nombre usando el método <code>Single</code>:</p>
 <pre><code class="language-csharp">var teacherWorksheet = wb.Worksheets.Single(ws =&gt; ws.Name == &quot;Maestros&quot;); 
@@ -194,7 +194,7 @@ summaryWorksheet.Cells[&quot;B3&quot;].Formula = &quot;COUNTIF(Maestros!D2:D31,\
 }
 </code></pre>
 <p>Que nos dejará el resultado siguiente:</p>
-<img src="/images/xlsx-c-sharp__sample-4.png" title="Celdas coloreadas" />
+<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp__sample-4.png" title="Celdas coloreadas" />
 <p>Además de poder modificar el relleno de una celda también tenemos acceso a personalizar el borde, fuente y alineación.</p>
 <h2 id="formato-condicional">Formato condicional</h2>
 <p>Adicionalmente a añadir nuestro propio formato, esta librería también permite trabajar con formato condicional para las celdas, y la manera de hacerlo es la siguiente:</p>
@@ -216,7 +216,7 @@ formatting.HighValue.Formula = &quot;MAX(&quot; + ageCellsAddress + &quot;)&quot
 formatting.HighValue.Color = Color.Green;
 </code></pre>
 <p>Tras lo cual el libro se verá así:</p>
-<img src="/images/xlsx-c-sharp__sample-5.png" title="Formato condicional" />
+<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp__sample-5.png" title="Formato condicional" />
 <h2 id="leyendo-celdas">Leyendo celdas</h2>
 <p>Así como podemos crear hojas desde cero, también podemos leer las ya existentes. Esto es particularmente útil cuando vas a solicitar información a los usuarios a través de un libro de Excel.</p>
 <p>Así que supongamos que cargaremos maestros a la base con un archivo llamado <code>teachers.xlsx</code>, bastaría con abrirlo:</p>

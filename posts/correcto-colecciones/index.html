@@ -98,21 +98,21 @@
 <p>En este post voy a tratar de explicarte el uso básico de <code>Queue&lt;T&gt;</code>, <code>Stack&lt;T&gt;</code>, <code>HashSet&lt;T&gt;</code>, <code>Dictionary&lt;TKey, TVal&gt;</code>.</p>
 <h2 id="list">List<T></h2>
 <p>Como dije antes, &quot;la vieja confiable&quot; y me atrevería a decir que es la colección más usada en los programas escritos con C#. Esto debido a que es, en teoría, la más sencilla de usar, ya que se comporta básicamente como los tan comunes arreglos al permitirnos <strong>acceder a cualquier elemento</strong> con la sintaxis de indizadores <code>[n]</code>, además da la posibilidad de <strong>añadir elementos en cualquier posición</strong> con <code>Insert</code> o emplear <code>Add</code> para <strong>añadir elementos <em>al final</em> de la lista</strong> sin necesidad de preocuparnos por reubicar los objetos ya existentes en ella:</p>
-<img src="/images/aprende-c-sharp__colecciones__list.png" title="List" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__colecciones__list.png" title="List" />
 <p>Esta es la colección <em>más</em> genérica y que nos puede ayudar en cualquiera de los casos, sin embargo no es la más reciomendable en cuanto a desempeño, y que si bien permite acceder a su contenido de forma constante <em>O(1)</em>, añadir nuevos elementos o insertar puede ser una operación muy pesada <em>O(n)</em>.</p>
 <h2 id="queue">Queue<T></h2>
 <p>En español la podríamos llamar &quot;cola&quot; o &quot;fila&quot;, y se comporta como funcionan las filas o colas en la vida real: los nuevos elementos se forman &quot;hasta atrás&quot; y los viejos elementos salen &quot;por delante&quot;. Para esta acción en lugar de contar con métodos como <code>Add</code> o <code>Insert</code>, nos ofrece <code>Enqueue</code> para <strong>insertar elementos al final</strong>, mientras que nos <strong>permite conocer al elemento <em>de enfrente</em></strong> mediante <code>Peek</code> y <strong>sacar dicho elemento</strong> usando <code>Dequeue</code>:</p>
-<img src="/images/aprende-c-sharp__colecciones__queue.png" title="Queue" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__colecciones__queue.png" title="Queue" />
 <p>Esta colección es útil cuando no necesitamos acceso aleatorio a los datos o cuando es necesario mantener un orden determinado por el momento en que los elementos fueron añadidos a la colección.</p>
 <p>El ejemplo más claro es si estamos desarrollando una aplicación para asignar los clientes a las ventanillas de un banco, en donde el primero en llegar debe ser el primero en ser atendido.</p>
 <h2 id="stack">Stack<T></h2>
 <p>O como le decimos en español: la pila. En cierto sentido es muy similar a una Cola, en el sentido de que *<em>permite insertar <strong>al inicio</strong></em> usando <code>Push</code>, <strong>acceder a él</strong> usando <code>Peek</code> y <strong>sacar el elemento más reciente</strong> usando <code>Pop</code>:</p>
-<img src="/images/aprende-c-sharp__colecciones__stack.png" title="Stack" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__colecciones__stack.png" title="Stack" />
 <p>Esta colección tabmién es útil cuando no necesitamos acceso aleatorio a los datos y queremos tener o cuando es necesario obtener siempre el elemento más recientemente insertado. La pila es una estructura que se comoce como LIFO (<em>last in, first out</em>): el último en llegar es el primero en salir.</p>
 <p>Las pilas son comunmente usadas para invertir conjuntos, o para implementar operaciones de hacer-deshacer, y para procesar operaciones matemáticas de notación infja o posfija.</p>
 <h2 id="hashset">HashSet<T></h2>
 <p>La colección que a mi parecer es de las que menos se usan en el desarrollo, tiene una peculiaridad: no guarda los elementos dentro de ella, sino una representación numérica de ellos. Nos <strong>ofrece un método para insertar</strong> llamado <code>Add</code> que a su vez llama a <code>GetHashCode</code> para &quot;convertir&quot; lo que estamos insertando en un número entero y después guardarlo, y después revisar si existe meidante <code>Contains</code>:</p>
-<img src="/images/aprende-c-sharp__colecciones__hashset.png" title="HashSet" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__colecciones__hashset.png" title="HashSet" />
 <p>Esta es la colección ideal cuando únicamente queremos corroborar que un elemento existe dentro de un conjunto, insertar en un <code>HashSet</code> es una operación constante <em>O(1)</em>, al igual que revisar si alguno ya existe en él.</p>
 <p>He visto muchas veces código como el siguiente:</p>
 <pre><code class="language-csharp">var descuentos = new List&lt;double&gt; { 10, 15, 30 };
@@ -128,10 +128,10 @@ if (descuentos.Contains(miDescuento)) // no hay necesidad de buscar
 <h2 id="dictionarytkey-tval">Dictionary&lt;TKey, TVal&gt;</h2>
 <p>El diccionario almacena pares de valores: una llave y un objeto asociado.
 Una colección extremadamente similar a un <code>HashSet</code>, ya que de igual manera convierte uno de los elementos (la llave) a un entero para asociarlo con el objeto. <strong>Para insertar ofrece el método</strong> <code>Add</code>, además de que deja acceder a los valores mediante la sintaxis de indizador <code>[]</code>, y revisar si un valor o una llave existen en el diccionario usando <code>ContainsKey</code> y <code>ContainsValue</code>:</p>
-<img src="/images/aprende-c-sharp__colecciones__dictionary.png" title="Dictionary" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__colecciones__dictionary.png" title="Dictionary" />
 <h2 id="colecciones-no-genericas">Colecciones no genéricas</h2>
 <p>Las colecciones no genéricas se comportan de manera similar, con la pequeña gran diferencia de que estas colecciones no tienen información de los objetos que almacenan. Para ellos son cualquier cosa... como si simplementa guardaran cajas sin conocer su contenido:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__colecciones__generics.png&quot; title=<>Genéricos</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/aprende-c-sharp__colecciones__generics.png&quot; title=<>Genéricos</> /&gt;</p>
 
 
             </div>

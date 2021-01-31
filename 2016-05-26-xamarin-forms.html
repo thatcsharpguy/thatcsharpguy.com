@@ -121,7 +121,7 @@
 </li>
 </ul>
 <p>En esta imagen puedes ver todas:</p>
-<p>&lt;img src=&quot;/images/tv__xamarinforms__pages.png&quot; title=<>Xamarin.Forms stock pages</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/tv__xamarinforms__pages.png&quot; title=<>Xamarin.Forms stock pages</> /&gt;</p>
 <ul>
 <li>Contenedores (Layouts) que nos permiten acomodar los elementos de interfaz gráfica dentro de una página, de igual manera, Forms nos da algunos <code>Layouts</code> comunes como:
 <ul>
@@ -133,7 +133,7 @@
 </li>
 </ul>
 <p>En fin, hay varios más</p>
-<p>&lt;img src=&quot;/images/tv__xamarinforms__layouts.png&quot; title=<>Xamarin.Forms stock layouts</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/tv__xamarinforms__layouts.png&quot; title=<>Xamarin.Forms stock layouts</> /&gt;</p>
 <ul>
 <li>Controles (Views) son elementos visuales, y en donde realmente se &quot;nota&quot; más, el poder de Forms. Estos elementos visuales son los que reciben directamente la interacción del usuario, por ejemplo, en Forms tenemos:
 <ul>
@@ -149,15 +149,15 @@
 </li>
 <li>Celdas (Cells) que como ya lo mencioné, se usan junto con las <code>ListView</code> o <code>TableView</code> para mostrar datos, en esta categoría hay celdas que nos permiten mostrar texto, texto e imágenes o controles como un Switch o una caja de texto.</li>
 </ul>
-<p>&lt;img src=&quot;/images/tv__xamarinforms__controls.png&quot; title=<>Xamarin.Forms stock layouts</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/tv__xamarinforms__controls.png&quot; title=<>Xamarin.Forms stock layouts</> /&gt;</p>
 <p>Xamarin.Forms funciona así: las abstracciones de controles se transforman en tiempo de ejecución a controles nativos, en cada plataforma hay un conjunto de <em>Renderers</em> que toman la abstracción y la convierten al control nativo. De tal manera que cuando nosotros usamos un control, por ejemplo digamos <code>Entry</code> (para recibir texto del usuario), estos <code>Renderers</code> lo convertirán en Android a un <code>EditText</code>, en iOS a un <code>UITextView</code> y en Windows a un <code>TextBox</code>:</p>
-<img src="/images/tv__xamarinforms__entry_rendering.png" title="Rendering" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__xamarinforms__entry_rendering.png" title="Rendering" />
 <p>Al ser abstracciones, es muy posible que muchas de las propiedades que son específicas a cada plataforma no estén disponibles en Xamarin.Forms ya que se trata de ofrecer un conjunto de propiedades común a todas las plataformas. Esto es una limitante, ya que con Forms no podemos alcanzar un alto nivel de personalización en nuestras apps.</p>
 <h3 id="custom-renderers">Custom renderers</h3>
 <p>Pero no te desanimes, así como Forms hace uso de los renderers, tu también los puedes usar para especificar cómo quieres que se muestren los controles en cada plataforma o, inclusive, para añadir controles que no están disponibles a través de la API de Forms como <a href="https://www.nuget.org/packages/Messier16.…" target="_blank" rel="nofollow">el checkbox que hice</a>. Si quieres saber más, <a href="https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/introduction/" target="_blank" rel="nofollow">puedes checar la documentación</a>.</p>
 <h3 id="lenguaje-de-interfaz">Lenguaje de interfaz</h3>
 <p>Otra de las dudas más comunes es sobre el cómo escribimos la interfaz usando Xamarin.Forms, y pues las respuestas son dos:</p>
-<p>&lt;img src=&quot;/images/tv__xamarinforms__language.png&quot; title=<>Lenguaje de interfaz gráfica</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/tv__xamarinforms__language.png&quot; title=<>Lenguaje de interfaz gráfica</> /&gt;</p>
 <p>Sí, XAML y código C#. Yo preiero el código, aunque si tienes muchos controles, la cosa se puede tornar bastante fea si no tienes buena organización.</p>
 <h3 id="codigo-de-cada-plataforma">Código de cada plataforma</h3>
 <p>A pesar de usar Forms, nunca nos vamos a liberar de tener que ver (o usar) código dentro de cada plataforma, ya que como he mencionado antes, esta herramienta es simplemente una librería que es ejecutada cuando nuestra aplicación corre. Esto se ve cuando creamos un proyecto nuevo, en Android, dentro del archivo <code>MainActivity</code> y en iOS dentro de <code>AppDelegate</code> se carga la aplicación hecha con forms.</p>

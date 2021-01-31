@@ -113,7 +113,7 @@ double? puedeValerNull = 9.9;
 </code></pre>
 <p>Aunque en este punto debemos ser cuidadosos, ya que la sintaxis es un poco confusa, ya sabemos, <code>Nullable</code> es una estructura y las estructuras no pueden tener un valor <code>null</code>...  ¿entonces qué sucede al momento de asignar un valor a <code>enteroNullable</code> en  el código anterior?<br />
 Como dije anteriormente, los tipos nullables son como una caja, al asignarle <code>null</code> estamos creando una caja que puede contener un <code>int</code> pero que al momento estamos dejando vacía. Podemos entonces trabajar con nuestra variable:</p>
-<img src="/images/tipos-nullables-en-c-sharp__boxes.png" title="Tipos por valor" />
+<img src="https://thatcsharpguy.github.io/postimages/tipos-nullables-en-c-sharp__boxes.png" title="Tipos por valor" />
 <h5 id="obteniendo-un-el-valor-o-una-excepcion">Obteniendo un el valor (o una excepción)</h5>
 <p>Para obtener el valor contenido dentro de un <em>nullable</em>, tenemos a nuestra disposición la propiedad <code>Value</code>, que debemos usar con cuidado, puesto que en caso de que el <em>nullable</em> no tenga un valor asignado, lanzará una exepción del tipo <code>InvalidOperationException</code>.</p>
 <pre><code class="language-csharp">enteroNullable = null;

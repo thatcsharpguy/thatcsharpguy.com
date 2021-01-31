@@ -100,14 +100,14 @@
 <p>Solo una cosa antes de comenzar, recuerda que esta no es todavía una versión estable, así que tal vez quieras crear una nueva rama en tu <a href="http://thatcsharpguy.com/tv/control-versiones/" target="_blank">control de versiones</a></p>
 <h3 id="anadir-un-proyecto-de-macos">1. Añadir un proyecto de macOS</h3>
 <p>El primer paso es agregar un proyecto del tipo Cocoa App:</p>
-<img src="/images/xamarin-forms__mac__createproject.jpg" title="Create project" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms__mac__createproject.jpg" title="Create project" />
 <h3 id="agrega-xamarin.forms">2. Agrega Xamarin.Forms</h3>
 <p>Agrega el paquete de NuGet Xamarin.Forms, recuerda que es la versión <code>2.3.5.233-pre1</code>, no olvides actualizar las versiones en los otros proyectos también.</p>
 <h3 id="referencia-desde-el-proyecto-de-mac-al-de-forms">3. Referencia desde el proyecto de Mac al de Forms</h3>
 <p>Agrega una referencia de tu proyecto de Mac al proyecto principal de tu aplicación de Forms.</p>
 <h3 id="edita-el-archivo-info.plist">4. Edita el archivo Info.plist</h3>
 <p>Hay que quitar la referencia al <em>Storyboard</em> por default, esto se logra borrando la entrada <code>NSMainStoryboardFile</code> en el archivo <code>Info.plist</code>, puedes usar el editor gráfico en la pestaña Avanzado.</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__mac__infoplist.jpg&quot; title=<>Archivo Info.plist</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms__mac__infoplist.jpg&quot; title=<>Archivo Info.plist</> /&gt;</p>
 <h3 id="edita-el-archivo-main.cs">5. Edita el archivo Main.cs</h3>
 <p>Hay que indicarle a la aplicación que su delegado es el archivo <code>AppDelegate</code>:</p>
 <pre><code class="language-csharp">	static void Main(string[] args)

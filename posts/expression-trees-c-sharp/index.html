@@ -95,7 +95,7 @@
 <h1>Árboles de expresiones en C#</h1>
 
 <p>El tipo de dato <code>Expression</code> no es un tipo de dato convencional, no es algo que le mostrarás al usuario final de tu app en la pantalla. Más bien es un tipo de dato diseñado para ser usado por otros desarrolladores. Este tipo de dato fue introducido junto con LINQ en .NET 3.5. Seguramente tu mismo lo has usado sin darte cuenta, el lugar más común para encontrarlo es como parámetro del método de extensión <code>Where</code> de cualquier colección que implementa la interfaz <code>IQueryable</code>:</p>
-<img src="/images/aprende-c-sharp__expressions__inwhere.jpg" title="Where clause" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__expressions__inwhere.jpg" title="Where clause" />
 <p>&quot;¡Pero si eso es una expresión lambda!&quot; podrías decirme... y tendrías toda la razón, sin embargo, existe una conversión implícita entre <code>Expression&lt;TDelegate&gt;</code> y una expresión lambda, que es lo que generalmente vemos nosotros como desarrolladores.</p>
 <h3 id="y-luego">¿Y luego?</h3>
 <p>Las expresiones permiten inspeccionar el código que forma determinada expresión lambda. Por ejemplo, de la imagen anterior podríamos saber que la expresión lambda recibe un parámetro llamado <code>a</code> que es del tipo entero, que se realiza una operación módulo y que se compara contra cero el resultado. Todo esto sin necesidad de decompilar el código ni nada por el estilo.</p>
@@ -141,7 +141,7 @@
 //El cuerpo de la expresión es constante
 //	Valor: True
 </code></pre>
-<img src="/images/aprende-c-sharp__expressions__constant.png" title="Constant expression" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__expressions__constant.png" title="Constant expression" />
 <pre><code class="language-csharp">Inspecciona((a) =&gt; a % 2 == 0);
 // Resultado:
 //== Examinando &quot;a =&gt; ((a % 2) == 0)&quot; ==
@@ -151,7 +151,7 @@
 //	Left: (a % 2) (Modulo)
 //	Right: 0 (Constant)
 </code></pre>
-<img src="/images/aprende-c-sharp__expressions__binarysimple.png" title="Simple binary expresion" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__expressions__binarysimple.png" title="Simple binary expresion" />
 <pre><code class="language-csharp">Inspecciona((a) =&gt; a % 5 == 0 &amp;&amp; Math.Pow(a, 2) % 3 == 0);
 // Resultado:
 //== Examinando &quot;a =&gt; (((a % 5) == 0) AndAlso ((Pow(Convert(a, Double), 2) % 3) == 0))&quot; ==
@@ -161,7 +161,7 @@
 //	Left: ((a % 5) == 0) (Equal)
 //	Right: ((Pow(Convert(a, Double), 2) % 3) == 0) (Equal)
 </code></pre>
-<img src="/images/aprende-c-sharp__expressions__binarycomplex.png" title="Complex binary expresion" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__expressions__binarycomplex.png" title="Complex binary expresion" />
 <h2 id="uso-en-la-vida-real">Uso en la vida real</h2>
 <p>Sí, ya sé que tal vez no vayas por la vida escribiendo métodos que inspeccionen expresiones lambda. Pero tan solo es necesario que te pongas a pensar que gracias a los árboles de expresiones existen cosas como LINQ to SQL, Entity Framework, LinqToTwitter, entre otros.</p>
 <p>Lo que hacen estas librerías es tomar tu código C# en forma de expresiones, inspeccionarlo y &quot;traducirlo&quot; a SQL para hacer que tus consultas sean lo más eficientes posible aprovechando el poder de la base de datos. En el caso de LinqToTwitter sucede algo similar, solo que la &quot;traducción&quot; transforma tu código C# en una URL lista para ser consumida.</p>
