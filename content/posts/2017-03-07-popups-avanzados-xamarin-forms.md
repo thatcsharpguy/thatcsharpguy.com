@@ -43,7 +43,7 @@ await PopupNavigation.PushAsync(new BasicPopup());
 
 El resultado es algo como esto:
 
-<img src="/images/xamarin-forms__popups__basicpop.jpg" title=""Basic pop"" />
+<img src="/images/xamarin-forms__popups__basicpop.jpg" title="Basic pop" />
 
 No se ve mucho como un *popup*, ¿verdad? ahora mismo lo componemos.  
 
@@ -66,7 +66,7 @@ Una guía de diseño que me parece adecuada es colocar un `Frame` centrado en la
 
 Que resultará en algo así:  
 
-<img src="/images/xamarin-forms__popups__stilized.jpg" title=""Basic pop"" />
+<img src="/images/xamarin-forms__popups__stilized.jpg" title="Basic pop" />
 
 ### Propiedades del *popup*
 Por default el *popup* se cerrará cuando el usuario presione fuera del contenido que le estamos mostrando, pero en caso de que no desees este comportamiento basta con establecer la propiedad `CloseWhenBackgroundIsClicked` en `false`. Otra de las propiedades que se pueden cambiar es el color del fondo mediante la propiedad `BackgroundColor`, no siempre tiene que ser gris transparente. Y por último la que creo que la más atractiva de las propiedades: `Animation` que nos permite especificar la forma en que aparecerá y desaparecerá el control en la pantalla. Las posibilidades que tenemos son: *Scale*, *Move* y *Fade*: 
@@ -90,7 +90,7 @@ private async void Button_OnClicked(object sender, EventArgs e)
 }
 ```  
 
-<img src="/images/xamarin-forms__popups__complex.jpg" title=""Basic pop"" />
+<img src="/images/xamarin-forms__popups__complex.jpg" title="Basic pop" />
 
 ### Animaciones personalizadas  
 Esta biblioteca es poderosa, como ya habrás visto, pero sus capacidades pueden ampliarse ya que permite introducir animaciones personalizadas o modificar algunas ya existentes, como es el caso del siguiente bloque de código:
@@ -117,12 +117,12 @@ await PopupNavigation.PushAsync(propertiedPopup);
 
 Que generará una animación así:  
 
-<img src="/images/xamarin-forms__popups__anim.gif" title=""Custom animation"" />
+<img src="/images/xamarin-forms__popups__anim.gif" title="Custom animation" />
 
 ### Mi uso  
 A final de cuentas yo la usé para crear este *popup* en una de las apps que estoy haciendo, quedó algo como esto:  
 
-<img src="/images/xamarin-forms__popups__custom_layout.jpg" title=""Basic pop"" />
+<img src="/images/xamarin-forms__popups__custom_layout.jpg" title="Basic pop" />
 
 
 ## Uso  

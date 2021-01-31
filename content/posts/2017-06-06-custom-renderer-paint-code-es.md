@@ -17,47 +17,47 @@ La semana pasada <a href="https://www.paintcodeapp.com/" target="_blank">PaintCo
 ## El dibujo en paint code  
 Si ya has creado y exportado gráficos usando PaintCode probablemente te quieras saltar esta sección. Si no, te digo que apenas lo abras, debes añadir un nuevo canvas, en mi caso lo llamé *SharpCanvas* y lo hice de 100 por 100, o una relación de aspecto de 1:1, que es la misma que el dibujo que voy a crear:
 
-<img src="/images/xamarin-forms__paintcode__1sharpCanvas.png" title=""SharpCanvas en blanco"" />
+<img src="/images/xamarin-forms__paintcode__1sharpCanvas.png" title="SharpCanvas en blanco" />
 
 Después, añade un *Frame*, que yo llamaré *SharpFrame*:
 
-<img src="/images/xamarin-forms__paintcode__2frame.png" title=""SharpFrame en blanco"" />
+<img src="/images/xamarin-forms__paintcode__2frame.png" title="SharpFrame en blanco" />
 
 Luego, en la parte izquierda de PaintCode hay que agregar un color llamado *FillColor*, y la estableceremos como *Parameter*:
 
-<img src="/images/xamarin-forms__paintcode__3fillColor.png" title=""SharpFrame en blanco"" />
+<img src="/images/xamarin-forms__paintcode__3fillColor.png" title="SharpFrame en blanco" />
 
 También hay que agregar un par de variables: *Width* y *Height* que valgan lo que mide nuestro *frame*, también como parámetros:  
 
-<img src="/images/xamarin-forms__paintcode__4variables.png" title=""Agregar variables"" />
+<img src="/images/xamarin-forms__paintcode__4variables.png" title="Agregar variables" />
 
 Después, con el *frame* seleccionado, vamos a arrastrar desde el panel de variables hasta las propiedades del *frame*, de tal modo que la variable *Width* quede ligada con la propiedad *Width* del *frame*, haremos lo mismo para *height*:  
 
-<img src="/images/xamarin-forms__paintcode__5setProperties.png" title=""Vincular variables"" />
+<img src="/images/xamarin-forms__paintcode__5setProperties.png" title="Vincular variables" />
 
 Y ahora si, podemos hacer nuestro dibujo:  
 
-<img src="/images/xamarin-forms__paintcode__6drawing.png" title=""Dibujo"" />
+<img src="/images/xamarin-forms__paintcode__6drawing.png" title="Dibujo" />
 
 Lo siguiente es ligar el color que creamos antes (*FillColor*) con el relleno del dibujo recién creado, si lo hicimos de forma correcta, el color de nuestro dibujo cambiará al de nuestro *FillColor*:   
 
-<img src="/images/xamarin-forms__paintcode__7linkColor.png" title=""Dibujo"" />
+<img src="/images/xamarin-forms__paintcode__7linkColor.png" title="Dibujo" />
 
 Ahora, el siguiente paso es muy, muy importante si queremos que el dibujo hecho se ajuste si el *frame* cambia de tamaño. Si el dibujo que hiciste es una curva béizer (como es mi caso), da doble click sobre él, hasta que en su trazo aparezcan un grupo de puntos:   
 
-<img src="/images/xamarin-forms__paintcode__8waypoints.png" title=""Waypoints"" />
+<img src="/images/xamarin-forms__paintcode__8waypoints.png" title="Waypoints" />
 
 Una vez que aparezcan, selecciónalos y en el panel de la derecha, justo debajo del menú *Transforms* da click sobre las "I" en el recuadro, de tal forma que las cuatro líneas que unen al punto central con el cuadrado sean líneas zigzagueantes:   
 
-<img src="/images/xamarin-forms__paintcode__9selectWaypoints.png" title=""Select waypoints"" />
+<img src="/images/xamarin-forms__paintcode__9selectWaypoints.png" title="Select waypoints" />
 
-<img src="/images/xamarin-forms__paintcode__10shrinkBehavior.png" title=""Zigzag"" />
+<img src="/images/xamarin-forms__paintcode__10shrinkBehavior.png" title="Zigzag" />
 
 Podrás verificar que todo ha salido bien si al cambiar el valor de las variables *Height* y *Width* en el panel izquierdo, tu dibujo cambia de tamaño.
 
 Para terminar por el momento con PaintCode, de entre las pestañas superiores, selecciona la que dice *"StyleKit"* y luego, del lado derecho cambia las propiedades a tu gusto para que coincida con tu proyecto, en este caso yo las dejé así:     
 
-<img src="/images/xamarin-forms__paintcode__11styleKit.png" title=""Zigzag"" />
+<img src="/images/xamarin-forms__paintcode__11styleKit.png" title="Zigzag" />
 
 ## El código en Xamarin.Forms
 

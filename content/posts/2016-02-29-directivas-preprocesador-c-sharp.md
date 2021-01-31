@@ -105,7 +105,7 @@ int zero = 0;
 if (1 != null) ;
 ```  
 
-<img src="/images/directives__warnings.png" title=""Warnings"" />
+<img src="/images/directives__warnings.png" title="Warnings" />
 
 Podemos deshabilitar las advertencias una por una:
 ```csharp  
@@ -140,7 +140,7 @@ Console.WriteLine("Hola");
 
 Que en Visual Studio se ve así:
 
-<img src="/images/directives__region.gif" title=""Region directive"" />
+<img src="/images/directives__region.gif" title="Region directive" />
 
 #### Para finalizar  
 Como puedes ver, las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a "forzar" que ciertas condiciones se cumplan para que siquiera compile. También nos ayudan a organizar nuestro código en bloques físicos dentro del archivo fuente.  

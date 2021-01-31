@@ -61,7 +61,7 @@ Image.Transformations.Add(corners);
 
 La imagen se transforma en:  
 
-<img src="/images/nugets__ffimage__transformed.jpg" title=""Imagen transformada"" />
+<img src="/images/nugets__ffimage__transformed.jpg" title="Imagen transformada" />
 
 (Puedes descargar el <a href="https://github.com/ThatCSharpGuy/ffimageloading-sample" target="_blank">código de la app demo</a> en GitHub, tendrás que obtener una clave de API en <a href="https://pixabay.com/api/docs/" target="_blank">Pixabay</a>)
 

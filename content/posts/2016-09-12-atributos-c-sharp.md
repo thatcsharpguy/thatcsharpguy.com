@@ -44,11 +44,11 @@ Como podrás ver, debido a su naturaleza declarativa, los atributos resultan ser
 
 Pero su utilidad no termina ahí, si estamos desarrollando en Visual Studio, cuando deseemos usar la clase `NoKia3310`, el IDE nos informará sobre la obsolecencia de la clase o sus métodos: 
 
-<img src="/images/aprende-c-sharp__attrs__vs.png" title=""Capture"" />
+<img src="/images/aprende-c-sharp__attrs__vs.png" title="Capture" />
 
 Y si luego ejecutamos un programa que lo use:  
 
-<img src="/images/aprende-c-sharp__attrs__capture.png" title=""Capture"" />
+<img src="/images/aprende-c-sharp__attrs__capture.png" title="Capture" />
 
 ## Parámetros  
 

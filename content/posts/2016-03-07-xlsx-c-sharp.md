@@ -164,7 +164,7 @@ foreach (var cell in cellsWithYoungTeachers)
 
 Que nos dejará el resultado siguiente:
 
-<img src="/images/xlsx-c-sharp__sample-4.png" title=""Celdas coloreadas"" />
+<img src="/images/xlsx-c-sharp__sample-4.png" title="Celdas coloreadas" />
 
 Además de poder modificar el relleno de una celda también tenemos acceso a personalizar el borde, fuente y alineación. 
 
@@ -199,7 +199,7 @@ formatting.HighValue.Color = Color.Green;
 
 Tras lo cual el libro se verá así:
 
-<img src="/images/xlsx-c-sharp__sample-5.png" title=""Formato condicional"" />
+<img src="/images/xlsx-c-sharp__sample-5.png" title="Formato condicional" />
 
 ## Leyendo celdas  
 Así como podemos crear hojas desde cero, también podemos leer las ya existentes. Esto es particularmente útil cuando vas a solicitar información a los usuarios a través de un libro de Excel. 

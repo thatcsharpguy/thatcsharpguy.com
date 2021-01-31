@@ -53,7 +53,7 @@ En fin, hay varios más
 
 Xamarin.Forms funciona así: las abstracciones de controles se transforman en tiempo de ejecución a controles nativos, en cada plataforma hay un conjunto de *Renderers* que toman la abstracción y la convierten al control nativo. De tal manera que cuando nosotros usamos un control, por ejemplo digamos `Entry` (para recibir texto del usuario), estos `Renderers` lo convertirán en Android a un `EditText`, en iOS a un `UITextView` y en Windows a un `TextBox`:  
 
-<img src="/images/tv__xamarinforms__entry_rendering.png" title=""Rendering"" />
+<img src="/images/tv__xamarinforms__entry_rendering.png" title="Rendering" />
 
 Al ser abstracciones, es muy posible que muchas de las propiedades que son específicas a cada plataforma no estén disponibles en Xamarin.Forms ya que se trata de ofrecer un conjunto de propiedades común a todas las plataformas. Esto es una limitante, ya que con Forms no podemos alcanzar un alto nivel de personalización en nuestras apps.
 

@@ -49,10 +49,10 @@ En una simple "línea" se realizan varias comprobaciones sobre un mismo elemento
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__normalf.png" title=""Normal 8 char test"" />
+<img src="/images/nugets__fluentassertions__normalf.png" title="Normal 8 char test" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__faf.png" title=""FluentAssertions 8 char test"" />
+<img src="/images/nugets__fluentassertions__faf.png" title="FluentAssertions 8 char test" />
 </div>  
 </div>  
 
@@ -72,10 +72,10 @@ Cuando la prueba falla:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__normal8chars.png" title=""Normal 8 char test"" />
+<img src="/images/nugets__fluentassertions__normal8chars.png" title="Normal 8 char test" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__fa8chars.png" title=""FluentAssertions 8 char test"" />
+<img src="/images/nugets__fluentassertions__fa8chars.png" title="FluentAssertions 8 char test" />
 </div>  
 </div>  
 
@@ -97,10 +97,10 @@ Cuando la prueba falla:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__normalshouldhave3integers.png" title=""Normal should have 3 integers"" />
+<img src="/images/nugets__fluentassertions__normalshouldhave3integers.png" title="Normal should have 3 integers" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__fashouldhave3integers.png" title=""FluentAssertions should have 3 integers"" />
+<img src="/images/nugets__fluentassertions__fashouldhave3integers.png" title="FluentAssertions should have 3 integers" />
 </div>  
 </div>  
 
@@ -124,10 +124,10 @@ Cuando la prueba falla:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__normalarray10elements.png" title=""Normal should be array of 10 elements"" />
+<img src="/images/nugets__fluentassertions__normalarray10elements.png" title="Normal should be array of 10 elements" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__faarray10elements.png" title=""FluentAssertions should be array of 10 elements"" />
+<img src="/images/nugets__fluentassertions__faarray10elements.png" title="FluentAssertions should be array of 10 elements" />
 </div>  
 </div>  
 
@@ -152,10 +152,10 @@ Cuando la prueba falla:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__normaldictshouldcontain.png" title=""Normal dictionary"" />
+<img src="/images/nugets__fluentassertions__normaldictshouldcontain.png" title="Normal dictionary" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__fadictshouldcontain.png" title=""FluentAssertions dictionary"" />
+<img src="/images/nugets__fluentassertions__fadictshouldcontain.png" title="FluentAssertions dictionary" />
 </div>  
 </div>  
 
@@ -194,10 +194,10 @@ Cuando la prueba falla:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__normalexception.png" title=""Normal exception management"" />
+<img src="/images/nugets__fluentassertions__normalexception.png" title="Normal exception management" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/nugets__fluentassertions__faexception.png" title=""FluentAssertions exception management"" />
+<img src="/images/nugets__fluentassertions__faexception.png" title="FluentAssertions exception management" />
 </div>  
 </div>  
 

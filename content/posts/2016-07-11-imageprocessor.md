@@ -98,7 +98,7 @@ imageFactory.Load(inStream)
 
 Además de cosas como cambio de formatos, de tamaño y de calidad *ImageProcessor* también permite modificar la imagen para aplicarle algunos efectos y transformaciones al contenido, para este ejemplo vamos a trabajar con la foto de la perrita Micha:
 
-<img src="/images/imageprocessor__micha.jpg" title=""Micha"" />
+<img src="/images/imageprocessor__micha.jpg" title="Micha" />
 
 ### Filter  
 Al más puro estilo de Instagram, podemos aplicarle filtros a la imagen con el método `Filter`, la librería tiene ya definidos algunos filtos como sepia y escala de grises, entre otros. O si estás muy inspirado, puedes crear el tuyo propio: 
@@ -111,7 +111,7 @@ imageFactory.Load(inStream)
 
 Y este es el resultado:  
 
-<img src="/images/imageprocessor__michaArt.jpg" title=""Micha"" />
+<img src="/images/imageprocessor__michaArt.jpg" title="Micha" />
   
 Qué sería de esta ibrería si no diera la capacidad de invertir los colores de una imagen. Esta transformación no requiere de mucha explicación, salvo que se usa el método `Filter` con el filtro `Invert`: 
 
@@ -123,7 +123,7 @@ imageFactory.Load(inStream)
 
 Y este es el resultado:  
 
-<img src="/images/imageprocessor__michaInverse.jpg" title=""Micha"" />
+<img src="/images/imageprocessor__michaInverse.jpg" title="Micha" />
 
 ### Michstagram (Filter, Tint y Saturation)
 
@@ -137,13 +137,13 @@ imageFactory.Load(inStream)
             .Save("photo/michaInstagram.jpg");
 ```  
 
-<img src="/images/imageprocessor__michaInstagram.jpg" title=""Micha"" />
+<img src="/images/imageprocessor__michaInstagram.jpg" title="Micha" />
 
 ### Más transformaciones  
 
 *ImageProcessor* no se queda ahí, sino que también nos deja recortar recuadros de la imagen, girarla e invertirla respecto a determinado eje. Para la demostración mira la siguiente imagen:
 
-<img src="/images/imageprocessor__motherboard.jpg" title=""Motherboard"" />
+<img src="/images/imageprocessor__motherboard.jpg" title="Motherboard" />
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-3">       
@@ -154,7 +154,7 @@ var m = imageFactory.Load(inStream)
         .Save("photo/motherboardCropped.jpg");
 ```  
 
-<img src="/images/imageprocessor__motherboardCropped.jpg" title=""Motherboard"" />
+<img src="/images/imageprocessor__motherboardCropped.jpg" title="Motherboard" />
 </div>
 <div class="pure-u-1 pure-u-md-1-3">  
 <h3>Rotate</h3>  
@@ -164,7 +164,7 @@ m.Rotate(10f)
  
 ```  
 
-<img src="/images/imageprocessor__motherboardRotated.jpg" title=""Motherboard"" />
+<img src="/images/imageprocessor__motherboardRotated.jpg" title="Motherboard" />
 </div>  
 <div class="pure-u-1 pure-u-md-1-3">  
 <h3>Flip</h3>
@@ -174,7 +174,7 @@ m.Flip(true, true)
  
 ```  
 
-<img src="/images/imageprocessor__motherboardFlipped.jpg" title=""Motherboard"" />
+<img src="/images/imageprocessor__motherboardFlipped.jpg" title="Motherboard" />
 </div>  
 </div> 
 
@@ -206,9 +206,9 @@ using (var imageFactory = new ImageFactory(false))
 ```  
 </div>
 <div class="pure-u-1 pure-u-md-1-4">
-<img src="/images/imageprocessor__robbie3.jpg" title=""Robbie Williams"" />
+<img src="/images/imageprocessor__robbie3.jpg" title="Robbie Williams" />
 
-<img src="/images/imageprocessor__robbieFace.jpg" title=""Robbie Williams face"" />
+<img src="/images/imageprocessor__robbieFace.jpg" title="Robbie Williams face" />
 </div>
 </div>     
 
@@ -239,10 +239,10 @@ using (var imageFactory = new ImageFactory(false))
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/imageprocessor__friends2.jpg" title=""Friends"" />
+<img src="/images/imageprocessor__friends2.jpg" title="Friends" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/imageprocessor__friendsAnonymous.jpg" title=""Friends anon"" />
+<img src="/images/imageprocessor__friendsAnonymous.jpg" title="Friends anon" />
 </div>
 </div>  
 

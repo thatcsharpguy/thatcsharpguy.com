@@ -23,13 +23,13 @@ En el blog he hablado mucho de Xamarin.Forms, pero nunca he explicado cómo es q
 
 Comenzando por la estructura en componentes de la aplicación, en el siguiente diagrama se muestra a grandes rasgos las partes que componen una aplicación hecha con Forms, en el diagrama podrás ver que una app se compone de dos tipos de proyecto: el núcleo (en el diagrama tiene la etiqueta *Shared Code*) y los clientes (iOS, Android y UWP):
 
-<img src="/images/xamarin-forms__arch__main.png" title=""Arquitectura"" />
+<img src="/images/xamarin-forms__arch__main.png" title="Arquitectura" />
 
 ## Núcleo
 
 En el núcleo es en donde ocurre la mayor parte del trabajo en una app con Forms ya que contiene gran parte de lo que la hace funcionar, incluyendo la interfaz gráfica. Es importante señalar que el hecho de que en el diagrama esté todo agrupado, no necesariamente tiene que ser así, podemos dividir el núcleo en tantos proyectos como sea necesario y conveniente para nuestro desarrollo. Por ejemplo, en mi app Mvvmdex, el núcleo está dividido en tres: Models, ViewModels y Views:
 
-<img src="/images/xamarin-forms__arch__full.png" title=""Arquitectura"" />
+<img src="/images/xamarin-forms__arch__full.png" title="Arquitectura" />
 
 Este tipo de proyecto es usualmente una <a href="../que-son-portable-class-library" target="_blank" rel="nofollow">librería de clases portable</a>, aunque también puede ser un proyecto compartido. Sin importar qué tipo de proyecto sea, debes tener en cuenta las partes fundamentales en el código del núcleo, las cuales son:  
 
@@ -66,10 +66,10 @@ Así es como se ve en el sistema de archivos y en el explorador de soluciones:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/xamarin-forms__arch__ios-files.jpg" title=""iOS en sistema de archivos"" />
+<img src="/images/xamarin-forms__arch__ios-files.jpg" title="iOS en sistema de archivos" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/xamarin-forms__arch__ios.png" title=""iOS en el explorador de soluciones"" />
+<img src="/images/xamarin-forms__arch__ios.png" title="iOS en el explorador de soluciones" />
 </div>  
 </div>  
   
@@ -85,10 +85,10 @@ Así es como se ve en el sistema de archivos y en el explorador de soluciones:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/xamarin-forms__arch__android-files.jpg" title=""Android en sistema de archivos"" />
+<img src="/images/xamarin-forms__arch__android-files.jpg" title="Android en sistema de archivos" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/xamarin-forms__arch__droid.png" title=""Android en el explorador de soluciones"" />
+<img src="/images/xamarin-forms__arch__droid.png" title="Android en el explorador de soluciones" />
 </div>  
 </div>  
   
@@ -104,10 +104,10 @@ Así es como se ve en el sistema de archivos y en el explorador de soluciones:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/xamarin-forms__arch__uwp-files.jpg" title=""Windows en sistema de archivos"" />
+<img src="/images/xamarin-forms__arch__uwp-files.jpg" title="Windows en sistema de archivos" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/xamarin-forms__arch__uwp.jpg" title=""Windows en el explorador de soluciones"" />
+<img src="/images/xamarin-forms__arch__uwp.jpg" title="Windows en el explorador de soluciones" />
 </div>  
 </div>  
    

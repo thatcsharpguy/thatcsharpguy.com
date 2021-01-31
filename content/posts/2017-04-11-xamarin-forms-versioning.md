@@ -27,7 +27,7 @@ Estos dos valores son:
 
 Para modificarlos es necesario acceder al archivo `AndroidManifest.xml`. En Visual Studio o Xamarin Studio te podrás beneficiar de contar con un editor gráfico:  
 
-<img src="/images/nugets__versioning__androidmanifest.jpg" title=""AndroidManifest GUI editor"" />
+<img src="/images/nugets__versioning__androidmanifest.jpg" title="AndroidManifest GUI editor" />
 
 ## iOS  
 Para iOS la cosa no cambia mucho, igualmente existen dos valores con las mismas características (uno público y el otro privado) pero con distinto nombre:  
@@ -87,7 +87,7 @@ android:versionName="1.0"
 	</div>
 </div>
 
-<img src="/images/nugets__versioning__one.jpg" title=""Version one"" />
+<img src="/images/nugets__versioning__one.jpg" title="Version one" />
 
 #### Cambio en el *build*   
 
@@ -112,7 +112,7 @@ android:versionName="1.0"
 	</div>
 </div>
 
-<img src="/images/nugets__versioning__two.jpg" title=""Build bump"" />
+<img src="/images/nugets__versioning__two.jpg" title="Build bump" />
 
 #### Cambio en la versión     
 
@@ -137,7 +137,7 @@ android:versionName="1.2"
 	</div>
 </div>
 
-<img src="/images/nugets__versioning__three.jpg" title=""Version bump"" />
+<img src="/images/nugets__versioning__three.jpg" title="Version bump" />
 
 #### Cambio en la versión y *build*  
 
@@ -162,7 +162,7 @@ android:versionName="2.0"
 	</div>
 </div>
 
-<img src="/images/nugets__versioning__four.jpg" title=""Bumped both"" />
+<img src="/images/nugets__versioning__four.jpg" title="Bumped both" />
 
 #### Cambio en la versión y *build*  
 
@@ -187,12 +187,12 @@ android:versionName="3.0"
 	</div>
 </div>
 
-<img src="/images/nugets__versioning__five.jpg" title=""Bumped both"" />
+<img src="/images/nugets__versioning__five.jpg" title="Bumped both" />
 
 #### Si el usuario borra la app...
 Desde luego, toda esta información se pierde si el usuario borra la app. En este caso, el usuario borró y reinstaló la versión tres, y tras abrirla nuevamente, esta es la pantalla que aparece:  
 
-<img src="/images/nugets__versioning__six.jpg" title=""Fresh versioning"" />
+<img src="/images/nugets__versioning__six.jpg" title="Fresh versioning" />
 
 ## Instalación  
 Para instalarlo basta con instalar el <a href="https://www.nuget.org/packages/Plugin.VersionTracking/" target="_blank">paquete de NuGet</a> Plugin.VersionTracking.

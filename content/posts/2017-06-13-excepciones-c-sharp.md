@@ -25,7 +25,7 @@ Una API puede elegir lanzar una excepción cada vez que la ejecución de un prog
 
 En este diagrama aparecen las algunas excepciones que existen en el framework por defecto, relacionadas por su jerarquía. Es importante señalar la jerarquía ya que tiene una utilidad muy peculiar con las excepciones que veremos más adelante:
 
-<img src="/images/aprende-c-sharp__ex__diagram.png" title=""Exceptions"" />
+<img src="/images/aprende-c-sharp__ex__diagram.png" title="Exceptions" />
 
 ## Usando `throw` para lanzar excepciones
 

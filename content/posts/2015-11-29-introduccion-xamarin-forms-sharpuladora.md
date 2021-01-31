@@ -89,7 +89,7 @@ En el código anterior se crea un nuevo `Grid` llamado `layout` y se le añaden 
   
 Para el ejercicio, crea un grid con filas y columnas que representen el siguiente gráfico: 
 
-<img src="/images/introduccion-xamarin-forms-sharpuladora__grid.png" title=""Grid"" />
+<img src="/images/introduccion-xamarin-forms-sharpuladora__grid.png" title="Grid" />
   
 Una vez creado el *layout* es importante especificarle a nuestra página que debe usarlo como contenido, esto se hace normalmente al final del constructor de la página con la siguiente línea de código:  
 ```csharp  

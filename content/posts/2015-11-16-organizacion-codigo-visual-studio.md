@@ -15,15 +15,15 @@ Si alguna vez has usado un IDE para desarrollar alguna aplicación tal vez te ha
 ### La "Solución"  
 Tanto Visual Studio como Xamarin Studio organizan nuestro código *assets*, liberías y demás en una estructura llamada Solución (`Solution` en inlglés), todo está almacenado en un archivo que tiene una extensión `.sln`. Este archivo  que le dice al IDE en dpnde están los proyectos de nuestra aplicación, es un archivo de texto plano, que es usualmente autogenerado por el entorno que estamos empleando para desarrollar.
 
-<img src="/images/organizacion-codigo-visual-studio__solution-in-folder.png" title=""Image of a solution file"" />
+<img src="/images/organizacion-codigo-visual-studio__solution-in-folder.png" title="Image of a solution file" />
 
 Así es como una *Solución* se ve cuando es abierta en Xamarin Studio y Visual Studio:
 
-<img src="/images/organizacion-codigo-visual-studio__sln-opened.png" title=""Image of opened solutions"" />
+<img src="/images/organizacion-codigo-visual-studio__sln-opened.png" title="Image of opened solutions" />
 
 Y así es como se ve el mismo archivo pero abierto en un editor de texto plano:
 
-<img src="/images/organizacion-codigo-visual-studio__sln-plain-text-explained-2.png" title=""Image of opened solutions"" />
+<img src="/images/organizacion-codigo-visual-studio__sln-plain-text-explained-2.png" title="Image of opened solutions" />
 
 <dl>
 <dt>1. <i>Solución</i></dt>
@@ -49,9 +49,9 @@ Como puedes ver en la imagen anterior, el archivo `.sln` contiene una especie de
 
 Estos son los proyectos de la *Free Xamarin Shirt App*:
 
-<img src="/images/organizacion-codigo-visual-studio__freeshirtappproject.png" title=""Xamarin Free Shirt App"" />
+<img src="/images/organizacion-codigo-visual-studio__freeshirtappproject.png" title="Xamarin Free Shirt App" />
 
 ### tl;dr
 Podemos explicar cómo es que está organizado nuestro código con el siguiente diagrama: 
 
-<img src="/images/organizacion-codigo-visual-studio__Solution-diagram.jpg" title=""Diagram of how solution works"" />
+<img src="/images/organizacion-codigo-visual-studio__Solution-diagram.jpg" title="Diagram of how solution works" />

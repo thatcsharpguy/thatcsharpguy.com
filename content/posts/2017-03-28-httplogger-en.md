@@ -116,7 +116,7 @@ await client.GetStringAsync("https://pokeapi.co/api/v2/pokemon/1/");
 
 The above code will show the following in your screen device:  
 
-<img src="/images/nugets__httplogger__screen.jpg" title=""Screenshot"" />
+<img src="/images/nugets__httplogger__screen.jpg" title="Screenshot" />
 
 ## Ready for production  
 It is probable that you want to use this component to log only when you're debugging, so you can combine it with Paul Betts' <a href="https://www.nuget.org/packages/modernhttpclient/" target="_blank">modernhttpclient</a> to increase the speed of request on your release builds. I usually add some `#if` directives to make use of the logger only when debugging:

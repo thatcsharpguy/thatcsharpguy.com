@@ -15,12 +15,12 @@ featured_tag: Xamarin
 
 En este post te mostraré algunas de las diferencias que existen entre usar Swift y C# para desarrollar apps en iOS. Para este post cree una app que compara dos cadenas y calcula su <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" target="_blank" rel="nofollow">distancia</a> entre ellas, hice dos versiones una tradicional y una con Xamarin.iOS. Esta es la app finalizada:
  
-<img src="/images/xamarin-ios__app.gif" title=""App terminada"" />
+<img src="/images/xamarin-ios__app.gif" title="App terminada" />
  
 Voy a ser honesto, esta es la primera vez que uso Swift para hacer una app para iOS, sin embargo me basé por completo en la <a href="https://developer.apple.com/library/ios/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html?utm_source=statuscode&utm_medium=email" target="_blank" rel="nofollow">documentación de Apple</a> para hacerla. En este caso usé Xamarin Studio 5.10.3 y Xcode 7.3
 
 ### Estructura del proyecto
-<img src="/images/xamarin-ios__structure-comp.png" title=""Comparison project structure"" />
+<img src="/images/xamarin-ios__structure-comp.png" title="Comparison project structure" />
 
 <ol>
 	<li><b>Proyecto principal</b>. Todo empieza con un proyecto principal, ¿cierto? en ambas opciones existe este concepto, sólo que en Xamarin existen <a href="../organizacion-codigo-visual-studio">las soluciones</a> y en con Xcode es un único proyecto padre.</li>
@@ -41,13 +41,13 @@ Como ya mencioné, los recursos se manejan de manera similar, podemos importar a
 
 #### AppDelegate
 
-<img src="/images/xamarin-ios__appdelegate.png" title=""AppDelegate"" />
+<img src="/images/xamarin-ios__appdelegate.png" title="AppDelegate" />
 
 La clase AppDelegate es la encargada de recibir mensajes del sistema operativo y hacer que tu app responda a ellos. Como puedes ver, las diferencias son únicamente en la sintaxis, ya que en código es exactamente idéntico.
 
 #### ViewController
 
-<img src="/images/xamarin-ios__outlets.png" title=""ViewController"" />
+<img src="/images/xamarin-ios__outlets.png" title="ViewController" />
 
 Los *ViewControllers* son clases asociadas a la interfaz gráfica, a partir de las cuales se les da comportamiento a las apps. En el ejemplo de código arriba se puede ver que existen referencias a elementos de interfaz gráfica como `UITextField` e `UIButton`. Estas referencias son generadas por el constructor de interfaces y es por eso que en C# tienen los decoradores `Outlet` y `GeneratedCode`.  
 
@@ -55,7 +55,7 @@ En C# además existe el concepto de <a href="https://msdn.microsoft.com/es-MX/li
 
 ##### ViewDidLoad
 
-<img src="/images/xamarin-ios__view-didload.png" title=""ViewDidLoad method"" />
+<img src="/images/xamarin-ios__view-didload.png" title="ViewDidLoad method" />
 
 Dentro del *ViewController* existe un método llamado `ViewDidLoad`, el cual es el ideal para conectar los eventos y cualquier otra tarea relacionada con la vista. En este caso se asigna el *ViewController* como delegado de los `UITextField` y también se le asigna un manejador de evento al botón `ComparteButton`. 
 
@@ -63,7 +63,7 @@ En Swift se usa `addTarget` y una serie de argumentos, mientras que en C# basta 
 
 #### Métodos y manejadores de evento
 
-<img src="/images/xamarin-ios__event-handlers.png" title=""Methods and event handlers"" />
+<img src="/images/xamarin-ios__event-handlers.png" title="Methods and event handlers" />
 
 En cuanto a los métodos, la declaración es también idéntica aún tomando en cuenta la diferencia en la sintaxis. El decorador `Foundation.Export` le indica al compilador a qué método de Swift hace referencia el método de C#, pero no te preocupes, tanto Xamarin Studio como Visual Studio te ayudarán a generar ese tipo de código si no tienes mucha experiencia con iOS.
 
@@ -79,11 +79,11 @@ En cuanto al código en general, me atrevería a decir que la traducción entre 
 
 Tanto Xcode como Xamarin/Visual Studio cuentan con un editor de interfaces gráficas, y como puedes observar en esta imagen, las diferencias en la superficie no son muy notorias entre ellos:
 
-<img src="/images/xamarin-ios__editor-diff.png" title=""Editor de interfaces"" />
+<img src="/images/xamarin-ios__editor-diff.png" title="Editor de interfaces" />
 
 Sin embargo, y basado en mi poca experiencia, me atrevo a decir que el editor de XS o VS aún está muy lejos de la estabilidad y facilidad de uso del editor de Xcode y es por eso que, aunque estemos usando Xamarin.iOS, podemos usar el editor nativo (**recuerda que con Xamarin.iOS tu app es 100% nativa**) para crear la interfaz:
 
-<img src="/images/xamarin-ios__interface-builder.png" title=""Native interface builder"" />
+<img src="/images/xamarin-ios__interface-builder.png" title="Native interface builder" />
 
 ### En conclusión
 

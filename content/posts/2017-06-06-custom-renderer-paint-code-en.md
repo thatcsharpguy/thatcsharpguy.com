@@ -17,47 +17,47 @@ Last week, <a href="https://www.paintcodeapp.com/" target="_blank">PaintCode 3</
 ## PaintCode drawing
 If you have previously created and exported graphics using PaintCode, you probably want to skip this section. But if you haven't you must start by adding a new canvas, in this case I'll name it *SharpCanvas* and its dimensions are 100 by 100, or a 1:1 ratio, which is the same as the drawing I'll be creating:
 
-<img src="/images/xamarin-forms__paintcode__1sharpCanvas.png" title=""Blank SharpCanvaso"" />
+<img src="/images/xamarin-forms__paintcode__1sharpCanvas.png" title="Blank SharpCanvaso" />
 
 Then, add a *Frame*, I'll be calling it *SharpFrame*:
 
-<img src="/images/xamarin-forms__paintcode__2frame.png" title=""Blank SharpFrame"" />
+<img src="/images/xamarin-forms__paintcode__2frame.png" title="Blank SharpFrame" />
 
 On the left panel, we need to add a color called *FillColor*, and have it set as a *Parameter*:
 
-<img src="/images/xamarin-forms__paintcode__3fillColor.png" title=""SharpFrame en blanco"" />
+<img src="/images/xamarin-forms__paintcode__3fillColor.png" title="SharpFrame en blanco" />
 
 Now lets add a couple of variables: *Width* y *Height* and make their values the same as our *frame* size, add them also as *Parameters*:  
 
-<img src="/images/xamarin-forms__paintcode__4variables.png" title=""Agregar variables"" />
+<img src="/images/xamarin-forms__paintcode__4variables.png" title="Agregar variables" />
 
 Then, with the *frame* selected, we're going to drag from the variable panel up to the *frame*'s properties. So that the Frame's *Width* is bound to the *Width* value from the variables panel, then do the same for *Height*:
 
-<img src="/images/xamarin-forms__paintcode__5setProperties.png" title=""Linking variables"" />
+<img src="/images/xamarin-forms__paintcode__5setProperties.png" title="Linking variables" />
 
 And now we're ready to create our drawing:  
 
-<img src="/images/xamarin-forms__paintcode__6drawing.png" title=""Drawing"" />
+<img src="/images/xamarin-forms__paintcode__6drawing.png" title="Drawing" />
 
 Our next task is to link the color we created before (*FillColor*) with the fill color of our recently created drawing. If you made it right, the color of our drawing will change to the one we set before:   
 
-<img src="/images/xamarin-forms__paintcode__7linkColor.png" title=""Drawing"" />
+<img src="/images/xamarin-forms__paintcode__7linkColor.png" title="Drawing" />
 
 Pay attention to this next step as it is very important if we want our drawing to adjust whenever the *frame* changes its size. If the drawing you made is a bézier curve (as it is in this case), double click it until some dots appear its path:
 
-<img src="/images/xamarin-forms__paintcode__8waypoints.png" title=""Waypoints"" />
+<img src="/images/xamarin-forms__paintcode__8waypoints.png" title="Waypoints" />
 
 Once they show up, select them all and on the right panel, just below the *Transforms* menu click on the small "I" on the square, so that the four lines that join the central dot with the square become zigzagging lines:
 
-<img src="/images/xamarin-forms__paintcode__9selectWaypoints.png" title=""Select waypoints"" />
+<img src="/images/xamarin-forms__paintcode__9selectWaypoints.png" title="Select waypoints" />
 
-<img src="/images/xamarin-forms__paintcode__10shrinkBehavior.png" title=""Zigzag"" />
+<img src="/images/xamarin-forms__paintcode__10shrinkBehavior.png" title="Zigzag" />
 
 By this point you'll be able to verify that everything is working properly if you change the values of the variables *Height* y *Width* on the left panel.
 
 Before we're done for a minute with PaintCode, select the tab at the top that has *"StyleKit"* as its name, and then on the right panel modify the properties so they somewhat match your project:  
 
-<img src="/images/xamarin-forms__paintcode__11styleKit.png" title=""Zigzag"" />
+<img src="/images/xamarin-forms__paintcode__11styleKit.png" title="Zigzag" />
 
 ## Xamarin.Forms code
 

@@ -50,19 +50,19 @@ Y obtendremos algo como esto (del lado izquierdo es la app creada con una `Tabbe
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/xamarin-forms__tabbed-page__android-no-small.gif" title=""iOS no normal"" />
+<img src="/images/xamarin-forms__tabbed-page__android-no-small.gif" title="iOS no normal" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">  
-<img src="/images/xamarin-forms__tabbed-page__android-small.gif" title=""iOS no normal"" />
+<img src="/images/xamarin-forms__tabbed-page__android-small.gif" title="iOS no normal" />
 </div>  
 </div> 
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">  
-<img src="/images/xamarin-forms__tabbed-page__ios-no-small.gif" title=""iOS no normal"" />
+<img src="/images/xamarin-forms__tabbed-page__ios-no-small.gif" title="iOS no normal" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">  
-<img src="/images/xamarin-forms__tabbed-page__ios-small.gif" title=""iOS no normal"" />
+<img src="/images/xamarin-forms__tabbed-page__ios-small.gif" title="iOS no normal" />
 </div>  
 </div>  
 

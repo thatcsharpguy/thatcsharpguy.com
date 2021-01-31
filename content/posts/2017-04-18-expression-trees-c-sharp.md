@@ -14,7 +14,7 @@ featured_tag: AprendeCSharp
 
 El tipo de dato `Expression` no es un tipo de dato convencional, no es algo que le mostrarás al usuario final de tu app en la pantalla. Más bien es un tipo de dato diseñado para ser usado por otros desarrolladores. Este tipo de dato fue introducido junto con LINQ en .NET 3.5. Seguramente tu mismo lo has usado sin darte cuenta, el lugar más común para encontrarlo es como parámetro del método de extensión `Where` de cualquier colección que implementa la interfaz `IQueryable`:   
 
-<img src="/images/aprende-c-sharp__expressions__inwhere.jpg" title=""Where clause"" />
+<img src="/images/aprende-c-sharp__expressions__inwhere.jpg" title="Where clause" />
 
 "¡Pero si eso es una expresión lambda!" podrías decirme... y tendrías toda la razón, sin embargo, existe una conversión implícita entre `Expression<TDelegate>` y una expresión lambda, que es lo que generalmente vemos nosotros como desarrolladores.  
 
@@ -71,7 +71,7 @@ Inspecciona((a) => true);
 //	Valor: True
 ```  
 
-<img src="/images/aprende-c-sharp__expressions__constant.png" title=""Constant expression"" />
+<img src="/images/aprende-c-sharp__expressions__constant.png" title="Constant expression" />
 
 ```csharp  
 Inspecciona((a) => a % 2 == 0);
@@ -84,7 +84,7 @@ Inspecciona((a) => a % 2 == 0);
 //	Right: 0 (Constant)
 ```  
 
-<img src="/images/aprende-c-sharp__expressions__binarysimple.png" title=""Simple binary expresion"" />
+<img src="/images/aprende-c-sharp__expressions__binarysimple.png" title="Simple binary expresion" />
 
 ```csharp  
 Inspecciona((a) => a % 5 == 0 && Math.Pow(a, 2) % 3 == 0);
@@ -97,7 +97,7 @@ Inspecciona((a) => a % 5 == 0 && Math.Pow(a, 2) % 3 == 0);
 //	Right: ((Pow(Convert(a, Double), 2) % 3) == 0) (Equal)
 ```  
 
-<img src="/images/aprende-c-sharp__expressions__binarycomplex.png" title=""Complex binary expresion"" />
+<img src="/images/aprende-c-sharp__expressions__binarycomplex.png" title="Complex binary expresion" />
 
 ## Uso en la vida real  
 Sí, ya sé que tal vez no vayas por la vida escribiendo métodos que inspeccionen expresiones lambda. Pero tan solo es necesario que te pongas a pensar que gracias a los árboles de expresiones existen cosas como LINQ to SQL, Entity Framework, LinqToTwitter, entre otros.   

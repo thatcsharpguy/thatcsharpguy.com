@@ -84,7 +84,7 @@ In the code above we create a new `Grid` called `layout` and then it gets added 
   
 For this excerise, create a grid with rows and columns that represent the following figure:   
 
-<img src="/images/introduction-xamarin-forms-sharpuladora__grid.png" title=""Grid"" />
+<img src="/images/introduction-xamarin-forms-sharpuladora__grid.png" title="Grid" />
   
 Once we have created the layout, it is important to tell our page to use it as a content, the way to do it is by specifying the property `Content` at the end of the page's constructor with the following line of code:  
 

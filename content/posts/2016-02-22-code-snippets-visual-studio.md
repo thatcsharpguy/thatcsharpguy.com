@@ -30,7 +30,7 @@ En este caso, si revisas bien, el atajo usado fue `cw`, que podríamos interpret
 
 También hay fragmentos de código que contienen partes editables dentro de ellos, de tal manera que podamos personalizarlo con el contexto de la aplicación que estamos desarrollando. Por ejemplo, mira este:
 
-<img src="/images/code-snippets__prop.gif" title=""Prop"" />
+<img src="/images/code-snippets__prop.gif" title="Prop" />
 
 El atajo usado fue `prop` y una vez insertado, señaló dos partes del código a las cuales accedemos presionando <kbd>tab</kbd> nuevamente, en este caso permite editar el tipo de la propiedad y su nombre, para finalizar la edición presionamos enter.
 
@@ -41,19 +41,19 @@ En <a href="https://msdn.microsoft.com/en-us/en-en/library/z41h7fat.aspx" rel="n
   
  - `#region` que podemos usar para crear una agrupación física de líneas de código en nuestro archivo
 
-<img src="/images/code-snippets__region.gif" title=""Region directive"" />
+<img src="/images/code-snippets__region.gif" title="Region directive" />
 
  - `ctor` que se usa para crear un constructor de la clase en la que se declara
 
-<img src="/images/code-snippets__ctor.gif" title=""Constructor"" />
+<img src="/images/code-snippets__ctor.gif" title="Constructor" />
 
  - `for` crea un ciclo for con valores editables para la variable de iteración y sobre la que se va a comprobar el ciclo  
 
-<img src="/images/code-snippets__for.gif" title=""Constructor"" />
+<img src="/images/code-snippets__for.gif" title="Constructor" />
 
  - `foreach` crea un ciclo "para cada", nos permite editar el tipo de dato y los nombres de los objetos
 
-<img src="/images/code-snippets__foreach.gif" title=""Constructor"" />
+<img src="/images/code-snippets__foreach.gif" title="Constructor" />
 
  - `prop` que crea una propiedad autoimplementada  
  
@@ -130,7 +130,7 @@ Lo importante es añadir un hijo llamado `Declarations` como hijo de `Snippet`. 
   
 Como puedes ver, dentro del código del fragmento está el `ID` que puse dentro de la declaración del reemplazo, la novedad es que el ID está delimitado por `$` lo cual indica que es un valor que será reemplazado.  
 
-<img src="/images/code-snippets__lovesth.gif" title=""I love other things"" />
+<img src="/images/code-snippets__lovesth.gif" title="I love other things" />
   
 ##### Cambiando la ruta de los fragmentos  
 Si lo que quieres es cambiar la ruta de tus fragmentos a otra carpeta dentro de tu PC, puedes acceder al Administrador de Fragmentos de Código que está en el menú Herramientas, dar clic en Añadir y seleccionar la carpeta de la que deseas que se carguen los fragmentos. En mi caso, lo tengo configurado de esa manera porque uso GitHub para sincronizar algunos de los fragmentos que uso, si quieres verlos, <a href="https://github.com/fferegrino/fantastic-broccoli" target="_blank">visita el repositorio</a>.  
