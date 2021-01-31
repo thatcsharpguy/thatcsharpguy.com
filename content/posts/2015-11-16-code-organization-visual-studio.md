@@ -17,15 +17,15 @@ If you have ever used an IDE to develop any application you might have wondered 
 ### The Solution
 Both Visual Studio and Xamarin Studio organize our code, assets, libraries and other stuff in a structure called *Solution*, all this information is stored within a file with extension **.sln**. The **.sln** file is an (usually) automatically generated plain text file that tells the IDE where to find the projects related to our application.
 
-<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio__solution-in-folder.png" title="Image of a solution file" />
+<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio/solution-in-folder.png" title="Image of a solution file" />
 
 This is how a Solution (the free C#/F# shirt app solution) looks like when opened in Xamarin Studio and Visual Studio:
 
-<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio__sln-opened.png" title="Image of opened solutions" />
+<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio/sln-opened.png" title="Image of opened solutions" />
 
 And this is how a the same file looks like when opened in a plain text editor.
 
-<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio__sln-plain-text-explained-2.png" title="Image of opened solutions" />
+<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio/sln-plain-text-explained-2.png" title="Image of opened solutions" />
 
 <dl>
 <dt>1. Solution</dt>
@@ -51,9 +51,9 @@ As you can see in the previous image, the `.sln` file contains "links" to these 
 
 These are the projects for the Free Xamarin Shirt App:
 
-<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio__freeshirtappproject.png" title="Xamarin Free Shirt App" />
+<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio/freeshirtappproject.png" title="Xamarin Free Shirt App" />
 
 ### tl;dr
 We can explain how is our code organized with a simple diagram. 
 
-<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio__Solution-diagram.jpg" title="Diagram of how solution works" />
+<img src="https://thatcsharpguy.github.io/postimages/code-organization-visual-studio/Solution-diagram.jpg" title="Diagram of how solution works" />

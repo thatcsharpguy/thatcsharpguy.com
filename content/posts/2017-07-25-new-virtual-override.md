@@ -77,7 +77,7 @@ La explicación de estas palabras es la siguiente:
 
 Si compilas el código anterior aparecerán unas advertencias en tu IDE, indicándote que en la clase `Chihuahua` el método `Ladrar` esconde al método del mismo nombre en la clase `CanisLupusFamiliaris`, sin embargo, al estar marcado como virtual también nos da la opción de marcarlo con `override`:
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__new__overrideWarning.jpg" title="Hiding member" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/new/overrideWarning.jpg" title="Hiding member" />
 
 Como la clase `GranDanes` sí está sobrescribiendo el archivo, estas advertencias no aparecen.
 
@@ -87,7 +87,7 @@ En este ámbito (antes de la definición de un método o propiedad de una clase)
 
 Si compilas el código anterior aparecerán unas advertencias en tu IDE, indicándote que en la clase `Chihuahua` el método `MoverOrejas` esconde al método del mismo nombre en la clase `CanisLupusFamiliaris`:
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__new__newWarning.jpg" title="Hiding member" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/new/newWarning.jpg" title="Hiding member" />
 
 Esta advertencia no aparece en la clase `GranDanes`.
 

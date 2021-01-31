@@ -16,12 +16,12 @@ featured_tag: Xamarin
 
 Al igual que  <a href="../xamarin-ios-vs-traditional">como lo hice con iOS</a>	, en este post te mostraré algunas de las diferencias y similitudes entre el desarrollo con Java y C# para Android. Para este post cree una app que compara dos cadenas y calcula su <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" target="_blank" rel="nofollow">distancia</a> entre ellas, hice dos versiones una tradicional y una con Xamarin.Android. Esta es la app finalizada:
  
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__app.gif" title="App terminada" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/app.gif" title="App terminada" />
  
  Yo incursioné por primera vez en el desarrollo móvil tomando un pequeño curso de Android y no mucho ha cambiado desde entonces, para este post usé
 
 ### Estructura del proyecto
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__comparison.png" title="Comparison project structure" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/comparison.png" title="Comparison project structure" />
 
 <ol>
 	<li><b>Proyecto móvil</b>. El concepto de proyecto es el mismo, en ambos casos el un proyecto se refiere a una sola aplicación.</li>
@@ -44,7 +44,7 @@ En cuanto a la famosa clase <code>R</code>, en Xamarin.Android se llama <code>Re
 
 #### MainActivity
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__MainActivity.png" title="MainActivity" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/MainActivity.png" title="MainActivity" />
 
 Desde aquí se revelan algunas de las diferencias entre el código de C# y Java, por ejemplo, podemos ver que <code>using</code> ≈ <code>import</code>, o que el <code>namespace</code> es un equivalente de <code>package</code> y que las clases se llaman igual.
 
@@ -52,7 +52,7 @@ Algo importante a destacar es el código `[Activity(MainLauncher = true)]` que c
 
 #### OnCreate
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__OnCreate.png" title="OnCreate" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/OnCreate.png" title="OnCreate" />
 
 En cuanto al método <code>OnCreate</code> y la declaración <code>View</code>s, las diferencias son mínimas, en C# para hacer referencia a la clase de la que se hereda se usa la palabra <code>base</code> en lugar de <code>super</code>. Por convención los métodos comienzan con mayúscula.
 
@@ -61,19 +61,19 @@ Aquí es donde se ven las similitudes entre la clase <code>R</code> y <code>Reso
 
 ##### FindViewById
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__FindViewById.png" title="FindViewById" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/FindViewById.png" title="FindViewById" />
 
 Una vez creada la vista podemos acceder a los controles y referenciarlos desde la clase <code>Activity</code>, para esto usamos el método <code>FindViewById</code> y mientras que con Xamarin tenemos la opción de hacer el *cast* nosotros (como en Java), también podemos usar el método genérico <code>FindViewById<T>` que hará el *cast* por nosotros.
 
 #### Métodos y manejadores de evento
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__EventAssign.png" title=""Asignación de eventos"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/EventAssign.png" title=""Asignación de eventos"" />
 
 En cuanto a los métodos, la declaración es casi idéntica (y más con Java 8) ya que mientras que en C# se usa una expresión lambda en la que se define el comportamiento del botón, en Java se utiliza una clase anónima para realizar esta acción.
 
 ### Código en general
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__Code.png" title=""Código Java & C#"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/Code.png" title=""Código Java & C#"" />
 
 En cuanto al código en general, me atrevería a decir que la traducción entre C# y Java no es muy complicada... son como hermanos, en realidad una de las más "grandes" diferencias es que en Java tenemos únicamente métodos para acceder a las propiedades de un objeto como es el caso de <code>length()`.
 
@@ -81,7 +81,7 @@ En cuanto al código en general, me atrevería a decir que la traducción entre 
 
 El editor de interfaces para Android que contiene Visual Studio o Xamarin Studio es idéntico al disponible en los editores de Android Studio o en Eclipse. Además de la vista "en vivo" del diseño también ambos nos dan acceso al xml del archivo.
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android__Designer.png" title="Editor de interfaces" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/Designer.png" title="Editor de interfaces" />
 
 ### En conclusión
 

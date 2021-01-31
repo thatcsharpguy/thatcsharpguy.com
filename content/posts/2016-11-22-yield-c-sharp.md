@@ -129,10 +129,10 @@ Para comprender un poco mejor el funcionamiento, mira estas imágenes:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__yield__get.png" title="Normal Enumerable" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/yield/get.png" title="Normal Enumerable" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__yield__yield.png" title="Yield Enumerable" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/yield/yield.png" title="Yield Enumerable" />
 </div>
 </div>
 

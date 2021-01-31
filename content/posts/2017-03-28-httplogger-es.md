@@ -116,7 +116,7 @@ await client.GetStringAsync("https://pokeapi.co/api/v2/pokemon/1/");
 
 Lo cual, mostrará el siguiente resultado en pantalla:  
 
-<img src="https://thatcsharpguy.github.io/postimages/nugets__httplogger__screen.jpg" title="Screenshot" />
+<img src="https://thatcsharpguy.github.io/postimages/nugets/httplogger/screen.jpg" title="Screenshot" />
 
 ## Uso en producción  
 Es probable que quieras hacer uso de este componente para hacer logging cuando estás debuggeando, así que puedes combinarlo con <a href="https://www.nuget.org/packages/modernhttpclient/" target="_blank">modernhttpclient</a> de Paul Betts para cuando compilas tus apps para ser publicadas en producción, usualmente yo agrego unas sentencias `#if` para conseguirlo:  

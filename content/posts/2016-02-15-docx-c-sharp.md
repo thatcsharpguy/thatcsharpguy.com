@@ -41,7 +41,7 @@ Cabe señalar que también tenemos a nuestra disposición el método `SaveAs` qu
   
 Si ejecutamos el código hasta este momento veremos un documento vacío llamado "Prueba.docx" en la carpeta donde está nuestra aplicación, en mi caso es dentro de `bin\Debug`, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo.  
   
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__created-document.png" title=""Documento vacío"" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/created-document.png" title=""Documento vacío"" />
 
 ## Añadiendo texto  
 El texto dentro de un documento de DocX está organizado en párrafos, y por eso debemos añadir párrafos a nuestro documento, para ello debemos tomar nuestro documento y llamar el método `InsertParagraph`.  
@@ -60,7 +60,7 @@ reportParagraph.Append("Este es un reporte perteneciente a las clases que impart
   
 Hasta este momento, el resultado de ejecutar el código es un documento que contiene el texto arriba indicado, se ve más o menos así:  
   
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__sin-estilo.png" title="Documento sin estilo" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/sin-estilo.png" title="Documento sin estilo" />
 
 ### Formateando el texto  
 El texto sin formato está bien, ¿pero sabes qué es mejor?  
@@ -85,7 +85,7 @@ En el código de arriba están pasando varias cosas:
  
 Obtenemos un resultado como este:   
   
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__estilo.png" title="Documento estilizado" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/estilo.png" title="Documento estilizado" />
 
  
 Además de estas opciones de formato también podemos subrayar, cruzar, cambiar el tamaño del texto.
@@ -100,7 +100,7 @@ titleParagraph.Append("Reporte " + LastName).Heading(HeadingType.Heading1);
 
 Y acá está el resultado:  
   
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__encabezado.png" title="Encabezado" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/encabezado.png" title="Encabezado" />
   
 ## Encabezado y pie de página  
 Para darle un poco más de formalidad al documento, vamos a añadirle un pie de página y un encabezado, otra vez debemos añadir párrafos. Antes que nada, es necesario llamar a dos métodos para preparar el terreno.
@@ -123,10 +123,10 @@ En este caso estamos agregando el texto "Reporte - DocX" al encabezado y un núm
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__header.png" title="Encabezado" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/header.png" title="Encabezado" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__footer.png" title="Pie de pagina" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/footer.png" title="Pie de pagina" />
 </div>  
 </div>  
 
@@ -164,7 +164,7 @@ foreach (var lecture in lectures)
 
 Y el resultado:  
 
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__table.png" title="Tabla" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/table.png" title="Tabla" />
 
 Con esto llegamos al final de la generación de nuestro reporte, pero antes hay que decir que DocX también permite trabajar con imágenes, hipervínculos, propiedades del documento.  
 
@@ -173,7 +173,7 @@ Personalmente pienso que la posibilidad de DocX de buscar y reemplazar texto en 
  
 Por ejemplo, tenemos un documento llamado `template.docx`, lo abriremos con DocX usando el método `Load` y reemplazaremos algunos de sus valores para guardarlo como `out.docx`:
 
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__template.png" title="Template" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/template.png" title="Template" />
 
 ```csharp  
 template.ReplaceText("esta entrada", "este post sobre DocX");
@@ -182,7 +182,7 @@ template.ReplaceText("Facebook", "Twitter");
 template.ReplaceText("correo electrónico", "feregrino@thatcsharpguy.com");
 ```  
         
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp__out.png" title="Salida" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/out.png" title="Salida" />
 
 ## Conclusión  
 Al principio la API de DocX nos puede parecer un poco rara y con poca documentación, sin embargo, eso no le resta a lo enormemente útil que resulta esta librería, cuando lo que buscamos es trabajar y generar documentos de Word de manera programática. Lo mejor de todo es que **no requiere que la máquina en donde se ejecuta tenga instalado Office**, gran, gran plus.

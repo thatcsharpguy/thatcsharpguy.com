@@ -15,7 +15,7 @@ layout: video
 
 La creación del término se le atribuye a Peter J. Landin quién en 1964 se <a href=" http://www.cs.cmu.edu/~crary/819-f09/Landin64.pdf" target="_blank" rel="nofollow">refirió así</a> a la sintaxis de un lenguae de programación en donde se podía intercambiar el símbolo lambda (λ) por la palabra "where":
 
-<img src="https://thatcsharpguy.github.io/postimages/tv__azucar-sintactica__landin.png" title=""Origen de la azúcar sintáctica"" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/azucar-sintactica/landin.png" title=""Origen de la azúcar sintáctica"" />
 
 A partir de ahí se han creado varias definiciones, pero podríamos decir que **son instrucciones no esenciales del lenguaje**, que usualmente se corresponden con una o varias instrucciones que sí son esenciales. Es importante señalar que a veces con una sola "instrucción azucarada", se ejecutan varias instrucciones normales.
 

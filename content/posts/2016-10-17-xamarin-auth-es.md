@@ -27,27 +27,27 @@ Primero que nada, tenemos que registrar nuestras aplicaciones en los servicios d
 ### GitHub  
 Lo primero que tienes que hacer es darte de alta en el programa de desarrolladores de GitHub en <a href="https://developer.github.com/program/" target="_blank">este enlace</a> y una vez que lo hayas hecho, debes dirigirte a <a href="https://github.com/settings/developers" target="_blank">este otro enlace</a> en donde podrás registrar tu nueva app, en la pantalla de registro debes poner los datos de tu app, pero debes colocar `https://github.com` en el campo *"Authorization callback URL"*: 
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin__auth__github-developer-2.jpg" title=""Registro de nueva aplicación"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/github-developer-2.jpg" title=""Registro de nueva aplicación"" />
 
 Una vez que has completado estos pasos, tu aplicación estará registrada y lista para usarse, una vez creada te aparecerán dos valores que son muy importantes y que debes guardar con mucho cuidado: 
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin__auth__github-keys.jpg" title="GitHub keys" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/github-keys.jpg" title="GitHub keys" />
 
 ### Facebook  
 Para Facebook la cosa no es tan diferente, debes acceder a <a href="https://developers.facebook.com" target="_blank">https://developers.facebook.com</a> y registrarte como desarrollador para después registrar tu aplicación en el mismo sitio. Ahora, después de elegir un nombre para nuestra aplicación, de proporcionar un correo electrónico para contacto y resolver un captcha, nos aparecerá una pantalla con un menú como el siguiente y en el cual debemos dar click en *"Add product"* y seleccionar *"Facebook Login"*:  
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin__auth__fb-app-addlogin.jpg" title="Add product" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/fb-app-addlogin.jpg" title="Add product" />
 
 Una vez que hayamos hecho esto, del lado izquierdo, aparecerá un nuevo ítem en el menú llamado, justamente, *"Facebook Login"* con dos opciones debajo, damos click en *"Settings"*, después de esto aparecerá un formulario, en donde lo que tenemos que modificar es el campo *"Valid OAuth redirect URIs"*, en donde debes colocar lo siguiente: `https://www.facebook.com/connect/login_success.html`:
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin__auth__oauthredirectaddr.png" title=""Modificar url de redirección"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/oauthredirectaddr.png" title=""Modificar url de redirección"" />
 
 Guardamos los cambios y ahora, en el menú de la izquierda damos click en *"Dashboard"*, que nos llevará a la pantalla inicial de nuestra app, de donde debemos copiar el valor de *"App ID"* y listo, hemos terminado de registrar nuestra app en Facebook.
 
 ### Twitter  
 Básicamente, ahora que has registrado tu app en GitHub y Facebook, sabrás más o menos qué esperar con Twitter. Primero, tienes que iniciar el registro de tu app en <a href="https://apps.twitter.com" target="_blank">https://apps.twitter.com</a>, de nuevo, debemos ingresar detalles sobre la app y, **muy importante**, en el campo *"Callback URL"* debemos colocar `https://mobile.twitter.com/home`. Una vez dada de alta, tendremos acceso a una *"Consumer Key"* y a un *"Consumer Secret"*, este último debe permanecer **siempre secreto**:  
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin__auth__twttr-keys.jpg" title="Llaves Twitter" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/twttr-keys.jpg" title="Llaves Twitter" />
 
 Bien, hemos terminado el papeleo, ahora, a escribir código:  
 
@@ -153,9 +153,9 @@ using System.Linq;
 using System.Collections.Generic;
 using Authy.AccountManagement;
 
-#if __IOS__
+#if __IOS/
 namespace Authy.iOS.AccountManagement
-#elif __ANDROID__
+#elif __ANDROID/
 namespace Authy.Droid.AccountManagement
 #endif
 {
@@ -219,16 +219,16 @@ using System;
 using Authy.AccountManagement;
 using Xamarin.Forms;
 using Xamarin.Auth;
-#if __IOS__
+#if __IOS/
 using Xamarin.Forms.Platform.iOS;
-#elif __ANDROID__
+#elif __ANDROID/
 using Xamarin.Forms.Platform.Android;
 #endif
 
-#if __IOS__
+#if __IOS/
 [assembly: ExportRenderer(typeof(AuthorizePage), typeof(Authy.iOS.AccountManagement.AuthorizePageRenderer))]
 namespace Authy.iOS.AccountManagement
-#elif __ANDROID__
+#elif __ANDROID/
 [assembly: ExportRenderer(typeof(AuthorizePage), typeof(Authy.Droid.AccountManagement.AuthorizePageRenderer))]
 namespace Authy.Droid.AccountManagement
 #endif
@@ -236,11 +236,11 @@ namespace Authy.Droid.AccountManagement
 	public class AuthorizePageRenderer : PageRenderer
 	{
 
-#if __IOS__
+#if __IOS/
 		public override void ViewDidAppear(bool animated)
 		{
 			base.ViewDidAppear(animated);
-#elif __ANDROID__
+#elif __ANDROID/
 		protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
 		{
 			base.OnElementChanged(e);
@@ -292,16 +292,16 @@ namespace Authy.Droid.AccountManagement
 			{
 				auth2.Completed += async (sender, eventArgs) =>
 				{
-#if __IOS__
+#if __IOS/
 					DismissViewController(true, null);
 #endif
 					if (eventArgs.IsAuthenticated)
 						AccountStore.Create().Save(eventArgs.Account, authPage.Service.ToString());
 					await authPage.Navigation.PopAsync();
 				};
-#if __IOS__
+#if __IOS/
 				PresentViewController(auth2.GetUI(), true, null);
-#elif __ANDROID__
+#elif __ANDROID/
 				activity.StartActivity(auth2.GetUI(activity));
 #endif
 			}
@@ -310,7 +310,7 @@ namespace Authy.Droid.AccountManagement
 			{
 				auth1.Completed += async (sender, eventArgs) =>
 				{
-#if __IOS__
+#if __IOS/
 					DismissViewController(true, null);
 #endif
 					if (eventArgs.IsAuthenticated)
@@ -318,9 +318,9 @@ namespace Authy.Droid.AccountManagement
 					await authPage.Navigation.PopAsync();
 				};
 			
-#if __IOS__
+#if __IOS/
 				PresentViewController(auth1.GetUI(), true, null);
-#elif __ANDROID__
+#elif __ANDROID/
 				activity.StartActivity(auth1.GetUI(activity));
 #endif
 			}

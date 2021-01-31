@@ -63,7 +63,7 @@ TaskStatusLabel.Text = "Tarea terminada";
 
 Sin embargo lo que esto provocará es que se ejecute uno primero seguido del otro, no ambos al mismo tiempo que es lo que deseamos:    
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__asyncawait__sequential.gif" title="Bloqueo de hilo" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/sequential.gif" title="Bloqueo de hilo" />
 
 ## WhenAll  
 Para ejecutar múltiples `Task` al mismo tiempo tenemos una solución bastante simple y sencilla de implementar, basta con obtener referencias hacia las tareas que queremos ejecutar (recuerda, `Task` es un tipo de dato como cualquier otro)  y usarlos como argumento del método estático `WhenAll` de la clase `Task`. Este método recibe una colección de tareas <a href="#" target="_blank">usando params</a> y las engloba en una una tarea padre que se considera terminada hasta que todas sus tareas hijas hayan terminado:
@@ -78,7 +78,7 @@ TaskStatusLabel.Text = "Tarea terminada";
 
 De este modo tendremos tareas que se ejecutan simultáneamente y al final regresan todas al punto donde el código debe continuar: 
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__asyncawait__whenall.gif" title="Bloqueo de hilo" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/whenall.gif" title="Bloqueo de hilo" />
 
 ## WhenAny  
 De manera similar a `WhenAll`, el método `WhenAny` agrupa a las tareas, sin embargo la tarea padre se considera terminada cuando al menos una de sus tareas hijas ha terminado. Cuando esto sucede el bloque de código continua ejecutándose de manera normal y las tareas que no terminaron siguen ejecutándos, solo que no regresan al hilo que las lanzó.
@@ -93,7 +93,7 @@ TaskStatusLabel.Text = "Tarea terminada";
 
 Como puedes ver en este ejemplo, la barra superior termina antes que la inferior, como resultado el código que cambia el texto de la etiqueta de abajo cambia sin importar que una tarea quede pendiente de concluir:
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__asyncawait__whenany.gif" title="Bloqueo de hilo" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/whenany.gif" title="Bloqueo de hilo" />
 
 ## Bloqueando con tareas  
 A pesar de estar diseñadas para ejecutarse de manera asíncrona, es posible forzar a que las `Task` se comporten como tareas síncronas. Esto no es recomendable, pero si posible a través del método de instancia `Wait` para una tarea y los métodos de clase `WaitAll` y `WaitAny`.  

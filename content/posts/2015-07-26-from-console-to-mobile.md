@@ -56,7 +56,7 @@ static void Main()
 }
 ```  
 
-<img src="https://thatcsharpguy.github.io/postimages/from-console-to-mobile__sample-c-app.gif" title="Sample app" />
+<img src="https://thatcsharpguy.github.io/postimages/from-console-to-mobile/sample-c-app.gif" title="Sample app" />
 
 <h3>Some differences</h3>
 <h4>Entry point</h4>
@@ -104,14 +104,14 @@ static void Main()
 <h4>Creating the project</h4>
 <p>To create the project we'll use the Mobile Apps template that comes with Xamarin Platform installation. To do this once Visual is open go to <code>File &gt; New &gt; Project</code> and select Mobile Apps and then Blank App (the one that says "portable"). Assign your project a name and let VS do its magic. It shouldn't take long, after it finishes we'll end up with a structure like the one below.</p>
 
-<img src="https://thatcsharpguy.github.io/postimages/from-console-to-mobile__project-structure.png" title="Project structure" />
+<img src="https://thatcsharpguy.github.io/postimages/from-console-to-mobile/project-structure.png" title="Project structure" />
 
 <p>You can see that there are 4 projects, three of them ending with a suffix indicating the platform they are specific to. The other one is a portable class library (from now on "PCL") which will contain most of our code. You also must notice that the name of the PCL is highlighted with a bold font, it means that the PCL is set as the <strong>startup project</strong>.</p>
 <h4>Running the startup project</h4>
 <p>The startup project is the project that will get executed once we click the "Play" button o the upper part of our IDE, we can change the startup project by right-clicking on the project we want to set and choosing the corresponding option.</p>
 <p>Depending on what kind of project have we selected as startup, a different set of options will be available to run our project, let's keep it simple and set the Windows Phone project as the startup one. Set the emulator as the target device and hit Play to build and run the app.</p>
 
-<img src="https://thatcsharpguy.github.io/postimages/from-console-to-mobile__project-target-selection.png" title="Startup project" />
+<img src="https://thatcsharpguy.github.io/postimages/from-console-to-mobile/project-target-selection.png" title="Startup project" />
 
 <h4>What's inside a Xamarin.Forms app</h4>
 <p>Let's go back to the PCL project, in it we'll find a file named <code>App.cs</code> it contains the <code>App</code> class which we can see as the "entry point" for our Forms app, I quoted entry point because it isn't true: as I said before, every platform has its own entry point. But for now we'll see the App.cs file as if it were.</p>

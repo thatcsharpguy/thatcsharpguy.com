@@ -43,7 +43,7 @@ public class Producto
 
 Para comenzar, debemos añadir una <a href="https://developer.xamarin.com/guides/cross-platform/advanced/razor_html_templates/#Razor_Template_Basics" target="_blank">plantilla Razor</a> (únicamente he visto disponible esta opción en Xamarin y Visual Studio para Mac). 
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms__print__razor-template-creation.png" title="Add Razor template" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/print/razor-template-creation.png" title="Add Razor template" />
 
 Esto creará un archivo `.cshtml` el cual debemos tratar como cualquier otro archivo `html` con algunas pequeñas diferencias que a continuación veremos:
 

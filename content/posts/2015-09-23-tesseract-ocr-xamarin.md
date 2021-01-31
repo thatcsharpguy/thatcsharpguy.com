@@ -20,7 +20,7 @@ In this post I'll show you how to create a simple iOS and Android application th
 #### Creating the solution  
 For this post I used Xamarin Studio on a Mac, but as you know, you can create it regardless of the OS or IDE. Go to New solution > Cross-platform > App > Blank Xamarin.Forms app. Give it any name you want and select Use Portable Class Library.
 
-<img src="https://thatcsharpguy.github.io/postimages/tesseract-ocr-xamarin__project-creation-1.png" title="Creación del proyecto" />
+<img src="https://thatcsharpguy.github.io/postimages/tesseract-ocr-xamarin/project-creation-1.png" title="Creación del proyecto" />
 
 #### NuGets and NuGets
 Then proceed to add the XLabs NuGet package (<code>XLabs.Forms</code>) to the three projects, we'll use the IoC features that it provides and the ability to take photos right from our PCL. Add also the TinyIoC package (<code>XLabs.IoC.TinyIoC</code>) to both the iOS and Android projects, I'm using TinyIoC but you can use whatever DI tool you want.  

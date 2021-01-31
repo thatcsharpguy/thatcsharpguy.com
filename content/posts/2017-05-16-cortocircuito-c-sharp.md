@@ -23,10 +23,10 @@ if(false && true) { }
 
 <div class="pure-g">
     <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__cortocircuito__or-sc.png" title="OR shortcircuitted" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/cortocircuito/or-sc.png" title="OR shortcircuitted" />
     </div>
     <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__cortocircuito__and-sc.png" title="OR shortcircuitted" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/cortocircuito/and-sc.png" title="OR shortcircuitted" />
     </div>
 </div>
 
@@ -36,10 +36,10 @@ Esto sin duda es algo de lo que muy pocos tendrían queja, pero para aquellos ca
 
 <div class="pure-g">
     <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__cortocircuito__or.png" title="OR shortcircuitted" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/cortocircuito/or.png" title="OR shortcircuitted" />
     </div>
     <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__cortocircuito__and.png" title="OR shortcircuitted" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/cortocircuito/and.png" title="OR shortcircuitted" />
     </div>
 </div>
 

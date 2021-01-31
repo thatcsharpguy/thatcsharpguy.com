@@ -68,10 +68,10 @@ Tiempo t2 = t1;
 </div>  
 <div class="pure-g">
 <div class="pure-u-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/tipos-dato-c-sharp__value-type.png" title="Tipos por valor" />
+<img src="https://thatcsharpguy.github.io/postimages/tipos-dato-c-sharp/value-type.png" title="Tipos por valor" />
 </div>
 <div class="pure-u-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/tipos-dato-c-sharp__reference-type.png" title="Tipos por valor" />
+<img src="https://thatcsharpguy.github.io/postimages/tipos-dato-c-sharp/reference-type.png" title="Tipos por valor" />
 </div>  
 </div>  
 <br />

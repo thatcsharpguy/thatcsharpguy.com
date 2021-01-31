@@ -119,11 +119,11 @@ public partial class Core
 {
     public Core()
     {
-        #if __ANDROID__
+        #if __ANDROID/
         int camera = 0;
         string options = "";
         var photo = TakePhoto(camera, options);
-        #elif __IOS__
+        #elif __IOS/
         string camera = "";
         var photo = TakePhoto(camera);
         #endif
