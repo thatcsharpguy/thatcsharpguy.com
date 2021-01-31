@@ -110,7 +110,7 @@
 }
 </code></pre>
 <p>Aunque... en realidad el usuario no lo ve, ya que cuando nosotros llamamos al método <code>EjecutaTarea</code> la interfaz es bloqueada mientras se realiza la tarea, algo como lo que se muestra en el siguiente diagrama:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__asyncawait__normal.png&quot; title=<>Bloqueo de hilo</> /&gt;</p>
+<img src="/images/aprende-c-sharp__asyncawait__normal.png" title="Bloqueo de hilo" />
 <h2 id="task">Task</h2>
 <p>Para evitarnos el bloquear el hilo podemos usar clase <code>Task</code>. Esta clase es una abstracción de un hilo, esta representa una tarea que puede ejecutarse en un hilo separado de la aplicación principal. Esta clase tiene dos variantes: una no genérica (<code>Task</code>) y una genérica (<code>Task&lt;T&gt;</code>). La primera nos ayuda cuando la tarea que le estamos asignando no debe regresar algun valor, mientras que la segunda nos ayuda cuando sí esperamos un valor de retorno.</p>
 <h4 id="breve-aclaracion">Breve aclaración</h4>
@@ -135,7 +135,7 @@
 }
 </code></pre>
 <p>Hasta este punto la tarea se ejecutará en un hilo distinto al que en el que fue lanzada. Y mientras que esto ya no bloquea la interfaz, puede que no sea exactamente lo que estamos buscando, y es que cuando llamamos a <code>EjecutaTareaAsincrona</code> se dispara un nuevo hilo y la ejecución del código subsecuente continua, sin importarle que la tarea que acaba de lanzar termine o falle (una técnica conocida como <em>fire and forget</em>). Algo como lo que se ve en el siguiente diagrama:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__asyncawait__simple-task.png&quot; title=<>Fire and forget</> /&gt;</p>
+<img src="/images/aprende-c-sharp__asyncawait__simple-task.png" title="Fire and forget" />
 <h2 id="async-y-await">async y await</h2>
 <p>Para solucionar ese <em>problema</em> es cuando aparecen las palabras mágicas: <code>async</code> y <code>await</code>. Las dos deben ser usadas en conjunto, aunque en realidad <code>await</code> es quien depende de <code>async</code>. Modifiquemos un poco el código anterior para hacer uso de este par de palabras:</p>
 <pre><code class="language-csharp">async Task EjecutaTareaAsync()

@@ -102,10 +102,10 @@
 <p>Feel free to download the initial source code from <a href="https://github.com/fferegrino/Xevenshtein-UWP/releases/tag/uwp-post-1" target="_blank">here</a>, extract it somewhere and open the <code>Xevenshtein.sln</code> file. Once the solution is open, upgrade all Xamarin.Forms packages to any version 2 (Xamarin.Forms 2.0 is part of Xamarin 4 release).</p>
 <p>&lt;img src=&quot;/images/xamarin-forms-uwp__xamarin-forms-2.png&quot; title=<>Xamarin.Forms in the package manager</> /&gt;</p>
 <p>Then add a new project, this will be our UWP app and add the Xamarin.Forms NuGet package to it</p>
-<p>&lt;img src=&quot;/images/xamarin-forms-uwp__add-uwp.png&quot; title=<>Adding an UWP app</> /&gt;
-&lt;img src=&quot;/images/xamarin-forms-uwp__add-nuget.png&quot; title=<>Adding the NuGet</> /&gt;</p>
+<img src="/images/xamarin-forms-uwp__add-uwp.png" title="Adding an UWP app" />
+<img src="/images/xamarin-forms-uwp__add-nuget.png" title="Adding the NuGet" />
 <p>Add a reference to the project where the forms application is, for us, such project is named <code>Xevenshtein</code> and is a PCL</p>
-<p>&lt;img src=&quot;/images/xamarin-forms-uwp__add-reference.png&quot; title=<>Adding a reference to the Forms app</> /&gt;</p>
+<img src="/images/xamarin-forms-uwp__add-reference.png" title="Adding a reference to the Forms app" />
 <h3 id="code">Code</h3>
 <p>It is time to get our hands into the code: Open the <code>App.xaml.cs</code> file that was created with the UWP app, look for this handler assignation <code>rootFrame.NavigationFailed += OnNavigationFailed;</code>. Below this line we must initialize the Xamarin.Forms module (every platform specific project that uses Xamarin.Forms has to do this as one of the first things in the app lifecycle), to do so, simply call the <code>Init</code> method:</p>
 <pre><code class="language-csharp">rootFrame = new Frame();
@@ -116,12 +116,13 @@ Xamarin.Forms.Forms.Init(e); // Added support for Forms
 </code></pre>
 <br />
 Then, we must get rid of the default UI inside the  `MainPage.xaml`, we won't be using it since Forms has got us covered. Delete all code (it might be just a grid) within the `<Page>` and `</Page>` tags.  
-<p>&lt;img src=&quot;/images/xamarin-forms-uwp__grid-removal.png&quot; title=<>Removing useless UI</> /&gt;</p>
+<img src="/images/xamarin-forms-uwp__grid-removal.png" title="Removing useless UI" />
 <p>Then, we need to change our page type to a special kind of Xamarin.Forms page. First add this <em>&quot;attribute&quot;</em> inside the <code>&lt;Page&gt;</code> tag:</p>
 <pre><code class="language-xml">xmlns:forms=&quot;using:Xamarin.Forms.Platform.UWP&quot; 
 </code></pre>
 <p>I double-quoted <em>attribute</em> since the line above isn't exactly an <em>attribute</em>, it is a <em>namespace</em>, somewhat like an <code>using</code> directive but for xaml. Once we have added the namespace, replace the page <code>&lt;Page </code> and <code>&lt;/Page&gt;</code> for <code>&lt;forms:WindowsPage </code> and <code>&lt;/forms:WindowsPage&gt;</code>, as you can see we're using the <code>forms</code> namespace.</p>
-<p>&lt;img src=&quot;/images/xamarin-forms-uwp__final-result.png&quot; title=<>Final result</> /&gt;</p>
+<img src="/images/xamarin-forms-uwp__final-result.png" title="Final result" />
+    
 <br />
 And that's it for the XAML part, press `F7` to jump to the code-behind.  
 <p>First things first, since our MainPage isn't a <code>Page</code> but a <code>WindowsPage</code>, replace the inheritance <code>: Page</code> for <code>: WindowsPage</code></p>

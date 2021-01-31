@@ -107,7 +107,7 @@ TraditionalPromptLabel.Text = string.Format(&quot;Result {0}&quot;, result);
 <p>Con <em>UserDialogs</em> podemos mostrar mensajes en varias plataformas de manera que en Android lo hacemos con la popular <code>Toast</code>:</p>
 <pre><code class="language-csharp">UserDialogs.Instance.Toast(&quot;Toast message: &lt;3&quot;, TimeSpan.FromMilliseconds(millis));
 </code></pre>
-<p>&lt;img src=&quot;/images/xamarin-forms__userdialogs__toast.png&quot; title=<>Login prompt</> /&gt;</p>
+<img src="/images/xamarin-forms__userdialogs__toast.png" title="Login prompt" />
 <h2 id="mostrar-un-error">Mostrar un error</h2>
 <pre><code class="language-csharp">UserDialogs.Instance.ShowError(&quot;¡Error!&quot;, millis);
 </code></pre>
@@ -127,7 +127,7 @@ if (result.Ok)
     PromptedTextLabel.Text = result.Text;
 }
 </code></pre>
-<p>&lt;img src=&quot;/images/xamarin-forms__userdialogs__text.png&quot; title=<>Text prompt</> /&gt;</p>
+<img src="/images/xamarin-forms__userdialogs__text.png" title="Text prompt" />
 <h2 id="promptdateasync">PromptDateAsync</h2>
 <p>Solicitar una fecha, presentando un control muy familiar dependiendo de la plataforma en que se ejecute:</p>
 <pre><code class="language-csharp">var result = await UserDialogs.Instance.DatePromptAsync(
@@ -136,7 +136,7 @@ if (result.Ok)
 if (result.Ok)
     SelectedDateLabel.Text = String.Format(&quot;{0:dd MMMM yyyy}&quot;, result.SelectedDate);
 </code></pre>
-<p>&lt;img src=&quot;/images/xamarin-forms__userdialogs__calendar.png&quot; title=<>Calendar prompt</> /&gt;</p>
+<img src="/images/xamarin-forms__userdialogs__calendar.png" title="Calendar prompt" />
 <h2 id="prompttimeasync">PromptTimeAsync</h2>
 <p>Al igual que con la fecha, este diálogo presenta un contol para seleccionar una hora</p>
 <pre><code class="language-csharp">var result = await UserDialogs.Instance.TimePromptAsync(
@@ -145,7 +145,7 @@ if (result.Ok)
 if (result.Ok)
     SelectedTimeLabel.Text = String.Format(&quot;{0:hh-mm}&quot;, new DateTime(result.SelectedTime.Ticks));
 </code></pre>
-<p>&lt;img src=&quot;/images/xamarin-forms__userdialogs__time.png&quot; title=<>Time prompt</> /&gt;</p>
+<img src="/images/xamarin-forms__userdialogs__time.png" title="Time prompt" />
 <h2 id="promptloginasync">PromptLoginAsync</h2>
 <p>Si quieres algo un poco más compuesto como una &quot;pantalla&quot; de <em>login</em>, también puedes usar esta pequeña librería:</p>
 <pre><code class="language-csharp">var loginResult = await UserDialogs.Instance.LoginAsync(&quot;Login&quot;, &quot;Please sign in&quot;);
@@ -154,7 +154,7 @@ if (loginResult.Ok)
     PromptedLoginLabel.Text = String.Format(&quot;{0}:{1}&quot;, loginResult.Value.UserName, loginResult.Value.Password);
 }
 </code></pre>
-<p>&lt;img src=&quot;/images/xamarin-forms__userdialogs__login.png&quot; title=<>Login prompt</> /&gt;</p>
+<img src="/images/xamarin-forms__userdialogs__login.png" title="Login prompt" />
 <h2 id="inyeccion-de-dependencias">Inyección de dependencias</h2>
 <p>Como mencioné anteriormente el mecanismo de diálogos que provee Forms por default requieren de tener una referencia a la página en la que estamos trabajando, sin embargo <em>UserDialogs</em> no, y eso lo hace ideal para usarlo en conjunto con una solución de <a href="http://thatcsharpguy.com/tv/inyeccion-dependencias/" target="_blank">inyección de dependencias</a>.</p>
 <h2 id="personalizacion">Personalización</h2>

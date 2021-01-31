@@ -142,7 +142,7 @@ using (var imageFactory = new ImageFactory(false))
 </code></pre>
 <h2 id="transformaciones-en-la-imagen">Transformaciones en la imagen</h2>
 <p>Además de cosas como cambio de formatos, de tamaño y de calidad <em>ImageProcessor</em> también permite modificar la imagen para aplicarle algunos efectos y transformaciones al contenido, para este ejemplo vamos a trabajar con la foto de la perrita Micha:</p>
-<p>&lt;img src=&quot;/images/imageprocessor__micha.jpg&quot; title=<>Micha</> /&gt;</p>
+<img src="/images/imageprocessor__micha.jpg" title="Micha" />
 <h3 id="filter">Filter</h3>
 <p>Al más puro estilo de Instagram, podemos aplicarle filtros a la imagen con el método <code>Filter</code>, la librería tiene ya definidos algunos filtos como sepia y escala de grises, entre otros. O si estás muy inspirado, puedes crear el tuyo propio:</p>
 <pre><code class="language-csharp">imageFactory.Load(inStream)
@@ -150,14 +150,15 @@ using (var imageFactory = new ImageFactory(false))
             .Save(&quot;photo/michaArt.jpg&quot;);
 </code></pre>
 <p>Y este es el resultado:</p>
-<p>&lt;img src=&quot;/images/imageprocessor__michaArt.jpg&quot; title=<>Micha</> /&gt;</p>
-<p>Qué sería de esta ibrería si no diera la capacidad de invertir los colores de una imagen. Esta transformación no requiere de mucha explicación, salvo que se usa el método <code>Filter</code> con el filtro <code>Invert</code>:</p>
+<img src="/images/imageprocessor__michaArt.jpg" title="Micha" />
+  
+Qué sería de esta ibrería si no diera la capacidad de invertir los colores de una imagen. Esta transformación no requiere de mucha explicación, salvo que se usa el método `Filter` con el filtro `Invert`: 
 <pre><code class="language-csharp">imageFactory.Load(inStream)
             .Filter(MatrixFilters.Invert)
             .Save(&quot;photo/michaInverse.jpg&quot;);
 </code></pre>
 <p>Y este es el resultado:</p>
-<p>&lt;img src=&quot;/images/imageprocessor__michaInverse.jpg&quot; title=<>Micha</> /&gt;</p>
+<img src="/images/imageprocessor__michaInverse.jpg" title="Micha" />
 <h3 id="michstagram-filter-tint-y-saturation">Michstagram (Filter, Tint y Saturation)</h3>
 <p>Aprovechando que se pueden encadenar varias transformaciones gracias a la API fluída podemos crear un pequeño instagram para Micha:</p>
 <pre><code class="language-csharp">imageFactory.Load(inStream)
@@ -166,10 +167,10 @@ using (var imageFactory = new ImageFactory(false))
             .Saturation(50)
             .Save(&quot;photo/michaInstagram.jpg&quot;);
 </code></pre>
-<p>&lt;img src=&quot;/images/imageprocessor__michaInstagram.jpg&quot; title=<>Micha</> /&gt;</p>
+<img src="/images/imageprocessor__michaInstagram.jpg" title="Micha" />
 <h3 id="mas-transformaciones">Más transformaciones</h3>
 <p><em>ImageProcessor</em> no se queda ahí, sino que también nos deja recortar recuadros de la imagen, girarla e invertirla respecto a determinado eje. Para la demostración mira la siguiente imagen:</p>
-<p>&lt;img src=&quot;/images/imageprocessor__motherboard.jpg&quot; title=<>Motherboard</> /&gt;</p>
+<img src="/images/imageprocessor__motherboard.jpg" title="Motherboard" />
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-3">       
 <h3>Crop</h3>
@@ -178,7 +179,7 @@ var m = imageFactory.Load(inStream)
         .Crop(new Rectangle(100, 100, 250, 250))
         .Save("photo/motherboardCropped.jpg");
 ```  
-<p>&lt;img src=&quot;/images/imageprocessor__motherboardCropped.jpg&quot; title=<>Motherboard</> /&gt;</p>
+<img src="/images/imageprocessor__motherboardCropped.jpg" title="Motherboard" />
 </div>
 <div class="pure-u-1 pure-u-md-1-3">  
 <h3>Rotate</h3>  
@@ -187,7 +188,7 @@ m.Rotate(10f)
  .Save("photo/motherboardRotated.jpg");  
  
 ```  
-<p>&lt;img src=&quot;/images/imageprocessor__motherboardRotated.jpg&quot; title=<>Motherboard</> /&gt;</p>
+<img src="/images/imageprocessor__motherboardRotated.jpg" title="Motherboard" />
 </div>  
 <div class="pure-u-1 pure-u-md-1-3">  
 <h3>Flip</h3>
@@ -196,7 +197,7 @@ m.Flip(true, true)
  .Save("photo/motherboardFlipped.jpg");  
  
 ```  
-<p>&lt;img src=&quot;/images/imageprocessor__motherboardFlipped.jpg&quot; title=<>Motherboard</> /&gt;</p>
+<img src="/images/imageprocessor__motherboardFlipped.jpg" title="Motherboard" />
 </div>  
 </div> 
 <h2 id="extras">Extras</h2>
@@ -222,9 +223,9 @@ imageFactory.Load(inStream)
 }</p>
 <pre><code>&lt;/div&gt;
 &lt;div class=&quot;pure-u-1 pure-u-md-1-4&quot;&gt;
-&lt;img src=&quot;/images/imageprocessor__robbie3.jpg&quot; title=&quot;&quot;Robbie Williams&quot;&quot; /&gt;
+&lt;img src=&quot;/images/imageprocessor__robbie3.jpg&quot; title=&quot;Robbie Williams&quot; /&gt;
 
-&lt;img src=&quot;/images/imageprocessor__robbieFace.jpg&quot; title=&quot;&quot;Robbie Williams face&quot;&quot; /&gt;
+&lt;img src=&quot;/images/imageprocessor__robbieFace.jpg&quot; title=&quot;Robbie Williams face&quot; /&gt;
 &lt;/div&gt;
 &lt;/div&gt;     
 
@@ -254,10 +255,10 @@ using (var imageFactory = new ImageFactory(false))
 </code></pre>
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/imageprocessor__friends2.jpg" title=""Friends"" />
+<img src="/images/imageprocessor__friends2.jpg" title="Friends" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="/images/imageprocessor__friendsAnonymous.jpg" title=""Friends anon"" />
+<img src="/images/imageprocessor__friendsAnonymous.jpg" title="Friends anon" />
 </div>
 </div>  
 <h2 id="conclusion">Conclusión</h2>

@@ -126,20 +126,20 @@
 </table>  
 <h3 id="el-archivo.resx">El archivo .resx</h3>
 <p>Para comenzar a usar los archivos (y especificar los valores por default) debemos agregar un archivo de recursos, esto, en Visual Studio se realiza dando click contextual dentro del proyecto al que lo queremos agregar, después seleccionando &quot;Nuevo elemento&quot; y seleccionando &quot;Archivo de recursos&quot;:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__adding.png&quot; title=<>Agregando</> /&gt;</p>
+<img src="/images/aprende-c-sharp__resx__adding.png" title="Agregando" />
 <p>Para el caso de nuestras cadenas por default, yo elegí el nombre <code>Strings.resx</code> para el archivo, es importante que tomes en cuenta que para agregar más lenguajes los archivos deben tener el mismo nombre con una pequeña modificación que veremos más adelante.</p>
 <p>Una vez creado el nuevo elemento, debemos tener dos archivos relacionados entre sí: uno con terminación <code>.resx</code> y otro <code>.Designer.cs</code>, este último es un archivo generado automáticamente por el IDE que nos permitirá acceder en tiempo de ejecución a los recursos definidos dentro del <code>resx</code>:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__assoc.png&quot; title=<>Ficheros asociados</> /&gt;</p>
+<img src="/images/aprende-c-sharp__resx__assoc.png" title="Ficheros asociados" />
 <p>Ahora, si abrimos el archivo <code>resx</code> recién creado, en Visual Studio veríamos algo como esto (en este caso ya añadí los valores):</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__resx-editor.png&quot; title=<>Editor de Visual Studio</> /&gt;</p>
+<img src="/images/aprende-c-sharp__resx__resx-editor.png" title="Editor de Visual Studio" />
 <p>Este editor es especial en VS, si tratamos de abrir este mismo archivo en Xamarin Studio veremos el código fuente del archivo, algo así:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__source.png&quot; title=<>Source</> /&gt;</p>
+<img src="/images/aprende-c-sharp__resx__source.png" title="Source" />
 <h3 id="anadiendo-mas-idiomas">Añadiendo más idiomas</h3>
 <p>Para continuar añadiendo idiomas a nuestra aplicación podemos agregar nuevos archivos de recursos, recuerda que debes usar el mismo nombre que que en el primer archivo que creaste, solo que ahora debes añadir el sufijo correspondiente al idioma que deseas registrar. El sufijo se compone de dos partes, una relacionada con el idioma (<em>es</em>, <em>it</em>, <em>en</em>, ...) y otra relacionada con la región (<em>ES</em>, <em>MX</em>, <em>GB</em>, <em>IT</em>, ...). La lista completa de valores posibles la puedes consultar <a href="https://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx" target="_blank">en este enlace</a>.</p>
 <p>Para el caso de este ejemplo agregaremos los lenguajes ruso de Rusia (&quot;ru-RU&quot;), español de México (&quot;es-MX&quot;), italiano de Italia (&quot;it-IT&quot;), y por default, inglés:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__resource-capt.png&quot; title=<>Archivos</> /&gt;</p>
+<img src="/images/aprende-c-sharp__resx__resource-capt.png" title="Archivos" />
 <p>Procura utilizar las mismas llaves en todos los archivos, es importante para que todo funcione correctamente:</p>
-<p>&lt;img src=&quot;/images/aprende-c-sharp__resx__resource-capt-2.png&quot; title=<>Archivos dos</> /&gt;</p>
+<img src="/images/aprende-c-sharp__resx__resource-capt-2.png" title="Archivos dos" />
 <h3 id="uso-en-el-codigo">Uso en el código</h3>
 <p>Y bueno, después de tanta ceremonia, podemos usar nuestras cadenas multilenguaje en el código:</p>
 <pre><code class="language-csharp">Console.WriteLine(String.Format(Resources.Strings.CurrentLanguage,

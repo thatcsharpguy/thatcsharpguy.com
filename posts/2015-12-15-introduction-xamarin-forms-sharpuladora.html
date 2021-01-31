@@ -141,8 +141,9 @@ layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, Gr
 </code></pre>
 <p>In the code above we create a new <code>Grid</code> called <code>layout</code> and then it gets added a pair of rows and columns. Something to notice here is that a <code>Width</code> is specified for the columns and a <code>Height</code> is specified for the rows. The fact that we use <code>GridUnitType.Star</code> (or <code>*</code>) indicates that the size of the columns will be proportional to each other.</p>
 <p>For this excerise, create a grid with rows and columns that represent the following figure:</p>
-<p>&lt;img src=&quot;/images/introduction-xamarin-forms-sharpuladora__grid.png&quot; title=<>Grid</> /&gt;</p>
-<p>Once we have created the layout, it is important to tell our page to use it as a content, the way to do it is by specifying the property <code>Content</code> at the end of the page's constructor with the following line of code:</p>
+<img src="/images/introduction-xamarin-forms-sharpuladora__grid.png" title="Grid" />
+  
+Once we have created the layout, it is important to tell our page to use it as a content, the way to do it is by specifying the property `Content` at the end of the page's constructor with the following line of code:  
 <pre><code class="language-csharp">Content = _layout;
 </code></pre>
 <h5 id="code-2">Code</h5>

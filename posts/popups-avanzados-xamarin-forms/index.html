@@ -114,7 +114,7 @@
 <pre><code class="language-csharp">await PopupNavigation.PushAsync(new BasicPopup());
 </code></pre>
 <p>El resultado es algo como esto:</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__popups__basicpop.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<img src="/images/xamarin-forms__popups__basicpop.jpg" title="Basic pop" />
 <p>No se ve mucho como un <em>popup</em>, ¿verdad? ahora mismo lo componemos.</p>
 <h3 id="popup-con-estilo"><em>Popup</em> con estilo</h3>
 <p>Una guía de diseño que me parece adecuada es colocar un <code>Frame</code> centrado en la pantalla y dentro de este colocar el contenido que queremos mostrar, algo como esto:</p>
@@ -131,7 +131,7 @@
 &lt;/popup:PopupPage&gt;
 </code></pre>
 <p>Que resultará en algo así:</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__popups__stilized.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<img src="/images/xamarin-forms__popups__stilized.jpg" title="Basic pop" />
 <h3 id="propiedades-del-popup">Propiedades del <em>popup</em></h3>
 <p>Por default el <em>popup</em> se cerrará cuando el usuario presione fuera del contenido que le estamos mostrando, pero en caso de que no desees este comportamiento basta con establecer la propiedad <code>CloseWhenBackgroundIsClicked</code> en <code>false</code>. Otra de las propiedades que se pueden cambiar es el color del fondo mediante la propiedad <code>BackgroundColor</code>, no siempre tiene que ser gris transparente. Y por último la que creo que la más atractiva de las propiedades: <code>Animation</code> que nos permite especificar la forma en que aparecerá y desaparecerá el control en la pantalla. Las posibilidades que tenemos son: <em>Scale</em>, <em>Move</em> y <em>Fade</em>:</p>
 <pre><code class="language-csharp">var propertiedPopup = new PropertiesPopup();
@@ -148,7 +148,7 @@ await PopupNavigation.PushAsync(propertiedPopup);
     await PopupNavigation.PopAsync();
 }
 </code></pre>
-<p>&lt;img src=&quot;/images/xamarin-forms__popups__complex.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<img src="/images/xamarin-forms__popups__complex.jpg" title="Basic pop" />
 <h3 id="animaciones-personalizadas">Animaciones personalizadas</h3>
 <p>Esta biblioteca es poderosa, como ya habrás visto, pero sus capacidades pueden ampliarse ya que permite introducir animaciones personalizadas o modificar algunas ya existentes, como es el caso del siguiente bloque de código:</p>
 <pre><code class="language-csharp">var propertiedPopup = new PropertiesPopup();
@@ -170,10 +170,10 @@ propertiedPopup.Animation = scaleAnimation;
 await PopupNavigation.PushAsync(propertiedPopup);
 </code></pre>
 <p>Que generará una animación así:</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__popups__anim.gif&quot; title=<>Custom animation</> /&gt;</p>
+<img src="/images/xamarin-forms__popups__anim.gif" title="Custom animation" />
 <h3 id="mi-uso">Mi uso</h3>
 <p>A final de cuentas yo la usé para crear este <em>popup</em> en una de las apps que estoy haciendo, quedó algo como esto:</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__popups__custom_layout.jpg&quot; title=<>Basic pop</> /&gt;</p>
+<img src="/images/xamarin-forms__popups__custom_layout.jpg" title="Basic pop" />
 <h2 id="uso">Uso</h2>
 <p>Para comenzar a usar estos maravillosos <em>popups</em> tienes que instalar el <a href="https://www.nuget.org/packages/Rg.Plugins.Popup/" target="_blank">paquete de NuGet</a> en tus tres proyectos.</p>
 <pre><code>PM&gt; Install-Package PlatformTabbedPage

@@ -101,7 +101,7 @@
 <p>Dentro de este post voy a asumir que ya tienes un entendimiento básico de cómo es que funciona Xamarin, Xamarin.Forms y la teoría de MVVM, si no, te invito a que consultes mi post sobre <a href="../../tv/xamarin/">qué es Xamarin</a>, el <a href="../../tv/xamarin-forms/">video sobre Xamarin.Forms</a>, y el <a href="../../tv/mvvm">video sobre MVVM</a>.</p>
 <h2 id="estructura">Estructura</h2>
 <p>Como ya sabrás, el <a href="organizacion-codigo-visual-studio">código en Visual Studio</a> se organiza en proyectos, y esta es la organización de los proyectos para esta pequeña app:</p>
-<p>&lt;img src=&quot;/images/mvvm__codeorg.png&quot; title=<>Code organization</> /&gt;</p>
+<img src="/images/mvvm__codeorg.png" title="Code organization" />
 <p>La separación de MVVM se puede observar en que el proyecto <code>Mvvmdex.Views</code> se relaciona con <code>Mvvmdex.ViewModels</code> y a su vez este último se relaciona con <code>Mvvmdex.Models</code>, <strong>nunca hay relacion directa entre las vistas y los modelos</strong>.</p>
 <h2 id="modelo">Modelo</h2>
 <p>Para este proyecto, el modelo está contenido dentro de <code>Mvvmdex.Models</code>. Como sabe, en el modelo es donde se realiza el acceso a datos y la lógica de la aplicación. En esta aplicación, el <em>Mvvmdex</em>, únicamente se consulta a la PokéAPI dentro de la clase <code>MvvmdexClient</code>. Como puedes ver, no tiene ninguna relación con la vista:</p>

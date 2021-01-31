@@ -97,7 +97,7 @@
 <p>I have to be honest. It has been a while since I did an Android app but today I tried to remember my little knowledge to compare traditional Android Development and Xamarin.Android. To create this post I used Android Studio 1.1.0 y Xamarin Studio 5.7.2.</p>
 <p>Even though the differences are very subtle, and the greatest one of everyone lies in the code, they do exist. I'll start with the project structure:</p>
 <h3 id="project-structure">Project structure</h3>
-<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__comparison.png&quot; title=<>Comparison project structure</> /&gt;</p>
+<img src="/images/xamarin-android-vs-traditional__comparison.png" title="Comparison project structure" />
 <ol>
 	<li><b>Activities</b> (and other UI related code stuff). As you might know in Java exist the concept of <code>Packages</code>, and it is strongly asociated to the underlying folder structure. In Android Studio the class <code>MainActivity.java</code> is in the package <code>org.fferegrino.android.xevenshtein</code> whereas in Xamarin Studio the class `MainActivity.cs` is directly in the Solution's root.</li>
    	<li><b>Application logic</b> following the concept of <a href="https://xsa.ghost.io/code-organization-xs-vs/" target="_blank">Solution</a>, when using C# we could easily place our application logic in another project, meanwhile, using Java the alternative is to create another package</li>
@@ -108,17 +108,17 @@
 <p>Layout files are the same in both approaches, in fact, I copied the content of <code>Main.axml</code> (Xamarin) to <code>layout_main.xml</code>and the result was the same. This worked too for string resources named <code>String.xml</code> and <code>string.xml</code>.</p>
 <h3 id="the-code">The code</h3>
 <p>In Xamarin.Android our classes related to the UI have to derive from Activity as in traditional Android, here is the <strong>class declaration</strong>:</p>
-<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__class-declaration-cmp.jpg&quot; title=<>Class declaration</> /&gt;</p>
+<img src="/images/xamarin-android-vs-traditional__class-declaration-cmp.jpg" title="Class declaration" />
 <p>In the C# version you can see the <code>Activity</code> decorator, which tells the name of the activity (<code>Label</code>), wether it is the app launcher(<code>MainLauncher</code>) and the icon (<code>Icon</code>), these stuff goes in the Android Manifest in the traditional approach.</p>
 <p>For <strong>UI elements</strong> such as Buttons, TextViews and EditTexts are equally named and declared:</p>
-<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__field-declaration-cmp.jpg&quot; title=<>Fields declaration</> /&gt;</p>
+<img src="/images/xamarin-android-vs-traditional__field-declaration-cmp.jpg" title="Fields declaration" />
 <p>By convention, in C# methods must start with an uppercase letter, and the override indicator is not an annotation but a keyword, this is the <code>OnCreate</code> <strong>method</strong>:</p>
-<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__method-declaration-cmp-1.jpg&quot; title=<>On create method</> /&gt;</p>
+<img src="/images/xamarin-android-vs-traditional__method-declaration-cmp-1.jpg" title="On create method" />
 <p>Another interesting thing is the automatically generated <code>R</code> or <code>Resource</code> class, when using Xamarin this class is named <code>Resoruce</code>, and we can use it to <strong>find views</strong>:</p>
-<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__view-finding-cmp.jpg&quot; title=<>FindViewById</> /&gt;</p>
+<img src="/images/xamarin-android-vs-traditional__view-finding-cmp.jpg" title="FindViewById" />
 <p>As you can see, the diamond syntax provides a way to return the view without casting the view ourselves.</p>
 <p>I left the best to the end. There are several ways to implement an <strong>event handler</strong> but C# has one of the coolest (using a Lambda expression):</p>
-<p>&lt;img src=&quot;/images/xamarin-android-vs-traditional__event-handling-cmp.jpg&quot; title=<>Event handler</> /&gt;</p>
+<img src="/images/xamarin-android-vs-traditional__event-handling-cmp.jpg" title="Event handler" />
 <p>By the way, if you are interested in the code I used to make this post, check it on <a href="https://github.com/fferegrino/Xevenshtein">GitHub</a> or download it <a href="https://github.com/fferegrino/Xevenshtein/archive/b-p-2.zip">here</a>:</p>
 <h3 id="tldr">tl;dr</h3>
 <p>There are no significant differences between traditional Android development and Xamarin.Android, meaning that if you have previous knowledge you can apply it without concerns but instead of writing Java you will be writing awesome C# code that can potentially be shared along any other platform.</p>

@@ -148,7 +148,7 @@
 <p>Thhat's it, we're done.</p>
 <h2 id="noooooo-wait">Noooooo, wait.</h2>
 <p>Even though we may think that our mission was accomplished, our brand new control lacks of a good user experience. For example, see what happens when the user tries to erase a number located in the middle:</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__careterror.png&quot; title=<>Error</> /&gt;</p>
+<img src="/images/xamarin-forms__formattednumberentry__careterror.png" title="Error" />
 <p>See how the cursor jumps to the end (or start, depends on the platform)? the same happens after writing a number. Let's fix that.</p>
 <h2 id="problem">Problem</h2>
 <p><code>Entry</code> doesn't have a <code>CursorPosition</code> property so we need to create a simple <a href="https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/" target="_blank" rel="nofollow">custom renderer</a> since only at native level the underlying controls expose such information. In this case, we will attach an event handler to each platform specific <em>TextChanged</em> event and inside such handler we need to:</p>
@@ -218,7 +218,7 @@ if (newPosition != null) // before we fail miserably
 element.ShouldReactToTextChanges = true;
 </code></pre>
 <p>Now works great:</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__iosgood.gif&quot; title=<>iOS working goooooood</> /&gt;</p>
+<img src="/images/xamarin-forms__formattednumberentry__iosgood.gif" title="iOS working goooooood" />
 <h3 id="android">Android</h3>
 <p>For Android we will subscribe to the <code>AfterTextChanged</code> event and create all the formatting there:</p>
 <pre><code class="language-csharp">public class FormattedNumberEntryRenderer : EntryRenderer
@@ -269,7 +269,7 @@ Control.SetSelection(cursorPosition - change);
 element.ShouldReactToTextChanges = true;
 </code></pre>
 <p>Here is the final result</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__androidgood.gif&quot; title=<>Android working goooooood</> /&gt;</p>
+<img src="/images/xamarin-forms__formattednumberentry__androidgood.gif" title="Android working goooooood" />
 <h3 id="universal-windows-platform">Universal Windows Platform</h3>
 <p>For the Windows platforms we need to handle the <code>TextChanged</code> event:</p>
 <pre><code class="language-csharp">public class FormattedNumberEntryRenderer : EntryRenderer
@@ -322,7 +322,7 @@ Control.SelectionStart = cursorPosition + change;
 element.ShouldReactToTextChanges = true;
 </code></pre>
 <p>And <em>voilà</em>:</p>
-<p>&lt;img src=&quot;/images/xamarin-forms__formattednumberentry__uwpgood.gif&quot; title=<>Android working goooooood</> /&gt;</p>
+<img src="/images/xamarin-forms__formattednumberentry__uwpgood.gif" title="Android working goooooood" />
 <h2 id="wrapping-up">Wrapping up</h2>
 <p>I know, I know, it might seem like a lot of code for such a <em>simple</em> task, yet, I couldn't find how to do it &quot;natively&quot; let alone using Forms. This kind of small details improve the user experience of our apps and aren't too complicated to implement. As always, feel free to browse the code (<a href="https://github.com/ThatCSharpGuy/FormattedNumberEntry" target="_blank">available on GitHub</a>) or <em>tweemail</em> me if in doubt.</p>
 <h2 id="future-improvements">Future improvements</h2>
