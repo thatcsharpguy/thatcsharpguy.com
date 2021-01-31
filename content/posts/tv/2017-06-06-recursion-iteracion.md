@@ -93,6 +93,6 @@ Ahora, realizar el análisis de un algoritmo recursivo es también más complica
 
 De nueva cuenta, se divide en el caso general y los casos base, en donde cada uno tiene una complejidad asociada;
 
-<img src="/images/tv__recursividad__factorial-recurrencia-sm.png" title="Recurrencia factorial" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__recursividad__factorial-recurrencia-sm.png" title="Recurrencia factorial" />
 
 Lo cual es un tema que requiere de más explicación y probablemente de un pizarrón. En el futuro espero hacer un par de videos hablando de esto, pero si no pueden aguantar la tentación, aquí hay un par de vídeos donde se explica cómo resolver esta clase de problemas: <a href="https://www.youtube.com/watch?v=r5pL49qaHEA" target="_blank">Diseño y Análisis de Algoritmos. Recurrencias no homogéneas y Complejidad Asintótica</a> y <a href="https://www.youtube.com/watch?v=ywWg8bk6FLE" target="_blank">Ecuaciones de Recurrencia - Solución de Ecuaciones Lineales</a>. 

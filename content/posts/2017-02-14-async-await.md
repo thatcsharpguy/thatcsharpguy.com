@@ -36,7 +36,7 @@ void EjecutaTarea()
 
 Aunque... en realidad el usuario no lo ve, ya que cuando nosotros llamamos al método `EjecutaTarea` la interfaz es bloqueada mientras se realiza la tarea, algo como lo que se muestra en el siguiente diagrama:  
 
-<img src="/images/aprende-c-sharp__asyncawait__normal.png" title="Bloqueo de hilo" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__asyncawait__normal.png" title="Bloqueo de hilo" />
 
 ## Task  
 Para evitarnos el bloquear el hilo podemos usar clase `Task`. Esta clase es una abstracción de un hilo, esta representa una tarea que puede ejecutarse en un hilo separado de la aplicación principal. Esta clase tiene dos variantes: una no genérica (`Task`) y una genérica (`Task<T>`). La primera nos ayuda cuando la tarea que le estamos asignando no debe regresar algun valor, mientras que la segunda nos ayuda cuando sí esperamos un valor de retorno.  
@@ -44,7 +44,7 @@ Para evitarnos el bloquear el hilo podemos usar clase `Task`. Esta clase es una 
 #### Breve aclaración  
 Es una restricción establecida que no puedes modificar la interfaz gráfica fuera de un hilo que no sea el que la haya creado, es por eso que tanto en Android como en iOS existen mecanismos que le indican a una tarea que se debe ejecutar en el hilo de la interfaz gráfica. En el caso de Xamarin.Forms estos comportamientos están englobados en el método `BeginInvokeOnMainThread` que, en un dibujo, hace algo como esto:
 
-<img src="/images/aprende-c-sharp__asyncawait__begin-invoke.png" title=""Invocación en el hilo de UI"" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__asyncawait__begin-invoke.png" title=""Invocación en el hilo de UI"" />
 
 ### Creando asincronía con Task.Run  
 Para *crear-ejecutar* una tarea usaremos el método estático `Run` de la clase `Task`. Este método recibe un tipo `Action` o un tipo `Func<T>` (dependiendo de si queremos devolver un valor o no). El *action* o *func* es el código que queremos asociar con esa tarea. Vamos a tomar nuestro código anterior y envolverlo dentro de una `Task`:
@@ -69,7 +69,7 @@ void EjecutaTareaAsincrona()
 
 Hasta este punto la tarea se ejecutará en un hilo distinto al que en el que fue lanzada. Y mientras que esto ya no bloquea la interfaz, puede que no sea exactamente lo que estamos buscando, y es que cuando llamamos a `EjecutaTareaAsincrona` se dispara un nuevo hilo y la ejecución del código subsecuente continua, sin importarle que la tarea que acaba de lanzar termine o falle (una técnica conocida como *fire and forget*). Algo como lo que se ve en el siguiente diagrama:  
 
-<img src="/images/aprende-c-sharp__asyncawait__simple-task.png" title="Fire and forget" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__asyncawait__simple-task.png" title="Fire and forget" />
 
 ## async y await  
 Para solucionar ese *problema* es cuando aparecen las palabras mágicas: `async` y `await`. Las dos deben ser usadas en conjunto, aunque en realidad `await` es quien depende de `async`. Modifiquemos un poco el código anterior para hacer uso de este par de palabras:  
@@ -98,7 +98,7 @@ Segundo: Cambió el tipo de retorno del método de `void` a `Task`, esto es una 
 
 Tercero: Pusimos la palabra `await` justo antes de ejecutar la tarea. Es aquí donde por fin *"controlamos"* los hilos. **Lo que hace esta palabra reservada es indicarle al programa que queremos que la tarea se ejecute en otro hilo, pero que cuando termine regrese y termine de ejecutar lo que le quedó pendiente en el hilo del que la lanzó**. Algo como lo que se muestra en este diagrama:
 
-<img src="/images/aprende-c-sharp__asyncawait__async.png" title=""Async, sin bloqueo"" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__asyncawait__async.png" title=""Async, sin bloqueo"" />
 
 Se dice que *async* y *await* son contagiosos, ya que una vez que lo usas prácticamente todo tu código relacionado con un método asíncrono también se vuelve asíncrono. Así que para beneficiarnos realmente de la asincronía también debemos llamar a el método asíncrono de la siguiente manera `await EjecutaTareaAsync`, sí, con `await`. 
 

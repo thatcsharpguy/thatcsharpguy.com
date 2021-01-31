@@ -14,13 +14,13 @@ La programación funcional es otro paradigma de programación, sí, justo como l
 
 Como su nombre lo indica, está centrada en funciones, las cuales son tratadas como ciudadanos de primera clase. En este esquema, la función siempre representará la relación entre una entrada y una salida, tal como en matemáticas, en las que tienes que si a una función introduces un valor X, obtendrás como resultado un valor Y.
 
-<img src="/images/tv__functional__function.png" title="Function" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__functional__function.png" title="Function" />
 
 Y es aquí cuando aparece otro concepto conocido como las funciones de orden superior, que son aquellas funciones que pueden tomar otras funciones como argumentos o retornar otras funciones como resultado de su ejecución.
 
 Como ejemplo toma estas tres funciones que son de las más populares en la programación funcional:
 
-<img src="/images/tv__functional__mapreducefilter.png" title="Map reduce filter" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__functional__mapreducefilter.png" title="Map reduce filter" />
 
 Que son funciones que toman como argumento otra función. En el caso de `map` que recibe una función que especifica la transformación de un valor a otro. El caso de `reduce` que nos sirve para aplicar una función de acumulación a una coleccion de elementos, y `filter` que toma una función que especifica los criterios de elegibilidad de los elementos de una colección. En el blog tengo un post al respecto de estas funciones, <a href="..\..\post\map-filter-reduce-c-sharp" target="_blank">uno en C#</a> y <a href="..\..\post\map-filter-reduce-f-sharp" target="_blank">uno en F#</a>, por si quieren echarle un ojo a código.
 
@@ -42,10 +42,10 @@ Las grandes ventajas de usar la programación funcional son:
 
 Compara estos dos bloques, ambos en C#, an ambos estamos buscando valores dentro de una colección. Mientras que del modo tradicional le estamos diciendo al lenguaje que tiene que recorrer el arreglo y buscar el valor, del otro solamente le estamos diciendo que tiene que buscarlo.
 
-<img src="/images/tv__functional__codecompare.png" title="Code compare" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__functional__codecompare.png" title="Code compare" />
 
 Esto, como puedes ver es otro de esos traslapes de paradigmas de programación en lenguajes, así como hay lenguajes orientados a funciones que retienen conceptos de otros paradigmas, también hay lenguajes orientados a objetos que ya adoptan nociones de la programación funcional. 
 
-<img src="/images/tv__functional__overlay.png" title="Languages" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__functional__overlay.png" title="Languages" />
 
 Si quieres ver un poco más sobre cómo podemos usar LINQ para llevar la programación funcional a C#, visita <a href="..\..\tag\LINQ" target="_blank">estos posts</a>.

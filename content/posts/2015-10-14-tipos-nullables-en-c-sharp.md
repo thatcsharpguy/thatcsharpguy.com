@@ -44,7 +44,7 @@ Aunque en este punto debemos ser cuidadosos, ya que la sintaxis es un poco confu
 Como dije anteriormente, los tipos nullables son como una caja, al asignarle <code>null</code> estamos creando una caja que puede contener un <code>int</code> pero que al momento estamos dejando vacía. Podemos entonces trabajar con nuestra variable:  
 
 
-<img src="/images/tipos-nullables-en-c-sharp__boxes.png" title="Tipos por valor" />
+<img src="https://thatcsharpguy.github.io/postimages/tipos-nullables-en-c-sharp__boxes.png" title="Tipos por valor" />
 
 ##### Obteniendo un el valor (o una excepción)  
 Para obtener el valor contenido dentro de un *nullable*, tenemos a nuestra disposición la propiedad <code>Value</code>, que debemos usar con cuidado, puesto que en caso de que el *nullable* no tenga un valor asignado, lanzará una exepción del tipo `InvalidOperationException`. 

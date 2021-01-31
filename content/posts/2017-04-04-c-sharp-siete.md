@@ -18,15 +18,15 @@ En este post voy a mostrar algunas de las nuevas característias de este lenguaj
 
 #### Damos click derecho sobre el proyecto y abrimos las propiedades  
 
-<img src="/images/aprende-c-sharp__siete__1properties.png" title=""Click derecho, propiedades"" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__siete__1properties.png" title=""Click derecho, propiedades"" />
 
 #### En la sección de "Build" o "Compilación" abrimos "Avanzadas"  
 
-<img src="/images/aprende-c-sharp__siete__2advanced.png" title="Avanzadas" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__siete__2advanced.png" title="Avanzadas" />
 
 #### Elegimos C# 7 como versión del lenguaje  
 
-<img src="/images/aprende-c-sharp__siete__3selectlang.png" title="Seleccionar lenguaje" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__siete__3selectlang.png" title="Seleccionar lenguaje" />
 
 ## Literales numéricos  
 Una de las características más simples pero con un gran impacto es la inclusión del caracter `_` como separador de dígitos al momento de declarar literales numéricos. La idea detrás de esta característica es mejorar la legibilidad del código.

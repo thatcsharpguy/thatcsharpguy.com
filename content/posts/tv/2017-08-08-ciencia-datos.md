@@ -30,15 +30,15 @@ Para lograrlo, la ciencia de datos se apoya en tres pilares:
 
 Hay un diagrama de Venn muy famoso que ilustra esto:
 
-<img src="/images/tv__ciencia-datos__venn-diagram.png" title="Diagrama de Venn" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__ciencia-datos__venn-diagram.png" title="Diagrama de Venn" />
 
 (<a href="http://www.prooffreader.com/2016/09/battle-of-data-science-venn-diagrams.html" target="_blank">En realidad hay un montón de diagramas de Venn que tratan de explicar lo que es la ciencia de datos</a>)
 
 Yo me lo imagino dos islas que tenían un cierto nivel de comunicación entre ellas, hasta que de pronto se estableció un puente entre ellos, el puente del "negocio", este puente puede ser cualquier cosa que recaude datos y esté buscando extraer información de ellos. Entonces ya existió una comunicación entre ellas.  
 
-<img src="/images/tv__ciencia-datos__ic.png" title="Diagrama de Venn" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__ciencia-datos__ic.png" title="Diagrama de Venn" />
 
-<img src="/images/tv__ciencia-datos__i.png" title="Diagrama de Venn" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__ciencia-datos__i.png" title="Diagrama de Venn" />
 
 ## ¿Por qué? 
 

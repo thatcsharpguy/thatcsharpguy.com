@@ -59,7 +59,7 @@ using (var writer = new StreamWriter("output.html"))
 
 Tras lo cual, si abrimos el archivo `output.html` con un navegador, veremos algo como lo siguiente:  
 
-<img src="/images/commonmark__raw_output.png" title="Salida" />
+<img src="https://thatcsharpguy.github.io/postimages/commonmark__raw_output.png" title="Salida" />
 
 Sin embargo, de esta forma lo único que estamos haciendo es escribiendo algunas etiquetas HTML en el documento de salida, falta escribir los tags `html`, `head`, `body`... entre otros para que el HTML sea válido.  
 
@@ -132,7 +132,7 @@ Pero esta es solo una opción de configuración, ya que por otro lado podemos so
 
 Tras lo cual, podrías tener algo como esto:
 
-<img src="/images/commonmark__raw_output_2.png" title="Salida" />
+<img src="https://thatcsharpguy.github.io/postimages/commonmark__raw_output_2.png" title="Salida" />
 
 Gran diferencia, ¿no?
 

@@ -26,7 +26,7 @@ Dentro de este post voy a asumir que ya tienes un entendimiento básico de cómo
 
 Como ya sabrás, el <a href="organizacion-codigo-visual-studio">código en Visual Studio</a> se organiza en proyectos, y esta es la organización de los proyectos para esta pequeña app:
 
-<img src="/images/mvvm__codeorg.png" title="Code organization" />
+<img src="https://thatcsharpguy.github.io/postimages/mvvm__codeorg.png" title="Code organization" />
 
 La separación de MVVM se puede observar en que el proyecto `Mvvmdex.Views` se relaciona con `Mvvmdex.ViewModels` y a su vez este último se relaciona con `Mvvmdex.Models`, **nunca hay relacion directa entre las vistas y los modelos**.
 

@@ -16,7 +16,7 @@ En programación, cuando se habla de ciudadanos de primera clase o *First-class 
 
 En 1967 <a href="https://en.wikipedia.org/wiki/Christopher_Strachey" target="_blank">Christopher Strachey</a> hizo referencia a los terminos objeto de primera y segunda clase para referirse a la diferencia entre un número real y un procedimiento, en términos del uso que podía tener cada uno de ellos en ALGOL.
 
-<img src="/images/tv__first-class-citizens__document.jpg" title="Document" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__first-class-citizens__document.jpg" title="Document" />
 
 Consulta el documento completo en <a href="http://www.itu.dk/courses/BPRD/E2013/fundamental-1967.pdf" target="_blank">este enlace</a>.
 

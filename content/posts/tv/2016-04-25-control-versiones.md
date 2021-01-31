@@ -13,7 +13,7 @@ layout: video
 
 El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo, y digo cosa porque realmente se puede aplicar el control de versiones a cualquier cosa, al menos digital. Inclusive si has hecho algo así:  
 
-<img src="/images/tv__control-versiones__prehistoria.png" title="Control de versiones rudimentario" />
+<img src="https://thatcsharpguy.github.io/postimages/tv__control-versiones__prehistoria.png" title="Control de versiones rudimentario" />
  
 Con un documento o una imagen que estés editando, has implementado el concepto de control de versiones... muy rudimentario, pero lo has hecho.
 
