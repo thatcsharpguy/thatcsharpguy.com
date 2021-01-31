@@ -99,7 +99,7 @@
 <p>Esta es precisamente una tarea para <a href="http://imageprocessor.org/" target="_blank" rel="nofollow"><i>ImageProcessor</i></a>, una librería para realizar algunas operaciones sobre imagenes con la ayuda de sus métodos, pero vamos a ver cómo se usa:</p>
 <h2 id="comenzando">Comenzando</h2>
 <p>Vamos a trabajar con esta imagen:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor__balon.jpg&quot; title=<>Balón</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor/balon.jpg&quot; title=<>Balón</> /&gt;</p>
 <p>Para comenzar a trabajar con una imagen, es necesario cargarla y con <em>ImageProcessor</em> esta tarea se realiza a través de una instancia de <code>ImageFactory</code> y un flujo de datos (en este caso un <code>MemoryStream</code>), los colocamos dentro de <code>using</code> para facilitarnos el manejo de memoria:</p>
 <pre><code class="language-csharp">var balonBytes = File.ReadAllBytes(&quot;photo/balon.jpg&quot;);
 
@@ -120,7 +120,7 @@ using (var imageFactory = new ImageFactory(false))
 <pre><code class="language-csharp">img.Save(&quot;photo/bolaResized.jpg&quot;);
 </code></pre>
 <p>Tras lo cual nos queda la siguiente imagen:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor__bolaResized.jpg&quot; title=<>Balón</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor/bolaResized.jpg&quot; title=<>Balón</> /&gt;</p>
 <h2 id="api-fluida">API fluída</h2>
 <p>Para nuestra conveniencia, <em>ImageProcessor</em> provee una API fluída (fluent API) para encadenar todos los métodos anteriores, por ejemplo, el código anterior se puede reescribir de la siguiente manera:</p>
 <pre><code class="language-csharp">imageFactory.Load(inStream)
@@ -133,7 +133,7 @@ using (var imageFactory = new ImageFactory(false))
             .Quality(5) // Only works with jpg
             .Save(&quot;photo/bolaLow.jpg&quot;);
 </code></pre>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor__bolaLow.jpg&quot; title=<>Balón</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor/bolaLow.jpg&quot; title=<>Balón</> /&gt;</p>
 <h3 id="format">Format</h3>
 <p>Trabajar con diversos formatos de archivo a veces puede ser un poco complicado, es por eso que esta librería también permite cambiar el formato de la imagen, por ejemplo, en esta convertimos la imagen de <code>jpg</code> a <code>png</code>:</p>
 <pre><code class="language-csharp">imageFactory.Load(inStream)
@@ -142,7 +142,7 @@ using (var imageFactory = new ImageFactory(false))
 </code></pre>
 <h2 id="transformaciones-en-la-imagen">Transformaciones en la imagen</h2>
 <p>Además de cosas como cambio de formatos, de tamaño y de calidad <em>ImageProcessor</em> también permite modificar la imagen para aplicarle algunos efectos y transformaciones al contenido, para este ejemplo vamos a trabajar con la foto de la perrita Micha:</p>
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__micha.jpg" title="Micha" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/micha.jpg" title="Micha" />
 <h3 id="filter">Filter</h3>
 <p>Al más puro estilo de Instagram, podemos aplicarle filtros a la imagen con el método <code>Filter</code>, la librería tiene ya definidos algunos filtos como sepia y escala de grises, entre otros. O si estás muy inspirado, puedes crear el tuyo propio:</p>
 <pre><code class="language-csharp">imageFactory.Load(inStream)
@@ -150,7 +150,7 @@ using (var imageFactory = new ImageFactory(false))
             .Save(&quot;photo/michaArt.jpg&quot;);
 </code></pre>
 <p>Y este es el resultado:</p>
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__michaArt.jpg" title="Micha" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/michaArt.jpg" title="Micha" />
   
 Qué sería de esta ibrería si no diera la capacidad de invertir los colores de una imagen. Esta transformación no requiere de mucha explicación, salvo que se usa el método `Filter` con el filtro `Invert`: 
 <pre><code class="language-csharp">imageFactory.Load(inStream)
@@ -158,7 +158,7 @@ Qué sería de esta ibrería si no diera la capacidad de invertir los colores de
             .Save(&quot;photo/michaInverse.jpg&quot;);
 </code></pre>
 <p>Y este es el resultado:</p>
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__michaInverse.jpg" title="Micha" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/michaInverse.jpg" title="Micha" />
 <h3 id="michstagram-filter-tint-y-saturation">Michstagram (Filter, Tint y Saturation)</h3>
 <p>Aprovechando que se pueden encadenar varias transformaciones gracias a la API fluída podemos crear un pequeño instagram para Micha:</p>
 <pre><code class="language-csharp">imageFactory.Load(inStream)
@@ -167,10 +167,10 @@ Qué sería de esta ibrería si no diera la capacidad de invertir los colores de
             .Saturation(50)
             .Save(&quot;photo/michaInstagram.jpg&quot;);
 </code></pre>
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__michaInstagram.jpg" title="Micha" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/michaInstagram.jpg" title="Micha" />
 <h3 id="mas-transformaciones">Más transformaciones</h3>
 <p><em>ImageProcessor</em> no se queda ahí, sino que también nos deja recortar recuadros de la imagen, girarla e invertirla respecto a determinado eje. Para la demostración mira la siguiente imagen:</p>
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__motherboard.jpg" title="Motherboard" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/motherboard.jpg" title="Motherboard" />
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-3">       
 <h3>Crop</h3>
@@ -179,7 +179,7 @@ var m = imageFactory.Load(inStream)
         .Crop(new Rectangle(100, 100, 250, 250))
         .Save("photo/motherboardCropped.jpg");
 ```  
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__motherboardCropped.jpg" title="Motherboard" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/motherboardCropped.jpg" title="Motherboard" />
 </div>
 <div class="pure-u-1 pure-u-md-1-3">  
 <h3>Rotate</h3>  
@@ -188,7 +188,7 @@ m.Rotate(10f)
  .Save("photo/motherboardRotated.jpg");  
  
 ```  
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__motherboardRotated.jpg" title="Motherboard" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/motherboardRotated.jpg" title="Motherboard" />
 </div>  
 <div class="pure-u-1 pure-u-md-1-3">  
 <h3>Flip</h3>
@@ -197,7 +197,7 @@ m.Flip(true, true)
  .Save("photo/motherboardFlipped.jpg");  
  
 ```  
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__motherboardFlipped.jpg" title="Motherboard" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/motherboardFlipped.jpg" title="Motherboard" />
 </div>  
 </div> 
 <h2 id="extras">Extras</h2>
@@ -223,9 +223,9 @@ imageFactory.Load(inStream)
 }</p>
 <pre><code>&lt;/div&gt;
 &lt;div class=&quot;pure-u-1 pure-u-md-1-4&quot;&gt;
-&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor__robbie3.jpg&quot; title=&quot;Robbie Williams&quot; /&gt;
+&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor/robbie3.jpg&quot; title=&quot;Robbie Williams&quot; /&gt;
 
-&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor__robbieFace.jpg&quot; title=&quot;Robbie Williams face&quot; /&gt;
+&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/imageprocessor/robbieFace.jpg&quot; title=&quot;Robbie Williams face&quot; /&gt;
 &lt;/div&gt;
 &lt;/div&gt;     
 
@@ -255,10 +255,10 @@ using (var imageFactory = new ImageFactory(false))
 </code></pre>
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__friends2.jpg" title="Friends" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/friends2.jpg" title="Friends" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor__friendsAnonymous.jpg" title="Friends anon" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/friendsAnonymous.jpg" title="Friends anon" />
 </div>
 </div>  
 <h2 id="conclusion">Conclusión</h2>

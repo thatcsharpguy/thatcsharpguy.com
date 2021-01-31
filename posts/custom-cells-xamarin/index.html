@@ -150,7 +150,7 @@
 &lt;/RelativeLayout&gt;
 </code></pre>
 <p>Inclusive puedes utilizar el editor gráfico de tu preferencia:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms__customcell__ContactCell.png&quot; title=<>Creación del proyecto</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/ContactCell.png&quot; title=<>Creación del proyecto</> /&gt;</p>
 <h3 id="wrapper"><em>Wrapper</em></h3>
 <p>Lo siguiente es crear una clase <em>wrapper</em> que envuelva a nuestro archivo XML, esto con la finalidad de poder acceder más fácil a los controles y permitir que nuestra celda funcione con las <code>CachingStrategy</code> dentro de las listas de Forms. La clase debe heredar de un contenedor de Android y implementar la interfaz <code>INativeElementView</code> de Xamarin.Forms:</p>
 <pre><code class="language-csharp">public class AndroidContactCell : LinearLayout, INativeElementView
@@ -226,9 +226,9 @@ namespace CeldaPersonalizada.Droid.Cells
 <h2 id="en-ios">En iOS</h2>
 <p>En iOS también tenemos la opción de crear celdas usando código, o como en este caso, archivos de interfaz gráfica <code>.xib</code>, para crear uno en Visual Studio para Mac:</p>
 <h3 id="diseno-1">Diseño</h3>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms__customcell__projectCreation.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/projectCreation.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
 <p>Esto generará un par de archivos <code>ContactCell.cs</code> y <code>ContactCell.xib</code>, es el segundo archivo en el que se edita la interfaz. Yo inclusive lo edité con el editor de Xcode:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms__customcell__edit.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/edit.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
 <h3 id="wrapper-1"><em>Wrapper</em></h3>
 <p>Una vez que está creada la celda, vamos a echarle un ojo a su clase asociada <code>ContactCell.cs</code>, esta clase es la que actuará como el <em>wrapper</em> de la interfaz. Entonces, lo que hay que hacer es que implemente la interfaz <code>INativeElementView</code>:</p>
 <pre><code class="language-csharp">public partial class ContactCell : UITableViewCell, INativeElementView

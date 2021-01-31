@@ -143,12 +143,12 @@
 <h2 id="override"><code>override</code></h2>
 <p><strong>El modificador <code>override</code> se usa para indicar que el método que se está definiendo modificará el comportamiento del definido en la clase base.</strong> Para que un miembro pueda ser sobrescrito debe estar marcado con el modificador <code>virtual</code>. La clase <code>GranDanes</code> está sobrescribiendo el método virtual <code>Ladrar</code>. Entonces no importa desde donde llamemos a este método, siempre llamaremos a la implementación de esta clase.</p>
 <p>Si compilas el código anterior aparecerán unas advertencias en tu IDE, indicándote que en la clase <code>Chihuahua</code> el método <code>Ladrar</code> esconde al método del mismo nombre en la clase <code>CanisLupusFamiliaris</code>, sin embargo, al estar marcado como virtual también nos da la opción de marcarlo con <code>override</code>:</p>
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__new__overrideWarning.jpg" title="Hiding member" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/new/overrideWarning.jpg" title="Hiding member" />
 <p>Como la clase <code>GranDanes</code> sí está sobrescribiendo el archivo, estas advertencias no aparecen.</p>
 <h2 id="new"><code>new</code></h2>
 <p>En este ámbito (antes de la definición de un método o propiedad de una clase) nos ayuda a especificar que la definición de nuestro método está <em>ocultando</em> una definición similar en la clase padre. En el caso de <code>GranDanes</code>, el método <code>MoverOrejas</code> está escondiendo la definición de la clase padre. <strong>En realidad la palabra <code>new</code> no es más que una indicación para el compilador de que estás conciente de que estás escondiendo una definición</strong> ya existente, no tiene otro efecto en tu programa.</p>
 <p>Si compilas el código anterior aparecerán unas advertencias en tu IDE, indicándote que en la clase <code>Chihuahua</code> el método <code>MoverOrejas</code> esconde al método del mismo nombre en la clase <code>CanisLupusFamiliaris</code>:</p>
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp__new__newWarning.jpg" title="Hiding member" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/new/newWarning.jpg" title="Hiding member" />
 <p>Esta advertencia no aparece en la clase <code>GranDanes</code>.</p>
 <h2 id="ejemplo">Ejemplo:</h2>
 <p>Considera el siguiente programa, en donde declaramos un perro de la clase base y llamamos a sus métodos, nada raro, todo funciona como debería funcionar:</p>

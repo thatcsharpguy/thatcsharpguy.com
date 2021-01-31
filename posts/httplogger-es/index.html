@@ -184,7 +184,7 @@ var client = new HttpClient(loggingHandler);
 <pre><code class="language-csharp">await client.GetStringAsync(&quot;https://pokeapi.co/api/v2/pokemon/1/&quot;);
 </code></pre>
 <p>Lo cual, mostrará el siguiente resultado en pantalla:</p>
-<img src="https://thatcsharpguy.github.io/postimages/nugets__httplogger__screen.jpg" title="Screenshot" />
+<img src="https://thatcsharpguy.github.io/postimages/nugets/httplogger/screen.jpg" title="Screenshot" />
 <h2 id="uso-en-produccion">Uso en producción</h2>
 <p>Es probable que quieras hacer uso de este componente para hacer logging cuando estás debuggeando, así que puedes combinarlo con <a href="https://www.nuget.org/packages/modernhttpclient/" target="_blank">modernhttpclient</a> de Paul Betts para cuando compilas tus apps para ser publicadas en producción, usualmente yo agrego unas sentencias <code>#if</code> para conseguirlo:</p>
 <pre><code class="language-csharp">HttpClient client;

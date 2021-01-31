@@ -97,11 +97,11 @@
 <p>Si alguna vez has usado un IDE para desarrollar alguna aplicación tal vez te hayas preguntado cómo es que ese tipo de programas saben en dónde están los componentes para cada una de las cosas que hacen que tu app compile o funcione. En este post trataré de explicar cómo es que Xamarin y Visual Studio llevan este control.</p>
 <h3 id="la-solucion">La &quot;Solución&quot;</h3>
 <p>Tanto Visual Studio como Xamarin Studio organizan nuestro código <em>assets</em>, liberías y demás en una estructura llamada Solución (<code>Solution</code> en inlglés), todo está almacenado en un archivo que tiene una extensión <code>.sln</code>. Este archivo  que le dice al IDE en dpnde están los proyectos de nuestra aplicación, es un archivo de texto plano, que es usualmente autogenerado por el entorno que estamos empleando para desarrollar.</p>
-<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio__solution-in-folder.png" title="Image of a solution file" />
+<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio/solution-in-folder.png" title="Image of a solution file" />
 <p>Así es como una <em>Solución</em> se ve cuando es abierta en Xamarin Studio y Visual Studio:</p>
-<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio__sln-opened.png" title="Image of opened solutions" />
+<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio/sln-opened.png" title="Image of opened solutions" />
 <p>Y así es como se ve el mismo archivo pero abierto en un editor de texto plano:</p>
-<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio__sln-plain-text-explained-2.png" title="Image of opened solutions" />
+<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio/sln-plain-text-explained-2.png" title="Image of opened solutions" />
 <dl>
 <dt>1. <i>Solución</i></dt>
 <dd>El archivo como tal, el nombre que vemos en el IDE es el mismo nombre del archivo más la extensión <code>sln</code>.</dd>
@@ -119,10 +119,10 @@
 <p>Bien, pues un proyecto es una manera lógica de organizar las clases, recursos imágenes necesarias para un cierto fin, este se describe en un archivo con extensión que termina en <code>proj</code>, siendo <code>.csproj</code> para proyectos C#, <code>.shproj</code> para proyectos compartidos y, por ejemplo, otros terminan en <code>.vbproj</code>, <code>.jsproj</code>, etc.</p>
 <p>Como puedes ver en la imagen anterior, el archivo <code>.sln</code> contiene una especie de enlaces a esos proyectos.</p>
 <p>Estos son los proyectos de la <em>Free Xamarin Shirt App</em>:</p>
-<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio__freeshirtappproject.png" title="Xamarin Free Shirt App" />
+<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio/freeshirtappproject.png" title="Xamarin Free Shirt App" />
 <h3 id="tldr">tl;dr</h3>
 <p>Podemos explicar cómo es que está organizado nuestro código con el siguiente diagrama:</p>
-<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio__Solution-diagram.jpg" title="Diagram of how solution works" />
+<img src="https://thatcsharpguy.github.io/postimages/organizacion-codigo-visual-studio/Solution-diagram.jpg" title="Diagram of how solution works" />
 
 
             </div>

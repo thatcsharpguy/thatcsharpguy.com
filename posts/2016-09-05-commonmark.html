@@ -126,7 +126,7 @@ using (var writer = new StreamWriter(&quot;output.html&quot;))
 }
 </code></pre>
 <p>Tras lo cual, si abrimos el archivo <code>output.html</code> con un navegador, veremos algo como lo siguiente:</p>
-<img src="https://thatcsharpguy.github.io/postimages/commonmark__raw_output.png" title="Salida" />
+<img src="https://thatcsharpguy.github.io/postimages/commonmark/raw_output.png" title="Salida" />
 <p>Sin embargo, de esta forma lo único que estamos haciendo es escribiendo algunas etiquetas HTML en el documento de salida, falta escribir los tags <code>html</code>, <code>head</code>, <code>body</code>... entre otros para que el HTML sea válido.</p>
 <h3 id="convert-conversion-personalizada">Convert (conversión personalizada)</h3>
 <p>Para nuestra suerte, el desarrollador de CommonMark, nos permite configurar la forma en la que se <em>renderea</em>
@@ -186,7 +186,7 @@ el resultado de la conversión. Esto, a través de la clase <code>CommonMarkSett
     }
 </code></pre>
 <p>Tras lo cual, podrías tener algo como esto:</p>
-<img src="https://thatcsharpguy.github.io/postimages/commonmark__raw_output_2.png" title="Salida" />
+<img src="https://thatcsharpguy.github.io/postimages/commonmark/raw_output_2.png" title="Salida" />
 <p>Gran diferencia, ¿no?</p>
 <h2 id="casos-de-uso">Casos de uso</h2>
 <p>Esta librería tiene una tarea en específico, y tal vez te resulte complicado encontrarle un uso, pero si como yo, estás <a href="#" target="_blank">creando un visor de Markdown</a> o, estás creando tu <a href="https://davidwalsh.name/introduction-static-site-generators" target="_blank">generador de sitios estáticos</a> (el blog usa jekyll, pero he pensado en crear un generador con C#).</p>

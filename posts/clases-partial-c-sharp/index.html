@@ -174,11 +174,11 @@ public partial class Page
 {
     public Core()
     {
-        #if __ANDROID__
+        #if __ANDROID/
         int camera = 0;
         string options = &quot;&quot;;
         var photo = TakePhoto(camera, options);
-        #elif __IOS__
+        #elif __IOS/
         string camera = &quot;&quot;;
         var photo = TakePhoto(camera);
         #endif

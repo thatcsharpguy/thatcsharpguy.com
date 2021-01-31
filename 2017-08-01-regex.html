@@ -112,29 +112,29 @@
 <p>Estos patrones están definidos bajo tres operaciones básicas:</p>
 <h3 id="alternacion">Alternación</h3>
 <p>Que se define por un pipe (una barra vertical), y que es un <code>or</code> que le indicará al patrón que una coincidencia se da entre cualquiera de los elementos que aparezcan a sus lados: por ejemplo, una expresión de este tipo:</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__or.png" title="OR" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/or.png" title="OR" />
 <h3 id="cuantificacion">Cuantificación</h3>
 <p>Se usa para especificar la cantidad de ocurrencias de determinado elemento. La operación de cuantificación cuenta con varios operadores:</p>
 <p>Primero tenemos el signo de interrogación, <code>?</code>, que indicará que el elemento que la antecede puede aparecer cero o una sola vez.</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__question.png" title="Question" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/question.png" title="Question" />
 <p>Después tenemos el cierre u operador estrella, <code>*</code>, que indica que el elemento que la antecede puede repetirse 0 o más veces.</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__star.png" title="Star" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/star.png" title="Star" />
 <p>Y por último tenemos el operador cierre positivo <code>+</code> que es parecido al operador estrella, solo que en este caso debe existir al menos una ocurrencia del elemento que la precede.</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__plus.png" title="Plus" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/plus.png" title="Plus" />
 <p>Sin embargo estos operadores de cuantificación son muy permisivos: es decir tenemos  <em>0 o uno</em>, <em>0 o más</em>, y <em>1 o más</em>, pero si queremos poner límites un poco más estrictos podemos utilizar los corchetes (o llaves) <code>{</code> <code>}</code> que permiten especificar con enteros el número de repeticiones que queremos encontrar, entonces podemos usarlas así:</p>
 <p>Un solo número entre las llaves <code>{n}</code> para especificar que esperamos <em>exactamente</em> <code>n</code> ocurrencias, del elemento que la precede.</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__n.png" title="n" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/n.png" title="n" />
 <p>Un solo número seguido de una coma <code>{n,}</code> que indica que esperamos <em>al menos</em> <code>n</code> ocurrencias y que puede haber más.</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__ncomma.png" title="Question" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/ncomma.png" title="Question" />
 <p>Después tenemos dos números separados por una coma <code>{n,m}</code> que especifica que esperamos <em>al menos</em> <code>n</code> y a <em>lo mucho</em> <code>m</code> ocurrencias de un elemento.</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__ncommam.png" title="Question" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/ncommam.png" title="Question" />
 <h3 id="agrupacion">Agrupación</h3>
 <p>Para la cual se utilizan los paréntesis <code>(</code> <code>)</code>, y como el nombre lo indica: sirve para agrupar, tiene más sentido cuando se usa en combinación con los dos anteriores. Por ejemplo, podemos especificar una agrupación empleando el operador de alternación:</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__groupalter.png" title="Question" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/groupalter.png" title="Question" />
 <p>O una usando los operadores de cuantificación:</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__grouprep.png" title="Question" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/grouprep.png" title="Question" />
 <p>E inclusive se pueden crear las combinaciones más extrañas que puedas imaginar:</p>
-<img src="https://thatcsharpguy.github.io/postimages/tv__regex__groupmix.png" title="Question" />
+<img src="https://thatcsharpguy.github.io/postimages/tv/regex/groupmix.png" title="Question" />
 <h2 id="implementaciones-de-las-regex">Implementaciones de las regex</h2>
 <p>Ahora, estos son los conceptos básicos detrás de ellas, sin embargo, dependiendo de su implementación bajo determinado estándar o lenguaje de programación, las regex suelen tener también una sintaxis específica y un conjunto de metacaracteres que las dotan de mayor funcionalidad, tomemos por ejemplo el caso de un pseudo-estándar llamado PCRE (<em>Perl-Compatible Regular Expressions</em>). Sí, es un estándar definido por el lenguaje de programación Perl, a partir del cual muchas otras implementaciones en otros lenguajes se han basado.</p>
 <h4 id="caracteres-de-escape">Caracteres de escape</h4>

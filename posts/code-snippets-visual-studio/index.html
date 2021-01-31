@@ -100,10 +100,10 @@
 <p>Estos fragmentos de código se cargan de un directorio cuando arranca Visual, y podemos acceder a ellos a través de un menú contextual o aprovechar una de las ventajas de los <em>snippets</em>, la cual nos permite acceder a ellos a través de una especie de &quot;palabra reservada&quot; o atajo y la tecla <kbd>tab</kbd>.</p>
 <h4 id="funcionamiento">Funcionamiento</h4>
 <p>Su funcionamiento es sencillo, mientras estamos editando escribimos el atajo y presionamos dos veces la tecla <kbd>tab</kbd>, tras lo cual como por arte de magia aparecerá el fragmento de código completo:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/code-snippets__cw.gif&quot; title=<>Console.WriteLine snippet</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/code-snippets/cw.gif&quot; title=<>Console.WriteLine snippet</> /&gt;</p>
 <p>En este caso, si revisas bien, el atajo usado fue <code>cw</code>, que podríamos interpretar como la <code>C</code> de <code>Console</code> y la <code>w</code> de <code>WriteLine</code>, el hecho de que sea así solo es una coincidencia o un gran acierto del creado, pero no es necesario que el atajo tenga que ver con el código que genera, más adelante, cuando veamos cómo crear tus propios fragmentos, verás por qué lo digo.</p>
 <p>También hay fragmentos de código que contienen partes editables dentro de ellos, de tal manera que podamos personalizarlo con el contexto de la aplicación que estamos desarrollando. Por ejemplo, mira este:</p>
-<img src="https://thatcsharpguy.github.io/postimages/code-snippets__prop.gif" title="Prop" />
+<img src="https://thatcsharpguy.github.io/postimages/code-snippets/prop.gif" title="Prop" />
 <p>El atajo usado fue <code>prop</code> y una vez insertado, señaló dos partes del código a las cuales accedemos presionando <kbd>tab</kbd> nuevamente, en este caso permite editar el tipo de la propiedad y su nombre, para finalizar la edición presionamos enter.</p>
 <h3 id="snippets-de-visual-studio">Snippets de Visual Studio</h3>
 <p>Apenas terminas de instalar VS puedes comenzar a usar los fragmentos que trae por default, para C# son aproximadamente unos 35.</p>
@@ -111,19 +111,19 @@
 <ul>
 <li><code>#region</code> que podemos usar para crear una agrupación física de líneas de código en nuestro archivo</li>
 </ul>
-<img src="https://thatcsharpguy.github.io/postimages/code-snippets__region.gif" title="Region directive" />
+<img src="https://thatcsharpguy.github.io/postimages/code-snippets/region.gif" title="Region directive" />
 <ul>
 <li><code>ctor</code> que se usa para crear un constructor de la clase en la que se declara</li>
 </ul>
-<img src="https://thatcsharpguy.github.io/postimages/code-snippets__ctor.gif" title="Constructor" />
+<img src="https://thatcsharpguy.github.io/postimages/code-snippets/ctor.gif" title="Constructor" />
 <ul>
 <li><code>for</code> crea un ciclo for con valores editables para la variable de iteración y sobre la que se va a comprobar el ciclo</li>
 </ul>
-<img src="https://thatcsharpguy.github.io/postimages/code-snippets__for.gif" title="Constructor" />
+<img src="https://thatcsharpguy.github.io/postimages/code-snippets/for.gif" title="Constructor" />
 <ul>
 <li><code>foreach</code> crea un ciclo &quot;para cada&quot;, nos permite editar el tipo de dato y los nombres de los objetos</li>
 </ul>
-<img src="https://thatcsharpguy.github.io/postimages/code-snippets__foreach.gif" title="Constructor" />
+<img src="https://thatcsharpguy.github.io/postimages/code-snippets/foreach.gif" title="Constructor" />
 <ul>
 <li><p><code>prop</code> que crea una propiedad autoimplementada</p>
 </li>
@@ -160,7 +160,7 @@
 </code></pre>
 <p>Es hora de copiarlo en el directorio desde el que serán cargados e iniciar Visual Studio (hasta el día de hoy sigue siendo necesario reiniciar el IDE cada vez que cambiamos un <em>snippet</em>).</p>
 <p>Entonces al escribir en un archivo de código C# el atajo <code>love</code> y presionar <kbd>tab</kbd> <kbd>tab</kbd>, sucede esto:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/code-snippets__love.gif&quot; title=<>I love C#</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/code-snippets/love.gif&quot; title=<>I love C#</> /&gt;</p>
 <p>Vamos a crear algo un poco más complejo, algo que permita reemplazar valores dentro del fragmento de código, como el caso de <code>prop</code>, para realizar la tarea puedes seguir trabajando con el archivo que tienes, o <a target="_blank" rel="nofollow" href="https://raw.githubusercontent.com/fferegrino/fantastic-broccoli/master/sample-2.snippet">descargar este otro</a>.</p>
 <p>Lo importante es añadir un hijo llamado <code>Declarations</code> como hijo de <code>Snippet</code>. Dentro de <code>Declarations</code> es donde debemos definir los reemplazos que vamos a necesitar. Existen dos tipos de reemplazos <code>Literal</code> y <code>Object</code>, por ahora vamos a quedarnos solo con <code>Literal</code>, así que añade un elemento d este tipo dentro de <code>Declarations</code>, a su vez, <code>Literal</code> debe tener como hijos los elementos <code>ID</code> y <code>Default</code>. Suena bastante complicado... y por eso pongo un ejemplo de lo que digo:</p>
 <pre><code class="language-xml">&lt;CodeSnippet Format=&quot;1.0.0&quot;&gt;
@@ -184,7 +184,7 @@
 &lt;/CodeSnippet&gt;
 </code></pre>
 <p>Como puedes ver, dentro del código del fragmento está el <code>ID</code> que puse dentro de la declaración del reemplazo, la novedad es que el ID está delimitado por <code>$</code> lo cual indica que es un valor que será reemplazado.</p>
-<img src="https://thatcsharpguy.github.io/postimages/code-snippets__lovesth.gif" title="I love other things" />
+<img src="https://thatcsharpguy.github.io/postimages/code-snippets/lovesth.gif" title="I love other things" />
   
 ##### Cambiando la ruta de los fragmentos  
 Si lo que quieres es cambiar la ruta de tus fragmentos a otra carpeta dentro de tu PC, puedes acceder al Administrador de Fragmentos de Código que está en el menú Herramientas, dar clic en Añadir y seleccionar la carpeta de la que deseas que se carguen los fragmentos. En mi caso, lo tengo configurado de esa manera porque uso GitHub para sincronizar algunos de los fragmentos que uso, si quieres verlos, <a href="https://github.com/fferegrino/fantastic-broccoli" target="_blank">visita el repositorio</a>.  
