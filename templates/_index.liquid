@@ -10,10 +10,10 @@
         <div class="post-meta">{{ site.default_author  }} · {{ post.date_time | date:"MMMM dd, yyyy" }}</div>
         {% endif %}
         <h2 class="post-title">
-            <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+            <a class="post-link" href="{{ post.canonical_url }}">{{ post.title }}</a>
         </h2>
         <div class="post-excerpt">{{ post.summary }}</div>
-        <a class="post-link" href="{{ post.url }}">Leer más &#x2192;</a>
+        <a class="post-link" href="{{ post.canonical_url }}">Leer más &#x2192;</a>
     </div>
     {% endfor %}
     <div class="listed-post pure-u-1">

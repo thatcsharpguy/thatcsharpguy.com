@@ -5,4 +5,9 @@ default-author: Antonio Feregrino
 site-url: https://thatcsharpguy.com/
 social:
   - name: GitHub
-    link: https://github.com/lockdown-blog/lockdown
+    link: https://github.com/lockdownblog/lockdown
+post-routes:
+    - /post/{}/index.html
+    - /post/{}.html
+tag-page-route: tag/{}/index.html
+tag-index-route: tag/index.html
