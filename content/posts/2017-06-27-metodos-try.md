@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Métodos Try...
+slug: metodos-try
 date: 2017-06-27 19:00:01
 author: Antonio Feregrino
 summary: Las excepciones son eso. Excepciones, así que debes procurar evitarlas en tu código; los métodos Try... te ayudan a hacerlo, conócelos aquí.
