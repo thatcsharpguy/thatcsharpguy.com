@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Polly-ticas para el manejo de excepciones | That C# guy</title>
+  <title>Polly-ticas para el manejo de excepciones | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Polly-ticas para el manejo de excepciones">
-<meta itemprop="description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Polly-ticas para el manejo de excepciones">
-<meta name="twitter:description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Polly-ticas para el manejo de excepciones">
-<meta name="og:description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Polly-ticas para el manejo de excepciones">
+  <meta itemprop="description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Polly-ticas para el manejo de excepciones">
+  <meta name="twitter:description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Polly-ticas para el manejo de excepciones">
+  <meta name="og:description" content="Con Polly implementa políticas complejas para lidiar con las excepciones en tu código, especialmente útil si estás trabajando con servicios web que pueden variar de disponibilidad de un momento a otro.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,17 +345,17 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Polly-ticas para el manejo de excepciones</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>En posts pasados hemos <a href="..\excepciones-c-sharp" target="_blank">estado</a> <a href="..\metodos-try" target="_blank">hablando</a> sobr elas excepciones en C#, desde cómo funcionan hasta cómo evitarlas... sin embargo, hay ocasiones en las que llegue a ser absolutamente necesario que la operación que provocó la excepción se repita, ya sea porque es de suma importancia que esta se lleve a cabo o porque el error es solo temporal.</p>
 <p>El NuGet del que les voy a hablar hoy nos ayuda a implementar políticas de recuperación ante una falla. Esto es particularmente útil cuando, por ejemplo, estamos consumiendo un servicio web y una petición falla.</p>
-<h2><code>Policy</code></h2>
+<h2 id="policy"><code>Policy</code></h2>
 <p>Todo comienza estableciendo una política con la clase <code>Policy</code> a través de su <a href="https://es.wikipedia.org/wiki/Interfaz_fluida" target="_blank">api fluída</a>:</p>
 <pre><code class="language-csharp">var politicaReintenta5 = Policy // continúa
 </code></pre>
@@ -371,7 +369,7 @@
 <pre><code class="language-csharp">    .Retry(5, ReportaError);
 </code></pre>
 <p>El método <code>Retry</code> permite especificar el número de veces que se debe reintentar la operación (en este caso 5) y un método (<code>ReportaError</code>) que se llamará cada vez que se vaya a reintentar.</p>
-<h3>El método <code>ReportaError</code></h3>
+<h3 id="el-metodo-reportaerror">El método <code>ReportaError</code></h3>
 <p>En este caso, el método recibe la excepción lanzada y el número de intento en el que está. Imprime el número de intento y la hora en la que se está ejecutando:</p>
 <pre><code class="language-csharp">static void ReportaError(Exception e, int intentos)
 {
@@ -379,7 +377,7 @@
 }
 </code></pre>
 <p>Por cierto, no es necesario que especifiques una función, yo lo hice solo para este demo.</p>
-<h2>Ejecutando la política</h2>
+<h2 id="ejecutando-la-politica">Ejecutando la política</h2>
 <p>Una vez que has decidido ya la política, es momento de ejecutar el código que podría fallar, toma como ejemplo el siguiente método:</p>
 <pre><code class="language-csharp">static void LanzaExcepcion()
 {
@@ -409,7 +407,7 @@ Intento: 04	Tiempo: 6/30/2017 1:37:57 PM
 Intento: 05	Tiempo: 6/30/2017 1:37:57 PM
 Después de los intentos, sigue fallando (Attempted to divide by zero.)
 </pre>
-<h2>Reintentar esperando entre reintentos</h2>
+<h2 id="reintentar-esperando-entre-reintentos">Reintentar esperando entre reintentos</h2>
 <p>Como puedes ver, los reintentos son inmediatos, pero esto podría no ser siempre lo ideal, ¿si un servicio web no me respondió hace 30 milésimas de segundo, por qué lo hará ahora?</p>
 <p>Para estos casos, <em>Polly</em> ofrece la política de <em>&quot;esperar y reintentar&quot;</em>:</p>
 <pre><code class="language-csharp">var politicaWaitAndRetry = Policy
@@ -422,7 +420,7 @@ Después de los intentos, sigue fallando (Attempted to divide by zero.)
         }, ReportaError);
 </code></pre>
 <p>Lo nuevo está a partir del método <code>WaitAndRetry</code>. Este método también tiene diversas sobrecargas, pero una de ellas recibe un arreglo de <code>TimeSpan</code>, que le indica cuánto tiempo debe esperar entre reintentos. En este caso intentará tres veces, esperando 1, 2 y tres segundos entre ellos.</p>
-<h3>El método <code>ReportarError</code></h3>
+<h3 id="el-metodo-reportarerror">El método <code>ReportarError</code></h3>
 <p>En este caso el método que se llama a cada reintento es un poco distinto, recibe la excepción,un <code>TimeSpan</code> indicando el tiempo a esperar, el número de intentos y un objeto del tipo <code>Context</code> que es para usos más avanzados de <em>Polly</em>. Lo que hace es imprimir el número de intento y el tiempo que tardará en realizarse la próxima ejecución:</p>
 <pre><code class="language-csharp">static void ReportaError(Exception e, TimeSpan tiempo, int intento, Context contexto)
 {
@@ -458,7 +456,7 @@ Intento: 04 (próximo intento en: 16 segundos)	Tiempo: 6/30/2017 1:38:17 PM
 Intento: 05 (próximo intento en: 32 segundos)	Tiempo: 6/30/2017 1:38:33 PM
 Después de los intentos, sigue fallando (Attempted to divide by zero.)
 </pre>
-<h2>Si fallla...</h2>
+<h2 id="si-fallla">Si fallla...</h2>
 <p>Hasta ahora habíamos tenido que envolver la ejecución en un bloque <code>try</code>, sin embargo, esto se puede evitar utilizando la política de <code>Fallback</code>, esta permite establecer una acción que debe realizarse en caso de que todo falle. Ojo que esta <strong>no es compatible</strong> con la política <code>Retry</code> directamente, se pueden mezclar de otra forma que veremos más adelante.</p>
 <p>Ahora vamos a introducir otra modificación, hasta ahora habíamos trabajado con métodos <em>&quot;peligrosos&quot;</em> que no regresaban ningún valor, pero esto no es lo que regularmente harás, las llamadas a servicios web regularmente retornan valores, y es muy probable que eso es lo que quieras hacer en tu código, toma por ejemplo este código, que podría (en este caso siempre) lanzar una excepción pero que idealmente regresa una cadena:</p>
 <pre><code class="language-csharp">static string LanzaExcepcionConCadena()
@@ -485,7 +483,7 @@ Console.WriteLine($&quot;Resultado: {resultado2}&quot;);
 <pre>  
 Resultado: Valor de Fallback
 </pre>
-<h2>Uniendo políticas</h2>
+<h2 id="uniendo-politicas">Uniendo políticas</h2>
 <p>Pero vamos, que estas políticas son buenas por si mismas, ahora, imagínatelas combinadas... es decir, que tu código intente 5 veces conseguir un valor y si no lo consigue, que tome uno por default. Esto es posible &quot;envolviendo&quot; las políticas mediante el método <code>Wrap</code>:</p>
 <pre><code class="language-csharp">var mixedPolicy = Policy.Wrap(politicaWithFallback, politicaWaitAndRetryString);
 </code></pre>
@@ -502,52 +500,262 @@ Intento: 04 (próximo intento en: 16 segundos)	Tiempo: 6/30/2017 9:34:00 PM
 Intento: 05 (próximo intento en: 32 segundos)	Tiempo: 6/30/2017 9:34:16 PM
 Resultado: Valor de Fallback
 </pre>
-<h2>Más características</h2>
+<h2 id="mas-caracteristicas">Más características</h2>
 <p>Esta biblioteca tiene más características que no cubrí en este post, te invito a que descargues <a href="https://github.com/ThatCSharpGuy/polly-sample" target="_blank">el código de ejemplo</a> de este post para que pruebes todas las posibilidades.</p>
-<h2>Uso</h2>
+<h2 id="uso">Uso</h2>
 <p>Puedes acceder a <em>Polly</em> a través de este <a href="https://www.nuget.org/packages/polly" target="_blank">paquete de NuGet</a>.</p>
 <pre><code>PM&gt; Install-Package Polly
 </code></pre>
 <p><em>Polly</em> es parte de la .NET Foundation, y su código está <a href="https://github.com/App-vNext/Polly" target="_blank">disponible en GitHub</a>, puedes ver cómo está hecho y contribuir a mejorarlo.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -563,5 +771,5 @@ Resultado: Valor de Fallback
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

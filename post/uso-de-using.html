@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Uso de using | That C# guy</title>
+  <title>Uso de using | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Uso de using">
-<meta itemprop="description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Uso de using">
-<meta name="twitter:description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Uso de using">
-<meta name="og:description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Uso de using">
+  <meta itemprop="description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Uso de using">
+  <meta name="twitter:description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Uso de using">
+  <meta name="og:description" content="En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,18 +345,18 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Uso de using</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>¿Cuántas veces has visto la palabra  <code>using</code> en C#? ... me aventuraré a decir que muchas, y es que la palabra <code>using</code> tiene varios significados en el lenguaje. Previamente escribí sobre cómo se <a href="../creando-propios-alias">usa para crear aliases</a>. En este post hablaré sobre otro de sus usos.</p>
 <p>En C#, también podemos emplear <code>using</code> para especificar un bloque de código asociado a una o varias instancias de una clase que implemente <code>IDisposable</code>, el hacer uso de estos bloques de código nos ayuda a manejar correctamente este tipo de objetos, ya que se encarga de llamar al método <code>Dispose</code> antes de terminar de ejecutar dicho bloque.</p>
 <p>La importancia de llamar al método <code>Dispose</code> en un objeto radica en que es dentro de ese método que se recomienda liberar todos los recursos que fueron empleados para su correcto funcionamiento, y olvidar ejecutar dicho método puede traducirse en problemas que causarán que nuestra aplicación se comporte incorrectamente.</p>
-<h3>Ejemplo</h3>
+<h3 id="ejemplo">Ejemplo</h3>
 <p>Para poner un ejemplo, cree la clase <code>Desechable</code> que implementa <code>IDisposable</code>:</p>
 <pre><code class="language-csharp">public class Desechable : IDisposable
 {
@@ -373,7 +371,7 @@
     }
 }
 </code></pre>
-<h3>Simplificando sintaxis</h3>
+<h3 id="simplificando-sintaxis">Simplificando sintaxis</h3>
 <p>Una forma recomendada de usar la clase <code>Desechable</code> es la siguiente, ya que de ese modo nos aseguramos que se llame al método <code>Dispose</code> que, en teoría, se encargará de liberar los recursos asociados a la instancia:</p>
 <pre><code class="language-csharp">var desechable1 = new Desechable();
 try
@@ -395,7 +393,7 @@ finally
 }
 </code></pre>
 <p>Mucho más simple, ¿no?</p>
-<h3>Manejo de errores</h3>
+<h3 id="manejo-de-errores">Manejo de errores</h3>
 <p>A pesar de que a final de cuentas nuestro código quede envuelto en un bloque <em>try-finally</em>, no significa que este se &quot;comerá&quot; las excepciones que puedan ocurrir, es por eso que también podemos usar bloques <em>try-catch</em> dentro de un bloque <code>using</code>:</p>
 <pre><code class="language-csharp">using (var desechable2 = new Desechable())
 {
@@ -409,9 +407,9 @@ finally
     }
 }
 </code></pre>
-<h3>Alcance</h3>
+<h3 id="alcance">Alcance</h3>
 <p>Al ser bloques de códigos envueltos por <code>{</code> <code>}</code> todas las variables, incluyendo la instancia dentro de <code>using</code>, únicamente estarán disponibles dentro de sus respectivos bloques e intentar usarlas fuera de este provocará un error en tiempo de compilación.</p>
-<h3>Agrupando declaraciones</h3>
+<h3 id="agrupando-declaraciones">Agrupando declaraciones</h3>
 <p>Hay ocasiones en las que es necesario instanciar la misma clase varias veces, para dichas ocasiones, <code>using</code> tiene esta sintaxis:</p>
 <pre><code class="language-csharp">using (Desechable d1 = new Desechable(),
                 d2 = new Desechable())
@@ -422,7 +420,7 @@ finally
 using (Desechable d1 = new Desechable())
 { // ...
 </code></pre>
-<h3>Ejemplo de la vida real</h3>
+<h3 id="ejemplo-de-la-vida-real">Ejemplo de la vida real</h3>
 <p>Más que ejemplos de <code>using</code> más bien existen muchas clases en el framework que implementan <code>IDisposable</code>, como el uso de <code>Socket</code>s, recursos de red, conexiones a servicios web y los fluhos de datos, como <code>FileStream</code>:</p>
 <pre><code class="language-csharp">using (FileStream homerStream = new FileStream(&quot;Homer.txt&quot;, FileMode.Open))
 {
@@ -435,49 +433,259 @@ using (Desechable d1 = new Desechable())
     }
 }
 </code></pre>
-<h3>No se recomienda en todos los casos</h3>
+<h3 id="no-se-recomienda-en-todos-los-casos">No se recomienda en todos los casos</h3>
 <p>Hay ocasiones en las que emplear <code>using</code> puede traernos más problemas de los que resuelve, específicamente para <a href="https://msdn.microsoft.com/en-us/library/aa355056.aspx" target="_blank" rel="nofollow">gestionar la conexión a un servicio WCF</a>, fuera de ahí no hay problemas conocidos. Esta información me sorprendió incluso a mi.</p>
-<h2>Lo que sigue</h2>
+<h2 id="lo-que-sigue">Lo que sigue</h2>
 <p>La palabra reservada que revisamos hoy tiene otro par de usos que estaré revisando más adelante en este blog, no olvides suscribirte para estar al tanto.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -493,5 +701,5 @@ using (Desechable d1 = new Desechable())
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

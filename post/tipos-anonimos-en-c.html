@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Tipos anónimos en C# | That C# guy</title>
+  <title>Tipos anónimos en C# | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Tipos anónimos en C#">
-<meta itemprop="description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tipos anónimos en C#">
-<meta name="twitter:description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Tipos anónimos en C#">
-<meta name="og:description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Tipos anónimos en C#">
+  <meta itemprop="description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tipos anónimos en C#">
+  <meta name="twitter:description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Tipos anónimos en C#">
+  <meta name="og:description" content="Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,14 +345,14 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Tipos anónimos en C#</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>¿A qué suena cuando se dice que algo es anónimo? … pues eso mismo es aplicable a los tipos anónimos en C#. En este post te voy a contar sobre ellos, pero antes comencemos por ver el siguiente fragmento de código:</p>
 <pre><code class="language-csharp">class Student
 {
@@ -362,7 +360,7 @@
 }
 </code></pre>
 <p><code>Student</code> es un ejemplo de un tipo que <strong>no es anónimo</strong>, porque  pues bueno… tiene un nombre. Para usarlo basta con instanciarlo de esta manera: <code>var estudianteConocido = new Student() { Name = &quot;Roberto&quot; };</code> y listo.</p>
-<h2>Ahora sí, anónimos</h2>
+<h2 id="ahora-si-anonimos">Ahora sí, anónimos</h2>
 <p>Ahora veamos un ejemplo de algo que <strong>sí es anónimo</strong> (y prepárate para leer muchas veces la palabra &quot;anónimo&quot;):</p>
 <pre><code class="language-csharp">var estudianteDesconocido = new { Name = &quot;Rigoberto&quot; };
 var estudianteDesconocido2 = new { Nombre = &quot;Pedro&quot;, Edad = &quot;12&quot; };
@@ -370,7 +368,7 @@ var estudianteDesconocido2 = new { Nombre = &quot;Pedro&quot;, Edad = &quot;12&q
 <p>Pareciera una declaración normal pero es importante notar que no podemos decir de qué tipo es nuestra variable <code>estudianteDesconocido</code> o <code>estudianteDesconocido2</code> puesto que son anónimos, también por eso se <a href="/post/var-en-c-sharp/">usa var para declararlo</a>.</p>
 <p>Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo. Es decir que un anónimo es un tipo por referencia que deriva directamente de <code>object</code>.</p>
 <p>Estos tipos son una herramienta más que nos ofrece C# para minimizar la cantidad de código que nosotros como programadores tenemos que escribir, sin embargo es importante tener en cuenta algunas de sus características para sacarle el máximo provecho:</p>
-<h3>Inicialización</h3>
+<h3 id="inicializacion">Inicialización</h3>
 <p>Para inicializarlos, es necesario usar el operador <code>new</code>, la <a href="https://msdn.microsoft.com/en-us/library/bb397680.aspx" target="_blank">inicialización de objetos</a> y la palabra <code>var</code>. La inicialización de objetos cobra importancia con los tipos anónimos porque el nombre de sus propiedades depende del nombre de las variables que se asignen en su creación.</p>
 <p>Así pues:</p>
 <ul>
@@ -386,7 +384,7 @@ var point1 = new { x, y };
 var point2 = new { x, SuperY = y };
 </code></pre>
 <p>La variable <code>point1</code> tendrá una propiedad llamada <code>x</code> de tipo double y otra llamada <code>y</code> del tipo float. Inclusive podemos combinar las formas de inicializar, en este caso <code>point2</code> tiene como propiedades <code>x</code> y <code>SuperY</code>.</p>
-<h3>No es tipado dinámico</h3>
+<h3 id="no-es-tipado-dinamico">No es tipado dinámico</h3>
 <p>Una de las grandes dudas que te podrían surgir es si esto no viola el hecho de que C# es un lenguaje fuertemente tipado y pues no. Los tipos anónimos <strong>siguen siendo fuertemente tipados</strong>, como ya se dijo antes, al momento de la compilación se crea una clase para nuestra variable y esta variable no puede cambiar de tipo con el flujo del programa.</p>
 <p>Podemos comprobarlo fácilmente. El compilador nos marcará un error si intentamos hacer algo como esto:</p>
 <pre><code class="language-csharp">// &quot;Teacher&quot; no es una propiedad de estudianteDesconocido
@@ -396,25 +394,25 @@ estudianteDesconocido.Teacher = &quot;Andrés&quot;;
 <pre><code class="language-csharp">// Son tipos diferentes
 estudianteDesconocido = estudianteDesconocido2;
 </code></pre>
-<h3>Propiedades de solo lectura</h3>
+<h3 id="propiedades-de-solo-lectura">Propiedades de solo lectura</h3>
 <p>Las propiedades que un <em>anónimo</em> contiene son siempre de solo lectura, es decir que son solo asignables al momento de la inicialización y no podemos cambiar sus valores en otro punto del programa; esto tiene una explicación que tiene que ver con la <a href="http://blogs.msdn.com/b/sreekarc/archive/2007/04/03/immutable-the-new-anonymous-type.aspx" target="_blank">inmutabilidad de los anónimos</a>.</p>
 <p>Explicado en código es decir que no podemos hacer algo como esto:</p>
 <pre><code class="language-csharp">// Nay, las propiedades en un anónimo son de solo lectura
 estudianteDesconocido.Name = &quot;Nuevo nombre&quot;;
 </code></pre>
-<h3>Restricciones</h3>
+<h3 id="restricciones">Restricciones</h3>
 <p>Una de las restricciones más notables de los tipos anónimos es que su uso está limitado a un alcance interno, es decir, dentro del cuerpo de un método.</p>
 <p>Si bien es posible crear un método que devuelva <code>object</code> (que es la clase base de cualquier tipo anónimo), no podemos usarlo sin violar el tipado estático que provee C#.</p>
-<h3>Derivan de object</h3>
+<h3 id="derivan-de-object">Derivan de object</h3>
 <p>Al ser tipos derivados de <code>object</code> los tipos anónimos tienen métodos que resultan bastante útiles, estos son:</p>
-<h4>ToString</h4>
+<h4 id="tostring">ToString</h4>
 <p>Al llamar <code>ToString</code> el resultado será una cadena que contiene todas y cada una de las propiedades que contiene así como sus valores. Por ejemplo, llamar:</p>
 <pre><code class="language-csharp">Console.WriteLine(estudianteDesconocido);
 Console.WriteLine(estudianteDesconocido2);
 Console.WriteLine(point2);
 </code></pre>
 <p>Mostrará en pantalla <code>{ Name = Rigoberto }</code>, <code>{ Nombre = Pedro, Edad = 12 }</code>, <code>{ x = 9.1, SuperY = 3.2 }</code> respectivamente.</p>
-<h4>Equals</h4>
+<h4 id="equals">Equals</h4>
 <p>Es posible comparar los tipos anónimos contra cualquier otro tipo, sin embargo el método <code>Equals</code> únicamente devolverá <code>true</code> si los tipos comparten:</p>
 <ul>
 <li>Las mismas propiedades, en nombre y número</li>
@@ -432,57 +430,267 @@ var p4 = new { X = 5, Y = 2 };
 Console.WriteLine(p1.Equals(p3)); // False
 Console.WriteLine(p1.Equals(p4)); // False
 </code></pre>
-<h3>Uso</h3>
+<h3 id="uso">Uso</h3>
 <p>Bueno... pero ¿para qué sirven?</p>
-<h4>LINQ</h4>
+<h4 id="linq">LINQ</h4>
 <p>Los anónimos son tipos que otorgan a <a href="/post/linq-en-c-sharp/">LINQ (otra de las herramientas de C#)</a> un gran poder, y es que usandola junto con las consultas se pueden crear tipos &quot;al vuelo&quot; para usarlos dentro de nuestro código, este es un ejemplo sencillo de uso:</p>
 <pre><code class="language-csharp">var olderStudents = from s in students
                     where s.Age &gt; 10
                     select new { FullName = s.Name + &quot; &quot; + s.Surname, s.Age };
 </code></pre>
-<h4>Debuguear</h4>
+<h4 id="debuguear">Debuguear</h4>
 <p>Dada la facilidad y limpieza con la que se pueden declarar, los anónimos son comunmente usados para cuando se debugea, como recordamos, al llamar <code>ToString</code> en un anónimo, este nos mostrará una lista de sus propiedades junto con sus valores.</p>
-<h3>Lo que sigue</h3>
+<h3 id="lo-que-sigue">Lo que sigue</h3>
 <p>En posts siguientes revisaremos consultas más complejas con LINQ y los tipos anónimos, además de otras de las características del lenguaje. Te invito a que revises las nuevas páginas de etiquetas en <a href="/tag">etiquetas del blog</a> y a que te estés al tanto de mis posts en <a href="/registro">el registro</a>.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -498,5 +706,5 @@ Console.WriteLine(p1.Equals(p4)); // False
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

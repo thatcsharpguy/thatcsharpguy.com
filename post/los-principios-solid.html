@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Los principios SOLID | That C# guy</title>
+  <title>Los principios SOLID | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Los principios SOLID">
-<meta itemprop="description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Los principios SOLID">
-<meta name="twitter:description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Los principios SOLID">
-<meta name="og:description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Los principios SOLID">
+  <meta itemprop="description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Los principios SOLID">
+  <meta name="twitter:description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Los principios SOLID">
+  <meta name="og:description" content="El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,20 +345,20 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Los principios SOLID</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>SOLID es un concepto acuñado por Robert C. Martin a partir de 5 principios básicos de la programación orientada a objetos. El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de <a href="..\programar-con-estilo">programar con estilo</a> siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.</p>
 <p>Algunos de los principios se explican por si mismos, sin embargo  hay otros que requieren un poco más de explicación. El orden no significa nada, se les dio ese orden debido a que solid formaba una regla mnemotécnica sencilla de recordar.</p>
-<h2>Single responsability principle (SRP)</h2>
+<h2 id="single-responsability-principle-srp">Single responsability principle (SRP)</h2>
 <p><strong>Principio de responsabilidad única.</strong><br />
 Este, como su nombre lo indica, nos sugiere que todos los objetos en nuestro código deben tener una sola tarea (una razón para cambiar), almacenar datos, hacer una consulta, ejecutar una lógica… en fin, la que sea, siempre que sea solo una. Por ejemplo, siguiendo este principio no deberías amontonar todo el código de tu aplicación en una sola clase, no deberías tener una que haga consultas a Facebook, guarde en la base de datos e imprima a pantalla. Un gran ejemplo son las aplicaciones que hacen todo en el Code-Behind.</p>
-<h3>En código:</h3>
+<h3 id="en-codigo">En código:</h3>
 <p>Piensa en una aplicación bastante sencilla que calcula la suma de las áreas y perímetros de un conjunto de rectángulos. Para esto, tienes una clase llamada <code>Rectangle</code> que se ve más o menos así:</p>
 <pre><code>public class Rectangle
 {
@@ -392,9 +390,9 @@ var sumaDeAreas = Rectangle.SumAreas(rectangulos);
 var sumaDePerimetros = Rectangle.SumPerimeters(rectangulos);
 </code></pre>
 <p>Todo parece perfecto, tu programa funciona de mil maravillas, pero está violando el principio de responsabilidad única.</p>
-<h3>Violación del SRP</h3>
+<h3 id="violacion-del-srp">Violación del SRP</h3>
 <p>La violación ocurre al momento de declarar los métodos <code>SumAreas</code> y <code>SumPerimeters</code> dentro de la misma clase que <code>Rectangle</code> y es que a pesar de que están relacionadas con el rectángulo como tal, la sumatoria forma parte de nuestra lógica de la aplicación, no de la lógica que podría tener un rectángulo en la vida real.</p>
-<h3>Cumpliendo el SRP</h3>
+<h3 id="cumpliendo-el-srp">Cumpliendo el SRP</h3>
 <p>Para cumplir con el principio, quitamos la funcionalidad de sumatorias de la clase <code>Rectangle</code> e introducimos un par de clases encargadas de realizar las operaciones sobre el los conjuntos de rectángulos, su código es más o menos este:</p>
 <pre><code>public class AreaOperations
 {
@@ -410,10 +408,10 @@ public class PerimeterOperations
         //
 </code></pre>
 <p>Entonces así cada clase tiene una sola responsabilidad: una representa un rectángulo y las otras se encargan de hacer operaciones relacionadas con ellos.</p>
-<h2>Open/Closed principle (OCP)</h2>
+<h2 id="openclosed-principle-ocp">Open/Closed principle (OCP)</h2>
 <p><strong>Principio abierto/cerrado.</strong><br />
 Tiene un nombre extraño, pero lo que indica es bastante simple: el código que escribas debe estar abierto para ser extendido pero debe estar cerrado a modificaciones, es decir debes poder expandir el comportamiento del módulo sin modificar el código de este. Esto se logra mediante Polimorfismo y el uso de abstracciones para la API de nuestro código.</p>
-<h3>En código</h3>
+<h3 id="en-codigo-1">En código</h3>
 <p>Ahora, supón que después de cierto tiempo, a la gente le gustó tanto tu programa que te piden que ahora tomes en cuenta también triángulos equiláteros y que tu programa permita sumar las áreas de triángulos con rectángulos.</p>
 <p>Entonces creas una nueva clase para representar los triángulos, y modificas los métodos para sumar áreas  para que estos acepten tanto rectángulos como triángulos y dentro de ellos verificas de qué tipo es cada objeto y realizas el cálculo apropiado:</p>
 <pre><code>public class PerimeterOperations
@@ -449,9 +447,9 @@ public class AreaOperations
 }
 </code></pre>
 <p>Todo parece perfecto nuévamente, tu programa funciona de mil maravillas, pero está violando el principio de abierto/cerrado.</p>
-<h3>Violación del OCP</h3>
+<h3 id="violacion-del-ocp">Violación del OCP</h3>
 <p>Probablemente ya tengas una idea de en qué parte del código se está violando este principio... pero si no: en las clases de operaciones, y es que tu programa está abierto a la extensión... pero no a la modificación. Ponte a pensar en qué va a pasar mañana que los círculos se pongan de moda. Tendrías que modificar el código de las operaciones para que funcione con otra figura y así para cada figura que se le ocurra a los usuarios de tu programa.</p>
-<h3>Cumpliendo el OCP</h3>
+<h3 id="cumpliendo-el-ocp">Cumpliendo el OCP</h3>
 <p>La solución a esta violación se dará mediante el uso de abstracciones (en este caso la interfaz <code>IGeometricShape</code>) a través de la cual indicaremos que nuestras figuras comparten propiedades y métodos (en este caso el área y el perímetro):</p>
 <pre><code>public interface IGeometricShape
 {
@@ -477,12 +475,12 @@ public double Sum(IEnumerable&lt;IGeometricShape&gt; shapes)
 }
 </code></pre>
 <p>De este modo para cuando en el futuro agreguémos nuevas figuras, únicamente tendremos que hacer que implementen ese comportamiento en común y no tendremos que modificar el código ya existente.</p>
-<h2>Liskov substitution principle (LSP)</h2>
+<h2 id="liskov-substitution-principle-lsp">Liskov substitution principle (LSP)</h2>
 <p><strong>Principio de substitución de Liskov.</strong><br />
 Este es el que a mi parecer es de los más complicados de entender, y es que hasta tiene una definición un poco científica:</p>
 <p>Let Φ(x) be a property provable about objects x of type T. Then Φ(y) should be true for objects y of type S where S is a subtype of T.</p>
 <p>En otras palabras: Si S es un subtipo de T, entonces los objetos de tipo T en un programa pueden ser reemplazados por objetos de tipo S sin cambiar el comportamiento de este.</p>
-<h3>En código</h3>
+<h3 id="en-codigo-2">En código</h3>
 <p>Ahora la gente comienza a pedir que tu programa pueda calcular la información de figuras cuadradas, entonces tu creas una clase llamada <code>Square</code> que herede de la clase <code>Rectangle</code> que creaste hace unos cuantos pasos, después de todo, un cuadrado no es más que un rectángulo con una pequeña restricción. Y para cumplir con dicha restricción, cambiaste el comportamiento de sus propiedades <code>Height</code> y <code>Width</code>:</p>
 <pre><code>public class Square : Rectangle
 {
@@ -511,7 +509,7 @@ Este es el que a mi parecer es de los más complicados de entender, y es que has
 }
 </code></pre>
 <p>Ahora, inclusive ya hay quien está desarrollando aplicaciones con tu código. Todo parece perfecto, tu programa funciona de mil maravillas, pero está violando el principio de sustitución de Liskov.</p>
-<h3>Violación del LSP</h3>
+<h3 id="violacion-del-lsp">Violación del LSP</h3>
 <p>Supón que como parte del crecimiento de tu programa, decidiste comenzar a escribir <a href="..\pruebas-unitarias">pruebas unitarias</a>, y escribiste una como la siguiente:</p>
 <pre><code>Rectangle rectangle = new Square();
 rectangle.Width = 3;
@@ -523,17 +521,17 @@ double actual = rectangle.Area();
 Assert.AreEqual(expected, actual);
 </code></pre>
 <p>Hay algunas cosas raras... sin embargo el código compila y se ejecuta, sin embargo la prueba falla. Y es que de esto se trata el todo el principio de sustitución de Liskov: los subtipos de una clase deben comportarse siempre como esta. En otras palabras: deriva de una clase solo para agregarle capacidades, no para modificar las que ya cuenta.</p>
-<h3>Cumpliendo el LSP</h3>
+<h3 id="cumpliendo-el-lsp">Cumpliendo el LSP</h3>
 <p>La solución es bastante simple: debemos hacer que <code>Square</code> no derive de <code>Rectangle</code>, y que en su lugar, implemente <code>IGeometrcShape</code>:</p>
 <pre><code>public class Square : IGeometricShape
 </code></pre>
 <p>De ese modo nadie, ni tú mismo, podrá pensar que en este ámbito los cuadrados y los rectángulos están relacionados.</p>
-<h2>Interface segregation principle (ISP)</h2>
+<h2 id="interface-segregation-principle-isp">Interface segregation principle (ISP)</h2>
 <p><strong>Principio de segregación de interfaces.</strong><br />
 El concepto debajo de este principio es que no tenemos que darle a los módulos de un programa más información de la que necesitan para funcionar. Para lograr esto debemos separar tanto como se pueda las abstracciones creadas, dejando de este modo en cada una de estas abstracciones separadas sólo la información necesaria para cada módulo, sin permitirles saber (o modificar) cosas que no son esenciales para su funcionamiento.</p>
-<h3>En código</h3>
+<h3 id="en-codigo-3">En código</h3>
 <p>Ahora sí, todo parece perfecto, tu programa funciona de mil maravillas, pero está violando el principio de segregación de la interfaz.</p>
-<h3>Violación del ISP</h3>
+<h3 id="violacion-del-isp">Violación del ISP</h3>
 <p>Sin tener la menor intención nosotros introdujimos esta violación cuando cumplimos con el OCP, y es que el ISP nos indica que debemos separar las interfaces para que los componentes de software que trabajan con ellas tengan únicamente la información que de ellas necesitan y no más. Vamos a echarle un vistazo a la interfaz <code>IGeometricShape</code>:</p>
 <pre><code>public interface IGeometricShape
 {
@@ -542,7 +540,7 @@ El concepto debajo de este principio es que no tenemos que darle a los módulos 
 }
 </code></pre>
 <p>Y se usa tanto en el cálculo de suma de áreas y en el de perímetros. Pero, ¿por qué tendría que saber la clase encargada de sumar los perímetros, que los elementos con los que trabaja también poseen un área?</p>
-<h3>Cumpliendo el ISP</h3>
+<h3 id="cumpliendo-el-isp">Cumpliendo el ISP</h3>
 <p>El cumplir con este principio nos lleva a separar la interfaz <code>IGeometricShape</code> en dos: <code>IHasPerimeter</code> y <code>IHasArea</code>, para así pasarle únicamente la información necesaria a cada uno de los métodos dentro de nuestro programa:</p>
 <pre><code>public interface IHasArea
 {
@@ -558,10 +556,10 @@ public interface IGeometricShape : IHasArea, IHasPerimeter
 {
 }
 </code></pre>
-<h2>Dependency inversion principle (DIP)</h2>
+<h2 id="dependency-inversion-principle-dip">Dependency inversion principle (DIP)</h2>
 <p><strong>Principio de inversión de dependencia.</strong><br />
 Este principio nos indica que debemos remover la dependencia que los módulos tienen entre sí, y dejar las interacciones como meras abstracciones cuyo funcionamiento interno pueda ser reemplazado sin tener que afectar todos los módulos de la aplicación en donde se haga referencia al comportamiento que se está modificando. Hice un <a href="..\inyeccion-dependencias">video completo</a> sobre una forma de inversión de dependencias.</p>
-<h3>En código</h3>
+<h3 id="en-codigo-4">En código</h3>
 <p>Tu código comienza a crecer, fantástico, así que piensas que es mejor seguir organizándolo y mueves toda la lógica del cálculo de sumas a otra clase:</p>
 <pre><code>public class GreatCalculator
 {
@@ -587,55 +585,265 @@ Este principio nos indica que debemos remover la dependencia que los módulos ti
 }
 </code></pre>
 <p>Tu código está listo para ser expandido aún más. Todo parece perfecto, tu programa funciona de mil maravillas, pero está violando el principio de inversión de dependencia.</p>
-<h3>Violación del DIP</h3>
+<h3 id="violacion-del-dip">Violación del DIP</h3>
 <p>Esta violación ocurre en la clase nueva que acabas de agregar, justo en el método <code>Calculate</code>, y es que este él mismo está creando las figuras con las que opera (en el arreglo <code>figuras</code>). ¿Qué va a pasar en el futuro cuando se quiera añadir otra figura? ¿o cuando se quiera cambiar el tamaño de algunas de las figuras ya existentes?</p>
-<h3>Cumpliendo el DIP</h3>
+<h3 id="cumpliendo-el-dip">Cumpliendo el DIP</h3>
 <p>Para cumplir con este principio tenemos que remover la dependencia que la clase <code>GreatCalculator</code> tiene con el arreglo <code>figuras</code>, haciendo que el objeto que la llame sea el encargado de proveerle con las figuras con las que tiene que operar:</p>
 <pre><code>public void Calculate(IEnumerable&lt;IGeometricShape&gt; figuras)
 {
 </code></pre>
 <p>De este modo se reduce su dependencia, y está preparado para operar con cualquier número de <code>IGeometricShape</code>s que deseemos.</p>
-<h2>Mi consejo</h2>
+<h2 id="mi-consejo">Mi consejo</h2>
 <p>Como casi todo lo que implique definiciones conceptuales, sugerencias de cómo estructurar el código y teoría en programación, debes tomar con un ojo crítico lo que implica el concepto de SOLID, ya que si bien sus intenciones son buenas, aplicar los conceptos a rajatabla puede que termines añadiéndole complejidad innecesaria a tu código fuente. Recuerda siempre buscar un balance entre lo que funciona &quot;en el mundo real&quot; y lo que la teoría dice, ya que no siempre se alinean perfectamente.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -651,5 +859,5 @@ Este principio nos indica que debemos remover la dependencia que los módulos ti
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

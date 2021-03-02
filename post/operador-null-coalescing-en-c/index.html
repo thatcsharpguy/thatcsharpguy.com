@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Operador null coalescing en C# | That C# guy</title>
+  <title>Operador null coalescing en C# | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Operador null coalescing en C#">
-<meta itemprop="description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Operador null coalescing en C#">
-<meta name="twitter:description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Operador null coalescing en C#">
-<meta name="og:description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Operador null coalescing en C#">
+  <meta itemprop="description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Operador null coalescing en C#">
+  <meta name="twitter:description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Operador null coalescing en C#">
+  <meta name="og:description" content="Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,14 +345,14 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Operador null coalescing en C#</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Pese a estar desarrollando en C# desde hace tiempo, tengo que aceptar que hay algunas cosas que me tardé en conocer... entre ellas, el operador <code>??</code> . Seguramente ya lo conoces, pero si no, te invito a seguir leyendo para que lo hagas. En realidad, aunque lo conozcas te invito a seguir leyendo, espero apreandas algo nuevo.</p>
 <p>Este operador es básicamente una especie de <a href="../../tv/azucar-sintactica" target="_blank">azúcar sintáctica</a> para escribir una <strong>asignación condicional</strong> de tipos por referencia. En otras palabras (en código), observa las siguientes líneas:</p>
 <pre><code class="language-csharp">string personName;
@@ -368,19 +366,19 @@ Console.WriteLine(personName);
 <pre><code class="language-csharp">personName = inputName == null ? &quot;no name&quot; : inputName;
 Console.WriteLine(personName);
 </code></pre>
-<h3>Null coalescing</h3>
+<h3 id="null-coalescing">Null coalescing</h3>
 <p>Que producirá el mismo resultado si <code>inputName == null</code>, todo en 1 sola línea... sin embargo esta sigue sin ser la manera más corta de realizar una asignación de este tipo, la más corta se consigue a través del operador <code>??</code>, llamado <strong>null coalescing</strong> (o de uso combinado de NULL, en español):</p>
 <pre><code class="language-csharp">personName = inputName ?? &quot;no name&quot;;
 Console.WriteLine(personName);
 </code></pre>
 <p>Y listo, realiza la misma acción que los dos bloques de código anteriores, pero en menor cantidad de caracteres.</p>
 <p>Si aún no has inferido su funcionamiento, es el siguiente: la asignación comienza del lado derecho del signo <code>=</code>, y va de izquierda a derecha evaluando los las expresiones en busca del primer valor no nulo, en cuanto alguno sea distinto de <code>null</code>, lo asignará a la variable ubicada a la izquierda de <code>=</code>.</p>
-<h3>Encadenamiento</h3>
+<h3 id="encadenamiento">Encadenamiento</h3>
 <p>Otra de sus particularidades es que permite ser <em>encadenado</em>: si colocamos un operador tras otro, se aplicará el mismo principio de buscar desde la izquierda el primer valor no nulo para ser asignado:</p>
 <pre><code class="language-csharp">personName = inputName ?? GetRandomName() ?? TryGetName() ?? &quot;no name&quot;;
 </code></pre>
 <p>Si esta misma asignación se intentara haecer con sentencias <code>if</code> o con operadores ternarios, la cantidad de código a escribir aumentaría considerablemente.</p>
-<h3>Tipos nullables</h3>
+<h3 id="tipos-nullables">Tipos nullables</h3>
 <p>Uno de sus usos es junto a los <a href="../tipos-nullables-en-c-sharp">tipos nullables</a>:</p>
 <pre><code class="language-csharp">int? teamAPoints = null;
 int? teamBPoints = 5;
@@ -388,7 +386,7 @@ int? teamBPoints = 5;
 var difference = (teamAPoints ?? 0) - (teamBPoints ?? 0);
 Console.WriteLine(&quot;Difference &quot; + difference);
 </code></pre>
-<h3>Carga diferida</h3>
+<h3 id="carga-diferida">Carga diferida</h3>
 <p>También suele ser muy frecuente que este operador sea usado para implementar la <em>carga diferida</em> o <a href="https://es.wikipedia.org/wiki/Lazy_loading" target="_blank">lazy loading</a> o el patrón <em>singleton</em>:</p>
 <pre><code class="language-csharp">private static Random _random;
 public static Random Random
@@ -400,15 +398,15 @@ public static Random Random
 }
 </code></pre>
 <p>Para la primera vez que llamemos a <code>Random</code>, se ejecutará la parte derecha de la instrucción y para llamadas subsecuentes, únicamente nos devolverá eñ valor de <code>_random</code>.</p>
-<h3>Observaciones</h3>
+<h3 id="observaciones">Observaciones</h3>
 <p>Es importante señalar que para que el operador funcione, los tipos a evaluar deben ser del mismo tipo (o al menos tener conversión implícita) ya que de otro modo, el compilador nos mostrará un error e impedirá la ejecución del programa. El siguiente segmento de código es inválido, ya que <code>personName</code> es una cadena y <code>teamAPoints</code> es <em>nullable de int</em></p>
 <pre><code class="language-csharp">var invalid = personName ?? teamAPoints;
 </code></pre>
-<h3>En C# 6</h3>
+<h3 id="en-c-6">En C# 6</h3>
 <p>Las cosas buenas no acaban ahí, este operador cobra mayor relevancia cuando lo combinamos con una de las nuevas funciones de C#, <a href="../c-sharp-seis/#null-conditional-operator" target="_blank"><em>null-conditional operator</em></a> (<code>?.</code>) podemos la funcionalidad que deseamos y sin usar tantas líneas de código:</p>
 <pre><code class="language-csharp">var randomOrNot = MainClass.Random?.Next(0, 10) ?? 0;
 </code></pre>
-<h3>Ventajas</h3>
+<h3 id="ventajas">Ventajas</h3>
 <p>Para ser honesto, aunque todo depende de quién lo mira, al operador <code>??</code> le encuentro únicamente ventajas:</p>
 <ul>
 <li>Es más corto y fácil de escribir</li>
@@ -419,43 +417,253 @@ public static Random Random
 <p>¿Tu le encuentras otra ventaja o una desventaja? mándame un tuit, un correo o deja un comentario en la parte de abajo.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -471,5 +679,5 @@ public static Random Random
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

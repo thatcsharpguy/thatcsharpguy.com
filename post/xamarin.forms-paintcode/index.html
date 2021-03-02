@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Xamarin.Forms & PaintCode | That C# guy</title>
+  <title>Xamarin.Forms & PaintCode | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Xamarin.Forms & PaintCode">
-<meta itemprop="description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Xamarin.Forms & PaintCode">
-<meta name="twitter:description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Xamarin.Forms & PaintCode">
-<meta name="og:description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Xamarin.Forms & PaintCode">
+  <meta itemprop="description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Xamarin.Forms & PaintCode">
+  <meta name="twitter:description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Xamarin.Forms & PaintCode">
+  <meta name="og:description" content="Turn your vector drawings into controls for your mobile apps using PaintCode and Xamarin.Forms' custom renderers.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,16 +345,16 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Xamarin.Forms & PaintCode</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Last week, <a href="https://www.paintcodeapp.com/" target="_blank">PaintCode 3</a> was 20% off. And that gave me an idea for a post. In this post, I'll explain how to create a custom control using PaintCode and Xamarin.Forms' <em>custom renderers</em>, starting from the drawing itself, this post may be a little bit too long but I'm sure it is worth it.</p>
-<h2>PaintCode drawing</h2>
+<h2 id="paintcode-drawing">PaintCode drawing</h2>
 <p>If you have previously created and exported graphics using PaintCode, you probably want to skip this section. But if you haven't you must start by adding a new canvas, in this case I'll name it <em>SharpCanvas</em> and its dimensions are 100 by 100, or a 1:1 ratio, which is the same as the drawing I'll be creating:</p>
 <img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/1sharpCanvas.png" title="Blank SharpCanvaso" />
 <p>Then, add a <em>Frame</em>, I'll be calling it <em>SharpFrame</em>:</p>
@@ -379,7 +377,7 @@
 <p>By this point you'll be able to verify that everything is working properly if you change the values of the variables <em>Height</em> y <em>Width</em> on the left panel.</p>
 <p>Before we're done for a minute with PaintCode, select the tab at the top that has <em>&quot;StyleKit&quot;</em> as its name, and then on the right panel modify the properties so they somewhat match your project:</p>
 <img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/11styleKit.png" title="Zigzag" />
-<h2>Xamarin.Forms code</h2>
+<h2 id="xamarin.forms-code">Xamarin.Forms code</h2>
 <p>First thing we're going to do with the code, is create a class that will be the reference for our control. In this case, I called it <code>SharpView</code> but no matter what name you chose, it must inherit from <code>View</code>:</p>
 <pre><code class="language-csharp">public class SharpView : View
 {
@@ -403,9 +401,9 @@
     }
 </code></pre>
 <p>And we're don with the Forms project.</p>
-<h2>Xamarin.iOS code</h2>
+<h2 id="xamarin.ios-code">Xamarin.iOS code</h2>
 <p>In the iOS project, we'll be creating two new classes: the &quot;native&quot; control and a <em>custom renderer</em>:</p>
-<h3>Native control</h3>
+<h3 id="native-control">Native control</h3>
 <p>Lets start with the native control. Create a new class that inherits from <code>UIView</code>, we're going to call it <code>UISharpView</code>:</p>
 <pre><code class="language-csharp">public class UISharpView : UIView
 {
@@ -425,14 +423,14 @@
     }
 </code></pre>
 <p>Now, lets go back to PaintCode for a second, we need to retrieve the drawing's code. In the export panel make sure that &quot;iOS &gt; C# Xamarin&quot; is selected:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/12codeSelection.png&quot; title=&quot;&quot;Selección de código C# Xamarin&quot;&quot; /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/12codeSelection.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
 <p>Once selected, copy all lines of code to this newly created class. You may need to add a couple of <code>using</code> sentences for it to compile. To finish, override the <code>OnDraw</code> method, in it call the method you've just copied from PaintCode (in this case it is called <code>DrawSharpCanvas</code>), and pass the fill color and the frame dimensions to it as parameters:</p>
 <pre><code class="language-csharp">    public override void Draw(CGRect rect)
     {
         DrawSharpCanvas(FillColor, rect.Width, rect.Height);
     }
 </code></pre>
-<h3><em>Custom renderer</em></h3>
+<h3 id="custom-renderer"><em>Custom renderer</em></h3>
 <p>Now it's the time to implement the <em>custom renderer</em>. First off, lets create a new class that inherits from <code>ViewRenderer&lt;TAbstraction, TNative&gt;</code>, I'll be calling it <code>SharpViewRenderer</code> and it'll have the Forms class as <code>TAbstraction</code> and <code>UISharpView</code> as <code>TNative</code>. Don't forget the <code>ExportRenderer</code> attribute:</p>
 <pre><code class="language-csharp">[assembly: ExportRenderer(typeof(SharpView), typeof(SharpViewRenderer))]
 namespace SharpPaintCode.iOS.Controls
@@ -467,9 +465,9 @@ namespace SharpPaintCode.iOS.Controls
     }
 </code></pre>
 <p>And that's all about the iOS project.</p>
-<h2>Xamarin.Android code</h2>
+<h2 id="xamarin.android-code">Xamarin.Android code</h2>
 <p>Similarly, in this project we'll have to create a &quot;native&quot; view and a *renderer. We're going to start with the native control:</p>
-<h3>Native control</h3>
+<h3 id="native-control-1">Native control</h3>
 <p>In Android we'll create our native control class, following the good practices of the Android platform, we'll call it <code>SharpView</code>, in this case it has to inherit from <code>View</code>, just make sure it inherits from <code>Android.Views.View</code> and not from <code>Xamarin.Forms.View</code>:</p>
 <pre><code class="language-csharp">public class SharpView : View
 {
@@ -493,7 +491,7 @@ namespace SharpPaintCode.iOS.Controls
     }
 </code></pre>
 <p>Now, again, pay attention to this following step: PaintCode doesn't support Xamarin.Android yet, but for us it makes no difference as Java and Xamarin's C# are similar enough to translate it ourselves. To star, open again PaintCode and make sure &quot;Android &gt; Java&quot; is selected in the export code panel:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/13androidJava.png&quot; title=&quot;&quot;Selección de código C# Xamarin&quot;&quot; /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/13androidJava.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
 <p>Now, inside the Android project, create a new class called <code>SharpKit</code>, wipe all the boilerplate code and paste in it the code from PaintCode, there should be a ton of errors, but don't worry, all you have to do is remove the <code>package</code> declaration, erase all the <code>import</code> lines and, if you feel like, put the remaining clas into a C# <em>namespace</em>.</p>
 <p>Then, add the following <code>using</code> statements at the top of the file:</p>
 <pre>
@@ -515,7 +513,7 @@ canvas.drawPath(sharpSymbolPath, paint);    →   canvas.DrawPath(sharpSymbolPat
     }
 </code></pre>
 <p>Now, lets add the <em>custom renderer</em>.</p>
-<h3><em>Custom renderer</em></h3>
+<h3 id="custom-renderer-1"><em>Custom renderer</em></h3>
 <p>Again, inside the Android project we need to add a new class that inherits from <code>ViewRenderer&lt;TAbstraction, TNative&gt;</code>, lets get creative and name it <code>SharpViewRenderer</code>, it'll have <code>SharpView</code> (from the central project) as <code>TAbstraction</code> and <code>SharpView</code> (from the Android project) as <code>TNative</code>, for this singular case, we'll use aliases to not confuse the controls:</p>
 <pre><code class="language-csharp">using FormsSharpView = SharpPaintCode.Controls.SharpView;
 using NativeSharpView = SharpPaintCode.Droid.Controls.Native.SharpView;
@@ -556,7 +554,7 @@ namespace SharpPaintCode.Droid.Controls
     }
 </code></pre>
 <p>And, that's it for our custom control.</p>
-<h2>Demo</h2>
+<h2 id="demo">Demo</h2>
 <p><strong><a href="https://github.com/ThatCSharpGuy/sharp-paintcode" target="_blank">Remember: you can download a full version of this project</a></strong> in GitHub so you can play and learn with it.</p>
 <p>In order to test the control, I created a simple app that lets you change the color of two <code>SharpViews</code>, it looks like this while running on iOS (it looks the same in Android):</p>
 <img src="https://media.giphy.com/media/3oKIPrccIwjWhlrBNS/giphy.gif" />
@@ -564,43 +562,253 @@ namespace SharpPaintCode.Droid.Controls
 <img src="https://media.giphy.com/media/3oKIPifbi3CJj1g2Dm/giphy.gif" />
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -616,5 +824,5 @@ namespace SharpPaintCode.Droid.Controls
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

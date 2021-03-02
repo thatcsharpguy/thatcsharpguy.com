@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Custom cells en Xamarin.Forms | That C# guy</title>
+  <title>Custom cells en Xamarin.Forms | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Custom cells en Xamarin.Forms">
-<meta itemprop="description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Custom cells en Xamarin.Forms">
-<meta name="twitter:description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Custom cells en Xamarin.Forms">
-<meta name="og:description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Custom cells en Xamarin.Forms">
+  <meta itemprop="description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Custom cells en Xamarin.Forms">
+  <meta name="twitter:description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Custom cells en Xamarin.Forms">
+  <meta name="og:description" content="Celdas personalizadas para tus aplicaciones de Xamarin.Forms, seguramente ya sabías que podías modificar el comportamiento de tus apps dependiendo de la plataforma... pero probablemente nunca lo habías intentado con una celda de un ListView o TableView">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,16 +345,16 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Custom cells en Xamarin.Forms</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>En un post anterior les había hablado sobre <a href="..\custom-renderer-paint-code" target="_blank">sobre cómo crear un control personalizado</a> en Xamarin.Forms, pero, ¿sabías que puedes hacer lo mismo con las celdas de un <code>ListView</code> o <code>TableView</code>? en este post voy a explicar cómo hacerlo. Esta es una solución ideal si tienes conocimiento de creación de interfaces en iOS o Android.</p>
-<h2>En Forms</h2>
+<h2 id="en-forms">En Forms</h2>
 <p>Como siempre, cuando vamos a implementar funcionalidades específicas para cada plataforma en Xamarin.Forms, iniciamos con una clase dentro del proyecto de Forms, esta debe ser una abstracción de lo que vamos a implementar. En este caso debe ser una clase que derive de <code>ViewCell</code>:</p>
 <pre><code class="language-csharp">public class ContactCell : ViewCell
 {
@@ -379,8 +377,8 @@
             ContactName = name;
     }
 </code></pre>
-<h2>En Android</h2>
-<h3>Diseño</h3>
+<h2 id="en-android">En Android</h2>
+<h3 id="diseno">Diseño</h3>
 <p>En Android hay que implementar la celda, en esta plataforma la forma por excelencia para crear interfaces gráficas es a través de archivos XML. En este caso, los archivos de interfaz gráfica deben ir en la carpeta <code>Resources/layout</code>, yo llamé a la celda <code>ContactCell.axml</code>. El contenido es un simple <code>RelativeLayout</code> con un par de <code>TextViews</code> dentro (asegúrate de establecerle un ID a cada control que vayas a usar):</p>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -411,8 +409,8 @@
 &lt;/RelativeLayout&gt;
 </code></pre>
 <p>Inclusive puedes utilizar el editor gráfico de tu preferencia:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/ContactCell.png&quot; title=&quot;&quot;Creación del proyecto&quot;&quot; /&gt;</p>
-<h3><em>Wrapper</em></h3>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/ContactCell.png&quot; title=<>Creación del proyecto</> /&gt;</p>
+<h3 id="wrapper"><em>Wrapper</em></h3>
 <p>Lo siguiente es crear una clase <em>wrapper</em> que envuelva a nuestro archivo XML, esto con la finalidad de poder acceder más fácil a los controles y permitir que nuestra celda funcione con las <code>CachingStrategy</code> dentro de las listas de Forms. La clase debe heredar de un contenedor de Android y implementar la interfaz <code>INativeElementView</code> de Xamarin.Forms:</p>
 <pre><code class="language-csharp">public class AndroidContactCell : LinearLayout, INativeElementView
 {
@@ -484,13 +482,13 @@ namespace CeldaPersonalizada.Droid.Cells
     }
 }
 </code></pre>
-<h2>En iOS</h2>
+<h2 id="en-ios">En iOS</h2>
 <p>En iOS también tenemos la opción de crear celdas usando código, o como en este caso, archivos de interfaz gráfica <code>.xib</code>, para crear uno en Visual Studio para Mac:</p>
-<h3>Diseño</h3>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/projectCreation.jpg&quot; title=&quot;&quot;Creación del proyecto&quot;&quot; /&gt;</p>
+<h3 id="diseno-1">Diseño</h3>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/projectCreation.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
 <p>Esto generará un par de archivos <code>ContactCell.cs</code> y <code>ContactCell.xib</code>, es el segundo archivo en el que se edita la interfaz. Yo inclusive lo edité con el editor de Xcode:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/edit.jpg&quot; title=&quot;&quot;Creación del proyecto&quot;&quot; /&gt;</p>
-<h3><em>Wrapper</em></h3>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/edit.jpg&quot; title=<>Creación del proyecto</> /&gt;</p>
+<h3 id="wrapper-1"><em>Wrapper</em></h3>
 <p>Una vez que está creada la celda, vamos a echarle un ojo a su clase asociada <code>ContactCell.cs</code>, esta clase es la que actuará como el <em>wrapper</em> de la interfaz. Entonces, lo que hay que hacer es que implemente la interfaz <code>INativeElementView</code>:</p>
 <pre><code class="language-csharp">public partial class ContactCell : UITableViewCell, INativeElementView
 {
@@ -523,7 +521,7 @@ namespace CeldaPersonalizada.Droid.Cells
     }
 }
 </code></pre>
-<h3><em>Renderer</em></h3>
+<h3 id="renderer"><em>Renderer</em></h3>
 <p>Ya sabes, hay que implementar un <em>custom renderer</em>, este igual heredará de <code>ViewCellRenderer</code>:</p>
 <pre><code class="language-csharp">[assembly: ExportRenderer(typeof(FormsContactCell), typeof(CeldaPersonalizada.iOS.Cells.ContactCellRenderer))]
 namespace CeldaPersonalizada.iOS.Cells
@@ -569,43 +567,253 @@ namespace CeldaPersonalizada.iOS.Cells
 <p>No olvides que puedes descargar <a href="https://github.com/ThatCSharpGuy/CeldaPersonalizada" target="_blank">el código fuente</a> directamente de <a href="https://github.com/ThatCSharpGuy/CeldaPersonalizada" target="_blank">GitHub</a> para que lo pruebes y modifiques a tu gusto.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -621,5 +829,5 @@ namespace CeldaPersonalizada.iOS.Cells
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>MVVM en Xamarin.Forms, caso práctico | That C# guy</title>
+  <title>MVVM en Xamarin.Forms, caso práctico | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="MVVM en Xamarin.Forms, caso práctico">
-<meta itemprop="description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MVVM en Xamarin.Forms, caso práctico">
-<meta name="twitter:description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="MVVM en Xamarin.Forms, caso práctico">
-<meta name="og:description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="MVVM en Xamarin.Forms, caso práctico">
+  <meta itemprop="description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MVVM en Xamarin.Forms, caso práctico">
+  <meta name="twitter:description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="MVVM en Xamarin.Forms, caso práctico">
+  <meta name="og:description" content="Hice una pequeña app con MVVM y en este post te explico algunas de sus partes escenciales de ella, ah... ¡la app es de Pokémon!">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,24 +345,24 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>MVVM en Xamarin.Forms, caso práctico</h1>
-
-<h1>Mvvmdex</h1>
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
+<h1 id="mvvmdex">Mvvmdex</h1>
 <p>Soy un gran fanático de Pokémon y es por eso que para este post haremos una aplicación que se encargará de buscar pokémons en la PokéAPI usando la <a href="#">Jirapi</a> y mostrar los datos encontrados en la pantalla. En esta aplicación se implementa el patrón MVVM para la separación de responsabilidades.</p>
 <img src="http://i.giphy.com/Mo4P4sEJNUKeQ.gif" />
-<h2>Introducción</h2>
+<h2 id="introduccion">Introducción</h2>
 <p>Dentro de este post voy a asumir que ya tienes un entendimiento básico de cómo es que funciona Xamarin, Xamarin.Forms y la teoría de MVVM, si no, te invito a que consultes mi post sobre <a href="../../tv/xamarin/">qué es Xamarin</a>, el <a href="../../tv/xamarin-forms/">video sobre Xamarin.Forms</a>, y el <a href="../../tv/mvvm">video sobre MVVM</a>.</p>
-<h2>Estructura</h2>
+<h2 id="estructura">Estructura</h2>
 <p>Como ya sabrás, el <a href="organizacion-codigo-visual-studio">código en Visual Studio</a> se organiza en proyectos, y esta es la organización de los proyectos para esta pequeña app:</p>
 <img src="https://thatcsharpguy.github.io/postimages/mvvm/codeorg.png" title="Code organization" />
 <p>La separación de MVVM se puede observar en que el proyecto <code>Mvvmdex.Views</code> se relaciona con <code>Mvvmdex.ViewModels</code> y a su vez este último se relaciona con <code>Mvvmdex.Models</code>, <strong>nunca hay relacion directa entre las vistas y los modelos</strong>.</p>
-<h2>Modelo</h2>
+<h2 id="modelo">Modelo</h2>
 <p>Para este proyecto, el modelo está contenido dentro de <code>Mvvmdex.Models</code>. Como sabe, en el modelo es donde se realiza el acceso a datos y la lógica de la aplicación. En esta aplicación, el <em>Mvvmdex</em>, únicamente se consulta a la PokéAPI dentro de la clase <code>MvvmdexClient</code>. Como puedes ver, no tiene ninguna relación con la vista:</p>
 <pre><code class="language-csharp">public async Task&lt;Pokemon&gt; SearchForPokemon(string pokemonName)
 {
@@ -388,7 +386,7 @@
 	}
 }
 </code></pre>
-<h2>ViewModels</h2>
+<h2 id="viewmodels">ViewModels</h2>
 <p>Para este proyecto, el modelo está contenido dentro de <code>Mvvmdex.ViewModels</code>. Esta es la parte más complicada, hay que recordar que este es el intermediario entre la vista y el modelo. Para esta app únicamente existe un solo ViewModel, <code>PokemonSearchViewModel</code>, pero es muy común que tu tengas varios dependiendo del tamaño y complejidad de tu aplicación.</p>
 <p>Esta sección tiene relación directa con el Modelo, en el <em>Mvvmdex</em> se hace referencia en el cliente <code>MvvmdexClient</code>:</p>
 <pre><code class="language-csharp">private MvvmdexClient _client;
@@ -399,7 +397,7 @@ public PokemonSearchViewModel()
 }
 </code></pre>
 <p>El modelo puede enviar y recibir mensajes del <em>viewmodel</em> a través de métodos.</p>
-<h3>INotifyPropertyChanged</h3>
+<h3 id="inotifypropertychanged">INotifyPropertyChanged</h3>
 <p>La interfaz <code>INotifyPropertyChanged</code> permitirá a la vista ser notificada cada vez que suceda algún cambio en el <em>viewmodel</em>. La interfaz únicamente expone el evento <code>PropertyChanged</code> que debemos invocar cada vez que queremos notificar a la vista algún cambio. Para hacer la tarea más sencilla, se crea un método auxiliar:</p>
 <pre><code class="language-csharp">public void RaiseOnPropertyChange([CallerMemberName] string propertyName = null)
 {
@@ -411,7 +409,7 @@ public PokemonSearchViewModel()
 </code></pre>
 <p>El atributo <code>CallerMemberName</code> nos facilitará la tarea, ya que con él aseguramos que el nombre de la propiedad desde la que lo llamemos será colocada ahí para notificar a la vista sobre la propiedad correcta.</p>
 <p>Es importante decir que existen muchos frameworks de <em>mvvm</em> que ya contienen una implementación de esta interfaz y para nosotros bastaría con derivar nuestros objetos de dicha implementación para no tener que hacerla nosotros mismos.</p>
-<h3>Propiedades</h3>
+<h3 id="propiedades">Propiedades</h3>
 <p>Con las propiedades hay una pequeña limitante: no pueden ser propiedades auto-implementadas, ya que es necesario llamar a nuestro método auxiliar creado más arriba. Mira la propiedad <code>PokemonName</code>:</p>
 <pre><code class="language-csharp">private string _pokemonName;
 
@@ -422,7 +420,7 @@ public string PokemonName
 }
 </code></pre>
 <p>Como puedes ver, cada vez que ocurre un cambio en la propiedad, se está notificando a quién desee sobre el cambio, en nuestro caso, la vista es quien desea ser notificada. Más adelante, con los <em>data bindings</em>, enlazaremos las propiedades en el <em>viewmodel</em> con elementos dentro de la vista.</p>
-<h3>Commands</h3>
+<h3 id="commands">Commands</h3>
 <p>Los <em>commands</em> es otro de los mecanismos que contempla <em>mvvm</em> para la comunicación entre los componentes, y es a través de ellos que se trasladan algunos de los eventos generados en la vista hacia el <em>viewmodel</em>. En Xamarin.Forms un comando no es más que una instancia de objeto que implementa la interfaz <code>ICommand</code>, en el caso de esta app, tenemos el comando <code>BuscaPokemonCommand</code> que lo único que hace es ejecutar una <code>Action</code> cuando se ejecuta.</p>
 <pre><code class="language-csharp">public class BuscaPokemonCommand : ICommand
 {
@@ -452,7 +450,7 @@ public string PokemonName
 <li><code>event EventHandler CanExecuteChanged</code> - es un evento que debe invocarse cada vez que las condiciones bajo las que se puede invocar un comando han cambiado.</li>
 </ul>
 <p>Es importante mencionar que al igual que con la interfaz <code>INotifyPropertyChanged</code>, ya existen varios frameworks que proveen implementaciones genéricas de <code>ICommand</code> para evitarnos el tedio de escribirlos nosotros mismos.</p>
-<h4>En el ViewModel</h4>
+<h4 id="en-el-viewmodel">En el ViewModel</h4>
 <p>Ahora, la forma en la que se usa este comando es a través de una propiedad ya que más adelante será enlazada con un control dentro de la vista:</p>
 <pre><code class="language-csharp">private ICommand _buscaPokemonCommand;
 public ICommand BuscaPokemonCommand
@@ -479,7 +477,7 @@ public ICommand BuscaPokemonCommand
 	}
 }
 </code></pre>
-<h2>Vista</h2>
+<h2 id="vista">Vista</h2>
 <p>Hay que recordar que en Forms podemos crear nuestras interfaces a través de código C# o XAML, para esta ocasión usaré XAML para crear la pantalla.</p>
 <p>La vista de la aplicación es bastante simple, únicamente consta de un cuadro de búsqueda (<code>SearchBar</code>), un contenedor (<code>StackLayout</code>) que contiene varias etiquetas (<code>Label</code>) para mostrar los datos de Pokémon en cuestión y por último una etiqueta para mostrar en caso de que no encontremos un pokémon que coincida con nuestra búsqueda:</p>
 <pre><code class="language-xml">&lt;ContentPage xmlns=&quot;http://xamarin.com/schemas/2014/forms&quot; 
@@ -513,7 +511,7 @@ public ICommand BuscaPokemonCommand
 	&lt;/Grid&gt;
 &lt;/ContentPage&gt;
 </code></pre>
-<h3>Data bindings</h3>
+<h3 id="data-bindings">Data bindings</h3>
 <p>Si ves mucho <code>Binding</code> en el código no te preocupes, es algo muy común en <em>MVVM</em>, y es que es ahí donde ocurre el enlace de la vista al <em>viewmodel</em>, una de las partes centrales del patrón. Los <em>data bindings</em> se encargan de &quot;estar al tanto&quot; de los cambios que informa el <em>viewmodel</em> y reflejarlos en la pantalla cuando sucedan.</p>
 <p>Por ejemplo, la etiqueta en la que se muestra el nombre y el número del Pokémon:</p>
 <pre><code class="language-xml">&lt;Label Text=&quot;{Binding PokemonName}&quot; FontSize=&quot;Large&quot; /&gt;
@@ -524,7 +522,7 @@ public ICommand BuscaPokemonCommand
 </code></pre>
 <p>Entonces cada vez que el usuario cambie el texto de la caja de búsqueda, la propiedad <code>SearchTerms</code> del <em>viewmodel</em> también cambiará. Y no solo eso, sino que también el control tiene enlazado el comando <code>BuscaPokemonCommand</code>, el comando se ejecutará cuando el usuario decida buscar Pokémons.</p>
 <p>Como puedes ver, las tres propiedades (<code>PokemonName</code>, <code>SearchTerms y </code>SearchCommand`) existen en el <em>viewmodel</em>. En caso de que no existiera alguna, no pasará absolutamente nada, no habrá errores ni excepciones, es por eso que se dice que es un poco difícil de <em>debuggear</em> estos enlaces de datos.</p>
-<h3>Converters</h3>
+<h3 id="converters">Converters</h3>
 <p>Además de <code>Binding</code> probablemente te hayas fijado en la palabra <code>Converter</code>... así que es hora de explicar los <em>converters</em>. Estos no son más que instancias de tipos que implementan la interfaz <code>IConvertValue</code> que en pocas palabras hace eso: convertir valores.</p>
 <p>En el más estricto de los sentidos el <em>viewmodel</em> debe ser independiente de la plataforma y exponer solamente las propiedades necesarias para que la vista opere. Pero, ¿qué pasa si nosotros queremos extender un poco más esa funcionalidad?</p>
 <p>Por ejemplo, en la app <em>Mvvmdex</em> quisiera mostrar u ocultar un panel dependiendo de si el Pokémon fue encontrado o no, el <em>viewmodel</em> ofrece la propiedad booleana <code>HasConicidence</code> que podemos ligar a <code>IsVisible</code>:</p>
@@ -554,7 +552,7 @@ public ICommand BuscaPokemonCommand
 <pre><code class="language-xml">&lt;Label IsVisible=&quot;{Binding HasCoincidence, Converter={StaticResource BooleanInverter}}&quot; 
 	Text=&quot;😕&quot; Grid.Row=&quot;1&quot; HorizontalTextAlignment=&quot;Center&quot; FontSize=&quot;100&quot; /&gt;
 </code></pre>
-<h3>Enlace con el ViewModel</h3>
+<h3 id="enlace-con-el-viewmodel">Enlace con el ViewModel</h3>
 <p>Para terminar todo esto, falta un paso muy importante, y es el de relacionar de alguna manera la vista con el <em>viewmodel</em>. Hay muchas maneras de hacer esto, sin embargo, una de las más prácticas es establecer el nuestro <em>viewmodel</em> como el <code>BindingContext</code> de la vista. Para esta app, la acción se realiza en el <em>code behind</em> de la página <code>MvvmdexPage</code>:</p>
 <pre><code class="language-csharp">public partial class MvvmdexPage : ContentPage
 {
@@ -563,48 +561,258 @@ public ICommand BuscaPokemonCommand
 		BindingContext = new PokemonSearchViewModel(); // &lt;- ViewModel
 		// ....
 </code></pre>
-<h2>Para cerrar</h2>
+<h2 id="para-cerrar">Para cerrar</h2>
 <p>Existen muchas más posibilidades para hacer más robusta una aplicación de Forms con <em>MVVM</em>, como el uso de la inyección de dependencias para integrar más capacidades como navegación entre pantallas, acceso a sensores del teléfono y más. También puedes integrar frameworks como <a href="http://www.mvvmlight.net/doc/" target="_blank" rel="nofollow">mvvm light</a> o <a href="https://github.com/PrismLibrary/Prism#prism" target="_blank" rel="nofollow">Prism</a> para liberarte de hacer tus propias implementaciones de <code>ICommand</code> e <code>INotifyPropertyChanged</code>.</p>
 <p>Espero que este post te haya servido, recuerda que la mejor forma de aprender es experimentando, así que te invito a que <a href="https://github.com/ThatCSharpGuy/xfmvvm" target="_blank" rel="nofollow">descargues el código de GitHub</a> y juegues un poco con él, si tienes dudas, puedes contactarme sin problemas.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -620,5 +828,5 @@ public ICommand BuscaPokemonCommand
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

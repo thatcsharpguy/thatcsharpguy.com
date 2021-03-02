@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Tuples en C# | That C# guy</title>
+  <title>Tuples en C# | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Tuples en C#">
-<meta itemprop="description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tuples en C#">
-<meta name="twitter:description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Tuples en C#">
-<meta name="og:description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Tuples en C#">
+  <meta itemprop="description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tuples en C#">
+  <meta name="twitter:description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Tuples en C#">
+  <meta name="og:description" content="Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,14 +345,14 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Tuples en C#</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los <a href="../metodos-c-sharp">métodos en C#</a> únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica <code>Tuple</code>.</p>
 <p>Podemos ver a <code>Tuple</code> (o tupla) como un auxiliar para el programador, que <strong>permite &quot;agrupar&quot; otros tipos dato dentro de uno solo</strong>, para así tratarlos como uno solo, esto, a través de varias clases genéricas definidas de la siguiente manera:</p>
 <ul>
@@ -367,7 +365,7 @@
 <li><code>Tuple&lt;T1, T2, T3, T4, T5, T6, T7&gt;</code></li>
 <li><code>Tuple&lt;T1, T2, T3, T4, T5, T6, T7, TRest&gt;</code></li>
 </ul>
-<h2>Creando tuplas</h2>
+<h2 id="creando-tuplas">Creando tuplas</h2>
 <p>A través de los tipos <code>T#</code> se define el contenido de la clase, siendo así que para crear una tupla que contiene un entero y dos cadenas debemos usar:</p>
 <pre><code class="language-csharp">var t = new Tuple&lt;int, string, string&gt;(1, &quot;A&quot;, &quot;B&quot;);
 </code></pre>
@@ -378,7 +376,7 @@
 <pre><code class="language-csharp">var t1 = Tuple.Create(3, 1.5m, new { emoji = &quot;:grin:&quot; }, 5, true, 7.5f);
 </code></pre>
 <p>Este método, inferirá de los tipos de dato a partir de los parámetros pasados como argumentos.</p>
-<h2>Accediendo a los miembros</h2>
+<h2 id="accediendo-a-los-miembros">Accediendo a los miembros</h2>
 <p>Una vez creada la clase (ya sea con el constructor o el método estático), podemos acceder a cada uno de los datos a través de las propiedades llamadas  <code>Item#</code>, donde # es el número de la propiedad a la que nos referimos:</p>
 <pre><code class="language-csharp">Console.WriteLine(t.Item1); // 1 -&gt; int
 Console.WriteLine(t.Item2 + &quot; - &quot; + t.Item3 ); // &quot;A - B&quot; -&gt; string
@@ -386,8 +384,8 @@ Console.WriteLine(t.Item2 + &quot; - &quot; + t.Item3 ); // &quot;A - B&quot; -&
 <p>Es importante señalar que las propiedades de la clase <code>Tuple</code> son de solo lectura, y que una vez asignadas en el constructor, no pueden ser modificadas:</p>
 <pre><code class="language-csharp">// t1.Item4 = 7; // Error, solo lectura
 </code></pre>
-<h2>Ejemplos de uso</h2>
-<h3>Como parámetros de método</h3>
+<h2 id="ejemplos-de-uso">Ejemplos de uso</h2>
+<h3 id="como-parametros-de-metodo">Como parámetros de método</h3>
 <p>Podríamos pensar en un método como este:</p>
 <pre><code class="language-csharp">string MegaMetodoArgumentos(int studentId, int classroomId, string type, decimal sum, bool active)
 </code></pre>
@@ -401,7 +399,7 @@ Console.WriteLine(t.Item2 + &quot; - &quot; + t.Item3 ); // &quot;A - B&quot; -&
 <pre><code class="language-csharp">var tuple = Tuple.Create(10, 3, &quot;MX&quot;, 3.1m, true);
 MegaMetodoTuple(tuple);  
 </code></pre>
-<h3>Como valores de retorno</h3>
+<h3 id="como-valores-de-retorno">Como valores de retorno</h3>
 <p>El beneficio se nota más cuando se usa una tupa como valor de retorno, imaginemos un método en el que convertimos tomamos un color definido en hexadecimal y lo convertimos a su representación RGB en decimal.</p>
 <p>Podríamos usar <a href="http://thatcsharpguy.com/post/out-ref-c-sharp/">parámetros de salida</a>:</p>
 <pre><code class="language-csharp">private static void SplitColors(string hex, out int r, out int g, out int b)
@@ -425,13 +423,13 @@ MegaMetodoTuple(tuple);
 var colors = SplitColors(color);
 Console.WriteLine(&quot;{0} es R:{1} G:{2} B:{3}&quot;, color, colors.Item1, colors.Item2, colors.Item3);
 </code></pre>
-<h2>Tuplas de 8 elementos</h2>
+<h2 id="tuplas-de-8-elementos">Tuplas de 8 elementos</h2>
 <p>Si volvemos a las definiciones de las clases <code>Tuple</code> puedes ver que existen hasta 8 versiones genéricas disponibles. Sin embargo, la octava una peculiaridad: el octavo valor no se almacena dentro de &quot;Item8&quot;, sino dentro de otra tupla (a la que accedemos desde la propiedad <code>Rest</code>):</p>
 <pre><code class="language-csharp">var megaTuple = Tuple.Create(1, 2, 3, 4, 5, 6, 7, 8);
 //Console.WriteLine(miniTuple.Item8); // Item8 no existe, entonces tenemos que usar Rest:
 Console.WriteLine(megaTuple.Rest.Item1); 
 </code></pre>
-<h2>Ejemplo de la vida real</h2>
+<h2 id="ejemplo-de-la-vida-real">Ejemplo de la vida real</h2>
 <p>Mmm... en realidad no existe alguna api dentro del framework de .NET que haga uso de tuplas, pero en específico se recomienda para:</p>
 <ul>
 <li>Representar un set de datos, por ejemplo, un registro en una base de datos</li>
@@ -439,47 +437,257 @@ Console.WriteLine(megaTuple.Rest.Item1);
 <li>Regresar múltiples valores de un método sin usar parámetros por referencia</li>
 <li>Enviar múltiples valores a un método</li>
 </ul>
-<h2>Lo que sigue</h2>
+<h2 id="lo-que-sigue">Lo que sigue</h2>
 <p>Revisa el <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Tuples" target="_blank" rel="nofollow">código que acompaña al post</a> y juegues un poco con él, sé que tal vez el asunto de los genéricos en C# puede causar un poco de confusión y es un tema que estoy planeando cubrir en un post futuro.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -495,5 +703,5 @@ Console.WriteLine(megaTuple.Rest.Item1);
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

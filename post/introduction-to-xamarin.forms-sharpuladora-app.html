@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Introduction to Xamarin.Forms (Sharpuladora app) | That C# guy</title>
+  <title>Introduction to Xamarin.Forms (Sharpuladora app) | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Introduction to Xamarin.Forms (Sharpuladora app)">
-<meta itemprop="description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Introduction to Xamarin.Forms (Sharpuladora app)">
-<meta name="twitter:description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Introduction to Xamarin.Forms (Sharpuladora app)">
-<meta name="og:description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Introduction to Xamarin.Forms (Sharpuladora app)">
+  <meta itemprop="description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Introduction to Xamarin.Forms (Sharpuladora app)">
+  <meta name="twitter:description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Introduction to Xamarin.Forms (Sharpuladora app)">
+  <meta name="og:description" content="This guide will take you step by step to create your first Xamarin.Forms app.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,47 +345,47 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Introduction to Xamarin.Forms (Sharpuladora app)</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Who hasn't made a classic &quot;Hello world!&quot; while getting started with a new language or framework?</p>
 <p>Well, as classic as the &quot;Hello world!&quot; is to code a simple calculator, and for Xamarin.Forms it is not the exception. In this guide I'll show you how to use some controls to build your apps... including your very own calculator!</p>
-<h1>How does this guide work?</h1>
+<h1 id="how-does-this-guide-work">How does this guide work?</h1>
 <p>This guide uses an interactive format, it comes with code that you can test and modify as you do the exercise. The code is divided in three or four folders:</p>
 <ul>
 <li><strong>start</strong> is the starting point, contains a solution ready to be used to work with.</li>
 <li><strong>parts</strong> contains each and every needed file to complete the guide, usually these are provided for you to use them as reference if you ever get stuck on something, of course you can copy the code. As this document is divided in <em>parts</em> to which a subfolder corresponds.</li>
 <li><strong>final</strong> is the final result, the place we want to reach with this guide. This folder, as the last one, is included as reference, to show the result of this guide.</li>
 </ul>
-<h1>La Sharpuladora</h1>
-<h2>Introducción</h2>
+<h1 id="la-sharpuladora">La Sharpuladora</h1>
+<h2 id="introduccion">Introducción</h2>
 <p>This guide assumes that you have a basic understanding of how Xamarin works, if you dont, I encourage you to take a look to <a href="https://developer.xamarin.com/guides/cross-platform/getting_started/">Getting started with Xamarin</a>. My post on <a href="http://thatcsharpguy.com/post/xamarin-como-empiezo/">what do you need to develop in Xamarin (in spanish)</a> or this other about <a href="http://thatcsharpguy.com/post/from-console-to-mobile/">how to go from console to mobile</a>.</p>
-<h2>Part 1 - Getting familiarized with the code</h2>
+<h2 id="part-1-getting-familiarized-with-the-code">Part 1 - Getting familiarized with the code</h2>
 <p>As every IDE does, both Xamarin Studio and Visual Studio have their own ways of managing the files that make our app work. But to summarize: these environments divide the projects per platform, so, as we want our calculator to be available in the three main mobile platforms we will have three project plus another one which is the core of the app. I wrote a post about this, if you want to know more, check: <a href="http://thatcsharpguy.com/post/code-organization-visual-studio/">How is my code organized in Visual Studio?</a>.</p>
 <p>Now is time to get our hands into the code, open up the solution <code>Sharpuladora.sln</code> that is inside the <code>start</code> folder and look a the panel in the solution explorer. For this part of the guide there is no code to add but there is code to look. Go ahead and explore, browse the solution. Once you have had enough, move on to part 2.</p>
-<h2>Part 2 - The pages</h2>
+<h2 id="part-2-the-pages">Part 2 - The pages</h2>
 <p>The graphic interface of the apps built with Xamarin.Forms are composed by a set of elements of type <code>Page</code>, you can build your own pages from scratch, however, Forms offers to us some pre-coded page templates that we can use to work with in our apps. You can see a full list of those template pages <a href="https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/pages/" target="_blank">here</a>.</p>
 <p>The <em>Sharpuladora app</em> consists of only one page, created using a <code>ContentPage</code> since it is one of the easiest to use.</p>
-<h3>Part 2.1 - Creating the main page</h3>
+<h3 id="part-2.1-creating-the-main-page">Part 2.1 - Creating the main page</h3>
 <p>When it comes to create a new page, we have to decide whether we will create using pure C# code or use XAML, this time, we will use C#.</p>
 <p>Create a new folder and name it  <code>Pages</code> inside the project named  <code>Sharpuladora</code>, then create a new C# class named  <code>CalcPage</code> inside that new folder. Make your <code>CalcPage</code> derive from  <code>ContentPage</code>.</p>
-<h5>Code</h5>
+<h5 id="code">Code</h5>
 <p>File: <code>CalcPage.cs</code></p>
-<h3>Part 2.2 - Setting a start page</h3>
+<h3 id="part-2.2-setting-a-start-page">Part 2.2 - Setting a start page</h3>
 <p>It is always important to set a start page for our app and in the case of Xamarin.Forms it has to be specified through a property. That property is named <code>MainPage</code> and can be found in the <code>App</code> class (inside <code>App.cs</code>).</p>
 <p>In the solution inside  <code>sart</code> the property <code>MainPage</code> is set with a page created in-place, we must change that for a reference to our <code>CalcPage</code>:</p>
 <pre><code class="language-csharp">MainPage = new CalcPage();
 </code></pre>
-<h5>Code</h5>
+<h5 id="code-1">Code</h5>
 <p>File: <code>App.cs</code></p>
-<h2>Part 3 - The layout</h2>
+<h2 id="part-3-the-layout">Part 3 - The layout</h2>
 <p>Our page works as a container for the interface elements, however we must add a layout to position those elements in the page. As with the pages, Forms has a set of layouts out of the box, <a href="https://developer.xamarin.com/guides/cross-platform/xamarin-forms/controls/layouts/" target="_blank">see all here</a>.</p>
-<h3>Part 3.1 - The Grid</h3>
+<h3 id="part-3.1-the-grid">Part 3.1 - The Grid</h3>
 <p>A simple calculator does not require of a lot of thought, the buttons are sorted in rows and columns, and that seems like a job for a <code>Grid</code>.</p>
 <p>A <code>Grid</code> is made of rows and columns which in Xamarin.Forms are specified in the form of <code>RowDefinition</code>s o <code>ColumnDefinition</code>s. Look at the following code:</p>
 <pre><code class="language-csharp">var layout = new Grid();
@@ -407,9 +405,9 @@ layout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, Gr
 Once we have created the layout, it is important to tell our page to use it as a content, the way to do it is by specifying the property `Content` at the end of the page's constructor with the following line of code:  
 <pre><code class="language-csharp">Content = _layout;
 </code></pre>
-<h5>Code</h5>
+<h5 id="code-2">Code</h5>
 <p>File: <code>CalcPage.cs</code></p>
-<h2>Part 4 - The interface element</h2>
+<h2 id="part-4-the-interface-element">Part 4 - The interface element</h2>
 <p>Now that the container of our elements (the layout) has been created, it is the time to create the all the interface elements.</p>
 <p>We will use buttons for the digits and operators as well as a label to show the result.</p>
 <p>Initializing controls is pretty simple, for example, to create the button that will serve as the '0' in our calculator, we must write something like the following code:</p>
@@ -427,9 +425,9 @@ Grid.SetRow(_b0, 4);
 <pre><code class="language-csharp">Grid.SetColumnSpan(_resultDisplay, 4);
 </code></pre>
 <p>We also can use <code>SetRowSpan</code> if we want a control to use more than one row.</p>
-<h5>Code</h5>
+<h5 id="code-3">Code</h5>
 <p>File: <code>CalcPage.cs</code></p>
-<h2>Part 5 - The events</h2>
+<h2 id="part-5-the-events">Part 5 - The events</h2>
 <p>In a calculator like the one we are doing, user interaction is required and in Xamarin.Forms such interactions are handled through events. Each of the controls we have added can have one or more events that are triggered by user interactions (or any other fragment of our code), we, as programmers, need to tell which events we want to handle and how are we going to handle them.</p>
 <p>For our calculator we will handle the <code>Clicked</code> event of the buttons. To handle events is a simple task in C#, all we have to do is to assign (using the <code>+=</code> operator) an event handler to the desired control. In the code below an event is specified as a handler for the <code>Clicked</code> event of <code>_b0</code>:</p>
 <pre><code class="language-csharp">_b0.Clicked += OnNumericButtonClicked;
@@ -454,9 +452,9 @@ Grid.SetRow(_b0, 4);
 }
 </code></pre>
 <p>The handlers can be shared among several controls, so you do not have to create a handler for each control you use in your application. Now is your turn to build all the calculator's logic using the controls and the event handlers. If you get stuck, you can always take a look to the file indicated below to get you started.</p>
-<h5>Code</h5>
+<h5 id="code-4">Code</h5>
 <p>File: <code>CalcPage.cs</code></p>
-<h2>Part 6 - A small trick</h2>
+<h2 id="part-6-a-small-trick">Part 6 - A small trick</h2>
 <p>By this point you may think that our calculator is (almost) completed, but that is not the case. If you run it as is, you will notice that the calculator does not fill the entire screen... this is a small bug in our code. To work around this problem we will use another kind of layout that wraps our original layout. For this a <code>RelativeLayout</code> will come handy, this layout gives us a lot of flexibility when it comes to control how the interface elements are shown. As useful as this is, it requires more configuration. Go ahead and replace the <code>Content = _layout;</code> assignation to the following fragment of code:</p>
 <pre><code class="language-csharp">// Trick to make our calculater fullscreen
 var relativeLayout = new RelativeLayout();
@@ -467,47 +465,257 @@ relativeLayout.Children.Add(_layout, // &lt;= Original layout
 	Constraint.RelativeToParent(p =&gt; p.Height));
 Content = relativeLayout;
 </code></pre>
-<h1>What's next?</h1>
+<h1 id="whats-next">What's next?</h1>
 <p>As you have realized, this application is not finished, we have to implement some handlers and all the calculator's logic. Your mission, should you choose to accept it, is to finish building the <em>Sharpuladora</em>. You can check the book from Charles Petzold <a href=" https://developer.xamarin.com/guides/cross-platform/xamarin-forms/creating-mobile-apps-xamarin-forms/" target="_blank">Xamarin.Forms Book Preview 2</a>.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -523,5 +731,5 @@ Content = relativeLayout;
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

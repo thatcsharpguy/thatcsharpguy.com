@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Multi-select ListView and MVVM | That C# guy</title>
+  <title>Multi-select ListView and MVVM | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Multi-select ListView and MVVM">
-<meta itemprop="description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Multi-select ListView and MVVM">
-<meta name="twitter:description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Multi-select ListView and MVVM">
-<meta name="og:description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Multi-select ListView and MVVM">
+  <meta itemprop="description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Multi-select ListView and MVVM">
+  <meta name="twitter:description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Multi-select ListView and MVVM">
+  <meta name="og:description" content="Learn how to allow the user to select more than one item in a ListView, everything from MVVM with Xamarin.Forms.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,18 +345,18 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Multi-select ListView and MVVM</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Finally I was able to develop something using Xamarin.Forms and part of what I've been doing had to do with implementing a list that allowed the multiple election of rows and was compatible with the MVVM pattern.</p>
 <p>Doing some research, I found that the <code>ListView</code> control, which is the most used to show data in a list, does not allow multiple selection and developers should find a workaround to this matter. In Xamarin documentation there is also <a href="https://developer.xamarin.com/recipes/cross-platform/xamarin-forms/controls/multiselect/" target="_blank" rel="nofollow">an article</a> where it is explained a way to complete this task, and this post is based on it.</p>
 <p>To make this task possible, we should make use of some auxiliary classes that I will explain later on this post.</p>
-<h3>The Model</h3>
+<h3 id="the-model">The Model</h3>
 <p>For this example, we will be showing a list of Pokemons and allow the user to select some of them through a list, the model class is the following:</p>
 <pre><code class="language-csharp">public class Pokemon 
 {
@@ -368,7 +366,7 @@
     public double Height { get; set; }
 }
 </code></pre>
-<h3>SelectableItemWrapper&lt;T&gt;</h3>
+<h3 id="selectableitemwrappert">SelectableItemWrapper&lt;T&gt;</h3>
 <p>Apart from the model, there is a need from an auxiliary class that you can tell by the name, acts as wrapper for the model, its definition is the following:</p>
 <pre><code class="language-csharp">public class SelectableItemWrapper&lt;T&gt;
 {
@@ -377,7 +375,7 @@
 }
 </code></pre>
 <p>The <code>IsSelected</code> property will be used to determine whether the user had selected an item or not, while <code>Item</code> will contain the model.</p>
-<h2>The View</h2>
+<h2 id="the-view">The View</h2>
 <p>(Si prefieres trabajar solo con C#, <a href="//thatcsharpguy.com/post/multiselect-listview-mvvm">ve este post</a>)</p>
 <p>For this app we will use two Forms pages, one to show all the Pokemons and other to show only those who had been selected by the user.</p>
 <p>For the first one, where all the Pokemons will be shown, we will have to modify slightly the way we are used to create a cell template, and the reason is that every row in the list will be binded to a <code>SelectableItemWrapper&lt;Pokemon&gt;</code> not to a <code>Pokemon</code>.</p>
@@ -385,7 +383,7 @@
 <pre><code class="language-xml">&lt;ListView ItemsSource=&quot;{Binding Pokemons}&quot;&gt;
 </code></pre>
 <p>As we know, now every element in the collection will be a row in the list.</p>
-<h4>PokemonSelectableCell</h4>
+<h4 id="pokemonselectablecell">PokemonSelectableCell</h4>
 <p>For this cell it is necessary to show the name, weight and height of the Pokemon binded to it, along with a control to let the user choose or not such item. That is why some bindable properties are needed.</p>
 <p>That is why in order to show the information three labels are created, and for the selection issue a <code>Switch</code> control will be used (I tried to use the <a href="https://github.com/XLabs/Xamarin-Forms-Labs/wiki/Checkbox-Control" target="_blank" rel="nofollow">CheckBox de XLabs</a>, but I ran into an issue with the <code>ListView</code>).</p>
 <p>You can design the cell as you want, but it is important that inside of it you bind a boolean property, such as <code>IsToggled</code> o <code>Checked</code>, to the property <code>IsSelected</code> of the <code>SelectableItemWrapper</code> class. For this example, a line like this should be enough:</p>
@@ -393,7 +391,7 @@
 sw.SetBinding(Switch.IsToggledProperty, &quot;IsSelected&quot;);
 </code></pre>
 <p>I should remark that the binding is defined within the cell implementation, and not in the view where the bindings are usually defined.</p>
-<h3>Back to the View</h3>
+<h3 id="back-to-the-view">Back to the View</h3>
 <p>Now, again back to the view, we can use the cell in our <code>ListView</code>, we can define other bindings:</p>
 <pre><code class="language-xml">&lt;ListView.ItemTemplate&gt;
     &lt;DataTemplate&gt;
@@ -403,7 +401,7 @@ sw.SetBinding(Switch.IsToggledProperty, &quot;IsSelected&quot;);
             Height=&quot;{Binding Item.Height}&quot; /&gt;
 </code></pre>
 <p>You can notice that te binding routes aren't &quot;direct&quot;, instead we are referring first to an <code>Item</code> before the <em>real</em> properties, that is because we are binding to a <code>SelectableItemWrapper&lt;Pokemon&gt;</code>, not to a <code>Pokemon</code>.</p>
-<h3>The ViewModel</h3>
+<h3 id="the-viewmodel">The ViewModel</h3>
 <p>For the ViewModel we require two collections:</p>
 <ul>
 <li>One to hold a list of all Pokemons</li>
@@ -446,47 +444,257 @@ public ObservableCollection&lt;Pokemon&gt; SelectedPokemons
 </code></pre>
 <p>And all of that, from the ViewMdoel. Remember, you can always  <a href="https://github.com/ThatCSharpGuy/MultiPokeList" target="_blank">check the source code</a>. By the way, look at the finished app:</p>
 <img src="http://i.giphy.com/qpfRFj3MrFqow.gif" title="Multi-select ListView y MVVM" />
-<h4>Credits</h4>
+<h4 id="credits">Credits</h4>
 <p>The class <code>SelectMultipleBasePage&lt;T&gt;</code> in which all the info in this post is based on, was written by Glenn Stephens from Xamarin University, <a href="https://developer.xamarin.com/recipes/cross-platform/xamarin-forms/controls/multiselect/" target="_blank" rel="nofollow">see the original post</a>.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -502,5 +710,5 @@ public ObservableCollection&lt;Pokemon&gt; SelectedPokemons
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Creating a dotnet tool (part 1) | That C# guy</title>
+  <title>Creating a dotnet tool (part 1) | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
-<meta name="image" content="https://i.imgur.com/C0Nqt9A.png">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Creating a dotnet tool (part 1)">
-<meta itemprop="description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
-<meta itemprop="image" content="https://i.imgur.com/C0Nqt9A.png">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Creating a dotnet tool (part 1)">
-<meta name="twitter:description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="https://i.imgur.com/C0Nqt9A.png">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Creating a dotnet tool (part 1)">
-<meta name="og:description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
-<meta name="og:image" content="https://i.imgur.com/C0Nqt9A.png">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
+  <meta name="image" content="https://i.imgur.com/C0Nqt9A.png">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Creating a dotnet tool (part 1)">
+  <meta itemprop="description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
+  <meta itemprop="image" content="https://i.imgur.com/C0Nqt9A.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creating a dotnet tool (part 1)">
+  <meta name="twitter:description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="https://i.imgur.com/C0Nqt9A.png">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Creating a dotnet tool (part 1)">
+  <meta name="og:description" content="In this posts series I'll show you how to create a dotnet tool from scratch, following the best software engineering practices such as version control, continuous integration and thorough testing.">
+  <meta name="og:image" content="https://i.imgur.com/C0Nqt9A.png">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,40 +345,40 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Creating a dotnet tool (part 1)</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <blockquote>
 <p>This is a rough draft: explanations are incomplete and there may be spelling mistakes. I just made it public for people that have a hard time copying commands from a video.</p>
 </blockquote>
 <p>If you speak spanish and prefer to see me coding this, you can do so in this video: <a href="https://youtu.be/wXseAL7NCnk">Ingeniería de software  - Comenzando con nuestro proyecto</a>.</p>
 <p>Lockdown is a static website generator written in C# that works as a <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools">.NET tool</a>.</p>
 <p>Through this series of posts I'll guide you on how did I build this tool with the hopes that you will be able to create another <em>dotnet</em> tool (hopefully you won't build a better Lockdown competitor, though 😅).</p>
-<h2>Tooling</h2>
+<h2 id="tooling">Tooling</h2>
 <p>Throughout this journey I'll be using mainly three tools:</p>
 <ul>
 <li>Visual Studio or Visual Studio Code</li>
 <li>Console (whether is on Windows, Linux or Mac)</li>
 </ul>
-<h2>Setting up a Git repo</h2>
+<h2 id="setting-up-a-git-repo">Setting up a Git repo</h2>
 <p>Obviously, we'll need a Git repository to take care of our Version Control necessities while building our tool.</p>
 <p>I'll use a pre-created <code>.gitignore</code> file from <a href="https://www.toptal.com/developers/gitignore/api/dotnetcore,visualstudiocode,visualstudio">gitignore.io</a>.</p>
 <p>Let's also add a <code>readme.md</code> and our <code>license</code> file, to start everything right. Make sure you choose the right license for your project!</p>
-<h2>Adding our projects</h2>
-<h3>Main project</h3>
+<h2 id="adding-our-projects">Adding our projects</h2>
+<h3 id="main-project">Main project</h3>
 <p>Though you can create the projects by using the GUI, I'll strongly recommend you get used to interact with the <code>dotnet</code> command from the console, and to get started this is what we are going to do to create our main project:</p>
 <pre><code class="language-bash">dotnet new console -n Lockdown
 </code></pre>
-<h3>Test project</h3>
+<h3 id="test-project">Test project</h3>
 <p>Do not forget a test project! since we expect our tool to be a long term project, having tests is an essential part of the process. In this case, we will be using <em>xUnit</em>-based tests, though there are some alternatives like <em>NUnit</em> or <em>MSTest</em>.</p>
 <pre><code class="language-bash">dotnet new xunit -n Lockdown.Test
 </code></pre>
-<h3>Putting everything together</h3>
+<h3 id="putting-everything-together">Putting everything together</h3>
 <p>We need to add a reference from our main project to our test project:</p>
 <pre><code class="language-bash">dotnet add Lockdown.Test/Lockdown.Test.csproj reference Lockdown/Lockdown.csproj 
 </code></pre>
@@ -391,7 +389,7 @@ dotnet sln add \
     Lockdown/Lockdown.csproj
 </code></pre>
 <p>Now we can simply call <code>dotnet build</code> and have all our projects compile, or we can call <code>dotnet test</code> and have all our tests run.</p>
-<h2>Coding with style 😎</h2>
+<h2 id="coding-with-style">Coding with style 😎</h2>
 <p>Since we want to set up everything properly from the beginning, we need to add to enforce a style guide, we do not want our code to be messy, right? We will be using the package <code>StyleCop.Analyzers</code>. Now, for the moment I want to enforce the style guide in the actual production code so we need to add it to that project alone:</p>
 <pre><code class="language-bash">dotnet add Lockdown/Lockdown.csproj package StyleCop.Analyzers
 </code></pre>
@@ -403,7 +401,7 @@ dotnet sln add \
 &lt;/PropertyGroup&gt;
 </code></pre>
 <p>Now we can simply edit our ruleset to fail when some &quot;major offence&quot; happens or just ignore some rule we do not care about.</p>
-<h2>Configuring a CI pipeline!</h2>
+<h2 id="configuring-a-ci-pipeline">Configuring a CI pipeline!</h2>
 <p>Of course, having tests and a style guide are just part of the trick, what is left is have those two things executed for us automatically, and in the cloud! We can use GitHub Actions to do that.</p>
 <p>To start using GitHub Actions what you need to do is create a file called <code>ci.yml</code> (the file can be named anything as long as it is a <code>.yml</code> file)</p>
 <p>Without going into details, what we need to add into this file is the following:</p>
@@ -434,43 +432,253 @@ jobs:
 </code></pre>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -486,5 +694,5 @@ jobs:
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

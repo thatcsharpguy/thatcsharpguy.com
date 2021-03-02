@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Colecciones en C#, ¿cuál elegir? | That C# guy</title>
+  <title>Colecciones en C#, ¿cuál elegir? | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Colecciones en C#, ¿cuál elegir?">
-<meta itemprop="description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Colecciones en C#, ¿cuál elegir?">
-<meta name="twitter:description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Colecciones en C#, ¿cuál elegir?">
-<meta name="og:description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Colecciones en C#, ¿cuál elegir?">
+  <meta itemprop="description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Colecciones en C#, ¿cuál elegir?">
+  <meta name="twitter:description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Colecciones en C#, ¿cuál elegir?">
+  <meta name="og:description" content="La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,31 +345,31 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Colecciones en C#, ¿cuál elegir?</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Hace poco escribí un <a href="..\yield-c-sharp">post acerca de la interfaz IEnumerable</a>, en el cual hablaba de su uso es para cuando trabajamos con colecciones. En fin, las colecciones son algo con lo que seguramente ya estás familiarizado, en particular con <code>List&lt;T&gt;</code>, pero hey, debes saber (ysi no es que ya lo sabes), que existen otro tipo de colecciones además de la ya vieja confiable <code>List&lt;T&gt;</code>. Y que pueden tener <a href="/tv/o-grande" target="_blank">un mejor desempeño</a>.</p>
 <p>En este post voy a tratar de explicarte el uso básico de <code>Queue&lt;T&gt;</code>, <code>Stack&lt;T&gt;</code>, <code>HashSet&lt;T&gt;</code>, <code>Dictionary&lt;TKey, TVal&gt;</code>.</p>
-<h2>List<T></h2>
+<h2 id="list">List<T></h2>
 <p>Como dije antes, &quot;la vieja confiable&quot; y me atrevería a decir que es la colección más usada en los programas escritos con C#. Esto debido a que es, en teoría, la más sencilla de usar, ya que se comporta básicamente como los tan comunes arreglos al permitirnos <strong>acceder a cualquier elemento</strong> con la sintaxis de indizadores <code>[n]</code>, además da la posibilidad de <strong>añadir elementos en cualquier posición</strong> con <code>Insert</code> o emplear <code>Add</code> para <strong>añadir elementos <em>al final</em> de la lista</strong> sin necesidad de preocuparnos por reubicar los objetos ya existentes en ella:</p>
 <img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/list.png" title="List" />
 <p>Esta es la colección <em>más</em> genérica y que nos puede ayudar en cualquiera de los casos, sin embargo no es la más reciomendable en cuanto a desempeño, y que si bien permite acceder a su contenido de forma constante <em>O(1)</em>, añadir nuevos elementos o insertar puede ser una operación muy pesada <em>O(n)</em>.</p>
-<h2>Queue<T></h2>
+<h2 id="queue">Queue<T></h2>
 <p>En español la podríamos llamar &quot;cola&quot; o &quot;fila&quot;, y se comporta como funcionan las filas o colas en la vida real: los nuevos elementos se forman &quot;hasta atrás&quot; y los viejos elementos salen &quot;por delante&quot;. Para esta acción en lugar de contar con métodos como <code>Add</code> o <code>Insert</code>, nos ofrece <code>Enqueue</code> para <strong>insertar elementos al final</strong>, mientras que nos <strong>permite conocer al elemento <em>de enfrente</em></strong> mediante <code>Peek</code> y <strong>sacar dicho elemento</strong> usando <code>Dequeue</code>:</p>
 <img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/queue.png" title="Queue" />
 <p>Esta colección es útil cuando no necesitamos acceso aleatorio a los datos o cuando es necesario mantener un orden determinado por el momento en que los elementos fueron añadidos a la colección.</p>
 <p>El ejemplo más claro es si estamos desarrollando una aplicación para asignar los clientes a las ventanillas de un banco, en donde el primero en llegar debe ser el primero en ser atendido.</p>
-<h2>Stack<T></h2>
+<h2 id="stack">Stack<T></h2>
 <p>O como le decimos en español: la pila. En cierto sentido es muy similar a una Cola, en el sentido de que *<em>permite insertar <strong>al inicio</strong></em> usando <code>Push</code>, <strong>acceder a él</strong> usando <code>Peek</code> y <strong>sacar el elemento más reciente</strong> usando <code>Pop</code>:</p>
 <img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/stack.png" title="Stack" />
 <p>Esta colección tabmién es útil cuando no necesitamos acceso aleatorio a los datos y queremos tener o cuando es necesario obtener siempre el elemento más recientemente insertado. La pila es una estructura que se comoce como LIFO (<em>last in, first out</em>): el último en llegar es el primero en salir.</p>
 <p>Las pilas son comunmente usadas para invertir conjuntos, o para implementar operaciones de hacer-deshacer, y para procesar operaciones matemáticas de notación infja o posfija.</p>
-<h2>HashSet<T></h2>
+<h2 id="hashset">HashSet<T></h2>
 <p>La colección que a mi parecer es de las que menos se usan en el desarrollo, tiene una peculiaridad: no guarda los elementos dentro de ella, sino una representación numérica de ellos. Nos <strong>ofrece un método para insertar</strong> llamado <code>Add</code> que a su vez llama a <code>GetHashCode</code> para &quot;convertir&quot; lo que estamos insertando en un número entero y después guardarlo, y después revisar si existe meidante <code>Contains</code>:</p>
 <img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/hashset.png" title="HashSet" />
 <p>Esta es la colección ideal cuando únicamente queremos corroborar que un elemento existe dentro de un conjunto, insertar en un <code>HashSet</code> es una operación constante <em>O(1)</em>, al igual que revisar si alguno ya existe en él.</p>
@@ -386,52 +384,262 @@ if(descuentos.Contains(miDescuento)) // ...
 <pre><code class="language-csharp">var descuentos = new HashSet&lt;double&gt; { 10, 15, 30 };
 if (descuentos.Contains(miDescuento)) // no hay necesidad de buscar
 </code></pre>
-<h2>Dictionary&lt;TKey, TVal&gt;</h2>
+<h2 id="dictionarytkey-tval">Dictionary&lt;TKey, TVal&gt;</h2>
 <p>El diccionario almacena pares de valores: una llave y un objeto asociado.
 Una colección extremadamente similar a un <code>HashSet</code>, ya que de igual manera convierte uno de los elementos (la llave) a un entero para asociarlo con el objeto. <strong>Para insertar ofrece el método</strong> <code>Add</code>, además de que deja acceder a los valores mediante la sintaxis de indizador <code>[]</code>, y revisar si un valor o una llave existen en el diccionario usando <code>ContainsKey</code> y <code>ContainsValue</code>:</p>
 <img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/dictionary.png" title="Dictionary" />
-<h2>Colecciones no genéricas</h2>
+<h2 id="colecciones-no-genericas">Colecciones no genéricas</h2>
 <p>Las colecciones no genéricas se comportan de manera similar, con la pequeña gran diferencia de que estas colecciones no tienen información de los objetos que almacenan. Para ellos son cualquier cosa... como si simplementa guardaran cajas sin conocer su contenido:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/generics.png&quot; title=&quot;&quot;Genéricos&quot;&quot; /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/generics.png&quot; title=<>Genéricos</> /&gt;</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -447,5 +655,5 @@ Una colección extremadamente similar a un <code>HashSet</code>, ya que de igual
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

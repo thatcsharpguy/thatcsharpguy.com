@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>async y await (cancelando tareas) | That C# guy</title>
+  <title>async y await (cancelando tareas) | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="async y await (cancelando tareas)">
-<meta itemprop="description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="async y await (cancelando tareas)">
-<meta name="twitter:description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="async y await (cancelando tareas)">
-<meta name="og:description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="async y await (cancelando tareas)">
+  <meta itemprop="description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="async y await (cancelando tareas)">
+  <meta name="twitter:description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="async y await (cancelando tareas)">
+  <meta name="og:description" content="Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,17 +345,17 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>async y await (cancelando tareas)</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Una vez que conocimos los tipos <code>Task</code> y las apalabras <code>async</code> y <code>await</code>, y cómo es que nos ayudan a ejecutar código de manera asíncrona, es momento de comenzar a extender este poder para sacarle más ventaja.</p>
 <p>En este post veremos cómo es que podemos ejecutar tareas asíncronas de manera paralela. Ojo que el paralelelismo conlleva más complicaciones, pero este es un buen lugar para comenzar.</p>
-<h2>Ejemplo</h2>
+<h2 id="ejemplo">Ejemplo</h2>
 <p>Nuevamente para seguir trabajando con este post tal vez quieras descargar la aplicación <a href="https://github.com/ThatCSharpGuy/AsyncAwait" target="_blank">demo que puedes encontrar en GitHub</a>. Para demostrar cómo podemos cancelar las tareas vamos a hacer uso deuna <code>ProgressBar</code> y unos cuantos botones. En este caso vamos a crear una tarea infinita que moverá de 0 a 100% la barra de progreso, esta es la tarea que vamos a cancelar con las técnicas que veremos en este post:</p>
 <pre><code class="language-csharp">public static async Task SlowTask(IProgress&lt;double&gt; progress, CancellationToken token)
 {
@@ -379,7 +377,7 @@
 }
 </code></pre>
 <p>Un momento... aquí hay un par de cosas nuevas: La interfaz <code>IProgress&lt;T&gt;</code> y  la clase <code>CancellationToken</code>, comenzaremos por la primera.</p>
-<h2>IProgress<T></h2>
+<h2 id="iprogress">IProgress<T></h2>
 <p>Probablemente quieras separar tu código en varias capas, dejando en librerías separadas la capa de la interfaz y la capa de lógica. Pero, ¿en este escenario cómo podrías actualizar la <em>UI</em> desde una <code>Task</code>?</p>
 <p>Lo primero que se te podría ocurrir es usar <a href="..\delegados-en-c-sharp" target="_blank">delegados</a>, o alguna <a href="..\func-y-action-en-c-sharp" target="_blank"><code>Action</code></a> para &quot;inyectar&quot; código dentro de la tarea. Pero por otro lado podríamos hacer uso de la interfaz <code>IProgress&lt;T&gt;</code> del framework.</p>
 <p>Esta interfaz define un solo método: <code>Report</code> que como su nombre lo indica nos sirve para reportar el progreso de una tarea desde una tarea asíncrona. En este caso, en el siguiente código se muestra la implementación de <code>IReport&lt;double&gt;</code> del ejemplo:</p>
@@ -398,9 +396,9 @@
 <pre><code class="language-csharp">var task = UltraComplexLibrary.SlowTask(this);
 </code></pre>
 <p>En donde <code>this</code> es una instancia de la clase <code>AdvancedPage</code>.</p>
-<h2><code>CancellationToken</code></h2>
+<h2 id="cancellationtoken"><code>CancellationToken</code></h2>
 <p>Ahora que podemos reportar el progreso de la una tarea asíncrona es probable que en algun momento deseemos cancelar una tarea, ya sea porque el usuario ya no está interesado en el resultado o porque la tarea está tardando mucho tiempo en ejecutarse. Al igual que para reportar el progreso, existen otras formas para cancelar una tarea, sin embargo, la más recomendable es hacer uso de un <code>CancellationToken</code> al cual me referiré de ahora en adelante solamente como <em>token</em>.</p>
-<h3><code>CancellationTokenSource</code></h3>
+<h3 id="cancellationtokensource"><code>CancellationTokenSource</code></h3>
 <p>Este tipo de <em>tokens</em> se deben obtener de una <em>fuente</em>, en este caso de la clase <code>CancellationTokenSource</code>. Tanto el <em>token</em> como la <em>fuente</em> están fuertemente relacionadas y no se entiende la existencia de una sin la otra.</p>
 <p>Crear una <em>fuente</em> de <em>tokens</em> es sencillo, basta con usar el operador <code>new</code>:</p>
 <pre><code class="language-csharp">CancellationTokenSource CancellationTokenSource;
@@ -410,7 +408,7 @@ CancellationTokenSource = new CancellationTokenSource();
 <p>Y para obtener un <em>token</em> es necesario llamar a la propiedad <code>Token</code>, entonces la llamada a nuestra tarea cancelable queda como sigue:</p>
 <pre><code class="language-csharp">var task = UltraComplexLibrary.SlowTask(this, CancellationTokenSource.Token);
 </code></pre>
-<h3>Cancelando la tarea</h3>
+<h3 id="cancelando-la-tarea">Cancelando la tarea</h3>
 <p>El primer paso para cancelar una tarea es llamar al método <code>Cancel</code> sobre la <em>fuente</em>. Ya sea que lo llamemos directamente nosotros, o especifiquemos que se cancele después de cierta cantidad de tiempo:</p>
 <pre><code class="language-csharp">CancellationTokenSource.Cancel();  
 CancellationTokenSource.CancelAfter(3000);
@@ -429,7 +427,7 @@ CancellationTokenSource.CancelAfter(3000);
 </code></pre>
 <p>Si optas por el caso de la excepción no olvides agregar el código pertinente para manejarla en tu código y que no haga que falle por completo tu aplicación.</p>
 <p>Usar una excepción o retornar manualmente de una tarea dependerá enteramente de tu criterio y una manera es tan válida como la otra.</p>
-<h2>Para terminar</h2>
+<h2 id="para-terminar">Para terminar</h2>
 <p>Como puedes ver el cancelar una tarea requiere de un par de componentes extras así como de incluir dentro de la implementación de la tarea la posibilidad de cancelarla. Es por eso que desde un inicio debes valorar si código debe ofrecer la opción de ser cancelado mediante el uso de <em>tokens</em>.</p>
 <p>Si estás usando una API de alguien más que no dejó abierta la posibilidad de cancelar la ejecución del código puedes hacer uso de el método <code>Task.WhenAny</code> para &quot;simular&quot; la cancelación. Puedes ver más en esta respuesta de StackOverflow: <a href="http://stackoverflow.com/a/27240225" target="_blank">answer to How can I cancel Task.WhenAll? [VB]</a>.</p>
 <blockquote>
@@ -437,43 +435,253 @@ CancellationTokenSource.CancelAfter(3000);
 </blockquote>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -489,5 +697,5 @@ CancellationTokenSource.CancelAfter(3000);
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

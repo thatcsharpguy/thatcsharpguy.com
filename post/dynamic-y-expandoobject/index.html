@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Dynamic y ExpandoObject | That C# guy</title>
+  <title>Dynamic y ExpandoObject | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Dynamic y ExpandoObject">
-<meta itemprop="description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dynamic y ExpandoObject">
-<meta name="twitter:description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Dynamic y ExpandoObject">
-<meta name="og:description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Dynamic y ExpandoObject">
+  <meta itemprop="description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dynamic y ExpandoObject">
+  <meta name="twitter:description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Dynamic y ExpandoObject">
+  <meta name="og:description" content="Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,14 +345,14 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Dynamic y ExpandoObject</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Cuando C# nació hace 16 años, nació como un lenguaje fuertemente tipado, y, mientras que lo sigue siendo, a partir de su versión 4.0 incorporó características que permitían usar tipado débil en él.</p>
 <p>Como sabrás, un lenguaje fuertemente tipado requiere que los tipos de las variables sean conocidos por el compilador al momento de compilar. Es decir, especificar que un entero es un entero, que una cadena es una cadena... por otro lado <strong>que un lenguaje sea débilmente tipado significa que el compilador no sabe nada de las variables con las que está trabajando</strong> y que será hasta que se estén ejecutando cuando se tenga conocimiento sobre ellas.</p>
 <p>En C# creamos un tipo de dato &quot;débilmente tipado&quot; con la palabra reservada <code>dynamic</code>, lo cual le indica al compilador que no debe preocuparse por esa variable. Por ejemplo:</p>
@@ -372,17 +370,17 @@ dynamic cadena2 = &quot;mundo&quot;;
 <pre><code class="language-csharp">Console.WriteLine(entero.GetType()); // Imprime &quot;System.Int32&quot;
 Console.WriteLine(cadena.GetType()); // Imprime &quot;System.String&quot;
 </code></pre>
-<h2>Compatibilidad con otros tipos de dato</h2>
+<h2 id="compatibilidad-con-otros-tipos-de-dato">Compatibilidad con otros tipos de dato</h2>
 <p>Estos tipos de dato son compatibles con otros... en tanto los tipos que &quot;ocultan&quot; sean compatibles, por ejemplo, podemos concatenarlos, confiando en que todos tendrá una implementación del método <code>ToString</code>:</p>
 <pre><code class="language-csharp">string holaMundo = cadena + &quot; &quot; + cadena2+ &quot; &quot; + entero;
 Console.WriteLine(holaMundo); // Imprime &quot;Hola mundo 0&quot;
 </code></pre>
-<h2>Mutabilidad</h2>
+<h2 id="mutabilidad">Mutabilidad</h2>
 <p>Las variables <em>dinámicas</em> pueden cambiar completamente su contenido sin causar ningún problema, por ejemplo, podemos convertir <code>entero</code> en una instancia de <code>MainClass</code>:</p>
 <pre><code class="language-csharp">entero = new MainClass();
 Console.WriteLine(entero.GetType()); // Imprime &quot;Dynamics.MainClass&quot;
 </code></pre>
-<h2>ExpandoObject para crear tipos dinámicos</h2>
+<h2 id="expandoobject-para-crear-tipos-dinamicos">ExpandoObject para crear tipos dinámicos</h2>
 <p>Nosotros también podemos crear tipos dinámicos haciendo uso de la clase <code>ExpandoObject</code> que es una clase &quot;especial&quot; que nos ofrece el framework. Es importante que lo declares como <code>dynamic</code> ya que de no hacerlo, el compilador lo tratará como fuertemente tipado</p>
 <pre><code class="language-csharp">dynamic expando = new ExpandoObject();
 //ExpandoObject expando = new ExpandoObject(); // Esto lo convierte en fuertemente tipado
@@ -407,9 +405,9 @@ Dynamics.MainClass : Dynamics.MainClass
 Hola mundo 0 : System.String
 System.Dynamic.ExpandoObject : System.Dynamic.ExpandoObject
 </pre>
-<h2>Uso</h2>
+<h2 id="uso">Uso</h2>
 <p>Como ya te imaginarás esto puede traer muchas ventajas pero a la vez muchos dolores de cabeza. En lo personal prefiero usar siempre tipado fuerte cuando desarrollo, pero si encuentro algunos casos en los que resulta muy útil:</p>
-<h3>En servicios web</h3>
+<h3 id="en-servicios-web">En servicios web</h3>
 <p>Hay ocasiones en las que crear una clase para consumir un servicio web puede ser excesivo, este es otro de los usos que le podemos dar a los tipos dinámicos. Por ejemplo, si consultamos la PokéAPI, y usamos Newtonsoft.Json, podemos usar un tipo dinámico para acceder a sus propiedades:</p>
 <pre><code class="language-csharp">dynamic item = Newtonsoft.Json.JsonConvert.DeserializeObject(responseString);
 </code></pre>
@@ -431,51 +429,261 @@ Names for master-ball (datatype Newtonsoft.Json.Linq.JObject)
 	ko: 마스터볼
 	ja: マスターボール
 </pre>
-<h3>ViewBag en ASP.NET MVC</h3>
+<h3 id="viewbag-en-asp.net-mvc">ViewBag en ASP.NET MVC</h3>
 <p>Otro fantástico uso de esta característica es la propiedad <code>ViewBag</code> de la clase <code>Controller</code> en MVC, con ella podemos pasar información a la vista sin necesidad de crear un modelo muy específico para cada una de las pantallas de nuestro sistema.</p>
-<h3>Comunicación con otros lenguajes</h3>
+<h3 id="comunicacion-con-otros-lenguajes">Comunicación con otros lenguajes</h3>
 <p>Cuando interactuamos desde C# con otros lenguajes como Python o JavaScript que involucran tipado débil y dinámico es necesario contar con un tipo similar dentro de C#, así que este es otro de sus usos.</p>
-<h2>Concluyendo</h2>
+<h2 id="concluyendo">Concluyendo</h2>
 <p>Como conclusión puedo decir que yo siempre trato de evitarlos, ya que pueden transformar el código en un desastre total si se usan sin control. Además de que pueden llegar a resultar confusos de emplear cuando los ves en un código no documentado o que no hayas escrito tú mismo. Habiendo dicho esto, acepto que sí tienen usos específicos y muy bien identificados, además de que si sabes lo que estás haciendo te pueden ahorrar tiempo de desarrollo cuando programas.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -491,5 +699,5 @@ Names for master-ball (datatype Newtonsoft.Json.Linq.JObject)
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

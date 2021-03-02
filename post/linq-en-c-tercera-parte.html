@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Linq en C# - tercera parte | That C# guy</title>
+  <title>Linq en C# - tercera parte | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Linq en C# - tercera parte">
-<meta itemprop="description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Linq en C# - tercera parte">
-<meta name="twitter:description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Linq en C# - tercera parte">
-<meta name="og:description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Linq en C# - tercera parte">
+  <meta itemprop="description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Linq en C# - tercera parte">
+  <meta name="twitter:description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Linq en C# - tercera parte">
+  <meta name="og:description" content="Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,18 +345,18 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Linq en C# - tercera parte</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Inmediatamente después de la <a href="/post/linq-en-c-sharp-2">segunda parte de la serie de posts sobre Linq</a>, les traigo este, que es la tercera parte en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.</p>
-<h3>Preparando el terreno</h3>
+<h3 id="preparando-el-terreno">Preparando el terreno</h3>
 <p>Nuevamente en este post me auxiliaré de los mismos elementos que en el post pasado: Las clases <code>Lecture</code>, <code>Teacher</code> y <code>FakeDatabase</code></p>
-<h2>Agrupamientos (group by , GroupBy)</h2>
+<h2 id="agrupamientos-group-by-groupby">Agrupamientos (group by , GroupBy)</h2>
 <p>Con Linq también podemos realizar agrupamientos de datos, esta función está disponible tanto en la sintaxis de método como en la de consulta y a mi parecer es mucho más entendible en la de consulta. Es importante señalar que cuando ejecutamos un agrupamiento tendremos acceso a una nueva colección de tipo <code>IGrouping</code>, y cada uno de esos <code>IGrouping</code>s contiene una propiedad <code>Key</code> que es del tipo de dato sobre el que ejecutamos el agrupamiento. Podríamos er un ejemplo sencillo si queremos saber cuantas clases tiene cada profesor:</p>
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
@@ -405,7 +403,7 @@ var classesPerTeacherMethod = db.Lectures
 </code></pre>
 <p>En este caso se puede decir que estamos haciendo un agrupamiento anidado: Primero estamos agrupando las <code>Lecture</code>s por el maestro que las imparte, el resultado de esta agrupación lo estamos colocando en <code>group1</code>, después, mediante la cláusula <code>select</code> estamos creando un nuevo tipo que tiene como propiedades <code>TeacherId</code> y <code>Level</code> que es creado a de la agrupación de las clases por la propiedad <code>Level</code> (que ponemos en <code>group2</code>) para posteriormente crear una colección de objetos con <code>LevelName</code> y <code>Lectures</code>.</p>
 <p>También se pueden hacer agrupamientos un poco más complejas cuando usamos la sintaxis de método, ya que permite especificar una instancia de clase que implementa la interfaz <code>IEqualityComparer&lt;T&gt;</code> mediante la cual se implementa el método <code>Equals(T, T)</code> que indica cómo se van a agrupar los elementos.</p>
-<h2>Uniones (join, Join)</h2>
+<h2 id="uniones-join-join">Uniones (join, Join)</h2>
 <p>Una de las características más interesantes de Linq es la de poder hacer uniones entre conjuntos de datos a partir de una propiedad en ellos, la forma de hacer los <em>join</em> en Linq es muy similar a la forma en que se realizan los <code>inner join</code> en SQL puesto que es necesario especificar un campo sobre el que se realizará la unión:</p>
 <p>En las consultas anteriores sobre <code>db.Lectures</code> únicamente tenemos acceso a <code>TeacherId</code>, pero supongamos que también queremos acceder a la información del profesor asignado a una clase. Es ahí cuando debemos hacer un <code>join</code>:</p>
 <div class="pure-g">
@@ -444,14 +442,14 @@ var q5alt = db.Lectures
 <li>Una condición bajo la que se realizará la unión después de la palabra <code>on</code></li>
 </ul>
 <p>Si has escrito SQL seguramente te resultará conocida esta sintaxis.</p>
-<h2>Operaciones de un elemento (First, Single, ElementAt)</h2>
+<h2 id="operaciones-de-un-elemento-first-single-elementat">Operaciones de un elemento (First, Single, ElementAt)</h2>
 <p>Como vimos antes, podemos usar <code>Take</code> para obtener una cantidad fija de elementos de una secuencia, sin embargo, para obtener uno solo es recomendable usar los métodos como <code>Single</code>, <code>First</code> o <code>ElementAt</code> y sus similares para dicha tarea. Estos métodos no están disponibles a través de la sintaxis de consulta, únicamente a través de la de método.</p>
 <p>Por ejemplo, vamos a trabajar con un conjunto de maestros ordenados por su apellido:</p>
 <pre><code class="language-csharp">var q6 = from l in db.Teachers
             orderby l.LastName descending
             select l;
 </code></pre>
-<h3>First</h3>
+<h3 id="first">First</h3>
 <p>Si queremos obtener el primer maestro:</p>
 <pre><code class="language-csharp">var maestro1 = q6.First();
 </code></pre>
@@ -462,12 +460,12 @@ var q5alt = db.Lectures
 <p>Para evitar la excepción podemos usar el método <code>FirstOrDefault</code> el cual regresará el valor por default del elemento del conjunto sobre el que trabajamos, hay que recordar que el valor por default de un tipo por referencia es <code>null</code>:</p>
 <pre><code class="language-csharp">var cosmeFulanito2 = q6.FirstOrDefault(m =&gt; m.GivenName == &quot;Cosme&quot; &amp;&amp; m.LastName == &quot;Fulanito&quot;);
 </code></pre>
-<h3>Single</h3>
+<h3 id="single">Single</h3>
 <p>Adicionalmente a <code>First</code>, también existe el método <code>Single</code> y <code>SingleOrDefault</code> <strong>pero solamente deben ser usados cuando el conjunto sobre el que operan únicamente contiene 1 solo elemento</strong>, ya que de otro modo obtendremos una espantosa excepción, por ejemplo, si ejecutáramos <code>Single</code> sobre <code>q6</code> obtendríamos una excepción porque tenemos más de 1 maestro en nuestra base de datos falsa:</p>
 <pre><code class="language-csharp">var maestro3 = q6.Single(); // Excepción porque q6 contiene más de 1 elemento
 </code></pre>
 <p>Tal vez te estés preguntando para qué existe <code>Single</code> si ya existe <code>First</code> y yo al igual que muchos coincido en que todo es cuestión de semántica en nuestro código. Si queremos dejar claro que una consulta a la base de datos, a un XML o a cualquier otra cosa a través de Linq debe siempre regresar un solo resultado debemos usar <code>Single</code>, si esperamos obtener el primer resultado de un conjunto más grande debemos usar <code>First</code>.</p>
-<h3>ElementAt</h3>
+<h3 id="elementat">ElementAt</h3>
 <p>No no siempre vamos a necesitar el primer elemento de una colección, tal vez estemos buscando el segundo, el décimo o el noningentésimo... uno nunca sabe. Para realizar esta tarea tenemos a nuestra mano el método <code>ElementAt</code> que obtiene el elemento colocado en la posición especificada mediante un entero:</p>
 <pre><code class="language-csharp">var maestroSegundo = q6.ElementAt(2);
 
@@ -476,47 +474,257 @@ var maestroDecimo = q6.ElementAt(10);
 <p>En este caso también debemos ser cuidadosos ya que, si nuestro conjunto no contiene al menos la cantidad de elementos necesaria para cumplir nuestra petición, obtendremos otra excepción, en este caso una del tipo <code>ArgumentOutOfRangeException</code>, así pues que cuando se solicita al maestro 900 obtendremos el error:</p>
 <pre><code class="language-csharp">var maestroNoningentesimo = q6.ElementAt(900); // Excepción ¡porque q6 no tiene 900 maestros!
 </code></pre>
-<h4>Lo que sigue</h4>
+<h4 id="lo-que-sigue">Lo que sigue</h4>
 <p>Aún quedan algunas cuantas herramientas de Linq por demostrar, entre ellas las intersecciones, uniones y demás operaciones sobre conjuntos que se pueden realizar. Sin duda espero haberte convencido (o demostrado) que el poder de esta característica que nos ofrece .NET es bastante bueno y que no debe pasarse por alto cuando desarrollas. Como siempre, recuerda que todo el código fuente de este post está en la información (cerca del título).</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -532,5 +740,5 @@ var maestroDecimo = q6.ElementAt(10);
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

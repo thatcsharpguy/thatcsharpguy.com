@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>¿Qué es var en C#? | That C# guy</title>
+  <title>¿Qué es var en C#? | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="¿Qué es var en C#?">
-<meta itemprop="description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="¿Qué es var en C#?">
-<meta name="twitter:description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="¿Qué es var en C#?">
-<meta name="og:description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="¿Qué es var en C#?">
+  <meta itemprop="description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="¿Qué es var en C#?">
+  <meta name="twitter:description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="¿Qué es var en C#?">
+  <meta name="og:description" content="Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,14 +345,14 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>¿Qué es var en C#?</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Como programadores hay muchas ventajas que nos otorga C#, ya sea a la hora de escribir nuestros programas o a la hora de ponerlos a funcionar. En este post les voy a hablar acerca de una de las ventajas al escribir nuestros programas, pero para eso, veamos antes este código:</p>
 <pre><code class="language-csharp">var numeroElementos = 5;
 var otroNumero = 5L;
@@ -365,7 +363,7 @@ var sb =  new StringBuilder();
 var buenEstudiante =  new Persona(&quot;Estudiante&quot;);
 </code></pre>
 <p><strong>¿Uhhhh?</strong> ¿entonces qué significa <code>var</code>?</p>
-<h3>var</h3>
+<h3 id="var">var</h3>
 <p>Pues bien, usar la palabra <strike>reservada</strike> <code>var</code> significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables. Llamamos a esto <em>tipado implícito</em>, así nos quitamos de encima la tarea de escribir los tipos completos. Entonces:</p>
 <ul>
 <li><code>var numeroElementos = 5;</code> → <code>int numeroElementos = 5;</code></li>
@@ -384,7 +382,7 @@ var buenEstudiante =  new Persona(&quot;Estudiante&quot;);
 <li><code>var buenEstudiante = new Persona(&quot;Estudiante&quot;)</code> en la que podemos reemplazar <code>var</code> por <code>Persona</code>, o</li>
 <li><code>var sb = new StringBuilder();</code> en la que puede ser reemplazada por <code>StringBuilder</code></li>
 </ul>
-<h3>Casos especiales</h3>
+<h3 id="casos-especiales">Casos especiales</h3>
 <p>Si bien es posible usar <code>var</code> para cualquier instanciación de una variable como en los casos anteriores, no es común usarla ya que a lo mucho nos está ahorrando algunas letras por cada variable. Sin embargo hay casos en los que su uso se vuelve bastante relevante y hasta necesario.<br />
 <br />
 Un caso en el que es bastánte práctico usarlo es cuando estamos trabajando con LINQ (LINQ es un tema que merece su propio post, y lo tendrá), ya que muchas veces no es tan claro el resultado de una sentencia LINQ, por lo tanto es común encontrar declaraciones como:</p>
@@ -395,7 +393,7 @@ var listaMayores = from p in personas
 				   select p;
 </code></pre>
 <p>Un caso en el que es <strong>completamente necesario</strong> el uso de <code>var</code> es cuando dentro de nuestro código usamos tipos anónimos, en pocas palabras un tipo anónimo es un objeto creado &quot;al vuelo&quot; sin declarar una clase. Aunque estos, al igual que LINQ, merecen su propio post (que también haré).</p>
-<h3>Limitaciones</h3>
+<h3 id="limitaciones">Limitaciones</h3>
 <p>El <em>tipado implícito</em> tiene algunas limitantes, una de ellas parecería ser bastante obvia, y esta es que no se puede escribir una declaración como:</p>
 <pre><code class="language-csharp">var indeciso = null;
 </code></pre>
@@ -407,54 +405,264 @@ La segunda limitante es que únicamente podemos usar <code>var</code> para varia
 	
 	public Persona( // ...
 </code></pre>
-<h3>Desventajas</h3>
+<h3 id="desventajas">Desventajas</h3>
 <p>La única gran desventaja que veo en esta caracterísitca es que si se abusa de ellos y en combinación con tipos de dato complejos podemos escribir código potencialmente inentendible, al grado que ni nosotros mismos podamos entender lo que escribimos.<br />
 Personalmente siempre uso <code>var</code> para declaraciones de tipos de dato simples como enteros o cadenas.</p>
-<h3>Importante</h3>
+<h3 id="importante">Importante</h3>
 <p>Es importante repetir esto: <strong>C# sigue siendo fuertemente tipado, con var lo único que hacemos es dejarle la tarea al compilador de asignar un tipo para nuestra variable al momento de la compilación</strong>.<br />
 <br />
 En el post original había mencionado que <code>var</code> es una palabra reservada, cuando en realdad, no lo es. Depende del contexto.</p>
-<h3>Lo que sigue</h3>
+<h3 id="lo-que-sigue">Lo que sigue</h3>
 <p>En este post hablamos de dos nuevos conceptos: LINQ y tipos anónimos, y sobre uno de ellos dos será el post siguiente, ¿tienes preferencia sobre alguno? házmelo saber vía <a href="https://twitter.com/intent/tweet?text=@io_exception">Twitter</a> o por <a href="mailto:?subject=">correo electrónico</a>.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -470,5 +678,5 @@ En el post original había mencionado que <code>var</code> es una palabra reserv
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

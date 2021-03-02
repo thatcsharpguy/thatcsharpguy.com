@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Programación reactiva y Rx, parte 1 | That C# guy</title>
+  <title>Programación reactiva y Rx, parte 1 | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
-<meta name="image" content="">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Programación reactiva y Rx, parte 1">
-<meta itemprop="description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
-<meta itemprop="image" content="">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Programación reactiva y Rx, parte 1">
-<meta name="twitter:description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Programación reactiva y Rx, parte 1">
-<meta name="og:description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
-<meta name="og:image" content="">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
+  <meta name="image" content="">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Programación reactiva y Rx, parte 1">
+  <meta itemprop="description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
+  <meta itemprop="image" content="">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Programación reactiva y Rx, parte 1">
+  <meta name="twitter:description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Programación reactiva y Rx, parte 1">
+  <meta name="og:description" content="La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,33 +345,33 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Programación reactiva y Rx, parte 1</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>La programación reactiva es un paradigma de programación que está ganando mucha popularidad últimamente, esto se le puede atribuir a la funcionalidad que nos ofrece y a la simpleza con la que se puede llegar a leer el código.</p>
 <p>Es una de las maneras de implementar el <a href="https://youtu.be/NmuRwZ2CYvA" target="_blank"><i>patrón del observador</i></a> descrito por <em>The Gang of Four</em> en su famoso libro. Este patrón nos ayuda para establecer un medio de comunicación unilateral entre dos objetos en la que uno, conocido como el publicador, es el que envía mensajes y otro, conocido como el suscriptor, los recibe. A este conjunto de mensajes enviados en una sola dirección lo conoceremos de ahora en adelante como  <em>flujo de datos</em>.</p>
-<h3>En .NET</h3>
+<h3 id="en.net">En .NET</h3>
 <p>En .NET te encontrarás con dos interfaces que hacen las veces de este par de actores de los que habla el patrón del observador: El publicador es del tipo <code>IObservable&lt;T&gt;</code> mientras que el observador es <code>IObserver&lt;T&gt;</code> en donde <code>T</code> es el mensaje que se enviará entre ellos.</p>
-<h3><code>IObservable&lt;T&gt;</code> (el publicador)</h3>
+<h3 id="iobservablet-el-publicador"><code>IObservable&lt;T&gt;</code> (el publicador)</h3>
 <p>Esta interfaz únicamente especifica un método <code>Suscribe</code> para añadir suscriptores a sus flujos de datos</p>
-<h3><code>IObserver&lt;T&gt;</code> (el suscriptor)</h3>
+<h3 id="iobservert-el-suscriptor"><code>IObserver&lt;T&gt;</code> (el suscriptor)</h3>
 <p>A diferencia del publicador, el suscriptor debe implementar más métodos para reaccionar de acuerdo a lo que el publicador envíe a través del canal de comunicación. La interfaz especifica tres métodos:</p>
 <ul>
 <li><strong><code>OnNext</code></strong>, que será llamado cada vez que el publicador envíe un nuevo mensaje.</li>
 <li><strong><code>OnCompleted</code></strong>, que será llamado una vez que el suscriptor de por terminada la comunicación.</li>
 <li><strong><code>OnError</code></strong>, que será llamado si es que dentro del publicador ocurre <a href="..\excepciones-c-sharp" target="_blank">un error</a>.</li>
 </ul>
-<h3>Reactive Extensions (Rx)</h3>
+<h3 id="reactive-extensions-rx">Reactive Extensions (Rx)</h3>
 <p>Las interfaces mencionadas anteriormente están disponibles en el <em>framework</em> desde la versión 4, sin embargo, para sacarle todo el jugo a la programación reactiva (sin tener que reinventar la rueda nosotros mismos), también es necesario instalar una biblioteca desde NuGet, así que instala el paquete:</p>
 <pre><code>PM&gt; Install-Package System.Reactive
 </code></pre>
 <p>En todos los lugares en los que vayas a hacer uso de este paradigma de programación. Por cierto, <code>System.Reactive</code> antes era <code>Rx-Main</code> por si llegaran a encontrar algún tutorial que hace referencia a este paquete, no se rompan la cabeza tratando de encontrarlo.</p>
-<h2>Algo no reactivo</h2>
+<h2 id="algo-no-reactivo">Algo no reactivo</h2>
 <p>Para comenzar vamos a ver un ejemplo de algo que no es reactivo. Comencemos por un arreglo de datos enteros:</p>
 <pre><code class="language-csharp">var datos = new[] { 3, 4, 6, 8, 11, 13, 15, 15, 13, 10, 6, 4 };
 </code></pre>
@@ -388,7 +386,7 @@ Console.WriteLine(&quot;\nTerminé de leer los datos&quot;);
 Terminé de leer los datos
 </pre>
 <p>Nada raro: tenemos un arreglo y <strong>sacamos</strong> los valores de él para imprimirlos a consola. Ahora vamos a ver cómo haríamos esto con programación reactiva:</p>
-<h2>Algo reactivo</h2>
+<h2 id="algo-reactivo">Algo reactivo</h2>
 <p>Comenzaremos por convertir nuestros <code>datos</code> a un flujo de datos, para esto nos ayudaremos <a href="..\extension-methods-es" target="_blank">método de extensión</a> <code>ToObservable</code> que tomará un <code>IEnumerable</code> y lo convierte en un observable (o publicador):</p>
 <pre><code class="language-csharp">IObservable&lt;int&gt; flujoDatos = datos.ToObservable();
 </code></pre>
@@ -404,7 +402,7 @@ Terminé de leer los datos
 Terminé de recibir los datos
 </code></pre>
 <p>Pareciera que nada cambió, sin embargo, la diferencia está en la forma en la que los números llegaron al método <code>Console.Write</code>:</p>
-<h2>La diferencia</h2>
+<h2 id="la-diferencia">La diferencia</h2>
 <p>La diferencia radica en que usando la primera forma (la no reactiva), en el código le estamos dando dos órdenes al programa:</p>
 <ol>
 <li>Sacar los datos del arreglo</li>
@@ -416,12 +414,12 @@ Terminé de recibir los datos
 <li>Una vez que tenga el dato, imprimirlo a pantalla</li>
 </ol>
 <p>En este caso no es necesario que le ordenemos sacar los datos del flujo de datos, estos llegarán solos al <em>observador</em>, lo único que tenemos que hacer es decirle cómo reaccionar cuando recibe información. Este modo de programación se conoce como <strong>programación declarativa</strong>.</p>
-<h3>Pull vs. Push</h3>
+<h3 id="pull-vs.push">Pull vs. Push</h3>
 <p>Una forma de visualizar esta diferencia puede ser con las notificaciones que recibes en tu teléfono móvil: cada vez que alguien te menciona en un tweet o te llega un correo electrónico, tu teléfono recibe una notificación <em>push</em> del servidor, a la cual debe reaccionar de determinada manera. Mientras que si tu entras a la app del correo o a la app de Twitter y refrescas la aplicación eres tú mismo quien está solicitando (mediante un <em>pull</em>) la información.</p>
 <p>Pero bueno, ese fue un ejemplo muy, muy básico de las <em>Reactive Extensions</em>, ¿vemos otro un poco más elaborado?</p>
-<h2>No solo enteros</h2>
+<h2 id="no-solo-enteros">No solo enteros</h2>
 <p>En este caso estamos utilizando un flujo de <code>int</code>s, pero la programación reactiva tiene muchos usos: imagina una aplicación para escritorio. Podrías visualizar a los clicks que el usuario hace en ella como un flujo, un flujo de clicks. Y hacer que la app <strong>reaccione</strong> a ellos mediante este modo de programación.</p>
-<h2>LINQ y Rx</h2>
+<h2 id="linq-y-rx">LINQ y Rx</h2>
 <p>Empaquetadas junto con las <em>Reactive Extensions</em>, vienen otros métodos de extensión que permiten aplicar muchos de las operaciones de Linq sobre los <code>IObservables</code> como si de secuencias tradicionales se tratara, entonces podemos filtrar con <code>Where</code>:</p>
 <pre><code class="language-csharp">flujoDatos
     .Where(dato =&gt; dato % 3 == 0)
@@ -461,9 +459,9 @@ flujoDatos
 3, 
 Terminé de recibir los datos y presenté el menor
 </pre>
-<h2>Concurrencia y Rx</h2>
+<h2 id="concurrencia-y-rx">Concurrencia y Rx</h2>
 <p>Otra de las ventajas que nos ofrece la programación reactiva es la asincronía bajo la que está diseñado para operar. Al ser reactiva permite que las acciones del programa no tengan que seguir una secuencia y los mensajes se envíen/reciban en cualquier momento. También, usando otros métodos de extensión como <code>SuscribeOn</code> y <code>ObserveOn</code> se puede delegar la ejecución de los <code>IObservers</code> a otros hilos distintos de los que fue llamado.</p>
-<h2>Hagamos todo reactivo... ¿o no?</h2>
+<h2 id="hagamos-todo-reactivo.o-no">Hagamos todo reactivo... ¿o no?</h2>
 <p>Espero haberte dado un pequeño empujón hacia la programación reactiva, pero ahora para completar el trabajo es importante que te diga que no significa que vayas por el código de tus apps convirtiendo todos los <code>IEnumerable</code> a flujos de dato o que busques la manera de convertir todos tus eventos a <code>IObservables</code>, no. Considera usar este paradigma para los casos en los que:</p>
 <ul>
 <li>Tengas que lidiar con eventos de interfaz gráfica como un usuario dando clicks o moviendo <em>sliders</em></li>
@@ -474,43 +472,253 @@ Terminé de recibir los datos y presenté el menor
 <p>Definitivamente Rx es un tema que da para más y sin duda <a href="..\reactive-extensions-2" target="_blank">estaré escribiendo sobre él</a> en el futuro.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -526,5 +734,5 @@ Terminé de recibir los datos y presenté el menor
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
   
   <meta charset="utf-8">
@@ -9,7 +9,8 @@
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
 
   <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/main.js"></script>
@@ -29,30 +30,30 @@
 <meta name="theme-color" content="#eeeef2">
 
 
-<title>Machine Learning en .NET | That C# guy</title>
+  <title>Machine Learning en .NET | That C# guy</title>
 
-<!-- Search Engine -->
-<meta name="description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
-<meta name="image" content="https://i.imgur.com/8YI9ZuN.png">
-<!-- Schema.org for Google -->
-<meta itemprop="name" content="Machine Learning en .NET">
-<meta itemprop="description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
-<meta itemprop="image" content="https://i.imgur.com/8YI9ZuN.png">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Machine Learning en .NET">
-<meta name="twitter:description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
-<meta name="twitter:site" content="@io_exception">
-<meta name="twitter:creator" content="@io_exception">
-<meta name="twitter:image" content="https://i.imgur.com/8YI9ZuN.png">
-<!-- Open Graph general (Facebook, Pinterest & Google+) -->
-<meta name="og:title" content="Machine Learning en .NET">
-<meta name="og:description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
-<meta name="og:image" content="https://i.imgur.com/8YI9ZuN.png">
-<meta name="og:url" content="https://thatcsharpguy.com/">
-<meta name="og:site_name" content="That C# guy">
-<meta name="og:locale" content="es">
-<meta name="og:type" content="website">
+  <!-- Search Engine -->
+  <meta name="description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+  <meta name="image" content="https://i.imgur.com/8YI9ZuN.png">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Machine Learning en .NET">
+  <meta itemprop="description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+  <meta itemprop="image" content="https://i.imgur.com/8YI9ZuN.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Machine Learning en .NET">
+  <meta name="twitter:description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="https://i.imgur.com/8YI9ZuN.png">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Machine Learning en .NET">
+  <meta name="og:description" content="Machine Learning se puede hacer en muchos lenguajes, ¡C# es uno de ellos! en este post te enseño cómo es que podemos usar ML.NET para esta tarea.">
+  <meta name="og:image" content="https://i.imgur.com/8YI9ZuN.png">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,14 +62,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GPXCSH21CP');
 </script>
 
         
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         <header class="site-header " role="banner">
   <div class="wrapper">
      <div class="site-header-inner">
@@ -239,22 +238,21 @@
     storeScrollData();
   })();
 </script>
-          
         
-
         <div class="theme-toggle">
-    <input type="checkbox" id="theme-switch">
-    <label for="theme-switch">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
       <div class="toggle"></div>
       <div class="names">
-        <p class="light">Light</p>
-        <p class="dark">Dark</p>
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
       </div>
-    </label>
-  </div>
+  </label>
+</div>
   
-  
-  <script>
+
+
+<script>
     (function() {
       var sw = document.getElementById('theme-switch');
       var html = document.getElementsByTagName('html')[0];
@@ -347,17 +345,17 @@
       }
     })();
   </script>
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                
-<h1>Machine Learning en .NET</h1>
-
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        
 <p>Python ha llegado a conquistar el mundo, y a veces pareciera que es la única herramienta que podemos usar para hacer <em>machine learning</em>. Sin embargo, esto no podría estar más lejos de la realidad puesto que los desarrolladores de C# podemos usar nuestro lenguaje favorito para hacer este tipo de tareas. En este post les voy a enseñar cómo es que pueden usar el poder de <em>machine learning</em> en .NET.</p>
 <p>Vamos a abordar uno de los problemas que es considerado como el &quot;hola mundo&quot; del aprendizaje automático; me refiero a predecir la supervivencia de los pasajeros del Titanic. Obtén los datos <a href="https://www.kaggle.com/c/titanic/">en Kaggle</a>.</p>
-<h2>Tres proyectos</h2>
+<h2 id="tres-proyectos">Tres proyectos</h2>
 <p>En su forma más básica, un proyecto de <em>machine learning</em> se divide en dos etapas: entrenamiento y producción. Nosotros vamos a reflejar esta separación creando dos proyectos, y por la forma en que <a href="http://ml.net/">ML.NET</a> funciona, tenemos que crear un proyecto auxiliar, es decir tres proyectos en total.</p>
 <p>Mi recomendación es que el proyecto de entrenamiento sea una aplicación de consola (<code>Titanic.Train</code>), el proyecto auxiliar (<code>Titanic.Common</code>) sea una biblioteca de clases y el último proyecto sea la aplicación en la que vas a usar tu algoritmo ya entrenado, en mi caso, es simplemente otra aplicación de consola (<code>Titanic.Production</code>):</p>
 <p>Podemos usar <code>dotnet</code> para crear los proyectos:</p>
@@ -389,7 +387,7 @@ dotnet sln add \
 │   └── Titanic.Train.csproj
 └── Titanic.sln
 </code></pre>
-<h2>El paquete <code>Microsoft.ML</code></h2>
+<h2 id="el-paquete-microsoft.ml">El paquete <code>Microsoft.ML</code></h2>
 <p>El framework que nos va a permitir hacer <em>machine learning</em> viene contenido dentro de un paquete de NuGet llamado <code>Microsoft.ML</code>, para agregarlo a nuestros proyectos, de nuevo  vamos a usar <code>dotnet</code>:</p>
 <pre><code class="language-bash">dotnet add Titanic.Common/Titanic.Common.csproj package Microsoft.ML
 dotnet add Titanic.Train/Titanic.Train.csproj package Microsoft.ML
@@ -400,13 +398,13 @@ dotnet add Titanic.Production/Titanic.Production.csproj package Microsoft.ML
 <li><code>using Microsoft.ML.Data;</code></li>
 <li><code>using Microsoft.ML;</code></li>
 </ul>
-<h2>El contexto</h2>
+<h2 id="el-contexto">El contexto</h2>
 <p>Una pieza central en <a href="http://ml.net/">ML.NET</a> es conocida como el contexto, este es un objeto a partir del cual vamos a gestionar todo el proceso: desde la lectura de los datos hasta el entrenamiento del algoritmo de nuestra elección.</p>
 <pre><code class="language-csharp">var mlContext = new MLContext(seed: 42);
 </code></pre>
 <p>El argumento <code>seed</code> es importante si queremos obtener resultados reproducibles si es que estamos experimentando con diversos modelos/transformaciones, cuando estés contento con un determinado modelo o transformaciones, recuerda remover este parámetro.</p>
-<h2>En entrenamiento</h2>
-<h3>Leyendo los datos</h3>
+<h2 id="en-entrenamiento">En entrenamiento</h2>
+<h3 id="leyendo-los-datos">Leyendo los datos</h3>
 <p>Una de las características de C# es que siempre tenemos que ser muy específicos en los tipos de dato que queremos manejar dentro de nuestros programas, así que para llevar a cabo la lectura debemos crear una clase que represente cada una de nuestras observaciones, en nuestro caso, una observación es un pasajero del Titanic (o una fila dentro de nuestro archivo de datos <em>.csv</em>).</p>
 <p>Aquí es importante tener como referencia nuestro archivo CSV, ya que necesitamos tener en cuenta el número de columna en el cual la información está ubicada ya que en nuestra clase modelando cada observación debemos especificar esta información por medio del decorador <code>LoadColumn</code>, por ejemplo, esta es una vista previa del archivo <em>.CSV</em>:</p>
 <p><img src="https://i.imgur.com/0kS7CY6.png" alt="CSV representation" /></p>
@@ -450,7 +448,7 @@ dotnet add Titanic.Production/Titanic.Production.csproj package Microsoft.ML
     hasHeader: true
 );
 </code></pre>
-<h3>Train-test split</h3>
+<h3 id="train-test-split">Train-test split</h3>
 <p>Debes saber que en para entrenar y evaluar un algoritmo de <em>machine learning</em> es importante contar con al menos dos conjuntos de datos: validación y prueba, no voy a entrar en detalles aquí, pero te recomiendo que le eches un ojo a <a href="https://www.youtube.com/watch?v=778Pa63FS78">mi video en YouTube sobre el tema</a>.</p>
 <p>Para lograr esta separación en C# es necesario usar nuevamente el contexto, para ser más específico, el método <code>TrainTestSplit</code>, con un argumento que nos permitirá especificarle que queremos que el 20% de los datos sean destinados al conjunto de prueba:</p>
 <pre><code class="language-csharp">var splits = context.Data.TrainTestSplit(
@@ -459,11 +457,11 @@ dotnet add Titanic.Production/Titanic.Production.csproj package Microsoft.ML
 );
 </code></pre>
 <p>Más adelante veremos cómo usar el objeto <code>splits</code> (que es un objeto de la clase <code>DataOperationsCatalog.TrainTestData</code>).</p>
-<h3>Transformations</h3>
+<h3 id="transformations">Transformations</h3>
 <p>Esta es una sección pesada, puesto que aquí es donde sucede una de las partes más grandes del <em>machine learning</em> que es el pre-procesamiento de los datos. Usualmente tenemos que realizar diversas transformaciones a nuestros datos, y aquí simplemente vamos a hablar de algunas de ellas, como practicante de la ciencia de datos es tu labor intentar diversas transformaciones para ver cuáles son las que resultan en un mejor modelo predictivo.</p>
 <p>Es importante entender que los algoritmos de <em>machine learning</em> usualmente funcionan con números flotantes como entrada, entonces hay que transformar cualquier entero, cualquier cadena a una representación numérica.</p>
 <p>Otra de las cosas importantes, y esta es específica a <em>ML.NET</em> es que el nombre de las columnas es de vital importancia a la hora de entrenar el modelo. Hasta el momento, nuestros datos tienen nombres como <em>&quot;Id&quot;</em>, <em>&quot;Survived&quot;</em>, <em>&quot;TicketClass&quot;</em>, <em>&quot;Name&quot;</em>... Antes de entrenar nuestro algoritmo debemos tener dos columnas con nombres específicos: <strong>&quot;Label&quot;</strong> and <strong>&quot;Features&quot;</strong>, no te preocupes, en un momento te cuento como lograr esto.</p>
-<h4>Obteniendo nuestra <em>&quot;Label&quot;</em></h4>
+<h4 id="obteniendo-nuestra-label">Obteniendo nuestra <em>&quot;Label&quot;</em></h4>
 <p>El objetivo de nuestro algoritmo es encontrar si alguien sobrevivió al accidente del Titanic, hasta el momento tenemos dentro de nuestros datos la columna <em>&quot;Survived&quot;</em>, pero que hasta el momento es de tipo entero, 0 para alguien que no sobrevivió, 1 para alguien que sí. Sin embargo, necesitamos transformar esta en una columna de valor <code>bool</code> (y además de todo, vamos a nombrar esta nueva columna con el nombre <strong>&quot;Label&quot;</strong>), podemos lograr esto con el siguiente código:</p>
 <pre><code class="language-csharp">var booleanMap = context.Data.LoadFromEnumerable(new[]
 {
@@ -490,7 +488,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
 <li>Y por último, <code>inputColumnName</code>, el nombre de la columna que queremos convertir, en este caso es <i>"Survived"</i>.</li>
 </ul>
 </ul>
-<h4>Variables categóricas</h4>
+<h4 id="variables-categoricas">Variables categóricas</h4>
 <p>La columna <code>TicketClass</code> es de tipo <code>int</code> (hice un video sobre los <a href="https://www.youtube.com/watch?v=SAWsQ3QmmJE">tipos de variable</a> que hay en la ciencia de datos) sin embargo el dejarla como tal no es buena idea porque la clase de los tickets es un ejemplo de una variable categórica, por tanto la mejor forma de representar esta variable es por medio de un <em>one-hot vector</em>:</p>
 <pre><code class="language-csharp">var transformTicketClassOneHot = context.Transforms.Categorical.OneHotEncoding(
     outputColumnName: &quot;OneHotTicketClass&quot;,
@@ -507,7 +505,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
     }
 );
 </code></pre>
-<h4>¿Valores faltantes?</h4>
+<h4 id="valores-faltantes">¿Valores faltantes?</h4>
 <p>En nuestro dataset tenemos una columna llamada <code>Fare</code>, que es la tarifa que cada uno de los pasajeros pagó por su boleto. ¡Pero cuidado! que hay algunas observaciones para las que no tenemos valores. Una de las opciones que tenemos cuando nos enfrentamos a este tipo de situaciones es rellenar los valores faltantes con un valor derivado de los datos que sí tenemos.</p>
 <p>En este caso, podemos optar por seleccionar el valor promedio como el valor a usar para rellenar los valores faltantes:</p>
 <pre><code class="language-csharp">var transformFillMeanFare = context.Transforms.ReplaceMissingValues(
@@ -516,7 +514,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
     replacementMode: ReplacementMode.Mean
 );
 </code></pre>
-<h4>Reescalando los valores</h4>
+<h4 id="reescalando-los-valores">Reescalando los valores</h4>
 <p>Ahora que tenemos las tarifas completas (sin valores faltantes) debemos ejecutar otro proceso que es conocido como <a href="https://ichi.pro/es/por-que-la-normalizacion-de-datos-es-importante-para-clasificadores-no-lineales-81132159650096"><em>Normalización</em></a>, consiste a grandes rasgos en poner los valores de nuestras variables en escalas similares para impedir que el algoritmo reaccione fuertemente a ciertos valores.</p>
 <p>Así es como la implementamos en ML.NET:</p>
 <pre><code class="language-csharp">var transformNormaliseFare = context.Transforms.NormalizeMinMax(
@@ -524,7 +522,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
     inputColumnName: &quot;Fare&quot;
 );
 </code></pre>
-<h4>Combinando todas nuestras transformaciones</h4>
+<h4 id="combinando-todas-nuestras-transformaciones">Combinando todas nuestras transformaciones</h4>
 <p>Podríamos hacer muchas más transformaciones en nuestras variables, pero para no hacer este artículo aún más largo de lo que ya es, vamos a dejarlo ahí. El siguiente paso es obtener nuestra importantísima columna <strong>&quot;Features&quot;</strong> a partir de las transformaciones que ya realizamos. Vamos a concatenar todos nuestros nuevos valores con otra transformación de ML.NET:</p>
 <pre><code class="language-csharp">var transformConcatenateFeatures = context.Transforms.Concatenate(
     outputColumnName: &quot;Features&quot;,
@@ -532,7 +530,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
 );
 </code></pre>
 <p>Esta transformación es para unificar todas nuestras variables bajo un nuevo nombre, nuestra preciada columna <strong>&quot;Features&quot;</strong>.</p>
-<h3>Algoritmo predictor</h3>
+<h3 id="algoritmo-predictor">Algoritmo predictor</h3>
 <p>El siguiente paso en el desarrollo es elegir el modelo de machine learning que vamos a utilizar ML.NET contiene varios algoritmos para diversas tareas, como nuestro problema es un problema de clasificación binaria, vamos a usar un <code>SdcaLogisticRegression</code>, puedes visitar este enlace para <a href="https://docs.microsoft.com/en-us/dotnet/machine-learning/how-to-choose-an-ml-net-algorithm">encontrar el mejor algoritmo para tu problema</a>:</p>
 <pre><code class="language-csharp">var trainer = context.BinaryClassification.Trainers.SdcaLogisticRegression(
     labelColumnName: &quot;Label&quot;,
@@ -540,7 +538,7 @@ var transformLabel = context.Transforms.Conversion.MapValue(
 );
 </code></pre>
 <p>Nuevamente, todo parte de la instancia de <code>MLContext</code> que creamos al inicio.</p>
-<h3>Creando un pipeline</h3>
+<h3 id="creando-un-pipeline">Creando un pipeline</h3>
 <p>Hasta el momento todas las partes de nuestro programa de <em>machine learning</em> existen aisladas unas de las otras; el siguiente paso es ensamblar todas las partes. Esta es una de las grandes ventajas que a mi parecer ML.NET nos da sobre otros frameworks, ya que nos fuerza a integrar todo lo relacionado con el modelo en una colección de operaciones, o, <em>pipeline</em> por su nombre en inglés.</p>
 <p>En C#, para agrupar todas las transformaciones que hemos hecho podemos usar el método <code>Append</code> en ellas, de la siguiente manera:</p>
 <pre><code class="language-csharp">var pipeline = transformLabel
@@ -551,12 +549,12 @@ var transformLabel = context.Transforms.Conversion.MapValue(
     .Append(transformConcatenateFeatures)
     .Append(trainer);
 </code></pre>
-<h3>Entrenando todo el pipeline</h3>
+<h3 id="entrenando-todo-el-pipeline">Entrenando todo el pipeline</h3>
 <p>Una vez ensamblado, podemos iniciar el entrenamiento de nuestro algoritmo. La forma de hacerlo es a través de una simple línea de código llamando al método <code>Fit</code> y usando simplemente los datos de entrenamiento (¿recuerdas la separación de los datos que hicimos anteriormente en la variable <code>split</code>?):</p>
 <pre><code class="language-csharp">var trainedModel = pipeline.Fit(splits.TrainSet);
 </code></pre>
 <p>Y listo... tenemos nuestro modelo ya entrenado. Sin embargo, no es el fin de la aventura, aún hay mucho por hacer.</p>
-<h3>Evaluación</h3>
+<h3 id="evaluacion">Evaluación</h3>
 <p>Una vez entrenado el modelo toca evaluarlo para poder decir qué tan efectivo es; mientras que cada problema tendrá sus propias formas de ser evaluado, existen un conjunto de métricas genéricas que podemos utilizar para evaluar cualquier problema que involucre una clasificación binaria:</p>
 <pre><code class="language-csharp">var metrics = context.BinaryClassification.EvaluateNonCalibrated(
     data: trainedModel.Transform(splits.TestSet),
@@ -568,7 +566,7 @@ Console.WriteLine($&quot;Precisión: {metrics.PositivePrecision:0.##}&quot;);
 Console.WriteLine($&quot;Recall:    {metrics.PositiveRecall:0.##}&quot;);
 </code></pre>
 <p>Si te das cuenta, volvemos a hacer uso del <code>context</code> y de nuestro <code>trainedModel</code>, además de nuestro <code>TestSet</code>. Para terminar, obtenemos en la consola los resultados de la evaluación de nuestro algoritmo (que bueno, por el momento podrán no ser los mejores)...</p>
-<h3>Guardando el modelo entrenado</h3>
+<h3 id="guardando-el-modelo-entrenado">Guardando el modelo entrenado</h3>
 <p>Por último, si estamos contentos con los resultados de nuestro algoritmo podemos guardarlo en un archivo <em>.zip</em>, seguimos usando el <code>context</code> y el modelo recién entrenado:</p>
 <pre><code class="language-csharp">context.Model.Save(
     model: trainedModel,
@@ -599,18 +597,18 @@ Recall:    0.41
 ├── model.zip
 └── train.csv
 </code></pre>
-<h3>Continua experimentando</h3>
-<p>Como puedes ver, los resultados no son los mejores, todavía se pueden seguir mejorando y eso ya es tarea tuya, espero hasta el momento la forma de construir un <em>pipeline</em> en C# haya quedado clara. Cualquier duda o pregunta, <a href="https://twitter.com/io_exception">contactame en Twitter @io_exception</a>.@io_exception](https://twitter.com/io_exception)</p>
-<h2>En producción</h2>
+<h3 id="continua-experimentando">Continua experimentando</h3>
+<p>Como puedes ver, los resultados no son los mejores, todavía se pueden seguir mejorando y eso ya es tarea tuya, espero hasta el momento la forma de construir un <em>pipeline</em> en C# haya quedado clara. Cualquier duda o pregunta, <a href="https://twitter.com/io_exception">contactame en Twitter @io_exception</a>.@io_exception](<a href="https://twitter.com/io_exception">https://twitter.com/io_exception</a>)</p>
+<h2 id="en-produccion">En producción</h2>
 <p>El siguiente paso es implementar nuestro modelo en producción, para lo cual dejaremos en paz nuestro proyecto de entrenamiento y nos moveremos al proyecto productivo.</p>
-<h3>Leyendo el modelo entrenado</h3>
+<h3 id="leyendo-el-modelo-entrenado">Leyendo el modelo entrenado</h3>
 <p>El primer paso es crear un nuevo <code>MLContext</code>, recuerda, en producción no vamos a usar el argumento <code>seed</code>:</p>
 <pre><code class="language-csharp">var context = new MLContext();
 </code></pre>
 <p>Nuestro siguiente paso leer el modelo que recién entrenamos, de nuevo, usando el contexto que creamos:</p>
 <pre><code class="language-csharp">var trainedModel = context.Model.Load(&quot;model.zip&quot;, out var schema);
 </code></pre>
-<h4>¿Y nuestras predicciones?</h4>
+<h4 id="y-nuestras-predicciones">¿Y nuestras predicciones?</h4>
 <p>Nuevamente, recordemos que C# es muy estricto con el tipado, así que hay que crear una clase para almacenar las predicciones, es importante que la clase contenga tres propiedades: <code>PredictedLabel</code>, <code>Probability</code> y <code>Score</code>:</p>
 <pre><code class="language-csharp">namespace Titanic.Common
 {
@@ -630,7 +628,7 @@ Recall:    0.41
     transformer: trainedModel
 );
 </code></pre>
-<h3>Prediciendo en nuevos valores</h3>
+<h3 id="prediciendo-en-nuevos-valores">Prediciendo en nuevos valores</h3>
 <p>Aquí es en donde puedes echar a andar tu imaginación (o simplemente tomar en cuenta los requisitos del negocio) a la hora de predecir los valores. Ya sea que tu modelo de <em>machine learning</em> esté en la nube detrás de una API REST o corriendo en una aplicación de escritorio, nuestro modelo está listo para recibir objetos de la clase <code>Passenger</code> y regresar un objeto de la clase <code>SurvivalPrediction</code>.</p>
 <p>En este caso nosotros tenemos una simple aplicación de consola y un pasajero predefinido:</p>
 <pre><code class="language-csharp">var newPassenger = new Passenger
@@ -656,43 +654,253 @@ Console.WriteLine($&quot;El modelo dice que el pasajero... &quot; + survivalStat
 <p><em>et voilà</em>, hemos entrenado nuestro primer modelo de <em>machine learning</em> en .NET con C#. Recuerda, como en la programación, lo importante es practicar, practicar, practicar. Este código está en <a href="https://github.com/thatcsharpguy/ml.net">mi repositorio ml.net en GitHub</a> para que lo veas completo y en todo su esplendor. Si tienes dudas me puedes mandar un tweet a <a href="https://twitter.com/io_exception">@io_exception</a> para tratar de descubrirlo juntos.</p>
 
 
+    </div>
+</article>
 
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            
-                                <li>
-                                    <a href="https://github.com/fferegrino">
-                                    GitHub<span> <i class="fa fa-github"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://twitter.com/io_exception">
-                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="https://tcsg.dev/discord">
-                                    Discord<span> <i class="fa fa-discord"></i> </span>
-                                    </a>
-                                </li>
-                            
-                            </ul>
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
                     </section>
                 </div>
             </div>
@@ -708,5 +916,5 @@ Console.WriteLine($&quot;El modelo dice que el pasajero... &quot; + survivalStat
      </div>
    </div>
  </footer>
-</body>
+    </body>
 </html>
