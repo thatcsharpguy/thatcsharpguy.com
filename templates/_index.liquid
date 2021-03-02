@@ -14,7 +14,7 @@
       </h2>
       <div class="post-meta">
         <span class="post-date"><i class="fa fa-calendar"></i> {{ post.date_time | date:"MMMM dd, yyyy" }}</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> {{ post.author  }}</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> {{ post.author | site.default_author  }}</span>
       </div>
       <p class="post-excerpt">{{ post.summary }}</p>
 
@@ -52,17 +52,21 @@
 </div>
 {% endblock %}
 {% block sidebar %}
-<div class="common-list">
-    <ul>
-      {% for tag in tags %}
-        {% if tag.count > 10 %}
-        <li>
-          <a href="{{tag.link.url}}">
-            {{tag.link.text}}<span>{{ tag.count }}</span>
-          </a>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+<div class="post-menu">
+  <div class="post-menu-title">Tags</div>
+    <div class="common-list">
+        <ul>
+          {% for tag in tags %}
+            {% if tag.count > 10 %}
+            <li>
+              <a href="{{tag.link.url}}">
+                {{tag.link.text}}<span>{{ tag.count }}</span>
+              </a>
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
   </div>
 {% endblock %}

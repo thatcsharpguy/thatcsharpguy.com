@@ -20,8 +20,22 @@
                 {% endblock %}
                     </section>
                     <section class="sidebar">
-                {% block sidebar %}
-                {% endblock %}
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            {% for link in site.social %}
+                                <li>
+                                    <a href="{{link.url}}">
+                                    {{link.text}}<span> <i class="fa fa-{{link.text | downcase }}"></i> </span>
+                                    </a>
+                                </li>
+                            {% endfor%}
+                            </ul>
+                        </div>
+                    </div>
+                    {% block sidebar %}
+                    {% endblock %}
                     </section>
                 </div>
             </div>

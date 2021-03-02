@@ -4,8 +4,14 @@ description: Un sitio en donde se habla a veces de programación, a veces de cie
 default-author: Antonio Feregrino
 site-url: https://thatcsharpguy.com/
 social:
-  - name: GitHub
-    link: https://github.com/lockdownblog/lockdown
+  - text: GitHub
+    url: https://github.com/fferegrino
+  - text: Twitter
+    url: https://twitter.com/io_exception
+  - text: YouTube
+    url: https://twitter.com/io_exception
+  - text: Discord
+    url: https://tcsg.dev/discord
 post-routes:
     - /post/{}/index.html
     - /post/{}.html
