@@ -6,7 +6,7 @@ tweet_id:  1133103424772431872
 categories:  data-science  
 summary:  Clasificación usando support vector machines  
 lang:  es
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video  
 ---

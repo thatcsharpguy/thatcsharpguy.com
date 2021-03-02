@@ -5,7 +5,7 @@ youtube_id: UvaZZi_zgSo
 summary:  Tu, ¿programas en inglés?
 tweet_id:  976181727671603200
 lang:  en
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

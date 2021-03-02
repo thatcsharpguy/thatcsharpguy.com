@@ -5,7 +5,7 @@ youtube_id: ONSxjoV9LjM
 categories:  data-science  
 summary:  Entrenar mucho o poco... he ahí el dilema. Conoce sobre el sub ajuste, el sobre ajuste y cómo podemos combatirlo.   
 lang:  es
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

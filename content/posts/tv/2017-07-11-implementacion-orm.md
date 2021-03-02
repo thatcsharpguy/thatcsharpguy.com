@@ -5,7 +5,7 @@ youtube_id: cIZB1wNMPlY
 images_folder:  /tv/orm/
 summary:  Este es un ejemplo de ORM, el framework Entity Framework, inicialmante desarrollado por Microsoft.
 featured_image:  overlay-code.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

@@ -5,7 +5,7 @@ youtube_id: 8rKy1juvVmI
 images_folder:  /tv/unit-test/
 summary:  Estas pruebas es donde componentes individuales del software se someten a pruebas. El propósito de estas es asegurar que cada unidad de trabajo funciona individualmente como debería. Es decir, funciona cuando se supone que debe funcionar, responde con lo que se supone que tiene que responder, falla como y cuando se supone que debe fallar.
 featured_image:  featured-yt.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

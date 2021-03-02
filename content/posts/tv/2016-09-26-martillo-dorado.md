@@ -5,7 +5,7 @@ youtube_id: 52VgvMQWydA
 images_folder:  /tv/golden-hammer/
 summary:  La falacia del martillo de oro es una de las falacias en las cuales los desarrolladores caemos con mayor facilidad, esta implica el propner una única solución para distintos tipos de problemas. Estas "soluciones" pueden ser un IDE, un patrón de diseño o hasta un lenguaje de programación.
 featured_image:  featured.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

@@ -5,7 +5,7 @@ youtube_id: R7fVPM3WRUM
 images_folder:  /tv/competitive/
 summary:  La programación competitiva enfrenta a programadores que tienen que resolver problemas empleando conocimientos de ciencias computacionales, matemáticas y lógica. Todo esto mediante una sencilla aplicación para computadora.
 featured_image:  featured.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

@@ -5,7 +5,7 @@ youtube_id: VsaiJtZy-Kg
 categories:  development, python  
 summary:  Primera parte de este mini tutorial sobre NumPy y Pandas   
 lang:  es
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

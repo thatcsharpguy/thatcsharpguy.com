@@ -5,7 +5,7 @@ youtube_id: ym4E-6EF3SA
 images_folder:  /tv/mvc/
 summary:  Así es como aplico el patrón MVC en algunos de los proyectos que desarrollo.
 featured_image:  implementacion.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

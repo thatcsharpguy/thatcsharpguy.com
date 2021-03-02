@@ -6,7 +6,7 @@ images_folder:  /tv/memoization/
 summary:  La memoización es una técnica de optimización de algoritmos que permite acelerar la ejecución de una función.
 featured_image:  featured.png
 tweet_id:  935202027583483904
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

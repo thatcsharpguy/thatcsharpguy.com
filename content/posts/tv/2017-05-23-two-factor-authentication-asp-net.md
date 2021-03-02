@@ -5,7 +5,7 @@ youtube_id: E4ROr6_dETU
 images_folder:  /tv/2fa/
 summary:  Aprende a implementar la autenticación de dos factores con ASP.NET Core y Goolge Authenticator.
 featured_image:  code-featured.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

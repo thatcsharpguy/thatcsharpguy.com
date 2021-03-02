@@ -5,7 +5,7 @@ youtube_id: _UWkovEocA8
 images_folder:  /tv/ciencia-datos/
 summary:  La ciencia de datos se encarga de transformar los datos en información, y hace lo posible por que esta información se transforme en conocimiento.
 featured_image:  featured.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

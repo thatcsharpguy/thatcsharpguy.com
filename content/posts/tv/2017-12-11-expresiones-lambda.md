@@ -6,7 +6,7 @@ images_folder:  /tv/lambdas/
 summary:  Las expresiones lambda son bloques de código que NO están asociados con un identificador.
 featured_image:  featured.png
 tweet_id:  942879414903300096
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

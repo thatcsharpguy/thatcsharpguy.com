@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bienvenido a los Xamarin Workbooks
+slug: xamarin-workbooks
 date: 2016-11-29 19:00:01
 author: Antonio Feregrino
 summary: Los Workbooks son una especie de documentos &quot;vivos&quot; con los que puedes compilar y ejecutar código en C#.

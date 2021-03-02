@@ -6,7 +6,7 @@ images_folder:  /tv/control-versiones/
 categories:  c-sharp
 summary:  El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo.
 featured_image:  featured.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

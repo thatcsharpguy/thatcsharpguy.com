@@ -5,7 +5,7 @@ youtube_id: W-p8wia0HzA
 images_folder:  /tv/unit-test/
 summary:  Aprende a crear pruebas unitarias usando C#
 featured_image:  featured.jpg
-tags:  AprendeCSharp, VisualStudio, Tv
+tags:  AprendeCSharp, VisualStudio, YouTube
 featured_tag:  AprendeCSharp
 layout: video
 ---

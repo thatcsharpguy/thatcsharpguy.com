@@ -5,7 +5,7 @@ youtube_id: Ug4KwWVMEIc
 categories:  development, python  
 summary:  La regresión lineal es uno de los algoritmos más básicos de machine learning, es el punto de entrada a muchos otros algoritmos de este campo.   
 lang:  es
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

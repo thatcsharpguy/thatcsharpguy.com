@@ -5,7 +5,7 @@ youtube_id: skqXI77RuvU
 images_folder:  /tv/i18nl10n/
 summary:  La internacionalización y localización son un par de procesos que nos ayudarán a llevar nuestras aplicaciones a más lugares del mundo.
 featured_image:  featured.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

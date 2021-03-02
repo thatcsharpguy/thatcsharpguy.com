@@ -5,7 +5,7 @@ youtube_id: 6KhxYN8SQjw
 images_folder:  /tv/meta/
 summary:  El canal llegó a 5̶0̶0̶ 534 suscriptores y decidí hacer este video en el que no hablo de nada sobre el desarrollo. La programación habitual regresa la siguiente semana.
 featured_image:  libros.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---
