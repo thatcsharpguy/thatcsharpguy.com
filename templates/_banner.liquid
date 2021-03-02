@@ -1,15 +1,15 @@
-  {% if site.extras.banner %}
-  <section class="page-banner">
+{% if site.extras.banner %}
+<section class="page-banner">
     <div class="page-banner-img">
-      <div style="background-image: url(/images/site/home.jpg)"></div>
+        <div style="background-image: url(/images/site/home.jpg)"></div>
     </div>
     <div class="wrapper">
-      <div class="page-banner-inner">
-          <div class="page-banner-default">
-            <h1 class="page-banner-heading">{{ heading | default:  site.title | escape }}</h1>
-            <h2 class="page-banner-subheading">Subtitle</h2>
-          </div>
-      </div>
+        <div class="page-banner-inner">
+            <div class="page-banner-default">
+                <h1 class="page-banner-heading">{{ heading | default:  site.title | escape }}</h1>
+                <h2 class="page-banner-subheading">Subtitle</h2>
+            </div>
+        </div>
     </div>
-  </section>
-  {% endif %}
+</section>
+{% endif %}

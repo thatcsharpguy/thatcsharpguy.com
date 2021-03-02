@@ -1,45 +1,38 @@
 <!DOCTYPE html>
-<html lang="es"  itemscope itemtype="http://schema.org/Blog">
-<head>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
         {% include 'head' %}
         {% block head %}{% endblock head %}
-</head>
-
-<body style="position: relative; min-height: 100%; top: 0px;">  
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
         {% include 'header' %}
         {% include 'banner' %}
-        
-
         {% include theme_toggle %}
-
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
-                    <section class="main">
-                {% block content %}
-                {% endblock %}
+                    <section class="main"> 
+                        {% block content %}{% endblock %}
                     </section>
                     <section class="sidebar">
-                    <div class="post-menu">
-                        <div class="post-menu-title">Sígueme en</div>
-                        <div class="common-list">
-                            <ul>
-                            {% for link in site.social %}
-                                <li>
-                                    <a href="{{link.url}}">
-                                    {{link.text}}<span> <i class="fa fa-{{link.text | downcase }}"></i> </span>
-                                    </a>
-                                </li>
-                            {% endfor%}
-                            </ul>
+                        {% include theme_toggle %}
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    {% for link in site.social %}
+                                    <li>
+                                        <a href="{{link.url}}">{{link.text}}<span><i class="fab fa-{{link.text | downcase }}"></i></span></a>
+                                    </li>
+                                    {% endfor%}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    {% block sidebar %}
-                    {% endblock %}
+                        {% block sidebar %}{% endblock %}
                     </section>
                 </div>
             </div>
         </div>
         {% include 'footer' %}
-</body>
+    </body>
 </html>

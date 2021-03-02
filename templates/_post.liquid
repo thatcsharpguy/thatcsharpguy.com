@@ -1,6 +1,12 @@
 {% extends 'base' %}
 {% block content %}
-<h1>{{ post.title }}</h1>
-{% block post_content %}
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        {% block post_content %}{% endblock %}
+    </div>
+</article>
 {% endblock %}
+
+{% block sidebar %}
+ {% include article_menu %}
 {% endblock %}
