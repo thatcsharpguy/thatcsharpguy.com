@@ -5,7 +5,7 @@ youtube_id: NmuRwZ2CYvA
 images_folder:  /tv/design/
 summary:  Los patrones de diseño son soluciones reusables a problemas comunes que ocurren en el diseño de software.
 featured_image:  youtube.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

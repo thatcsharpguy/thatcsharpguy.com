@@ -6,7 +6,7 @@ images_folder:  /tv/xamarinforms/
 categories:  c-sharp
 summary:  Con Xamarin.Forms munca había sido tan fácil crear aplicaciones multiplataforma compartiendo la mayoría del código entre ellas, incluyendo la interfaz gráfica. En este video te explico de qué se trata.
 featured_image:  featured.jpg
-tags:  Meta, Tv, Xamarin, XamarinForms
+tags:  Meta, YouTube, Xamarin, XamarinForms
 featured_tag:  Xamarin
 layout: video
 ---

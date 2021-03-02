@@ -5,7 +5,7 @@ youtube_id: LZhTBxso3Ys
 categories:  data-science
 summary:  The first thing is to learn how to organise and categorise text. The second was how to search and retrieve the documents or fragments of them, and the third one was how to analyse the text to extract the sentiments that the authors were expressing.
 lang:  en
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

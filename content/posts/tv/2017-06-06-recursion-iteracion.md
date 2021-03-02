@@ -5,7 +5,7 @@ youtube_id: a-hcghI84G8
 images_folder:  /tv/recursividad/
 summary:  La recursión e iteración son técnicas de programación que nos ayudan a resolver los mismos problemas mediante la repetición de operaciones pero atacándolos desde enfoques distintos.
 featured_image:  featured.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

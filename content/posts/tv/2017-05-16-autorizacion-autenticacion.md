@@ -5,7 +5,7 @@ youtube_id: LhxWy_I3EKM
 images_folder:  /tv/auth/
 summary:  Identidad, Autenticación y Autorización son conceptos distintos, pero que juntos forman una parte importantísima de la seguridad en una aplicación.
 featured_image:  featured.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

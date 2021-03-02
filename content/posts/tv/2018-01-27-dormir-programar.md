@@ -4,7 +4,7 @@ date:  2018-01-27 18:00:00
 youtube_id: cgUjxwyltiI
 summary:  No dormir no es una medalla de honor, y el hecho de no dormir lo suficiente por estar trabajando o haciendo tarea no debe presumirse como un logro.
 tweet_id:  957991779667718144
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

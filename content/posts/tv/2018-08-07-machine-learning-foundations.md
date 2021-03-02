@@ -5,7 +5,7 @@ youtube_id: 7CYF9pd39gQ
 categories:  data-science
 summary:  This course was a practical introduction to the foundations of machine learning. 
 lang:  en
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

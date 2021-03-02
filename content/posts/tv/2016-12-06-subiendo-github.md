@@ -6,7 +6,7 @@ images_folder:  /tv/
 summary:  Un tutorial de cómo empezar con GitHub desde cero.
 featured_image:  github.jpg
 tweet_id:  806267841733345281
-tags:  Git, GitHub, Tv
+tags:  Git, GitHub, YouTube
 featured_tag:  Tv
 layout: video
 ---

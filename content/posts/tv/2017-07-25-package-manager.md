@@ -5,7 +5,7 @@ youtube_id: tiifSYUCwQA
 images_folder:  /tv/package/
 summary:  Los gestores de paquete le otorgan a los desarrolladores una manera más sencilla de reutilizar el código creado por otros, al manejar la instalación, actualización y remoción de bibliotecas de software.
 featured_image:  package.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

@@ -6,7 +6,7 @@ images_folder:  /tv/azucar-sintactica/
 categories:  c-sharp
 summary:  El azúcar sintáctico no es más que eso, un endulzante que en teoría debe mejorar nuestra experiencia cuando escribimos código.
 featured_image:  featured.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

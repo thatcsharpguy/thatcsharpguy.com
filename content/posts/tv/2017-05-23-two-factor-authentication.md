@@ -5,7 +5,7 @@ youtube_id: j0BEPJygv4E
 images_folder:  /tv/2fa/
 summary:  La autenticación de dos factores da más seguridad a los usuarios al establecer una segunda barrera de autenticación en sus cuentas.
 featured_image:  featured.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

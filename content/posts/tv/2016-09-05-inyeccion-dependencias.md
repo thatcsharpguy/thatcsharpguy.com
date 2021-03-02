@@ -7,7 +7,7 @@ summary:  La inyección de dependencias es un patrón de diseño que nos permite
 featured_image:  featured.jpg
 github:  https://github.com/ThatCSharpGuy/patterns
 tweet_id:  772914100062093316
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

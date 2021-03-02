@@ -7,7 +7,7 @@ summary:  Los Jupyter Notebooks son una herramienta bastate útil para documenta
 featured_image:  featured.png
 tweet_id:  940237219826229248
 lang:  en
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

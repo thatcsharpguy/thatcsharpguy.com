@@ -5,7 +5,7 @@ youtube_id: GM-RcOaGN4w
 categories:  development, python  
 summary: Los entornos virtuales de Python nos ayudan a mantener una clara separación entre las dependencias de un proyecto y otro. Deberías tratar de usarlos siempre que puedas.  
 lang:  es
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

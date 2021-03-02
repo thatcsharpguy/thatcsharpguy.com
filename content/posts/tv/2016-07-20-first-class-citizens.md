@@ -7,7 +7,7 @@ categories:  c-sharp
 summary:  En programación, cuando se habla de ciudadanos de primera clase es para hacer referencia a un elemento del lenguaje que posee la mayor cantidad de privilegios.
 featured_image:  fcc.jpg
 tweet_id:  755936816021270532
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

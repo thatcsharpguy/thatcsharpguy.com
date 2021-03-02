@@ -6,7 +6,7 @@ images_folder:  /tv/jupyter/
 summary:  Mi opinión sobre la escuela.
 featured_image:  featured.png
 tweet_id:  944945874316218368
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

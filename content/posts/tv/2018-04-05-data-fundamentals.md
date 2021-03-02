@@ -5,7 +5,7 @@ youtube_id: bXipUOIxwJ0
 summary:  The first video in the series "what was I doing the last six months?
 tweet_id:  981683756674240512
 lang:  en
-tags:  Data science, Meta, Tv
+tags:  Data science, Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

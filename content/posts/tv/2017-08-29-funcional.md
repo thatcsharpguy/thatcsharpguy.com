@@ -5,7 +5,7 @@ youtube_id: pdbkwUDdfRk
 images_folder:  /tv/functional/
 summary:  Como su nombre lo indica, está centrada en funciones, las cuales son tratadas como ciudadanos de primera clase.
 featured_image:  featured.png
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

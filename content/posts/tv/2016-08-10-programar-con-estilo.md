@@ -5,7 +5,7 @@ youtube_id: Htsknf4L2o4
 images_folder:  /tv/estilo/
 summary:  Programar con estilo es escribir nuestros programas fáciles de entender, bien documentados y siguiendo convenciones de escritura previamente adoptadas.
 featured_image:  featured.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

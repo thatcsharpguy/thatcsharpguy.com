@@ -7,7 +7,7 @@ summary:  Information retrieval is a field concerned with the structure, analysi
 featured_image:  featured.png
 lang:  en
 images_folder:  /tv/hola-mundo/
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

@@ -5,7 +5,7 @@ youtube_id: sDchhCV_BKc
 images_folder:  /tv/licencias/
 summary:  Las licencias de código libre son lo que en realidad hace al código libre, ya que establecen las condiciones y lineamientos bajo los cuales el código que protegen puede ser compartido.
 featured_image:  featured.jpg
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

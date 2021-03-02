@@ -7,7 +7,7 @@ summary:  Video de presentación de este nuevo canal de YouTube en donde, a pesa
 featured_image:  featured.png
 lang:  es
 images_folder:  /tv/hola-mundo/
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---

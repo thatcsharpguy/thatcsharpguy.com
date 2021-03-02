@@ -5,7 +5,7 @@ youtube_id: QCN7ra82vqI
 summary:  En programación la evaluación perezosa, es una técnica de evaluación que consiste en retrasar el cálculo (o ejecución) de una instrucción hasta que en realidad es necesaria.
 featured_image:  featured.png
 tweet_id:  952990497202692097
-tags:  Meta, Tv
+tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
 ---
