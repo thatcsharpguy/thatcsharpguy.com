@@ -54,37 +54,15 @@
 {% block sidebar %}
 <div class="common-list">
     <ul>
-      <li>
-        <a href="/index.html">
-          All<span>13</span>
-        </a>
-      </li>
+      {% for tag in tags %}
+        {% if tag.count > 10 %}
         <li>
-          <a href="/categories.html#h-example">
-            example <span>4</span>
+          <a href="{{tag.link.url}}">
+            {{tag.link.text}}<span>{{ tag.count }}</span>
           </a>
         </li>
-        <li>
-          <a href="/categories.html#h-jekyll">
-            jekyll <span>1</span>
-          </a>
-        </li>
-        <li>
-          <a href="/categories.html#h-junk">
-            junk <span>2</span>
-          </a>
-        </li>
-        <li>
-          <a href="/categories.html#h-markdown">
-            markdown <span>4</span>
-          </a>
-        </li>
-        <li>
-          <a href="/categories.html#h-misc">
-            misc <span>2</span>
-          </a>
-        </li>
-      
+        {% endif %}
+      {% endfor %}
     </ul>
   </div>
 {% endblock %}
