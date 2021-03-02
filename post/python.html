@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Python | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Python es un lenguaje de programación inicialmente fue pensado como un simple lenguaje de scripting pero en la actualidad se ha infiltrado en el desarrollo web, la ciencia de datos, machine learning y ramas afines.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Python">
+<meta itemprop="description" content="Python es un lenguaje de programación inicialmente fue pensado como un simple lenguaje de scripting pero en la actualidad se ha infiltrado en el desarrollo web, la ciencia de datos, machine learning y ramas afines.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python">
+<meta name="twitter:description" content="Python es un lenguaje de programación inicialmente fue pensado como un simple lenguaje de scripting pero en la actualidad se ha infiltrado en el desarrollo web, la ciencia de datos, machine learning y ramas afines.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Python">
+<meta name="og:description" content="Python es un lenguaje de programación inicialmente fue pensado como un simple lenguaje de scripting pero en la actualidad se ha infiltrado en el desarrollo web, la ciencia de datos, machine learning y ramas afines.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Python</h1>
+
+<h1>Python.</h1>
+<p>Como muchos de ustedes ya sabrán, Python es un lenguaje de programación, que como muy pocos seguramente saben, tomó su nombre no de una serpiente, si no de un programa de comedia británico, pero en fin. Python fue publicado en 1991 por Guido van Rossum, inicialmente fue pensado como un simple lenguaje de scripting pero en la actualidad se ha infiltrado en el desarrollo web, la ciencia de datos, machine learning y ramas afines.</p>
+<h2>Filosofía.</h2>
+<p>La filosofía detrás de Python podría estar resumida en un documento que fue creado en 1999, ocho años después de su creación. Pueden consultar el documento en este enlace: pero les voy a decir algunos de estos principios que sí, suenan muy filosóficos:</p>
+<ul>
+<li>Beautiful is better than ugly</li>
+<li>Explicit is better than implicit</li>
+<li>Simple is better than complex</li>
+<li>Readability counts</li>
+<li>There should be one—and preferably only one—obvious way to do it.</li>
+<li>If the implementation is hard to explain, it's a bad idea.</li>
+</ul>
+<p>Lo cierto es que mientras que estos principios suenan bonitos, el escribir software todavía recae en los humanos, así que estos principios no se aplican muchas veces. Y, por ejemplo, puedes encontrar que en Python es normal que encuentres más de una manera de hacer las cosas.</p>
+<h2>Características</h2>
+<ul>
+<li><strong>Es dinámicamente tipado</strong>: Porque podemos hacer algo como esto:</li>
+</ul>
+<pre><code>a = 1
+b = 'C'
+c = [0.1, 0.5]
+</code></pre>
+<p>Es decir, no es necesario especificar el tipo de dato de una variable antes de declararla. Y no existe un compilador, ni el intérprete, que esté comprobando esto antes de que el programa se esté ejecutando.</p>
+<p>También permite algo como esto:</p>
+<pre><code>a = 1
+a = 'C'
+a = [0.1, 0.5]
+</code></pre>
+<p>Es decir, cambiar por completo el tipo de dato de una variable sin que nadie diga nada. Y créanme, esto puede ser motivo de muchas confusiones, pero una vez que te acostumbras, puede llegar a ser una herramienta muy útil.</p>
+<ul>
+<li>sin embargo, también es considerado un lenguaje <strong>fuertemente tipado</strong> (cabe recalcar que puede existir esta combinación: dinámico y fuertemente tipado a la vez). Es considerado fuertemente tipado porque el lenguaje define un conjunto de reglas (de comportamientos) bajo las cuales los tipos de dato se pueden mezclar entre ellos, y romper esas reglas generará una excepción. Toma por ejemplo el siguiente código:</li>
+</ul>
+<pre><code>a3 = &quot;a&quot; + 3 
+</code></pre>
+<p>por increíble que parezca, esto nos generaría un error puesto que los tipos de dato int y string no definen una forma de mezclarse, si quieres concatenar las cadenas tendrías que primero convertir el entero a cadena.</p>
+<ul>
+<li><strong>No existen los corchetes (o llaves)</strong>: sino que los bloques de código se definen usando indentaciones, es decir un bloque <code>if</code> se define de la siguiente manera:</li>
+</ul>
+<pre><code>if b == 'C':
+	print(&quot;b es C&quot;)
+elif b == 'A':
+	print(&quot;b es A&quot;)
+</code></pre>
+<p>O un código un poco más complejo se vería así:</p>
+<pre><code>def del_none(d):
+    for key, value in list(d.items()):
+        if value is None:
+            del d[key]
+        elif isinstance(value, str):
+            d[key] = d[key].strip()
+        elif isinstance(value, dict):
+            del_none(value)
+    return d
+</code></pre>
+<p>Ah, seguramente lo notaste, pero Python tampoco requiere que uses un <code>;</code> para terminar cada instrucción, la idea es que exista una instrucción por cada línea.</p>
+<ul>
+<li>como tal vez pudiste ver, es también un <strong>lenguaje de alto nivel</strong>: La idea es abstraer (esconder) la mayor cantidad de detalles de implementación. Es un lenguaje de alto nivel y en ocasiones es muy sencillo leer programas escritos en este lenguaje, y a mi parecer, en muchos casos como si estuvieras leyendo un libro escrito en inglés.</li>
+<li>Python es también <strong>multiparadigma</strong>, puedes organizar tu código en clases, o utilizarlo como un lenguaje funcional, o puedes simplemente crear un programa que se ejecute proceduralmente... o una combinación de todo esto.</li>
+<li><strong>Altamente extensible</strong>: tiene soporte para descargar módulos o bibliotecas de repositorios de paquetes que permiten que añadirle funcionalidad a tus programas, así que es normal que cuando descargues un proyecto tengas que descargar los paquetes asociados con instrucciones como las siguientes:</li>
+</ul>
+<pre><code>pip install package-name
+easy_install package-name
+</code></pre>
+<h2>Desventajas</h2>
+<ul>
+<li>Considerado <strong>lento</strong></li>
+<li>A pesar de ser muy usado, hay áreas en las que no tiene mucho impacto, como el desarrollo para móviles.</li>
+<li>Consume mucha memoria.</li>
+<li>Puede hacer que otros lenguajes sean difíciles de trabajar, uno se acostumbra muy rápido a las bondades de Python, a mi de pronto ya se me olvida poner puntos y coma en C#</li>
+</ul>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Excepciones en C# | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Las excepciones son un mecanismo que podemos usar en C# para reportar errores en nuestros programas y poder manejarlos apropiadamente.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Excepciones en C#">
+<meta itemprop="description" content="Las excepciones son un mecanismo que podemos usar en C# para reportar errores en nuestros programas y poder manejarlos apropiadamente.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Excepciones en C#">
+<meta name="twitter:description" content="Las excepciones son un mecanismo que podemos usar en C# para reportar errores en nuestros programas y poder manejarlos apropiadamente.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Excepciones en C#">
+<meta name="og:description" content="Las excepciones son un mecanismo que podemos usar en C# para reportar errores en nuestros programas y poder manejarlos apropiadamente.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Excepciones en C#</h1>
+
+<p>El framework de .NET cuenta con el mecanismo de excepciones para reportar errores que ocurren en tiempo de ejecución dentro de los programas que lo usan. Todo este mecanismo se centra alrededor de los tipos de dato <code>Exception</code>.</p>
+<p>El tipo de dato <code>Exception</code> hereda directamente de <code>System.Object</code>, y es uno de los tipos fundamentales del framework (sin contar los nativos). Las <code>Exception</code> tienen la particularidad de poder ser usadas junto con la instrucción <code>throw</code>, que en inglés significa &quot;lanzar&quot;, así que es muy probable que hayas previamente escuchado la expresión <em>&quot;lanzar una excepción&quot;</em>.</p>
+<p>Una API puede elegir lanzar una excepción cada vez que la ejecución de un programa llega a un estado en el cual es imposible seguir ejecutándose. Algunos ejemplos en los que sucede esto son:</p>
+<ul>
+<li>Cuando se intenta convertir una cadena en un número, pero esta no tiene el formato adecuado se lanza una excepción del tipo <code>FormatException</code></li>
+<li>Cuando dentro de un arreglo intentamos acceder a una posición fuera del rango de este obtendremos una del tipo: <code>IndexOutOfRangeException</code></li>
+<li>Cuando intentamos abrir un archivo no existente será <code>FileNotFoundException</code> la que aparezca</li>
+<li>Cuando intentamos dividir un número entre 0 se nos aparecerá una <code>DivideByZeroException</code></li>
+</ul>
+<p>En este diagrama aparecen las algunas excepciones que existen en el framework por defecto, relacionadas por su jerarquía. Es importante señalar la jerarquía ya que tiene una utilidad muy peculiar con las excepciones que veremos más adelante:</p>
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/ex/diagram.png" title="Exceptions" />
+<h2>Usando <code>throw</code> para lanzar excepciones</h2>
+<p>La forma de lanzar una excepción es usando la palabra <code>throw</code> seguido de la instancia de excepción que vamos a lanzar:</p>
+<pre><code class="language-csharp">throw new Exception(&quot;Hey, soy el mensaje de la excepción&quot;);
+
+var ex = new FormatException(&quot;Hey, soy una excepción guardada en una variable&quot;);
+throw ex;
+</code></pre>
+<h2>Excepciones personalizadas</h2>
+<p>Mientras que las excepciones por defecto en C# son genéricas y sirven bien al framework, es probable que para nuestra aplicación no sean lo más expresivas posibles y tratar de adecuarlas puede complicarnos la escritura de código. Es por eso que, en caso de ser necesario, podemos crear nuestras propias excepciones, basta con que estas deriven de <code>Exception</code>. Por ejemplo:</p>
+<pre><code class="language-csharp">public class TienesMuchosGatosException : Exception
+// ...
+</code></pre>
+<p>Ahora, ya podríamos hacer uso de esta excepción:</p>
+<pre><code class="language-csharp">// ...
+        if (value &gt; 1)
+            throw new TienesMuchosGatosException();
+        _numeroGatos = value;
+// ...
+</code></pre>
+<p>Pero no solo eso, sino que podemos añadirle constructores y propiedades nuevas a la excepción para que esta le dé más información a quién está usando nuestro código:</p>
+<pre><code class="language-csharp">public class TienesMuchosGatosException : Exception
+{
+    public int NumeroGatos { get; private set; }
+
+    public TienesMuchosGatosException(int numeroGatos) 
+        : base(&quot;¡&quot; + numeroGatos + &quot; son muchos gatos!&quot;)
+    {
+        NumeroGatos = numeroGatos;
+    }
+}
+
+// En alguna otra parte del código:
+// ...
+        if (value &gt; 1)
+            throw new TienesMuchosGatosException(value);
+        _numeroGatos = value;
+// ...
+</code></pre>
+<p>Como te puedes dar cuenta, estamos llamando al constructor de la clase base pasándole un mensaje (hay otro constructor que también recibe una instancia de <code>Exception</code> que podemos emplear para adjuntar cualquier otra excepción que hayamos atrapado para mayor información).</p>
+<p>Entonces, ahora ya con estas modificaciones, si llamamos al siguiente código:</p>
+<pre><code class="language-csharp">var adulto = new Adulto();
+adulto.NumeroGatos = 10;
+</code></pre>
+<p>Nuestro programa fallará, pero le dejará al desarrollador más información:</p>
+<pre>
+Unhandled Exception:
+Excepciones.TienesMuchosGatosException: ¡10 son muchos gatos!
+  at Excepciones.Adulto.set_NumeroGatos (System.Int32 value) [0x00009] in /Users/fferegrino/Documents/github/aprende-c-sharp/excepciones/Adulto.cs:17 
+  at Excepciones.Program.Main (System.String[] args) [0x00007] in /Users/fferegrino/Documents/github/aprende-c-sharp/excepciones/Program.cs:22 
+[ERROR] FATAL UNHANDLED EXCEPTION: Excepciones.TienesMuchosGatosException: ¡10 son muchos gatos!
+  at Excepciones.Adulto.set_NumeroGatos (System.Int32 value) [0x00009] in /Users/fferegrino/Documents/github/aprende-c-sharp/excepciones/Adulto.cs:17 
+  at Excepciones.Program.Main (System.String[] args) [0x00007] in /Users/fferegrino/Documents/github/aprende-c-sharp/excepciones/Program.cs:22 
+</pre>
+<h2>Manejo de excepciones</h2>
+<p>La misión de las expresiones es bastante clara: indicar que el problema no puede continuar operando en su estado actual, y como tal, terminarlo. Sin embargo, nosotros los programadores podemos <em>manejar</em> la excepción y darle un tratamiento adecuado al programa para que este siga operando. Esto se logra con el bloque <code>try-catch</code>. Este bloque cuenta con dos partes:</p>
+<ul>
+<li>El <em>intentar</em>, en donde ponemos el código que podría generar una excepción</li>
+<li>El <em>atrapar</em>, en donde reaccionaremos eventualmente a la excepción ocurrida</li>
+</ul>
+<p>Su sintaxis es así:</p>
+<pre><code class="language-csharp">var adulto2 = new Adulto();
+try
+{
+    // Intentamos algo peligroso:
+    adulto2.NumeroGatos = Int32.MaxValue;
+}
+catch (TienesMuchosGatosException te)
+{
+    // Manejamos la excepción relacionada con los gatos:
+    Console.WriteLine(&quot;Ooops, no puedes tener &quot; + te.NumeroGatos + &quot; gatos&quot;);
+}
+</code></pre>
+<h3>Manejo selectivo de excepciones</h3>
+<p>En el código anterior únicamente estamos manejando excepciones del tipo <code>TienesMuchosGatosException</code>, pero ¿qué pasaría si al establecer la propiedad también pudiéramos obtener excepciones de otro tipo? pues para eso podemos combinar los bloques <code>catch</code>:</p>
+<pre><code class="language-csharp">try
+{
+    // Intentamos algo peligroso:
+    adulto2.NumeroGatos = Int32.MaxValue;
+}
+catch (TienesMuchosGatosException te)
+{
+    // Manejamos la excepción relacionada con los gatos:
+    Console.WriteLine(&quot;Ooops, no puedes tener &quot; + te.NumeroGatos + &quot; gatos&quot;);
+}
+catch(NullReferenceException ne)
+{
+    // Manejamos el error relacionado con objetos nulos
+} 
+catch(ArithmeticException)
+{
+    // Manejamos cualquier error relacionad 
+    // con desborde de números o divisiones entre 0
+}
+catch
+{
+    // Manejamos cualquier otra excepcion
+}
+</code></pre>
+<p>A estos bloques de captura de excepciones se decide si se accede o no de manera secuencial, es decir, en caso de que ocurra una excepción primero verifica si la excepción es del tipo <code>TienesMuchos...</code>, si no, verifica si es del tipo <code>NullReference...</code>, si no, verifica si es del tipo <code>Arithmetic...</code> y si no es cualquiera, entra el último bloque que atrapará cualquier excepción.</p>
+<h3>Variantes de <code>catch</code></h3>
+<p>En el ejemplo de código anterior hay dos variantes de <code>catch</code>. La primera, que no especifica un identificador para la exepción (<code>catch(ArithmeticException)</code>) que usamos para cuando sólo nos interesa más que saber qué tipo de excepción ocurrió y no conocer más detalles de esta. Y la segunda <code>catch</code> que es una forma corta de escribir <code>catch(Exception)</code>, y esta se usa para cuando lo que nos interesa es saber que ocurrió una excepción pero no nos interesa ni de qué tipo fue.</p>
+<h3>La jerarquía en el <code>catch</code></h3>
+<p>Es en el <code>catch</code> en donde es importante la jerarquía de las excepciones. Por ejemplo, en el código anterior, el bloque <code>catch(ArithmeticException)</code> atrapará tanto las de tipo <code>NotFiniteNumberException</code>, <code>OverflowException</code>, y <code>DivideByZeroException</code>. Porque estas heredan de <code>ArithmeticException</code>.</p>
+<p>En otras ocasiones verás (o utilizarás) la vieja confiable <code>catch(Exception e)</code>, que básicamente atrapará todo lo que pase por ella, puesto que <code>Exception</code> es la clase base. Hay contados casos en los que diría que es recomendable emplear este <code>catch</code> ya que, al capturar <strong>cualquier</strong> tipo de excepción, puede ser que tu programa esté fallando en alguna parte que tu no tenías contemplada y no darte cuenta porque &quot;nunca&quot; ocurrió una excepción.</p>
+<h3>Relanzando excepciones</h3>
+<p>Hay ocasiones en las que tal vez quieras manejar una excepcion capturada con el único fin de realizar alguna tarea de registro, pero dejar que siga fallando como si no la hubieras atrapado. Para esos casos, puedes usar la instrucción <code>throw</code> solamente:</p>
+<pre><code class="language-csharp">try
+{
+    throw new NotImplementedException();
+}
+catch(Exception e)
+{
+    // Logging
+    throw;
+}
+</code></pre>
+<p>Tal vez te sientas tentado a colocar el identificador para relanzar la excepción (<code>throw e;</code>), pero esto lo que hará es destruir información potencialmente valiosa que ya contiene la excepción, así que no deberías hacerlo.</p>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

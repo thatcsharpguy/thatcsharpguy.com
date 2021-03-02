@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>That C# guy - Un blog sobre programación.</title>
+<!-- Search Engine -->
+<meta name="description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta name="image" content="THIS IS MY IMAGE">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="That C# guy">
+<meta itemprop="description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta itemprop="image" content="THIS IS MY IMAGE">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="That C# guy">
+<meta name="twitter:description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="THIS IS MY URL!">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="That C# guy">
+<meta name="og:description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta name="og:image" content="THIS IS MY IMAGE">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<div class="articles">
+    <div class="pagination">
+
+        <ul class="post-list">
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/operador-null-coalescing-en-c">
+          Operador null coalescing en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> September 19, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Este operador te ayudará a escribir con mayor claridad el código, al tiempo que te ahorras escribir algunos cuantos ifs en tu código.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/string.format">
+          String.Format
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 24, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Olvídate de concatenar una interminable cantidad de cadenas para presentar la información en tus aplicaciones. Con este método de la clase String tienes (casi) todo resuelto, únicamente necesitas una cadena con marcadores y listo.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/debugging-parte-1">
+          Debugging parte 1
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 31, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">En este post te voy a dar algunos tips para que depures tu código en C# y tu IDE de confianza.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/dynamic-y-expandoobject">
+          Dynamic y ExpandoObject
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> December 06, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Con dynamic convierte a C# en un lenguaje dinámico y fuertemente tipado (consulte restricciones).</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/espacios-de-nombres-en-c">
+          Espacios de nombres en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> January 24, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los nombres de espacio son de esas cosas en el dasrrollo a los que casi no les prestamos mucha atención, pero que bien usados nos resuelven muchos problemas y nos ayudan a organizar nuestro código.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/clases-parciales-en-c">
+          Clases parciales en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> June 06, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Tal vez alguna vez te hayas encontrado con que en la declaración de una clase, la palabra partial está antepuesta a la palabra class. Pero, ¿qué significa esto?</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/metodos-try">
+          Métodos Try...
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> June 27, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Las excepciones son eso. Excepciones, así que debes procurar evitarlas en tu código; los métodos Try... te ayudan a hacerlo, conócelos aquí.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/cosas-para-hacer-en-c-iot">
+          Cosas para hacer en C#: IoT
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> January 25, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/netduino">#netduino</a>
+ 
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/inspect-your-http-requests-with-httplogger">
+          Inspect your http requests with HttpLogger
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> March 28, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Inspect the request and response of all the connection your app makes to any webservice. Do whatever you want with them, from saving them to a file to put them on screen!</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/nugetrecomendado">#nugetrecomendado</a>
+ 
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/tipos-de-dato-en-c">
+          Tipos de dato en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 05, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Para la mayoría de sus aplicaciones, C# es un lenguaje fuertemente tipado, en este post presento dos categorías de tipos que nos podemos encontrar cuando trabajamos con este lenguaje.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/sentencias-expresiones-y-operadores">
+          Sentencias, expresiones y operadores
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> January 11, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Hace tiempo yo pensaba que sabía programar más o menos bien en C#, pero había ocasiones en las que leyendo documentación me encontraba con ciertas palabras que no lograba comprender, entre ellas estaba las palabras "sentencia" y "expresión".</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/arreglos-en-c-unidimensionales">
+          Arreglos en C# (unidimensionales)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 22, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">En C# llamamos arreglo a una colección de objetos, dicha colección tiene longitud definida y esta no puede cambiar con el flujo del programa, esto podrá sonar limitante, pero al trabajar con arreglos se obtiene un mejor desempeño que con cualquier otra colección. Usando el lenguaje podemos crear, recorrer y manipular arreglos de cualquier tipo de objeto.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/que-es-var-en-c">
+          ¿Qué es var en C#?
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 29, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Usar la palabra var significa que estamos dejándole al compilador la tarea de asignar un tipo a nuestras variables.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/params-en-c">
+          params en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> April 18, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">La palabra reservada params se usa en la declaración de los parámetros de un método, se antepone al tipo de dato que vamos a declarar y tiene una peculiaridad, solamente se puede anteponer a parámetros que sean arreglos.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/virtual-override-y-new">
+          virtual, override y new
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> July 25, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Las palabras new, virtual y override nos ayudan a especificar el comportamiento de los miembros de clases y sus subclases.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/arreglos-en-c-multidimensionales-rectangulares">
+          Arreglos en C# (multidimensionales rectangulares)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 23, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">A diferencia de los arreglos escalonados, los rectangulares son lo más parecido a matrices que podemos encontrar en C#.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/sobrecarga-de-operadores">
+          Sobrecarga de operadores
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> December 20, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Suma, resta, divide, multiplica, compara... todos los tipos de dato que crees para tus aplicaciones, todo gracias a la sobrecarga de operadores que ofrece C&#35;</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/arboles-de-expresiones-en-c">
+          Árboles de expresiones en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> April 18, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Un árbol de expresiones permite examinar el código de un delegado en tiempo de ejecución, permitiéndote así aprovechar al máximo los recursos de tu sistema.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/aun-mas-linq-con-morelinq">
+          Aún más LINQ con MoreLinq
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> May 02, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Por si LINQ no es suficiente para ti, morelinq brinda aún más herramientas para manipular tus colecciones y es tan solo un paquete de NuGet.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/nugetrecomendado">#nugetrecomendado</a>
+ 
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/arreglos-en-c-multidimensionales-escalonados">
+          Arreglos en C# (multidimensionales escalonados)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 22, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los arreglos escalonados (o jagged arrays) son los tipos de arreglos multidimensionales más conocidos, y es que también son compunes en otros lenguajes de programación. Un arreglo escalonado no es más que un arreglo de arreglos.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/async-y-await">
+          async y await
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> February 14, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">En este post voy a hablar acerca de uno de los mejores tipos de azúcar sintáctica que existen en el lenguaje de programación C#. Y con ello me refiero a las palabras async y await.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/xamarinforms">#xamarinforms</a>
+ 
+      <a class="post-tag"  href="/tag/xamarin">#xamarin</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/delegados-en-c">
+          Delegados en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> July 24, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Podemos ver un delegado en C# como un tipo de dato que apunta a un método permitiéndonos así extender las capacidades de nuestro código o permitir que otros lo hagan.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/map-reduce-y-filter-en-c">
+          Map, reduce y filter en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> July 25, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">C# es un gran lenguaje, y unas de las cosas que me gusta de él, es que puedes programar funcionalmente aún si el lenguaje no es 100% funcional. Comparte algunas de sus características con lenguajes como Swift y F#.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/programacionfuncional">#programacionfuncional</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/que-hay-en-c-7">
+          ¿Qué hay en C# 7?
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> April 04, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Conoce algunas de las nuevas características incluídas en la versión 7 de C#;, tuplas, deconstructores, literales binarios y más.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/clases-genericas-en-c">
+          Clases genéricas en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> June 12, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los tipos genéricos son un mecanismo de C# que nos ayuda a maximizar la reutilización de código. La reutilización de código se logra a través de el uso de plantillas de código en las cuales se insertan marcadores que representarán los tipos de dato que usaremos en nuestra plantilla.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/reflexion-en-c">
+          Reflexión en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 10, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">La reflexión nos permite acceder a la información de un tipo en tiempo de ejecución. Cuando estamos escribiendo el código, somos nosotros quienes tenemos una idea general del sistema&#58; sabemos los tipos de dato de las variables, los métodos que contienen las clases, los atributos de los miembros de estas y un sin fin de cosas más.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/inspeciona-tus-peticiones-http-con-httplogger">
+          Inspeciona tus peticiones http con HttpLogger
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> March 28, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Inspecciona el request y response de las conexiones que tu app hace a servicios web. Haz con ellas lo que quieras, desde guardarlas en un archivo hasta ponerlas en pantalla.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/nugetrecomendado">#nugetrecomendado</a>
+ 
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/enums-en-c">
+          Enums en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> August 01, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los enum son un tipo de dato que nos permite expresar valores constantes, con la particularidad de poderlos agrupar lógicamente de acuerdo a la relación que tienen unos con otros.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/un-post-sobre-alias-string-vs.-system.string">
+          Un post sobre alias, ¿string vs. System.String?
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> August 21, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">He de aceptarlo, una de las cosas que más dudas me causaba cuando inicié a programar usando C# era sobre cuál era la diferencia entre usar string o System.String, la idea que yo tenía al respecto que estaba totalmente equivocada.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/metodos-genericos-en-c">
+          Métodos genéricos en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> June 19, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los métodos genéricos proveen una funcionalidad similar a los tipos genéricos pero aplicada a métodos, también permiten la reutilización de código y reducen el impacto al desempeño en nuestras aplicaciones.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/metodos-de-extension-en-c">
+          Métodos de extensión en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> November 15, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los métodos de extensión nos permiten ampliar la funcionalidad de cualquier tipo de dato sin necesidad de tener el código fuente de este. A pesar de ser azúcar sintáctica, son muy útiles.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/revisando-mis-repos-en-github">
+          Revisando mis repos en GitHub
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> August 29, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Un post un poco diferente, en este no hablaré sobre alguna característica de C# o un paquete de NuGet, sino de proyectos, pruebas y aplicaciones en los que lo he usado. Conoce algunas de las cosas que he hecho y subido a GitHub.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/colecciones-en-c-cual-elegir">
+          Colecciones en C#, ¿cuál elegir?
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> January 10, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">La colección List&lt;T&gt; puede no siempre ser la adecuada para el trabajo que estás intentando hacer con tu aplicación, en este post te cuento sobre las otras colecciones que .NET nos ofrece.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/archivos-de-recursos-y-apps-multilenguaje-en-c">
+          Archivos de recursos y apps multilenguaje en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 03, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Como desarrolladores, tendemos a pensar en nuestras aplicaciones como funcionales para una región o lenguaje específicos, sin preocuparnos sobre traducir e internacionalizarlas, preparándolas así para ser accesibles aun número mayor de usuarios.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/mas-linq-en-c">
+          Más Linq en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> December 13, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Conoce más de linq, métodos para unir, intersectar y filtrar conjuntos.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/cosas-para-hacer-en-c-juegos">
+          Cosas para hacer en C#: Juegos
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> December 09, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">C# no es solo trabajo de oficina de 9 a 5, también se pueden hacer algunas otras cosas bastante divertidas pero sobre todo interesantes, como videojuegos.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/events-en-c">
+          Events en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> August 22, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Un evento no es más que un mensaje que se envía de un objeto (el emisor) a otros (los receptores) cada vez que se cumple cierta condición o un cambio ocurre en él.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/metodos-en-c">
+          Métodos en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> April 11, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Un método no es más que un procedimiento o acción asociado con una clase y se compone de datos y un comportamiento. Esta es la manera de definir un método en C#.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/c-con-estilo-a-fuerzas">
+          C# con estilo (a fuerzas)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> June 04, 2020</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">¿A quién no le gusta el código escrito siguiendo un estandar? te muestro como puedes aplicar el tuyo en .NET</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/windows">#windows</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/seis-caracteristicas-de-c-6">
+          Seis características de C# 6
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> January 04, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">La mayoría de las características nuevas de C# 6 tienen como objeto agilizar la escritura de código y mejorar la comprensión de este cuando es revisado. Pero además acercan al lenguaje a la programación funcional.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/async-y-await-cancelando-tareas">
+          async y await (cancelando tareas)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> February 28, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Aprende la forma &quot;correcta&quot; para proveer a tus Task de un mecanismo de cancelación, además aprende cómo reportar el progreso de una tarea al usuario mediante una interfaz definida por el Framework.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/xamarinforms">#xamarinforms</a>
+ 
+      <a class="post-tag"  href="/tag/xamarin">#xamarin</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/uso-de-using">
+          Uso de using
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> July 18, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">En C#, también podemos emplear using para especificar un bloque de código asociado a una o varias instancias de una clase que implemente IDisposable.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/xamarin.auth">
+          Xamarin.Auth
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> September 12, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los atributos nos ofrecen otra manera de interactuar con el código que escribimos, ya sea dándole información al compilador o extendiendo las definiciones de nuestros métodos, propiedades o clases en tiempo de ejecución.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/operadores-logicos-corto-circuitados">
+          Operadores lógicos corto-circuitados
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> May 16, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los operadores lógicos más usados tienen una peculiaridad que ayuda a mejorar su desempeño, pero a veces podría ser un comportamiento indeseado. Por suerte, C# cuenta con otros operadores que evitan este comportamiento..</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/tipos-nullables-en-c">
+          Tipos nullables en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> October 14, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los tipos por referencia son nullables por definición. ¿Qué implica que sean nullables? pues nada más y nada menos que puedan tener un valor null o en términos prácticos, nungún valor.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/async-y-await-tareas-paralelas">
+          async y await (tareas paralelas)
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> February 21, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/xamarinforms">#xamarinforms</a>
+ 
+      <a class="post-tag"  href="/tag/xamarin">#xamarin</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/out-y-ref-en-c">
+          out y ref en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> April 11, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Seguramente si en alguna vez de tu carrera has usado código C o C++ te has encontrado con estos operadores&#58; &#42; y &amp; que, en pocas palabras, nos sirven para trabajar con punteros y también sabrás que estos nos permitían pasar como referencia una variable.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/la-palabra-yield-en-c">
+          La palabra yield en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> November 22, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">La palabra yield en C# tiene un uso bastante peculiar pero sencillo de entender cuando se explica de la manera adecuada, básicamente te ayudará a mejorar la eficiencia de tus aplicaciones. En este post trato de explicar qué es y cómo funciona eso a través de ejemplos de código.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/casting-implicit-y-explicit-en-c">
+          Casting: implicit y explicit en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> May 30, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Crea conversiones personalizadas entre tipos de dato, una técnica parecida a la sobrecarga de operadores... que debe usarse con moderación.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/directivas-de-preprocesamiento-en-c">
+          Directivas de preprocesamiento en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> February 29, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Las directivas nos pueden ayudar a personalizar nuestro código a partir de condiciones dictadas antes de la compilación del mismo, o a forzar que ciertas condiciones se cumplan para que siquiera compile.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/linq-en-c-segunda-parte">
+          Linq en C# - segunda parte
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> February 01, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Conoce un poco más sobre el poder de Linq a través de ejemplos sencillos. Promedios, sumas, filtrados, ordenamientos y más.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/linq">#linq</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/excepciones-en-c">
+          Excepciones en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> June 13, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Las excepciones son un mecanismo que podemos usar en C# para reportar errores en nuestros programas y poder manejarlos apropiadamente.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/tipos-anonimos-en-c">
+          Tipos anónimos en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> November 26, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Para cada tipo anónimo que usamos, el compilador crea una definición de clase para dicho tipo por nosotros, ahórrandonos así la tarea de tener que hacerlo.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/linq-en-c-tercera-parte">
+          Linq en C# - tercera parte
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> February 08, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Esta es la tercera parte de la serie sobre LINQ en donde hablaré sobre cómo trabajar con dos conjuntos de datos diferentes, con ellos se pueden realizar uniones y agrupaciones para obtener más conocimiento de la información que tenemos.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/linq">#linq</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/func-y-action-en-c">
+          Func y Action en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> July 29, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Func y Action son moldes para crear delegados, podemos usarlos para evitarnos la fatiga de declarar un delegado para cada ocasión que sea necesario.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/lambdas-en-c">
+          Lambdas en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> August 03, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Una vez que conocemos lo que es un delegado, y lo que son Func y Action, es momento de llegar a un tema que se convierte en algo muy sencillo, además es de mis cosas favoritas en C#: Las expresiones lambda.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/creando-nuestros-propios-alias">
+          Creando nuestros propios alias
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> September 16, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Hace poco vimos que existen alias en C# para los tipos predefinidos de datos, y hasta ahí todo claro. Pero nosotros como programadores también podemos beneficiarnos de crear nuestros propios alias.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/inicializadores-en-c">
+          Inicializadores en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> March 14, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Lo que permite la inicialización de objetos es hacer uso de los constructores y además de asignar &quot;al mismo tiempo&quot; las propiedades o campos públicos que contiene el objeto.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/sobrecarga-de-indizadores-en-c">
+          Sobrecarga de indizadores en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> December 27, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los indizadores en C# permiten dotar a tus tipos de dato de una forma más simple y expresiva para acceder a sus propiedades, además de ser una sintaxis con la que muchos desarrolladores ya están acostumbrados.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/tuples-en-c">
+          Tuples en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> May 16, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Seguramente te ha pasado, alguna vez has pensado &quot;Ojalá pudiera devolver dos cosas desde este método&quot; y si bien recuerdas que los métodos en C# únicamente pueden tener un solo tipo de retorno, es posible devolver más de dos valores haciendo uso de la clase genérica Tuple.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/xamarin-workbooks">
+          Bienvenido a los Xamarin Workbooks
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> November 29, 2016</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Los Workbooks son una especie de documentos &quot;vivos&quot; con los que puedes compilar y ejecutar código en C#.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/xamarin">#xamarin</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/mejores-pruebas-unitarias-con-fluentassertions">
+          Mejores pruebas unitarias con FluentAssertions
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> March 21, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Mejora tus pruebas unitarias con mensajes más claros, al momento de escribirlos y cuando tus tests fallan.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/nugetrecomendado">#nugetrecomendado</a>
+ 
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/linq-en-c">
+          Linq en C#
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> November 11, 2015</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> Antonio Feregrino</span>
+      </div>
+      <p class="post-excerpt">Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos.</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/linq">#linq</a>
+ 
+</div>
+    </li>
+
+    
+<li>
+      <h2 class="post-title">
+<a class="post-link" href="/post/pruebas-unitarias-en-visual-studio">
+          Pruebas unitarias en Visual Studio
+        </a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date"><i class="fa fa-calendar"></i> March 14, 2017</span>
+        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
+      </div>
+      <p class="post-excerpt">Aprende a crear pruebas unitarias usando C#</p>
+
+
+      <div class="post-tags">
+
+      
+      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
+ 
+      <a class="post-tag"  href="/tag/visualstudio">#visualstudio</a>
+ 
+      <a class="post-tag"  href="/tag/youtube">#youtube</a>
+ 
+</div>
+    </li>
+
+    
+        </ul>
+
+    </div>
+</div>
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

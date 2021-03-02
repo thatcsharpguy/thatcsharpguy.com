@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Linq en C# | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Linq en C#">
+<meta itemprop="description" content="Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Linq en C#">
+<meta name="twitter:description" content="Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Linq en C#">
+<meta name="og:description" content="Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Linq en C#</h1>
+
+<p>Es muy probable que alguna vez en tu vida de desarrollador hayas escuchado hablar de una consulta SQL, pero si no, te cuento que una consulta es una instrucción que se le da a <em>la computadora</em> para que busque registros dentro de una tabla y nos entregue los resultados de dicha búsqueda. Una consulta en SQL se ve así:</p>
+<pre><code class="language-sql">SELECT Name, Surname, Age
+FROM Students
+WHERE Age &gt; 10
+ORDER BY Name
+</code></pre>
+<p>Durante mucho tiempo, el poder de las consultas se mantuvo únicamente para las bases de datos, sin embargo, en el 2007 Microsoft liberó junto con la versión 3.5 de su framework, una herramienta llamada <strong>LINQ</strong> que proviene de <strong>L</strong>anguage <strong>IN</strong>tegrated <strong>Q</strong>uery (personalmente prefiero escribir Linq con minúsculas... cuestión de gustos).
+<br />
+<br />
+Linq nos otorga la posibilidad de usar un lenguaje bastante similar al SQL dentro de nuestro código C# para consultar un origen de datos. Para poder usarlo, se requiere de un <strong>proveedor</strong> que no es más que una especie de traductor que toma nuestra consulta y la convierte en algo que pueda ejecutar el origen de datos. Existen proveedores dentro del framework que nos permiten usar Linq a objetos, Linq a XML y Linq a SQL.</p>
+<h3>Linq to Objects</h3>
+<p>Para esta serie de posts, me centraré en Linq a objetos (los otros tienen un funcionamiento similar) que opera sobre colecciones de objetos en memoria que implementan la interfaz <code>IEnumerable</code> como arreglos, <code>List</code>, <code>Vector</code>...</p>
+<p>Haciéndo una analogía a la consulta con la que inicié el post, supongamos que tenemos una lista de alumnos llamada <code>students</code>:</p>
+<pre><code class="language-csharp">List&lt;Student&gt; students = new List&lt;Student&gt;
+{
+    new Student { Age = 11, Name = &quot;Laura&quot;, Surname = &quot;Rodríguez&quot; },
+    new Student { Age = 9, Name = &quot;Francisco&quot;, Surname=&quot;Jímenez&quot; },
+};
+</code></pre>
+<p>Formar una consulta simple es bastante sencillo, y muy parecido a lo que haríamos en SQL, lo que necesitamos hacer es:</p>
+<ol>
+<li>Nombrar una variable que contendrá temporalmente cada uno de los elementos contenidos en la colección sobre la que vamos a ejecutar la consulta. Para nuestro caso, la llamarémos <code>s</code>.</li>
+<li>Indicar el origen de datos a consultar. En nuestro caso, este origen de datos es nuestra lista <code>students</code>.</li>
+<li>Indicar las condiciones que queremos que nuestra consulta compruebe.</li>
+<li>Realizar una acción con los elementos que cumplan las condiciones previamente indicadas.</li>
+</ol>
+<p>Para ejecutar la consulta del inicio del post sobre nuestra lista de alumnos, debemos usar la sintaxis siguiente:</p>
+<pre><code class="language-csharp">var olderStudents = from s in students
+                    where s.Age &gt; 10
+                    select s;
+</code></pre>
+<p>Es fácil identificar las partes que la componen:</p>
+<ul>
+<li><code>from s</code> hace referencia a la <em>variable temporal</em> de la que les contaba un poco antes.</li>
+<li><code>in students</code> hace referencia a la colección sobre la que vamos a ejecutar la consulta, esto hace que nuestra variable <code>s</code> sea de tipo <code>Student</code></li>
+<li><code>where s.Age &gt; 10</code> hace referencia a las condiciones que queremos que nuestra consulta compruebe aquí podemos usar condiciones más complejas usando los operadores lógicos <code>||</code> o <code>&amp;&amp;</code>.</li>
+<li><code>select s</code> hace referencia a la acción que queremos, en este caso únicamente estamos seleccionando los elementos que conicidan con <code>s.Age &gt; 10</code></li>
+</ul>
+<h3>Ejecución retrasada</h3>
+<p>Una cosa que es importante saber es que el <strong>declarar una consulta Linq no implica que se ejecute en el momento de la declaración</strong>. Lo que quiere decir esto es que debemos ver el <strong>resultado de una consulta como una referencia a cómo se ejecuta la consulta, no el resultado de la consulta ejecutada</strong>, es por eso que muchas veces veran que se usa <a href="var-en-c-sharp">la palabra <em>var</em></a> junto con Linq. En realidad la consulta será ejecutada cuando se necesite.</p>
+<p>Para explicar con un ejemplo, volviendo a nuestra consulta <code>olderStudents</code>, sabemos que solamente uno de los objetos cumple con la condición establecida de <code>s.Age &gt; 10</code>, es por eso que cuando queremos contar los elementos con <code>Count()</code>, el resultado es <code>1</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine(olderStudents.Count()); // 1
+</code></pre>
+<p>Ahora, si agregamos un nuevo elemento a nuestra lista original <code>students</code>:</p>
+<pre><code class="language-csharp">students.Add(new Student { Age = 23, Name = &quot;Antonio&quot;, Surname = &quot;Feregrino&quot; });
+</code></pre>
+<p>Y volvemos a contar los objetos dentro de de nuestra consulta <code>olderStudents</code>, el resultado será <code>2</code>:</p>
+<pre><code class="language-csharp">Console.WriteLine(olderStudents.Count()); // 2
+</code></pre>
+<p>A esta característica se le conoce como <strong>ejecución retrasada</strong> o <strong>deferred execution</strong>. Podemos evitar esto al convertir nuestra consulta a una colección <em>estática</em>, como una lista o un arreglo utilizando los métodos que nos entrega Linq, como <code>ToList</code> o <code>ToArray</code>. Al hacer esto se ejecutará la consulta y se perderá la referencia a esta, con lo que cualquier modificación que sufran los orígenes de datos, no afectará nuestro resultado. Esto se logra así desde la declaración de la consulta, o más adelante llamando <code>ToList</code> o <code>ToArray</code> sobre la consulta.</p>
+<pre><code class="language-csharp">// Al momento de la declaración
+List&lt;Student&gt; olderStudentList = (from s in students
+                                  where s.Age &gt; 10
+                                  select s).ToList();
+
+// En cualquier otro momento		  
+var olderStudentsArray = olderStudents.ToArray();
+</code></pre>
+<h4>Lo que sigue</h4>
+<p>Las consultas simples, como la que se usa en este post, son solo la punta del iceberg de todo lo que se puede hacer con Linq, en futuros post veremos las posibilidades que tenemos para hacer consultas más complejas para obtener promedios, sumas, mínimos, hacer uniones, agrupamientos, intersecciones, distinciones... en fin, una enorme cantidad de cosas. Además de que veremos qué son los tipos anónimos en C#.</p>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

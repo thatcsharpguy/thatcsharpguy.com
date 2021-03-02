@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Cosas para hacer en C#: IoT | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Cosas para hacer en C#: IoT">
+<meta itemprop="description" content="A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cosas para hacer en C#: IoT">
+<meta name="twitter:description" content="A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Cosas para hacer en C#: IoT">
+<meta name="og:description" content="A lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida o a veces solo jugar con ellos.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Cosas para hacer en C#: IoT</h1>
+
+<p>Anteriormente la programación de dispositivos electrónicos de bajo nivel estaba &quot;reservada&quot; a un cierto grupo de personas que destinaban horas de su vida para aprender a programar usando lenguaje ensamblador, estudiaban las instrucciones para determinado microcontrolador y luego la pasaban difícil tratando de optimizar memoria aquí y allá para lograr que sus programas funcionaran como deseaban.</p>
+<p>Para la suerte de los demás, yo incluído, a lo largo de los años se ha avanzado en la creación de un ambiente más amigable para las personas que están interesadas en la programación de microcontroladores para construir sistemas a la medida (o a veces solo jugar con ellos). Entre los avances más significativos está la posibilidad de escribir código para dichos dispositivos en un lenguaje de alto nivel. Ejemplos hay varios, por decir algunos: Arduino con C y Netduino con C#... y es precisamente de este útlimo del que hablaré en una parte de este post.</p>
+<h2>Netduino</h2>
+<p>Tal y como suena, Netduino es una plataforma similar al Arduino, ambas son <em>open source</em>, con la diferencia de que el Netduino funciona con el <strong>.NET Microframework como plataforma de ejecución</strong>, de los programas escritos para él, lo cual significa que podemos emplear C# para escribir código que se ejecute en él.</p>
+<p>Antes de continuar, hay algo que debemos dejar claro, y es que al ser una versión recortada del framework, es posible que no tengamos acceso a algunas de las funciones más complejas que si podemos usar con la versión completa de este, sin embargo no es mucho problema puesto que el acceso a los <em>namespaces</em> <code>System.IO</code> y <code>System.Net</code> sigue existiendo, por lo tanto nuestras capacidades para escribir archivos y conectarnos a internet siguen intactas.</p>
+<p>Lo que también sigue intacto es el acceso a los tipos de dato primitivos y la posibilidad de escribir nuestros propios tipos complejos, podemos usar expresiones lambda, tipos anónimos, métodos... en fin, casi todo nuestro conocimiento de C# puede ser empleado al construir un app para el Netduino.</p>
+<h3>Anatomía de un programa sencillo</h3>
+<p>Si nunca has tenido un acercamiento con la programación de dispositivos, puede que encontrarte con un programa escrito para el Netduino te sea un poco extraño, veamos por ejemplo el <em>&quot;Hola mundo&quot;</em> de la programación para dispositivos: Hacer parpadear un led.</p>
+<pre><code class="language-csharp">public class Blinky
+{
+    public static void Main()
+    {
+        OutputPort led = new OutputPort(Pins.ONBOARD_LED, false);
+
+        while (true)
+        {
+            led.Write(true);
+            Thread.Sleep(250);
+            led.Write(false);
+            Thread.Sleep(250);
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>Primero que nada: como en cualquier otro programa, todo debe pertenecer a una clase.</li>
+<li>El método estático <code>Main</code> es nuestro punto de entrada</li>
+<li>Usualmente nuestros programas funcionan dentro de un ciclo infinito. Al principio a mi se hacía la parte más extraña.</li>
+</ul>
+<h4>Entradas y salidas</h4>
+<p>Todas las entradas y salidas de nuestros programas son a través de los pines de entrada y salida de la tarjeta de nuestro Netduino, y podemos hacer uso de ellos al &quot;envolverlos&quot; en objetos como el <code>OutputPort</code> del ejemplo anterior. El <code>OutputPort</code> representa una salida digital, de 1 o 0, es por eso que podemos usar el método <code>Write</code> y pasarle un valor booleano. Valor que en este caso encenderá o apagará el led de la tarjeta.</p>
+<p>Para otras operaciones tenemos:</p>
+<ul>
+<li><code>InputPort</code> que puede ser usado para recibir un 1 o un 0 de un puerto de entrada</li>
+<li><code>AnalogInput</code> que es similar a <code>InputPort</code> pero para valores análogos</li>
+<li><code>InterruptPort</code> que habilitará un puerto que puede llamar a un evento cuando percibe un cambio de voltaje</li>
+<li><code>TristatePort</code> que es un puerto que puede ser usado para lectura o escritura</li>
+</ul>
+<p>Y listo, sabiendo usar los puertos y con todos tus otros componentes de electrónica (resistencias, transistores, amplificadores...) ya tienes todo para empezar a desarrollar tus propios sistemas.</p>
+<h3>Shields</h3>
+<p>Un momento... es probable que no tengas conocimientos profundos en electrónica (una vez más, como yo) y es en estos casos cuando los <em>shields</em> o, escudos, entran en juego.</p>
+<p>Los <em>shields</em> no son más que módulos que se conectan en nuestro Netduino y extienden su funcionalidad con cosas como WiFi, Bluetooth, control de motores, displays, relevadores y más. Todo sin requerir profundos conocimientos técnicos sobre resistencias y voltajes. La gran ventaja de la tarjeta de Netduino es que muchos de los escudos fabricados para Arduino son compatibles con ella, y es por eso que tenemos acceso a muchas posibilidades.</p>
+<p>Muchos de los <em>shields</em> vienen acompañados de librerías de código que envuelven la funcionalidad del módulo de hardware en un módulo de software hecho a la medida, y que hacen aún más fácil trabajar con ellos, ahora desde la perspectiva del software. Inclusive algunas de estas librerías son distribuídas a través de paquetes de NuGet.</p>
+<h3>Proyectos</h3>
+<p>¿Qué sería de este post si no pusiera ejemplos de cosas que se pueden hacer con Netduino? es por eso que acá te pongo una recopilación de ejemplos:</p>
+<h4>Automatización de una casa con Netduino</h4>
+<p>Este es un proyecto de <a href="http://twitter.com/LogicalDan" rel="nofollow" target="_blank">Dan Thyer</a> en donde <a href="" target="_blank">automatizó una parte de su hogar</a> usando Netduino y Kinect, el proyecto en si es interesante, sin embargo lo que más llama la atención es verlo a él controlar una manguera con tan solo mover su mano:</p>
+<div style="text-align: center;">
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/FWINsKcP8oQ" frameborder="0" allowfullscreen></iframe>  
+</div>
+<h4>Control de una pecera</h4>
+<p>Este proyecto es de alguien que quiso controlar y monitorear su pecera, todo usando componentes fáciles de encontrar y su Netduino Plus 2. Al final integró el monitoreo de la tapa superior, balanceo de PH e iluminación y temperatura. Publicó todo en <a href="https://reefindotnet.codeplex.com" target="_blank" rel="nofollow">Codeplex</a>.</p>
+<h4>Vigilante de puerta</h4>
+<p>Y este es un poco más sencillo, hice una aplicación que, junto con Xamarin, <a href="/post/pushing-from-netduino-to-mobile/">envía una notificación cada vez que alguien abría una puerta</a>, para este usé un Netduino 3 WiFi. Si le échas un ojo y te interesa saber más sobre él, no dudes en preguntarme.</p>
+<h3>¿Donde lo consigo?</h3>
+<p>Una de las grandes desventajas es la poca distribución que tiene en ciertos países, pero puedes checar si Amazon hace envíos a tu país, los que yo conozco y he usado son estos <a rel="nofollow" href="http://www.amazon.com/gp/product/B009QOYK2U/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B009QOYK2U&linkCode=as2&tag=thcgu-20&linkId=S5Y5YR4FYENG4U5H">Netduino Plus 2</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=thcgu-20&l=as2&o=1&a=B009QOYK2U" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display:inline;" /> y <a rel="nofollow" href="http://www.amazon.com/gp/product/B00WAGY87S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00WAGY87S&linkCode=as2&tag=thcgu-20&linkId=E72OE67HNTGC4V3B">Netduino 3 WiFi</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=thcgu-20&l=as2&o=1&a=B00WAGY87S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display: inline;" />. Si vives en México, una alternativa (aunque un poco cara) es <a href="http://www.mouser.mx/Search/Refine.aspx?Keyword=Netduino" target="_blank" rel="nofollow">Mouser Electronics</a>. Sea cual sea que consigas, este par de libros te pueden servir, esto si están baratos: <a rel="nofollow" href="http://www.amazon.com.mx/gp/product/1449302459/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1449302459&linkCode=as2&tag=thcgu02-20">Getting Started With Netduino</a><img src="http://ir-mx.amazon-adsystem.com/e/ir?t=thcgu02-20&l=as2&o=34&a=1449302459" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display: inline;" /> y <a rel="nofollow" href="http://www.amazon.com.mx/gp/product/B00COVJUGI/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00COVJUGI&linkCode=as2&tag=thcgu02-20">Getting Started with the Internet of Things: Connecting Sensors and Microcontrollers to the Cloud</a><img src="http://ir-mx.amazon-adsystem.com/e/ir?t=thcgu02-20&l=as2&o=34&a=B00COVJUGI" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important; display: inline;" />.</p>
+<h3>Alternativas</h3>
+<p>Una alternativa a Netduino que también funciona con el .NET Microframework son las tarjetas de <a href="https://www.ghielectronics.com/catalog/category/34#cat543" rel="nofollow" target="_blank">GHI electronics</a>. Y tal vez hayas oído hablar de Windows 10 IoT que es otra manera de poner nuestras apps en dispositivos... pero no funciona con el NETMF directamente, sino sobre el sistema operativo.</p>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

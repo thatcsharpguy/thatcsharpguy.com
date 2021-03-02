@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Xamarin.iOS, C# y Objective-C | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Xamarin.iOS, C# y Objective-C">
+<meta itemprop="description" content="Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Xamarin.iOS, C# y Objective-C">
+<meta name="twitter:description" content="Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Xamarin.iOS, C# y Objective-C">
+<meta name="og:description" content="Un post en el que se compara la sintaxis de Objective-C con la de C# con Xamarin.iOS.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Xamarin.iOS, C# y Objective-C</h1>
+
+<p>Cuando conocí <a href="http://thatcsharpguy.com/tag/Xamarin">Xamarin</a> por primera vez, una de mis primeras preguntas era: ¿Cómo demonos se supone que voy a escribir apps para iOS en C#? Simplemente no se me ocurría cómo es que eso era posible...</p>
+<p>Pues bien, hace poco tuve que realizar un proyecto en el que requería mostrar un control tipo <em>checkbox</em> para permitir al usuario seleccionar varios items de un conjunto, si estás familiarizado con iOS, sabrás que no existe un <em>checkbox</em> nativo, lo más cercano a eso que hay es el <code>UISwitch</code>.</p>
+<p>Yo no quería usar el UISwitch porque ocupa mucho espacio y creo que da una ilusión como de encendido/apagado más que de seleccionado/no seleccionado, es por eso que <em>googleando</em> un poco me encontré con <a href="https://github.com/Marxon13/M13Checkbox" target="_blank" rel="nofollow">M13Checkbox</a> que es un control escrito en Objective-C que hace justo lo que quiero, el problema: <strong>está en Objective-C</strong>.</p>
+<p>Y si bien este no es un gran problema, puesto que pude haber <a href="https://developer.xamarin.com/guides/ios/advanced_topics/binding_objective-c/" target="_blank" rel="nofollow">creado un binding</a>, decidí &quot;traducir&quot; la librería de Objective-C a C#, para mostrarte cómo es que en algunos aspectos no hay mucha diferencia entre los dos lenguajes.</p>
+<h2>Definición de las clases:</h2>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+public class CheckView : UIView
+{
+    public M13Checkbox Checkbox { get; set; }
+<pre><code>public bool Selected { get; set; }
+
+// Code    
+</code></pre>
+<p>}</p>
+<pre><code>&lt;/div&gt;
+&lt;div class=&quot;pure-u-1 pure-u-md-1-2&quot;&gt;
+```objectivec  
+// Objective-C
+@interface CheckView : UIView
+@property (nonatomic, weak) M13Checkbox *checkbox;
+@property (nonatomic, assign) BOOL selected;
+@end
+
+@implementation CheckView
+@synthesize checkbox, selected;
+    // Code
+@end
+
+</code></pre>
+</div>  
+</div>
+<p>En C# no es necesario crear una interfaz para definir una clase, basta con definir la clase incluyéndo sus propiedades, y si bien también existen las interfaces, estas cumplen otras funciones que no son las mismas que Obj-C.</p>
+<h2>Creando instancias de objetos</h2>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+checkView = new CheckView(checkViewFrame);
+_titleLabel = new UILabel(labelFrame);
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```objectivec  
+// Objective-C
+checkView = [[CheckView alloc] initWithFrame:checkViewFrame];
+_titleLabel = [[UILabel alloc] initWithFrame:labelFrame];
+```  
+</div>  
+</div>
+<p>La primera diferencia es que nosotros no tenemos que usar <code>alloc</code> para reservar memoria para nuestra instancia, ni necesitamos llamar a algún método <code>init</code> para inicializarlo. Ambas tareas son reemplazadas por el operador <code>new</code> y el constructor de la clase.</p>
+<h2>Métodos</h2>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+<p>// Static method
+public static void NoInstanceMethod()
+{ // ...</p>
+<p>public UIBezierPath GetDefaultShape()
+{ // ...</p>
+<p>public void Draw(CGRect rect)
+{ // ...</p>
+<p>// Constructor
+public M13Checkbox(GCRect frame, string title)
+{ // ...</p>
+<pre><code>&lt;/div&gt;
+&lt;div class=&quot;pure-u-1 pure-u-md-1-2&quot;&gt;
+```objectivec  
+// Objective-C
+
+// Class method
++ (void)noInstanceMethod
+{ // ...
+
+- (UIBezierPath *)getDefaultShape
+{ // ...
+
+- (void)drawRect:(CGRect)rect
+{ // ...
+
+// Initializer
+- (id)initWithFrame:(CGRect)frame title:(NSString *)title
+{ // ...
+</code></pre>
+</div>  
+</div>
+<p>La primera cosa que resalta a la vista es que en C# desaparecen los <code>+</code> y  <code>-</code> dentro de la firma del método, sabemos que <code>+</code> significa que el método es un método de clase y lo más parecido en C# es un método <em>static</em>, no digo que son 100% iguales, porque no lo son, pero para el día a día, son equivalentes.</p>
+<p>En Objective-C no existe la sobrecarga de métodos, entonces el nombre del método incluye el nombre del primer parámetro pasado a él como argumento, en este caso &quot;draw<strong>Rect</strong>&quot;, para C# esto no es necesario, basta con el nombre del método, los argumentos pasados a él lo diferenciarán de los otros que puedan coincidir en nombre.</p>
+<p>Por otro lado, en C# no existe un método para inicializar un objeto, sino que se ocupan los constructores, que parecen métodos sin tipo de retorno y que llevan el mismo nombre de la clase que construye, como en este caso <code>M13Checkbox</code>.</p>
+<h2>Llamando a métodos</h2>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+Checkbox.GetDefaultShape().Fill();
+<p>fillColor.GetRGBA(out r, out g, out b, out a);</p>
+<p>bezierPath.AddCurveToPoint(new CGPoint((0.17625 * height), // ...</p>
+<pre><code>&lt;/div&gt;
+&lt;div class=&quot;pure-u-1 pure-u-md-1-2&quot;&gt;
+```objectivec  
+// Objective-C
+[[checkbox getDefaultShape] fill];
+
+[fillColor getRed:&amp;r green:&amp;g blue:&amp;b alpha:&amp;a];
+
+[bezierPath addCurveToPoint: CGPointMake((0.17625 * height), // ...
+</code></pre>
+</div>  
+</div>
+<p>Lo primero que nos damos cuenta es que los <code>[ ]</code> desaparecen, en C# los métodos se llaman colocando el operador <code>.</code> a nuestro objeto, para después indicar el nombre y su lista de parámetros entre <code>( )</code>, y si un método no recibe parámetros los paréntesis deben colocarse vacíos.</p>
+<p>En cuanto a los parámetros, estos no requieren ser distinguidos con el nombre que se indica en la firma del método, basta con colocarlos en el orden correspondiente y separarlos con una coma para distinguirlos uno de otro.</p>
+<p>En Obj-C vemos que se usa <code>&amp;</code> para indicar que un valor es pasado a un método como referencia, mientras que en C# esto se indica con <code>out</code> o <code>ref</code>, dependiendo de la situación.</p>
+<h2>Propiedades de instancia</h2>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+CGRect boxRect = new CGRect(Checkbox.StrokeWidth, 
+    (Frame.Size.Height * Constants.CheckVerticalExtension), 
+    (Frame.Size.Height * Constants.BoxSize) - Checkbox.StrokeWidth, 
+    (Frame.Size.Height * Constants.BoxSize) - Checkbox.StrokeWidth);
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```objectivec  
+// Objective-C
+CGRect boxRect = CGRectMake(checkbox.strokeWidth, 
+    (self.frame.size.height * kCheckVerticalExtension), 
+    (self.frame.size.height * kBoxSize) - checkbox.strokeWidth, 
+    (self.frame.size.height * kBoxSize) - checkbox.strokeWidth);
+```  
+</div>  
+</div>
+<p>La primera diferencia es que no es necesario utilizar <code>self</code> para referirse a propiedades de instancia (en C# <code>this</code> es la palabra para referirse al objeto desde dentro de él mismo).</p>
+<p>La segunda es que en C# no existe la posibilidad de definir valores constantes usando <code>#define</code>, para ellas es necesario usar la palabra reservada <code>const</code>, y como todo tiene que pertenecer a una clase, yo decidí meterlas en una clase llamada <code>Constants</code>.</p>
+<h2>Tipos por referencia</h2>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+UIColor fillColor = null;
+UIColor strokeColor = null;
+UIColor checkColor = null;
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```objectivec  
+// Objective-C
+UIColor *fillColor = nil;
+UIColor *strokeColor = nil;
+UIColor *checkColor = nil;
+```  
+</div>  
+</div>
+<p>Para tener una referencia a <code>UIColor</code> no es necesario el sufijo <code>*</code>, puesto que en C# UIColor ya es un <a href="http://thatcsharpguy.com/post/tipos-dato-c-sharp/">tipo por referencia</a> y no se usa <code>*</code> para hacerlo notar. Ah... otra &quot;gran&quot; diferencia es que <code>nil</code> es como  <code>null</code>.</p>
+<h2>Enums</h2>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+public enum CheckboxState
+{
+    Unchecked,
+    Checked,
+    Mixed
+}
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```objectivec  
+// Objective-C
+typedef NS_ENUM(NSInteger, M13CheckboxState) {
+    M13CheckboxStateUnchecked = NO, //Default
+    M13CheckboxStateChecked = YES,
+    M13CheckboxStateMixed
+};
+  
+```  
+</div>  
+</div>  
+<p>En C# no es posible asociar los valores de un <em>enum</em> con booleanos, como en Objective-C, entonces para compararlos es necesario hacer algo como:</p>
+<div class="pure-g">
+<div class="pure-u-1 pure-u-md-1-2">
+```csharp  
+// C#
+if (Checkbox.CheckboxState == CheckboxState.Unchecked)
+{
+    fillColor = Checkbox.UncheckedColor;
+}
+else
+{
+    fillColor = Checkbox.TintColor;
+}
+```  
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+```objectivec  
+// Objective-C
+if (checkbox.checkState == M13CheckboxStateUnchecked) {
+    fillColor = checkbox.uncheckedColor;
+} else {
+    fillColor = checkbox.tintColor;
+}
+  
+  
+  
+```  
+</div>  
+</div>
+<h2>Conclusión</h2>
+<p>Esta fue un pequeño ejercicio de comparación de sintaxis entre los dos lenguajes, en este podemos ver que, si bien hay diferencias muy relevantes, también hay puntos en los que se cruzan o no es mucha la diferencia. También aproveché para mostrar el gran esfuerzo que hizo la gente de Xamarin al mapear 1:1 la api de iOS a C#, es por eso que los nombres de los métodos, clases y demás coinciden casi al 100%.</p>
+<h3>Lo que sigue</h3>
+<p>Si quieres seguir leyendo más sobre la transición de Objective-C a C#, puedes ver <a href="https://developer.xamarin.com/guides/ios/advanced_topics/xamarin_for_objc/primer/" target="_blank" rel="nofollow">documentación de Xamarin</a> o <a href="http://stackoverflow.com/a/1369221" target="_blank" rel="nofollow">esta respuesta en StackOverflow</a>. Yo pronto estaré publicando una pequeña guía sobre cómo hacer una app nativa para iPhone usando C# y Xamarin, para continuar con este ejemplo, pero por mientras puedes ver las <a href="http://thatcsharpguy.com/post/xamarin-android-vs-traditional/">diferencias entre Xamarin.Android y Android</a>.</p>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

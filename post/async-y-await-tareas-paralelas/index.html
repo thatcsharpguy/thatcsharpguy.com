@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>async y await (tareas paralelas) | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="async y await (tareas paralelas)">
+<meta itemprop="description" content="Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="async y await (tareas paralelas)">
+<meta name="twitter:description" content="Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="async y await (tareas paralelas)">
+<meta name="og:description" content="Trabaja con tareas asíncronas y paralelas en tus aplicaciones móviles, de escritorio y hasta en el servidor.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>async y await (tareas paralelas)</h1>
+
+<p>Una vez que conocimos los tipos <code>Task</code> y las apalabras <code>async</code> y <code>await</code>, y cómo es que nos ayudan a ejecutar código de manera asíncrona, es momento de comenzar a extender este poder para sacarle más ventaja.</p>
+<p>En este post veremos cómo es que podemos ejecutar tareas asíncronas de manera paralela. Ojo que el paralelelismo conlleva más complicaciones, pero este es un buen lugar para comenzar.</p>
+<h2>Ejemplo</h2>
+<p>Vamos a seguir trabajando con la aplicación <a href="https://github.com/ThatCSharpGuy/AsyncAwait" target="_blank">app demo que puedes encontrar en GitHub</a>. En este caso usaremos dos <code>ProgressBar</code>, una <code>Label</code> y unos cuantos botones. En código de la app tendremos dos métodos que animan las barras de progreso a distintas velocidades:</p>
+<pre><code class="language-csharp">async Task EjecutaTareaAsincrona1()
+{
+    await Task.Factory.StartNew(() =&gt;
+    {
+        for (int i = 0; i &lt; 100; i++)
+        {
+            Task.Delay(40).Wait();
+            Device.BeginInvokeOnMainThread(() =&gt;
+            {
+                ProgressBar1.Progress = ((double)i + 1) / 100;
+            });
+        }
+    });
+}
+
+async Task EjecutaTareaAsincrona2()
+{
+    await Task.Factory.StartNew(() =&gt;
+    {
+        for (int i = 0; i &lt; 100; i++)
+        {
+            Task.Delay(100).Wait();
+            Device.BeginInvokeOnMainThread(() =&gt;
+            {
+                ProgressBar2.Progress = ((double)i + 1) / 100;
+            });
+        }
+    });
+}
+</code></pre>
+<h2>Secuencial</h2>
+<p>Lo primero que se viene a la mente es llamarlos consecutivamente haciendo como en el siguiente ejemplo:</p>
+<pre><code class="language-csharp">TaskStatusLabel.Text = &quot;Tarea iniciada&quot;;
+await EjecutaTareaAsincrona1();
+await EjecutaTareaAsincrona2();
+TaskStatusLabel.Text = &quot;Tarea terminada&quot;;
+</code></pre>
+<p>Sin embargo lo que esto provocará es que se ejecute uno primero seguido del otro, no ambos al mismo tiempo que es lo que deseamos:</p>
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/sequential.gif" title="Bloqueo de hilo" />
+<h2>WhenAll</h2>
+<p>Para ejecutar múltiples <code>Task</code> al mismo tiempo tenemos una solución bastante simple y sencilla de implementar, basta con obtener referencias hacia las tareas que queremos ejecutar (recuerda, <code>Task</code> es un tipo de dato como cualquier otro)  y usarlos como argumento del método estático <code>WhenAll</code> de la clase <code>Task</code>. Este método recibe una colección de tareas <a href="#" target="_blank">usando params</a> y las engloba en una una tarea padre que se considera terminada hasta que todas sus tareas hijas hayan terminado:</p>
+<pre><code class="language-csharp">TaskStatusLabel.Text = &quot;Tarea iniciada&quot;;
+var t1 = EjecutaTareaAsincrona1();
+var t2 = EjecutaTareaAsincrona2();
+await Task.WhenAll(t1, t2);
+TaskStatusLabel.Text = &quot;Tarea terminada&quot;;
+</code></pre>
+<p>De este modo tendremos tareas que se ejecutan simultáneamente y al final regresan todas al punto donde el código debe continuar:</p>
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/whenall.gif" title="Bloqueo de hilo" />
+<h2>WhenAny</h2>
+<p>De manera similar a <code>WhenAll</code>, el método <code>WhenAny</code> agrupa a las tareas, sin embargo la tarea padre se considera terminada cuando al menos una de sus tareas hijas ha terminado. Cuando esto sucede el bloque de código continua ejecutándose de manera normal y las tareas que no terminaron siguen ejecutándos, solo que no regresan al hilo que las lanzó.</p>
+<pre><code class="language-csharp">TaskStatusLabel.Text = &quot;Tarea iniciada&quot;;
+var t1 = EjecutaTareaAsincrona1();
+var t2 = EjecutaTareaAsincrona2();
+await Task.WhenAny(t1, t2);
+TaskStatusLabel.Text = &quot;Tarea terminada&quot;;
+</code></pre>
+<p>Como puedes ver en este ejemplo, la barra superior termina antes que la inferior, como resultado el código que cambia el texto de la etiqueta de abajo cambia sin importar que una tarea quede pendiente de concluir:</p>
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/whenany.gif" title="Bloqueo de hilo" />
+<h2>Bloqueando con tareas</h2>
+<p>A pesar de estar diseñadas para ejecutarse de manera asíncrona, es posible forzar a que las <code>Task</code> se comporten como tareas síncronas. Esto no es recomendable, pero si posible a través del método de instancia <code>Wait</code> para una tarea y los métodos de clase <code>WaitAll</code> y <code>WaitAny</code>.</p>
+<h2>Bonus: <code>Task</code> en el servidor</h2>
+<p>Usualmente la asincronía se nota más en aplicaciones cuyo procesamiento se realiza directamente en un dispositivo cliente, sin embargo también se benefician las aplicaciones de servidor, como las creadas con Web API o MVC.</p>
+<p>La cosa funciona así: En el servidor existe un conjunto de hilos que están a la espera de atender las peticiones que reciba el servidor. Cada que llega una petición, se despacha un hilo para que este la atienda, y no se libera hasta que la termina de atender. Si tu aplicación hace uso de <code>async</code> y <code>await</code>, el hilo principal se desocupa mientras espera la respuesta de la tarea que despachó, mientras espera, puede atender otras peticiones, acelerando así el tiempo de respuesta de tu aplicación web.</p>
+<blockquote>
+<p>Puedes ver mi otro post sobre <a href="..\async-await" target="_blank">cómo crear tareas asíncronas</a> o este otro sobre <a href="..\async-await-3" target="_blank">cómo cancelarlas</a>.</p>
+</blockquote>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

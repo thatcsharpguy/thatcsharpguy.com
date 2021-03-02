@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Cámara a página completa en Xamarin.Forms | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Aprende cómo tomar fotos desde tu aplicación de Xamarin.Forms usando un custom renderer para acceder a la cámar aisn dejar tu aplicación. Con este control puedes personalizar la interfaz de usuario para que coincida con tu app.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Cámara a página completa en Xamarin.Forms">
+<meta itemprop="description" content="Aprende cómo tomar fotos desde tu aplicación de Xamarin.Forms usando un custom renderer para acceder a la cámar aisn dejar tu aplicación. Con este control puedes personalizar la interfaz de usuario para que coincida con tu app.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cámara a página completa en Xamarin.Forms">
+<meta name="twitter:description" content="Aprende cómo tomar fotos desde tu aplicación de Xamarin.Forms usando un custom renderer para acceder a la cámar aisn dejar tu aplicación. Con este control puedes personalizar la interfaz de usuario para que coincida con tu app.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Cámara a página completa en Xamarin.Forms">
+<meta name="og:description" content="Aprende cómo tomar fotos desde tu aplicación de Xamarin.Forms usando un custom renderer para acceder a la cámar aisn dejar tu aplicación. Con este control puedes personalizar la interfaz de usuario para que coincida con tu app.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Cámara a página completa en Xamarin.Forms</h1>
+
+<p>Hace ya un tiempo desde que programé la aplicación<a href="..\Aharphat-Android" target="_blank">CharpHat</a>, que es una aplicación que permite tomar una foto de cualquier cosa y ponerle un birrete de C# en ella. La aplicación no era perfecta, pero me ayudó a practicar el uso de los <em>custom page renderers</em>.</p>
+<p>Ahora, decidí retomar el proyecto, pero en esta ocasión con la meta de aislar el código necesario para crear la interfaz y funconalidad de la cámara, de tal modo que cualquiera que quisiera implementar una cámara en su aplicación lo pudiera reutilizar en sus proyectos. Asegúrate de <strong><a href="https://github.com/ThatCSharpGuy/Forms-FullCameraPage" target="_blank">descargar el código fuente</a></strong> para este post.</p>
+<h2>Abstracciones de Forms</h2>
+<p><small><a href="https://github.com/ThatCSharpGuy/Forms-FullCameraPage/blob/master/CameraPage.cs" target="_blank">Aquí está el código fuente para esta sección.</a></small></p>
+<p>Comencemos creando la página de Forms que nos servirá como medio de interacción con el código de clada plataforma:</p>
+<pre><code class="language-csharp">public class CameraPage : ContentPage
+{
+    public delegate void PhotoResultEventHandler(PhotoResultEventArgs result);
+    public event PhotoResultEventHandler OnPhotoResult;
+</code></pre>
+<p>Nada fuera de lo normal, crea una clase que derive de <code>ContentPage</code>. Añadí un <em>event handler</em> ya que que queremos obtener la foto tomada por el usuario. Ahora, agreguémos algunos métodos para llamar cada vez que el usuario realice una acción en la página (en este caso, el usuario podrá tomar una foto o cancelar la acción):</p>
+<pre><code class="language-csharp">public void SetPhotoResult(byte[] image, int width = -1, int height = -1)
+{
+    OnPhotoResult?.Invoke(new PhotoResultEventArgs(image, width, height));
+}
+
+public void Cancel()
+{
+    OnPhotoResult?.Invoke(new PhotoResultEventArgs());
+} 
+</code></pre>
+<p>Como referencia, mira las propiedades dentro de la clase <code>PhotoResultEventArgs</code>:</p>
+<pre><code class="language-csharp">public bool Success { get; private set; }
+public int Width { get; private set; }
+public int Height { get; private set; }
+public byte[] Image { get; private set; }
+</code></pre>
+<p>Ahora es momento de seguir al código específico de cada plataforma.</p>
+<h2>In Xamarin.iOS</h2>
+<p><small><a href="https://github.com/ThatCSharpGuy/Forms-FullCameraPage/blob/master/iOS/CameraPageRenderer.cs" target="_blank">Aquí está el código fuente para esta sección.</a></small></p>
+<p>Para ser sincero, la implementación en iOS es la más sencilla por mucho. Comenzamos por crear una clase que derive de <code>PageRenderer</code> y le añadimos el atributo <code>ExportRenderer</code>:</p>
+<pre><code class="language-csharp">[assembly: ExportRenderer(typeof(CameraPage), typeof(CameraPageRenderer))]
+namespace FullCameraPage.iOS
+{
+	public class CameraPageRenderer : PageRenderer
+</code></pre>
+<p>Ahora, y esto es muy importante, tienes que sobreescribir el método <code>ViewDidLoad</code> dado que es llamado tan pronto nuestra página es cargada por el sistema operativo. Para organizar un poco mejor el código, partamos el código en varios métodos:</p>
+<pre><code class="language-csharp">public override async void ViewDidLoad()
+{
+    base.ViewDidLoad();
+    SetupUserInterface();
+    SetupEventHandlers();
+    AuthorizeCameraUse();
+    SetupLiveCameraStream();
+}
+</code></pre>
+<h3>SetupUserInterface</h3>
+<p>Tal y como el nombre lo dice, aquí es donde tenemos que construir la interfaz. Como podrás haber adivinado, todo se hace con código, pero no te preocupes, es muy sencillo en tanto tu interfaz no sea muy complicada, pero puedes hacer lo que tu quieras aquí.</p>
+<p>Para este ejemplo la interfaz consistrá de un par de botones y una superficie donde la vista en vivo de la cámara se mostrará, así que declara las siguientes campos a nivel de clase:</p>
+<pre><code class="language-csharp">VectorButton takePhotoButton;
+VectorButton cancelPhotoButton;
+UIView liveCameraStream;
+</code></pre>
+<p>Ahora para poner los controles en su lugar necesitas pensar como si estuvieras trabajando con un <em>relative layout</em>, lo que significa que hay que poner la posición del control en la pantalla. Por ejemplo, observa cómo se ubica la vista de la cámara:</p>
+<pre><code class="language-csharp">private void SetupUserInterface()
+{
+    // Code ommited ...
+    liveCameraStream = new UIView()
+    {
+        Frame = new CGRect(0f, 0f, View.Bounds.Width, View.Bounds.Height)
+    };
+    // Code ommited ...
+    View.Add(liveCameraStream);
+    // Code ommited ...
+}
+</code></pre>
+<h3>SetupEventHandlers</h3>
+<p>Ahora que ya hemos terminado la interfaz, podemos <em>conectar</em> los manejadores de eventos a cada control, por suerte en nuestro ejemplo únicamente tenemos dos botones en la pantalla: para tomar fotos y para cancelar la captura.</p>
+<pre><code class="language-csharp">cancelPhotoButton.TouchUpInside += (s, e) =&gt;
+{
+    (Element as CameraPage).Cancel();
+};
+
+takePhotoButton.TouchUpInside += async (s, e) =&gt;
+{
+    var data = await CapturePhoto();
+    UIImage imageInfo = new UIImage(data);
+
+    (Element as CameraPage).SetPhotoResult(data.ToArray(),
+                                           (int)imageInfo.Size.Width,
+                                           (int)imageInfo.Size.Height);
+};
+</code></pre>
+<p>La propiedad <code>Element</code> contiene una referencia a la página asociada con el <em>renderer</em> y es nuestro medio de interacción con el proyecto de Forms. Si te preguntas sobre el método <code>CapturePhoto</code>, lo veremos más adelante.</p>
+<h2>AuthorizeCameraUse</h2>
+<p>Ahora es momento de solicitar permiso al usuario para usar su cámara.</p>
+<pre><code class="language-csharp">var authorizationStatus = AVCaptureDevice.GetAuthorizationStatus(AVMediaType.Video);
+if (authorizationStatus != AVAuthorizationStatus.Authorized)
+{
+    await AVCaptureDevice.RequestAccessForMediaTypeAsync(AVMediaType.Video);
+}
+</code></pre>
+<p>Pero antes de ejecutar el código anterior tienes que agregar la entrada <code>Privacy - Camera Usage Description</code> al archivo Info.plist en tu proyecto.</p>
+<h3>SetupLiveCameraStream</h3>
+<p>Ahora la parte &quot;complicada&quot;.</p>
+<p>Comienza delcarando a nivel de clase una <code>AVCaptureSession</code>, <code>AVCaptureDeviceInput</code> y <code>AVCaptureStillImageOutput</code>,  ya que estos nos ayudaran a acceder a la cámara, mostrarla en vivo, y capturar la imagen.</p>
+<p>Entonces dentro de <code>SetupLiveCameraStream</code>, inicializa una sesión de captura, crea una capa de previsualización del mismo tamaño que nuestra <code>liveCameraStream</code>, y añádela como una subcapa de esta:</p>
+<pre><code class="language-csharp">    captureSession = new AVCaptureSession();
+    var videoPreviewLayer = new AVCaptureVideoPreviewLayer(captureSession)
+    {
+        Frame = liveCameraStream.Bounds
+    };
+    liveCameraStream.Layer.AddSublayer(videoPreviewLayer);
+</code></pre>
+<p>Después, &quot;crea&quot; un dispositivo de captura (que puedes configurar de acuerdo a tus necesidades). Y entonces de éste dispositivo crea una entrada para la sesión de captura:</p>
+<pre><code class="language-csharp">    var captureDevice = AVCaptureDevice.DefaultDeviceWithMediaType(AVMediaType.Video);
+    ConfigureCameraForDevice(captureDevice);
+    captureDeviceInput = AVCaptureDeviceInput.FromDevice(captureDevice);
+</code></pre>
+<p>Ya tenemos una entrada (la cámara del dispositivo), ahora necesitamos una salida, que será una fotografía en formato jpeg:</p>
+<pre><code class="language-csharp">    var dictionary = new NSMutableDictionary();
+    dictionary[AVVideo.CodecKey] = new NSNumber((int)AVVideoCodec.JPEG);
+    stillImageOutput = new AVCaptureStillImageOutput()
+    {
+        OutputSettings = new NSDictionary()
+    };
+</code></pre>
+<p>Terminamos estableciendo la entrada y salida de la sesión de captura y la iniciamos:</p>
+<pre><code class="language-csharp">    captureSession.AddOutput(stillImageOutput);
+    captureSession.AddInput(captureDeviceInput);
+    captureSession.StartRunning();
+</code></pre>
+<h3>CapturePhoto</h3>
+<p>Finalmente la cereza del pastel. El código para capturar la foto. En sí, el código es bastante simple: Toma la salida y obten una imagen fija de ella, ya que nosotros solo necesitamos los bytes (<code>NSData</code>) que contenga la foto tomada:</p>
+<pre><code class="language-csharp">public async Task&lt;NSData&gt; CapturePhoto()
+{
+    var videoConnection = stillImageOutput.ConnectionFromMediaType(AVMediaType.Video);
+    var sampleBuffer = await stillImageOutput.CaptureStillImageTaskAsync(videoConnection);
+    var jpegImageAsNsData = AVCaptureStillImageOutput.JpegStillToNSData(sampleBuffer);
+    return jpegImageAsNsData;
+}
+</code></pre>
+<h2>In Xamarin.Android</h2>
+<p><small><a href="https://github.com/ThatCSharpGuy/Forms-FullCameraPage/blob/master/Droid/CameraPageRenderer.cs" target="_blank">Aquí está el código fuente para esta sección.</a></small></p>
+<p>Esta implementación no es tan limpia como en iOS. Principalmente porque Android hace más énfasis en el uso de <em>listeners</em> que en manejadores de evento. Como sea, ese no es un problema para nosotros.</p>
+<p>Como en iOS, comienza creando una clase que derive de <code>PageRenderer</code> y también haz que implmente la interfaz <code>TextureView.ISurfaceTextureListener</code>. No olvides el atributo <code>ExportRenderer</code>:</p>
+<pre><code class="language-csharp">[assembly: Xamarin.Forms.ExportRenderer(typeof(CameraPage), typeof(CameraPageRenderer))]
+namespace FullCameraPage.Droid
+{
+    public class CameraPageRenderer : PageRenderer, TextureView.ISurfaceTextureListener
+</code></pre>
+<p>Después, sobreescribe el método <code>OnElementChanged</code> (si ya has trabajado con <em>custom renderers</em> antes, este método te puede parecer familiar), ya que este será llamado cada vez que una <code>CameraPage</code> es mostrada en la pantalla:</p>
+<pre><code class="language-csharp">protected override void OnElementChanged(ElementChangedEventArgs&lt;Xamarin.Forms.Page&gt; e)
+{
+    base.OnElementChanged(e);
+    SetupUserInterface();
+    SetupEventHandlers();
+</code></pre>
+<h3>SetupUserInterface</h3>
+<p>En este método se debe crear la interfaz de la cámara, puedes hacerlo mediante un archivo <em>axml</em> e &quot;inflarlo&quot; con los mecanismos de Android... o, como en este ejemplo, crearlo en código.</p>
+<p>Para este ejemplo vamos a necesitar un <code>RelativeLayout</code> como contenedor, un <code>TextureView</code> para mostrar la cámara y un botón para tomar la foto. Declara todo a nivel de clase:</p>
+<pre><code class="language-csharp">RelativeLayout mainLayout;
+TextureView liveView;
+PaintCodeButton capturePhotoButton;
+</code></pre>
+<p>Solamente falta instanciarlos y añadirlos a la pantalla, por ejemplo, observa cómo se crea el contenedor y se le añada el control <code>TextureView</code>:</p>
+<pre><code class="language-csharp">void SetupUserInterface()
+{
+    mainLayout = new RelativeLayout(Context);
+    RelativeLayout.LayoutParams mainLayoutParams = new RelativeLayout.LayoutParams(
+        RelativeLayout.LayoutParams.MatchParent,
+        RelativeLayout.LayoutParams.MatchParent);
+    mainLayout.LayoutParameters = mainLayoutParams;
+
+    liveView = new TextureView(Context);
+    RelativeLayout.LayoutParams liveViewParams = new RelativeLayout.LayoutParams(
+        RelativeLayout.LayoutParams.MatchParent, 
+        RelativeLayout.LayoutParams.MatchParent);
+    liveView.LayoutParameters = liveViewParams;
+    mainLayout.AddView(liveView);
+    
+    // Code ommited...
+
+    AddView(mainLayout);
+}
+</code></pre>
+<p>Antes de continuar hay otro método que debemos sobreescribir para darle al contenedor su tamaño (y también lo podemos usar para acomodar la interfaz correctamente):</p>
+<pre><code class="language-csharp">protected override void OnLayout(bool changed, int l, int t, int r, int b)
+{
+    base.OnLayout(changed, l, t, r, b);
+    if (!changed)
+        return;
+    var msw = MeasureSpec.MakeMeasureSpec(r - l, MeasureSpecMode.Exactly);
+    var msh = MeasureSpec.MakeMeasureSpec(b - t, MeasureSpecMode.Exactly);
+    mainLayout.Measure(msw, msh);
+    mainLayout.Layout(0, 0, r - l, b - t);
+
+    capturePhotoButton.SetX( mainLayout.Width / 2 - 60);
+    capturePhotoButton.SetY(mainLayout.Height - 200);
+}
+</code></pre>
+<h3>SetupEventHandlers</h3>
+<p>Como dije antes, Android depende mucho de <em>event listeners</em> en lugar de  <em>event handlers</em>, así que este método es muy sencillo. Necesitamos colocar un manejador de evento al botón que tomará la foto, asi como asignar un escuchador que estará atento al estado del control  <code>SurfaceTexture</code> (¿Recuerdas que nuestro <em>renderer</em> implementa una interfaz?):</p>
+<pre><code class="language-csharp">capturePhotoButton.Click += async (sender, e) =&gt;
+{
+    var bytes = await TakePhoto();
+    (Element as CameraPage).SetPhotoResult(bytes, liveView.Bitmap.Width, liveView.Bitmap.Height);
+};
+liveView.SurfaceTextureListener = this;
+</code></pre>
+<p>Ah, y otra cosa, vamos a sobreescribir el comportamiento del botón &quot;Atrás&quot; para que funcione para cancelar la fotografía:</p>
+<pre><code class="language-csharp">public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+{
+    if (keyCode == Keycode.Back)
+    {
+        (Element as CameraPage).Cancel();
+        return false;
+    }
+    return base.OnKeyDown(keyCode, e);
+}
+</code></pre>
+<h3>TextureView.ISurfaceTextureListener implementation</h3>
+<p>Ahora toca implementar el núcleo de la página. Comienza por escribir el código para el método <code>OnSurfaceTextureAvailable</code> en donde vamos a preparar la salida de la cámara... pero primero necesitamos una cámara, ¿cierto?<br />
+A nivel de clase declara una <code>Camera</code>:</p>
+<pre><code class="language-csharp">Android.Hardware.Camera camera;
+</code></pre>
+<p>Dentro del método abre la cámara (por default tomará la cámara trasera del dispositivo) y obtén sus parámetros. Los necesitamos para elegir el tamaño de previsualización correcto porque queremos que se vea bien en nuestra app:</p>
+<pre><code class="language-csharp">camera = Android.Hardware.Camera.Open();
+var parameters = camera.GetParameters();
+</code></pre>
+<p>Una vez que tenemos los parámetros a mano, podemos obtener los <code>PreviewSizes</code> y de ellos elegir el que mejor se ajusta a nuestras necesidades. En este caso estoy usando una simple <a href="#">expresión linq</a> para obtener el mejor tamaño de acuerdo a la relación de aspecto:</p>
+<pre><code class="language-csharp">var aspect = ((decimal)height) / ((decimal)width);
+
+var previewSize = parameters.SupportedPreviewSizes
+                            .OrderBy(s =&gt; Math.Abs(s.Width / (decimal)s.Height - aspect))
+                            .First();
+
+parameters.SetPreviewSize(previewSize.Width, previewSize.Height);
+camera.SetParameters(parameters);
+</code></pre>
+<p>Termina estableciendo el valor de <code>surface</code> como la textura de previsualización, una vez hecho esto, lo único que queda por hacer es iniciar la cámara:</p>
+<pre><code class="language-csharp">camera.SetPreviewTexture(surface);
+StartCamera();
+</code></pre>
+<p>Hay otro método en el que debemos escribir código, este es <code>OnSurfaceTextureDestroyed</code> en donde debemos detener el uso de la cámara, así que únicamente escribe el código siguiente en él:</p>
+<pre><code class="language-csharp">StopCamera();
+return true;
+</code></pre>
+<h3>StartCamera and StopCamera</h3>
+<p>Este par de métodos son bastante simples también, para <code>StartCamera</code> únicamente tenemos que rotar la previsualización para hacer que se vea correctamente en la pantalla (en este caso está establecido para que se vea verticalmente), y terminamos iniciando la cámara:</p>
+<pre><code class="language-csharp">camera.SetDisplayOrientation(90);
+camera.StartPreview();
+</code></pre>
+<p>El métodod <code>StopCamera</code> detiene la previsualización y libera la cámara para que otras aplicaciones puedan acceder a ella:</p>
+<pre><code class="language-csharp">camera.StopPreview();
+camera.Release();
+</code></pre>
+<h3>TakePhoto</h3>
+<p>Para tomar una foto, lo que hay que hacer es obtener una imagen fija de lo que se muestra en el video en vivo dentro de la <code>TextureView</code>, aquí está el código para hacerlo y regresar los bytes correspondientes:</p>
+<pre><code class="language-csharp">camera.StopPreview();
+var ratio = ((decimal)Height) / Width;
+var image = Bitmap.CreateBitmap(liveView.Bitmap, 0, 0, liveView.Bitmap.Width, (int)(liveView.Bitmap.Width * ratio));
+byte[] imageBytes = null;
+using (var imageStream = new System.IO.MemoryStream())
+{
+    await image.CompressAsync(Bitmap.CompressFormat.Jpeg, 50, imageStream);
+    image.Recycle();
+    imageBytes = imageStream.ToArray();
+}
+camera.StartPreview();
+return imageBytes;
+</code></pre>
+<p>Y así es como después de tanto código podemos hacer uso de la cámara. Sigue leyendo para encontrar un ejemplo de uso:</p>
+<h2>Usage in Forms</h2>
+<pre><code class="language-csharp">var cameraPage = new CameraPage();
+cameraPage.OnPhotoResult += CameraPage_OnPhotoResult;
+Navigation.PushModalAsync(cameraPage);  
+// ...
+async void CameraPage_OnPhotoResult(Pages.PhotoResultEventArgs result)
+{
+    await Navigation.PopModalAsync();
+    if (!result.Success)
+        return;
+    Image.Source = ImageSource.FromStream(() =&gt; new MemoryStream(result.Image));
+</code></pre>
+<p>Si <strong><a href="https://github.com/ThatCSharpGuy/Forms-FullCameraPage" target="_blank">descargas el código fuente</a></strong> y lo ejecutas, verás algo como esto:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DgFEK9tPKs0" frameborder="0" allowfullscreen></iframe>
+<h2>Acknowledgements</h2>
+<p>El código para este post está basado completamente en el código de la <a href="..\Aharphat-Android" target="_blank">CharpHat app</a>,  que a su vez está basado en el código de la app <a href="https://blog.xamarin.com/build-your-own-snapchat-clone-with-xamarin-forms-and-azure/" target="_blank">Moments</a> de <a href="https://github.com/pierceboggan" target="_blank">Pierce Boggan</a>.</p>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

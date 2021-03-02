@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Learning Xamarin.iOS at Stanford | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Here is my experience learning Xamarin.iOS by taking the Stanford's CS193P course online which is given for Swift language.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Learning Xamarin.iOS at Stanford">
+<meta itemprop="description" content="Here is my experience learning Xamarin.iOS by taking the Stanford's CS193P course online which is given for Swift language.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learning Xamarin.iOS at Stanford">
+<meta name="twitter:description" content="Here is my experience learning Xamarin.iOS by taking the Stanford's CS193P course online which is given for Swift language.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Learning Xamarin.iOS at Stanford">
+<meta name="og:description" content="Here is my experience learning Xamarin.iOS by taking the Stanford's CS193P course online which is given for Swift language.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Learning Xamarin.iOS at Stanford</h1>
+
+<p>To finish the year in a good manner I decided to ramp up my Xamarin.iOS development skills. So far I had only worked on iOS apps using Xamarin.Forms and I have only made small apps following Apple tutorials <a href="https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/" target="_blank">like this</a>, but for me that is not enough, I wanted to take a course like I did a few years ago when I took one on Android dev, with that in mind <a href="https://twitter.com/io_exception/status/807047846063177728" target="_blank">I asked on Twitter</a> whether NSScreencasts was a good choice for novices.</p>
+<p>Luckily I got a several answers of all kind, generally the answers where a big yes, but not for beginners (which I consider myself), a couple of them suggested some books, but three suggested I should took a free Stanford Course with the nuance that it was given using Swift 2, to me it isn't a huge deal as my main focus is to learn the workflow and essentials of iOS dev, and then transfer that knowledge to Xamarin.iOS.</p>
+<p>I'm about 3 lectures away from finishing the course, but in this post I'll share my experience so far:</p>
+<h2>Syntax differences</h2>
+<p>This may be because I am a .NET developer since 2008 but, mate: Swift syntax is so weird! and my guess is that is in great part thanks to Obj-C... but anyway, the differences for basic properties, methods, base classes, aren't that big. You can get around them thanks to the great intellisense offered by Xamarin/Visual studio since they are mostly only casing (<code>tableView</code> vs <code>TableView</code>) distinctions, if you want, you can read my post on basic <a href="../xamarin-ios-vs-traditional" target="_blank">Xamarin.iOS vs Swift differences</a>.</p>
+<p>In other cases you'll have to look for the arguments and return type of a given method to be 90% that you are calling the right method (the other 10% comes from executing and see if it works as expected).</p>
+<h2>Enums whith associated values</h2>
+<p>WAIT WHAT? really? wow, there are no such things when using C#... you'll have to work around this issue, C# do have enums but they're <em>masked</em> integer types and no other info can be associated with them.</p>
+<p>What I ended up doing to overcome this issue for the <em>Calculator assignment</em> was to create <a href="https://github.com/fferegrino/cs193/blob/master/Calculator/CalculatorBrainDictionaries.cs" target="_blank">a few dictionaries</a>. It got a bit messy, but in the end it worked pretty good.</p>
+<h2>Closures</h2>
+<p>Closures in Swift are our good (not so) old Func and Action types in C#. You don't get the nice $1, $2 syntax, but who needs that? A thing to note is that in Swift you the possibility to specify how a local variable will be referenced inside a closure, in order to avoid memory leaks.</p>
+<h2>Of vars and properties</h2>
+<p>In Swift exist properties which are almost, almost like properties in C#, you can see this when using the &quot;stored properties&quot;:</p>
+<pre><code class="language-swift">class AxesDrawer
+{
+    var color = UIColor.blueColor()
+    var minimumPointsPerHashmark: CGFloat = 40
+</code></pre>
+<p>Which are somewhat like the &quot;automplmemented properties&quot; in C#</p>
+<pre><code class="language-csharp">class AxesDrawer 
+{
+    public UIColor Color { get; set; }
+    public CGFloat MinimumPointsPerHashmark { get; set; }
+</code></pre>
+<p>In both languages you can have computed properties:</p>
+<pre><code class="language-swift">// Swift
+class AxesDrawer 
+{
+    private var _color : UIColor = UIColor.blueColor()
+    var color : UIColor { 
+        get { 
+            return _color 
+        } 
+        set { 
+            _color = newValue 
+        } 
+    }
+</code></pre>
+<pre><code class="language-csharp">// C#
+class AxesDrawer 
+{
+    UIColor _color = UIColor.Blue;
+    public UIColor Color 
+    { 
+        get { return _color; } 
+        set { _color = value; } 
+    }
+</code></pre>
+<p>Another cool feature that I would enjoy in C# are the property observers (<code>willSet</code> and <code>didSet</code>) which behavior we can mimic in C# using computed properties but the code does not look as clean as with Apple's language:</p>
+<pre><code class="language-csharp">public double _scale = 0.9;
+public double Scale
+{
+    get { return _scale; }
+    set 
+    { 
+        // willSet code
+        _scale = value;
+        // didSet code 
+    }
+}
+</code></pre>
+<h2>Implementing protocols</h2>
+<p>When implementing protocols, there is a weird thing that happens: At first I thought that Protocols in Swift where like Interfaces in C#... turns out they are not! When using protocols there are some methods or properties that you are not obligated to implement whereas when using an interface you are required to implement all the members defined within it, so the guys at Xamarin came up with this weird solution where you need to implement an <em>EMPTY</em> interface that has nothing but metadata that you can use to mimic the protocols behavior (<a href="https://developer.xamarin.com/api/type/MonoTouch.UIKit.IUITextViewDelegate/" target="_blank">see here</a>). For example, take a look at the approach to create a delegate for the UITextField and respond to a protocol's member call:</p>
+<pre><code class="language-csharp">public partial class TweetTableViewController : UITableViewController, IUITextFieldDelegate
+{
+    // ...
+
+    [Export(&quot;textFieldShouldReturn:&quot;)]
+    public bool ShouldReturn(UITextField textField)
+    {
+        // Delegate code
+</code></pre>
+<h2>Swift's extensions to types</h2>
+<p>When it comes to extend the capabilities of classes, Swift offers a more range of movement than C# since you can add properties, constructors and make a class adopt a protocol. C# only allows to &quot;extend&quot; vía static methods, no other members can be added to a given type.</p>
+<h2>Using the iOS interface designer</h2>
+<p>Neither the Android designer nor the iOS designer are perfect in their current form, and as such I think it is awesome that you can use Xcode to create your UI and then have it sync and map every outlet and action in your C# project within Xamarin Studio. What you need to do is to <em>right click</em> on your storyboard file and select <code>Open with Xcode interface builder</code>.</p>
+<p>Every time you save your interface in Xcode it'll be synced to Xamarin Studio without issues.</p>
+<p>The Xamarin approach will create a WhateverViewController.designer.cs containing a partial definition of your <code>UIViewController</code> derivate class, in it all the outlets and actions of your view controller will be stored, each of them with a certain attribute (for outlets the attribute is <code>[Outlet]</code>) that tells the designer what they are used for. You are not supposed to mess with this file, however, if you need to take an outlet out of there you can do so... as long as you place it somewhere else without the designer attribute, as I did when I had to perform an action as soon as a view was assigned:</p>
+<pre><code class="language-csharp">FaceView _faceView;
+[Outlet]
+protected FaceView FaceView
+{
+    get { return _faceView; }
+    set
+    {
+        _faceView = value;
+        // didSet:
+        var gesture = new UIPinchGestureRecognizer();
+        gesture.AddTarget(() =&gt; _faceView.ChangeScale(gesture));
+        // Ommited for brevity ...
+        UpdateUI();
+    }
+}
+</code></pre>
+<p>Despite the fact of that you must be switching between the Xcode designer and Xamarin's IDE you should worry no more, you are in good hands when it comes to design the interface of your app.</p>
+<p>I do have a complaint about the integration and that is because at the moment I was taking the course it was impossible to open a .storyboard file modified with Xcode 8 in Xamarin Studio, but I think they're addressing this problem.</p>
+<h2>Custom views</h2>
+<p>Just as you can create custom controls using Swift or Obj-C you can create custom views using C#, there are a few things to take into consideration, though:</p>
+<p>Make sure that your custom view implements a public constructor that takes an <code>IntPtr</code> instance as a parameter:</p>
+<pre><code class="language-csharp">public FaceView (IntPtr handle) : base (handle)
+{
+}
+</code></pre>
+<p>Also, make sure to register your custom views to be visible at design time in the editor, using the appropiate attributes <code>Register</code> and <code>DesignTimeVisible</code>:</p>
+<pre><code class="language-csharp">[Register(&quot;FaceView&quot;), DesignTimeVisible(true)]
+public class FaceView : UIView
+{
+</code></pre>
+<p>If you want your properties to be available for modification at design time you will need to mark them with yet another couple of attributes (<code>Export</code> and <code>Browsable</code>):</p>
+<pre><code class="language-csharp">[Export(&quot;Color&quot;), Browsable(true)]
+public UIColor Color
+{ // ...
+</code></pre>
+<h2>CoreData</h2>
+<p>Uh, for what I've been reading CoreData isn't that easy to use with Xamarin... yet it is possible. I didn't try to do the assignments, mainly because I find it too specific for my purposes at the moment. If you want to try, maybe this links points to a sample that uses this feature in Xamarin: <a href="https://developer.xamarin.com/samples/monotouch/ThreadedCoreData/" target="_blank">ThreadedCoreData sample</a>.</p>
+<h2>My code</h2>
+<p>In case you are interested, you can see the code I created &amp; &quot;translated&quot; from some of the on class demos and assignments for this course in this <a href="https://github.com/fferegrino/cs193" target="_blank">GitHub repo</a> feel free to reach to me in case of doubts.</p>
+<h2>So... where?</h2>
+<p>You can see the lectures from <a href="https://itunes.apple.com/mx/course/developing-ios-9-apps-swift/id1104579961?l=en" target="_blank">iTunes U</a> or <a href="https://www.youtube.com/watch?v=_lRx1zoriPo&list=PLsJq-VuSo2k26duIWzNjXztkZ7VrbppkT" target="_blank">YouTube</a>.</p>
+<h2>To Paul Hegarty</h2>
+<p>I'm 99.9999% sure that you won't read this, but just in case you do: I want to thank you for this lecture, you cannot imagine the knowledge I have gained by simply sitting in front of a PC listening to you, following your code demos and doing the assignments, even using Xamarin. Also thanks to Stanford University for providing this course for free (even though I'd pay for it, seriously!)</p>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>

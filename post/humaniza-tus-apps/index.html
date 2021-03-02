@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es"  itemscope itemtype="http://schema.org/Blog">
+<head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+<title>Humaniza tus apps | That C# guy</title>
+
+<!-- Search Engine -->
+<meta name="description" content="Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final.">
+<meta name="image" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Humaniza tus apps">
+<meta itemprop="description" content="Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final.">
+<meta itemprop="image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Humaniza tus apps">
+<meta name="twitter:description" content="Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final.">
+<meta name="twitter:site" content="@io_exception">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Humaniza tus apps">
+<meta name="og:description" content="Dale un toque más humano a tus aplicaciones con esta pequeña pero útil librería de clases que te ayuda a presentar en un lenguaje más fluído los datos dentro de tu app al usuario final.">
+<meta name="og:image" content="">
+<meta name="og:url" content="https://thatcsharpguy.com/">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">  
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+          
+        
+
+        <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+  </div>
+  
+  
+  <script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main">
+                
+<h1>Humaniza tus apps</h1>
+
+<p>Es un hecho que actualmente cuando una aplicación es lanzada al público no solo es necesario que funcione bien y haga lo que promete, sino que además de todo se vea bien y su interfaz de usuario sea agradable a la persona que la necesita.</p>
+<p>Hay muchas cosas que tenemos que hacer para que nuestra aplicación sea agradable al usuario, y una de ellas es hacer que la información que se le presenta esté en un lenguaje más natural, que no parezca generado por una computador (aunque sí lo sea). ¿A qué me refiero con esto? veamos un ejemplo común:</p>
+<p>Supongamos que dentro de nuestras aplicaciones queremos mostrar información de un evento que se llevará a cabo, información que tenemos almacenada como <code>int</code>s, <code>DateTime</code>s y <code>Decimal</code>s, y a la hora de mostrarlo al usuario, en la interfaz de nuestra app ponemos algo como:</p>
+<p><em>Número de asistentes: 3</em> o <em>Número de asistentes: 1</em><br />
+<em>El evento será el 20/01/2016</em><br />
+<em>La duración es de 13:00 a 16:00</em></p>
+<p>Lo cual no está mal... pero no es muy natural que digamos, y es por eso que muchos optan por mostrar algo como:</p>
+<p><em>3 asisistente(s)</em> o <em>1 asistente(s)</em><br />
+<em>El evento será el Miércoles, Enero 201, 2016</em><br />
+<em>La duración es de 13:00 a 16:00</em></p>
+<p>Que ya es un poco más &quot;lenguaje humano&quot; pero tiene ese horrible paréntesis al final, desde luego, pudimos haber evitado eso escribiendo nuestro código con una condicional para revisar la cantidad de asistentes antes de imprimirlo, pero sería tratar de reinventar la rueda. Es por eso que en este post hablaré de <strong>Humanizer</strong>, sus múltiples características y de como podemos pasar de la interfaz anterior a una como esta:</p>
+<p><em>3 asistentes</em><br />
+<em>El evento será en 4 días</em><br />
+<em>Tiene una duración de 3 horas</em></p>
+<h3>Instalando Humanizer</h3>
+<p>Humanizer está en forma de <a href="/post/que-son-portable-class-library/">una Portable Class Library</a>, y disponible a través de NuGet, por lo que es sencillo instalarla en cualquier proyecto, desde una aplicación de consola (como la de este post) hasta una app de Xamarin.iOS. Basta con instalar el paquete <code>Humanizer.Core</code> usando la consola del administrador de paquetes:</p>
+<pre><code>PM&gt; Install-Package Humanizer
+</code></pre>
+<p>O a través de la interfaz gráfica en donde basta con buscar <code>Humanizer.Core</code> e instalarlo.</p>
+<h4>Soporte para otros idiomas</h4>
+<p>Originalmente Humanizer fue creado para funcionar con palabras del idioma inglés, pero afortunadamente gracias a la comunidad Open Source, se han añadido otros, como el español. Para añadirlo es necesario bajar un segundo paquete de NuGet con los recursos en español llamado <code>Humanizer.Core.es</code>.</p>
+<p>Por default, para el idioma de los textos, Humanizer toma la cultura del hilo que lo ejecuta, para cambiarla puedes usar una línea de código:</p>
+<pre><code class="language-csharp">Thread.CurrentThread.CurrentUICulture = new CultureInfo(&quot;es-ES&quot;);
+</code></pre>
+<p>Si por las restricciones de tu aplicación no es posible hacer el cambio anterior, no te preocupes, generalmente los métodos que veremos a continuación permiten especificar la cultura en la que queremos que funcionen.</p>
+<h3>La clase Event</h3>
+<p>Para este código de ejemplo usaré una clase llamada evento, que contiene dos <code>String</code> para el nombre y descripción del evento, dos <code>int</code> para el número de asistentes y para el número de evento, dos <code>DateTimes</code> para las fechas de inicio y fin del evento.</p>
+<p>Para este post, crearé un <code>Event</code> llamado <code>contest</code> con el que estaremos trabajando a lo largo de este post.</p>
+<h3>Números</h3>
+<p>Pasar de <code>8</code> a <em>&quot;octavo&quot;</em> no suena tan sencillo, sin embargo Humanizer lo hace, basta con llamar el método de extensión <code>ToOrdinalWords</code>, o también podemos usar el método <code>Ordinalize</code> para obtener una cadena más pequeña, como <code>8.º</code>:</p>
+<pre><code class="language-csharp">contest.Number.ToOrdinalWords(GrammaticalGender.Masculine); // &quot;octavo&quot;
+contest.Number.ToOrdinalWords(GrammaticalGender.Feminine); // &quot;octava&quot;
+contest.Number.Ordinalize(GrammaticalGender.Neuter); // &quot;8.º&quot;
+</code></pre>
+<p>Como podemos ver también nos da diversas opciones en cuanto a qué genero estamos expresando, o si queremos palabras o números ordinalizados.</p>
+<p>También es posible:</p>
+<ul>
+<li>Pasar de un número a una cadena, así entonces al llamar el método <code>ToWords</code> en un número, obtendremos su representación en palabras: <code>158</code> → &quot;ciento cincuenta y ocho&quot;.</li>
+<li>Pasar de un número arábigo a uno romano usando <code>ToRoman</code>: <code>158</code> → &quot;CLVIII&quot; y viceversa.</li>
+<li>Manejar números como tamaños de archivo, pasar de megabytes a bits o de kilobytes a terabytes con facilidad</li>
+</ul>
+<h3>Truncar cadenas</h3>
+<p>Truncar cadenas es algo importante para cuando queremos mostrar una parte de un texto largo, ya sea para reducir costos en la transferencia de datos o para no llenar de texto la pantalla del usuario, eso de truncar cadenas suena a algo trivial que podemos implementar fácilmente nosotros mismos, sin embargo para truncar cadenas usando Humanizer basta llamar al método de extensión <code>Truncate</code>:</p>
+<pre><code class="language-csharp">contest.Description.Truncate(40); // 40 caracteres, terminando en '…' 
+contest.Description.Truncate(40,&quot;...&quot;); // 40 caracteres, terminando en &quot;...&quot;
+contest.Description.Truncate(7,Truncator.FixedNumberOfWords); // 7 palabras, terminando en '…'
+</code></pre>
+<p>Se pueden hacer combinaciones como que sean 30 caracteres y termine en &quot;:::&quot;, o que trunque el texto en 10 palabras comenzando por la derecha y que termine en &quot;...&quot;.</p>
+<h3>Cuantificar</h3>
+<p>Bueno, no sé si &quot;cuantificar&quot; sea la palabra adecuada
+Para evitar esos horribles paréntesis que indican que puede haber uno o más elementos de una categoría podemos usar el método <code>ToQuantity</code> que es aplicado sobre una cadena de texto y recibe un entero indicando la cantidad de elementos que queremos mostrar, de este modo ya no tendríamos que poner <code>asistente(s)</code>, sino únicamente hacer algo como esto:</p>
+<pre><code class="language-csharp">&quot;asistente&quot;.ToQuantity(contest.Attendants, ShowQuantityAs.Words);  // &quot;cero asistentes&quot;.
+&quot;asistente&quot;.ToQuantity(contest.Attendants); // &quot;0 asistentes&quot;
+&quot;asistente&quot;.ToQuantity(1, ShowQuantityAs.None); // &quot;asistente&quot;
+&quot;asistente&quot;.ToQuantity(1, ShowQuantityAs.Numeric); // &quot;1 asistente&quot; 
+</code></pre>
+<p>Desde luego, hay palabras que no serán directamente <em>pluralizables</em> o que simplemente no pueden ser cuantificadas, pero esas se pueden agregar previamente al vocabulario:</p>
+<pre><code class="language-csharp">Vocabularies.Default.AddIrregular(&quot;feliz&quot;, &quot;felices&quot;);
+
+Vocabularies.Default.AddUncountable(&quot;lava&quot;);
+</code></pre>
+<h3>Fechas e intervalos de tiempos</h3>
+<p><b>Importante:</b> al momento de hacer este post, parece que me encontré con un bug con la localización de las fechas, ya nos entrega el resultado en inglés, <a href="https://github.com/Humanizr/Humanizer/issues/513" target="_blank" rel="nofollow"><i>levanté un issue</i></a> en GitHub y trataré de encontrar el problema.</p>
+<h4>Fechas</h4>
+<p>En cuanto a las fechas hay muy poco margen de movimiento, una fecha es una fecha, pero qué mejor que darle una referencia más verbal al usuario, como &quot;en dos semanas&quot;, &quot;ayer&quot; o &quot;dentro de 10 dias&quot; puede resultar mejor que únicamente mostrar el clásico &quot;dd/MM/yyyy&quot;.</p>
+<p>En el ejemplo de los eventos, la propiedad <code>Start</code> es igual a <code>new DateTime(2016,2, 29, 10,0,0)</code> mientras que <code>End = new DateTime(2016,2,29,17,30,0)</code>, es por eso que al momento de utilizar <code>contest.Start.Humanize();</code> obtuve &quot;en un mes&quot;.</p>
+<p>Pero para crear un ejemplo más claro:</p>
+<pre><code class="language-csharp">Console.WriteLine (DateTime.Now.Humanize(false)); // &quot;Ahora&quot;
+Console.WriteLine (DateTime.UtcNow.Humanize()); // &quot;Ahora&quot;
+Console.WriteLine (DateTime.UtcNow.AddDays(3).Humanize()); // &quot;En tres días&quot;
+Console.WriteLine (DateTimeOffset.UtcNow.AddMonths(-10).Humanize()); // &quot;Hace 10 meses&quot;
+</code></pre>
+<p>El método <code>Humanize</code> funciona tanto para tipos <code>DateTime</code> como para <code>DateTimeOffset</code> y entre sus sobrecargas podemos especificar si estamos manejando una fecha UTC, o contra qué fecha queremos comparar (por default usa <code>DateTime.UtcNow</code>).</p>
+<h4>Intervalos de tiempo</h4>
+<p>En cuanto a intervalos de tiempo, bien podríamos mostrar las fechas separadas por un guión, pero al igual que con las fechas, tal vez sea mejor decir &quot;una hora&quot;, &quot;45 minutos&quot; o &quot;tres días&quot;.</p>
+<p>Los eventos tienen una fecha de inicio y una de finalización, un escenario ideal para simplemente restar <code>Start</code> de <code>End</code> lo cual nos deja con un <code>TimeSpan</code>, sobre el cual podemos ejecutar el método de extensión <code>Humanize</code> para obtener una versión legible del intervalo:</p>
+<pre><code class="language-csharp">(evt.End - evt.Start).Humanize(3); // &quot;7 horas, 30 minutos&quot;
+</code></pre>
+<p>Otra vez, el método tiene muchas sobrecargas, entre las que podemos elegir con qué detalle queremos que se muestre la cadena, o cuál es la unidad máxima (o mínima) de tiempo que queremos tomar en cuenta. En el caso del ejemplo, coloqué un  <code>3</code> puesto que a lo mucho quiero que se muestren días, horas y minutos.</p>
+<h4>Mejoras para los desarrolladores</h4>
+<p>Humanizer no solo son mejoras para el usuario final, sino también para nosotros los desarrolladores, para manejar fechas incluye una <a href="https://es.wikipedia.org/wiki/Interfaz_fluida" target="_blank" rel="nofollow">interfaz fluida</a> para hacer un poco más legible el código, para poner un ejemplo, tomaré este de la <a href="https://github.com/Humanizr/Humanizer#fluent-date" target="_blank" rel="nofollow">documentación oficial</a>:</p>
+<pre><code class="language-csharp">DateTime.Now + 2.Days() + 3.Hours() - 5.Minutes();
+</code></pre>
+<p>Es equivalente a</p>
+<pre><code class="language-csharp">DateTime.Now.AddDays(2).AddHours(3).AddMinutes(-5);
+</code></pre>
+<h3>Otras características</h3>
+<p>En este post dejé afuera la capacidad de Humanizer de trabajar con colecciones, enumeraciones y más posibilidades para trabajar con cadenas. Estas tres y otras características se pueden revisar en el <a href="https://github.com/Humanizr/Humanizer#table-of-contents" target="_blank" rel="nofollow">repositorio de Humanizer en GitHub</a>.</p>
+
+
+
+                    </section>
+                    <section class="sidebar">
+                    <div class="post-menu">
+                        <div class="post-menu-title">Sígueme en</div>
+                        <div class="common-list">
+                            <ul>
+                            
+                                <li>
+                                    <a href="https://github.com/fferegrino">
+                                    GitHub<span> <i class="fa fa-github"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    Twitter<span> <i class="fa fa-twitter"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://twitter.com/io_exception">
+                                    YouTube<span> <i class="fa fa-youtube"></i> </span>
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://tcsg.dev/discord">
+                                    Discord<span> <i class="fa fa-discord"></i> </span>
+                                    </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+</body>
+</html>
