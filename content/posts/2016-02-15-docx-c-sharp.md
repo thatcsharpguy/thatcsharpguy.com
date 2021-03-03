@@ -41,7 +41,7 @@ Cabe señalar que también tenemos a nuestra disposición el método `SaveAs` qu
   
 Si ejecutamos el código hasta este momento veremos un documento vacío llamado "Prueba.docx" en la carpeta donde está nuestra aplicación, en mi caso es dentro de `bin\Debug`, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo.  
   
-<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/created-document.png" title=""Documento vacío"" />
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/created-document.png" title="Documento vacío" />
 
 ## Añadiendo texto  
 El texto dentro de un documento de DocX está organizado en párrafos, y por eso debemos añadir párrafos a nuestro documento, para ello debemos tomar nuestro documento y llamar el método `InsertParagraph`.  

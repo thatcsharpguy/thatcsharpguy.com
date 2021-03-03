@@ -38,7 +38,7 @@ Para iOS la cosa no cambia mucho, igualmente existen dos valores con las mismas 
 
 Estos valores se almacenan en el archivo Info.plist, para el cual también tenemos disponible un editor gráfico:  
 
-<img src="https://thatcsharpguy.github.io/postimages/nugets/versioning/infoplist.jpg" title=""Info.plist GUI editor"" />
+<img src="https://thatcsharpguy.github.io/postimages/nugets/versioning/infoplist.jpg" title="Info.plist GUI editor" />
 
 ## Version Tracking Plugin
 Este pequeño paquetito de NuGet nos ayuda a acceder programáticamente a estos dos números directamente desde nuestro proyecto de Forms. 

@@ -27,7 +27,7 @@ Primero que nada, tenemos que registrar nuestras aplicaciones en los servicios d
 ### GitHub  
 Lo primero que tienes que hacer es darte de alta en el programa de desarrolladores de GitHub en <a href="https://developer.github.com/program/" target="_blank">este enlace</a> y una vez que lo hayas hecho, debes dirigirte a <a href="https://github.com/settings/developers" target="_blank">este otro enlace</a> en donde podrás registrar tu nueva app, en la pantalla de registro debes poner los datos de tu app, pero debes colocar `https://github.com` en el campo *"Authorization callback URL"*: 
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/github-developer-2.jpg" title=""Registro de nueva aplicación"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/github-developer-2.jpg" title="Registro de nueva aplicación" />
 
 Una vez que has completado estos pasos, tu aplicación estará registrada y lista para usarse, una vez creada te aparecerán dos valores que son muy importantes y que debes guardar con mucho cuidado: 
 
@@ -40,7 +40,7 @@ Para Facebook la cosa no es tan diferente, debes acceder a <a href="https://deve
 
 Una vez que hayamos hecho esto, del lado izquierdo, aparecerá un nuevo ítem en el menú llamado, justamente, *"Facebook Login"* con dos opciones debajo, damos click en *"Settings"*, después de esto aparecerá un formulario, en donde lo que tenemos que modificar es el campo *"Valid OAuth redirect URIs"*, en donde debes colocar lo siguiente: `https://www.facebook.com/connect/login_success.html`:
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/oauthredirectaddr.png" title=""Modificar url de redirección"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin/auth/oauthredirectaddr.png" title="Modificar url de redirección" />
 
 Guardamos los cambios y ahora, en el menú de la izquierda damos click en *"Dashboard"*, que nos llevará a la pantalla inicial de nuestra app, de donde debemos copiar el valor de *"App ID"* y listo, hemos terminado de registrar nuestra app en Facebook.
 

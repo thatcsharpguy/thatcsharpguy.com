@@ -110,7 +110,7 @@ La clase `Thread` tiene también una propiedad llamada `CurrentCulture`, que es 
 ### Código de ejemplo  
 Nunca me cansaré de repetirlo: no hay mejor forma de aprender que practicando. Es por eso que te invito a bajar el <a href="https://github.com/ThatCSharpGuy/aprende-c-sharp/tree/master/Resxs" target="_blank">código de ejemplo</a> y juegues un poco con él. Si lo descargas y ejecutas, verás algo como esto:
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/resx/sample.png" title=""Código de ejemplo"" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/resx/sample.png" title="Código de ejemplo" />
 
 ### Para terminar  
 Agregar soporte para diferentes idiomas y culturas a nuestra aplicación no es una tarea tan complicada como podría parecer, ya que, en algunos casos, si la plataforma para la que estamos desarrollando tiene soporte para estos archivos *resx*, estamos a unos cuantos clicks de distancia de que nuestra aplicación sea internacional. Y aun cuando no pienses que tu app va a ser popular, usar archivos de recursos contribuye al reuso de código, así como a evitar las llamadas "cadenas mágicas".

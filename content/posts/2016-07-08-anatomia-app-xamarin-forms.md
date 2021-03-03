@@ -42,10 +42,10 @@ Así es como se ve en el sistema de archivos y en el explorador de soluciones:
 
 <div class="pure-g">
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/arch/xf-files.jpg" title=""Xamarin.Forms en sistema de archivos"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/arch/xf-files.jpg" title="Xamarin.Forms en sistema de archivos" />
 </div>
 <div class="pure-u-1 pure-u-md-1-2">
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/arch/views.png" title=""Xamarin.Forms en el explorador de soluciones"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/arch/views.png" title="Xamarin.Forms en el explorador de soluciones" />
 </div>  
 </div>
 

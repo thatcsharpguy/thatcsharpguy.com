@@ -23,7 +23,7 @@ We'll be following the official documentation, so fasten your seatbelt and get r
 ### Infrastructure
 Feel free to download the initial source code from <a href="https://github.com/fferegrino/Xevenshtein-UWP/releases/tag/uwp-post-1" target="_blank">here</a>, extract it somewhere and open the `Xevenshtein.sln` file. Once the solution is open, upgrade all Xamarin.Forms packages to any version 2 (Xamarin.Forms 2.0 is part of Xamarin 4 release).  
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms-uwp/xamarin-forms-2.png" title=""Xamarin.Forms in the package manager"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms-uwp/xamarin-forms-2.png" title="Xamarin.Forms in the package manager" />
 
 Then add a new project, this will be our UWP app and add the Xamarin.Forms NuGet package to it  
 
