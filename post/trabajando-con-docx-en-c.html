@@ -372,7 +372,7 @@
 </code></pre>
 <p>Cabe señalar que también tenemos a nuestra disposición el método <code>SaveAs</code> que permite especificar una ruta distinta a la que usamos para crear nuestro documento.</p>
 <p>Si ejecutamos el código hasta este momento veremos un documento vacío llamado &quot;Prueba.docx&quot; en la carpeta donde está nuestra aplicación, en mi caso es dentro de <code>bin\Debug</code>, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo.</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/docx-c-sharp/created-document.png&quot; title=<>Documento vacío</> /&gt;</p>
+<img src="https://thatcsharpguy.github.io/postimages/docx-c-sharp/created-document.png" title="Documento vacío" />
 <h2 id="anadiendo-texto">Añadiendo texto</h2>
 <p>El texto dentro de un documento de DocX está organizado en párrafos, y por eso debemos añadir párrafos a nuestro documento, para ello debemos tomar nuestro documento y llamar el método <code>InsertParagraph</code>.</p>
 <pre><code class="language-csharp">var reportParagraph = document.InsertParagraph();
