@@ -9,6 +9,7 @@ featured_image:  featured.png
 tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
+post-routes:
     - /post/{}/index.html
     - /tv/{}/index.html
     - /post/{}.html

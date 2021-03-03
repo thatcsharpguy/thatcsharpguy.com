@@ -40,6 +40,7 @@ To see the packages we just installed in action, let's add some simple html file
 
 ### `_base.liquid`
 
+{% raw %}
 ```html
 <html>
     <head>
@@ -51,9 +52,11 @@ To see the packages we just installed in action, let's add some simple html file
     </body>
 </html>
 ```
+{% endraw %}
 
 ### `_post.liquid`
 
+{% raw %}
 ```html
 {% extends 'base' %}
 
@@ -64,6 +67,7 @@ To see the packages we just installed in action, let's add some simple html file
 {% endblock %}
 {% endblock %}
 ```
+{% endraw %}
 
 ## Adding some sample posts  
 
@@ -246,6 +250,7 @@ namespace Lockdown.Build
 
 Then we can mode on to implement our method called `ConvertContent` that will receive the metadata por the post, the actual post content, and our input path (to find the templates):
 
+{% raw %}
 ```csharp
 public virtual string RenderContent(RawPostMetadata metadata, string content, string inputPath)
 {
@@ -270,6 +275,7 @@ public virtual string RenderContent(RawPostMetadata metadata, string content, st
     return renderedContent;
 }
 ```
+{% endraw %}
 
 Then we can write a test for it, but since we want to assert that we generated proper html, let's add a new NuGet package that will help us precisely with this:
 
