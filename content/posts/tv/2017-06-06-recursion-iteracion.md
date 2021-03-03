@@ -1,5 +1,6 @@
 ---
 title:  Recursión e iteración
+slug: recursion-iteracion
 date:  2017-06-06 18:00:00
 youtube_id: a-hcghI84G8
 images_folder:  /tv/recursividad/

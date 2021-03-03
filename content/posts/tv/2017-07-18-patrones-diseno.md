@@ -1,5 +1,6 @@
 ---
 title:  Patrones de diseño
+slug: patrones-diseno
 date:  2017-07-18 18:00:00
 youtube_id: NmuRwZ2CYvA
 images_folder:  /tv/design/
@@ -8,6 +9,10 @@ featured_image:  youtube.jpg
 tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
+post-routes:
+    - /post/{}/index.html
+    - /tv/{}/index.html
+    - /post/{}.html
 ---
 
 Ya previamente les había hablado sobre algunos patrones, en este caso arquitectónicos, como el <a href="..\mvc" target="_blank">patrón MVC</a> y el <a href="..\mvvm" target="_blank">patrón MVVM</a>, sin embargo, ahora les quiero hablar de los patrones de diseño.

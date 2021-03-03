@@ -1,5 +1,6 @@
 ---
 title:  Las pruebas unitarias
+slug: pruebas-unitarias
 date:  2017-03-14 18:00:00
 youtube_id: 8rKy1juvVmI
 images_folder:  /tv/unit-test/

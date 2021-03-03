@@ -1,5 +1,6 @@
 ---
 title:  El ORM Entity Framework
+slug: implementacion-orm
 date:  2017-07-11 18:00:00
 youtube_id: cIZB1wNMPlY
 images_folder:  /tv/orm/
@@ -8,6 +9,10 @@ featured_image:  overlay-code.png
 tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
+post-routes:
+    - /post/{}/index.html
+    - /tv/{}/index.html
+    - /post/{}.html
 ---
 
 Obtén el código que describí en el video: <a href="https://github.com/ThatCSharpGuy/agenda-orm" target="_blank">enlace</a>.

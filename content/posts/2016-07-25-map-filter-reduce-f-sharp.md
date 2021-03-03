@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Map, reduce y filter en F#
+slug: map-filter-reduce-c-sharp
 date: 2016-07-25 19:00:00
 author: Antonio Feregrino
 summary: F# es un gran lenguaje, y unas de las cosas que me gusta de él es que está orientado completamente a la programación funcional. Comparte varias características con lenguajes como Elixir y otras pocas con lenguajes como Swift.

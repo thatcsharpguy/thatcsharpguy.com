@@ -1,5 +1,6 @@
 ---
 title:  Ciencia de datos
+slug: ciencia-datos
 date:  2017-08-08 18:00:00
 youtube_id: _UWkovEocA8
 images_folder:  /tv/ciencia-datos/
@@ -8,6 +9,10 @@ featured_image:  featured.png
 tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
+post-routes:
+    - /post/{}/index.html
+    - /tv/{}/index.html
+    - /post/{}.html
 ---
 
 La ciencia de datos, bueno, de entrada, es una de esas "palabras rimbombantes" que en la actualidad todos están usando para describir un montón de cosas.

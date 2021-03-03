@@ -1,5 +1,6 @@
 ---
 title:  Programación competitiva
+slug: programacion-competitiva
 date:  2017-06-13 18:00:00
 youtube_id: R7fVPM3WRUM
 images_folder:  /tv/competitive/
@@ -8,6 +9,10 @@ featured_image:  featured.png
 tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
+post-routes:
+    - /post/{}/index.html
+    - /tv/{}/index.html
+    - /post/{}.html
 ---
 
 Sí, hay competencias de programación y son una de las cosas más interesantes del planeta… o al menos eso creo yo.

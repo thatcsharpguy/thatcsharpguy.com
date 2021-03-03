@@ -1,5 +1,6 @@
 ---
 title:  Identidad, autenticación y autorización
+slug: autorizacion-autenticacion
 date:  2017-05-16 18:00:00
 youtube_id: LhxWy_I3EKM
 images_folder:  /tv/auth/

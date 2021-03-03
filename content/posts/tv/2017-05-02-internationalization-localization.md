@@ -1,5 +1,6 @@
 ---
 title:  Internacionalización y localización
+slug: internationalization-localization
 date:  2017-05-02 18:00:00
 youtube_id: skqXI77RuvU
 images_folder:  /tv/i18nl10n/

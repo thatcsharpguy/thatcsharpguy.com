@@ -1,5 +1,6 @@
 ---
 title:  Programando con estilo
+slug: programar-con-estilo
 date:  2016-08-10 18:00:00
 youtube_id: Htsknf4L2o4
 images_folder:  /tv/estilo/

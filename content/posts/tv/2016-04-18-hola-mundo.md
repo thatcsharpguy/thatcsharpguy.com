@@ -1,5 +1,6 @@
 ---
 title:  ¡Hola mundo (en video)!
+slug: hello-world-yt
 date:  2016-04-18 18:00:00
 youtube_id: m8wDykJZnvM
 categories:  c-sharp

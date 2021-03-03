@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Map, reduce y filter en C#
+slug: map-filter-reduce-c-sharp
 date: 2016-07-25 19:00:00
 author: Antonio Feregrino
 summary: C# es un gran lenguaje, y unas de las cosas que me gusta de él, es que puedes programar funcionalmente aún si el lenguaje no es 100% funcional. Comparte algunas de sus características con lenguajes como Swift y F#.

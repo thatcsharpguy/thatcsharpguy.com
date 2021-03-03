@@ -1,5 +1,6 @@
 ---
 title:  Licencias de software libre
+slug: licencias-oss
 date:  2017-06-20 18:00:00
 youtube_id: sDchhCV_BKc
 images_folder:  /tv/licencias/

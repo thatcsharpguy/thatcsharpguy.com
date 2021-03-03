@@ -1,5 +1,6 @@
 ---
 title:  Gestores de paquetes
+slug: package-manager
 date:  2017-07-25 18:00:00
 youtube_id: tiifSYUCwQA
 images_folder:  /tv/package/
@@ -8,6 +9,10 @@ featured_image:  package.jpg
 tags:  Meta, YouTube
 featured_tag:  Tv
 layout: video
+post-routes:
+    - /post/{}/index.html
+    - /tv/{}/index.html
+    - /post/{}.html
 ---
 
 Los gestores de paquetes son esas herramientas sin las cuales el desarrollo actual sería un gran dolor de cabeza. Y es que últimamente son el pan de cada día de los desarrolladores, especialmente si se está trabajando con tecnologías "modernas" como el desarrollo móvil o web. 

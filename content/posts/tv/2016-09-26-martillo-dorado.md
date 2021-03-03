@@ -1,5 +1,6 @@
 ---
 title:  El martillo dorado
+slug: martillo-dorado
 date:  2016-09-26 18:00:00
 youtube_id: 52VgvMQWydA
 images_folder:  /tv/golden-hammer/

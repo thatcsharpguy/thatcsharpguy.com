@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Archivos de recursos y apps multilenguaje en C#
+slug: localisation-resx
 date: 2016-10-03 19:00:01
 author: Antonio Feregrino
 summary: Como desarrolladores, tendemos a pensar en nuestras aplicaciones como funcionales para una región o lenguaje específicos, sin preocuparnos sobre traducir e internacionalizarlas, preparándolas así para ser accesibles aun número mayor de usuarios.

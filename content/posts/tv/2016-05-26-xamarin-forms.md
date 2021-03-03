@@ -1,5 +1,6 @@
 ---
 title:  Xamarin.Forms
+slug: xamarin-forms
 date:  2016-05-26 22:00:00
 youtube_id: UaUsf-y0GfY
 images_folder:  /tv/xamarinforms/

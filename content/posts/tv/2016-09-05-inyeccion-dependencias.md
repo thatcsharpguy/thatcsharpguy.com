@@ -1,5 +1,6 @@
 ---
 title:  La inyección de dependencias
+slug: inyeccion-dependencias
 date:  2016-09-05 18:00:00
 youtube_id: lzfPJdurQIc
 images_folder:  /tv/di/

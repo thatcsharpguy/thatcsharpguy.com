@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Programación reactiva y Rx, parte 1
+slug: reactive-extensions-1
 date: 2017-08-15 19:00:01
 author: Antonio Feregrino
 summary: La programación reactiva es una de las formas de implementar el patrón del observador en nuestro código, y las Reactive Extensions hacen esta tarea mucho más sencilla.

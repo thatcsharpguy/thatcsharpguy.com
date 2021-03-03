@@ -1,5 +1,6 @@
 ---
 title:  Subiéndo código a GitHub
+slug: subiendo-github
 date:  2016-12-06 18:00:00
 youtube_id: lNBFt733izY
 images_folder:  /tv/

@@ -1,5 +1,6 @@
 ---
 title:  Memoización
+slug: memoization
 date:  2017-11-27 18:00:00
 youtube_id: D_V7-K-BPXo
 images_folder:  /tv/memoization/

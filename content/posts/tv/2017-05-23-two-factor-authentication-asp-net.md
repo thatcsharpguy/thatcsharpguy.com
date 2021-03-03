@@ -1,5 +1,6 @@
 ---
 title:  Autenticación de dos factores (ejemplo en ASP.NET Core)
+slug: two-factor-authentication-asp-net
 date:  2017-05-23 18:00:00
 youtube_id: E4ROr6_dETU
 images_folder:  /tv/2fa/

@@ -1,5 +1,6 @@
 ---
 title:  Control de versiones
+slug: control-versiones
 date:  2016-04-25 18:00:00
 youtube_id: Uts65gTG1k0
 images_folder:  /tv/control-versiones/

@@ -1,5 +1,6 @@
 ---
 title:  Pruebas unitarias en Visual Studio
+slug: pruebas-unitarias-vs
 date:  2017-03-14 19:00:00
 youtube_id: W-p8wia0HzA
 images_folder:  /tv/unit-test/

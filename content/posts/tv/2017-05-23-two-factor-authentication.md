@@ -1,5 +1,6 @@
 ---
 title:  Autenticación de dos factores
+slug: two-factor-authentication
 date:  2017-05-23 18:00:00
 youtube_id: j0BEPJygv4E
 images_folder:  /tv/2fa/

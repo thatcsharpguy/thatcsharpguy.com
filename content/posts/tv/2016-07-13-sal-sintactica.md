@@ -1,5 +1,6 @@
 ---
 title:  Sal sintáctica
+slug: sal-sintactica
 date:  2016-07-13 18:00:00
 youtube_id: Klt-JnVaHIc
 images_folder:  /tv/sal-sintactica/

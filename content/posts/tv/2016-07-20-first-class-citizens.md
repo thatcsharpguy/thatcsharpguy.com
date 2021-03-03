@@ -1,5 +1,6 @@
 ---
 title:  Ciudadanos de primera clase
+slug: first-class-citizens
 date:  2016-07-20 18:00:00
 youtube_id: OoWKSgrnTwc
 images_folder:  /tv/first-class-citizens/

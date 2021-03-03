@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Xamarin.Android vs traditional Android
+slug: xamarinandroid-vs-android-tradicional-con-java-en
 date: 2015-11-16 21:00:00
 author: Antonio Feregrino
 featured_image: featured.jpg
