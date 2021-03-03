@@ -75,4 +75,4 @@ Una colección extremadamente similar a un `HashSet`, ya que de igual manera con
 ## Colecciones no genéricas  
 Las colecciones no genéricas se comportan de manera similar, con la pequeña gran diferencia de que estas colecciones no tienen información de los objetos que almacenan. Para ellos son cualquier cosa... como si simplementa guardaran cajas sin conocer su contenido:  
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/generics.png" title=""Genéricos"" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/colecciones/generics.png" title="Genéricos" />

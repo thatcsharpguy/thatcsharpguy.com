@@ -68,7 +68,7 @@ Una vez creada la vista podemos acceder a los controles y referenciarlos desde l
 
 #### Métodos y manejadores de evento
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/EventAssign.png" title=""Asignación de eventos"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-android/EventAssign.png" title="Asignación de eventos" />
 
 En cuanto a los métodos, la declaración es casi idéntica (y más con Java 8) ya que mientras que en C# se usa una expresión lambda en la que se define el comportamiento del botón, en Java se utiliza una clase anónima para realizar esta acción.
 

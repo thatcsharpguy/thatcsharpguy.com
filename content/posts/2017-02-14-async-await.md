@@ -44,7 +44,7 @@ Para evitarnos el bloquear el hilo podemos usar clase `Task`. Esta clase es una 
 #### Breve aclaración  
 Es una restricción establecida que no puedes modificar la interfaz gráfica fuera de un hilo que no sea el que la haya creado, es por eso que tanto en Android como en iOS existen mecanismos que le indican a una tarea que se debe ejecutar en el hilo de la interfaz gráfica. En el caso de Xamarin.Forms estos comportamientos están englobados en el método `BeginInvokeOnMainThread` que, en un dibujo, hace algo como esto:
 
-<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/begin-invoke.png" title=""Invocación en el hilo de UI"" />
+<img src="https://thatcsharpguy.github.io/postimages/aprende-c-sharp/asyncawait/begin-invoke.png" title="Invocación en el hilo de UI" />
 
 ### Creando asincronía con Task.Run  
 Para *crear-ejecutar* una tarea usaremos el método estático `Run` de la clase `Task`. Este método recibe un tipo `Action` o un tipo `Func<T>` (dependiendo de si queremos devolver un valor o no). El *action* o *func* es el código que queremos asociar con esa tarea. Vamos a tomar nuestro código anterior y envolverlo dentro de una `Task`:

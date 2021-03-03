@@ -86,7 +86,7 @@ En Android hay que implementar la celda, en esta plataforma la forma por excelen
 
 Inclusive puedes utilizar el editor gráfico de tu preferencia:  
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/ContactCell.png" title=""Creación del proyecto"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/ContactCell.png" title="Creación del proyecto" />
 
 ### *Wrapper*
 
@@ -195,11 +195,11 @@ En iOS también tenemos la opción de crear celdas usando código, o como en est
 
 ### Diseño
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/projectCreation.jpg" title=""Creación del proyecto"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/projectCreation.jpg" title="Creación del proyecto" />
 
 Esto generará un par de archivos `ContactCell.cs` y `ContactCell.xib`, es el segundo archivo en el que se edita la interfaz. Yo inclusive lo edité con el editor de Xcode:
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/edit.jpg" title=""Creación del proyecto"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/customcell/edit.jpg" title="Creación del proyecto" />
 
 ### *Wrapper*
 

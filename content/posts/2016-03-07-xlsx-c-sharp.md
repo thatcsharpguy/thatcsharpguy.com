@@ -42,7 +42,7 @@ Cabe señalar que también tenemos a nuestra disposición el método `SaveAs` qu
   
 Si ejecutamos el código hasta este momento veremos un archivo `.xlsx` llamado "prueba.xlsx" en la carpeta donde está nuestra aplicación, en mi caso es dentro de `bin\Debug`, y es porque al crear nuestro documento únicamente empleamos el nombre de un archivo, pero bien pudimos usar una ruta absoluta para guardarlo en otro lugar.  
   
-<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/new-xlsx.png" title=""Documento vacío"" />
+<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/new-xlsx.png" title="Documento vacío" />
 
 ## Agregando información  
 Queremos generar un reporte con todos los maestros en una hoja de Excel y así es una de las maneras en que se puede hacer usando EPPlus
@@ -92,7 +92,7 @@ foreach (var teacher in Database.Teachers)
 
 Tras lo cual obtendremos algo como esto:  
   
-<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/sample-1.png" title=""Documento vacío"" />
+<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/sample-1.png" title="Documento vacío" />
 
 Podemos agregar más hojas a nuestro libro, también añadiremos una hoja para guardar las Clases impartidas por los maestros.
 
@@ -114,7 +114,7 @@ titleCell.Value = "Resumen";
 
 Que nos dejará con el siguiente resultado:
 
-<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/sample-2.png" title=""Documento vacío"" />
+<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/sample-2.png" title="Documento vacío" />
   
 ### Formulas  
 Para añadir fórmulas debemos usar la propiedad `Formula` de las celdas, lo que si es importante es hacer referencia a ellas a través de su nombre original en inglés.
@@ -127,7 +127,7 @@ summaryWorksheet.Cells["B3"].Formula = "COUNTIF(Maestros!D2:D31,\"\")";
 
 En este caso estamos usando AVERAGE para sacar el promedio de edad y COUNTIF para contar la cantidad de maestros sin correo electrónico.  
 
-<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/sample-3.png" title=""Documento vacío"" />
+<img src="https://thatcsharpguy.github.io/postimages/xlsx-c-sharp/sample-3.png" title="Documento vacío" />
 
 ## Usando LINQ
 Una cosa que relamente es genial de EPPlus es que nos permite usar LINQ para trabajar con las hojas y celdas de nuestros libros, por ejemplo, para obtener una referencia a una hoja de trabajo existente podemos buscarla por su nombre usando el método `Single`:

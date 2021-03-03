@@ -39,7 +39,7 @@ Agrega una referencia de tu proyecto de Mac al proyecto principal de tu aplicaci
 
 Hay que quitar la referencia al *Storyboard* por default, esto se logra borrando la entrada `NSMainStoryboardFile` en el archivo `Info.plist`, puedes usar el editor gráfico en la pestaña Avanzado.  
 
-<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/mac/infoplist.jpg" title=""Archivo Info.plist"" />
+<img src="https://thatcsharpguy.github.io/postimages/xamarin-forms/mac/infoplist.jpg" title="Archivo Info.plist" />
 
 ### 5. Edita el archivo Main.cs  
 

@@ -24,7 +24,7 @@ Estos fragmentos de código se cargan de un directorio cuando arranca Visual, y 
 #### Funcionamiento  
 Su funcionamiento es sencillo, mientras estamos editando escribimos el atajo y presionamos dos veces la tecla <kbd>tab</kbd>, tras lo cual como por arte de magia aparecerá el fragmento de código completo:
 
-<img src="https://thatcsharpguy.github.io/postimages/code-snippets/cw.gif" title=""Console.WriteLine snippet"" />
+<img src="https://thatcsharpguy.github.io/postimages/code-snippets/cw.gif" title="Console.WriteLine snippet" />
 
 En este caso, si revisas bien, el atajo usado fue `cw`, que podríamos interpretar como la `C` de `Console` y la `w` de `WriteLine`, el hecho de que sea así solo es una coincidencia o un gran acierto del creado, pero no es necesario que el atajo tenga que ver con el código que genera, más adelante, cuando veamos cómo crear tus propios fragmentos, verás por qué lo digo.
 

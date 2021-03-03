@@ -23,7 +23,7 @@ Esta es precisamente una tarea para <a href="http://imageprocessor.org/" target=
 
 Vamos a trabajar con esta imagen:  
 
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/balon.jpg" title=""Balón"" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/balon.jpg" title="Balón" />
 
 Para comenzar a trabajar con una imagen, es necesario cargarla y con *ImageProcessor* esta tarea se realiza a través de una instancia de `ImageFactory` y un flujo de datos (en este caso un `MemoryStream`), los colocamos dentro de `using` para facilitarnos el manejo de memoria:
 
@@ -61,7 +61,7 @@ img.Save("photo/bolaResized.jpg");
 
 Tras lo cual nos queda la siguiente imagen:
 
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/bolaResized.jpg" title=""Balón"" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/bolaResized.jpg" title="Balón" />
 
 ## API fluída
 
@@ -83,7 +83,7 @@ imageFactory.Load(inStream)
             .Save("photo/bolaLow.jpg");
 ```  
 
-<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/bolaLow.jpg" title=""Balón"" />
+<img src="https://thatcsharpguy.github.io/postimages/imageprocessor/bolaLow.jpg" title="Balón" />
 
 ### Format  
 Trabajar con diversos formatos de archivo a veces puede ser un poco complicado, es por eso que esta librería también permite cambiar el formato de la imagen, por ejemplo, en esta convertimos la imagen de `jpg` a `png`:
