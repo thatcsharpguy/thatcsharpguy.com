@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/Blog">
+    <head>
+        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+
+  <link rel="shortcut icon" href="">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#eeeef2">
+<meta name="theme-color" content="#eeeef2">
+
+
+  <title>Creating a dotnet tool (part 4) | That C# guy</title>
+
+  <!-- Search Engine -->
+  <meta name="description" content="This time I'll show you how to perform work with the file system and write unit tests against it">
+  <meta name="image" content="https://i.imgur.com/C0Nqt9A.png">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Creating a dotnet tool (part 4)">
+  <meta itemprop="description" content="This time I'll show you how to perform work with the file system and write unit tests against it">
+  <meta itemprop="image" content="https://i.imgur.com/C0Nqt9A.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creating a dotnet tool (part 4)">
+  <meta name="twitter:description" content="This time I'll show you how to perform work with the file system and write unit tests against it">
+  <meta name="twitter:site" content="@io_exception">
+  <meta name="twitter:creator" content="@io_exception">
+  <meta name="twitter:image" content="https://i.imgur.com/C0Nqt9A.png">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Creating a dotnet tool (part 4)">
+  <meta name="og:description" content="This time I'll show you how to perform work with the file system and write unit tests against it">
+  <meta name="og:image" content="https://i.imgur.com/C0Nqt9A.png">
+  <meta name="og:url" content="https://thatcsharpguy.com/">
+  <meta name="og:site_name" content="That C# guy">
+  <meta name="og:locale" content="es">
+  <meta name="og:type" content="website">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GPXCSH21CP');
+</script>
+
+        
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
+        <header class="site-header " role="banner">
+  <div class="wrapper">
+     <div class="site-header-inner">
+       <span class="site-brand">
+         <a class="site-brand-inner" rel="author" href="/">
+          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
+          That C# guy
+        </a>
+      </span>
+        <nav class="site-nav">
+           <input type="checkbox" id="nav-trigger" class="nav-trigger">
+           <label for="nav-trigger">
+              <span class="menu-icon">
+                 <svg viewbox="0 0 18 15" width="18px" height="15px">
+                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+                 </svg>
+              </span>
+           </label>
+           <div class="trigger">
+             <!-- Header links -->
+              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
+              <span class="page-link">
+    <div id="google_translate_element" style="display: none;"></div>
+    <span class="ct-language">
+       <ul class="list-unstyled ct-language-dropdown">
+         <li>
+            <a href="#" class="lang-select" data-lang="es">
+            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+            </a>
+         </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="en">
+             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="fr">
+             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="zh-CN">
+             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ja">
+             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ko">
+             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+             </a>
+          </li>
+          <li>
+             <a href="#" class="lang-select" data-lang="ru">
+             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+             </a>
+          </li>
+       </ul>
+    </span>
+    <script type="text/javascript">
+       function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+           pageLanguage: '',
+           autoDisplay: false,
+           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+         }, 'google_translate_element');
+       
+         function restoreLang() {
+           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+           if (!iframe) return;
+       
+           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+           var restore_el = innerDoc.getElementsByTagName("button");
+       
+           for (var i = 0; i < restore_el.length; i++) {
+             if (restore_el[i].id.indexOf("restore") >= 0) {
+               restore_el[i].click();
+               var close_el = innerDoc.getElementsByClassName("goog-close-link");
+               close_el[0].click();
+               return;
+             }
+           }
+         }
+       
+         function triggerHtmlEvent(element, eventName) {
+           var event;
+           if (document.createEvent) {
+             event = document.createEvent('HTMLEvents');
+             event.initEvent(eventName, true, true);
+             element.dispatchEvent(event);
+           } else {
+             event = document.createEventObject();
+             event.eventType = eventName;
+             element.fireEvent('on' + event.eventType, event);
+           }
+         }
+       
+         var googleCombo = document.querySelector("select.goog-te-combo");
+         var langSelect = document.querySelector('.ct-language');
+         langSelect.addEventListener('click', function(event) {
+           if (!event.target) {
+             return;
+           }
+       
+           var selected = document.querySelector('.ct-language .ct-language-selected');
+           if (selected) {
+             selected.classList.remove('ct-language-selected');
+           }
+       
+           var target = event.target;
+           while (target && target !== langSelect ) {
+             if (target.matches('.lang-select')) {
+               break;
+             }
+             target = target.parentElement;
+           }
+       
+           if (target && target.matches('.lang-select')) {
+             var lang = target.getAttribute('data-lang');
+             if (lang == "es") {
+               restoreLang();
+             } else {
+               target.parentElement.classList.add('ct-language-selected');
+               googleCombo.value = lang;
+               triggerHtmlEvent(googleCombo, 'change');
+             }
+           }
+       
+           event.preventDefault();
+         });
+       }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ </span>
+           </div>
+        </nav>
+     </div>
+  </div>
+</header>
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+      documentElement.setAttribute("data-header-transparent", "");
+
+      var scrollStatus = "";
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+    storeScrollData();
+  })();
+</script>
+        
+        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+        <div class="page-content">
+            <div class="wrapper">
+                <div class="framework">
+                    <section class="main"> 
+                        
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post-content e-content" itemprop="articleBody">
+        <h1>Creating a dotnet tool (part 4)</h1>
+        
+<blockquote>
+<p>This is a rough draft: explanations are incomplete and there may be spelling mistakes. I just made it public for people that have a hard time copying commands from a video.</p>
+</blockquote>
+<p>If you speak spanish and prefer to see me coding this, you can do so in this video: <a href="https://youtu.be/h8pM1EyOmXQ">Ingeniería de software - Continuous Delivery</a>.</p>
+<p>Lockdown is a static website generator written in C# that works as a <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools">.NET tool</a>.</p>
+<p>Through this series of posts I'll guide you on how did I build this tool with the hopes that you will be able to create another <em>dotnet</em> tool (hopefully you won't build a better Lockdown competitor, though 😅).</p>
+<h2 id="topics">Topics</h2>
+<ul>
+<li>Add parameters to our build command.</li>
+<li>More fun! dependency injection.</li>
+<li>Working with the file system.</li>
+</ul>
+<h2 id="adding-parameters">Adding parameters</h2>
+<p>The first step is to add parameters to our <code>BuildCommand</code>, we need one to tell where our &quot;source&quot; files live, and where should our command output the files once it has finished processing:</p>
+<pre><code class="language-csharp">[Option(&quot;-r|--root&quot;, Description = &quot;The root path of your website&quot;)]
+[LegalFilePath]
+public string InputPath { get; set; } = &quot;./&quot;;
+
+[Option(&quot;-o|--out&quot;, Description = &quot;The output directory where your built website will be stored&quot;)]
+[LegalFilePath]
+public string OutputPath { get; set; } = &quot;./_site&quot;;
+
+public int OnExecute()
+{
+    this.console.WriteLine($&quot;Source directory: {this.InputPath}&quot;);
+    this.console.WriteLine($&quot;Output path: {this.OutputPath}&quot;);
+    return 0;
+}
+</code></pre>
+<p>And when we execute our tool, we'll see our new output (we should probably modify our tests, but because of time, we won't):</p>
+<pre><code class="language-bash">dotnet run --project Lockdown/Lockdown.csproj -- build
+# dotnet run --project Lockdown/Lockdown.csproj -- build -r site -o ../hey
+</code></pre>
+<h1 id="introducing-a-layer-of-abstraction">Introducing a layer of abstraction</h1>
+<p>Think about it, we don't really want to tie the implementation of the site building directly to the <code>BuildCommand</code>, the this build command should be nothing but an interface to the actual site building, we need to put the code in a separate space. Later, if we want to move on from a conmmand line tool to a GUI, instead of having to move our site building code from our command line code, we would simply need to pass a reference to this code to our new user interface. To do this, let's add a new interface called <code>ISiteBuilder</code> (we'll add this under a new namespace called <code>Build</code>), this interface would implement a single method, at least for now:</p>
+<pre><code class="language-csharp">namespace Lockdown.Build
+{
+    public interface ISiteBuilder
+    {
+        public void Build(string inputPath, string outputPath);
+    }
+}
+</code></pre>
+<p>And let's write a simple implementation for it, we'll have to modify it later though!</p>
+<pre><code class="language-csharp">namespace Lockdown.Build
+{
+    public class SiteBuilder : ISiteBuilder
+    {
+        public SiteBuilder()
+        {
+        }
+
+        public void Build(string inputPath, string outputPath)
+        {
+        }
+    }
+}
+</code></pre>
+<p>Lastly, we just need to add it to our DI container:</p>
+<pre><code class="language-csharp">ServiceProvider services = new ServiceCollection()
+    .AddSingleton&lt;ISiteBuilder, SiteBuilder&gt;()
+    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton)
+    .BuildServiceProvider();
+</code></pre>
+<p>And then we can use it in our <code>BuildCommand</code>:</p>
+<pre><code class="language-csharp">private readonly IConsole console;
+private readonly ISiteBuilder siteBuilder;
+
+public BuildCommand(IConsole console, ISiteBuilder siteBuilder)
+{
+    this.console = console;
+    this.siteBuilder = siteBuilder;
+}
+
+
+public int OnExecute()
+{
+    this.console.WriteLine($&quot;Source directory: {this.InputPath}&quot;);
+
+    this.siteBuilder.Build(this.InputPath, this.OutputPath);
+
+    // ...
+</code></pre>
+<h2 id="moqing-interfaces"><em>Moq</em>ing interfaces</h2>
+<p>Now, we should test our code! the test is quite straightforward, we just need to guarantee our method <code>OnExecute</code> calls the method <code>Build</code> on our <code>ISiteBuilder</code> instance. We'll use a tiny little library that will help us to create a &quot;fake&quot; version of an <code>ISiteBuilder</code>:</p>
+<pre><code class="language-bash">dotnet add Lockdown.Test/Lockdown.Test.csproj package Moq 
+</code></pre>
+<p>Once we added this NuGet, we can change our testing code:</p>
+<pre><code class="language-csharp">using Moq;
+
+// ... 
+
+[Fact]
+public void TestOnExecute()
+{
+    // Setup
+    var testConsole = new TestConsole();
+    var mockSiteBuilder = new Mock&lt;ISiteBuilder&gt;();
+    var inputFolder = &quot;./input/path&quot;;
+    var outputFolder = &quot;/output/path&quot;;
+
+    var buildCommand = new BuildCommand(testConsole, mockSiteBuilder.Object);
+    buildCommand.InputPath = inputFolder;
+    buildCommand.OutputPath = outputFolder;
+
+    var expectedOutput = $&quot;Source directory: {inputFolder}&quot; + Environment.NewLine +
+                            $&quot;Output path: {outputFolder}&quot; + Environment.NewLine;
+
+    // Act
+    buildCommand.OnExecute();
+
+    // Assert
+    mockSiteBuilder.Verify(siteBuilder =&gt; siteBuilder.Build(inputFolder, outputFolder), Times.Once);
+
+    string writtenText = testConsole.GetWrittenContent();
+    writtenText.ShouldBe(expectedOutput);
+}
+</code></pre>
+<h1 id="file-systems-and-dependency-injection">File systems and dependency injection</h1>
+<p>Let's move on and have a look at our <code>SiteBuilder</code> class. First things first, we should ensure that the output path gets cleaned before processing, and it exists after processing, to do this we are going to interact with the file system.</p>
+<p>To do this we could simply use the classes available in the <code>System.IO</code> namespace, but this is not test friendly! we don't really want to be messing with the file system during our tests! remember how did we solve the problem of interacting with the console? Yes, dependency injection. Let's add a NuGet that will help our development efforts.</p>
+<pre><code class="language-bash">dotnet add Lockdown/Lockdown.csproj package System.IO.Abstractions
+</code></pre>
+<p>This package offers, among other things, an interface called <code>IFileSystem</code> that we can use to interact with the file system objects, and of course, we should inject this dependency into our <code>SiteBuilder</code> via its constructor:</p>
+<pre><code class="language-csharp">private readonly IFileSystem fileSystem;
+
+public SiteBuilder(IFileSystem fileSystem)
+{
+    this.fileSystem = fileSystem;
+}
+</code></pre>
+<p>Obviously, like all our dependencies, we need to add it to the dependency container:</p>
+<pre><code class="language-csharp">ServiceProvider services = new ServiceCollection()
+    .AddSingleton&lt;IFileSystem, FileSystem&gt;()
+    .AddSingleton&lt;ISiteBuilder, SiteBuilder&gt;()
+    .AddSingleton&lt;IConsole&gt;(PhysicalConsole.Singleton)
+</code></pre>
+<p>Let's start coding our <em>site builder</em>, the first thing we care about is to to clean whatever is in the output folder if it exists (though we must warn our user this is gonig to happen!) or to create a new one if it does not exists.</p>
+<pre><code class="language-csharp">public void Build(string inputPath, string outputPath)
+{
+    this.CleanFolder(outputPath);
+}
+
+public virtual void CleanFolder(string folder)
+{
+    // To be implemented  
+}
+</code></pre>
+<p>Notice the <code>virtual</code> method in <code>CleanFolder</code>?</p>
+<p>Before we implement our <code>CleanFolder</code>, should we do some TDD? let's do it. To test this using our brand new <code>System.IO.Abstractions</code> package we must add yet another package:</p>
+<pre><code class="language-bash">dotnet add Lockdown.Test/Lockdown.Test.csproj package System.IO.Abstractions.TestingHelpers 
+</code></pre>
+<p>Let's add a couple of test methods, one that will test for the case when the output directory does not exist, and another that will test when it exists and contains a file:</p>
+<pre><code class="language-csharp">using System.IO;
+using System.IO.Abstractions;
+using System.IO.Abstractions.TestingHelpers;
+using System.Linq;
+using Lockdown.Build;
+using Shouldly;
+using Xunit;
+
+namespace Lockdown.Test
+{
+    public class SiteBuilderTests
+    {
+        public IFileSystem fakeFileSystem;
+
+        private const string inputPath = &quot;./some/input&quot;;
+        private const string outputPath = &quot;./some/output&quot;;
+
+        public SiteBuilderTests()
+        {
+            this.fakeFileSystem = new MockFileSystem();
+
+        }
+
+        [Fact]
+        public void TestOutputFolderDoesNotExist()
+        {
+            // Setup
+            var siteBuilder = new SiteBuilder(this.fakeFileSystem);
+
+            // Act
+            siteBuilder.Build(inputPath, outputPath);
+
+
+            // Assert
+            this.fakeFileSystem.Directory.Exists(outputPath).ShouldBeTrue();
+            this.fakeFileSystem.Directory.EnumerateFiles(outputPath).Any().ShouldBeFalse();
+
+        }
+
+        [Fact]
+        public void TestOutputFolderHasFiles()
+        {
+            // Setup
+            var someFilePath = Path.Combine(outputPath, &quot;file.txt&quot;);
+            this.fakeFileSystem.Directory.CreateDirectory(outputPath);
+            this.fakeFileSystem.File.WriteAllText(someFilePath, &quot;hello world&quot;);
+            var siteBuilder = new SiteBuilder(this.fakeFileSystem);
+
+            // Act
+            siteBuilder.Build(inputPath, outputPath);
+
+
+            // Assert
+            this.fakeFileSystem.Directory.Exists(outputPath).ShouldBeTrue();
+            this.fakeFileSystem.Directory.EnumerateFiles(outputPath).Any().ShouldBeFalse();
+
+        }
+    }
+}
+</code></pre>
+<p>If we now test with <code>dotnet test</code> everything should fail:</p>
+<pre><code class="language-bash">dotnet test
+</code></pre>
+<p>Then we can actually use our field <code>fileSystem</code> in our <code>SiteBuilder</code> implementation:</p>
+<pre><code class="language-csharp">public void Build(string inputPath, string outputPath)
+{
+    if (this.fileSystem.Directory.Exists(outputPath))
+    {
+        this.fileSystem.Directory.Delete(outputPath, recursive: true);
+    }
+
+    this.fileSystem.Directory.CreateDirectory(outputPath);
+}
+</code></pre>
+<p>We could add a test asserting that we call <code>CleanFolder</code> when building a new site:</p>
+<pre><code class="language-csharp">[Fact]
+public void TestCallsMethodsWhenBuilding()
+{
+    // Setup
+    var mockSiteBuilder = new Mock&lt;SiteBuilder&gt;(MockBehavior.Loose, this.fakeFileSystem);
+    mockSiteBuilder.Setup(siteBuilder =&gt; siteBuilder.CleanFolder(outputPath));
+
+    // Act
+    mockSiteBuilder.Object.Build(inputPath, outputPath);
+
+    // Assert
+    mockSiteBuilder.Verify(siteBuilder =&gt; siteBuilder.CleanFolder(outputPath));
+}
+</code></pre>
+<h2 id="test-copying-files-over">Test copying files over</h2>
+<pre><code class="language-csharp">[Fact]
+public void TestCopyFiles()
+{
+    // Setup
+    var stylesFile = Path.Combine(inputPath, &quot;style.css&quot;);
+    var someOtherFile = Path.Combine(inputPath, &quot;subfolder&quot;, &quot;style.css&quot;);
+
+    var contents = new Dictionary&lt;string, MockFileData&gt;
+    {
+        { stylesFile, new MockFileData(&quot;body { color: #fff; }&quot;) },
+        { someOtherFile, new MockFileData(&quot;more data&quot;) }
+    };
+
+    var fakeFileSystem = new MockFileSystem(contents);
+    fakeFileSystem.Directory.CreateDirectory(outputPath);
+    var siteBuilder = new SiteBuilder(fakeFileSystem);
+
+    // Act
+    siteBuilder.CopyFiles(inputPath, outputPath);
+
+    // Assert
+    fakeFileSystem.Directory.EnumerateFiles(outputPath, &quot;*.*&quot;, SearchOption.AllDirectories).Count().ShouldBe(2);
+}
+</code></pre>
+<p>And the implementation:</p>
+<pre><code class="language-csharp">public virtual void CopyFiles(string input, string output)
+{
+    var source = this.fileSystem.DirectoryInfo.FromDirectoryName(input);
+    var target = this.fileSystem.DirectoryInfo.FromDirectoryName(output);
+
+    this.CopyFiles(source, target);
+}
+
+private void CopyFiles(IDirectoryInfo source, IDirectoryInfo target)
+{
+    foreach (var fi in source.GetFiles())
+    {
+        fi.CopyTo(Path.Combine(target.FullName, fi.Name));
+    }
+
+    foreach (var subDirectory in source.GetDirectories())
+    {
+        var nextTargetSubDir = target.CreateSubdirectory(subDirectory.Name);
+        this.CopyFiles(subDirectory, nextTargetSubDir);
+    }
+}
+</code></pre>
+<p>We can also assert that we call <code>CopyFiles</code> in our build method:</p>
+<pre><code class="language-csharp">[Fact]
+public void TestCleanBuilderTestHasFiles()
+{
+    // Setup
+    var someFilePath = Path.Combine(outputPath, &quot;file.txt&quot;);
+    this.fakeFileSystem.Directory.CreateDirectory(outputPath);
+    this.fakeFileSystem.File.WriteAllText(someFilePath, &quot;hello world&quot;);
+    var siteBuilder = new SiteBuilder(this.fakeFileSystem);
+
+    // Act
+    siteBuilder.CleanFolder(outputPath);
+
+
+    // Assert
+    this.fakeFileSystem.Directory.Exists(outputPath).ShouldBeTrue();
+    this.fakeFileSystem.Directory.EnumerateFiles(outputPath).Any().ShouldBeFalse();
+
+}
+</code></pre>
+
+
+    </div>
+</article>
+
+                    </section>
+                    <section class="sidebar">
+                        <div class="theme-toggle">
+  <input type="checkbox" id="theme-switch"/>
+  <label for="theme-switch">
+      <div class="toggle"></div>
+      <div class="names">
+          <p class="light">Light</p>
+          <p class="dark">Dark</p>
+      </div>
+  </label>
+</div>
+  
+
+
+<script>
+    (function() {
+      var sw = document.getElementById('theme-switch');
+      var html = document.getElementsByTagName('html')[0];
+      var nightModeOption = ('auto' || 'auto').toLowerCase();
+      var storage = nightModeOption === 'manual'
+          ? localStorage
+          : sessionStorage;
+      var themeData = loadThemeData();
+  
+      function saveThemeData(data) {
+        storage.setItem('theme', JSON.stringify(data));
+      }
+  
+      function loadThemeData() {
+        var data = storage.getItem('theme');
+        try {
+          data = JSON.parse(data ? data : '');
+        } catch(e) {
+          data = { nightShift: undefined, autoToggleAt: 0 };
+          saveThemeData(data);
+        }
+        return data;
+      }
+  
+      function handleThemeToggle(nightShift) {
+        themeData.nightShift = nightShift;
+        saveThemeData(themeData);
+        html.dataset.theme = nightShift ? 'dark' : 'light';
+        setTimeout(function() {
+          sw.checked = nightShift ? true : false;
+        }, 50);
+      }
+  
+      function autoThemeToggle() {
+        // Next time point of theme toggle
+        var now = new Date();
+        var toggleAt = new Date();
+        var hours = now.getHours();
+        var nightShift = hours >= 19 || hours <=7;
+  
+        if (nightShift) {
+          if (hours > 7) {
+            toggleAt.setDate(toggleAt.getDate() + 1);
+          }
+          toggleAt.setHours(7);
+        } else {
+          toggleAt.setHours(19);
+        }
+  
+        toggleAt.setMinutes(0);
+        toggleAt.setSeconds(0);
+        toggleAt.setMilliseconds(0)
+  
+        var delay = toggleAt.getTime() - now.getTime();
+  
+        // auto toggle theme mode
+        setTimeout(function() {
+          handleThemeToggle(!nightShift);
+        }, delay);
+  
+        return {
+          nightShift: nightShift,
+          toggleAt: toggleAt.getTime()
+        };
+      }
+  
+      // Listen the theme toggle event
+      sw.addEventListener('change', function(event) {
+        handleThemeToggle(event.target.checked);
+      });
+  
+      if (nightModeOption == 'auto') {
+        var data = autoThemeToggle();
+  
+        // Toggle theme by local setting
+        if (data.toggleAt > themeData.autoToggleAt) {
+          themeData.autoToggleAt = data.toggleAt;
+          handleThemeToggle(data.nightShift);
+        } else {
+          handleThemeToggle(themeData.nightShift);
+        }
+      } else if (nightModeOption == 'manual') {
+        handleThemeToggle(themeData.nightShift);
+      } else {
+        var nightShift = themeData.nightShift;
+        if (nightShift === undefined) {
+          nightShift = nightModeOption === 'on';
+        }
+        handleThemeToggle(nightShift);
+      }
+    })();
+  </script>
+                        <div class="post-menu">
+                            <div class="post-menu-title">Sígueme en</div>
+                            <div class="common-list">
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        
+ <style type="text/css" media="screen">
+    .post-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div class="post-menu toc">
+    <div class="post-menu-title">TOC</div>
+    <div class="post-menu-content"></div>
+</div>
+<script>
+    function generateContent() {
+        var menu = document.querySelector(".post-menu.toc");
+        console.log(menu);
+        var menuContent = menu.querySelector(".post-menu-content");
+        var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+        // Hide menu when no headings
+        if (headings.length === 0) {
+            return menu.style.display = "none";
+        }
+        // Generate post menu
+        var menuHTML = '';
+        for (var i = 0; i < headings.length; i++) {
+            var h = headings[i];
+            menuHTML += ('<li class="h-' + h.tagName.toLowerCase() + '">' + '<a href="#' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+        }
+        menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+        // The header element
+        var header = document.querySelector('header.site-header');
+        function doMenuCollapse(index, over_items) {
+            var items = menuContent.firstChild.children;
+            if (over_items == undefined) {
+                over_items = 20;
+            }
+            if (items.length<over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0 && ! items[beginIndex].classList.contains('h-h2')) {
+                beginIndex -= 1;
+            }
+            while (endIndex < items.length && ! items[endIndex].classList.contains('h-h2')) {
+                endIndex += 1;
+            }
+            for (var i = 0; i < beginIndex; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+            for (var i = beginIndex + 1; i < endIndex; i++) {
+                item = items[i]
+                // if (!item.classList.contains('h-h2')) {
+                item.style.display = '';
+                // }
+            }
+            for (var i = endIndex; i < items.length; i++) {
+                item = items[i]
+                if (!item.classList.contains('h-h2')) {
+                    item.style.display = 'none';
+                }
+            }
+        }
+        // Init menu collapsed
+        doMenuCollapse(-1);
+        // Active the menu item
+        window.addEventListener('scroll', function (event) {
+            var lastActive = menuContent.querySelector('.active');
+            var changed = true;
+            var activeIndex = -1;
+            for (var i = headings.length - 1; i >= 0; i--) {
+                var h = headings[i];
+                var headingRect = h.getBoundingClientRect();
+                var headerRect = header.getBoundingClientRect();
+                var headerTop = Math.floor(headerRect.top);
+                var headerHeight = Math.floor(headerRect.height);
+                var headerHeight = headerTop + headerHeight + 20;
+                if (headingRect.top <= headerHeight) {
+                    var id = 'h-' + h.getAttribute('id');
+                    var a = menuContent.querySelector('a[href="#' + id + '"]');
+                    var curActive = a.parentNode;
+                    if (curActive) {
+                        curActive.classList.add('active');
+                        activeIndex = i;
+                    }
+                    if (lastActive == curActive) {
+                        changed = false;
+                    }
+                    break;
+                }
+            }
+            if (changed) {
+                if (lastActive) {
+                    lastActive.classList.remove('active');
+                }
+                doMenuCollapse(activeIndex);
+            }
+            event.preventDefault();
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateContent()
+    });
+</script>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer h-card">
+   <data class="u-url" href="/"></data>
+ 
+   <div class="wrapper">
+     <div class="site-footer-inner">
+       <div> </div>
+       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
+     </div>
+   </div>
+ </footer>
+    </body>
+</html>
