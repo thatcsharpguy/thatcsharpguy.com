@@ -7,7 +7,6 @@
     <body style="position: relative; min-height: 100%; top: 0px;">
         {% include 'header' %}
         {% include 'banner' %}
-        {% include theme_toggle %}
         <div class="page-content">
             <div class="wrapper">
                 <div class="framework">
@@ -15,7 +14,7 @@
                         {% block content %}{% endblock %}
                     </section>
                     <section class="sidebar">
-                        {% include theme_toggle %}
+                        {% include extensions/theme_toggle.liquid %}
                         <div class="post-menu">
                             <div class="post-menu-title">Sígueme en</div>
                             <div class="common-list">
