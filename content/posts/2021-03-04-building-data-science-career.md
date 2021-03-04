@@ -4,7 +4,7 @@ title: Building a Career in Data Science
 slug: build-career-data-science
 date: 2021-03-04 14:00:00
 summary: This is a very good book for anyone who is in the early stages of their data science career, or for people who are currently performing as a data scientist and wants to develop further into their careers.
-image: https://i.imgur.com/1vBKteg.jpg
+image: https://i.imgur.com/sqUz6u4.jpg
 tags: book-review, data science, machine learning, manning
 ---  
 
