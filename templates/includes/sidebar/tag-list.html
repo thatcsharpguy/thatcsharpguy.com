@@ -1,6 +1,6 @@
-{%- include functions.html func='log' level='debug' msg='Get tags value' -%}
+{%- include includes/functions/log.html level='debug' msg='Get tags value' -%}
 
-{%- include functions.html func='get_tags' -%}
+{%- include includes/functions/get_tags.html -%}
 {% assign tags = return %}
 
 {% assign keys = tags %}

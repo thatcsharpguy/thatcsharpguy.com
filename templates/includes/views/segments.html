@@ -13,7 +13,7 @@
       {% assign items = site.posts | where: field, key %}
       {% for item in items %}
         {% if item != nil %}
-        <li> {% include views/post-item.html %} </li>
+        <li> {% include includes/views/post-item.html %} </li>
         {% endif %}
       {% endfor %}
     {% endfor %}

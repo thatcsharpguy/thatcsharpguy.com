@@ -1,7 +1,7 @@
-{%- include functions.html func='log' level='debug' msg='Get datetimes value' -%}
+{%- include includes/functions/log.html level='debug' msg='Get datetimes value' -%}
 
 {% assign filter = '%Y' %}
-{% include functions.html func='get_datetimes' %}
+{% include includes/functions/get_datetimes.html %}
 {% assign datetimes = return %}
 
 {% assign keys = datetimes %}

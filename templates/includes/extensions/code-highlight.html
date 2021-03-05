@@ -6,19 +6,19 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
 
 {%- assign name = 'code_badge.enabled' -%}
-{%- include functions.html func='get_value' default='true' -%}
+{%- include includes/functions/get_value.html default='true' -%}
 {%- assign badge_enabled = return -%}
 
 {%- assign name = 'code_badge.color' -%}
-{%- include functions.html func='get_value' default='#fff' -%}
+{%- include includes/functions/get_value.html default='#fff' -%}
 {%- assign badge_color = return -%}
 
 {%- assign name = 'code_badge.background_color' -%}
-{%- include functions.html func='get_value' default='#ff4e00' -%}
+{%- include includes/functions/get_value.html default='#ff4e00' -%}
 {%- assign badge_background_color = return -%}
 
 {%- assign name = 'code_badge.text_transform' -%}
-{%- include functions.html func='get_value' default='uppercase' -%}
+{%- include includes/functions/get_value.html default='uppercase' -%}
 {%- assign badge_text_transform = return -%}
 
 <script>

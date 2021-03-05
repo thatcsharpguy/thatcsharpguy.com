@@ -5,12 +5,12 @@ sidebar: category-list
 
 {%- if site.posts.size > 0 -%}
 
-  {%- include functions.html func='log' level='debug' msg='Get value' -%}
-  {%- include functions.html func='get_categories' -%}
+  {%- include includes/functions/log.html level='debug' msg='Get value' -%}
+  {%- include includes/functions/get_categories.html -%}
   {% assign categories = return %}
 
   {% assign keys = categories %}
   {% assign field = 'categories' %}
-  {%- include views/segments.html -%}
+  {%- include includes/views/segments.html -%}
 
 {%- endif -%}

@@ -1,14 +1,14 @@
----
-layout: framework
-sidebar: category-list
----
+{% extends framework %}
 
+{% block framework_content %}
 <div class="articles">
   {% if page.banner == nil %}
     {% assign banner = page.title %}
   {% endif %}
 
-  {{ content }}
+  {% block articles_content %}
+  {% endblock %}
 
-  {% include views/pagination.html %}
+  {% include includes/views/pagination.html %}
 </div>
+{% endblock %}
