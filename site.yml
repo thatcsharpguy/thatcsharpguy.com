@@ -2,7 +2,7 @@ title: "That C# guy"
 subtitle: Ingeniería de software + Ciencia de datos + MLOps
 description: Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.
 default-author: Antonio Feregrino
-site-url: https://thatcsharpguy.com/
+site-url: https://thatcsharpguy.com
 social:
   - text: GitHub
     url: https://github.com/fferegrino

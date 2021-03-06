@@ -1,0 +1,49 @@
+{% if post %}
+<title>{{ post.title }} | {{ site.title }}</title>
+<!-- Search Engine -->
+<meta name="description" content="{{ post.summary }}">
+<meta name="image" content="{{ post.image }}">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="{{ post.title }}">
+<meta itemprop="description" content="{{ post.summary }}">
+<meta itemprop="image" content="{{ post.image }}">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ post.title }}">
+<meta name="twitter:description" content="{{ post.summary }}">
+<meta name="twitter:site" content="@thatcsharpguy">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="{{ post.image }}">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="{{ post.title }}">
+<meta name="og:description" content="{{ post.summary }}">
+<meta name="og:image" content="{{ post.image }}">
+<meta name="og:url" content="{{ site.site_url }}{{ post.canonical_url }}">
+<meta name="og:site_name" content="{{ site.title }}">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+{% else %}
+<title>{{ site.title }} - {{ site.subtitle }}</title>
+<!-- Search Engine -->
+<meta name="description" content="{{ site.description }}">
+<meta name="image" content="https://i.imgur.com/mZXVERU.png">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="{{ site.title }}">
+<meta itemprop="description" content="{{ site.description }}">
+<meta itemprop="image" content="https://i.imgur.com/mZXVERU.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ site.title }}">
+<meta name="twitter:description" content="{{ site.description }}">
+<meta name="twitter:site" content="@thatcsharpguy">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="https://i.imgur.com/mZXVERU.png">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="{{ site.title }}">
+<meta name="og:description" content="{{ site.description }}">
+<meta name="og:image" content="https://i.imgur.com/mZXVERU.png">
+<meta name="og:url" content="{{ site.site_url }}">
+<meta name="og:site_name" content="{{ site.title }}">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+{% endif %}
