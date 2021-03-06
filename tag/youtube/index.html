@@ -1,214 +1,296 @@
 <!DOCTYPE html>
-<html lang="es" itemscope itemtype="http://schema.org/Blog">
-    <head>
-        <!–– Made with Lockdown: https://github.com/fferegrino/lockdown ––>
-  
+<html lang="en">
+
+  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
-
-  <link rel="shortcut icon" href="">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <script src="/js/main.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/vs.min.css" integrity="sha512-aWjgJTbdG4imzxTxistV5TVNffcYGtIQQm2NBNahV6LmX14Xq9WwZTL1wPjaSglUuVzYgwrq+0EuI4+vKvQHHw==" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<script data-ad-client="ca-pub-9566151416325480" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
-<meta name="msapplication-TileColor" content="#eeeef2">
-<meta name="theme-color" content="#eeeef2">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ffffff">
+<title>That C# guy - Ingeniería de software + Ciencia de datos + MLOps</title>
+<!-- Search Engine -->
+<meta name="description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta name="image" content="https://i.imgur.com/mZXVERU.png">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="That C# guy">
+<meta itemprop="description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta itemprop="image" content="https://i.imgur.com/mZXVERU.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="That C# guy">
+<meta name="twitter:description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta name="twitter:site" content="@thatcsharpguy">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="https://i.imgur.com/mZXVERU.png">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="That C# guy">
+<meta name="og:description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
+<meta name="og:image" content="https://i.imgur.com/mZXVERU.png">
+<meta name="og:url" content="https://thatcsharpguy.com">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400;1,800&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css"> -->
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
 
 
-  <title>That C# guy - Un blog sobre programación.</title>
-  <!-- Search Engine -->
-  <meta name="description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
-  <meta name="image" content="THIS IS MY IMAGE">
-  <!-- Schema.org for Google -->
-  <meta itemprop="name" content="That C# guy">
-  <meta itemprop="description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
-  <meta itemprop="image" content="THIS IS MY IMAGE">
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="That C# guy">
-  <meta name="twitter:description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
-  <meta name="twitter:site" content="@io_exception">
-  <meta name="twitter:creator" content="@io_exception">
-  <meta name="twitter:image" content="THIS IS MY URL!">
-  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-  <meta name="og:title" content="That C# guy">
-  <meta name="og:description" content="Un sitio en donde se habla a veces de programación, a veces de ciencia de datos y muchas veces de MLOps.">
-  <meta name="og:image" content="THIS IS MY IMAGE">
-  <meta name="og:url" content="https://thatcsharpguy.com/">
-  <meta name="og:site_name" content="That C# guy">
-  <meta name="og:locale" content="es">
-  <meta name="og:type" content="website">
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPXCSH21CP"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-GPXCSH21CP');
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
 </script>
 
-        
-    </head>
-    <body style="position: relative; min-height: 100%; top: 0px;">
-        <header class="site-header " role="banner">
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: ;
+    background-color: ;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: ;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+</head>
+
+
+  <body>
+
+
+<header class="site-header " role="banner">
+
   <div class="wrapper">
-     <div class="site-header-inner">
-       <span class="site-brand">
-         <a class="site-brand-inner" rel="author" href="/">
-          <!-- <img class="site-favicon" title="Your awesome title" src="" onerror="this.style.display='none'"> -->
-          That C# guy
-        </a>
+    <div class="site-header-inner">
+
+      <span class="site-brand">
+<a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="That C# guy" src="" onerror="this.style.display='none'">
+  That C# guy
+</a>
       </span>
-        <nav class="site-nav">
-           <input type="checkbox" id="nav-trigger" class="nav-trigger">
-           <label for="nav-trigger">
-              <span class="menu-icon">
-                 <svg viewbox="0 0 18 15" width="18px" height="15px">
-                    <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
-                 </svg>
-              </span>
-           </label>
-           <div class="trigger">
-             <!-- Header links -->
-              <a class="page-link" target="_blank" href="https://www.youtube.com/thatcsharpguy/">YOUTUBE</a>
-              <span class="page-link">
-    <div id="google_translate_element" style="display: none;"></div>
-    <span class="ct-language">
-       <ul class="list-unstyled ct-language-dropdown">
-         <li>
-            <a href="#" class="lang-select" data-lang="es">
-            <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
-            </a>
-         </li>
-          <li>
-             <a href="#" class="lang-select" data-lang="en">
-             <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
-             </a>
-          </li>
-          <li>
-             <a href="#" class="lang-select" data-lang="fr">
-             <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
-             </a>
-          </li>
-          <li>
-             <a href="#" class="lang-select" data-lang="zh-CN">
-             <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
-             </a>
-          </li>
-          <li>
-             <a href="#" class="lang-select" data-lang="ja">
-             <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
-             </a>
-          </li>
-          <li>
-             <a href="#" class="lang-select" data-lang="ko">
-             <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
-             </a>
-          </li>
-          <li>
-             <a href="#" class="lang-select" data-lang="ru">
-             <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
-             </a>
-          </li>
-       </ul>
-    </span>
-    <script type="text/javascript">
-       function googleTranslateElementInit() {
-         new google.translate.TranslateElement({
-           pageLanguage: '',
-           autoDisplay: false,
-           layout: google.translate.TranslateElement.InlineLayout.VERTICAL
-         }, 'google_translate_element');
-       
-         function restoreLang() {
-           var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
-           if (!iframe) return;
-       
-           var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-           var restore_el = innerDoc.getElementsByTagName("button");
-       
-           for (var i = 0; i < restore_el.length; i++) {
-             if (restore_el[i].id.indexOf("restore") >= 0) {
-               restore_el[i].click();
-               var close_el = innerDoc.getElementsByClassName("goog-close-link");
-               close_el[0].click();
-               return;
-             }
-           }
-         }
-       
-         function triggerHtmlEvent(element, eventName) {
-           var event;
-           if (document.createEvent) {
-             event = document.createEvent('HTMLEvents');
-             event.initEvent(eventName, true, true);
-             element.dispatchEvent(event);
-           } else {
-             event = document.createEventObject();
-             event.eventType = eventName;
-             element.fireEvent('on' + event.eventType, event);
-           }
-         }
-       
-         var googleCombo = document.querySelector("select.goog-te-combo");
-         var langSelect = document.querySelector('.ct-language');
-         langSelect.addEventListener('click', function(event) {
-           if (!event.target) {
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+            <a class="page-link" href="https://github.com/fferegrino">GitHub</a>
+            <a class="page-link" href="https://twitter.com/io_exception">Twitter</a>
+            <a class="page-link" href="https://youtube.com/thatcsharpguy">YouTube</a>
+            <a class="page-link" href="https://tcsg.dev/discord">Discord</a>
+
+            <span class="page-link">
+
+  <div id="google_translate_element" style="display: none;"></div>
+  <span class="ct-language">
+     <ul class="list-unstyled ct-language-dropdown">
+       <li>
+          <a href="#" class="lang-select" data-lang="es">
+          <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+          </a>
+       </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="en">
+           <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="fr">
+           <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="zh-CN">
+           <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ja">
+           <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ko">
+           <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ru">
+           <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+           </a>
+        </li>
+     </ul>
+  </span>
+  <script type="text/javascript">
+     function googleTranslateElementInit() {
+       new google.translate.TranslateElement({
+         pageLanguage: '',
+         autoDisplay: false,
+         layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+       }, 'google_translate_element');
+     
+       function restoreLang() {
+         var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+         if (!iframe) return;
+     
+         var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+         var restore_el = innerDoc.getElementsByTagName("button");
+     
+         for (var i = 0; i < restore_el.length; i++) {
+           if (restore_el[i].id.indexOf("restore") >= 0) {
+             restore_el[i].click();
+             var close_el = innerDoc.getElementsByClassName("goog-close-link");
+             close_el[0].click();
              return;
            }
-       
-           var selected = document.querySelector('.ct-language .ct-language-selected');
-           if (selected) {
-             selected.classList.remove('ct-language-selected');
-           }
-       
-           var target = event.target;
-           while (target && target !== langSelect ) {
-             if (target.matches('.lang-select')) {
-               break;
-             }
-             target = target.parentElement;
-           }
-       
-           if (target && target.matches('.lang-select')) {
-             var lang = target.getAttribute('data-lang');
-             if (lang == "es") {
-               restoreLang();
-             } else {
-               target.parentElement.classList.add('ct-language-selected');
-               googleCombo.value = lang;
-               triggerHtmlEvent(googleCombo, 'change');
-             }
-           }
-       
-           event.preventDefault();
-         });
+         }
        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
- </span>
-           </div>
-        </nav>
-     </div>
+     
+       function triggerHtmlEvent(element, eventName) {
+         var event;
+         if (document.createEvent) {
+           event = document.createEvent('HTMLEvents');
+           event.initEvent(eventName, true, true);
+           element.dispatchEvent(event);
+         } else {
+           event = document.createEventObject();
+           event.eventType = eventName;
+           element.fireEvent('on' + event.eventType, event);
+         }
+       }
+     
+       var googleCombo = document.querySelector("select.goog-te-combo");
+       var langSelect = document.querySelector('.ct-language');
+       langSelect.addEventListener('click', function(event) {
+         if (!event.target) {
+           return;
+         }
+     
+         var selected = document.querySelector('.ct-language .ct-language-selected');
+         if (selected) {
+           selected.classList.remove('ct-language-selected');
+         }
+     
+         var target = event.target;
+         while (target && target !== langSelect ) {
+           if (target.matches('.lang-select')) {
+             break;
+           }
+           target = target.parentElement;
+         }
+     
+         if (target && target.matches('.lang-select')) {
+           var lang = target.getAttribute('data-lang');
+           if (lang == "es") {
+             restoreLang();
+           } else {
+             target.parentElement.classList.add('ct-language-selected');
+             googleCombo.value = lang;
+             triggerHtmlEvent(googleCombo, 'change');
+           }
+         }
+     
+         event.preventDefault();
+       });
+     }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>            </span>
+            
+        </div>
+      </nav>
+    </div>
   </div>
 </header>
+
 <script>
   (function() {
     var lastScrollY = getScrollPos().y;
@@ -217,9 +299,9 @@
     function storeScrollData() {
       var y = getScrollPos().y;
 
-      documentElement.setAttribute("data-header-transparent", "");
 
       var scrollStatus = "";
+
       if (y <= 0) {
         scrollStatus = "top";
       } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
@@ -228,1886 +310,253 @@
         var isScrollDown = (y - lastScrollY > 0) ? true : false;
         scrollStatus = isScrollDown ? "down" : "up";
       }
+
       lastScrollY = y;
       documentElement.setAttribute("data-scroll-status", scrollStatus);
     }
+
     window.addEventListener('scroll', function(e) {
       storeScrollData();
     });
+
     storeScrollData();
   })();
 </script>
-        
-        <div class="page-content">
-            <div class="wrapper">
-                <div class="framework">
-                    <section class="main"> 
-                        
-<div class="articles">
-    <div class="pagination">
 
-        <ul class="post-list">
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/la-escuela-otra-vez">
-          La escuela, otra vez
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> December 22, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Mi opinión sobre la escuela.</p>
 
 
-      <div class="post-tags">
 
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
 
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/inyeccion-dependencias">
-          La inyección de dependencias
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> September 05, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La inyección de dependencias es un patrón de diseño que nos permite implementar en nuestras aplicaciones el principio de inversión de control. Consiste en evitar la instanciación de unos objetos dentro de otros, evitando así el acoplamiento fuerte.</p>
 
 
-      <div class="post-tags">
 
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
 
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/numpy-y-pandas-parte-2">
-          NumPy y Pandas (parte 2)
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 10, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Segunda parte de este mini tutorial sobre NumPy y Pandas</p>
 
 
-      <div class="post-tags">
 
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
 
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/los-algoritmos-voraces">
-          Los algoritmos voraces
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 11, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La idea detrás de los algoritmos voraces (o greedy) consiste en siempre tomar la mejor decisión de todas las que puede tomar inmediatamante con la esperanza de que al juntar todas estas pequeñas "mejores" decisiones, se obtendrá la mejor solución al problema en general.</p>
 
 
-      <div class="post-tags">
 
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
 
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/data-fundamentals">
-          Data Fundamentals
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 05, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">The first video in the series "what was I doing the last six months?</p>
 
 
-      <div class="post-tags">
 
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
 
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/ideone">
-          Ideone
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 18, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Ideone es una colección de compiladores en línea, que permite escribir, compilar y ejecutar código fuente escrito en más de 60 lenguajes de programación.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/sal-sintactica">
-          Sal sintáctica
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> July 13, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La sal sintáctica, cuyo objetivo es supuestamente ser lo totalmente opuesto a la azúcar, hacen difícil escribir mal código y, en teoría, hacen más difícil de usar un lenguaje.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/numpy-y-pandas-parte-1">
-          NumPy y Pandas (parte 1)
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 10, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Primera parte de este mini tutorial sobre NumPy y Pandas</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/hello-world-yt">
-          ¡Hola mundo (en video)!
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 18, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Video de presentación de este nuevo canal de YouTube en donde, a pesar del nombre, no solamente hablaré de C#, si no de varias muchas otras cosas relacionadas con la programación.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/dormir-o-programar">
-          ¿Dormir o programar?
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> January 27, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">No dormir no es una medalla de honor, y el hecho de no dormir lo suficiente por estar trabajando o haciendo tarea no debe presumirse como un logro.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/programar-en-ingles">
-          ¿Programar en inglés?
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 20, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Tu, ¿programas en inglés?</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/machine-learning">
-          Machine Learning
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 11, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El aprendizaje máquina es maravilloso, pero no es magia. Todo depende de la información que tengamos a la mano.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/regex">
-          Expresiones regulares
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 01, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El término expresiones regulares surgió a mediados de los 50's y fue creado por el matemático Stephen Cole Kleene, y se refiere a secuencias de caracteres que definen patrones de búsqueda.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/big-data">
-          Big Data
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 12, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">This is going to be a short video since what we mostly did was trying to understand the motivation and design decisions behind all these systems. I'll put the links to all the papers we reviewed so you can take a look at them.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/entornos-virtuales">
-          Entornos virtuales
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 18, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Los entornos virtuales de Python nos ayudan a mantener una clara separación entre las dependencias de un proyecto y otro. Deberías tratar de usarlos siempre que puedas.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/martillo-dorado">
-          El martillo dorado
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> September 26, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La falacia del martillo de oro es una de las falacias en las cuales los desarrolladores caemos con mayor facilidad, esta implica el propner una única solución para distintos tipos de problemas. Estas "soluciones" pueden ser un IDE, un patrón de diseño o hasta un lenguaje de programación.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/two-factor-authentication-asp-net">
-          Autenticación de dos factores (ejemplo en ASP.NET Core)
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 23, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Aprende a implementar la autenticación de dos factores con ASP.NET Core y Goolge Authenticator.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/mvc">
-          MVC
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 27, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Conoce este patrón arquitectónico para el desarrollo de aplicaciones. MVC es comúnmente usado para el desarrollo de aplicaciones web.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/package-manager">
-          Gestores de paquetes
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> July 25, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Los gestores de paquete le otorgan a los desarrolladores una manera más sencilla de reutilizar el código creado por otros, al manejar la instalación, actualización y remoción de bibliotecas de software.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/mis-libros-meta">
-          Mis libros (meta)
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 15, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El canal llegó a 5̶0̶0̶ 534 suscriptores y decidí hacer este video en el que no hablo de nada sobre el desarrollo. La programación habitual regresa la siguiente semana.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/programacion-competitiva">
-          Programación competitiva
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 13, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La programación competitiva enfrenta a programadores que tienen que resolver problemas empleando conocimientos de ciencias computacionales, matemáticas y lógica. Todo esto mediante una sencilla aplicación para computadora.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/implementacion-mvc">
-          Una implementación de MVC
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 27, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Así es como aplico el patrón MVC en algunos de los proyectos que desarrollo.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/machine-learning-train-validate-test">
-          Machine Learning: train / validate / test 
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 29, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Descubre el por qué de la separación de nuestros datos en tres: los conjuntos de entrenamiento, validación y prueba, así como su relación con el algoritmo con el que estemos trabajando.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/que-es-mapreduce">
-          ¿Qué es MapReduce?
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> February 19, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La idea de MapReduce es ofrecer una forma simple, rápida, escalable y resistente a fallos para manipular enormes cantidades de datos.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/notacion-o-grande">
-          Notación O grande
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> January 10, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La O mayúscula es una notación matemática también conocida Bachmann–Landau notation, asymptotic notation, notación o grande. Y esta nos ayuda a describir el comportamiento de una función "al límite".</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/git">#git</a>
- 
-      <a class="post-tag"  href="/tag/github">#github</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/patrones-diseno">
-          Patrones de diseño
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> July 18, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Los patrones de diseño son soluciones reusables a problemas comunes que ocurren en el diseño de software.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/mvvm">
-          MVVM
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 28, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Conoce este patrón arquitectónico para el desarrollo de aplicaciones. MVVM es comunmente usado para el desarrollo de apps móviles.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-      <a class="post-tag"  href="/tag/mvvm">#mvvm</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/ciencia-datos">
-          Ciencia de datos
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 08, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La ciencia de datos se encarga de transformar los datos en información, y hace lo posible por que esta información se transforme en conocimiento.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/information-retrieval">
-          Information Retrieval
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 05, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Information retrieval is a field concerned with the structure, analysis, organisation, storage, searching and retrieval of information.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/youtube">
-          YouTube
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> January 19, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Ahora quisiera pedirles un favor.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/programar-con-estilo">
-          Programando con estilo
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 10, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Programar con estilo es escribir nuestros programas fáciles de entender, bien documentados y siguiendo convenciones de escritura previamente adoptadas.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/subiendo-github">
-          Subiéndo código a GitHub
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> December 06, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Un tutorial de cómo empezar con GitHub desde cero.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/git">#git</a>
- 
-      <a class="post-tag"  href="/tag/github">#github</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/ci">
-          Integración continua
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> November 15, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La integración continua es una práctica muy comun en el desarrollo de software que consiste en que los desarrolladores compilen su código continuamente para detectar errores tempranamente.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/text-as-data">
-          Text as data
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 19, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">The first thing is to learn how to organise and categorise text. The second was how to search and retrieve the documents or fragments of them, and the third one was how to analyse the text to extract the sentiments that the authors were expressing.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/autorizacion-autenticacion">
-          Identidad, autenticación y autorización
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 16, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Identidad, Autenticación y Autorización son conceptos distintos, pero que juntos forman una parte importantísima de la seguridad en una aplicación.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/reactiva">
-          La programación reactiva
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 22, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La programación reactiva es otro paradigma de programación que facilita el trabajo con flujos asíncronos de datos, además de ser compatible con otros paradigmas que magnifican sus características.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/por-fin-de-vuelta">
-          ¡Por fin de vuelta!
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 03, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">¡Por fin de vuelta!</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/python">
-          Python
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> February 05, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Python es un lenguaje de programación inicialmente fue pensado como un simple lenguaje de scripting pero en la actualidad se ha infiltrado en el desarrollo web, la ciencia de datos, machine learning y ramas afines.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/2048-seguidores">
-          ¡2048 seguidores!
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 21, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Tres cosas: Gracias, gracias y gracias. Dejen sus preguntas aquí o en mis redes sociales.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/licencias-oss">
-          Licencias de software libre
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 20, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Las licencias de código libre son lo que en realidad hace al código libre, ya que establecen las condiciones y lineamientos bajo los cuales el código que protegen puede ser compartido.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/rest">
-          La arquitectura REST
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 18, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">REST es una arquitectura para crear aplicaciones web, esta propone cinco principios que hacen que una aplicación sea fácil de usar y que tenga un alto grado de compatibilidad con otros sistemas.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/apache-spark">
-          Apache Spark
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 12, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Spark funciona al rededor de un concepto muy importante es el de los Resilient Distributed Datasets. Estos RDDs son colecciones de datos de solo lectura, es decir, una vez creados ya no son modificables, y cada vez que uno es "modificado" en realidad se está creando uno nuevo.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/pruebas-unitarias-vs">
-          Pruebas unitarias en Visual Studio
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 14, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Aprende a crear pruebas unitarias usando C#</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/aprendecsharp">#aprendecsharp</a>
- 
-      <a class="post-tag"  href="/tag/visualstudio">#visualstudio</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/los-jupyter-notebooks">
-          Los Jupyter Notebooks
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> December 11, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Los Jupyter Notebooks son una herramienta bastate útil para documentar el código antes de llevarlo a producción. ¡Y no son solo para Python!</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/azucar-sintactica">
-          Azúcar Sintáctica
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 04, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El azúcar sintáctico no es más que eso, un endulzante que en teoría debe mejorar nuestra experiencia cuando escribimos código.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/machine-learning-foundations">
-          Machine Learning (foundations)
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 07, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">This course was a practical introduction to the foundations of machine learning.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/two-factor-authentication">
-          Autenticación de dos factores
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 23, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La autenticación de dos factores da más seguridad a los usuarios al establecer una segunda barrera de autenticación en sus cuentas.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/la-regresion-lineal">
-          La regresión lineal
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 01, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La regresión lineal es uno de los algoritmos más básicos de machine learning, es el punto de entrada a muchos otros algoritmos de este campo.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/machine-learning-clasificacion-y-las-support-vector-machines">
-          Machine learning: Clasificación y las support vector machines
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 27, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Clasificación usando support vector machines</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/memoization">
-          Memoización
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> November 27, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La memoización es una técnica de optimización de algoritmos que permite acelerar la ejecución de una función.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/pruebas-unitarias">
-          Las pruebas unitarias
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 14, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Estas pruebas es donde componentes individuales del software se someten a pruebas. El propósito de estas es asegurar que cada unidad de trabajo funciona individualmente como debería. Es decir, funciona cuando se supone que debe funcionar, responde con lo que se supone que tiene que responder, falla como y cuando se supone que debe fallar.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/funcional">
-          La programación funcional
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 29, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Como su nombre lo indica, está centrada en funciones, las cuales son tratadas como ciudadanos de primera clase.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/recursion-iteracion">
-          Recursión e iteración
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> June 06, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La recursión e iteración son técnicas de programación que nos ayudan a resolver los mismos problemas mediante la repetición de operaciones pero atacándolos desde enfoques distintos.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/la-evaluacion-perezosa">
-          La evaluación perezosa
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> January 14, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">En programación la evaluación perezosa, es una técnica de evaluación que consiste en retrasar el cálculo (o ejecución) de una instrucción hasta que en realidad es necesaria.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/semver">
-          SemVer
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> July 04, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">SemVer o el versionamiento semántico es una herramienta que facilita la vida de los desarrolladores de software al otorgarles una manera sencilla de organizar y mantener las referencias de sus proyectos.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/overfitting-underfiting-y-regresion-polinomial">
-          Overfitting, underfiting y regresión polinomial
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 15, 2019</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Entrenar mucho o poco... he ahí el dilema. Conoce sobre el sub ajuste, el sobre ajuste y cómo podemos combatirlo.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/xamarin">
-          Xamarin
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 09, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Pero la principal y en la que se centra este video es la Xamarin Platform que se es un framework, un set de compiladores y en algun sentido un traductor de código...</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-      <a class="post-tag"  href="/tag/xamarin">#xamarin</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/control-versiones">
-          Control de versiones
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> April 25, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El control de versiones es una forma de organizar los elementos de una *cosa* cuyo contenido es modificado con el paso del tiempo.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/las-expresiones-lambda">
-          Las expresiones lambda
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> December 18, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Las expresiones lambda son bloques de código que NO están asociados con un identificador.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/https">
-          El protocolo HTTPS
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 30, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El HTTPS no es otra cosa que el mismo protocolo de transferencia de hipertexto pero seguro, protegido por el protocolo criptográfico TLS.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/la-escuela-">
-          La escuela |
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> September 06, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Vuelvo a la escuela y me tomeré 4 semanas para adaptarme nuevamente a la vida de estudiante (y encontrar un buen lugar para grabar).</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/apis">
-          API
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> February 14, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Las interfaces de programación de aplicaciones, son un elemento vital del desarrollo de sistemas de software, y aunque desde casi siempre han existido entre nosotros, no es sino hasta últimamente que la &quot;popularidad&quot; de esta palabra ha aumentado gracias a los servicios web y las aplicaciones móviles.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/first-class-citizens">
-          Ciudadanos de primera clase
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> July 20, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">En programación, cuando se habla de ciudadanos de primera clase es para hacer referencia a un elemento del lenguaje que posee la mayor cantidad de privilegios.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/implementacion-orm">
-          El ORM Entity Framework
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> July 11, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Este es un ejemplo de ORM, el framework Entity Framework, inicialmante desarrollado por Microsoft.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/xamarin-forms">
-          Xamarin.Forms
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 26, 2016</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Con Xamarin.Forms munca había sido tan fácil crear aplicaciones multiplataforma compartiendo la mayoría del código entre ellas, incluyendo la interfaz gráfica. En este video te explico de qué se trata.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-      <a class="post-tag"  href="/tag/xamarin">#xamarin</a>
- 
-      <a class="post-tag"  href="/tag/xamarinforms">#xamarinforms</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/orm">
-          ORM (Mapeo Objeto Relacional)
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> July 11, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El Mapeo Objeto-Relacional es una técnica de programación que facilita el acceso a los datos desde una aplicación a una base de datos, tiene muchas ventajas, pero tampoco es la solución a todos nuestros problemas.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/neo4j">
-          Neo4j
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> August 14, 2018</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">Neo4j es una base de datos orientada a almacenar información altamente relacionada. Su modelo de datos (el grafo etiquetado y con propiedades) otorgra una gran flexibilidad y rapidez al trabajar con grafos.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/data-science">#data-science</a>
- 
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/internationalization-localization">
-          Internacionalización y localización
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> May 02, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">La internacionalización y localización son un par de procesos que nos ayudarán a llevar nuestras aplicaciones a más lugares del mundo.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-<li>
-      <h2 class="post-title">
-<a class="post-link" href="/post/los-principios-solid">
-          Los principios SOLID
-        </a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date"><i class="fa fa-calendar"></i> March 28, 2017</span>
-        <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> </span>
-      </div>
-      <p class="post-excerpt">El objetivo de aplicar estos cinco principios es crear un código limpio y altamente mantenible, y es que el código mantenible no solo depende de programar con estilo siguiendo una guía, o de probar el código escrito, sino de la estructura con la que lo escribimos.</p>
-
-
-      <div class="post-tags">
-
-      
-      <a class="post-tag"  href="/tag/meta">#meta</a>
- 
-      <a class="post-tag"  href="/tag/youtube">#youtube</a>
- 
-</div>
-    </li>
-
-    
-        </ul>
-
-    </div>
-</div>
-
-                    </section>
-                    <section class="sidebar">
-                        <div class="theme-toggle">
-  <input type="checkbox" id="theme-switch"/>
-  <label for="theme-switch">
-      <div class="toggle"></div>
-      <div class="names">
-          <p class="light">Light</p>
-          <p class="dark">Dark</p>
-      </div>
-  </label>
-</div>
-  
 
 
 <script>
-    (function() {
-      var sw = document.getElementById('theme-switch');
-      var html = document.getElementsByTagName('html')[0];
-      var nightModeOption = ('auto' || 'auto').toLowerCase();
-      var storage = nightModeOption === 'manual'
-          ? localStorage
-          : sessionStorage;
-      var themeData = loadThemeData();
-  
-      function saveThemeData(data) {
-        storage.setItem('theme', JSON.stringify(data));
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light"><i class="fas fa-sun"></i></p>
+      <p class="dark"><i class="fas fa-moon"></i></p>
+    </div>
+  </label>
+</div>
+
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
       }
-  
-      function loadThemeData() {
-        var data = storage.getItem('theme');
-        try {
-          data = JSON.parse(data ? data : '');
-        } catch(e) {
-          data = { nightShift: undefined, autoToggleAt: 0 };
-          saveThemeData(data);
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
         }
-        return data;
-      }
-  
-      function handleThemeToggle(nightShift) {
-        themeData.nightShift = nightShift;
-        saveThemeData(themeData);
-        html.dataset.theme = nightShift ? 'dark' : 'light';
-        setTimeout(function() {
-          sw.checked = nightShift ? true : false;
-        }, 50);
-      }
-  
-      function autoThemeToggle() {
-        // Next time point of theme toggle
-        var now = new Date();
-        var toggleAt = new Date();
-        var hours = now.getHours();
-        var nightShift = hours >= 19 || hours <=7;
-  
-        if (nightShift) {
-          if (hours > 7) {
-            toggleAt.setDate(toggleAt.getDate() + 1);
-          }
-          toggleAt.setHours(7);
-        } else {
-          toggleAt.setHours(19);
-        }
-  
-        toggleAt.setMinutes(0);
-        toggleAt.setSeconds(0);
-        toggleAt.setMilliseconds(0)
-  
-        var delay = toggleAt.getTime() - now.getTime();
-  
-        // auto toggle theme mode
-        setTimeout(function() {
-          handleThemeToggle(!nightShift);
-        }, delay);
-  
-        return {
-          nightShift: nightShift,
-          toggleAt: toggleAt.getTime()
-        };
-      }
-  
-      // Listen the theme toggle event
-      sw.addEventListener('change', function(event) {
-        handleThemeToggle(event.target.checked);
-      });
-  
-      if (nightModeOption == 'auto') {
-        var data = autoThemeToggle();
-  
-        // Toggle theme by local setting
-        if (data.toggleAt > themeData.autoToggleAt) {
-          themeData.autoToggleAt = data.toggleAt;
-          handleThemeToggle(data.nightShift);
-        } else {
-          handleThemeToggle(themeData.nightShift);
-        }
-      } else if (nightModeOption == 'manual') {
-        handleThemeToggle(themeData.nightShift);
+        toggleAt.setHours(7);
       } else {
-        var nightShift = themeData.nightShift;
-        if (nightShift === undefined) {
-          nightShift = nightModeOption === 'on';
-        }
-        handleThemeToggle(nightShift);
+        toggleAt.setHours(19);
       }
-    })();
-  </script>
-                        <div class="post-menu">
-                            <div class="post-menu-title">Sígueme en</div>
-                            <div class="common-list">
-                                <ul>
-                                    
-                                    <li>
-                                        <a href="https://github.com/fferegrino">GitHub<span><i class="fab fa-github"></i></span></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="https://twitter.com/io_exception">Twitter<span><i class="fab fa-twitter"></i></span></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="https://youtube.com/thatcsharpguy">YouTube<span><i class="fab fa-youtube"></i></span></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="https://tcsg.dev/discord">Discord<span><i class="fab fa-discord"></i></span></a>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </section>
-                </div>
-            </div>
-        </div>
-        <footer class="site-footer h-card">
-   <data class="u-url" href="/"></data>
- 
-   <div class="wrapper">
-     <div class="site-footer-inner">
-       <div> </div>
-       <div>Powered by <a title="Lockdonw in a simple, blog-aware, static site generator." href="https://github.com/lockdownblog/lockdown">Lockdown</a> &amp; <a title="Yat, yetanother theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
-       <!-- <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div> -->
-     </div>
-   </div>
- </footer>
-    </body>
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="framework">
+  <section class="main">
+     
+<div class="post">
+  <section>
+    
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline"></h1>
+  <!-- <h3 class="post-subtitle">Ingenier&#237;a de software + Ciencia de datos + MLOps</h3> -->
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="" itemprop="datePublished">
+      <i class="fas fa-calendar"></i> 
+    </time>
+    
+    <span class="post-reading-time left-vsplit"><i class="fas fa-user"></i> Antonio Feregrino</span>
+  </p>
+
+
+</header>
+
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="post-content e-content" itemprop="articleBody">
+         
+         
+      </div>
+  </article>
+
+
+
+
+  </section>
+</div>
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+  </section>
+</div>
+
+      </div>
+    </main>
+
+<footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div> </div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div>
+    </div>
+  </div>
+</footer>
+
+  </body>
 </html>
