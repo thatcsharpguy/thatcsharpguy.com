@@ -54,7 +54,7 @@ pre table, pre pre { margin-bottom: 0; }
 pre table .gutter, pre table .code, pre pre .gutter, pre pre .code { padding: 6px; border: none; }
 
 /** Wrapper */
-.wrapper { max-width: 920px; margin: auto; padding-right: 30px; padding-left: 30px; }
+.wrapper { max-width: 1120px; margin: auto; padding-right: 30px; padding-left: 30px; }
 
 /** Clearfix */
 .wrapper:after { content: ""; display: table; clear: both; }
@@ -86,7 +86,7 @@ html[data-scroll-status='top'] header.site-header-transparent { height: 0; margi
 
 html[data-scroll-status='top'] header.site-header-transparent.site-header .site-brand-inner, html[data-scroll-status='top'] header.site-header-transparent.site-header .page-link { color: #fff; transition: 0.1s color; }
 
-@media screen and (max-width: 800px) { html[data-scroll-status='top'] header.site-header-transparent.site-header .page-link { color: unset; } html[data-scroll-status='top'] header.site-header-transparent.site-header .menu-icon > svg { fill: #eeeef2; } }
+@media screen and (max-width: 900px) { html[data-scroll-status='top'] header.site-header-transparent.site-header .page-link { color: unset; } html[data-scroll-status='top'] header.site-header-transparent.site-header .menu-icon > svg { fill: #fdfdfd; } }
 
 html[data-scroll-status='top'] footer.site-footer { background-color: transparent; }
 
@@ -109,7 +109,7 @@ html[data-scroll-status='down'] .framework .sidebar { top: 20px; }
 
 .site-brand { line-height: 63.84px; margin-right: 50px; }
 
-.site-brand .site-brand-inner { font-size: 17.15px; font-weight: 400; /* letter-spacing: 1px; */ transition: 0.1s filter color; }
+.site-brand .site-brand-inner { font-size: 15.75px; font-weight: 400; transition: 0.1s filter color; }
 
 .site-brand .site-brand-inner, .site-brand .site-brand-inner:visited { color: black; }
 
@@ -127,7 +127,7 @@ html[data-scroll-status='down'] .framework .sidebar { top: 20px; }
 
 .site-nav .page-link:not(:last-child):hover { text-decoration: underline; }
 
-@media screen and (max-width: 800px) { .site-nav { position: absolute; top: 0; text-align: left; } .site-nav label[for="nav-trigger"] { display: block; z-index: 2; cursor: pointer; } .site-nav .menu-icon { display: block; float: right; text-align: center; } .site-nav .menu-icon > svg { fill: black; transition: 0.1s fill; } .site-nav input ~ .trigger { clear: both; display: none; border-radius: 3px; box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.06); } .site-nav input:checked ~ .trigger { display: block; background: #ffffff; } .site-nav .page-link { display: block; padding: 5px 10px; color: black; margin: 0 25px; } }
+@media screen and (max-width: 900px) { .site-nav { position: absolute; top: 0; text-align: left; } .site-nav label[for="nav-trigger"] { display: block; z-index: 2; cursor: pointer; } .site-nav .menu-icon { display: block; float: right; text-align: center; } .site-nav .menu-icon > svg { fill: black; transition: 0.1s fill; } .site-nav input ~ .trigger { clear: both; display: none; border-radius: 3px; box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.06); } .site-nav input:checked ~ .trigger { display: block; background: #ffffff; } .site-nav .page-link { display: block; padding: 5px 10px; color: black; margin: 0 25px; } }
 
 /** Site footer */
 .site-footer { font-size: 14px; color: #404040; background-color: #f2f2f2; text-align: left; transition: background-color 0.2s; }
@@ -141,16 +141,16 @@ html[data-scroll-status='down'] .framework .sidebar { top: 20px; }
 /** Post header */
 .post .post-header { margin-bottom: 30px; }
 
-.post .post-title { font-size: 36.75px; letter-spacing: -1px; line-height: 1; }
+.post .post-title { font-size: 36.75px; line-height: 1; }
 
-@media screen and (max-width: 800px) { .post .post-title { font-size: 31.5px; } }
+@media screen and (max-width: 900px) { .post .post-title { font-size: 31.5px; } }
 
 .post .post-tags { padding-right: 150px; }
 
 .post .post-tags .post-tag { display: inline-block; margin: 0 12px 0 0; }
 
 /** Page content */
-.page-content { /* <-- Keep footer on the bottom */ -ms-flex: none; /* <-- Fix IE footer issue */ padding: 60px 0; padding-top: 72px; }
+.page-content { /* <-- Keep footer on the bottom */ -ms-flex: none; /* <-- Fix IE footer issue */ padding: 45px 0; padding-top: 36px; }
 
 .page-heading { font-size: 28px; }
 
@@ -204,15 +204,15 @@ html[data-scroll-status='down'] .framework .sidebar { top: 20px; }
 
 .post .post-content h2 { font-size: 28px; }
 
-@media screen and (max-width: 800px) { .post .post-content h2 { font-size: 24.5px; } }
+@media screen and (max-width: 900px) { .post .post-content h2 { font-size: 24.5px; } }
 
 .post .post-content h3 { font-size: 22.75px; }
 
-@media screen and (max-width: 800px) { .post .post-content h3 { font-size: 19.25px; } }
+@media screen and (max-width: 900px) { .post .post-content h3 { font-size: 19.25px; } }
 
 .post .post-content h4 { font-size: 17.5px; }
 
-@media screen and (max-width: 800px) { .post .post-content h4 { font-size: 15.75px; } }
+@media screen and (max-width: 900px) { .post .post-content h4 { font-size: 15.75px; } }
 
 .post .post-content img, .post .post-content svg, .post .post-content iframe { margin-left: auto; margin-right: auto; display: block; }
 
@@ -265,11 +265,11 @@ html[data-scroll-status='down'] .framework .sidebar { top: 20px; }
 
 .page-banner .wrapper { height: 100%; }
 
-.page-banner .page-banner-inner { position: relative; top: 50%; transform: translateY(-50%); color: #eeeef2; padding: 10px 5px; text-shadow: 1px 1px 2px #33333355; }
+.page-banner .page-banner-inner { position: relative; top: 50%; transform: translateY(-50%); color: #fdfdfd; padding: 10px 5px; text-shadow: 1px 1px 2px #33333355; }
 
 .page-banner .page-banner-inner > *:first-child { margin: 0; }
 
-.page-banner .page-banner-inner > *:first-child > :nth-child(1) { font-size: 54.6px; letter-spacing: -1px; margin-bottom: 16px; font-weight: normal; transition: 0.2s all; }
+.page-banner .page-banner-inner > *:first-child > :nth-child(1) { font-size: 54.6px; margin-bottom: 16px; font-weight: normal; transition: 0.2s all; }
 
 @media screen and (max-width: 600px) { .page-banner .page-banner-inner > *:first-child > :nth-child(1) { font-size: 33.95px; } }
 
@@ -298,7 +298,7 @@ html[data-scroll-status='down'] .framework .sidebar { top: 20px; }
 /** Layout and sidebar */
 .framework .sidebar { padding-left: 8px; transition: top 0.2s, display 0.2s; position: sticky; position: -moz-sticky; /* <-- fix sticky compatibility issue */ position: -ms-sticky; position: -o-sticky; position: -webkit-sticky; align-self: flex-start; /* <-- fix the sticky not work issue */ transform: scale(0.9999); /* <-- fix the sticky x overflow issue */ top: 83.84px; }
 
-@media screen and (max-width: 800px) { .framework .sidebar { display: none; } }
+@media screen and (max-width: 900px) { .framework .sidebar { display: none; } }
 
 /** Segments page */
 .page-segments .page-segments-list { margin-left: 0; list-style: none; }
@@ -347,7 +347,7 @@ html[data-theme="dark"] .site-header .ct-language-dropdown { color: #f8f8f8; bac
 
 html[data-theme="dark"] .site-header .ct-language-selected, .ct-language-dropdown html[data-theme="dark"] .site-header li:hover, html[data-theme="dark"] .site-header .ct-language-dropdown li:hover { background-color: #222 !important; }
 
-@media screen and (max-width: 800px) { html[data-theme="dark"] .site-header .menu-icon > svg { fill: #bbbbbb; } html[data-theme="dark"] .site-header .site-nav input:checked ~ .trigger { background-color: #090909; } }
+@media screen and (max-width: 900px) { html[data-theme="dark"] .site-header .menu-icon > svg { fill: #bbbbbb; } html[data-theme="dark"] .site-header .site-nav input:checked ~ .trigger { background-color: #090909; } }
 
 html[data-theme="dark"] .site-footer { color: #fff; background-color: #000; }
 
@@ -467,7 +467,7 @@ html[data-theme="dark"] .post-menu .post-menu-content ul a:hover { color: #fff !
 
 .common-list li a:hover { background-color: #eeeeee; }
 
-.common-list li span { font-size: 11.2px; display: inline-block; border-radius: 10px; align-self: center; background: #000000bd; padding: 0px 8px; margin-left: 20px; color: #eeeef2; }
+.common-list li span { font-size: 11.2px; display: inline-block; border-radius: 10px; align-self: center; background: #000000bd; padding: 0px 8px; margin-left: 20px; color: #fdfdfd; }
 
 /* OVERRIDE GOOGLE TRANSLATE WIDGET CSS BEGIN */
 div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value { vertical-align: top !important; /* Remove the down arrow */ /* when dropdown open */ /* after clicked/touched */ /* on page load (not yet touched or clicked) */ /* Remove span with left border line | (next to the arrow) in Chrome & Firefox */ /* Remove span with left border line | (next to the arrow) in Edge & IE11 */ }
