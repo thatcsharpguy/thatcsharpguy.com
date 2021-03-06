@@ -1,0 +1,15 @@
+{% extends default %}
+
+{% block default_content %}
+<div class="framework">
+  <section class="main">
+     {% block framework_content %}
+     {% endblock %}
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    {%- if post -%}
+      {%- include includes/sidebar/article-menu.html -%}
+    {%- endif -%}
+  </section>
+</div>
+{% endblock %}

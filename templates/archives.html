@@ -1,0 +1,18 @@
+---
+layout: framework
+sidebar: archive-list
+---
+
+{%- if site.posts.size > 0 -%}
+
+  {% include includes/functions/log.html level='debug' msg='Get datetimes value' %}
+
+  {% assign filter = '%Y' %}
+  {% include includes/functions/get_datetimes.html %}
+  {% assign datetimes = return %}
+
+  {% assign keys = datetimes | reverse %}
+  {% assign field = 'date' %}
+  {% include includes/views/segments.html %}
+
+{%- endif -%}

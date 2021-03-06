@@ -1,0 +1,16 @@
+---
+layout: framework
+sidebar: category-list
+---
+
+{%- if site.posts.size > 0 -%}
+
+  {%- include includes/functions/log.html level='debug' msg='Get value' -%}
+  {%- include includes/functions/get_categories.html -%}
+  {% assign categories = return %}
+
+  {% assign keys = categories %}
+  {% assign field = 'categories' %}
+  {%- include includes/views/segments.html -%}
+
+{%- endif -%}

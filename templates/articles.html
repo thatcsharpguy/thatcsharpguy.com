@@ -1,0 +1,14 @@
+{% extends framework %}
+
+{% block framework_content %}
+<div class="articles">
+  {% if page.banner == nil %}
+    {% assign banner = page.title %}
+  {% endif %}
+
+  {% block articles_content %}
+  {% endblock %}
+
+  {% include includes/views/pagination.html %}
+</div>
+{% endblock %}

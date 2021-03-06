@@ -1,0 +1,10 @@
+{%- include includes/functions/log.html level='debug' msg='Get datetimes value' -%}
+
+{% assign filter = '%Y' %}
+{% include includes/functions/get_datetimes.html %}
+{% assign datetimes = return %}
+
+{% assign keys = datetimes %}
+{% assign field = 'date' %}
+{% assign url = '/archives.html' | relative_url %}
+{% include sidebar/common-list.html %}
