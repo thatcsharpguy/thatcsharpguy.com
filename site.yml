@@ -21,7 +21,7 @@ routes:
 templates:
   post: post.html
   tag-page: post.html
-  tag-index: post.html
+  tag-index: tags.html
   index: home.html
 
 

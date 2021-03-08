@@ -1,16 +1,22 @@
----
-layout: framework
-sidebar: tag-list
----
+{% extends framework %}
 
-{%- if site.posts.size > 0 -%}
-
-  {%- include includes/functions/log.html level='debug' msg='Get tags value' -%}
-  {%- include includes/functions/get_tags.html -%}
-  {% assign tags = return %}
-
-  {% assign keys = tags %}
-  {% assign field = 'tags' %}
-  {%- include includes/views/segments.html -%}
-
-{%- endif -%}
+{% block framework_content %}
+<h1>THing</h1>
+<div class="page-segments">
+  <ul class="page-segments-list">
+    {% for k in tagCollection %}
+      <h2 id="{{k[0]}}">{{k[0]}}</h2>
+      {% for post in k[1] %}
+        <li>
+          <span class="post-meta">{{ post.date_time | date: "MMMM dd, yyyy" }}</span>
+          <span>
+            <a class="post-link" href="{{ post.canonical_url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+          </span>
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
