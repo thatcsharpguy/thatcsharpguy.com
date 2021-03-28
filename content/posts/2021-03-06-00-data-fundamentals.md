@@ -8,6 +8,48 @@ image: http://i3.ytimg.com/vi/RT1VpNAwEWg/maxresdefault.jpg
 tags: data fundamentals, data science, machine learning
 ---
 
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/RT1VpNAwEWg">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 > Una breve introducción a las herramientas para hacer ciencia de datos.
 
 Como el nombre lo dice: son los fundamentos. No vamos a hacer **nada 👏 NADA 👏** de _machine learning_, pero vamos a ver las herramientas que ayudan a entender y a implementarlo.
@@ -51,12 +93,14 @@ Quiero hacer algo diferente a solo los tutoriales que uno ve por aquí y por all
 ## Sesiones 🏫
 
 - 01: Jupyter Lab (Sábado 13 de marzo 2021)
+- 02: Cómputo vectorizado (Sábado 20 de marzo de 2021)
 
 ## Libros 📚
 
 En este curso vamos a hablar de muchos temas y por tanto no hay un solo libro que te pueda decir "este, este tiene todo", sin embargo, si tienes ganas locas de leer algo para complementar tu aprendizaje, te recomiendo estos:
 
-⚠ PRÓXIMAMENTE ⚠
+- **Elegant SciPy: The Art of Scientific Python**: [México](https://amzn.to/3c0ZNZM) &middot; [España](https://amzn.to/30WWmge) · [US](https://amzn.to/2PbkbhC)
+- **High Performance Python: Practical Performant Programming for Humans**: [México](https://amzn.to/310hEtt) &middot; [España](https://amzn.to/3cVZsXD) · [US](https://amzn.to/3s9eUFW)
 
 ## Contacto ☎
 
@@ -68,6 +112,48 @@ En este curso vamos a hablar de muchos temas y por tanto no hay un solo libro qu
 
 ## ¿Costo? 🤑
 
-**¡Totalmente gratis!** pero habiendo dicho esto, si quieres puedes suscribirte como miembro a mi canal de YouTube acá [youtube.com/thatcsharpguy/join](https://www.youtube.com/thatcsharpguy/join) (mil gracias a los miembros actuales) o aventarme dinero al sombrero acá: https://www.buymeacoffee.com/thatcsharpguy
+**¡Totalmente gratis!** pero habiendo dicho esto, si quieres puedes suscribirte como miembro a mi canal de YouTube acá [youtube.com/thatcsharpguy/join](https://www.youtube.com/thatcsharpguy/join) (mil gracias a los miembros actuales) o aventarme dinero al sombrero acá: https://www.buymeacoffee.com/thatcsharpguy o acá https://creadores.fans/thatcsharpguy 😎
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/RT1VpNAwEWg">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
