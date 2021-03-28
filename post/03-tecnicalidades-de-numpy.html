@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ffffff">
+<title>03: Tecnicalidades de NumPy | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="Los arreglos en NumPy implementados de forma compacta en memoria; la información numérica está almacenada de forma contigua (un número despues del otro) con un pequeño encabezado que describe cómo es que el arreglo debe ser manipulado.">
+<meta name="image" content="http://i3.ytimg.com/vi/YwHQC4KEtBE/maxresdefault.jpg">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="03: Tecnicalidades de NumPy">
+<meta itemprop="description" content="Los arreglos en NumPy implementados de forma compacta en memoria; la información numérica está almacenada de forma contigua (un número despues del otro) con un pequeño encabezado que describe cómo es que el arreglo debe ser manipulado.">
+<meta itemprop="image" content="http://i3.ytimg.com/vi/YwHQC4KEtBE/maxresdefault.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="03: Tecnicalidades de NumPy">
+<meta name="twitter:description" content="Los arreglos en NumPy implementados de forma compacta en memoria; la información numérica está almacenada de forma contigua (un número despues del otro) con un pequeño encabezado que describe cómo es que el arreglo debe ser manipulado.">
+<meta name="twitter:site" content="@thatcsharpguy">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="http://i3.ytimg.com/vi/YwHQC4KEtBE/maxresdefault.jpg">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="03: Tecnicalidades de NumPy">
+<meta name="og:description" content="Los arreglos en NumPy implementados de forma compacta en memoria; la información numérica está almacenada de forma contigua (un número despues del otro) con un pequeño encabezado que describe cómo es que el arreglo debe ser manipulado.">
+<meta name="og:image" content="http://i3.ytimg.com/vi/YwHQC4KEtBE/maxresdefault.jpg">
+<meta name="og:url" content="https://thatcsharpguy.com/post/03-tecnicalidades-de-numpy">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400;1,800&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css"> -->
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: ;
+    background-color: ;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: ;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+</head>
+
+
+  <body>
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+
+      <span class="site-brand">
+<a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="That C# guy" src="" onerror="this.style.display='none'">
+  That C# guy
+</a>
+      </span>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+            <a class="page-link" href="https://github.com/fferegrino">GitHub</a>
+            <a class="page-link" href="https://twitter.com/io_exception">Twitter</a>
+            <a class="page-link" href="https://youtube.com/thatcsharpguy">YouTube</a>
+            <a class="page-link" href="https://tcsg.dev/discord">Discord</a>
+
+            <span class="page-link">
+
+  <div id="google_translate_element" style="display: none;"></div>
+  <span class="ct-language">
+     <ul class="list-unstyled ct-language-dropdown">
+       <li>
+          <a href="#" class="lang-select" data-lang="es">
+          <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+          </a>
+       </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="en">
+           <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="fr">
+           <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="zh-CN">
+           <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ja">
+           <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ko">
+           <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ru">
+           <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+           </a>
+        </li>
+     </ul>
+  </span>
+  <script type="text/javascript">
+     function googleTranslateElementInit() {
+       new google.translate.TranslateElement({
+         pageLanguage: '',
+         autoDisplay: false,
+         layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+       }, 'google_translate_element');
+     
+       function restoreLang() {
+         var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+         if (!iframe) return;
+     
+         var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+         var restore_el = innerDoc.getElementsByTagName("button");
+     
+         for (var i = 0; i < restore_el.length; i++) {
+           if (restore_el[i].id.indexOf("restore") >= 0) {
+             restore_el[i].click();
+             var close_el = innerDoc.getElementsByClassName("goog-close-link");
+             close_el[0].click();
+             return;
+           }
+         }
+       }
+     
+       function triggerHtmlEvent(element, eventName) {
+         var event;
+         if (document.createEvent) {
+           event = document.createEvent('HTMLEvents');
+           event.initEvent(eventName, true, true);
+           element.dispatchEvent(event);
+         } else {
+           event = document.createEventObject();
+           event.eventType = eventName;
+           element.fireEvent('on' + event.eventType, event);
+         }
+       }
+     
+       var googleCombo = document.querySelector("select.goog-te-combo");
+       var langSelect = document.querySelector('.ct-language');
+       langSelect.addEventListener('click', function(event) {
+         if (!event.target) {
+           return;
+         }
+     
+         var selected = document.querySelector('.ct-language .ct-language-selected');
+         if (selected) {
+           selected.classList.remove('ct-language-selected');
+         }
+     
+         var target = event.target;
+         while (target && target !== langSelect ) {
+           if (target.matches('.lang-select')) {
+             break;
+           }
+           target = target.parentElement;
+         }
+     
+         if (target && target.matches('.lang-select')) {
+           var lang = target.getAttribute('data-lang');
+           if (lang == "es") {
+             restoreLang();
+           } else {
+             target.parentElement.classList.add('ct-language-selected');
+             googleCombo.value = lang;
+             triggerHtmlEvent(googleCombo, 'change');
+           }
+         }
+     
+         event.preventDefault();
+       });
+     }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>            </span>
+            
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+
+      var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light"><i class="fas fa-sun"></i></p>
+      <p class="dark"><i class="fas fa-moon"></i></p>
+    </div>
+  </label>
+</div>
+
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="framework">
+  <section class="main">
+     
+<div class="post">
+  <section>
+    
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">03: Tecnicalidades de NumPy</h1>
+  <!-- <h3 class="post-subtitle">Ingenier&#237;a de software + Ciencia de datos + MLOps</h3> -->
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="" itemprop="datePublished">
+      <i class="fas fa-calendar"></i> March 27, 2021
+    </time>
+    
+    <span class="post-reading-time left-vsplit"><i class="fas fa-user"></i> Antonio Feregrino</span>
+  </p>
+
+  <div class="post-tags">
+    <!-- <a class="post-tag" href="/tag/data-fundamentals">#data-fundamentals</a> -->
+    <a class="post-tag" href="#">#data-fundamentals</a>
+    <!-- <a class="post-tag" href="/tag/data-science">#data-science</a> -->
+    <a class="post-tag" href="#">#data-science</a>
+    <!-- <a class="post-tag" href="/tag/machine-learning">#machine-learning</a> -->
+    <a class="post-tag" href="#">#machine-learning</a>
+  </div>
+
+</header>
+
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="post-content e-content" itemprop="articleBody">
+         
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/YwHQC4KEtBE">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="paquetes">Paquetes</h2>
+<ul>
+<li><code>numpy</code></li>
+</ul>
+<pre><code class="language-python">import numpy as np
+
+from df.number_internals import show_float
+from df.array_internals import show_array_details
+</code></pre>
+<p>Recordando la semana pasada, los arreglos:</p>
+<ul>
+<li>Tienen un tamaño pre-determinado</li>
+<li>Tienen que ser <em>&quot;rectangulares&quot;</em></li>
+<li>Todos los elementos tienen el mismo tipo</li>
+<li>Los elementos son números</li>
+</ul>
+<p>A partir de este punto, vamos a conocer sobre:</p>
+<ul>
+<li><strong>Representación de arreglos en memoria</strong></li>
+<li><strong>Representación de números en memoria</strong></li>
+</ul>
+<h2 id="arreglos-en-memoria">Arreglos en memoria</h2>
+<p>Los arreglos en <em>NumPy</em> implementados de forma compacta en memoria; la información numérica está almacenada de forma contigua (un número despues del otro) con un pequeño encabezado que describe cómo es que el arreglo debe ser manipulado.</p>
+<p>No importa si estamos hablando de un arreglo unidimensional o de un tensor de 6 dimensiones, los arreglos en <em>NumPy</em> son planos, un número después del otro con un poco de información extra al inicio:</p>
+<img src="/assets/03/flat_2d@1x.png" />
+<h3 id="zancadas-o-strides">Zancadas o <em>strides</em></h3>
+<p>El <em>truco</em> detrás de la implementación de los arreglos es el uso de algo llamado <em>zancada (!???!)</em> o <b><i>stride</i></b> en inglés. Estas <em>strides</em> especifican cómo es que se debe indexar el arreglo. Hay un <em>stride</em> por cada dimensión.</p>
+<p>Se llama zancada porque se usa para especificar qué tan grande es el <em>&quot;paso&quot; en bytes</em> que se debe dar para acceder a cada uno de los elementos; y este es el truco que le permite a <em>NumPy</em> mantener el arreglo como una sola secuencia plana de números:</p>
+<img src="/assets/03/flat_with_strides@1x.png" />
+<p>Es más claro cuando vemos este concepto aplicado a un arreglo de dos dimensiones, para calcular la ubicación en memoria de el elemento en la posición [, ] se puede usar la fórmula:</p>
+<img src="/assets/03/2d_with_strides@1x.png" />
+<p></p>
+<p>Podemos generalizar esta idea para arreglos de 3, 4 y demás dimensiones.</p>
+<h3 id="transformaciones-rigidas">Transformaciones rígidas</h3>
+<pre><code class="language-python">base = np.zeros((3, 4), dtype=np.float32)
+show_array_details(base)
+</code></pre>
+<pre><code>Shape:      (3, 4)
+Stride:     (16, 4)
+Type:       float32
+Elements:   12
+Bytes:      48
+Bits:       32
+</code></pre>
+<pre><code class="language-python">print('Original')
+show_array_details(base)
+</code></pre>
+<pre><code>Original
+Shape:      (3, 4)
+Stride:     (16, 4)
+Type:       float32
+Elements:   12
+Bytes:      48
+Bits:       32
+</code></pre>
+<pre><code class="language-python">print(&quot;Transpuesta&quot;)
+base_t = base.T
+show_array_details(base_t)
+</code></pre>
+<pre><code>Transpuesta
+Shape:      (4, 3)
+Stride:     (4, 16)
+Type:       float32
+Elements:   12
+Bytes:      48
+Bits:       32
+</code></pre>
+<pre><code class="language-python">flipud = np.flipud(base)
+print(&quot;Invertida&quot;)
+show_array_details(flipud)
+</code></pre>
+<pre><code>Invertida
+Shape:      (3, 4)
+Stride:     (-16, 4)
+Type:       float32
+Elements:   12
+Bytes:      48
+Bits:       32
+</code></pre>
+<pre><code class="language-python">print(&quot;Reflejada&quot;)
+fliplr = np.fliplr(base)
+show_array_details(fliplr)
+</code></pre>
+<pre><code>Reflejada
+Shape:      (3, 4)
+Stride:     (16, -4)
+Type:       float32
+Elements:   12
+Bytes:      48
+Bits:       32
+</code></pre>
+<pre><code class="language-python">rotated = np.rot90(base)
+print('Girada 90 grados')
+show_array_details(rotated)
+</code></pre>
+<pre><code>Girada 90 grados
+Shape:      (4, 3)
+Stride:     (-4, 16)
+Type:       float32
+Elements:   12
+Bytes:      48
+Bits:       32
+</code></pre>
+<h2 id="tipos-de-datos-en-numpy">Tipos de datos en <em>NumPy</em></h2>
+<p>Por default habrás visto más arriba, los tipos de dato de <em>NumPy</em> son <code>float64</code> si creamos arreglos con números flotantes e <code>int32</code> si estamos creando arreglos con números enteros, pero no son los únicos</p>
+<h3 id="tipos-numericos">Tipos numéricos</h3>
+<h4 id="enteros">Enteros</h4>
+<p>Los enteros representan números sin partes fraccionales; hay de dos tipos: con signo y si signo. La representación de ellos es en forma de una cadena binaria.</p>
+<p>Aquí una tabla con los detalles sobre algunos de estos números:</p>
+<p>Nombre</p>
+<p>bytes</p>
+<p>Mínimo</p>
+<p>Máximo</p>
+<p>int8</p>
+<p>1</p>
+<p>-128</p>
+<p>127</p>
+<p>uint8</p>
+<p>1</p>
+<p>0</p>
+<p>255</p>
+<p>int16</p>
+<p>2</p>
+<p>-32,768</p>
+<p>32,767</p>
+<p>uint16</p>
+<p>2</p>
+<p>0</p>
+<p>65,535</p>
+<p>int32</p>
+<p>4</p>
+<p>-2,147,483,648</p>
+<p>2,147,483,647</p>
+<p>uint32</p>
+<p>4</p>
+<p>0</p>
+<p>4,294,967,295</p>
+<p>int64</p>
+<p>8</p>
+<p>-9,223,372,036,854,775,808</p>
+<p>+9,223,372,036,854,775,807</p>
+<p>uint64</p>
+<p>8</p>
+<p>0</p>
+<p>18,446,744,073,709,551,615</p>
+<h5 id="desbordamiento">Desbordamiento</h5>
+<p>Si una operación se sale de los límites del número entero del tipo de dato ocurre un desbordamiento o <em>overflow</em>. En muchos sistemas el número simplemente va a reinciar desde el valor más pequeño:</p>
+<pre><code class="language-python">int_array  = np.array([100,110,120], dtype=np.int8)
+print(int_array)
+print(int_array+20)
+</code></pre>
+<pre><code>[100 110 120]
+[ 120 -126 -116]
+</code></pre>
+<pre><code class="language-python">uint_array  = np.array([100,110,120], dtype=np.uint8)
+print(uint_array)
+
+print(uint_array+20)
+print(uint_array+150)
+</code></pre>
+<pre><code>[100 110 120]
+[120 130 140]
+[250   4  14]
+</code></pre>
+<h4 id="floats"><em>Floats</em></h4>
+<h3 id="ieee-754">IEEE 754</h3>
+<p>La forma más común de representar números de punto flotante es el estandar <em>IEEE 754</em>, que especifica una forma de representar números y representaciones específicas para representar números &quot;especiales&quot;.</p>
+<p>Este es un resumen de los tipos definidos:</p>
+<p>Name</p>
+<p>Nombre común</p>
+<p>Base</p>
+<p>Mantissa</p>
+<p>Bits del exponente</p>
+<p>Sesgo exponente</p>
+<p></p>
+<p></p>
+<p>binary16</p>
+<p>Precisión media</p>
+<p>2</p>
+<p>11</p>
+<p>5</p>
+<p>2^4−1 = 15</p>
+<p>−14</p>
+<p>+15</p>
+<p><strong>binary32</strong></p>
+<p>Precisión simple</p>
+<p>2</p>
+<p>24</p>
+<p>8</p>
+<p>2^7−1 = 127</p>
+<p>−126</p>
+<p>+127</p>
+<p><strong>binary64</strong></p>
+<p>Precisión doble</p>
+<p>2</p>
+<p>53</p>
+<p>11</p>
+<p>2^10−1 = 1023</p>
+<p>−1022</p>
+<p>+1023</p>
+<p>binary128</p>
+<p>Precisión cuádruple</p>
+<p>2</p>
+<p>113</p>
+<p>15</p>
+<p>2^14−1 = 16383</p>
+<p>−16382</p>
+<p>+16383</p>
+<p>binary256</p>
+<p>Precision óctuple</p>
+<p>2</p>
+<p>237</p>
+<p>19</p>
+<p>2^18−1 = 262143</p>
+<p>−262142</p>
+<p>+262143</p>
+<h4 id="simples-y-dobles">Simples y dobles</h4>
+<p>Remarcadas en la tabla de arriba están las precisiones simple y dobles, puesto que estas son las más comunes en la actualidad. Como te podrás imaginar, <strong>float32</strong> ocupa 32 bits (4 bytes) por número y <strong>float64</strong> usa 64 bits (8 bytes) por número.</p>
+<p>Inclusive las GPUs de la actualidad siguen usando <strong>float32</strong> por default, algunas llegan a <strong>float64</strong>, pero la verdadera rapidez proviene de usar el número de 32 bits.</p>
+<p>Sistemas de precisiones fuera de 32 y 64 bits son raras y muy limitadas; en particular, 128 y 256 son usadas cuando se habla de aplicaciones de escala astronómica:</p>
+<blockquote>
+<p>In addition, the range from the Sun to the pulsar source may exceed ten thousand light years away, so it needs at least quadruple precision (128 bits of floating point representation). Otherwise, the numerical error of computing will result in poor navigation accuracy.In addition, the range from the Sun to the pulsar source may exceed ten thousand light years away, so it needs at least quadruple precision (128 bits of floating point representation). Otherwise, the numerical error of computing will result in poor navigation accuracy. ~ <a href="https://www.cambridge.org/core/journals/journal-of-navigation/article/autonomous-navigation-of-mars-probes-by-single-x-ray-pulsar-measurement-and-optical-data-of-viewing-martian-moons/E0C7BEB033776F4211289E7916D7EA52">Autonomous Navigation of Mars Probes by Single X-ray Pulsar Measurement and Optical Data of Viewing Martian Moons</a></p>
+</blockquote>
+<blockquote>
+<p>🚨 <em>NumPy</em> no soporta números de 128 a 256</p>
+</blockquote>
+<h2 id="representacion-binaria">Representación binaria</h2>
+<p>Un <em>float</em> se representa binariamente por tres partes, cada una de estas partes es... un entero 🤪. Cada una de estas partes tiene un nombre específico:</p>
+<ul>
+<li>Signo</li>
+<li>Mantissa</li>
+<li>Exponente</li>
+</ul>
+<p>Para reconstruir un número flotante a partir de estos tres números debemos seguir la siguiente fórmula:</p>
+<p></p>
+<h3 id="flotantes">Flotantes</h3>
+<pre><code class="language-python">show_float(1.0)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 01111111111 | 0000000000000000000000000000000000000000000000000000
+   1 |           0 |                                                  0.0
+  = 1 * 1.0 * 2^0
+  = 1 * 1.0 * 1
+  = 1.00000000000000000000
+</code></pre>
+<pre><code class="language-python">show_float(-1.0)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   1 | 01111111111 | 0000000000000000000000000000000000000000000000000000
+  -1 |           0 |                                                  0.0
+  = -1 * 1.0 * 2^0
+  = -1 * 1.0 * 1
+  = -1.00000000000000000000
+</code></pre>
+<pre><code class="language-python">show_float(4.0)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 10000000001 | 0000000000000000000000000000000000000000000000000000
+   1 |           2 |                                                  0.0
+  = 1 * 1.0 * 2^2
+  = 1 * 1.0 * 4
+  = 4.00000000000000000000
+</code></pre>
+<pre><code class="language-python">show_float(1e-8)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 01111100100 | 0101011110011000111011100010001100001000110000111010
+   1 |         -27 |                                  0.34217728000000003
+  = 1 * 1.34217728 * 2^-27
+  = 1 * 1.34217728 * 7.450580596923828e-09
+  = 0.00000001000000000000
+</code></pre>
+<pre><code class="language-python">show_float(1.5e200, type_=np.float32)
+</code></pre>
+<pre><code>Sign | Exp      | Mantissa
+   0 | 11111111 | 00000000000000000000000
+   1 |      128 |                     0.0
+Infinite/NaN
+</code></pre>
+<h3 id="enteros-1">Enteros</h3>
+<p>Recordemos que para <strong>float64</strong> el tamaño de la mantissa es de 53 bits, lo cual significa que cualquier entero en los rangos  to  es representable. Números fuera de este rango no son representados exactamente.</p>
+<pre><code class="language-python">entero = 2 ** 53 - 1
+show_float(1.0 * entero)
+print(entero)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 10000110011 | 1111111111111111111111111111111111111111111111111111
+   1 |          52 |                                   0.9999999999999998
+  = 1 * 1.9999999999999998 * 2^52
+  = 1 * 1.9999999999999998 * 4503599627370496
+  = 9007199254740991.00000000000000000000
+
+9007199254740991
+</code></pre>
+<pre><code class="language-python">entero = 2 ** 53 + 1
+show_float(1.0 * entero)
+print(entero)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 10000110100 | 0000000000000000000000000000000000000000000000000000
+   1 |          53 |                                                  0.0
+  = 1 * 1.0 * 2^53
+  = 1 * 1.0 * 9007199254740992
+  = 9007199254740992.00000000000000000000
+
+9007199254740993
+</code></pre>
+<pre><code class="language-python">entero = 3 ** 55
+show_float(1.0 * entero)
+print(entero)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 10001010110 | 0010000010011010000111010101101101000000000111001100
+   1 |          87 |                                  0.12735160329622186
+  = 1 * 1.1273516032962219 * 2^87
+  = 1 * 1.1273516032962219 * 154742504910672534362390528
+  = 174449211009120166087753728.00000000000000000000
+
+174449211009120179071170507
+</code></pre>
+<h3 id="errores">Errores</h3>
+<p>Cuando operamos con números flotantes podemos provocar errores <strong>a nivel de hardware</strong>:</p>
+<ul>
+<li><strong>Operación inválida</strong>: cuando provocamos una operación sin un valor definido: , </li>
+<li><strong>División entre cero</strong>: ...</li>
+<li><strong>Underflow</strong>: cuando el resultado de una operación es más pequeño que el número más pequeño que se puede representar (usualmente el resultado se redondea a cero)</li>
+<li><strong>Overflow</strong>: cuando el resultado de una operación es más grande que el número más grande que se puede representar.</li>
+<li><strong>Resultado inexacto</strong>: cuando una operación va a generar un resultado inexacto por redondeo</li>
+</ul>
+<p>Las excepciones son generadas en el hardware y son escaladas por el sistema operativo y pueden o no ser interceptadas por alguna capa antes de llegar al usuario. Cada sistema (o framework) puede decidir qué hacer con ellas: informar al usuario, detener la ejecución del programa...</p>
+<p><em>NumPy</em> por default intercepta los errores y le informa al usuario a través de un <em>warning</em>:</p>
+<pre><code class="language-python">np.array(0.0) / np.array(0.0)
+</code></pre>
+<pre><code>&lt;ipython-input-1-bc5ff3219f77&gt;:1: RuntimeWarning: invalid value encountered in true_divide
+  np.array(0.0) / np.array(0.0)
+
+
+
+
+
+nan
+</code></pre>
+<pre><code class="language-python">np.array(1.0) / np.array(0.0)
+</code></pre>
+<pre><code>&lt;ipython-input-1-f123338f04e5&gt;:1: RuntimeWarning: divide by zero encountered in true_divide
+  np.array(1.0) / np.array(0.0)
+
+
+
+
+
+inf
+</code></pre>
+<pre><code class="language-python">np.array(.1) * np.array(1e-307)
+</code></pre>
+<pre><code>1e-308
+</code></pre>
+<pre><code class="language-python">np.array(2.0) / np.array(3.0)
+</code></pre>
+<pre><code>0.6666666666666666
+</code></pre>
+<h2 id="numeros-especiales">Números especiales</h2>
+<h3 id="cero-negativo">¿Cero negativo?</h3>
+<p>Gracias a la forma en que se pueden representar los números bajo el estándar IEEE 754, podemos tener dos ceros.</p>
+<pre><code class="language-python">show_float(-0.0)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   1 | 00000000000 | 0000000000000000000000000000000000000000000000000000
+  -1 |       -1023 |                                                  0.0
+  = -1 * 1.0 * 2^-1023
+  = -1 * 1.0 * 1.1125369292536007e-308
+  = -0.00000000000000000000
+</code></pre>
+<pre><code class="language-python">show_float(0.0)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 00000000000 | 0000000000000000000000000000000000000000000000000000
+   1 |       -1023 |                                                  0.0
+  = 1 * 1.0 * 2^-1023
+  = 1 * 1.0 * 1.1125369292536007e-308
+  = 0.00000000000000000000
+</code></pre>
+<h3 id="dos-infinitos">Dos infinitos</h3>
+<p>También existe una definición explícita para infinito</p>
+<pre><code class="language-python">show_float(np.inf)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 11111111111 | 0000000000000000000000000000000000000000000000000000
+   1 |        1024 |                                                  0.0
+Infinite/NaN
+</code></pre>
+<pre><code class="language-python">show_float(-np.inf)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   1 | 11111111111 | 0000000000000000000000000000000000000000000000000000
+  -1 |        1024 |                                                  0.0
+Infinite/NaN
+</code></pre>
+<pre><code class="language-python">0*np.inf
+</code></pre>
+<pre><code>nan
+</code></pre>
+<h3 id="no-es-un-numero-nan-not-a-number">No es un número - NaN (<em>Not A Number</em>)</h3>
+<p>Otro número muy especial, usado para representar valores inválidos:</p>
+<ul>
+<li></li>
+<li></li>
+<li> o </li>
+<li></li>
+<li> para toda </li>
+</ul>
+<pre><code class="language-python">show_float(-np.nan)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   1 | 11111111111 | 1000000000000000000000000000000000000000000000000000
+  -1 |        1024 |                                                  0.5
+Infinite/NaN
+</code></pre>
+<blockquote>
+<p>🚨 NaN se propaga, una vez que en un cálculo se genera un NaN, cualquier operación en la que este se vea involucrado resultará en NaN</p>
+</blockquote>
+<pre><code class="language-python">np.nan * np.inf
+</code></pre>
+<pre><code>nan
+</code></pre>
+<h2 id="redondeo-y-precision">Redondeo y precisión</h2>
+<p>Debido a las limitaciones en tamaño de bits para representar ciertos números los flotantes son propensos a presentar errores de redondeo:</p>
+<pre><code class="language-python">show_float(1.0 + 1e-2)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 01111111111 | 0000001010001111010111000010100011110101110000101001
+   1 |           0 |                                 0.010000000000000009
+  = 1 * 1.01 * 2^0
+  = 1 * 1.01 * 1
+  = 1.01000000000000000888
+</code></pre>
+<pre><code class="language-python">show_float(1.0 + 1e-4)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 01111111111 | 0000000000000110100011011011100010111010110001110001
+   1 |           0 |                                9.999999999998899e-05
+  = 1 * 1.0001 * 2^0
+  = 1 * 1.0001 * 1
+  = 1.00009999999999998899
+</code></pre>
+<pre><code class="language-python">show_float(1.0 + 1e-8)
+</code></pre>
+<pre><code>Sign | Exp         | Mantissa
+   0 | 01111111111 | 0000000000000000000000000010101011110011000111011100
+   1 |           0 |                                 9.99999993922529e-09
+  = 1 * 1.00000001 * 2^0
+  = 1 * 1.00000001 * 1
+  = 1.00000000999999993923
+</code></pre>
+<pre><code class="language-python">show_float(1.0 + 1e-16, type_=np.float128)
+</code></pre>
+<pre><code>Sign | Exp             | Mantissa
+   0 | 000000000000000 | 0111111110011010101011010101111000111111111111111000000000000000000000000000000000000000000000000000000000000000
+   1 |          -16383 |                                                                                              0.49845393706345753
+  = 1 * 1.4984539370634575 * 2^-16383
+  = 1 * 1.4984539370634575 * 0.0
+  = 1.00000000000000000000
+</code></pre>
+<blockquote>
+<p>🚨 <strong>NUNCA</strong> uses números flotantes para cálculos financieros; un error gracias al redondeo (por más pequeño que sea) repetido muchas veces puede resultar en un error gigantezco. Python tiene un módulo llamado <code>decimal</code> que es lento, pero seguro.</p>
+</blockquote>
+<h3 id="algunas-reglas">Algunas reglas...</h3>
+<p>El redondeo en números flotantes es un problema que para la mayoría de aplicaciones no es tan grande; aún así existen algunas cosas que podemos hacer para mitigarlo a la hora de escribir código:</p>
+<ul>
+<li><strong>Error de magnitud</strong>: evita sumas  donde  e  sean de magnitudes diferentes.</li>
+<li><strong>Error de magnificación</strong>: evita divisiones  en donde  sea muy pequeña.</li>
+<li><strong>Error de cancelación</strong>: evita restas  en donde </li>
+</ul>
+<pre><code class="language-python">(1e30 + 1.) - 1e30
+</code></pre>
+<pre><code>0.0
+</code></pre>
+<pre><code class="language-python">(1e30 - 1e30) + 1.
+</code></pre>
+<pre><code>1.0
+</code></pre>
+<h2 id="comparaciones-numericas">Comparaciones numéricas</h2>
+<p>Gracias a estos errores de redondeo, comparaciones directas entre números flotantes pueden resultar <em>&quot;incorrectas&quot;</em>, y por tanto no es apropiado usarlas:</p>
+<pre><code class="language-python">x = 0.1
+y = 50000.0
+z = 0.1
+x = (x + y) - y
+
+print(x == z)
+print(x - z)
+</code></pre>
+<pre><code>False
+-1.4551970739518083e-12
+</code></pre>
+<p>La solución es usar la diferencia absoluta comparada contra un determinado valor muy pequeño:</p>
+<p></p>
+<pre><code class="language-python">x = 0.1
+y = 50000.0
+z = 0.1
+
+epsilon = 1e-8
+
+x = (x + y) - y
+
+print(abs(x - z) &lt; epsilon)
+</code></pre>
+<pre><code>True
+</code></pre>
+<h3 id="all-close">All close</h3>
+<p><em>NumPy</em> al rescate con la función: <code>np.allclose</code>:</p>
+<pre><code class="language-python">x = 0.1
+y = 50000.0
+z = 0.1
+
+x = (x + y) - y
+
+print(x, z)
+np.allclose(x, z)
+</code></pre>
+<pre><code>0.09999999999854481 0.1
+
+
+
+
+
+True
+</code></pre>
+<pre><code class="language-python">x = np.full((3,3), 0.1)
+y = np.full((3,3), 500000000.0)
+z = np.full((3,3), 0.1)
+
+x = (x + y) - y
+
+
+print(x)
+print(z)
+np.allclose(x, z)
+</code></pre>
+<pre><code>[[0.10000002 0.10000002 0.10000002]
+ [0.10000002 0.10000002 0.10000002]
+ [0.10000002 0.10000002 0.10000002]]
+[[0.1 0.1 0.1]
+ [0.1 0.1 0.1]
+ [0.1 0.1 0.1]]
+
+
+
+
+
+True
+</code></pre>
+<hr />
+<h2 id="referencias">Referencias</h2>
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/YwHQC4KEtBE">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table><table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/YwHQC4KEtBE">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="libros">Libros</h3>
+<ul>
+<li><strong>Elegant SciPy: The Art of Scientific Python</strong>: <a href="https://amzn.to/3c0ZNZM">México</a> · <a href="https://amzn.to/30WWmge">España</a> · <a href="https://amzn.to/2PbkbhC">US</a></li>
+<li><strong>High Performance Python: Practical Performant Programming for Humans</strong>: <a href="https://amzn.to/310hEtt">México</a> · <a href="https://amzn.to/3cVZsXD">España</a> · <a href="https://amzn.to/3s9eUFW">US</a></li>
+</ul>
+<h3 id="sitios-web">Sitios web</h3>
+<ul>
+<li><strong>What makes Numpy Arrays Fast: Memory and Strides</strong> - <a href="https://www.jessicayung.com/numpy-arrays-memory-and-strides">https://www.jessicayung.com/numpy-arrays-memory-and-strides</a></li>
+<li><strong>What Every Computer Scientist Should Know About Floating-Point Arithmetic</strong> - <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html</a></li>
+<li><strong>IEEE 754 en Wikipedia</strong> - <a href="https://es.wikipedia.org/wiki/IEEE_754">https://es.wikipedia.org/wiki/IEEE_754</a></li>
+<li><strong>PEP 754</strong> - <a href="https://www.python.org/dev/peps/pep-0754/">https://www.python.org/dev/peps/pep-0754/</a></li>
+<li><strong>Machine epsilon en Wikipedia</strong> - <a href="https://en.wikipedia.org/wiki/Machine_epsilon">https://en.wikipedia.org/wiki/Machine_epsilon</a></li>
+</ul>
+<pre><code class="language-python">
+</code></pre>
+
+
+      </div>
+  </article>
+
+
+
+
+  </section>
+</div>
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+<style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+  </section>
+</div>
+
+      </div>
+    </main>
+
+<footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div> </div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

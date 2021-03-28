@@ -534,7 +534,47 @@ document.addEventListener('DOMContentLoaded', function(event) {
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       <div class="post-content e-content" itemprop="articleBody">
          
-<p>Contacto: <a href="https://twitter.com/io_exception">@io_exception</a> · <a href="https://www.youtube.com/channel/UC8KCb358oioQMcJ5pUfs8UQ">That C# guy en YouTube</a> · <a href="https://tcsg.dev/discord">Discord</a> · <a href="https://youtube.com/playlist?list=PL6cBnnS2SIgrIUumF2WDTDIiH_lODkLGq">Resto del curso</a> · <a href="https://github.com/thatcsharpguy/df">GitHub</a></p>
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/QclZayjU8K8">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
 <h2 id="entornos-virtuales-conda-vs.pipenv">Entornos virtuales - conda vs. pipenv</h2>
 <p>Idealmente todo el código se ejecuta dentro de un entorno aislado del resto de los programas y aplicaciones instalados en tu computadora, evitando así que existan conflictos entre dependencias. Esto nos ayuda a dos cosas: nos facilita la vida evitando conflictos entre dependencias y, lo más importante en la ciencia de datos, <strong>ayuda en la reproducibilidad de nuestros experimentos y análisis</strong>.</p>
 <p>He hablado sobre entornos virtuales en el pasado: un <a href="https://youtu.be/GM-RcOaGN4w">video sobre ellos</a> y <a href="https://youtu.be/ihG0Ya_h188">un directo también</a>.</p>
@@ -610,31 +650,7 @@ for i in range(2):
 <p>Podemos usar el símbolo &quot;?&quot; para obtener ayuda sobre el código en Python, podemos poner el símbolo antes o después de la instrucción sobre la que queremos saber más.</p>
 <pre><code class="language-python">?str
 </code></pre>
-<pre><code>[0;31mInit signature:[0m [0mstr[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m/[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;31mDocstring:[0m
-str(object='') -&gt; str
-str(bytes_or_buffer[, encoding[, errors]]) -&gt; str
-
-Create a new string object from the given object. If encoding or
-errors is specified, then the object must expose a data buffer
-that will be decoded using the given encoding and error handler.
-Otherwise, returns the result of object.__str__() (if defined)
-or repr(object).
-encoding defaults to sys.getdefaultencoding().
-errors defaults to 'strict'.
-[0;31mType:[0m           type
-[0;31mSubclasses:[0m     DeferredConfigString, _rstr, LSString, include, ColorDepth, Keys, InputMode, CompleteStyle, SortKey
-</code></pre>
 <pre><code class="language-python">list?
-</code></pre>
-<pre><code>[0;31mInit signature:[0m [0mlist[0m[0;34m([0m[0miterable[0m[0;34m=[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0;34m/[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;31mDocstring:[0m
-Built-in mutable sequence.
-
-If no argument is given, the constructor creates a new empty list.
-The argument must be an iterable if specified.
-[0;31mType:[0m           type
-[0;31mSubclasses:[0m     _HashedSeq, StackSummary, DeferredConfigList, SList, _ImmutableLineList, FormattedText, NodeList, _ExplodedList, Stack, _Accumulator, ...
 </code></pre>
 <h2 id="comandos-magicos">Comandos mágicos (?)</h2>
 <p>En adición a los signos anteriores, dentro de las celdas de las <em>notebooks</em> también podemos usar elementos conocidos como &quot;comandos mágicos&quot; que son atajos a funciones útiles.</p>
@@ -664,7 +680,7 @@ for i in range(4):
 print(&quot;done&quot;)
 </code></pre>
 <pre><code>done
-CPU times: user 1.46 ms, sys: 1.42 ms, total: 2.87 ms
+CPU times: user 1.27 ms, sys: 1.32 ms, total: 2.6 ms
 Wall time: 6.01 s
 </code></pre>
 <pre><code class="language-python">import random
@@ -672,8 +688,7 @@ Wall time: 6.01 s
 # %timeit random.randint(10, 15)
 %timeit -n 10 random.randint(10, 15)
 </code></pre>
-<pre><code>The slowest run took 9.03 times longer than the fastest. This could mean that an intermediate result is being cached.
-4.07 µs ± 4.51 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<pre><code>1.45 µs ± 634 ns per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </code></pre>
 <h3 id="graficando-en-las-notebooks">Gráficando en las <em>notebooks</em></h3>
 <p>Una de las grandes ventajas que tenemos con las <em>notebooks</em> es que podemos crear gráficas dentro de ellas, mientras que podemos emplear el módulo <code>matplotlib</code>, podemos también cambiar el <a href="https://matplotlib.org/stable/tutorials/introductory/usage.html#what-is-a-backend">backend</a> que estamos usando para graficar; por default el backend es <code>inline</code>, pero gracias a <a href="https://github.com/matplotlib/ipympl"><code>ipympl</code></a> podemos tener gráficas interactivas si cambiamos el backend a <code>widget</code> con el comando mágico <code>%matplotlib widget</code></p>
@@ -686,13 +701,21 @@ import numpy as np
 fig = plt.figure()
 plt.plot(np.sin(np.linspace(0, 20, 100)));
 </code></pre>
-<p><img src="output_24_0.png" alt="png" /></p>
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x11f0e3250&gt;]
+</code></pre>
+<p><img src="01-jupyter-lab_files/01-jupyter-lab_24_1.png" alt="png" /></p>
 <pre><code class="language-python">%matplotlib widget
 
 fig = plt.figure()
 plt.plot(np.sin(np.linspace(0, 20, 100)));
 </code></pre>
 <pre><code>Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …
+
+
+
+
+
+[&lt;matplotlib.lines.Line2D at 0x11f2af220&gt;]
 </code></pre>
 <blockquote>
 <p>🚨 Es importante mencionar que tanto &quot;!&quot;, &quot;?&quot; y &quot;%&quot; son elementos disponibles en los <em>Juypyter Notebooks</em>, de ninguna manera pertenecen a la sintaxis del lenguaje Python.</p>
@@ -705,11 +728,56 @@ plt.plot(np.sin(np.linspace(0, 20, 100)));
 </ul>
 <p>En lecciones subsecuentes vamos a ver algunas fórmulas 🧐</p>
 <h2 id="playground">Playground</h2>
+<hr />
 <h2 id="referencias">Referencias</h2>
+<h3 id="sitios-web">Sitios web</h3>
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/QclZayjU8K8">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
 <ul>
-<li><a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></li>
-<li><a href="https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet">https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet</a></li>
+<li><strong>28 Jupyter Notebook Tips, Tricks, and Shortcuts</strong> - <a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></li>
+<li><strong>Jupyter Notebook Cheat Sheet : A Beginner’s Guide to Jupyter Notebook</strong> - <a href="https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet">https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet</a></li>
 </ul>
+<pre><code class="language-python">
+</code></pre>
 
 
       </div>

@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ffffff">
+<title>02: Cómputo vectorizado | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="El tema central de esta sesión es la introducción al cómputo vectorizado (ojo, ¡no vectorial!). Nosotros vamos a conocer bajo este término a la práctica de escribir código que se aplique a múltiples elementos de un arreglo de forma simultanea.">
+<meta name="image" content="http://i3.ytimg.com/vi/iLIQykiASs4/maxresdefault.jpg">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="02: Cómputo vectorizado">
+<meta itemprop="description" content="El tema central de esta sesión es la introducción al cómputo vectorizado (ojo, ¡no vectorial!). Nosotros vamos a conocer bajo este término a la práctica de escribir código que se aplique a múltiples elementos de un arreglo de forma simultanea.">
+<meta itemprop="image" content="http://i3.ytimg.com/vi/iLIQykiASs4/maxresdefault.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="02: Cómputo vectorizado">
+<meta name="twitter:description" content="El tema central de esta sesión es la introducción al cómputo vectorizado (ojo, ¡no vectorial!). Nosotros vamos a conocer bajo este término a la práctica de escribir código que se aplique a múltiples elementos de un arreglo de forma simultanea.">
+<meta name="twitter:site" content="@thatcsharpguy">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="http://i3.ytimg.com/vi/iLIQykiASs4/maxresdefault.jpg">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="02: Cómputo vectorizado">
+<meta name="og:description" content="El tema central de esta sesión es la introducción al cómputo vectorizado (ojo, ¡no vectorial!). Nosotros vamos a conocer bajo este término a la práctica de escribir código que se aplique a múltiples elementos de un arreglo de forma simultanea.">
+<meta name="og:image" content="http://i3.ytimg.com/vi/iLIQykiASs4/maxresdefault.jpg">
+<meta name="og:url" content="https://thatcsharpguy.com/post/02-computo-vectorizado">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400;1,800&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css"> -->
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: ;
+    background-color: ;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: ;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+</head>
+
+
+  <body>
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+
+      <span class="site-brand">
+<a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="That C# guy" src="" onerror="this.style.display='none'">
+  That C# guy
+</a>
+      </span>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+            <a class="page-link" href="https://github.com/fferegrino">GitHub</a>
+            <a class="page-link" href="https://twitter.com/io_exception">Twitter</a>
+            <a class="page-link" href="https://youtube.com/thatcsharpguy">YouTube</a>
+            <a class="page-link" href="https://tcsg.dev/discord">Discord</a>
+
+            <span class="page-link">
+
+  <div id="google_translate_element" style="display: none;"></div>
+  <span class="ct-language">
+     <ul class="list-unstyled ct-language-dropdown">
+       <li>
+          <a href="#" class="lang-select" data-lang="es">
+          <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+          </a>
+       </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="en">
+           <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="fr">
+           <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="zh-CN">
+           <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ja">
+           <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ko">
+           <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ru">
+           <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+           </a>
+        </li>
+     </ul>
+  </span>
+  <script type="text/javascript">
+     function googleTranslateElementInit() {
+       new google.translate.TranslateElement({
+         pageLanguage: '',
+         autoDisplay: false,
+         layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+       }, 'google_translate_element');
+     
+       function restoreLang() {
+         var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+         if (!iframe) return;
+     
+         var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+         var restore_el = innerDoc.getElementsByTagName("button");
+     
+         for (var i = 0; i < restore_el.length; i++) {
+           if (restore_el[i].id.indexOf("restore") >= 0) {
+             restore_el[i].click();
+             var close_el = innerDoc.getElementsByClassName("goog-close-link");
+             close_el[0].click();
+             return;
+           }
+         }
+       }
+     
+       function triggerHtmlEvent(element, eventName) {
+         var event;
+         if (document.createEvent) {
+           event = document.createEvent('HTMLEvents');
+           event.initEvent(eventName, true, true);
+           element.dispatchEvent(event);
+         } else {
+           event = document.createEventObject();
+           event.eventType = eventName;
+           element.fireEvent('on' + event.eventType, event);
+         }
+       }
+     
+       var googleCombo = document.querySelector("select.goog-te-combo");
+       var langSelect = document.querySelector('.ct-language');
+       langSelect.addEventListener('click', function(event) {
+         if (!event.target) {
+           return;
+         }
+     
+         var selected = document.querySelector('.ct-language .ct-language-selected');
+         if (selected) {
+           selected.classList.remove('ct-language-selected');
+         }
+     
+         var target = event.target;
+         while (target && target !== langSelect ) {
+           if (target.matches('.lang-select')) {
+             break;
+           }
+           target = target.parentElement;
+         }
+     
+         if (target && target.matches('.lang-select')) {
+           var lang = target.getAttribute('data-lang');
+           if (lang == "es") {
+             restoreLang();
+           } else {
+             target.parentElement.classList.add('ct-language-selected');
+             googleCombo.value = lang;
+             triggerHtmlEvent(googleCombo, 'change');
+           }
+         }
+     
+         event.preventDefault();
+       });
+     }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>            </span>
+            
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+
+      var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light"><i class="fas fa-sun"></i></p>
+      <p class="dark"><i class="fas fa-moon"></i></p>
+    </div>
+  </label>
+</div>
+
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="framework">
+  <section class="main">
+     
+<div class="post">
+  <section>
+    
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">02: C&#243;mputo vectorizado</h1>
+  <!-- <h3 class="post-subtitle">Ingenier&#237;a de software + Ciencia de datos + MLOps</h3> -->
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="" itemprop="datePublished">
+      <i class="fas fa-calendar"></i> March 20, 2021
+    </time>
+    
+    <span class="post-reading-time left-vsplit"><i class="fas fa-user"></i> Antonio Feregrino</span>
+  </p>
+
+  <div class="post-tags">
+    <!-- <a class="post-tag" href="/tag/data-fundamentals">#data-fundamentals</a> -->
+    <a class="post-tag" href="#">#data-fundamentals</a>
+    <!-- <a class="post-tag" href="/tag/data-science">#data-science</a> -->
+    <a class="post-tag" href="#">#data-science</a>
+    <!-- <a class="post-tag" href="/tag/machine-learning">#machine-learning</a> -->
+    <a class="post-tag" href="#">#machine-learning</a>
+  </div>
+
+</header>
+
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="post-content e-content" itemprop="articleBody">
+         
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/iLIQykiASs4">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="paquetes">Paquetes</h2>
+<ul>
+<li><code>matplotlib</code></li>
+<li><code>numpy</code></li>
+</ul>
+<h2 id="tipos-de-dato-en-python">Tipos de dato en Python</h2>
+<h3 id="tipos-base">Tipos base</h3>
+<ul>
+<li>Números <strong>enteros</strong> - <code>int</code></li>
+<li>Números <strong>flotantes</strong> - <code>float</code></li>
+<li>Números <strong>complejos</strong> - <code>complex</code></li>
+<li>Cadenas - <code>str</code></li>
+<li>Booleanos - <code>bool</code></li>
+</ul>
+<h3 id="contenedores">Contenedores</h3>
+<ul>
+<li>Listas - <code>list</code></li>
+<li>Tuplas - <code>tuple</code></li>
+<li>Mapas - <code>dict</code></li>
+<li>Conjuntos - <code>set</code></li>
+</ul>
+<p>muy importantes pero, no tan interesantes a comparación de...</p>
+<h2 id="los-arreglos-nuericos-multidimensionales">Los arreglos nuéricos multidimensionales</h2>
+<blockquote>
+<p>🗣️ Los arreglos multidimensionales también se conocen como <em>ndarrays</em>, <em>N-dimensional arrays</em>.</p>
+</blockquote>
+<p>Es un tipo de dato que nos sirve para representar colecciones de números, es un tipo <strong>no nativo</strong> de Python.</p>
+<h3 id="razones">Razones</h3>
+<h4 id="representacion-de-elementos-complejos">Representación de elementos complejos</h4>
+<p>Imágenes, videos, canciones, modelos 3d... todos estas cosas se pueden representar como arreglos multidimensionales: una canción es un areglo unidimensional de intensidades de sonido, una imagen es un arreglo bidimensional de valores de brillo, y un vídeo es un areglo tridimensional, dos de las dimensiones son brillos y la otra representa el tiempo, un modelo 3d es in conjunto de puntos en un espacio tridimensional representado como un arreglo multidimensional.</p>
+<h4 id="trabajar-con-datos-cientificos">Trabajar con &quot;datos científicos&quot;</h4>
+<p>Usualmente realizamos experimentos científicos repetidamente, obteniendo de ellos una secuencia de valores que podemos representar fácilmente como un arreglo. Otras veces hacemos un solo experimento sobre múltiples sujetos, obtieniendo de ellos una secuencia de valores. ¡A veces hacemos las dos cosas a la vez!</p>
+<h4 id="elegancia">Elegancia 🧐</h4>
+<p>Los arreglos multidimensionales nos permiten aplicar y extender las operaciones que podemos aplicar a números individuales para aplicarselos a todos los elementos del arreglo de forma concisa y fácil de leer; la alternativa es escribir ciclos para aplicar operaciones a distintos elementos de una colección (ver ejemplo).</p>
+<h4 id="eficiencia">Eficiencia</h4>
+<p>Los arreglos multidimensionales son relativamente compactos (comparados con una lista, por ejemplo) y almacenan la información de forma muy eficiente, lo cual los hace ideales para lidiar con problemas en los que tenemos que lidiar con grandes cantidades de datos.</p>
+<h2 id="una-instruccion-muchos-datos">Una instrucción, muchos datos</h2>
+<p>El tema central de esta sesión es la introducción al <strong>cómputo vectorizado</strong> (ojo, ¡no vectorial!). Nosotros vamos a conocer bajo este término a la práctica de escribir código que se aplique a múltiples elementos de un arreglo de forma simultanea. Esto se también como <a href="https://en.wikipedia.org/wiki/SIMD">SIMD</a> (<em>Single Instruction Multiple Data</em>) y representa una forma de implementar cómputo paralelo restringido a operaciones numéricas sobre arreglos, claro.</p>
+<h3 id="gpus">GPUs</h3>
+<p>Uno de los ejemplos por excelencia de dónde es que ocurren este tipo de operaciones es en las tarjetas gráficas, hace poco mencioné que podemos representar modelos 3D usando arreglos multidimensionales; para hacer que estos objetos se muevan mediante rotaciones, traslaciones y demás, debemos aplicar sobre ellos operaciones matemáticas y para eso es que se ocupan este tipo de tarjetas.</p>
+<p>Estas tarjetas están especialmente diseñadas (y programadas) para lidiar de manera eficiente con arreglos numéricos y múltiples operaciones que podemos usar para manipularlos. Es por eso que son muy importantes en el mundo de los videojuegos; pero no solo ahí, puesto que cualquier operacion que representemos como arreglos puede ser llevada a cabo en una GPU.</p>
+<p>Además de GPUs, Google creó algo llamado <strong>TPUs</strong> (<em>Tensor Processor Unit</em>) que es una versión orientada a la manipulación de arreglos multidimensionales para su framework de Deep Learning Tensorflow.</p>
+<h2 id="las-cosas-por-su-nombre">Las cosas por su nombre</h2>
+<p>Hasta el momento hemos estado hablando de &quot;arreglos multidimensionales&quot;, pero existen nombres específicos para arreglos con 1, 2 y 3 o más dimensiones:</p>
+<img src="/assets/02/vector-tensor-matriz.jpg" />
+<h2 id="propiedades-de-los-arreglos">Propiedades de los arreglos</h2>
+<ul>
+<li>Tamaño (siempre &quot;rectangulares&quot;)</li>
+<li>Tipo</li>
+</ul>
+<h4 id="ejemplo-1">Ejemplo 1</h4>
+<pre><code class="language-text"> [0 0 0]
+ [0 0 0]
+ [0 0 0]
+</code></pre>
+<p><strong>Tamaño</strong>: (3, 3), <strong>tipo</strong>: enteros</p>
+<h4 id="ejemplo-2">Ejemplo 2</h4>
+<pre><code class="language-text"> [1.3 2.3 3.5 4.1 5.9]
+</code></pre>
+<p><strong>Tamaño</strong>: (5,), <strong>tipo</strong>: float</p>
+<h4 id="ejemplo-3">Ejemplo 3 ❌</h4>
+<pre><code class="language-text"> [1.3 2.3 3.5]
+ [0.0 3.5]
+ [1.3 2.3 3.5 1.1]
+</code></pre>
+<p><strong>Tamaño</strong>: (????), <strong>tipo</strong>: float</p>
+<p>Como ya mencioné anteriormente, las listas en Python son <em>listas de objetos</em>; por el contrario, los <em>ndarrays</em> almacenan los números como <em>números</em> y de forma contigua en memoria; la biblioteca que nos permite interactuar con estos objetos en Python nos permite interactuar con los arreglos como valores numéricos en Python, pero en realidad no lo son.</p>
+<p>La importancia de que los arreglos tengan un tipo uniforme para todos sus valores tiene que ver con la eficiencia a la hora de almacenarlos; es más fácil almacenar y acceder a ellos si tenemos un tamaño fijo para todos los elementos.</p>
+<h2 id="numpy">NumPy</h2>
+<p><img
+src="/assets/02/NumPy.svg"
+alt="triangle with all three sides equal"
+width="300" /></p>
+<blockquote>
+<p>🚨 <a href="https://numpy.org/citing-numpy/">Citing NumPy</a></p>
+</blockquote>
+<p>Un paquete con que permite operar con arreglos. Es la pieza central en <a href="https://www.scipy.org/">SciPy</a>.</p>
+<p>Por convención lo verás (casi siempre) como:</p>
+<pre><code class="language-python">import numpy as np
+</code></pre>
+<pre><code class="language-python">import numpy as np
+</code></pre>
+<p>Creemos un arreglo...</p>
+<pre><code class="language-python">my_first_array = np.array([0, 1, 2, 3, 4])
+print(my_first_array)
+</code></pre>
+<pre><code>[0 1 2 3 4]
+</code></pre>
+<h2 id="recordando-las-propiedades">Recordando las propiedades...</h2>
+<pre><code class="language-python">my_second_array = np.array([
+    [1, 2],
+    [3, 4],
+    [5, 6]
+])
+</code></pre>
+<h3 id="tipo-dtype">Tipo - <code>dtype</code></h3>
+<p>Un nombre para <em>data type</em>; recuerda: en un <em>ndarray</em> todos los valores son del mismo tipo.</p>
+<pre><code class="language-python">print(my_second_array.dtype)
+</code></pre>
+<pre><code>int64
+</code></pre>
+<h3 id="tamano-shape">Tamaño - <code>shape</code></h3>
+<pre><code class="language-python">print(my_second_array.shape)
+</code></pre>
+<pre><code>(3, 2)
+</code></pre>
+<p>El orden dado es (<em>filas</em>, <em>columnas</em>, <em>profundidad</em>, <em>???</em>, ...).</p>
+<p matrix="">$\begin
+1 &amp; 2  \
+3 &amp; 4  \
+5 &amp; 6  \
+\end$</p>
+<p><code>my_second_array</code> tiene tres filas, dos columnas.</p>
+<h3 id="creacion-de-arreglos">Creación de arreglos</h3>
+<h4 id="np.array"><code>np.array</code></h4>
+<p>Una de las formas más básicas para crear arreglos es a partir de información existente, por ejemplo, una lista (o una lista de listas):</p>
+<pre><code class="language-python">my_list = [9.5, 4.5, 6.3]
+my_arr = np.array(my_list)
+print(my_arr, my_arr.dtype, my_arr.shape)
+</code></pre>
+<pre><code>[9.5 4.5 6.3] float64 (3,)
+</code></pre>
+<pre><code class="language-python">multi_dimensional = np.array(
+    [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+)
+print(multi_dimensional, multi_dimensional.dtype, multi_dimensional.shape)
+</code></pre>
+<pre><code>[[1 2 3]
+ [4 5 6]] int64 (2, 3)
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Sobre copiar arreglos...</strong><br />
+Si necesitamos copiar un arreglo es necesario usar nuevamente <code>np.array</code>, o <code>copy</code> puesto que los <em>ndarrays</em> son mutables y podemos obtener efectos no deseados</p>
+</blockquote>
+<pre><code class="language-python"># Incorrecto
+a1 = np.array([0,1,2])
+a2 = a1
+a1[0] = 5000
+print(a1)
+print(a2)
+</code></pre>
+<pre><code>[5000    1    2]
+[5000    1    2]
+</code></pre>
+<pre><code class="language-python"># Correcto
+a1 = np.array([0,1,2])
+a2 = a1.copy() # o np.array(a1)
+a1[0] = 5000
+print(a1)
+print(a2)
+</code></pre>
+<pre><code>[5000    1    2]
+[0 1 2]
+</code></pre>
+<h4 id="arreglos-vacios">Arreglos vacíos</h4>
+<p>También es común que querramos crear arreglos &quot;vacíos&quot; o con valores pre-definidos; en lugar de crear un montón de listas llenas de ceros podemos usar <code>np.zeros</code>:</p>
+<h4 id="np.zeros"><code>np.zeros</code></h4>
+<pre><code class="language-python">np.zeros((3,))
+</code></pre>
+<pre><code>array([0., 0., 0.])
+</code></pre>
+<pre><code class="language-python">np.zeros((3,3))
+</code></pre>
+<pre><code>array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]])
+</code></pre>
+<pre><code class="language-python">np.zeros((1, 2, 3, 4))
+</code></pre>
+<pre><code>array([[[[0., 0., 0., 0.],
+         [0., 0., 0., 0.],
+         [0., 0., 0., 0.]],
+
+        [[0., 0., 0., 0.],
+         [0., 0., 0., 0.],
+         [0., 0., 0., 0.]]]])
+</code></pre>
+<pre><code class="language-python">np.ones((1, 2, 3, 4))
+</code></pre>
+<pre><code>array([[[[1., 1., 1., 1.],
+         [1., 1., 1., 1.],
+         [1., 1., 1., 1.]],
+
+        [[1., 1., 1., 1.],
+         [1., 1., 1., 1.],
+         [1., 1., 1., 1.]]]])
+</code></pre>
+<h4 id="np.ones"><code>np.ones</code></h4>
+<pre><code class="language-python">np.ones((3,))
+</code></pre>
+<pre><code>array([1., 1., 1.])
+</code></pre>
+<h4 id="np.full"><code>np.full</code></h4>
+<p>A veces es útil poder crear un arreglo con un valor <em>específico</em>:</p>
+<pre><code class="language-python">np.full((1,2,3), 1.23)
+</code></pre>
+<pre><code>array([[[1.23, 1.23, 1.23],
+        [1.23, 1.23, 1.23]]])
+</code></pre>
+<h4 id="np._like"><code>np.(...)_like</code></h4>
+<p>También podemos crear arreglos del mismo tamaño que otros, ya sean llenos con <code>0</code>, <code>1</code> o cualquier otro valor de preferencia:</p>
+<pre><code class="language-python">base = np.array([[0.0, 1], [2, 3]])
+np.zeros_like(base)
+</code></pre>
+<pre><code>array([[0., 0.],
+       [0., 0.]])
+</code></pre>
+<pre><code class="language-python">np.ones_like(base)
+</code></pre>
+<pre><code>array([[1., 1.],
+       [1., 1.]])
+</code></pre>
+<pre><code class="language-python">np.full_like(base, np.pi)
+</code></pre>
+<pre><code>array([[3.14159265, 3.14159265],
+       [3.14159265, 3.14159265]])
+</code></pre>
+<h4 id="arreglos-aleatorios">Arreglos aleatorios</h4>
+<p>El aprendizaje automático tiene un componente de aleatoridad, es necesario saber cómo es que nosotros podemos usar esa aleatoridad. NumPy nos permite crear arreglos aleatorios:</p>
+<pre><code class="language-python">np.random.randint(low = 0, high = 10, size = (3, 3))
+</code></pre>
+<pre><code>array([[0, 4, 0],
+       [9, 5, 1],
+       [8, 6, 0]])
+</code></pre>
+<pre><code class="language-python">np.random.uniform(low = 1, high = 2, size = (2, 3))
+</code></pre>
+<pre><code>array([[1.98673578, 1.53312485, 1.07910688],
+       [1.95945715, 1.7776157 , 1.53298935]])
+</code></pre>
+<pre><code class="language-python">np.random.normal(loc = 0, scale = 1, size = (2, 3))
+</code></pre>
+<pre><code>array([[-1.15408806, -1.18588095,  0.13855094],
+       [-2.39921893, -0.07689017, -1.03094884]])
+</code></pre>
+<h4 id="secuencias">Secuencias</h4>
+<p>Otra de las herramientas muy útiles dentro de <em>NumPy</em> es la generación de secuencias incrementales.</p>
+<h4 id="np.arange"><code>np.arange</code></h4>
+<p>Una funcionalidad similar a <code>range</code> en Python, solo que en lugar de regresar un generador, <code>np.arange</code> retorna un <em>ndarray</em>:</p>
+<pre><code class="language-python">np.arange(10)
+</code></pre>
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre>
+<pre><code class="language-python">np.arange(-10, 10)
+</code></pre>
+<pre><code>array([-10,  -9,  -8,  -7,  -6,  -5,  -4,  -3,  -2,  -1,   0,   1,   2,
+         3,   4,   5,   6,   7,   8,   9])
+</code></pre>
+<pre><code class="language-python">np.arange(start = 1, stop = 11, step = 2)
+</code></pre>
+<pre><code>array([1, 3, 5, 7, 9])
+</code></pre>
+<pre><code class="language-python">np.arange(start = 11, stop = 1, step = -2)
+</code></pre>
+<pre><code>array([11,  9,  7,  5,  3])
+</code></pre>
+<pre><code class="language-python">np.arange(start = 1.1, stop = 2.1, step = 0.1)
+</code></pre>
+<pre><code>array([1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2. ])
+</code></pre>
+<blockquote>
+<p>⚠️ Los límites en <code>np.arange</code> son , es decir, <code>start</code> es inclusivo mientras que <code>end</code> es exclusivo por default.</p>
+</blockquote>
+<h4 id="np.linspace"><code>np.linspace</code></h4>
+<p>Si bien <code>np.arange</code> nos permite usar fracciones para determinar el tamaño del incremento; no es la mejor manera para generar sucesiones fraccionarias entre números, para eso podemos usar <code>np.linspace</code></p>
+<pre><code class="language-python">np.linspace(0, 5, 5)
+</code></pre>
+<pre><code>array([0.  , 1.25, 2.5 , 3.75, 5.  ])
+</code></pre>
+<pre><code class="language-python">np.linspace(-10, 10, 15)
+</code></pre>
+<pre><code>array([-10.        ,  -8.57142857,  -7.14285714,  -5.71428571,
+        -4.28571429,  -2.85714286,  -1.42857143,   0.        ,
+         1.42857143,   2.85714286,   4.28571429,   5.71428571,
+         7.14285714,   8.57142857,  10.        ])
+</code></pre>
+<pre><code class="language-python">np.linspace(start = 3.5, stop = 3.6, num = 10)
+</code></pre>
+<pre><code>array([3.5       , 3.51111111, 3.52222222, 3.53333333, 3.54444444,
+       3.55555556, 3.56666667, 3.57777778, 3.58888889, 3.6       ])
+</code></pre>
+<blockquote>
+<p>⚠️ A diferencia de <code>np.arange</code>, en <code>np.linspace</code> los límit4es son , es decir, ambos son inclusivos por default.</p>
+</blockquote>
+<h3 id="indexacion">Indexación</h3>
+<p>Como cualquier secuencia en Python, los <em>ndarrays</em> también nos permiten acceder a los valores individuales que los forman usando la notación <code>[]</code>:</p>
+<pre><code class="language-python">index_me = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+print(index_me[0])
+</code></pre>
+<pre><code>[1 2 3]
+</code></pre>
+<pre><code class="language-python">print(index_me[0][1])
+</code></pre>
+<pre><code>2
+</code></pre>
+<p>Tenemos a nuestra disposición otra sintaxis para realizar indexación múltiple; nos vamos a asistir de la <code>,</code>:</p>
+<pre><code class="language-python">print(index_me[0, 1])
+</code></pre>
+<pre><code>2
+</code></pre>
+<h3 id="slicing"><em>Slicing</em></h3>
+<blockquote>
+<p>🤠 El <a href="https://docs.python.org/2.3/whatsnew/section-slices.html">slicing</a> en Python es una de las caracterísitcas más interesantes, porque además de permitirnos especificar los puntos de inicio y fin del <em>slicing</em>, también nos permite especificar el tamaño del paso a dar.</p>
+</blockquote>
+<p>Los <em>ndarrays</em> también soportan el <em>slicing</em>:</p>
+<pre><code class="language-python">index_me[:,:]
+</code></pre>
+<pre><code>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+</code></pre>
+<pre><code class="language-python">index_me[:, 0] # Primera columna
+</code></pre>
+<pre><code>array([1, 4, 7])
+</code></pre>
+<pre><code class="language-python">index_me[:, 1:] # Últimas dos columnas
+</code></pre>
+<pre><code>array([[2, 3],
+       [5, 6],
+       [8, 9]])
+</code></pre>
+<pre><code class="language-python">index_me[1:, 1:]
+</code></pre>
+<pre><code>array([[5, 6],
+       [8, 9]])
+</code></pre>
+<pre><code class="language-python">long_array = np.arange(10, 20)
+
+print(long_array)
+</code></pre>
+<pre><code>[10 11 12 13 14 15 16 17 18 19]
+</code></pre>
+<pre><code class="language-python">print(long_array[2:6])
+</code></pre>
+<pre><code>[12 13 14 15]
+</code></pre>
+<pre><code class="language-python">print(long_array[2:-2])
+</code></pre>
+<pre><code>[12 13 14 15 16 17]
+</code></pre>
+<pre><code class="language-python">print(long_array[::3])
+</code></pre>
+<pre><code>[10 13 16 19]
+</code></pre>
+<pre><code class="language-python">print(long_array[::-1])
+</code></pre>
+<pre><code>[19 18 17 16 15 14 13 12 11 10]
+</code></pre>
+<h3 id="asignacion-de-valores">Asignación de valores</h3>
+<p>A recordar que los <em>ndarrays</em> son mutables; podemos cambiar los valores de un arreglo usando indexación y <em>slicing</em></p>
+<pre><code class="language-python">arreglo = np.arange(0, 20)
+
+print(arreglo)
+</code></pre>
+<pre><code>[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]
+</code></pre>
+<pre><code class="language-python">arreglo[0] = -500
+print(arreglo)
+</code></pre>
+<pre><code>[-500    1    2    3    4    5    6    7    8    9   10   11   12   13
+   14   15   16   17   18   19]
+</code></pre>
+<pre><code class="language-python">arreglo[::2] = -100
+print(arreglo)
+</code></pre>
+<pre><code>[-100    1 -100    3 -100    5 -100    7 -100    9 -100   11 -100   13
+ -100   15 -100   17 -100   19]
+</code></pre>
+<pre><code class="language-python">arreglo[2:5:] = 0
+print(arreglo)
+</code></pre>
+<pre><code>[-100    1    0    0    0    5 -100    7 -100    9 -100   11 -100   13
+ -100   15 -100   17 -100   19]
+</code></pre>
+<h3 id="playground"><em>Playground</em></h3>
+<img src="/assets/02/filip-gielda-VPavA7BBxK0-unsplash.jpg" />
+<p>Photo by <a href="https://unsplash.com/@filipovsky?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Filip Gielda</a> on <a href="/s/photos/mexico?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+chichen_itza = mpimg.imread('assets/02/filip-gielda-VPavA7BBxK0-unsplash.jpg')
+print(type(chichen_itza))
+print(chichen_itza.dtype)
+print(chichen_itza.shape)
+
+plt.imshow(chichen_itza[
+    80:170,
+    230:400
+])
+</code></pre>
+<pre><code>&lt;class 'numpy.ndarray'&gt;
+uint8
+(427, 640, 3)
+
+
+
+
+
+&lt;matplotlib.image.AxesImage at 0x1201c3d30&gt;
+</code></pre>
+<p><img src="02-computo-vectorizado_files/02-computo-vectorizado_76_2.png" alt="png" /></p>
+<pre><code class="language-python">ci_copy = chichen_itza[80:170, 230:400].copy()
+ci_copy[::2,::2, :] = 0
+plt.imshow(ci_copy)
+</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1202760d0&gt;
+</code></pre>
+<p><img src="02-computo-vectorizado_files/02-computo-vectorizado_77_1.png" alt="png" /></p>
+<pre><code class="language-python">ci_copy = chichen_itza[::4, ::4].copy()
+plt.imshow(ci_copy)
+</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1202d9610&gt;
+</code></pre>
+<p><img src="02-computo-vectorizado_files/02-computo-vectorizado_78_1.png" alt="png" /></p>
+<h3 id="operaciones-arreglo-escalar">Operaciones arreglo-escalar</h3>
+<pre><code class="language-python"># Suma
+test1 = np.arange(10, 15)
+print(test1)
+print(test1 + 10)
+</code></pre>
+<pre><code>[10 11 12 13 14]
+[20 21 22 23 24]
+</code></pre>
+<pre><code class="language-python"># Multiplicaciones
+print(test1 * 10)
+print(test1 / 10)
+</code></pre>
+<pre><code>[100 110 120 130 140]
+[1.  1.1 1.2 1.3 1.4]
+</code></pre>
+<pre><code class="language-python"># cos, abs, pow
+test2 = np.arange(-5, 5)
+print(test2)
+print(np.abs(test2))
+print(np.cos(test2))
+print(np.power(test2, 2))
+</code></pre>
+<pre><code>[-5 -4 -3 -2 -1  0  1  2  3  4]
+[5 4 3 2 1 0 1 2 3 4]
+[ 0.28366219 -0.65364362 -0.9899925  -0.41614684  0.54030231  1.
+  0.54030231 -0.41614684 -0.9899925  -0.65364362]
+[25 16  9  4  1  0  1  4  9 16]
+</code></pre>
+<h3 id="operaciones-elemento-elemento">Operaciones elemento-elemento</h3>
+<pre><code class="language-python"># Suma
+a = np.arange(10, 15)
+b = np.arange(20, 25)
+print(a, b)
+print(a + b)
+print(a - b)
+</code></pre>
+<pre><code>[10 11 12 13 14] [20 21 22 23 24]
+[30 32 34 36 38]
+[-10 -10 -10 -10 -10]
+</code></pre>
+<pre><code class="language-python"># Multiplicación
+print(a * b)
+print(a / b)
+</code></pre>
+<pre><code>[200 231 264 299 336]
+[0.5        0.52380952 0.54545455 0.56521739 0.58333333]
+</code></pre>
+<h3 id="broadcasting"><em>Broadcasting</em></h3>
+<p>Las operaciones elemento a elemento funcionan <strong>siempre y cuando</strong> los arreglos con los que estamos operando sean del mismo tamaño y forma... ¿pero qué sucede cuando no es así?</p>
+<p>Aún así podemos realizar operaciones bajo ciertas condiciones en nuestros operandos <code>x</code> e <code>y</code>:</p>
+<ul>
+<li><p>Si <code>x</code> es un areglo e <code>y</code> un escalar, el escalar actúa sobre todos los elementos del arreglo.</p>
+</li>
+<li><p>Si <code>x</code> e <code>y</code> tienen las mismas dimensiones y tamaños, la operación sucede elemento a elemento.</p>
+</li>
+<li><p>Si uno de los operandos tiene menos dimensiones que el otro, y las <strong>ultimas dimensiones</strong> del izquierdo coinciden con la forma del operando derecho, las operaciones suceden repitiendo el elemento derecho tantas veces como sea necesario</p>
+<ul>
+<li><code>(2, 2) * (2,)</code> ✅</li>
+<li><code>(1, 2, 3) * (2, 3)</code> ✅</li>
+<li><code>(10, 20, 20) * (20,)</code> ✅</li>
+<li><code>(10, 20, 20) * (10,20)</code> ❌</li>
+<li><code>(10,) * (20,)</code> ❌</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">vector = np.array([1, 2, 3, 4])
+unos = np.ones((3, 4))
+print(unos.shape, vector.shape)
+</code></pre>
+<pre><code>(3, 4) (4,)
+</code></pre>
+<pre><code class="language-python">print(unos + vector)
+</code></pre>
+<pre><code>[[2. 3. 4. 5.]
+ [2. 3. 4. 5.]
+ [2. 3. 4. 5.]]
+</code></pre>
+<pre><code class="language-python">print(unos / vector)
+</code></pre>
+<pre><code>[[1.         0.5        0.33333333 0.25      ]
+ [1.         0.5        0.33333333 0.25      ]
+ [1.         0.5        0.33333333 0.25      ]]
+</code></pre>
+<h3 id="transposicion">Transposición</h3>
+<p>Una de las operaciones más comunes sobre matrices es la transposición, <em>NumPy</em> ofrece una sintaxis especial: <code>array.T</code>:</p>
+<pre><code class="language-python">matriz = np.array([
+    [1, 2, 3, 4],
+    [0, 0, 0, 0],
+    [1, 2, 3, 4],
+])
+
+print(matriz)
+print(matriz.T)
+</code></pre>
+<pre><code>[[1 2 3 4]
+ [0 0 0 0]
+ [1 2 3 4]]
+[[1 0 1]
+ [2 0 2]
+ [3 0 3]
+ [4 0 4]]
+</code></pre>
+<p>### Transformación de arreglos</p>
+<blockquote>
+<p>❓❓❓ ¿hacemos otro live opcional?</p>
+</blockquote>
+<h3 id="indexacion-elegante">Indexación &quot;elegante&quot;</h3>
+<p>Ya vimos cómo acceder a elementos mediante indexación y <em>slicing</em>, pero <em>NumPy</em> permite otro tipo de indexación, conocida como 💅<em>Fancy Indexing</em> 🎩.</p>
+<h4 id="arreglos-como-indices">Arreglos como índices</h4>
+<p>Podemos usar otros arreglos como índices</p>
+<pre><code class="language-python">indexing_array = np.array([3, 2 , 5, 1, 4])
+original_array = np.arange(10, 20)
+
+print(original_array[indexing_array])
+</code></pre>
+<pre><code>[13 12 15 11 14]
+</code></pre>
+<pre><code class="language-python">indexing_array = np.array([0, 0, 0, 0, 1, 2, 2])
+print(original_array[indexing_array])
+</code></pre>
+<pre><code>[10 10 10 10 11 12 12]
+</code></pre>
+<pre><code class="language-python">indexing_array = np.array([0])
+print(original_array[indexing_array])
+</code></pre>
+<pre><code>[10]
+</code></pre>
+<h4 id="mascaras-booleanos-como-indices">Máscaras - booleanos como índices</h4>
+<p>También podemos usar arreglos booleanos como índices 🤔</p>
+<pre><code class="language-python">booleans = [True, False, True, False, False]
+original_array = np.arange(5)
+
+print(original_array)
+print(original_array[booleans])
+</code></pre>
+<pre><code>[0 1 2 3 4]
+[0 2]
+</code></pre>
+<pre><code class="language-python">original_array = np.arange(22)
+even_numbers = original_array % 2 == 0
+
+print(original_array)
+print(original_array[even_numbers])
+print(original_array[original_array &gt; 10])
+</code></pre>
+<pre><code>[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21]
+[ 0  2  4  6  8 10 12 14 16 18 20]
+[11 12 13 14 15 16 17 18 19 20 21]
+</code></pre>
+<h3 id="agregaciones">Agregaciones</h3>
+<p>Siempre es una buena idea echarle un ojo a algunas caracrerísticas de nuestros datos a través de información agregada o sintetizada.</p>
+<pre><code class="language-python">bitcoin_prices = np.array([
+    59_295.50, 45_164.00, 33_108.10, 28_949.40, 19_698.10,
+    13_797.30, 10_776.10, 11_644.20, 11_333.40,  9_135.40,
+     9_454.80,  8_629.00,  6_412.50,  8_543.70,  9_349.10,
+     7_196.40,  7_546.60,  9_152.60,  8_284.30,  9_594.40,
+    10_082.00, 10_818.60,  8_558.30,  5_320.80,  4_102.30,
+])
+</code></pre>
+<h4 id="estadistica-mean-median-desviacion-estandar">Estadística - mean, median, desviación estándar</h4>
+<pre><code class="language-python">print(np.mean(bitcoin_prices))
+print(np.median(bitcoin_prices))
+print(np.std(bitcoin_prices))
+</code></pre>
+<pre><code>14637.875999999998
+9454.8
+13009.079842334122
+</code></pre>
+<h4 id="minimos-y-maximos">Mínimos y máximos</h4>
+<pre><code class="language-python">print(np.max(bitcoin_prices))
+print(np.min(bitcoin_prices))
+</code></pre>
+<pre><code>59295.5
+4102.3
+</code></pre>
+<h4 id="agregaciones-en-n-dimensiones">Agregaciones en <em>N</em>-dimensiones</h4>
+<pre><code class="language-python">ndimensional = np.array([
+    [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+    ],
+    [
+        [1, 2, 3],
+        [1, 2, 3],
+        [1, 2, 3],
+    ],
+])
+
+ndimensional.shape
+</code></pre>
+<pre><code>(2, 3, 3)
+</code></pre>
+<pre><code class="language-python">np.mean(ndimensional)
+</code></pre>
+<pre><code>3.5
+</code></pre>
+<pre><code class="language-python">axis_0 = np.mean(ndimensional, axis=0)
+
+# [[ (1 + 1) / 2, (2 + 2) / 2, (3 + 3) / 2 ]
+#  [ (4 + 1) / 2, (5 + 2) / 2, (6 + 3) / 2 ]
+#  [ (7 + 1) / 2, (8 + 2) / 2, (9 + 3) / 2 ]]
+print(axis_0.shape)
+print(axis_0)
+</code></pre>
+<pre><code>(3, 3)
+[[1.  2.  3. ]
+ [2.5 3.5 4.5]
+ [4.  5.  6. ]]
+</code></pre>
+<pre><code class="language-python">axis_1 = np.mean(ndimensional, axis=1)
+
+# [[ (1 + 4 + 7) / 3, (2 + 5 + 8) / 3, (3 + 6 + 9) / 3 ]
+#  [ (1 + 1 + 1) / 3, (2 + 2 + 2) / 3, (3 + 3 + 4) / 3 ]]
+print(axis_1.shape)
+print(axis_1)
+</code></pre>
+<pre><code>(2, 3)
+[[4. 5. 6.]
+ [1. 2. 3.]]
+</code></pre>
+<pre><code class="language-python">axis_2 = np.mean(ndimensional, axis=2)
+
+# [[ (1 + 2 + 3) / 3, (4 + 5 + 6) / 3, (7 + 8 + 9) / 3 ]
+#  [ (1 + 2 + 3) / 3, (1 + 2 + 3) / 3, (1 + 2 + 3) / 3 ]]
+print(axis_2.shape)
+print(axis_2)
+</code></pre>
+<pre><code>(2, 3)
+[[2. 5. 8.]
+ [2. 2. 2.]]
+</code></pre>
+<h3 id="persistencia">Persistencia</h3>
+<p>En algún momento vamos a querer almacenar nuestros arreglos, <em>NumPy</em> nos deja hacerlo en forma de archivos de texto (1 y 2 dimensiones):</p>
+<pre><code class="language-python">to_save = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+])
+
+np.savetxt(&quot;multidimensional.txt&quot;, to_save)
+
+loaded = np.loadtxt(&quot;multidimensional.txt&quot;)
+
+print(loaded)
+</code></pre>
+<pre><code>[[1. 2. 3.]
+ [4. 5. 6.]
+ [7. 8. 9.]]
+</code></pre>
+<h3 id="extra-velocidades">Extra - velocidades</h3>
+<pre><code class="language-python">a_list = list(range(100_000))
+b_list = list(range(100_000))
+
+a_array = np.array(a_list)
+b_array = np.array(b_list)
+
+def add_list(a,b):
+    for i in range(len(a)):
+        a[i] += b[i]
+
+def add_array(a,b):
+    a += b
+</code></pre>
+<pre><code class="language-python">%timeit add_list(a_list,b_list)
+</code></pre>
+<pre><code>12 ms ± 266 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<pre><code class="language-python">%timeit add_array(a_list,b_list)
+</code></pre>
+<pre><code>658 µs ± 162 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</code></pre>
+<hr />
+<h2 id="referencias">Referencias</h2>
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/iLIQykiASs4">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="libros">Libros</h3>
+<ul>
+<li><strong>Elegant SciPy: The Art of Scientific Python</strong>: <a href="https://amzn.to/3c0ZNZM">México</a> · <a href="https://amzn.to/30WWmge">España</a> · <a href="https://amzn.to/2PbkbhC">US</a></li>
+<li><strong>High Performance Python: Practical Performant Programming for Humans</strong>: <a href="https://amzn.to/310hEtt">México</a> · <a href="https://amzn.to/3cVZsXD">España</a> · <a href="https://amzn.to/3s9eUFW">US</a></li>
+</ul>
+<h3 id="sitios-web">Sitios web</h3>
+<ul>
+<li><strong>From Python to NumPy</strong> - <a href="https://www.labri.fr/perso/nrougier/from-python-to-numpy/">https://www.labri.fr/perso/nrougier/from-python-to-numpy/</a></li>
+<li><strong>100 NumPy excercises</strong> - <a href="https://github.com/rougier/numpy-100">https://github.com/rougier/numpy-100</a></li>
+<li><strong>NumPy Cheat Sheet — Python for Data Science</strong> - <a href="https://www.dataquest.io/blog/numpy-cheat-sheet/">https://www.dataquest.io/blog/numpy-cheat-sheet/</a></li>
+</ul>
+<pre><code class="language-python">
+</code></pre>
+
+
+      </div>
+  </article>
+
+
+
+
+  </section>
+</div>
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+<style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+  </section>
+</div>
+
+      </div>
+    </main>
+
+<footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div> </div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
