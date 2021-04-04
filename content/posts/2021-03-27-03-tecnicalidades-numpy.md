@@ -111,7 +111,7 @@ show_array_details(base)
     Bits:       32
 
 ```python
-print('Original')
+print("Original")
 show_array_details(base)
 ```
 
@@ -167,7 +167,7 @@ show_array_details(fliplr)
 
 ```python
 rotated = np.rot90(base)
-print('Girada 90 grados')
+print("Girada 90 grados")
 show_array_details(rotated)
 ```
 
@@ -207,20 +207,20 @@ Aquí una tabla con los detalles sobre algunos de estos números:
 Si una operación se sale de los límites del número entero del tipo de dato ocurre un desbordamiento o _overflow_. En muchos sistemas el número simplemente va a reinciar desde el valor más pequeño:
 
 ```python
-int_array  = np.array([100,110,120], dtype=np.int8)
+int_array = np.array([100, 110, 120], dtype=np.int8)
 print(int_array)
-print(int_array+20)
+print(int_array + 20)
 ```
 
     [100 110 120]
     [ 120 -126 -116]
 
 ```python
-uint_array  = np.array([100,110,120], dtype=np.uint8)
+uint_array = np.array([100, 110, 120], dtype=np.uint8)
 print(uint_array)
 
-print(uint_array+20)
-print(uint_array+150)
+print(uint_array + 20)
+print(uint_array + 150)
 ```
 
     [100 110 120]
@@ -389,7 +389,7 @@ _NumPy_ por default intercepta los errores y le informa al usuario a través de 
 np.array(0.0) / np.array(0.0)
 ```
 
-    <ipython-input-1-bc5ff3219f77>:1: RuntimeWarning: invalid value encountered in true_divide
+    <ipython-input-1-93b8fe404e2e>:1: RuntimeWarning: invalid value encountered in true_divide
       np.array(0.0) / np.array(0.0)
 
 
@@ -412,7 +412,7 @@ np.array(1.0) / np.array(0.0)
     inf
 
 ```python
-np.array(.1) * np.array(1e-307)
+np.array(0.1) * np.array(1e-307)
 ```
 
     1e-308
@@ -474,7 +474,7 @@ show_float(-np.inf)
     Infinite/NaN
 
 ```python
-0*np.inf
+0 * np.inf
 ```
 
     nan
@@ -548,10 +548,10 @@ show_float(1.0 + 1e-16, type_=np.float128)
 ```
 
     Sign | Exp             | Mantissa
-       0 | 000000000000000 | 0111111110011010101011010101111000111111111111111000000000000000000000000000000000000000000000000000000000000000
-       1 |          -16383 |                                                                                              0.49845393706345753
-      = 1 * 1.4984539370634575 * 2^-16383
-      = 1 * 1.4984539370634575 * 0.0
+       0 | 000000000000000 | 0111111111010101100001001100110000111111111111111000000000000000000000000000000000000000000000000000000000000000
+       1 |          -16383 |                                                                                              0.49935178743908004
+      = 1 * 1.49935178743908 * 2^-16383
+      = 1 * 1.49935178743908 * 0.0
       = 1.00000000000000000000
 
 > 🚨 **NUNCA** uses números flotantes para cálculos financieros; un error gracias al redondeo (por más pequeño que sea) repetido muchas veces puede resultar en un error gigantezco. Python tiene un módulo llamado `decimal` que es lento, pero seguro.
@@ -565,13 +565,13 @@ El redondeo en números flotantes es un problema que para la mayoría de aplicac
 - **Error de cancelación**: evita restas $x - y$ en donde $x \simeq y$
 
 ```python
-(1e30 + 1.) - 1e30
+(1e30 + 1.0) - 1e30
 ```
 
     0.0
 
 ```python
-(1e30 - 1e30) + 1.
+(1e30 - 1e30) + 1.0
 ```
 
     1.0
@@ -635,9 +635,9 @@ np.allclose(x, z)
     True
 
 ```python
-x = np.full((3,3), 0.1)
-y = np.full((3,3), 500000000.0)
-z = np.full((3,3), 0.1)
+x = np.full((3, 3), 0.1)
+y = np.full((3, 3), 500000000.0)
+z = np.full((3, 3), 0.1)
 
 x = (x + y) - y
 
@@ -704,46 +704,6 @@ np.allclose(x, z)
             </td>
         </tr>
     </tbody>
-</table><table style="margin:0; max-width: 1000px;">
-    <tbody>
-        <tr>
-            <td>
-                <a href="https://thatcsharpguy.com">
-                    <img src="/assets/general/Sharp@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://twitter.com/io_exception">
-                    <img src="/assets/general/Twitter@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://tcsg.dev/discord">
-                    <img src="/assets/general/Discord@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://github.com/thatcsharpguy/df">
-                    <img src="/assets/general/GitHub@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://youtube.com/thatcsharpguy">
-                    <img src="/assets/general/YouTube@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://youtu.be/YwHQC4KEtBE">
-                    <img src="/assets/general/EnVivo@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://twitch.tv/thatcsharpguy">
-                    <img src="/assets/general/Twitch@1x.png" />
-                </a>
-            </td>
-        </tr>
-    </tbody>
 </table>
 
 ### Libros
@@ -758,7 +718,3 @@ np.allclose(x, z)
 - **IEEE 754 en Wikipedia** - [https://es.wikipedia.org/wiki/IEEE_754](https://es.wikipedia.org/wiki/IEEE_754)
 - **PEP 754** - [https://www.python.org/dev/peps/pep-0754/](https://www.python.org/dev/peps/pep-0754/)
 - **Machine epsilon en Wikipedia** - [https://en.wikipedia.org/wiki/Machine_epsilon](https://en.wikipedia.org/wiki/Machine_epsilon)
-
-```python
-
-```
