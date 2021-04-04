@@ -664,11 +664,7 @@ print(my_first_array)
 <pre><code>[0 1 2 3 4]
 </code></pre>
 <h2 id="recordando-las-propiedades">Recordando las propiedades...</h2>
-<pre><code class="language-python">my_second_array = np.array([
-    [1, 2],
-    [3, 4],
-    [5, 6]
-])
+<pre><code class="language-python">my_second_array = np.array([[1, 2], [3, 4], [5, 6]])
 </code></pre>
 <h3 id="tipo-dtype">Tipo - <code>dtype</code></h3>
 <p>Un nombre para <em>data type</em>; recuerda: en un <em>ndarray</em> todos los valores son del mismo tipo.</p>
@@ -697,12 +693,7 @@ print(my_arr, my_arr.dtype, my_arr.shape)
 </code></pre>
 <pre><code>[9.5 4.5 6.3] float64 (3,)
 </code></pre>
-<pre><code class="language-python">multi_dimensional = np.array(
-    [
-        [1, 2, 3],
-        [4, 5, 6]
-    ]
-)
+<pre><code class="language-python">multi_dimensional = np.array([[1, 2, 3], [4, 5, 6]])
 print(multi_dimensional, multi_dimensional.dtype, multi_dimensional.shape)
 </code></pre>
 <pre><code>[[1 2 3]
@@ -713,7 +704,7 @@ print(multi_dimensional, multi_dimensional.dtype, multi_dimensional.shape)
 Si necesitamos copiar un arreglo es necesario usar nuevamente <code>np.array</code>, o <code>copy</code> puesto que los <em>ndarrays</em> son mutables y podemos obtener efectos no deseados</p>
 </blockquote>
 <pre><code class="language-python"># Incorrecto
-a1 = np.array([0,1,2])
+a1 = np.array([0, 1, 2])
 a2 = a1
 a1[0] = 5000
 print(a1)
@@ -723,8 +714,8 @@ print(a2)
 [5000    1    2]
 </code></pre>
 <pre><code class="language-python"># Correcto
-a1 = np.array([0,1,2])
-a2 = a1.copy() # o np.array(a1)
+a1 = np.array([0, 1, 2])
+a2 = a1.copy()  # o np.array(a1)
 a1[0] = 5000
 print(a1)
 print(a2)
@@ -739,7 +730,7 @@ print(a2)
 </code></pre>
 <pre><code>array([0., 0., 0.])
 </code></pre>
-<pre><code class="language-python">np.zeros((3,3))
+<pre><code class="language-python">np.zeros((3, 3))
 </code></pre>
 <pre><code>array([[0., 0., 0.],
        [0., 0., 0.],
@@ -772,7 +763,7 @@ print(a2)
 </code></pre>
 <h4 id="np.full"><code>np.full</code></h4>
 <p>A veces es útil poder crear un arreglo con un valor <em>específico</em>:</p>
-<pre><code class="language-python">np.full((1,2,3), 1.23)
+<pre><code class="language-python">np.full((1, 2, 3), 1.23)
 </code></pre>
 <pre><code>array([[[1.23, 1.23, 1.23],
         [1.23, 1.23, 1.23]]])
@@ -797,21 +788,21 @@ np.zeros_like(base)
 </code></pre>
 <h4 id="arreglos-aleatorios">Arreglos aleatorios</h4>
 <p>El aprendizaje automático tiene un componente de aleatoridad, es necesario saber cómo es que nosotros podemos usar esa aleatoridad. NumPy nos permite crear arreglos aleatorios:</p>
-<pre><code class="language-python">np.random.randint(low = 0, high = 10, size = (3, 3))
+<pre><code class="language-python">np.random.randint(low=0, high=10, size=(3, 3))
 </code></pre>
-<pre><code>array([[0, 4, 0],
-       [9, 5, 1],
-       [8, 6, 0]])
+<pre><code>array([[9, 2, 1],
+       [2, 2, 1],
+       [4, 1, 5]])
 </code></pre>
-<pre><code class="language-python">np.random.uniform(low = 1, high = 2, size = (2, 3))
+<pre><code class="language-python">np.random.uniform(low=1, high=2, size=(2, 3))
 </code></pre>
-<pre><code>array([[1.98673578, 1.53312485, 1.07910688],
-       [1.95945715, 1.7776157 , 1.53298935]])
+<pre><code>array([[1.72594716, 1.5775126 , 1.22209363],
+       [1.31707247, 1.34222539, 1.25546175]])
 </code></pre>
-<pre><code class="language-python">np.random.normal(loc = 0, scale = 1, size = (2, 3))
+<pre><code class="language-python">np.random.normal(loc=0, scale=1, size=(2, 3))
 </code></pre>
-<pre><code>array([[-1.15408806, -1.18588095,  0.13855094],
-       [-2.39921893, -0.07689017, -1.03094884]])
+<pre><code>array([[ 0.46034061, -0.02050112, -0.40308532],
+       [-0.6456416 , -0.2674267 ,  1.75029367]])
 </code></pre>
 <h4 id="secuencias">Secuencias</h4>
 <p>Otra de las herramientas muy útiles dentro de <em>NumPy</em> es la generación de secuencias incrementales.</p>
@@ -826,15 +817,15 @@ np.zeros_like(base)
 <pre><code>array([-10,  -9,  -8,  -7,  -6,  -5,  -4,  -3,  -2,  -1,   0,   1,   2,
          3,   4,   5,   6,   7,   8,   9])
 </code></pre>
-<pre><code class="language-python">np.arange(start = 1, stop = 11, step = 2)
+<pre><code class="language-python">np.arange(start=1, stop=11, step=2)
 </code></pre>
 <pre><code>array([1, 3, 5, 7, 9])
 </code></pre>
-<pre><code class="language-python">np.arange(start = 11, stop = 1, step = -2)
+<pre><code class="language-python">np.arange(start=11, stop=1, step=-2)
 </code></pre>
 <pre><code>array([11,  9,  7,  5,  3])
 </code></pre>
-<pre><code class="language-python">np.arange(start = 1.1, stop = 2.1, step = 0.1)
+<pre><code class="language-python">np.arange(start=1.1, stop=2.1, step=0.1)
 </code></pre>
 <pre><code>array([1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2. ])
 </code></pre>
@@ -854,7 +845,7 @@ np.zeros_like(base)
          1.42857143,   2.85714286,   4.28571429,   5.71428571,
          7.14285714,   8.57142857,  10.        ])
 </code></pre>
-<pre><code class="language-python">np.linspace(start = 3.5, stop = 3.6, num = 10)
+<pre><code class="language-python">np.linspace(start=3.5, stop=3.6, num=10)
 </code></pre>
 <pre><code>array([3.5       , 3.51111111, 3.52222222, 3.53333333, 3.54444444,
        3.55555556, 3.56666667, 3.57777778, 3.58888889, 3.6       ])
@@ -864,11 +855,7 @@ np.zeros_like(base)
 </blockquote>
 <h3 id="indexacion">Indexación</h3>
 <p>Como cualquier secuencia en Python, los <em>ndarrays</em> también nos permiten acceder a los valores individuales que los forman usando la notación <code>[]</code>:</p>
-<pre><code class="language-python">index_me = np.array([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-])
+<pre><code class="language-python">index_me = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
 print(index_me[0])
 </code></pre>
@@ -888,17 +875,17 @@ print(index_me[0])
 <p>🤠 El <a href="https://docs.python.org/2.3/whatsnew/section-slices.html">slicing</a> en Python es una de las caracterísitcas más interesantes, porque además de permitirnos especificar los puntos de inicio y fin del <em>slicing</em>, también nos permite especificar el tamaño del paso a dar.</p>
 </blockquote>
 <p>Los <em>ndarrays</em> también soportan el <em>slicing</em>:</p>
-<pre><code class="language-python">index_me[:,:]
+<pre><code class="language-python">index_me[:, :]
 </code></pre>
 <pre><code>array([[1, 2, 3],
        [4, 5, 6],
        [7, 8, 9]])
 </code></pre>
-<pre><code class="language-python">index_me[:, 0] # Primera columna
+<pre><code class="language-python">index_me[:, 0]  # Primera columna
 </code></pre>
 <pre><code>array([1, 4, 7])
 </code></pre>
-<pre><code class="language-python">index_me[:, 1:] # Últimas dos columnas
+<pre><code class="language-python">index_me[:, 1:]  # Últimas dos columnas
 </code></pre>
 <pre><code>array([[2, 3],
        [5, 6],
@@ -963,15 +950,12 @@ print(arreglo)
 <pre><code class="language-python">import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-chichen_itza = mpimg.imread('assets/02/filip-gielda-VPavA7BBxK0-unsplash.jpg')
+chichen_itza = mpimg.imread(&quot;assets/02/filip-gielda-VPavA7BBxK0-unsplash.jpg&quot;)
 print(type(chichen_itza))
 print(chichen_itza.dtype)
 print(chichen_itza.shape)
 
-plt.imshow(chichen_itza[
-    80:170,
-    230:400
-])
+plt.imshow(chichen_itza[80:170, 230:400])
 </code></pre>
 <pre><code>&lt;class 'numpy.ndarray'&gt;
 uint8
@@ -981,22 +965,22 @@ uint8
 
 
 
-&lt;matplotlib.image.AxesImage at 0x1201c3d30&gt;
+&lt;matplotlib.image.AxesImage at 0x1117280a0&gt;
 </code></pre>
-<p><img src="02-computo-vectorizado_files/02-computo-vectorizado_76_2.png" alt="png" /></p>
+<p><img src="output_76_2.png" alt="png" /></p>
 <pre><code class="language-python">ci_copy = chichen_itza[80:170, 230:400].copy()
-ci_copy[::2,::2, :] = 0
+ci_copy[::2, ::2, :] = 0
 plt.imshow(ci_copy)
 </code></pre>
-<pre><code>&lt;matplotlib.image.AxesImage at 0x1202760d0&gt;
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1117d86d0&gt;
 </code></pre>
-<p><img src="02-computo-vectorizado_files/02-computo-vectorizado_77_1.png" alt="png" /></p>
+<p><img src="output_77_1.png" alt="png" /></p>
 <pre><code class="language-python">ci_copy = chichen_itza[::4, ::4].copy()
 plt.imshow(ci_copy)
 </code></pre>
-<pre><code>&lt;matplotlib.image.AxesImage at 0x1202d9610&gt;
+<pre><code>&lt;matplotlib.image.AxesImage at 0x11184fa90&gt;
 </code></pre>
-<p><img src="02-computo-vectorizado_files/02-computo-vectorizado_78_1.png" alt="png" /></p>
+<p><img src="output_78_1.png" alt="png" /></p>
 <h3 id="operaciones-arreglo-escalar">Operaciones arreglo-escalar</h3>
 <pre><code class="language-python"># Suma
 test1 = np.arange(10, 15)
@@ -1083,11 +1067,13 @@ print(unos.shape, vector.shape)
 </code></pre>
 <h3 id="transposicion">Transposición</h3>
 <p>Una de las operaciones más comunes sobre matrices es la transposición, <em>NumPy</em> ofrece una sintaxis especial: <code>array.T</code>:</p>
-<pre><code class="language-python">matriz = np.array([
-    [1, 2, 3, 4],
-    [0, 0, 0, 0],
-    [1, 2, 3, 4],
-])
+<pre><code class="language-python">matriz = np.array(
+    [
+        [1, 2, 3, 4],
+        [0, 0, 0, 0],
+        [1, 2, 3, 4],
+    ]
+)
 
 print(matriz)
 print(matriz.T)
@@ -1108,7 +1094,7 @@ print(matriz.T)
 <p>Ya vimos cómo acceder a elementos mediante indexación y <em>slicing</em>, pero <em>NumPy</em> permite otro tipo de indexación, conocida como 💅<em>Fancy Indexing</em> 🎩.</p>
 <h4 id="arreglos-como-indices">Arreglos como índices</h4>
 <p>Podemos usar otros arreglos como índices</p>
-<pre><code class="language-python">indexing_array = np.array([3, 2 , 5, 1, 4])
+<pre><code class="language-python">indexing_array = np.array([3, 2, 5, 1, 4])
 original_array = np.arange(10, 20)
 
 print(original_array[indexing_array])
@@ -1149,13 +1135,35 @@ print(original_array[original_array &gt; 10])
 </code></pre>
 <h3 id="agregaciones">Agregaciones</h3>
 <p>Siempre es una buena idea echarle un ojo a algunas caracrerísticas de nuestros datos a través de información agregada o sintetizada.</p>
-<pre><code class="language-python">bitcoin_prices = np.array([
-    59_295.50, 45_164.00, 33_108.10, 28_949.40, 19_698.10,
-    13_797.30, 10_776.10, 11_644.20, 11_333.40,  9_135.40,
-     9_454.80,  8_629.00,  6_412.50,  8_543.70,  9_349.10,
-     7_196.40,  7_546.60,  9_152.60,  8_284.30,  9_594.40,
-    10_082.00, 10_818.60,  8_558.30,  5_320.80,  4_102.30,
-])
+<pre><code class="language-python">bitcoin_prices = np.array(
+    [
+        59_295.50,
+        45_164.00,
+        33_108.10,
+        28_949.40,
+        19_698.10,
+        13_797.30,
+        10_776.10,
+        11_644.20,
+        11_333.40,
+        9_135.40,
+        9_454.80,
+        8_629.00,
+        6_412.50,
+        8_543.70,
+        9_349.10,
+        7_196.40,
+        7_546.60,
+        9_152.60,
+        8_284.30,
+        9_594.40,
+        10_082.00,
+        10_818.60,
+        8_558.30,
+        5_320.80,
+        4_102.30,
+    ]
+)
 </code></pre>
 <h4 id="estadistica-mean-median-desviacion-estandar">Estadística - mean, median, desviación estándar</h4>
 <pre><code class="language-python">print(np.mean(bitcoin_prices))
@@ -1174,18 +1182,20 @@ print(np.min(bitcoin_prices))
 4102.3
 </code></pre>
 <h4 id="agregaciones-en-n-dimensiones">Agregaciones en <em>N</em>-dimensiones</h4>
-<pre><code class="language-python">ndimensional = np.array([
+<pre><code class="language-python">ndimensional = np.array(
     [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9],
-    ],
-    [
-        [1, 2, 3],
-        [1, 2, 3],
-        [1, 2, 3],
-    ],
-])
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+        ],
+        [
+            [1, 2, 3],
+            [1, 2, 3],
+            [1, 2, 3],
+        ],
+    ]
+)
 
 ndimensional.shape
 </code></pre>
@@ -1232,11 +1242,13 @@ print(axis_2)
 </code></pre>
 <h3 id="persistencia">Persistencia</h3>
 <p>En algún momento vamos a querer almacenar nuestros arreglos, <em>NumPy</em> nos deja hacerlo en forma de archivos de texto (1 y 2 dimensiones):</p>
-<pre><code class="language-python">to_save = np.array([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-])
+<pre><code class="language-python">to_save = np.array(
+    [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+    ]
+)
 
 np.savetxt(&quot;multidimensional.txt&quot;, to_save)
 
@@ -1255,20 +1267,22 @@ b_list = list(range(100_000))
 a_array = np.array(a_list)
 b_array = np.array(b_list)
 
-def add_list(a,b):
+
+def add_list(a, b):
     for i in range(len(a)):
         a[i] += b[i]
 
-def add_array(a,b):
+
+def add_array(a, b):
     a += b
 </code></pre>
 <pre><code class="language-python">%timeit add_list(a_list,b_list)
 </code></pre>
-<pre><code>12 ms ± 266 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<pre><code>11 ms ± 305 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </code></pre>
 <pre><code class="language-python">%timeit add_array(a_list,b_list)
 </code></pre>
-<pre><code>658 µs ± 162 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<pre><code>737 µs ± 143 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
 <hr />
 <h2 id="referencias">Referencias</h2>
@@ -1324,8 +1338,6 @@ def add_array(a,b):
 <li><strong>100 NumPy excercises</strong> - <a href="https://github.com/rougier/numpy-100">https://github.com/rougier/numpy-100</a></li>
 <li><strong>NumPy Cheat Sheet — Python for Data Science</strong> - <a href="https://www.dataquest.io/blog/numpy-cheat-sheet/">https://www.dataquest.io/blog/numpy-cheat-sheet/</a></li>
 </ul>
-<pre><code class="language-python">
-</code></pre>
 
 
       </div>

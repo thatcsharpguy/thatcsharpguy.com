@@ -619,7 +619,7 @@ Elements:   12
 Bytes:      48
 Bits:       32
 </code></pre>
-<pre><code class="language-python">print('Original')
+<pre><code class="language-python">print(&quot;Original&quot;)
 show_array_details(base)
 </code></pre>
 <pre><code>Original
@@ -667,7 +667,7 @@ Bytes:      48
 Bits:       32
 </code></pre>
 <pre><code class="language-python">rotated = np.rot90(base)
-print('Girada 90 grados')
+print(&quot;Girada 90 grados&quot;)
 show_array_details(rotated)
 </code></pre>
 <pre><code>Girada 90 grados
@@ -722,18 +722,18 @@ Bits:       32
 <p>18,446,744,073,709,551,615</p>
 <h5 id="desbordamiento">Desbordamiento</h5>
 <p>Si una operación se sale de los límites del número entero del tipo de dato ocurre un desbordamiento o <em>overflow</em>. En muchos sistemas el número simplemente va a reinciar desde el valor más pequeño:</p>
-<pre><code class="language-python">int_array  = np.array([100,110,120], dtype=np.int8)
+<pre><code class="language-python">int_array = np.array([100, 110, 120], dtype=np.int8)
 print(int_array)
-print(int_array+20)
+print(int_array + 20)
 </code></pre>
 <pre><code>[100 110 120]
 [ 120 -126 -116]
 </code></pre>
-<pre><code class="language-python">uint_array  = np.array([100,110,120], dtype=np.uint8)
+<pre><code class="language-python">uint_array = np.array([100, 110, 120], dtype=np.uint8)
 print(uint_array)
 
-print(uint_array+20)
-print(uint_array+150)
+print(uint_array + 20)
+print(uint_array + 150)
 </code></pre>
 <pre><code>[100 110 120]
 [120 130 140]
@@ -908,7 +908,7 @@ print(entero)
 <p><em>NumPy</em> por default intercepta los errores y le informa al usuario a través de un <em>warning</em>:</p>
 <pre><code class="language-python">np.array(0.0) / np.array(0.0)
 </code></pre>
-<pre><code>&lt;ipython-input-1-bc5ff3219f77&gt;:1: RuntimeWarning: invalid value encountered in true_divide
+<pre><code>&lt;ipython-input-1-93b8fe404e2e&gt;:1: RuntimeWarning: invalid value encountered in true_divide
   np.array(0.0) / np.array(0.0)
 
 
@@ -928,7 +928,7 @@ nan
 
 inf
 </code></pre>
-<pre><code class="language-python">np.array(.1) * np.array(1e-307)
+<pre><code class="language-python">np.array(0.1) * np.array(1e-307)
 </code></pre>
 <pre><code>1e-308
 </code></pre>
@@ -973,7 +973,7 @@ Infinite/NaN
   -1 |        1024 |                                                  0.0
 Infinite/NaN
 </code></pre>
-<pre><code class="language-python">0*np.inf
+<pre><code class="language-python">0 * np.inf
 </code></pre>
 <pre><code>nan
 </code></pre>
@@ -1032,10 +1032,10 @@ Infinite/NaN
 <pre><code class="language-python">show_float(1.0 + 1e-16, type_=np.float128)
 </code></pre>
 <pre><code>Sign | Exp             | Mantissa
-   0 | 000000000000000 | 0111111110011010101011010101111000111111111111111000000000000000000000000000000000000000000000000000000000000000
-   1 |          -16383 |                                                                                              0.49845393706345753
-  = 1 * 1.4984539370634575 * 2^-16383
-  = 1 * 1.4984539370634575 * 0.0
+   0 | 000000000000000 | 0111111111010101100001001100110000111111111111111000000000000000000000000000000000000000000000000000000000000000
+   1 |          -16383 |                                                                                              0.49935178743908004
+  = 1 * 1.49935178743908 * 2^-16383
+  = 1 * 1.49935178743908 * 0.0
   = 1.00000000000000000000
 </code></pre>
 <blockquote>
@@ -1048,11 +1048,11 @@ Infinite/NaN
 <li><strong>Error de magnificación</strong>: evita divisiones  en donde  sea muy pequeña.</li>
 <li><strong>Error de cancelación</strong>: evita restas  en donde </li>
 </ul>
-<pre><code class="language-python">(1e30 + 1.) - 1e30
+<pre><code class="language-python">(1e30 + 1.0) - 1e30
 </code></pre>
 <pre><code>0.0
 </code></pre>
-<pre><code class="language-python">(1e30 - 1e30) + 1.
+<pre><code class="language-python">(1e30 - 1e30) + 1.0
 </code></pre>
 <pre><code>1.0
 </code></pre>
@@ -1102,9 +1102,9 @@ np.allclose(x, z)
 
 True
 </code></pre>
-<pre><code class="language-python">x = np.full((3,3), 0.1)
-y = np.full((3,3), 500000000.0)
-z = np.full((3,3), 0.1)
+<pre><code class="language-python">x = np.full((3, 3), 0.1)
+y = np.full((3, 3), 500000000.0)
+z = np.full((3, 3), 0.1)
 
 x = (x + y) - y
 
@@ -1168,46 +1168,6 @@ True
             </td>
         </tr>
     </tbody>
-</table><table style="margin:0; max-width: 1000px;">
-    <tbody>
-        <tr>
-            <td>
-                <a href="https://thatcsharpguy.com">
-                    <img src="/assets/general/Sharp@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://twitter.com/io_exception">
-                    <img src="/assets/general/Twitter@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://tcsg.dev/discord">
-                    <img src="/assets/general/Discord@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://github.com/thatcsharpguy/df">
-                    <img src="/assets/general/GitHub@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://youtube.com/thatcsharpguy">
-                    <img src="/assets/general/YouTube@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://youtu.be/YwHQC4KEtBE">
-                    <img src="/assets/general/EnVivo@1x.png" />
-                </a>
-            </td>
-            <td>
-                <a href="https://twitch.tv/thatcsharpguy">
-                    <img src="/assets/general/Twitch@1x.png" />
-                </a>
-            </td>
-        </tr>
-    </tbody>
 </table>
 <h3 id="libros">Libros</h3>
 <ul>
@@ -1222,8 +1182,6 @@ True
 <li><strong>PEP 754</strong> - <a href="https://www.python.org/dev/peps/pep-0754/">https://www.python.org/dev/peps/pep-0754/</a></li>
 <li><strong>Machine epsilon en Wikipedia</strong> - <a href="https://en.wikipedia.org/wiki/Machine_epsilon">https://en.wikipedia.org/wiki/Machine_epsilon</a></li>
 </ul>
-<pre><code class="language-python">
-</code></pre>
 
 
       </div>

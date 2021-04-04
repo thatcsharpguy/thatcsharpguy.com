@@ -658,14 +658,19 @@ for i in range(2):
 <pre><code class="language-python"># Ejecutando un script de python con %run
 %run temporary.py
 </code></pre>
-<pre><code>3.0.9
+<pre><code>/Users/antonioferegrino/.local/share/virtualenvs/df-JhqtXTwc/lib/python3.8/site-packages/jupyter_server/transutils.py:13: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+  warnings.warn(warn_msg, FutureWarning)
+
+
+3.0.12
 </code></pre>
 <h3 id="cargar-un-script">Cargar un script</h3>
 <pre><code class="language-python"># %load temporary.py
-import jupyterlab; print(jupyterlab.__version__)
+import jupyterlab
 
+print(jupyterlab.__version__)
 </code></pre>
-<pre><code>3.0.9
+<pre><code>3.0.12
 </code></pre>
 <h3 id="cronometrando-nuestro-codigo">Cronómetrando nuestro código</h3>
 <p>Siempre es bueno tener una idea de cuánto tiempo es que nuestro código se va a tardar en ejecutar, podemos usar dos formas de medir el tiempo con los comandos mágicos:</p>
@@ -680,15 +685,15 @@ for i in range(4):
 print(&quot;done&quot;)
 </code></pre>
 <pre><code>done
-CPU times: user 1.27 ms, sys: 1.32 ms, total: 2.6 ms
-Wall time: 6.01 s
+CPU times: user 1.36 ms, sys: 1.39 ms, total: 2.75 ms
+Wall time: 6 s
 </code></pre>
 <pre><code class="language-python">import random
 
 # %timeit random.randint(10, 15)
 %timeit -n 10 random.randint(10, 15)
 </code></pre>
-<pre><code>1.45 µs ± 634 ns per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<pre><code>1.39 µs ± 609 ns per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </code></pre>
 <h3 id="graficando-en-las-notebooks">Gráficando en las <em>notebooks</em></h3>
 <p>Una de las grandes ventajas que tenemos con las <em>notebooks</em> es que podemos crear gráficas dentro de ellas, mientras que podemos emplear el módulo <code>matplotlib</code>, podemos también cambiar el <a href="https://matplotlib.org/stable/tutorials/introductory/usage.html#what-is-a-backend">backend</a> que estamos usando para graficar; por default el backend es <code>inline</code>, pero gracias a <a href="https://github.com/matplotlib/ipympl"><code>ipympl</code></a> podemos tener gráficas interactivas si cambiamos el backend a <code>widget</code> con el comando mágico <code>%matplotlib widget</code></p>
@@ -701,9 +706,9 @@ import numpy as np
 fig = plt.figure()
 plt.plot(np.sin(np.linspace(0, 20, 100)));
 </code></pre>
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x11f0e3250&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x11f41b970&gt;]
 </code></pre>
-<p><img src="01-jupyter-lab_files/01-jupyter-lab_24_1.png" alt="png" /></p>
+<p><img src="output_24_1.png" alt="png" /></p>
 <pre><code class="language-python">%matplotlib widget
 
 fig = plt.figure()
@@ -715,7 +720,7 @@ plt.plot(np.sin(np.linspace(0, 20, 100)));
 
 
 
-[&lt;matplotlib.lines.Line2D at 0x11f2af220&gt;]
+[&lt;matplotlib.lines.Line2D at 0x11f60dc70&gt;]
 </code></pre>
 <blockquote>
 <p>🚨 Es importante mencionar que tanto &quot;!&quot;, &quot;?&quot; y &quot;%&quot; son elementos disponibles en los <em>Juypyter Notebooks</em>, de ninguna manera pertenecen a la sintaxis del lenguaje Python.</p>
@@ -776,8 +781,6 @@ plt.plot(np.sin(np.linspace(0, 20, 100)));
 <li><strong>28 Jupyter Notebook Tips, Tricks, and Shortcuts</strong> - <a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></li>
 <li><strong>Jupyter Notebook Cheat Sheet : A Beginner’s Guide to Jupyter Notebook</strong> - <a href="https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet">https://www.edureka.co/blog/cheatsheets/jupyter-notebook-cheat-sheet</a></li>
 </ul>
-<pre><code class="language-python">
-</code></pre>
 
 
       </div>
