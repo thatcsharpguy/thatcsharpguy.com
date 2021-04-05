@@ -1045,16 +1045,16 @@ print(np.isnan(aa))
 <h2 id="ecuaciones">Ecuaciones</h2>
 <h3 id="sumatorias-y-acumulacionse-en-general">Sumatorias (y acumulacionse en general)</h3>
 <p>Imagina una ecuación así</p>
-<p></p>
+<p><span class="math">\(\sum_{i=0}^{} \cos(x_i^{2})\)</span></p>
 <pre><code class="language-python">x = np.random.uniform(0, 1, 10)
 
 np.sum(np.cos(x ** 2))
 </code></pre>
 <pre><code>8.992406423625107
 </code></pre>
-<p>Supongamos que el índice del elemento  aparece dentro del cuerpo de la sumatoria:</p>
-<p></p>
-<p>La solución es generar un arreglo con el índice  de antemano:</p>
+<p>Supongamos que el índice del elemento <span class="math">\(i\)</span> aparece dentro del cuerpo de la sumatoria:</p>
+<p><span class="math">\(\sum_{i=0}^{} \cos(x_i) * i\)</span></p>
+<p>La solución es generar un arreglo con el índice <span class="math">\(i\)</span> de antemano:</p>
 <pre><code class="language-python">i = np.arange(len(x))
 print(i)
 np.sum(np.cos(x) * i)

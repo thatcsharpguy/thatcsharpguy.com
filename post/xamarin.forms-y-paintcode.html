@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 </code></pre>
 <p>Ahora vamos a volver por un momento a PaintCode para recuperar el código del dibujo. En el panel de exportación de código asegúrate de que esté seleccionado &quot;iOS &gt; C# Xamarin&quot;</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/12codeSelection.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/12codeSelection.png&quot; title=<cite>Selección de código C# Xamarin</cite> /&gt;</p>
 <p>Y copia todo hacia la clase que acabas de crear, tal vez tengas que agregar un par de referencias para que compile. Ya por último, sobrescribe el método <code>Draw</code> y dentro de él llama al método que acabas de copiar (en mi caso se llama <code>DrawSharpCanvas</code> por el nombre que le puse al canvas al inicio de este post), pasándole el color de relleno y las dimensiones del <em>frame</em>:</p>
 <pre><code class="language-csharp">    public override void Draw(CGRect rect)
     {
@@ -670,7 +670,7 @@ namespace SharpPaintCode.iOS.Controls
     }
 </code></pre>
 <p>Ahora, atención: PaintCode aún no tiene soporte para Xamarin.Android, pero en realidad no importa mucho, puesto que la diferencia entre Java y C# con Xamarin no es mucha. Para comenzar, en PaintCode asegúrate de seleccionar &quot;Android &gt; Java&quot;:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/13androidJava.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/13androidJava.png&quot; title=<cite>Selección de código C# Xamarin</cite> /&gt;</p>
 <p>Ahora, en tu proyecto de Android crea una nueva clase llamada <code>SharpKit</code>, borra el contenido luego copia en ella todo el código que te aparece en el panel de PaintCode una vez que seleccionaste &quot;Android &gt; Java&quot;... un montón de errores, ¿cierto? Ahora primero deshazte de la declaración <code>package</code> y de todos los <code>import</code>, si quieres, mete en un <em>namespace</em> la clase que queda.</p>
 <p>Ahora, añade los siguientes <code>using</code> hasta arriba del archivo:</p>
 <pre>

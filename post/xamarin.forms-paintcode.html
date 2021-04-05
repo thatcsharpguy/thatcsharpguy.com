@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 </code></pre>
 <p>Now, lets go back to PaintCode for a second, we need to retrieve the drawing's code. In the export panel make sure that &quot;iOS &gt; C# Xamarin&quot; is selected:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/12codeSelection.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/12codeSelection.png&quot; title=<cite>Selección de código C# Xamarin</cite> /&gt;</p>
 <p>Once selected, copy all lines of code to this newly created class. You may need to add a couple of <code>using</code> sentences for it to compile. To finish, override the <code>OnDraw</code> method, in it call the method you've just copied from PaintCode (in this case it is called <code>DrawSharpCanvas</code>), and pass the fill color and the frame dimensions to it as parameters:</p>
 <pre><code class="language-csharp">    public override void Draw(CGRect rect)
     {
@@ -670,7 +670,7 @@ namespace SharpPaintCode.iOS.Controls
     }
 </code></pre>
 <p>Now, again, pay attention to this following step: PaintCode doesn't support Xamarin.Android yet, but for us it makes no difference as Java and Xamarin's C# are similar enough to translate it ourselves. To star, open again PaintCode and make sure &quot;Android &gt; Java&quot; is selected in the export code panel:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/13androidJava.png&quot; title=<>Selección de código C# Xamarin</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/xamarin-forms/paintcode/13androidJava.png&quot; title=<cite>Selección de código C# Xamarin</cite> /&gt;</p>
 <p>Now, inside the Android project, create a new class called <code>SharpKit</code>, wipe all the boilerplate code and paste in it the code from PaintCode, there should be a ton of errors, but don't worry, all you have to do is remove the <code>package</code> declaration, erase all the <code>import</code> lines and, if you feel like, put the remaining clas into a C# <em>namespace</em>.</p>
 <p>Then, add the following <code>using</code> statements at the top of the file:</p>
 <pre>

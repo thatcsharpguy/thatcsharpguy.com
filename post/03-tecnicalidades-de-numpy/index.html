@@ -604,9 +604,9 @@ from df.array_internals import show_array_details
 <p>El <em>truco</em> detrás de la implementación de los arreglos es el uso de algo llamado <em>zancada (!???!)</em> o <b><i>stride</i></b> en inglés. Estas <em>strides</em> especifican cómo es que se debe indexar el arreglo. Hay un <em>stride</em> por cada dimensión.</p>
 <p>Se llama zancada porque se usa para especificar qué tan grande es el <em>&quot;paso&quot; en bytes</em> que se debe dar para acceder a cada uno de los elementos; y este es el truco que le permite a <em>NumPy</em> mantener el arreglo como una sola secuencia plana de números:</p>
 <img src="/assets/03/flat_with_strides@1x.png" />
-<p>Es más claro cuando vemos este concepto aplicado a un arreglo de dos dimensiones, para calcular la ubicación en memoria de el elemento en la posición [, ] se puede usar la fórmula:</p>
+<p>Es más claro cuando vemos este concepto aplicado a un arreglo de dos dimensiones, para calcular la ubicación en memoria de el elemento en la posición [<span class="math">\(i\)</span>, <span class="math">\(j\)</span>] se puede usar la fórmula:</p>
 <img src="/assets/03/2d_with_strides@1x.png" />
-<p></p>
+<p><span class="math">\(location = i * stride_0 + j * stride_1\)</span></p>
 <p>Podemos generalizar esta idea para arreglos de 3, 4 y demás dimensiones.</p>
 <h3 id="transformaciones-rigidas">Transformaciones rígidas</h3>
 <pre><code class="language-python">base = np.zeros((3, 4), dtype=np.float32)
@@ -684,42 +684,66 @@ Bits:       32
 <h4 id="enteros">Enteros</h4>
 <p>Los enteros representan números sin partes fraccionales; hay de dos tipos: con signo y si signo. La representación de ellos es en forma de una cadena binaria.</p>
 <p>Aquí una tabla con los detalles sobre algunos de estos números:</p>
-<p>Nombre</p>
-<p>bytes</p>
-<p>Mínimo</p>
-<p>Máximo</p>
-<p>int8</p>
-<p>1</p>
-<p>-128</p>
-<p>127</p>
-<p>uint8</p>
-<p>1</p>
-<p>0</p>
-<p>255</p>
-<p>int16</p>
-<p>2</p>
-<p>-32,768</p>
-<p>32,767</p>
-<p>uint16</p>
-<p>2</p>
-<p>0</p>
-<p>65,535</p>
-<p>int32</p>
-<p>4</p>
-<p>-2,147,483,648</p>
-<p>2,147,483,647</p>
-<p>uint32</p>
-<p>4</p>
-<p>0</p>
-<p>4,294,967,295</p>
-<p>int64</p>
-<p>8</p>
-<p>-9,223,372,036,854,775,808</p>
-<p>+9,223,372,036,854,775,807</p>
-<p>uint64</p>
-<p>8</p>
-<p>0</p>
-<p>18,446,744,073,709,551,615</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>bytes</th>
+<th>Mínimo</th>
+<th>Máximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int8</td>
+<td>1</td>
+<td>-128</td>
+<td>127</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>1</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>2</td>
+<td>-32,768</td>
+<td>32,767</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>2</td>
+<td>0</td>
+<td>65,535</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>4</td>
+<td>-2,147,483,648</td>
+<td>2,147,483,647</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>4</td>
+<td>0</td>
+<td>4,294,967,295</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>8</td>
+<td>-9,223,372,036,854,775,808</td>
+<td>+9,223,372,036,854,775,807</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>8</td>
+<td>0</td>
+<td>18,446,744,073,709,551,615</td>
+</tr>
+</tbody>
+</table>
 <h5 id="desbordamiento">Desbordamiento</h5>
 <p>Si una operación se sale de los límites del número entero del tipo de dato ocurre un desbordamiento o <em>overflow</em>. En muchos sistemas el número simplemente va a reinciar desde el valor más pequeño:</p>
 <pre><code class="language-python">int_array = np.array([100, 110, 120], dtype=np.int8)
@@ -743,54 +767,72 @@ print(uint_array + 150)
 <h3 id="ieee-754">IEEE 754</h3>
 <p>La forma más común de representar números de punto flotante es el estandar <em>IEEE 754</em>, que especifica una forma de representar números y representaciones específicas para representar números &quot;especiales&quot;.</p>
 <p>Este es un resumen de los tipos definidos:</p>
-<p>Name</p>
-<p>Nombre común</p>
-<p>Base</p>
-<p>Mantissa</p>
-<p>Bits del exponente</p>
-<p>Sesgo exponente</p>
-<p></p>
-<p></p>
-<p>binary16</p>
-<p>Precisión media</p>
-<p>2</p>
-<p>11</p>
-<p>5</p>
-<p>2^4−1 = 15</p>
-<p>−14</p>
-<p>+15</p>
-<p><strong>binary32</strong></p>
-<p>Precisión simple</p>
-<p>2</p>
-<p>24</p>
-<p>8</p>
-<p>2^7−1 = 127</p>
-<p>−126</p>
-<p>+127</p>
-<p><strong>binary64</strong></p>
-<p>Precisión doble</p>
-<p>2</p>
-<p>53</p>
-<p>11</p>
-<p>2^10−1 = 1023</p>
-<p>−1022</p>
-<p>+1023</p>
-<p>binary128</p>
-<p>Precisión cuádruple</p>
-<p>2</p>
-<p>113</p>
-<p>15</p>
-<p>2^14−1 = 16383</p>
-<p>−16382</p>
-<p>+16383</p>
-<p>binary256</p>
-<p>Precision óctuple</p>
-<p>2</p>
-<p>237</p>
-<p>19</p>
-<p>2^18−1 = 262143</p>
-<p>−262142</p>
-<p>+262143</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Nombre común</th>
+<th>Base</th>
+<th>Mantissa</th>
+<th>Bits del exponente</th>
+<th>Sesgo exponente</th>
+<th><span class="math">\(E_{min}\)</span></th>
+<th><span class="math">\(E_{max}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>binary16</td>
+<td>Precisión media</td>
+<td>2</td>
+<td>11</td>
+<td>5</td>
+<td>2^4−1 = 15</td>
+<td>−14</td>
+<td>+15</td>
+</tr>
+<tr>
+<td><strong>binary32</strong></td>
+<td>Precisión simple</td>
+<td>2</td>
+<td>24</td>
+<td>8</td>
+<td>2^7−1 = 127</td>
+<td>−126</td>
+<td>+127</td>
+</tr>
+<tr>
+<td><strong>binary64</strong></td>
+<td>Precisión doble</td>
+<td>2</td>
+<td>53</td>
+<td>11</td>
+<td>2^10−1 = 1023</td>
+<td>−1022</td>
+<td>+1023</td>
+</tr>
+<tr>
+<td>binary128</td>
+<td>Precisión cuádruple</td>
+<td>2</td>
+<td>113</td>
+<td>15</td>
+<td>2^14−1 = 16383</td>
+<td>−16382</td>
+<td>+16383</td>
+</tr>
+<tr>
+<td>binary256</td>
+<td>Precision óctuple</td>
+<td>2</td>
+<td>237</td>
+<td>19</td>
+<td>2^18−1 = 262143</td>
+<td>−262142</td>
+<td>+262143</td>
+</tr>
+</tbody>
+</table>
 <h4 id="simples-y-dobles">Simples y dobles</h4>
 <p>Remarcadas en la tabla de arriba están las precisiones simple y dobles, puesto que estas son las más comunes en la actualidad. Como te podrás imaginar, <strong>float32</strong> ocupa 32 bits (4 bytes) por número y <strong>float64</strong> usa 64 bits (8 bytes) por número.</p>
 <p>Inclusive las GPUs de la actualidad siguen usando <strong>float32</strong> por default, algunas llegan a <strong>float64</strong>, pero la verdadera rapidez proviene de usar el número de 32 bits.</p>
@@ -809,7 +851,7 @@ print(uint_array + 150)
 <li>Exponente</li>
 </ul>
 <p>Para reconstruir un número flotante a partir de estos tres números debemos seguir la siguiente fórmula:</p>
-<p></p>
+<p><span class="math">\(signo \times (1 + mantissa) \times 2^{exponente}\)</span></p>
 <h3 id="flotantes">Flotantes</h3>
 <pre><code class="language-python">show_float(1.0)
 </code></pre>
@@ -855,7 +897,7 @@ print(uint_array + 150)
 Infinite/NaN
 </code></pre>
 <h3 id="enteros-1">Enteros</h3>
-<p>Recordemos que para <strong>float64</strong> el tamaño de la mantissa es de 53 bits, lo cual significa que cualquier entero en los rangos  to  es representable. Números fuera de este rango no son representados exactamente.</p>
+<p>Recordemos que para <strong>float64</strong> el tamaño de la mantissa es de 53 bits, lo cual significa que cualquier entero en los rangos <span class="math">\(-2^{53}\)</span> to <span class="math">\(2^{53}\)</span> es representable. Números fuera de este rango no son representados exactamente.</p>
 <pre><code class="language-python">entero = 2 ** 53 - 1
 show_float(1.0 * entero)
 print(entero)
@@ -898,7 +940,7 @@ print(entero)
 <h3 id="errores">Errores</h3>
 <p>Cuando operamos con números flotantes podemos provocar errores <strong>a nivel de hardware</strong>:</p>
 <ul>
-<li><strong>Operación inválida</strong>: cuando provocamos una operación sin un valor definido: , </li>
+<li><strong>Operación inválida</strong>: cuando provocamos una operación sin un valor definido: <span class="math">\(\frac{0}{0}\)</span>, <span class="math">\(\sqrt{-1}\)</span></li>
 <li><strong>División entre cero</strong>: ...</li>
 <li><strong>Underflow</strong>: cuando el resultado de una operación es más pequeño que el número más pequeño que se puede representar (usualmente el resultado se redondea a cero)</li>
 <li><strong>Overflow</strong>: cuando el resultado de una operación es más grande que el número más grande que se puede representar.</li>
@@ -980,11 +1022,11 @@ Infinite/NaN
 <h3 id="no-es-un-numero-nan-not-a-number">No es un número - NaN (<em>Not A Number</em>)</h3>
 <p>Otro número muy especial, usado para representar valores inválidos:</p>
 <ul>
-<li></li>
-<li></li>
-<li> o </li>
-<li></li>
-<li> para toda </li>
+<li><span class="math">\(\frac{0}{0}\)</span></li>
+<li><span class="math">\(\frac{\infty}{\infty}\)</span></li>
+<li><span class="math">\(\infty - \infty\)</span> o <span class="math">\(-\infty + \infty\)</span></li>
+<li><span class="math">\(0 \times \infty\)</span></li>
+<li><span class="math">\(\sqrt(x)\)</span> para toda <span class="math">\(x &lt; 0\)</span></li>
 </ul>
 <pre><code class="language-python">show_float(-np.nan)
 </code></pre>
@@ -1044,9 +1086,9 @@ Infinite/NaN
 <h3 id="algunas-reglas">Algunas reglas...</h3>
 <p>El redondeo en números flotantes es un problema que para la mayoría de aplicaciones no es tan grande; aún así existen algunas cosas que podemos hacer para mitigarlo a la hora de escribir código:</p>
 <ul>
-<li><strong>Error de magnitud</strong>: evita sumas  donde  e  sean de magnitudes diferentes.</li>
-<li><strong>Error de magnificación</strong>: evita divisiones  en donde  sea muy pequeña.</li>
-<li><strong>Error de cancelación</strong>: evita restas  en donde </li>
+<li><strong>Error de magnitud</strong>: evita sumas <span class="math">\(x + y\)</span> donde <span class="math">\(x\)</span> e <span class="math">\(y\)</span> sean de magnitudes diferentes.</li>
+<li><strong>Error de magnificación</strong>: evita divisiones <span class="math">\(\frac{x}{y}\)</span> en donde <span class="math">\(y\)</span> sea muy pequeña.</li>
+<li><strong>Error de cancelación</strong>: evita restas <span class="math">\(x - y\)</span> en donde <span class="math">\(x \simeq y\)</span></li>
 </ul>
 <pre><code class="language-python">(1e30 + 1.0) - 1e30
 </code></pre>
@@ -1070,7 +1112,7 @@ print(x - z)
 -1.4551970739518083e-12
 </code></pre>
 <p>La solución es usar la diferencia absoluta comparada contra un determinado valor muy pequeño:</p>
-<p></p>
+<p><span class="math">\(|x-z|&lt;\epsilon\)</span></p>
 <pre><code class="language-python">x = 0.1
 y = 50000.0
 z = 0.1

@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 </code></pre>
 <p>Es hora de copiarlo en el directorio desde el que serán cargados e iniciar Visual Studio (hasta el día de hoy sigue siendo necesario reiniciar el IDE cada vez que cambiamos un <em>snippet</em>).</p>
 <p>Entonces al escribir en un archivo de código C# el atajo <code>love</code> y presionar <kbd>tab</kbd> <kbd>tab</kbd>, sucede esto:</p>
-<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/code-snippets/love.gif&quot; title=<>I love C#</> /&gt;</p>
+<p>&lt;img src=&quot;https://thatcsharpguy.github.io/postimages/code-snippets/love.gif&quot; title=<cite>I love C#</cite> /&gt;</p>
 <p>Vamos a crear algo un poco más complejo, algo que permita reemplazar valores dentro del fragmento de código, como el caso de <code>prop</code>, para realizar la tarea puedes seguir trabajando con el archivo que tienes, o <a target="_blank" rel="nofollow" href="https://raw.githubusercontent.com/fferegrino/fantastic-broccoli/master/sample-2.snippet">descargar este otro</a>.</p>
 <p>Lo importante es añadir un hijo llamado <code>Declarations</code> como hijo de <code>Snippet</code>. Dentro de <code>Declarations</code> es donde debemos definir los reemplazos que vamos a necesitar. Existen dos tipos de reemplazos <code>Literal</code> y <code>Object</code>, por ahora vamos a quedarnos solo con <code>Literal</code>, así que añade un elemento d este tipo dentro de <code>Declarations</code>, a su vez, <code>Literal</code> debe tener como hijos los elementos <code>ID</code> y <code>Default</code>. Suena bastante complicado... y por eso pongo un ejemplo de lo que digo:</p>
 <pre><code class="language-xml">&lt;CodeSnippet Format=&quot;1.0.0&quot;&gt;
