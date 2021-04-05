@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "04: Haciendo buenas gráficas"
-date: 2021-03-27 14:00:00
+date: 2021-04-03 14:00:00
 summary: "Vamos a ver cuáles son las partes de una buena gráfica; y ver algunas herramientas como Matplotlib y Seaborn"
 image: http://i3.ytimg.com/vi/7vZY6JdswKs/maxresdefault.jpg
 tags: data fundamentals, data science, machine learning

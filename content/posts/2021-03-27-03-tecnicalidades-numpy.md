@@ -241,7 +241,7 @@ Este es un resumen de los tipos definidos:
 | **binary32** | Precisión simple    | 2    | 24       | 8                  | 2^7−1 = 127     | −126      | +127      |
 | **binary64** | Precisión doble     | 2    | 53       | 11                 | 2^10−1 = 1023   | −1022     | +1023     |
 | binary128    | Precisión cuádruple | 2    | 113      | 15                 | 2^14−1 = 16383  | −16382    | +16383    |
-| binary256    | Precision óctuple   | 2    | 237      | 19                 | 2^18−1 = 262143 | −262142   | +262143   |
+| binary256    | Precision óctuple   | 2    | 237      | 19                 | 2^18−1 = 262143 | −262142   | +262143   |  
 
 #### Simples y dobles
 
