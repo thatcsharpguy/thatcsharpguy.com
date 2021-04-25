@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c"></meta>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2176ff">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ffffff">
+<title>06: Matrices - Álgebra Lineal | That C# guy</title>
+<!-- Search Engine -->
+<meta name="description" content="Vamos a ver un poco de álgebra lineal aplicada a matrices">
+<meta name="image" content="http://i3.ytimg.com/vi/Vdn-8j8yFSk/maxresdefault.jpg">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="06: Matrices - Álgebra Lineal">
+<meta itemprop="description" content="Vamos a ver un poco de álgebra lineal aplicada a matrices">
+<meta itemprop="image" content="http://i3.ytimg.com/vi/Vdn-8j8yFSk/maxresdefault.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="06: Matrices - Álgebra Lineal">
+<meta name="twitter:description" content="Vamos a ver un poco de álgebra lineal aplicada a matrices">
+<meta name="twitter:site" content="@thatcsharpguy">
+<meta name="twitter:creator" content="@io_exception">
+<meta name="twitter:image" content="http://i3.ytimg.com/vi/Vdn-8j8yFSk/maxresdefault.jpg">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="06: Matrices - Álgebra Lineal">
+<meta name="og:description" content="Vamos a ver un poco de álgebra lineal aplicada a matrices">
+<meta name="og:image" content="http://i3.ytimg.com/vi/Vdn-8j8yFSk/maxresdefault.jpg">
+<meta name="og:url" content="https://thatcsharpguy.com/post/06-matrices-algebra-lineal">
+<meta name="og:site_name" content="That C# guy">
+<meta name="og:locale" content="es">
+<meta name="og:type" content="website">
+  <script src="https://kit.fontawesome.com/0271495296.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400;1,800&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css"> -->
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: ;
+    background-color: ;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: ;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+</head>
+
+
+  <body>
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+
+      <span class="site-brand">
+<a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="That C# guy" src="" onerror="this.style.display='none'">
+  That C# guy
+</a>
+      </span>
+
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+            <a class="page-link" href="https://github.com/fferegrino">GitHub</a>
+            <a class="page-link" href="https://twitter.com/io_exception">Twitter</a>
+            <a class="page-link" href="https://youtube.com/thatcsharpguy">YouTube</a>
+            <a class="page-link" href="https://tcsg.dev/discord">Discord</a>
+
+            <span class="page-link">
+
+  <div id="google_translate_element" style="display: none;"></div>
+  <span class="ct-language">
+     <ul class="list-unstyled ct-language-dropdown">
+       <li>
+          <a href="#" class="lang-select" data-lang="es">
+          <img src="https://www.countryflags.io/mx/flat/64.png" title="México">
+          </a>
+       </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="en">
+           <img src="https://www.countryflags.io/gb/flat/64.png" title="English">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="fr">
+           <img src="https://www.countryflags.io/fr/flat/64.png" title="Franch">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="zh-CN">
+           <img src="https://www.countryflags.io/cn/flat/64.png" title="Chinese(Simple)">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ja">
+           <img src="https://www.countryflags.io/jp/flat/64.png" title="Japan">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ko">
+           <img src="https://www.countryflags.io/kr/flat/64.png" title="Korean">
+           </a>
+        </li>
+        <li>
+           <a href="#" class="lang-select" data-lang="ru">
+           <img src="https://www.countryflags.io/ru/flat/64.png" title="Russia">
+           </a>
+        </li>
+     </ul>
+  </span>
+  <script type="text/javascript">
+     function googleTranslateElementInit() {
+       new google.translate.TranslateElement({
+         pageLanguage: '',
+         autoDisplay: false,
+         layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+       }, 'google_translate_element');
+     
+       function restoreLang() {
+         var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+         if (!iframe) return;
+     
+         var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+         var restore_el = innerDoc.getElementsByTagName("button");
+     
+         for (var i = 0; i < restore_el.length; i++) {
+           if (restore_el[i].id.indexOf("restore") >= 0) {
+             restore_el[i].click();
+             var close_el = innerDoc.getElementsByClassName("goog-close-link");
+             close_el[0].click();
+             return;
+           }
+         }
+       }
+     
+       function triggerHtmlEvent(element, eventName) {
+         var event;
+         if (document.createEvent) {
+           event = document.createEvent('HTMLEvents');
+           event.initEvent(eventName, true, true);
+           element.dispatchEvent(event);
+         } else {
+           event = document.createEventObject();
+           event.eventType = eventName;
+           element.fireEvent('on' + event.eventType, event);
+         }
+       }
+     
+       var googleCombo = document.querySelector("select.goog-te-combo");
+       var langSelect = document.querySelector('.ct-language');
+       langSelect.addEventListener('click', function(event) {
+         if (!event.target) {
+           return;
+         }
+     
+         var selected = document.querySelector('.ct-language .ct-language-selected');
+         if (selected) {
+           selected.classList.remove('ct-language-selected');
+         }
+     
+         var target = event.target;
+         while (target && target !== langSelect ) {
+           if (target.matches('.lang-select')) {
+             break;
+           }
+           target = target.parentElement;
+         }
+     
+         if (target && target.matches('.lang-select')) {
+           var lang = target.getAttribute('data-lang');
+           if (lang == "es") {
+             restoreLang();
+           } else {
+             target.parentElement.classList.add('ct-language-selected');
+             googleCombo.value = lang;
+             triggerHtmlEvent(googleCombo, 'change');
+           }
+         }
+     
+         event.preventDefault();
+       });
+     }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>            </span>
+            
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;
+
+
+      var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light"><i class="fas fa-sun"></i></p>
+      <p class="dark"><i class="fas fa-moon"></i></p>
+    </div>
+  </label>
+</div>
+
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<div class="framework">
+  <section class="main">
+     
+<div class="post">
+  <section>
+    
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">06: Matrices - &#193;lgebra Lineal</h1>
+  <!-- <h3 class="post-subtitle">Ingenier&#237;a de software + Ciencia de datos + MLOps</h3> -->
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="" itemprop="datePublished">
+      <i class="fas fa-calendar"></i> April 24, 2021
+    </time>
+    
+    <span class="post-reading-time left-vsplit"><i class="fas fa-user"></i> Antonio Feregrino</span>
+  </p>
+
+  <div class="post-tags">
+    <!-- <a class="post-tag" href="/tag/data-fundamentals">#data-fundamentals</a> -->
+    <a class="post-tag" href="#">#data-fundamentals</a>
+    <!-- <a class="post-tag" href="/tag/data-science">#data-science</a> -->
+    <a class="post-tag" href="#">#data-science</a>
+    <!-- <a class="post-tag" href="/tag/machine-learning">#machine-learning</a> -->
+    <a class="post-tag" href="#">#machine-learning</a>
+  </div>
+
+</header>
+
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="post-content e-content" itemprop="articleBody">
+         
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/Vdn-8j8yFSk">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="paquetes">Paquetes</h2>
+<ul>
+<li><code>numpy</code></li>
+<li><code>pandas</code></li>
+<li><code>matplotlib</code></li>
+<li><code>scikit-learn</code></li>
+</ul>
+<pre><code class="language-python">import numpy as np
+import pandas as pd
+import random
+import matplotlib.pyplot as plt
+from df.display_algebra import draw_covariance_ellipse
+</code></pre>
+<h2 id="descomposicion-matricial">Descomposición matricial</h2>
+<p>¿Recuerdas los factores primos? recuerdas que un número puede ser obtenido a partir de sus factores primos, por ejemplo:</p>
+<p><span class="math">\(42 = 2 \times 3 \times 7\)</span></p>
+<p>Este proceso se conoce como descomposición matemática. Como el título de esta sección lo indica, las matrices también se pueden descomponer de esta manera en objetos relativamente más simples.</p>
+<p>Estas descomposiciones pueden ser usadas para diversos fines:</p>
+<ul>
+<li>Análisis de datos representados como matrices</li>
+<li>Ejecución eficiente de operaciones matriciales</li>
+</ul>
+<p>En ejemplos más tangibles: podemos usar descomposiciones para <a href="https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf">sistemas de recomendación</a>, <a href="https://www.maa.org/press/periodicals/loci/joma/the-linear-algebra-behind-search-engines-an-advanced-vector-space-model-lsi">motores de búsqueda</a>, <a href="http://timbaumann.info/svd-image-compression-demo/">compresión de imágenes</a>, <a href="http://openimaj.org/tutorial/eigenfaces.html">reconocimiento facial</a>, y <a href="https://heartbeat.fritz.ai/applications-of-matrix-decompositions-for-machine-learning-f1986d03571a">otras aplicaciones</a>.</p>
+<h3 id="puntos-fijos">Puntos fijos</h3>
+<p>Supongamos que tenemos un punto <span class="math">\(x\)</span>, tal que si le aplicamos una función <span class="math">\(f\)</span>, el resultado es <span class="math">\(x\)</span>. Es decir si:</p>
+<p><span class="math">\(f(x) = x\)</span></p>
+<p>Podemos decir que <span class="math">\(x\)</span> es un punto fijo de <span class="math">\(f\)</span>. Por ejemplo, supongamos que <span class="math">\(f(x) = x^2\)</span>:</p>
+<ul>
+<li>Cuando <span class="math">\(x = 0\)</span>, <span class="math">\(f(x) = 0\)</span></li>
+<li>Cuando <span class="math">\(x = 1\)</span>, <span class="math">\(f(1) = 1\)</span></li>
+</ul>
+<p>Tanto <span class="math">\(x = 0\)</span> como <span class="math">\(x = 1\)</span> son considerados puntos fijos de <span class="math">\(x^2\)</span>.</p>
+<blockquote>
+<p>🤔 existen dos tipos de puntos fijos: estables y no estables. Se dice que un punto fijo es estable si cualquier valor en su vecindad hace que la función se acerque al punto fijo, mientras que se dice que uno no es estable si cualquier valor en su vecindad hace que la función se aleje de este.</p>
+</blockquote>
+<p>Podemos obtener los puntos fijos de una función de manera <em>ingenua</em> eligiendo un valor aleatorio <span class="math">\(x\)</span> y aplicando sucesivamente la regla <span class="math">\(x_t=f(x_{t-1})\)</span> hasta llegar a un punto estable, ese es tu punto fijo:</p>
+<pre><code class="language-python">def find_fixed_point(f, r, eps=1e-5):
+
+    fr = f(r)
+    history = [(r, fr)]
+    # ¿Ya dejamos de movernos?
+    while np.abs(fr - r) &gt; eps and np.abs(fr) &lt; np.inf:
+        r = fr
+        fr = f(r)
+        history.append((r, fr))
+
+    return fr, np.array(history)
+</code></pre>
+<pre><code class="language-python">def function(x):
+    return np.cos(x)
+
+
+r = np.random.uniform(-5, 5)  # random starting point
+fixed, history = find_fixed_point(function, r)
+
+print(f&quot;Punto fijo {fixed:0.5}&quot;)
+print(f&quot;f({fixed:0.5}) = {function(fixed):0.5}&quot;)
+</code></pre>
+<pre><code>Punto fijo 0.73908
+f(0.73908) = 0.73909
+</code></pre>
+<h2 id="eigen.que">Eigen.. ¿qué?</h2>
+<p>De cierto modo, cada matriz representan una función conocida como <a href="https://es.wikipedia.org/wiki/Aplicaci%C3%B3n_lineal">aplicación lineal</a>, dentro de las aplicaciones lineales existen las [transformaciones lineales] que transforman elementos entre espacios vectoriales.</p>
+<h3 id="eigenvalores-y-eigenvectores">Eigenvalores y eigenvectores</h3>
+<p>Si bien las transformaciones lineales tienen puntos fijos, existen valores análogos, y aún más interesantes para analizar de una matriz:</p>
+<ul>
+<li><strong>Eigenvectores</strong></li>
+<li><strong>Eigenvalores</strong></li>
+</ul>
+<blockquote>
+<p><strong>eigen</strong> = propio (o característico).</p>
+</blockquote>
+<h4 id="metodo-de-las-potencias">Método de las potencias</h4>
+<p>Vamos a tomar una matriz cuadrada <span class="math">\(A\)</span> y aplicarla a un vector aleatorio <span class="math">\(\vec{x}\)</span>, al resultado volverle a aplicar <span class="math">\(A\)</span> y luego volverle a aplicar <span class="math">\(A\)</span>... es decir, calculamos:</p>
+<p><span class="math">\(AAA \dots AA\vec{x}\)</span>
+<span class="math">\(A^n\vec{x}\)</span></p>
+<p>En la práctica esto causaría que el resultado crezca hasta infinito o colapse a cero. Podemos normalizar el resultado hacer algo para contrarrestar este efecto:</p>
+<p><span class="math">\(\begin{equation}x_n = \frac{Ax_{n-1}}{\|Ax_{n-1}\|_\infty}\end{equation}\)</span></p>
+<p>El resultado a cada paso será forzado a ser un vector unitario usando al norma mínima <span class="math">\(L_\infty\)</span>. Finalmente, a este método lo vamos a conocer como el <strong>método de las potencias</strong> o <em>power iteration method</em>.</p>
+<pre><code class="language-python">def power_iterate(A, x, n):
+    for i in range(n):
+        x = A @ x  # multiply
+        x = x / np.linalg.norm(x, np.inf)  # normalize
+
+    return x / np.linalg.norm(x, 2)
+</code></pre>
+<p>Comencemos con nuestra matriz <span class="math">\(A\)</span>:</p>
+<pre><code class="language-python">A = np.random.normal(0, 1, (2, 2))
+print(A)
+</code></pre>
+<pre><code>[[ 0.71243771  1.2818496 ]
+ [ 1.32566962 -0.61522188]]
+</code></pre>
+<p>Seguimos con un vector cualquiera:</p>
+<pre><code class="language-python">cualquiera = np.random.normal(0, 3, (2,))
+print(cualquiera)
+</code></pre>
+<pre><code>[0.99530246 0.09380106]
+</code></pre>
+<pre><code class="language-python"># El vector resultante -casi siempre- es el mismo
+eigenvector = power_iterate(A, cualquiera, n=500)
+print(eigenvector)
+</code></pre>
+<pre><code>[0.84862822 0.52898974]
+</code></pre>
+<p>Este vector es conocido como el <strong>eigenvector principal</strong>, y es una característica de la matriz.</p>
+<p>La matriz <span class="math">\(A\)</span> toma nuestro vector y la única transformación que le hace es escalarlo (hacerlo más grande) sin rotaciones ni sesgos.</p>
+<p>Para calcular el factor de escalamiento podemos...</p>
+<pre><code class="language-python">ratio = (A @ eigenvector) / eigenvector
+eigenvalue = ratio[0]  # Todos los elementos tienen el mismo valor.
+print(eigenvalue)
+</code></pre>
+<pre><code>1.5114746452729027
+</code></pre>
+<p>El escalar que ves más arriba es conocido como el <strong>eigenvalor principal</strong>, llamémoslo <span class="math">\(\lambda\)</span> por el momento, y satisface esta ecuación:</p>
+<p><span class="math">\(A\vec{x}_i = \lambda_i\vec{x}_i\)</span></p>
+<pre><code class="language-python">uno = A @ eigenvector
+dos = eigenvector * eigenvalue
+
+np.allclose(uno, dos)
+</code></pre>
+<pre><code>True
+</code></pre>
+<p>Cada vector <span class="math">\(\vec{x}_i\)</span> que satisfaga la ecuación es un <strong>eigenvector</strong> y cada <span class="math">\(\lambda_i\)</span> que cumpla esta ecuación es un <strong>eigenvalue</strong>. Estos elementos vienen en pares.</p>
+<h3 id="otros-eigenvalores">Otros eigenvalores</h3>
+<p>El método de las potencias nos ayuda a encontrar <strong>un solo</strong> vector, sin embargo pueden existir múltiples pares de <strong>eigen cosas</strong>, para encontrar los otros, podemos seguir este algoritmo:</p>
+<h4 id="encontrar-mas-valores">Encontrar más valores...</h4>
+<p>Mientras tanto en NumPy...</p>
+<pre><code class="language-python">evals, evecs = np.linalg.eig(A)
+print(evals[0])
+print(evecs[:, 0])
+</code></pre>
+<pre><code>1.5114746452729062
+[0.84862822 0.52898974]
+</code></pre>
+<h2 id="el-espectro.eigenspectro">El espectro... <em>eigenspectro</em>.</h2>
+<p>A la secuencia eigenvalores ordenados por su valor absoluto se le conoce como el eigenespectro de una matriz; esto nos puede ayudar a encontrar versiones simplificadas de nuestras matrices.</p>
+<p>Supongamos que tenemos un dataset de 18K jugadores de fútbol:</p>
+<pre><code class="language-python">fifa19 = pd.read_csv(&quot;assets/06/fifa19.csv&quot;)
+# https://fifauteam.com/fifa-19-attributes-guide/
+
+attributes = [
+    &quot;Acceleration&quot;,
+    &quot;SprintSpeed&quot;,  # Pace
+    &quot;Finishing&quot;,
+    &quot;LongShots&quot;,
+    &quot;Penalties&quot;,
+    &quot;Positioning&quot;,
+    &quot;ShotPower&quot;,
+    &quot;Volleys&quot;,  # Shooting
+    &quot;Crossing&quot;,
+    &quot;Curve&quot;,
+    &quot;FKAccuracy&quot;,
+    &quot;LongPassing&quot;,
+    &quot;ShortPassing&quot;,
+    &quot;Vision&quot;,  # Passing
+    &quot;Agility&quot;,
+    &quot;Balance&quot;,
+    &quot;BallControl&quot;,
+    &quot;Composure&quot;,
+    &quot;Dribbling&quot;,
+    &quot;Reactions&quot;,  # Dribbling
+    &quot;HeadingAccuracy&quot;,
+    &quot;Interceptions&quot;,
+    &quot;Marking&quot;,
+    &quot;SlidingTackle&quot;,
+    &quot;StandingTackle&quot;,  # Defending
+    &quot;Aggression&quot;,
+    &quot;Jumping&quot;,
+    &quot;Stamina&quot;,
+    &quot;Strength&quot;,  # Physical
+    # 'GKDiving', 'GKHandling', 'GKKicking', 'GKPositioning', 'GKReflexes', # Goalkeeping
+]
+
+player_stats = fifa19[attributes].copy().fillna(axis=&quot;index&quot;, method=&quot;backfill&quot;)
+player_stats.head()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Acceleration</th>
+      <th>SprintSpeed</th>
+      <th>Finishing</th>
+      <th>LongShots</th>
+      <th>Penalties</th>
+      <th>Positioning</th>
+      <th>ShotPower</th>
+      <th>Volleys</th>
+      <th>Crossing</th>
+      <th>Curve</th>
+      <th>...</th>
+      <th>Reactions</th>
+      <th>HeadingAccuracy</th>
+      <th>Interceptions</th>
+      <th>Marking</th>
+      <th>SlidingTackle</th>
+      <th>StandingTackle</th>
+      <th>Aggression</th>
+      <th>Jumping</th>
+      <th>Stamina</th>
+      <th>Strength</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>91.0</td>
+      <td>86.0</td>
+      <td>95.0</td>
+      <td>94.0</td>
+      <td>75.0</td>
+      <td>94.0</td>
+      <td>85.0</td>
+      <td>86.0</td>
+      <td>84.0</td>
+      <td>93.0</td>
+      <td>...</td>
+      <td>95.0</td>
+      <td>70.0</td>
+      <td>22.0</td>
+      <td>33.0</td>
+      <td>26.0</td>
+      <td>28.0</td>
+      <td>48.0</td>
+      <td>68.0</td>
+      <td>72.0</td>
+      <td>59.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>89.0</td>
+      <td>91.0</td>
+      <td>94.0</td>
+      <td>93.0</td>
+      <td>85.0</td>
+      <td>95.0</td>
+      <td>95.0</td>
+      <td>87.0</td>
+      <td>84.0</td>
+      <td>81.0</td>
+      <td>...</td>
+      <td>96.0</td>
+      <td>89.0</td>
+      <td>29.0</td>
+      <td>28.0</td>
+      <td>23.0</td>
+      <td>31.0</td>
+      <td>63.0</td>
+      <td>95.0</td>
+      <td>88.0</td>
+      <td>79.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>94.0</td>
+      <td>90.0</td>
+      <td>87.0</td>
+      <td>82.0</td>
+      <td>81.0</td>
+      <td>89.0</td>
+      <td>80.0</td>
+      <td>84.0</td>
+      <td>79.0</td>
+      <td>88.0</td>
+      <td>...</td>
+      <td>94.0</td>
+      <td>62.0</td>
+      <td>36.0</td>
+      <td>27.0</td>
+      <td>33.0</td>
+      <td>24.0</td>
+      <td>56.0</td>
+      <td>61.0</td>
+      <td>81.0</td>
+      <td>49.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>57.0</td>
+      <td>58.0</td>
+      <td>13.0</td>
+      <td>12.0</td>
+      <td>40.0</td>
+      <td>12.0</td>
+      <td>31.0</td>
+      <td>13.0</td>
+      <td>17.0</td>
+      <td>21.0</td>
+      <td>...</td>
+      <td>90.0</td>
+      <td>21.0</td>
+      <td>30.0</td>
+      <td>15.0</td>
+      <td>13.0</td>
+      <td>21.0</td>
+      <td>38.0</td>
+      <td>67.0</td>
+      <td>43.0</td>
+      <td>64.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>78.0</td>
+      <td>76.0</td>
+      <td>82.0</td>
+      <td>91.0</td>
+      <td>79.0</td>
+      <td>87.0</td>
+      <td>91.0</td>
+      <td>82.0</td>
+      <td>93.0</td>
+      <td>85.0</td>
+      <td>...</td>
+      <td>91.0</td>
+      <td>55.0</td>
+      <td>61.0</td>
+      <td>68.0</td>
+      <td>51.0</td>
+      <td>58.0</td>
+      <td>76.0</td>
+      <td>63.0</td>
+      <td>90.0</td>
+      <td>75.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div>
+<p>Calculando la matriz de covarianza y vemos los eigenvectores y los valores correspondientes a cada uno de ellos:</p>
+<pre><code class="language-python">players_cov = np.cov(player_stats.values, rowvar=False)
+eigs, eigv = np.linalg.eig(players_cov)
+
+order = np.argsort(eigs)
+eigs, eigv = eigs[order], eigv[order]
+
+fig = plt.figure()
+ax = fig.gca()
+ax.bar(np.arange(len(eigs)), list(reversed(eigs)))
+ax.set_xlabel(&quot;Eigenvalor&quot;)
+ax.set_ylabel(&quot;Amplitud&quot;)
+ax.set_title(&quot;Eigenspectrum of the FIFA 19 dataset&quot;)
+</code></pre>
+<pre><code>Text(0.5, 1.0, 'Eigenspectrum of the FIFA 19 dataset')
+</code></pre>
+<p><img src="output_26_1.png" alt="png" /></p>
+<p>Los eigenvectores nos ayudan a identificar los ejes a lo largo de los que nuestro dataset varía:</p>
+<pre><code class="language-python">def print_vector(vector):
+    properties = []
+    for attribute, value in zip(attributes, vector):
+        properties.append(f&quot;{attribute:&lt;20s} {value:+.03}&quot;)
+    results = &quot;\n&quot;.join(properties)
+    print(results)
+
+
+print(&quot;Eigenvector 1&quot;)
+print_vector(eigv[0])
+print()
+print(&quot;Eigenvector 2&quot;)
+print_vector(eigv[0])
+</code></pre>
+<pre><code>Eigenvector 1
+Acceleration         -0.202
+SprintSpeed          -0.0314
+Finishing            -0.0103
+LongShots            +0.0974
+Penalties            -0.0264
+Positioning          -0.171
+ShotPower            -0.223
+Volleys              -0.104
+Crossing             +0.0122
+Curve                -0.139
+FKAccuracy           -0.239
+LongPassing          +0.182
+ShortPassing         +0.49
+Vision               +0.249
+Agility              +0.12
+Balance              -0.6
+BallControl          -0.000102
+Composure            -0.0518
+Dribbling            -0.00559
+Reactions            -0.038
+HeadingAccuracy      -0.055
+Interceptions        +0.0145
+Marking              -0.104
+SlidingTackle        -0.0457
+StandingTackle       +0.0985
+Aggression           +0.0528
+Jumping              -0.156
+Stamina              -0.0677
+Strength             +0.0961
+
+Eigenvector 2
+Acceleration         -0.202
+SprintSpeed          -0.0314
+Finishing            -0.0103
+LongShots            +0.0974
+Penalties            -0.0264
+Positioning          -0.171
+ShotPower            -0.223
+Volleys              -0.104
+Crossing             +0.0122
+Curve                -0.139
+FKAccuracy           -0.239
+LongPassing          +0.182
+ShortPassing         +0.49
+Vision               +0.249
+Agility              +0.12
+Balance              -0.6
+BallControl          -0.000102
+Composure            -0.0518
+Dribbling            -0.00559
+Reactions            -0.038
+HeadingAccuracy      -0.055
+Interceptions        +0.0145
+Marking              -0.104
+SlidingTackle        -0.0457
+StandingTackle       +0.0985
+Aggression           +0.0528
+Jumping              -0.156
+Stamina              -0.0677
+Strength             +0.0961
+</code></pre>
+<p>Estos dos vectores son las direcciones con mayor varianza en nuestro dataset... difícil de ver e imaginar porque estamos hablando de un espacio de 29 dimensiones.</p>
+<h2 id="pca">PCA</h2>
+<p>Lo que acabamos de hacer acá arriba se conoce como <strong>análisis de componentes principales</strong> o <em>principal component análisis</em> (<em>PCA</em>).</p>
+<p>Los componentes principales de un dataset son los eigenvectores de su matriz de covarianza. Usando este análisis de componentes principales podemos encontrar una proyección de bajas dimensiones para nuestros datos si proyectamos nuestro dataset en los vectores principales:</p>
+<pre><code class="language-python">def pca(data, n_components):
+    cov = np.cov(data, rowvar=False)
+    eigs, eigv = np.linalg.eig(cov)
+
+    order = np.argsort(eigs)
+    eigs, eigv = eigs[order], eigv[order]
+    eig_order = np.argsort(np.abs(eigs))
+    components = []
+    for i in range(n_components):
+        components.append(data @ eigv[eig_order[-i - 1]])
+    return np.stack(components).T
+</code></pre>
+<pre><code class="language-python">components = pca(player_stats.values, 2)
+</code></pre>
+<pre><code class="language-python">player_ids = [158023, 20801, 190871, 238789, 231747, 194765, 208722, 209331] + [
+    156519,
+    186302,
+    192041,
+    187478,
+    167524,
+    213445,
+    217167,
+    224103,
+    173434,
+    186551,
+    187208,
+    199569,
+    190485,
+    233260,
+    187705,
+    186979,
+    167532,
+    212377,
+    183743,
+    139229,
+    203283,
+    171377,
+    222645,
+    192015,
+    #    186513, 232316, 239545, 187722, 237498, 169415, 202786, 192046,
+    #    235368, 235123, 236434, 237978, 246188, 243157, 236842, 240177,
+    #    237657, 244349, 244611, 193164, 242823, 210426, 244743, 233535,
+    244615,
+    212475,
+    246294,
+    244831,
+    240107,
+    239548,
+    244637,
+]
+
+
+index = fifa19[fifa19[&quot;ID&quot;].isin(set(player_ids))].index
+comp = components[index]
+</code></pre>
+<pre><code class="language-python">len(comp), len(index), len(set(player_ids)), len(player_ids)
+</code></pre>
+<pre><code>(39, 39, 39, 39)
+</code></pre>
+<pre><code class="language-python">fifa19[fifa19[&quot;Name&quot;].str.contains(&quot;Mané&quot;)]
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Photo</th>
+      <th>Nationality</th>
+      <th>Flag</th>
+      <th>Overall</th>
+      <th>Potential</th>
+      <th>Club</th>
+      <th>...</th>
+      <th>Composure</th>
+      <th>Marking</th>
+      <th>StandingTackle</th>
+      <th>SlidingTackle</th>
+      <th>GKDiving</th>
+      <th>GKHandling</th>
+      <th>GKKicking</th>
+      <th>GKPositioning</th>
+      <th>GKReflexes</th>
+      <th>Release Clause</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>58</th>
+      <td>58</td>
+      <td>208722</td>
+      <td>S. Mané</td>
+      <td>26</td>
+      <td>https://cdn.sofifa.org/players/4/19/208722.png</td>
+      <td>Senegal</td>
+      <td>https://cdn.sofifa.org/flags/136.png</td>
+      <td>86</td>
+      <td>87</td>
+      <td>Liverpool</td>
+      <td>...</td>
+      <td>80.0</td>
+      <td>42.0</td>
+      <td>42.0</td>
+      <td>38.0</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>15.0</td>
+      <td>7.0</td>
+      <td>14.0</td>
+      <td>€102.7M</td>
+    </tr>
+    <tr>
+      <th>1920</th>
+      <td>1920</td>
+      <td>216749</td>
+      <td>Carlos Mané</td>
+      <td>24</td>
+      <td>https://cdn.sofifa.org/players/4/19/216749.png</td>
+      <td>Portugal</td>
+      <td>https://cdn.sofifa.org/flags/38.png</td>
+      <td>75</td>
+      <td>81</td>
+      <td>Sporting CP</td>
+      <td>...</td>
+      <td>73.0</td>
+      <td>38.0</td>
+      <td>34.0</td>
+      <td>33.0</td>
+      <td>16.0</td>
+      <td>14.0</td>
+      <td>10.0</td>
+      <td>9.0</td>
+      <td>11.0</td>
+      <td>€19.8M</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 89 columns</p>
+</div>
+<pre><code class="language-python">fig = plt.figure(figsize=(10, 5), dpi=100)
+ax = fig.gca()
+
+ax.scatter(comp[:, 0], comp[:, 1])
+for i, player_id in enumerate(player_ids):
+    ax.text(
+        comp[i, 0],
+        comp[i, 1],
+        fifa19[fifa19[&quot;ID&quot;] == player_id][&quot;Name&quot;].values[0],
+        fontsize=6,
+    )
+
+ax.set_xlabel(&quot;Componente 1&quot;)
+ax.set_ylabel(&quot;Componente 2&quot;)
+ax.set_title(&quot;Componentes principales FIFA19&quot;)
+</code></pre>
+<pre><code>Text(0.5, 1.0, 'Componentes principales FIFA19')
+</code></pre>
+<p><img src="output_36_1.png" alt="png" /></p>
+<h3 id="proyecciones-de-pocas-dimensiones">Proyecciones de pocas dimensiones</h3>
+<p>Las proyecciones de pocas dimensiones son herramientas de vital importancia en la ciencia de datos exploratoria. PCA es una forma de lograr esta tarea, sin embargo, no es la única. Existe otro algoritmo llamado <em>t-SNE</em> que, al igual que PCA nos permite descomponer nuestra información para proyectar nuestro dataset:</p>
+<pre><code class="language-python">from sklearn.manifold import TSNE
+
+t_reduce = TSNE()
+xy_2d = t_reduce.fit_transform(player_stats.values)[index]
+</code></pre>
+<pre><code class="language-python">fig = plt.figure(figsize=(10, 5), dpi=100)
+ax = fig.add_subplot(1, 1, 1)
+
+ax.scatter(xy_2d[:, 0], xy_2d[:, 1])
+for i, player_id in enumerate(player_ids):
+    ax.text(
+        xy_2d[i, 0],
+        xy_2d[i, 1],
+        fifa19[fifa19[&quot;ID&quot;] == player_id][&quot;Name&quot;].values[0],
+        fontsize=6,
+    )
+
+
+ax.set_xlabel(&quot;t-SNE componente 1&quot;)
+ax.set_ylabel(&quot;t-SNE componente 2&quot;)
+ax.set_title(&quot;t-SNE transformation of the whisky dataset&quot;)
+</code></pre>
+<pre><code>Text(0.5, 1.0, 't-SNE transformation of the whisky dataset')
+</code></pre>
+<p><img src="output_39_1.png" alt="png" /></p>
+<h2 id="otras-propiedades-de-las-matrices">Otras propiedades de las matrices</h2>
+<h3 id="traza">Traza</h3>
+<p>La traza <span class="math">\(\text{tr}\)</span> de una matriz cuadrada es la suma de los elementos en la diagonal:</p>
+<p><span class="math">\(\text{tr}(A) = a_{1,1} + a_{2,2} + \dots + a_{n,n}\)</span></p>
+<p>Esto es igual que la suma de los eigenvalores:</p>
+<p><span class="math">\(\text{tr}(A) = \sum_{i=1}^n \lambda_i\)</span></p>
+<h3 id="determinante">Determinante</h3>
+<p>El determinante <span class="math">\(\text{det}\)</span> de una matriz es igual a la multiplicación de los eigenvalores:</p>
+<p><span class="math">\(\text{det}(A) = \prod_{i=1}^n \lambda_i\)</span></p>
+<p>Cuando alguno de los eigenvalores de la matriz es <span class="math">\(0\)</span> el determinante es <span class="math">\(0\)</span>, lo cual tiene implicaciones para la matriz.</p>
+<blockquote>
+<p>⚠️ Hay matrices con eigenvalores complejos, sin embargo... no las veremos aquí.</p>
+</blockquote>
+<h2 id="inversion-de-matrices">Inversion de matrices</h2>
+<p>Recordarás las operaciones básicas sobre las matrices:</p>
+<ul>
+<li>Multiplicación por un escalar: <span class="math">\(cA\)</span></li>
+<li>Suma matricial: <span class="math">\(A + B\)</span></li>
+<li>Multiplicación matricial: <span class="math">\(AB\)</span></li>
+<li>Transposición: <span class="math">\(A^T\)</span></li>
+</ul>
+<p>Ves la suma y la multiplicación y tal vez te preguntes... ¿hay división?</p>
+<p>La operación más parecida es la inversa de una matriz, que nos permite:</p>
+<ul>
+<li><span class="math">\(A^{-1}(A\vec{x}) = \vec{x}\)</span></li>
+<li><span class="math">\(A^{-1}A = I\)</span></li>
+<li><span class="math">\((A^{-1})^{-1} = A\)</span></li>
+</ul>
+<p>Sin embargo esta operación, (la inversa) no está siempre definida para todas las matrices. En particular, la inversa no está definida para matrices <strong>no cuadradas</strong> y con <strong>determinante = <span class="math">\(0\)</span></strong>.</p>
+<p>Una matriz es llamada <strong>singular</strong> si su determinante es 0 (y por tanto no invertible) y es llamada <strong>no singular</strong> si es posible invertirla.</p>
+<h4 id="algoritmo">Algoritmo</h4>
+<p>Hay diversas maneras de calcular la inversa de una matriz, incluyendo un algoritmo recursivo; este algoritmo recursivo funciona, pero solo para matrices pequeñas. Más adelante hablaremos de una forma efectiva para invertir matrices.</p>
+<h3 id="que-problemas-resuelve-la-inversion-de-matrices">¿Qué problemas resuelve la inversión de matrices?</h3>
+<h4 id="sistemas-lineales">Sistemas lineales</h4>
+<p>Imagina que tenemos la siguiente matriz:</p>
+<div class="math">
+\[
+A = \begin{bmatrix}
+0.5 &amp; 1.0 &amp; 2.0\\
+1.0 &amp; 0.5 &amp; 0.0\\
+0.6 &amp; 1.1 &amp; -0.3\\
+\end{bmatrix}
+\]</div>
+<p>Esta matriz representa una aplicación lineal que opera sobre vectores tridimensionales <span class="math">\(\vec{x}\)</span>, y que produce vectores 3D <span class="math">\(\vec{y}\)</span>. Cada uno de las entradas de este vector es una suma ponderada de las entradas del vector <span class="math">\(\vec{x}\)</span>:</p>
+<div class="math">
+\[
+y_1 = 0.5x_1 + 1.0x_2 +2.0x_3\\
+y_2 = 1.0x_1 +0.5x_2 +0.0x_3\\
+y_3 = 0.6x_1 + 1.1x_2 - 0.3x_3
+\]</div>
+<pre><code class="language-python">A = np.array([[0.5, 1.0, 2.0], [1.0, 0.5, 0.0], [0.6, 1.1, -0.3]])
+x = np.array([1, -1, 1])
+
+print(A @ x)
+</code></pre>
+<pre><code>[ 1.5  0.5 -0.8]
+</code></pre>
+<p>Viéndolo desde otra perspectiva, esta es la forma en la que sistemas de ecuaciones simultaneas pueden ser representadas de la siguiente forma:</p>
+<p><span class="math">\(A\vec{x} = \vec{y}\)</span></p>
+<p>Esto es conocido como un sistema de ecuaciones lineares.</p>
+<p>Partiendo de esto, y de que ahora sabemos que la inversa de una matriz existe, podríamos pensar que la solución es bastante trivial:</p>
+<div class="math">
+\[
+A^{-1}A\vec{x}=A^{-1}\vec{y} \\
+I \vec{x} = A^{-1} \vec{y} \\
+\vec{x} = A^{-1}\vec{y}
+\]</div>
+<blockquote>
+<p>Recuerda que la inversa de una matriz solamente está definida si la matriz es cuadrada</p>
+</blockquote>
+<p>En la práctica, los sistemas lineales casi nunca son resueltos invirtiendo directamente la matriz; hay problemas de estabilidad numérica así como de complejidad algorítmica que lo hacen un procedimiento inviable.</p>
+<h3 id="soluciones-aproximadas">Soluciones aproximadas</h3>
+<p>En lugar de tratar de invertir de una vez la matriz, resuelven el problema de forma iterativa, una de las formas es utilizando optimización, algo que veremos en el futuro.</p>
+<h2 id="descomposicion-en-valores-singulares">Descomposición en valores singulares</h2>
+<p>La eigendescomposición que vimos hace poco solamente funciona para matrices cuadradas, sin embargo no siempre nuestros problemas van a venir en esta forma; es aquí en donde entra otra forma de descomponer matrices:</p>
+<p>La <em>singular value decomposition</em> (SVD) es una forma general de descomponer cualquier matriz <span class="math">\(A\)</span>. Es una de las grandes herramientas del álgebra lineal.</p>
+<p><em>SVD</em> descompone una matriz en tres partes:</p>
+<p><span class="math">\(A = U \Sigma V\)</span></p>
+<p>En donde:</p>
+<ul>
+<li><span class="math">\(A\)</span> es la matriz inicial de <span class="math">\(m \times n\)</span>,</li>
+<li><span class="math">\(U\)</span> es una matriz <strong>ortonormal</strong> de <span class="math">\(m \times m\)</span>, conocida como <strong>vectores singulares izquierdos</strong>,</li>
+<li><span class="math">\(V\)</span> es una matriz <strong>ortonormal</strong> de <span class="math">\(n \times n\)</span>, conocida como <strong>vectores singulares derechos</strong>,</li>
+<li><span class="math">\(\Sigma\)</span> es una matriz diagonal de <span class="math">\(m \times n\)</span>, la diagonal son los <strong>valores singulares</strong></li>
+</ul>
+<blockquote>
+<p>Una matriz ortonormal <span class="math">\(U\)</span> es una matriz que cumple que <span class="math">\(U^{-1} =U^T\)</span> y que las columnas y filas tienen norma unitaria.</p>
+</blockquote>
+<p>La diagonal de <span class="math">\(\Sigma\)</span> son los <strong>valores singulares</strong> que son parecidos a los <em>eigenvectores</em> sin embargo no son lo mismo. Por ejemplo, los valores singulares siempre son números positivos.</p>
+<p>En <em>NumPy</em>...</p>
+<pre><code class="language-python">A = np.array([[3, 2, 3, 2], [2, 9, 4, 2], [4, 1, 9, 8]])
+
+
+u, sigma, v = np.linalg.svd(A)
+true_sigma = np.zeros_like(A, dtype=np.float64)
+np.fill_diagonal(true_sigma, sigma)
+A_reconstructed = u @ true_sigma @ v
+
+
+print(u)
+print()
+# print(sigma)
+print(true_sigma)
+print()
+print(v)
+
+print()
+print(A_reconstructed)
+</code></pre>
+<pre><code>[[-0.32057561  0.02380932 -0.94692365]
+ [-0.52903899  0.82473129  0.19984007]
+ [-0.78571561 -0.56502338  0.25179268]]
+
+[[15.22220181  0.          0.          0.        ]
+ [ 0.          7.6735174   0.          0.        ]
+ [ 0.          0.          1.54974283  0.        ]]
+
+[[-0.33915378 -0.4065258  -0.66674476 -0.52455973]
+ [-0.07026804  0.89987114 -0.22347735 -0.36790245]
+ [-0.92526324  0.10098838  0.14500694  0.335652  ]
+ [ 0.15467725  0.12153212 -0.69604762  0.69052343]]
+
+[[3. 2. 3. 2.]
+ [2. 9. 4. 2.]
+ [4. 1. 9. 8.]]
+</code></pre>
+<h3 id="svd-eigendescomposicion">SVD 🤝 eigendescomposición</h3>
+<p>La <em>SVD</em> es:</p>
+<ul>
+<li>Obtener los eigenvectores de <span class="math">\(A^T A\)</span> para obtener <span class="math">\(U\)</span></li>
+<li>Obtener los eigenvectores de <span class="math">\(A A^T\)</span> para obtener <span class="math">\(V\)</span></li>
+<li>Calcular la raíz cuadrada de los eigenvalores de <span class="math">\(A^T A\)</span></li>
+</ul>
+<h3 id="aplicaciones-de-las-descomposiciones">Aplicaciones de las descomposiciones</h3>
+<p>Una vez que tenemos la descomposición hay operaciones que se vuelven triviales:</p>
+<p><span class="math">\(A = U\Sigma V\)</span>
+<span class="math">\(A^{-1} = V^T \Sigma^\dagger U^T\)</span></p>
+<ul>
+<li><span class="math">\(\Sigma^\dagger\)</span> es <span class="math">\(\text{diag}(1.0/\Sigma_{ii})^T\)</span></li>
+</ul>
+<h3 id="pseudo-inversa">Pseudo-inversa...</h3>
+<p><span class="math">\(\dots\)</span></p>
+<h2 id="los-valores-singulares">Los valores singulares</h2>
+<p>Como te imaginarás, los valores singulares capturan algunos aspectos esenciales de una matriz.</p>
+<ul>
+<li><p>Se dice que una matriz es de <strong>rango completo</strong> si su número de valores singulares distintos de cero es igual al número de elementos en la diagonal de la matriz; de otro modo se trata de una matriz de <strong>rango deficiente</strong>.</p>
+</li>
+<li><p>El <strong>número condicional</strong> de una matriz es la relación entre su valor singular más grande y el más pequeño; este número nos dice qué tan sensible es la aplicación lineal a cambios, es decir en la operación <span class="math">\(A\vec{x} = \vec{y}\)</span> nos dice si <span class="math">\(\vec{y}\)</span> cambia mucho o poco cuando realizamos pequeños cambios a <span class="math">\(\vec{x}\)</span>. Se relaciona con los conceptos de matrices <strong>bien condicionadas</strong> y <strong>mal condicionadas</strong>.</p>
+</li>
+</ul>
+<h3 id="los-valores-singulares-y-la-singularidad">Los valores singulares y la singularidad</h3>
+<p>Habíamos dicho que una matriz es singular si es <em>no invertible</em> y tiene <span class="math">\(\text{det}(A) = 0\)</span>, esta definición es binaria, los conceptos de rango y número condicional nos ayudan a convertir esta distinción en un gradiente, usando estos dos números podemos responder la pregunta &quot;¿Qué tan singular es la matriz?&quot;</p>
+<h2 id="aplicaciones-de-las-descomposiciones-1">Aplicaciones de las descomposiciones</h2>
+<h3 id="operaciones-avanzadas">Operaciones <em>avanzadas</em>.</h3>
+<p>Ahora que podemos descomponer una matriz, podemos plantearnos el realizar operaciones como:</p>
+<ul>
+<li>Elevar una matriz a una potencia fraccionaria <span class="math">\(A^{\frac{1}{3}}\)</span></li>
+<li>Invertir una matriz <span class="math">\({A^{-1}}\)</span></li>
+<li>Calcular el logaritmo de una matriz <span class="math">\(\ln{A}\)</span></li>
+</ul>
+<p>La forma de hacerlo es &quot;sencilla&quot;: ignoramos <span class="math">\(U\)</span> y <span class="math">\(V\)</span> y se le aplica la operación en cuestión a todos los elementos de <span class="math">\(\Sigma\)</span>.</p>
+<h3 id="esferizacion-sphering">Esferización (<em>sphering</em>)</h3>
+<p>El <strong>esferización</strong> (mas comúnmente conocido como blanqueamiento) consiste en remover todas las correlaciones lineales dentro de un dataset, es una forma de normalizar un conjunto de datos que se realiza antes de realizar un análisis.</p>
+<p>Dado una matriz <span class="math">\(X\)</span>:</p>
+<p><span class="math">\(X^* =(X-\mu)\Sigma^{-\frac{1}{2}}\)</span></p>
+<p>en donde <span class="math">\(\vec{\mu}\)</span> es el <strong>vector promedio</strong> y <span class="math">\(\Sigma\)</span> es la <strong>matriz de covarianza</strong>.</p>
+<p>El resultado de aplicar esta operación <strong>centra el dataset</strong> y modifica el dataset para que la matriz de covarianza sea <strong>unitaria</strong>.</p>
+<pre><code class="language-python">def apply_sphering(x):
+    center_x = x - np.mean(x, axis=0)
+    u, sigma, v = np.linalg.svd(np.cov(center_x, rowvar=False))
+
+    # La magia
+    sigma_inv_sqr = v.T @ np.diag(1.0 / np.sqrt(sigma)) @ u.T
+    shphere_x = center_x @ sigma_inv_sqr
+
+    return shphere_x
+</code></pre>
+<pre><code class="language-python">X = np.random.normal(0, 1, (200, 2)) @ np.array([[0.1, 0.5], [-0.9, 1.0]]) + np.array(
+    [2, 3]
+)
+X_sphered = apply_sphering(X)
+
+fig = plt.figure(figsize=(10, 10))
+ax = fig.gca()
+
+ax.scatter(X[:, 0], X[:, 1], c=&quot;#99d8c9&quot;, label=&quot;Original&quot;)
+ax.scatter(X_sphered[:, 0], X_sphered[:, 1], c=&quot;#feb24c&quot;, label=&quot;Esferada&quot;)
+
+for dataset in [X, X_sphered]:
+    for std in [0.5, 1, 2]:
+        draw_covariance_ellipse(ax, dataset, std)
+
+for one, two in zip(X, X_sphered):
+    ax.plot([one[0], two[0]], [one[1], two[1]], alpha=0.2)
+
+# ax.set_xlim(-6, 6)
+# ax.set_ylim(-6, 6)
+
+ax.axhline(0)
+ax.axvline(0)
+ax.set_aspect(1.0)
+ax.legend()
+ax.set_title(&quot;Esferización de un dataset&quot;)
+</code></pre>
+<pre><code>Text(0.5, 1.0, 'Esferización de un dataset')
+</code></pre>
+<p><img src="output_50_1.png" alt="png" /></p>
+<h3 id="aproximaciones-de-bajo-rango">Aproximaciones de bajo rango</h3>
+<p>¿Recuerdan las matrices dispersas de la sesión pasada?</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Feregrino</th>
+<th>Alma</th>
+<th>Benito</th>
+<th>...</th>
+<th>Terry</th>
+<th>Destiny</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La Puerta Negra</td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td></td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\(0\)</span></td>
+</tr>
+<tr>
+<td>Flux</td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td></td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\(0\)</span></td>
+</tr>
+<tr>
+<td>La mesa del rincón</td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td></td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\(0\)</span></td>
+</tr>
+<tr>
+<td>Andar conmigo</td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td></td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\(0\)</span></td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+<td>...</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Dark Horse</td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td><span class="math">\({\bf 1}\)</span></td>
+<td></td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\({\bf 1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Datasets como este tipo son el pan de cada día de compañías como Spotify, Netflix y Amazon. Lo que siempre están tratando de hacer es encontrar nuevos objetos para recomendarles a sus usuarios.</p>
+<p>Como vimos anteriormente, la gran mayoría de los usuarios han escuchado/visto/comprado una cantidad mínima de canciones/películas/productos.</p>
+<p>Centrándonos en el ejemplo de las canciones, una forma simplista de verlos podríamos encapsular a los usuarios dentro de grupos como &quot;el fan de los tigres del norte&quot;, &quot;el que solo escucha canciones de my chemical romance&quot;, &quot;el fan de música de tienda de ropa&quot;... sin embargo la realidad no funciona así, un modelo más realista es uno que representa a los usuarios como una suma ponderada:</p>
+<p><span class="math">\(\text{usuario} = 0.2 \times \text{tigres del norte} + 0.7 \times \text{mcr} + 0.1 \times \text{música de zara}\)</span></p>
+<p>Esto nos permite usar solamente una parcialidad de la información de los usuarios para realizar recomendaciones; usamos la <em>SVD</em> para realizar esto.</p>
+<p>Podemos encontrar una aproximación de bajo rango truncando la <em>SVD</em> y manteniendo solamente una fracción, digamos <span class="math">\(K\)</span>, de los valores singulares, y las primeras <span class="math">\(K\)</span> columnas y filas de <span class="math">\(U\)</span> y <span class="math">\(V\)</span> respectivamente.</p>
+<p>Esta es una forma de reducción dimensional.</p>
+<p>[Ver recursos al final]</p>
+<hr />
+<h2 id="resources">Resources</h2>
+<table style="margin:0; max-width: 1000px;">
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://thatcsharpguy.com">
+                    <img src="/assets/general/Sharp@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitter.com/io_exception">
+                    <img src="/assets/general/Twitter@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://tcsg.dev/discord">
+                    <img src="/assets/general/Discord@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/thatcsharpguy/df">
+                    <img src="/assets/general/GitHub@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtube.com/thatcsharpguy">
+                    <img src="/assets/general/YouTube@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://youtu.be/Vdn-8j8yFSk">
+                    <img src="/assets/general/EnVivo@1x.png" />
+                </a>
+            </td>
+            <td>
+                <a href="https://twitch.tv/thatcsharpguy">
+                    <img src="/assets/general/Twitch@1x.png" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="sitios-web">Sitios web</h3>
+<ul>
+<li><p><strong>The Linear Algebra Behind Search Engines</strong> - <a href="https://www.maa.org/press/periodicals/loci/joma/the-linear-algebra-behind-search-engines-introduction">https://www.maa.org/press/periodicals/loci/joma/the-linear-algebra-behind-search-engines-introduction</a></p>
+</li>
+<li><p><strong>Eigenfaces: Recovering Humans from Ghosts</strong> - <a href="https://towardsdatascience.com/eigenfaces-recovering-humans-from-ghosts-17606c328184">https://towardsdatascience.com/eigenfaces-recovering-humans-from-ghosts-17606c328184</a></p>
+</li>
+<li><p><strong>Eigenfaces for recognition</strong> - <a href="https://www.face-rec.org/algorithms/pca/jcn.pdf">https://www.face-rec.org/algorithms/pca/jcn.pdf</a></p>
+</li>
+<li><p><strong>Image Compression with Singular Value Decomposition</strong> - <a href="http://timbaumann.info/svd-image-compression-demo/">http://timbaumann.info/svd-image-compression-demo/</a></p>
+</li>
+<li><p><strong>Eigenvectors and eigenvalues</strong> - <a href="http://setosa.io/ev/eigenvectors-and-eigenvalues/">http://setosa.io/ev/eigenvectors-and-eigenvalues/</a></p>
+</li>
+<li><p><strong>Power Iteration | ML Wiki</strong> - <a href="http://mlwiki.org/index.php/Power_Iteration">http://mlwiki.org/index.php/Power_Iteration</a></p>
+</li>
+<li><p><strong>PCA Whitening</strong> - <a href="http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening">http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening</a></p>
+</li>
+<li><p><strong>Matrix Factorization for Movie Recommendations in Python</strong> - <a href="https://beckernick.github.io/_posts/2016-11-10-matrix-factorization-recommender/">https://beckernick.github.io/_posts/2016-11-10-matrix-factorization-recommender/</a></p>
+</li>
+</ul>
+
+
+      </div>
+  </article>
+
+
+
+
+  </section>
+</div>
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+<style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+  </section>
+</div>
+
+      </div>
+    </main>
+
+<footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div> </div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
